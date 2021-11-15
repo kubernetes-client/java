@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -35,8 +35,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     java.util.List<io.kubernetes.client.proto.Meta.LabelSelector> getClusterRoleSelectorsList();
@@ -49,8 +48,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     io.kubernetes.client.proto.Meta.LabelSelector getClusterRoleSelectors(int index);
@@ -63,8 +61,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     int getClusterRoleSelectorsCount();
@@ -77,8 +74,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     java.util.List<? extends io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
@@ -92,8 +88,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getClusterRoleSelectorsOrBuilder(
@@ -206,8 +201,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public java.util.List<io.kubernetes.client.proto.Meta.LabelSelector>
@@ -223,8 +217,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public java.util.List<? extends io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
@@ -240,8 +233,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public int getClusterRoleSelectorsCount() {
@@ -256,8 +248,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelector getClusterRoleSelectors(int index) {
@@ -272,8 +263,7 @@ public final class V1beta1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getClusterRoleSelectorsOrBuilder(
@@ -1277,6 +1267,7 @@ public final class V1beta1Rbac {
    *
    * <pre>
    * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
+   * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.22.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1beta1.ClusterRole}
@@ -1767,6 +1758,7 @@ public final class V1beta1Rbac {
      *
      * <pre>
      * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
+     * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRole, and will no longer be served in v1.22.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1beta1.ClusterRole}
@@ -2972,6 +2964,7 @@ public final class V1beta1Rbac {
    * <pre>
    * ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace,
    * and adds who information via Subject.
+   * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.22.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1beta1.ClusterRoleBinding}
@@ -3455,6 +3448,7 @@ public final class V1beta1Rbac {
      * <pre>
      * ClusterRoleBinding references a ClusterRole, but not contain it.  It can reference a ClusterRole in the global namespace,
      * and adds who information via Subject.
+     * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBinding, and will no longer be served in v1.22.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1beta1.ClusterRoleBinding}
@@ -3479,8 +3473,7 @@ public final class V1beta1Rbac {
                 io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBinding.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4596,7 +4589,8 @@ public final class V1beta1Rbac {
    *
    *
    * <pre>
-   * ClusterRoleBindingList is a collection of ClusterRoleBindings
+   * ClusterRoleBindingList is a collection of ClusterRoleBindings.
+   * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindingList, and will no longer be served in v1.22.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1beta1.ClusterRoleBindingList}
@@ -5002,7 +4996,8 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * ClusterRoleBindingList is a collection of ClusterRoleBindings
+     * ClusterRoleBindingList is a collection of ClusterRoleBindings.
+     * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoleBindingList, and will no longer be served in v1.22.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1beta1.ClusterRoleBindingList}
@@ -5027,8 +5022,7 @@ public final class V1beta1Rbac {
                 io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Rbac.ClusterRoleBindingList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5935,7 +5929,8 @@ public final class V1beta1Rbac {
    *
    *
    * <pre>
-   * ClusterRoleList is a collection of ClusterRoles
+   * ClusterRoleList is a collection of ClusterRoles.
+   * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.22.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1beta1.ClusterRoleList}
@@ -6338,7 +6333,8 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * ClusterRoleList is a collection of ClusterRoles
+     * ClusterRoleList is a collection of ClusterRoles.
+     * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 ClusterRoles, and will no longer be served in v1.22.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1beta1.ClusterRoleList}
@@ -7165,7 +7161,7 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7175,7 +7171,7 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7185,7 +7181,7 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7195,7 +7191,7 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7555,7 +7551,7 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7567,7 +7563,7 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7579,7 +7575,7 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7591,7 +7587,7 @@ public final class V1beta1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -8325,7 +8321,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8337,7 +8333,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8349,7 +8345,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8361,7 +8357,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8373,7 +8369,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8391,7 +8387,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8409,7 +8405,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8424,7 +8420,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8439,7 +8435,7 @@ public final class V1beta1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -9248,6 +9244,7 @@ public final class V1beta1Rbac {
    *
    * <pre>
    * Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
+   * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.22.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1beta1.Role}
@@ -9654,6 +9651,7 @@ public final class V1beta1Rbac {
      *
      * <pre>
      * Role is a namespaced, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding.
+     * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 Role, and will no longer be served in v1.22.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1beta1.Role}
@@ -10625,6 +10623,7 @@ public final class V1beta1Rbac {
    * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace.
    * It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given
    * namespace only have effect in that namespace.
+   * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.22.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1beta1.RoleBinding}
@@ -11108,6 +11107,7 @@ public final class V1beta1Rbac {
      * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace.
      * It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given
      * namespace only have effect in that namespace.
+     * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBinding, and will no longer be served in v1.22.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1beta1.RoleBinding}
@@ -12249,6 +12249,7 @@ public final class V1beta1Rbac {
    *
    * <pre>
    * RoleBindingList is a collection of RoleBindings
+   * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.22.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1beta1.RoleBindingList}
@@ -12652,6 +12653,7 @@ public final class V1beta1Rbac {
      *
      * <pre>
      * RoleBindingList is a collection of RoleBindings
+     * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleBindingList, and will no longer be served in v1.22.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1beta1.RoleBindingList}
@@ -13565,6 +13567,7 @@ public final class V1beta1Rbac {
    *
    * <pre>
    * RoleList is a collection of Roles
+   * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.22.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1beta1.RoleList}
@@ -13964,6 +13967,7 @@ public final class V1beta1Rbac {
      *
      * <pre>
      * RoleList is a collection of Roles
+     * Deprecated in v1.17 in favor of rbac.authorization.k8s.io/v1 RoleList, and will no longer be served in v1.22.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1beta1.RoleList}

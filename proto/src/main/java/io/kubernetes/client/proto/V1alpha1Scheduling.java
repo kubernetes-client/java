@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -43,7 +43,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -55,7 +55,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -153,11 +153,55 @@ public final class V1alpha1Scheduling {
      * <code>optional string description = 4;</code>
      */
     com.google.protobuf.ByteString getDescriptionBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * PreemptionPolicy is the Policy for preempting pods with lower priority.
+     * One of Never, PreemptLowerPriority.
+     * Defaults to PreemptLowerPriority if unset.
+     * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string preemptionPolicy = 5;</code>
+     */
+    boolean hasPreemptionPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * PreemptionPolicy is the Policy for preempting pods with lower priority.
+     * One of Never, PreemptLowerPriority.
+     * Defaults to PreemptLowerPriority if unset.
+     * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string preemptionPolicy = 5;</code>
+     */
+    java.lang.String getPreemptionPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * PreemptionPolicy is the Policy for preempting pods with lower priority.
+     * One of Never, PreemptLowerPriority.
+     * Defaults to PreemptLowerPriority if unset.
+     * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string preemptionPolicy = 5;</code>
+     */
+    com.google.protobuf.ByteString getPreemptionPolicyBytes();
   }
   /**
    *
    *
    * <pre>
+   * DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass.
    * PriorityClass defines mapping from a priority class name to the priority
    * integer value. The value can be any valid integer.
    * </pre>
@@ -178,6 +222,7 @@ public final class V1alpha1Scheduling {
       value_ = 0;
       globalDefault_ = false;
       description_ = "";
+      preemptionPolicy_ = "";
     }
 
     @java.lang.Override
@@ -239,6 +284,13 @@ public final class V1alpha1Scheduling {
                 description_ = bs;
                 break;
               }
+            case 42:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000010;
+                preemptionPolicy_ = bs;
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -281,7 +333,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -295,7 +347,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -311,7 +363,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -452,6 +504,75 @@ public final class V1alpha1Scheduling {
       }
     }
 
+    public static final int PREEMPTIONPOLICY_FIELD_NUMBER = 5;
+    private volatile java.lang.Object preemptionPolicy_;
+    /**
+     *
+     *
+     * <pre>
+     * PreemptionPolicy is the Policy for preempting pods with lower priority.
+     * One of Never, PreemptLowerPriority.
+     * Defaults to PreemptLowerPriority if unset.
+     * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string preemptionPolicy = 5;</code>
+     */
+    public boolean hasPreemptionPolicy() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * PreemptionPolicy is the Policy for preempting pods with lower priority.
+     * One of Never, PreemptLowerPriority.
+     * Defaults to PreemptLowerPriority if unset.
+     * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string preemptionPolicy = 5;</code>
+     */
+    public java.lang.String getPreemptionPolicy() {
+      java.lang.Object ref = preemptionPolicy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          preemptionPolicy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * PreemptionPolicy is the Policy for preempting pods with lower priority.
+     * One of Never, PreemptLowerPriority.
+     * Defaults to PreemptLowerPriority if unset.
+     * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string preemptionPolicy = 5;</code>
+     */
+    public com.google.protobuf.ByteString getPreemptionPolicyBytes() {
+      java.lang.Object ref = preemptionPolicy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        preemptionPolicy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -478,6 +599,9 @@ public final class V1alpha1Scheduling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, preemptionPolicy_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -498,6 +622,9 @@ public final class V1alpha1Scheduling {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, preemptionPolicy_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -532,6 +659,10 @@ public final class V1alpha1Scheduling {
       if (hasDescription()) {
         result = result && getDescription().equals(other.getDescription());
       }
+      result = result && (hasPreemptionPolicy() == other.hasPreemptionPolicy());
+      if (hasPreemptionPolicy()) {
+        result = result && getPreemptionPolicy().equals(other.getPreemptionPolicy());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -558,6 +689,10 @@ public final class V1alpha1Scheduling {
       if (hasDescription()) {
         hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
         hash = (53 * hash) + getDescription().hashCode();
+      }
+      if (hasPreemptionPolicy()) {
+        hash = (37 * hash) + PREEMPTIONPOLICY_FIELD_NUMBER;
+        hash = (53 * hash) + getPreemptionPolicy().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -665,6 +800,7 @@ public final class V1alpha1Scheduling {
      *
      *
      * <pre>
+     * DEPRECATED - This group version of PriorityClass is deprecated by scheduling.k8s.io/v1/PriorityClass.
      * PriorityClass defines mapping from a priority class name to the priority
      * integer value. The value can be any valid integer.
      * </pre>
@@ -691,8 +827,7 @@ public final class V1alpha1Scheduling {
                 io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1alpha1Scheduling.PriorityClass.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -723,6 +858,8 @@ public final class V1alpha1Scheduling {
         bitField0_ = (bitField0_ & ~0x00000004);
         description_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        preemptionPolicy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -773,6 +910,10 @@ public final class V1alpha1Scheduling {
           to_bitField0_ |= 0x00000008;
         }
         result.description_ = description_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.preemptionPolicy_ = preemptionPolicy_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -841,6 +982,11 @@ public final class V1alpha1Scheduling {
           description_ = other.description_;
           onChanged();
         }
+        if (other.hasPreemptionPolicy()) {
+          bitField0_ |= 0x00000010;
+          preemptionPolicy_ = other.preemptionPolicy_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -885,7 +1031,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -899,7 +1045,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -919,7 +1065,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -943,7 +1089,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -965,7 +1111,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -995,7 +1141,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1016,7 +1162,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1032,7 +1178,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1052,7 +1198,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1330,6 +1476,137 @@ public final class V1alpha1Scheduling {
         return this;
       }
 
+      private java.lang.Object preemptionPolicy_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * PreemptionPolicy is the Policy for preempting pods with lower priority.
+       * One of Never, PreemptLowerPriority.
+       * Defaults to PreemptLowerPriority if unset.
+       * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string preemptionPolicy = 5;</code>
+       */
+      public boolean hasPreemptionPolicy() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PreemptionPolicy is the Policy for preempting pods with lower priority.
+       * One of Never, PreemptLowerPriority.
+       * Defaults to PreemptLowerPriority if unset.
+       * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string preemptionPolicy = 5;</code>
+       */
+      public java.lang.String getPreemptionPolicy() {
+        java.lang.Object ref = preemptionPolicy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            preemptionPolicy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PreemptionPolicy is the Policy for preempting pods with lower priority.
+       * One of Never, PreemptLowerPriority.
+       * Defaults to PreemptLowerPriority if unset.
+       * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string preemptionPolicy = 5;</code>
+       */
+      public com.google.protobuf.ByteString getPreemptionPolicyBytes() {
+        java.lang.Object ref = preemptionPolicy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          preemptionPolicy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PreemptionPolicy is the Policy for preempting pods with lower priority.
+       * One of Never, PreemptLowerPriority.
+       * Defaults to PreemptLowerPriority if unset.
+       * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string preemptionPolicy = 5;</code>
+       */
+      public Builder setPreemptionPolicy(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        preemptionPolicy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PreemptionPolicy is the Policy for preempting pods with lower priority.
+       * One of Never, PreemptLowerPriority.
+       * Defaults to PreemptLowerPriority if unset.
+       * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string preemptionPolicy = 5;</code>
+       */
+      public Builder clearPreemptionPolicy() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        preemptionPolicy_ = getDefaultInstance().getPreemptionPolicy();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PreemptionPolicy is the Policy for preempting pods with lower priority.
+       * One of Never, PreemptLowerPriority.
+       * Defaults to PreemptLowerPriority if unset.
+       * This field is beta-level, gated by the NonPreemptingPriority feature-gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string preemptionPolicy = 5;</code>
+       */
+      public Builder setPreemptionPolicyBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        preemptionPolicy_ = value;
+        onChanged();
+        return this;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1394,7 +1671,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1406,7 +1683,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1418,7 +1695,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1601,7 +1878,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1615,7 +1892,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1631,7 +1908,7 @@ public final class V1alpha1Scheduling {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2127,7 +2404,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2141,7 +2418,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2161,7 +2438,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2185,7 +2462,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2206,7 +2483,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2236,7 +2513,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2257,7 +2534,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2273,7 +2550,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2293,7 +2570,7 @@ public final class V1alpha1Scheduling {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2759,19 +3036,21 @@ public final class V1alpha1Scheduling {
     java.lang.String[] descriptorData = {
       "\n.k8s.io/api/scheduling/v1alpha1/generat"
           + "ed.proto\022\036k8s.io.api.scheduling.v1alpha1"
-          + "\0324k8s.io/apimachinery/pkg/apis/meta/v1/g"
-          + "enerated.proto\032/k8s.io/apimachinery/pkg/"
-          + "runtime/generated.proto\0326k8s.io/apimachi"
-          + "nery/pkg/runtime/schema/generated.proto\""
-          + "\216\001\n\rPriorityClass\022B\n\010metadata\030\001 \001(\01320.k8"
-          + "s.io.apimachinery.pkg.apis.meta.v1.Objec"
-          + "tMeta\022\r\n\005value\030\002 \001(\005\022\025\n\rglobalDefault\030\003 "
-          + "\001(\010\022\023\n\013description\030\004 \001(\t\"\223\001\n\021PriorityCla"
-          + "ssList\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimac"
-          + "hinery.pkg.apis.meta.v1.ListMeta\022<\n\005item"
-          + "s\030\002 \003(\0132-.k8s.io.api.scheduling.v1alpha1"
-          + ".PriorityClassB:\n\032io.kubernetes.client.p"
-          + "rotoB\022V1alpha1SchedulingZ\010v1alpha1"
+          + "\032\"k8s.io/api/core/v1/generated.proto\0324k8"
+          + "s.io/apimachinery/pkg/apis/meta/v1/gener"
+          + "ated.proto\032/k8s.io/apimachinery/pkg/runt"
+          + "ime/generated.proto\0326k8s.io/apimachinery"
+          + "/pkg/runtime/schema/generated.proto\"\250\001\n\r"
+          + "PriorityClass\022B\n\010metadata\030\001 \001(\01320.k8s.io"
+          + ".apimachinery.pkg.apis.meta.v1.ObjectMet"
+          + "a\022\r\n\005value\030\002 \001(\005\022\025\n\rglobalDefault\030\003 \001(\010\022"
+          + "\023\n\013description\030\004 \001(\t\022\030\n\020preemptionPolicy"
+          + "\030\005 \001(\t\"\223\001\n\021PriorityClassList\022@\n\010metadata"
+          + "\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis.me"
+          + "ta.v1.ListMeta\022<\n\005items\030\002 \003(\0132-.k8s.io.a"
+          + "pi.scheduling.v1alpha1.PriorityClassB:\n\032"
+          + "io.kubernetes.client.protoB\022V1alpha1Sche"
+          + "dulingZ\010v1alpha1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2784,6 +3063,7 @@ public final class V1alpha1Scheduling {
     com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
         descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          io.kubernetes.client.proto.V1.getDescriptor(),
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
@@ -2795,7 +3075,7 @@ public final class V1alpha1Scheduling {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClass_descriptor,
             new java.lang.String[] {
-              "Metadata", "Value", "GlobalDefault", "Description",
+              "Metadata", "Value", "GlobalDefault", "Description", "PreemptionPolicy",
             });
     internal_static_k8s_io_api_scheduling_v1alpha1_PriorityClassList_descriptor =
         getDescriptor().getMessageTypes().get(1);
@@ -2805,6 +3085,7 @@ public final class V1alpha1Scheduling {
             new java.lang.String[] {
               "Metadata", "Items",
             });
+    io.kubernetes.client.proto.V1.getDescriptor();
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();

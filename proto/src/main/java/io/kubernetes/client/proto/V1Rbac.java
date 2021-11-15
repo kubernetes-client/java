@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -35,8 +35,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     java.util.List<io.kubernetes.client.proto.Meta.LabelSelector> getClusterRoleSelectorsList();
@@ -49,8 +48,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     io.kubernetes.client.proto.Meta.LabelSelector getClusterRoleSelectors(int index);
@@ -63,8 +61,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     int getClusterRoleSelectorsCount();
@@ -77,8 +74,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     java.util.List<? extends io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
@@ -92,8 +88,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getClusterRoleSelectorsOrBuilder(
@@ -206,8 +201,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public java.util.List<io.kubernetes.client.proto.Meta.LabelSelector>
@@ -223,8 +217,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public java.util.List<? extends io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
@@ -240,8 +233,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public int getClusterRoleSelectorsCount() {
@@ -256,8 +248,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelector getClusterRoleSelectors(int index) {
@@ -272,8 +263,7 @@ public final class V1Rbac {
      * +optional
      * </pre>
      *
-     * <code>
-     * repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector clusterRoleSelectors = 1;
      * </code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getClusterRoleSelectorsOrBuilder(
@@ -7126,7 +7116,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7136,7 +7126,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7146,7 +7136,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7156,7 +7146,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7216,7 +7206,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+     * Resources is a list of resources this rule applies to. '*' represents all resources.
      * +optional
      * </pre>
      *
@@ -7227,7 +7217,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+     * Resources is a list of resources this rule applies to. '*' represents all resources.
      * +optional
      * </pre>
      *
@@ -7238,7 +7228,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+     * Resources is a list of resources this rule applies to. '*' represents all resources.
      * +optional
      * </pre>
      *
@@ -7249,7 +7239,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+     * Resources is a list of resources this rule applies to. '*' represents all resources.
      * +optional
      * </pre>
      *
@@ -7512,7 +7502,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7524,7 +7514,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7536,7 +7526,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7548,7 +7538,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+     * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
      * </pre>
      *
      * <code>repeated string verbs = 1;</code>
@@ -7622,7 +7612,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+     * Resources is a list of resources this rule applies to. '*' represents all resources.
      * +optional
      * </pre>
      *
@@ -7635,7 +7625,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+     * Resources is a list of resources this rule applies to. '*' represents all resources.
      * +optional
      * </pre>
      *
@@ -7648,7 +7638,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+     * Resources is a list of resources this rule applies to. '*' represents all resources.
      * +optional
      * </pre>
      *
@@ -7661,7 +7651,7 @@ public final class V1Rbac {
      *
      *
      * <pre>
-     * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+     * Resources is a list of resources this rule applies to. '*' represents all resources.
      * +optional
      * </pre>
      *
@@ -8276,7 +8266,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8288,7 +8278,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8300,7 +8290,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8312,7 +8302,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8324,7 +8314,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8342,7 +8332,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8360,7 +8350,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8375,7 +8365,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8390,7 +8380,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule.  VerbAll represents all kinds.
+       * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.
        * </pre>
        *
        * <code>repeated string verbs = 1;</code>
@@ -8578,7 +8568,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -8591,7 +8581,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -8604,7 +8594,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -8617,7 +8607,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -8630,7 +8620,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -8649,7 +8639,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -8668,7 +8658,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -8684,7 +8674,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -8700,7 +8690,7 @@ public final class V1Rbac {
        *
        *
        * <pre>
-       * Resources is a list of resources this rule applies to.  ResourceAll represents all resources.
+       * Resources is a list of resources this rule applies to. '*' represents all resources.
        * +optional
        * </pre>
        *
@@ -14798,6 +14788,7 @@ public final class V1Rbac {
    *
    * <pre>
    * RoleRef contains information that points to the role being used
+   * +structType=atomic
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1.RoleRef}
@@ -15268,6 +15259,7 @@ public final class V1Rbac {
      *
      * <pre>
      * RoleRef contains information that points to the role being used
+     * +structType=atomic
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1.RoleRef}
@@ -15981,6 +15973,7 @@ public final class V1Rbac {
    * <pre>
    * Subject contains a reference to the object or user identities a role binding applies to.  This can either hold a direct API object reference,
    * or a value for non-objects such as user and group names.
+   * +structType=atomic
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.rbac.v1.Subject}
@@ -16549,6 +16542,7 @@ public final class V1Rbac {
      * <pre>
      * Subject contains a reference to the object or user identities a role binding applies to.  This can either hold a direct API object reference,
      * or a value for non-objects such as user and group names.
+     * +structType=atomic
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.rbac.v1.Subject}

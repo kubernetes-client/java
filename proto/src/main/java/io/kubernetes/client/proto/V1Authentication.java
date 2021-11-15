@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -68,9 +68,9 @@ public final class V1Authentication {
      * +optional
      * </pre>
      *
-     * <code>optional string aPIVersion = 2;</code>
+     * <code>optional string apiVersion = 2;</code>
      */
-    boolean hasAPIVersion();
+    boolean hasApiVersion();
     /**
      *
      *
@@ -79,9 +79,9 @@ public final class V1Authentication {
      * +optional
      * </pre>
      *
-     * <code>optional string aPIVersion = 2;</code>
+     * <code>optional string apiVersion = 2;</code>
      */
-    java.lang.String getAPIVersion();
+    java.lang.String getApiVersion();
     /**
      *
      *
@@ -90,9 +90,9 @@ public final class V1Authentication {
      * +optional
      * </pre>
      *
-     * <code>optional string aPIVersion = 2;</code>
+     * <code>optional string apiVersion = 2;</code>
      */
-    com.google.protobuf.ByteString getAPIVersionBytes();
+    com.google.protobuf.ByteString getApiVersionBytes();
 
     /**
      *
@@ -183,7 +183,7 @@ public final class V1Authentication {
 
     private BoundObjectReference() {
       kind_ = "";
-      aPIVersion_ = "";
+      apiVersion_ = "";
       name_ = "";
       uID_ = "";
     }
@@ -223,7 +223,7 @@ public final class V1Authentication {
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
                 bitField0_ |= 0x00000002;
-                aPIVersion_ = bs;
+                apiVersion_ = bs;
                 break;
               }
             case 26:
@@ -336,7 +336,7 @@ public final class V1Authentication {
     }
 
     public static final int APIVERSION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object aPIVersion_;
+    private volatile java.lang.Object apiVersion_;
     /**
      *
      *
@@ -345,9 +345,9 @@ public final class V1Authentication {
      * +optional
      * </pre>
      *
-     * <code>optional string aPIVersion = 2;</code>
+     * <code>optional string apiVersion = 2;</code>
      */
-    public boolean hasAPIVersion() {
+    public boolean hasApiVersion() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
@@ -358,17 +358,17 @@ public final class V1Authentication {
      * +optional
      * </pre>
      *
-     * <code>optional string aPIVersion = 2;</code>
+     * <code>optional string apiVersion = 2;</code>
      */
-    public java.lang.String getAPIVersion() {
-      java.lang.Object ref = aPIVersion_;
+    public java.lang.String getApiVersion() {
+      java.lang.Object ref = apiVersion_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          aPIVersion_ = s;
+          apiVersion_ = s;
         }
         return s;
       }
@@ -381,14 +381,14 @@ public final class V1Authentication {
      * +optional
      * </pre>
      *
-     * <code>optional string aPIVersion = 2;</code>
+     * <code>optional string apiVersion = 2;</code>
      */
-    public com.google.protobuf.ByteString getAPIVersionBytes() {
-      java.lang.Object ref = aPIVersion_;
+    public com.google.protobuf.ByteString getApiVersionBytes() {
+      java.lang.Object ref = apiVersion_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        aPIVersion_ = b;
+        apiVersion_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -533,7 +533,7 @@ public final class V1Authentication {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, kind_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, aPIVersion_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, apiVersion_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
@@ -554,7 +554,7 @@ public final class V1Authentication {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, kind_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, aPIVersion_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, apiVersion_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
@@ -583,9 +583,9 @@ public final class V1Authentication {
       if (hasKind()) {
         result = result && getKind().equals(other.getKind());
       }
-      result = result && (hasAPIVersion() == other.hasAPIVersion());
-      if (hasAPIVersion()) {
-        result = result && getAPIVersion().equals(other.getAPIVersion());
+      result = result && (hasApiVersion() == other.hasApiVersion());
+      if (hasApiVersion()) {
+        result = result && getApiVersion().equals(other.getApiVersion());
       }
       result = result && (hasName() == other.hasName());
       if (hasName()) {
@@ -610,9 +610,9 @@ public final class V1Authentication {
         hash = (37 * hash) + KIND_FIELD_NUMBER;
         hash = (53 * hash) + getKind().hashCode();
       }
-      if (hasAPIVersion()) {
+      if (hasApiVersion()) {
         hash = (37 * hash) + APIVERSION_FIELD_NUMBER;
-        hash = (53 * hash) + getAPIVersion().hashCode();
+        hash = (53 * hash) + getApiVersion().hashCode();
       }
       if (hasName()) {
         hash = (37 * hash) + NAME_FIELD_NUMBER;
@@ -774,7 +774,7 @@ public final class V1Authentication {
         super.clear();
         kind_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        aPIVersion_ = "";
+        apiVersion_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -818,7 +818,7 @@ public final class V1Authentication {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.aPIVersion_ = aPIVersion_;
+        result.apiVersion_ = apiVersion_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -888,9 +888,9 @@ public final class V1Authentication {
           kind_ = other.kind_;
           onChanged();
         }
-        if (other.hasAPIVersion()) {
+        if (other.hasApiVersion()) {
           bitField0_ |= 0x00000002;
-          aPIVersion_ = other.aPIVersion_;
+          apiVersion_ = other.apiVersion_;
           onChanged();
         }
         if (other.hasName()) {
@@ -1049,7 +1049,7 @@ public final class V1Authentication {
         return this;
       }
 
-      private java.lang.Object aPIVersion_ = "";
+      private java.lang.Object apiVersion_ = "";
       /**
        *
        *
@@ -1058,9 +1058,9 @@ public final class V1Authentication {
        * +optional
        * </pre>
        *
-       * <code>optional string aPIVersion = 2;</code>
+       * <code>optional string apiVersion = 2;</code>
        */
-      public boolean hasAPIVersion() {
+      public boolean hasApiVersion() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
@@ -1071,15 +1071,15 @@ public final class V1Authentication {
        * +optional
        * </pre>
        *
-       * <code>optional string aPIVersion = 2;</code>
+       * <code>optional string apiVersion = 2;</code>
        */
-      public java.lang.String getAPIVersion() {
-        java.lang.Object ref = aPIVersion_;
+      public java.lang.String getApiVersion() {
+        java.lang.Object ref = apiVersion_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            aPIVersion_ = s;
+            apiVersion_ = s;
           }
           return s;
         } else {
@@ -1094,14 +1094,14 @@ public final class V1Authentication {
        * +optional
        * </pre>
        *
-       * <code>optional string aPIVersion = 2;</code>
+       * <code>optional string apiVersion = 2;</code>
        */
-      public com.google.protobuf.ByteString getAPIVersionBytes() {
-        java.lang.Object ref = aPIVersion_;
+      public com.google.protobuf.ByteString getApiVersionBytes() {
+        java.lang.Object ref = apiVersion_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
               com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          aPIVersion_ = b;
+          apiVersion_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -1115,14 +1115,14 @@ public final class V1Authentication {
        * +optional
        * </pre>
        *
-       * <code>optional string aPIVersion = 2;</code>
+       * <code>optional string apiVersion = 2;</code>
        */
-      public Builder setAPIVersion(java.lang.String value) {
+      public Builder setApiVersion(java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000002;
-        aPIVersion_ = value;
+        apiVersion_ = value;
         onChanged();
         return this;
       }
@@ -1134,11 +1134,11 @@ public final class V1Authentication {
        * +optional
        * </pre>
        *
-       * <code>optional string aPIVersion = 2;</code>
+       * <code>optional string apiVersion = 2;</code>
        */
-      public Builder clearAPIVersion() {
+      public Builder clearApiVersion() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        aPIVersion_ = getDefaultInstance().getAPIVersion();
+        apiVersion_ = getDefaultInstance().getApiVersion();
         onChanged();
         return this;
       }
@@ -1150,14 +1150,14 @@ public final class V1Authentication {
        * +optional
        * </pre>
        *
-       * <code>optional string aPIVersion = 2;</code>
+       * <code>optional string apiVersion = 2;</code>
        */
-      public Builder setAPIVersionBytes(com.google.protobuf.ByteString value) {
+      public Builder setApiVersionBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000002;
-        aPIVersion_ = value;
+        apiVersion_ = value;
         onChanged();
         return this;
       }
@@ -2051,6 +2051,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2061,6 +2063,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2071,6 +2075,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2078,17 +2084,42 @@ public final class V1Authentication {
      */
     io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder();
 
-    /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Spec holds information about the request being evaluated
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
     boolean hasSpec();
-    /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Spec holds information about the request being evaluated
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
     io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getSpec();
-    /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Spec holds information about the request being evaluated
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
     io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder getSpecOrBuilder();
 
     /**
      *
      *
      * <pre>
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2099,6 +2130,7 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2109,6 +2141,7 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2254,6 +2287,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2266,6 +2301,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2280,6 +2317,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2293,17 +2332,41 @@ public final class V1Authentication {
 
     public static final int SPEC_FIELD_NUMBER = 2;
     private io.kubernetes.client.proto.V1Authentication.TokenRequestSpec spec_;
-    /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Spec holds information about the request being evaluated
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
     public boolean hasSpec() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Spec holds information about the request being evaluated
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
     public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getSpec() {
       return spec_ == null
           ? io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.getDefaultInstance()
           : spec_;
     }
-    /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Spec holds information about the request being evaluated
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+     */
     public io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder
         getSpecOrBuilder() {
       return spec_ == null
@@ -2317,6 +2380,7 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2329,6 +2393,7 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2343,6 +2408,7 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2775,6 +2841,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2787,6 +2855,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2805,6 +2875,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2827,6 +2899,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2847,6 +2921,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2875,6 +2951,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2894,6 +2972,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2908,6 +2988,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2926,6 +3008,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2954,11 +3038,27 @@ public final class V1Authentication {
               io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder,
               io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder>
           specBuilder_;
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       public boolean hasSpec() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec getSpec() {
         if (specBuilder_ == null) {
           return spec_ == null
@@ -2968,7 +3068,15 @@ public final class V1Authentication {
           return specBuilder_.getMessage();
         }
       }
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       public Builder setSpec(io.kubernetes.client.proto.V1Authentication.TokenRequestSpec value) {
         if (specBuilder_ == null) {
           if (value == null) {
@@ -2982,7 +3090,15 @@ public final class V1Authentication {
         bitField0_ |= 0x00000002;
         return this;
       }
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       public Builder setSpec(
           io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder builderForValue) {
         if (specBuilder_ == null) {
@@ -2994,7 +3110,15 @@ public final class V1Authentication {
         bitField0_ |= 0x00000002;
         return this;
       }
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       public Builder mergeSpec(io.kubernetes.client.proto.V1Authentication.TokenRequestSpec value) {
         if (specBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002)
@@ -3016,7 +3140,15 @@ public final class V1Authentication {
         bitField0_ |= 0x00000002;
         return this;
       }
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       public Builder clearSpec() {
         if (specBuilder_ == null) {
           spec_ = null;
@@ -3027,13 +3159,29 @@ public final class V1Authentication {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       public io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder getSpecBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getSpecFieldBuilder().getBuilder();
       }
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       public io.kubernetes.client.proto.V1Authentication.TokenRequestSpecOrBuilder
           getSpecOrBuilder() {
         if (specBuilder_ != null) {
@@ -3044,7 +3192,15 @@ public final class V1Authentication {
               : spec_;
         }
       }
-      /** <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Spec holds information about the request being evaluated
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
+       */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1Authentication.TokenRequestSpec,
               io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder,
@@ -3072,6 +3228,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3084,6 +3241,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3102,6 +3260,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3125,6 +3284,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3145,6 +3305,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3176,6 +3337,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3195,6 +3357,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3210,6 +3373,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3229,6 +3393,7 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3402,12 +3567,14 @@ public final class V1Authentication {
      *
      * <pre>
      * BoundObjectRef is a reference to an object that the token will be bound to.
-     * The token will only be valid for as long as the bound objet exists.
+     * The token will only be valid for as long as the bound object exists.
+     * NOTE: The API server's TokenReview endpoint will validate the
+     * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+     * small if you want prompt revocation.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
      */
     boolean hasBoundObjectRef();
     /**
@@ -3415,12 +3582,14 @@ public final class V1Authentication {
      *
      * <pre>
      * BoundObjectRef is a reference to an object that the token will be bound to.
-     * The token will only be valid for as long as the bound objet exists.
+     * The token will only be valid for as long as the bound object exists.
+     * NOTE: The API server's TokenReview endpoint will validate the
+     * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+     * small if you want prompt revocation.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
      */
     io.kubernetes.client.proto.V1Authentication.BoundObjectReference getBoundObjectRef();
     /**
@@ -3428,12 +3597,14 @@ public final class V1Authentication {
      *
      * <pre>
      * BoundObjectRef is a reference to an object that the token will be bound to.
-     * The token will only be valid for as long as the bound objet exists.
+     * The token will only be valid for as long as the bound object exists.
+     * NOTE: The API server's TokenReview endpoint will validate the
+     * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+     * small if you want prompt revocation.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
      */
     io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder
         getBoundObjectRefOrBuilder();
@@ -3669,12 +3840,14 @@ public final class V1Authentication {
      *
      * <pre>
      * BoundObjectRef is a reference to an object that the token will be bound to.
-     * The token will only be valid for as long as the bound objet exists.
+     * The token will only be valid for as long as the bound object exists.
+     * NOTE: The API server's TokenReview endpoint will validate the
+     * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+     * small if you want prompt revocation.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
      */
     public boolean hasBoundObjectRef() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -3684,12 +3857,14 @@ public final class V1Authentication {
      *
      * <pre>
      * BoundObjectRef is a reference to an object that the token will be bound to.
-     * The token will only be valid for as long as the bound objet exists.
+     * The token will only be valid for as long as the bound object exists.
+     * NOTE: The API server's TokenReview endpoint will validate the
+     * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+     * small if you want prompt revocation.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
      */
     public io.kubernetes.client.proto.V1Authentication.BoundObjectReference getBoundObjectRef() {
       return boundObjectRef_ == null
@@ -3701,12 +3876,14 @@ public final class V1Authentication {
      *
      * <pre>
      * BoundObjectRef is a reference to an object that the token will be bound to.
-     * The token will only be valid for as long as the bound objet exists.
+     * The token will only be valid for as long as the bound object exists.
+     * NOTE: The API server's TokenReview endpoint will validate the
+     * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+     * small if you want prompt revocation.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authentication.v1.BoundObjectReference boundObjectRef = 3;</code>
      */
     public io.kubernetes.client.proto.V1Authentication.BoundObjectReferenceOrBuilder
         getBoundObjectRefOrBuilder() {
@@ -3941,8 +4118,7 @@ public final class V1Authentication {
                 io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1Authentication.TokenRequestSpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4388,7 +4564,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -4403,7 +4582,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -4425,7 +4607,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -4451,7 +4636,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -4475,7 +4663,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -4510,7 +4701,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -4532,7 +4726,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -4550,7 +4747,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -4573,7 +4773,10 @@ public final class V1Authentication {
        *
        * <pre>
        * BoundObjectRef is a reference to an object that the token will be bound to.
-       * The token will only be valid for as long as the bound objet exists.
+       * The token will only be valid for as long as the bound object exists.
+       * NOTE: The API server's TokenReview endpoint will validate the
+       * BoundObjectRef, but other audiences may not. Keep ExpirationSeconds
+       * small if you want prompt revocation.
        * +optional
        * </pre>
        *
@@ -5136,8 +5339,7 @@ public final class V1Authentication {
                 io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1Authentication.TokenRequestStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5422,8 +5624,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       public boolean hasExpirationTimestamp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -5435,8 +5636,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getExpirationTimestamp() {
         if (expirationTimestampBuilder_ == null) {
@@ -5454,8 +5654,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       public Builder setExpirationTimestamp(io.kubernetes.client.proto.Meta.Time value) {
         if (expirationTimestampBuilder_ == null) {
@@ -5477,8 +5676,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       public Builder setExpirationTimestamp(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -5498,8 +5696,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       public Builder mergeExpirationTimestamp(io.kubernetes.client.proto.Meta.Time value) {
         if (expirationTimestampBuilder_ == null) {
@@ -5528,8 +5725,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       public Builder clearExpirationTimestamp() {
         if (expirationTimestampBuilder_ == null) {
@@ -5548,8 +5744,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getExpirationTimestampBuilder() {
         bitField0_ |= 0x00000002;
@@ -5563,8 +5758,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getExpirationTimestampOrBuilder() {
         if (expirationTimestampBuilder_ != null) {
@@ -5582,8 +5776,7 @@ public final class V1Authentication {
        * ExpirationTimestamp is the time of expiration of the returned token.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -5667,6 +5860,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5677,6 +5872,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5687,6 +5884,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5899,6 +6098,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5911,6 +6112,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5925,6 +6128,8 @@ public final class V1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6448,6 +6653,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6460,6 +6667,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6478,6 +6687,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6500,6 +6711,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6520,6 +6733,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6548,6 +6763,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6567,6 +6784,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6581,6 +6800,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6599,6 +6820,8 @@ public final class V1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7604,8 +7827,7 @@ public final class V1Authentication {
                 io.kubernetes.client.proto.V1Authentication.TokenReviewSpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1Authentication.TokenReviewSpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1Authentication.TokenReviewSpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8883,8 +9105,7 @@ public final class V1Authentication {
                 io.kubernetes.client.proto.V1Authentication.TokenReviewStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1Authentication.TokenReviewStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1Authentication.TokenReviewStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11451,7 +11672,7 @@ public final class V1Authentication {
           + "ated.proto\032/k8s.io/apimachinery/pkg/runt"
           + "ime/generated.proto\0326k8s.io/apimachinery"
           + "/pkg/runtime/schema/generated.proto\"S\n\024B"
-          + "oundObjectReference\022\014\n\004kind\030\001 \001(\t\022\022\n\naPI"
+          + "oundObjectReference\022\014\n\004kind\030\001 \001(\t\022\022\n\napi"
           + "Version\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\013\n\003uID\030\004 \001(\t"
           + "\"\033\n\nExtraValue\022\r\n\005items\030\001 \003(\t\"\322\001\n\014TokenR"
           + "equest\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimac"
@@ -11505,7 +11726,7 @@ public final class V1Authentication {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_authentication_v1_BoundObjectReference_descriptor,
             new java.lang.String[] {
-              "Kind", "APIVersion", "Name", "UID",
+              "Kind", "ApiVersion", "Name", "UID",
             });
     internal_static_k8s_io_api_authentication_v1_ExtraValue_descriptor =
         getDescriptor().getMessageTypes().get(1);

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,5146 @@ public final class V1beta1Admissionregistration {
     registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
 
+  public interface MutatingWebhookOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.admissionregistration.v1beta1.MutatingWebhook)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString getNameBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    boolean hasClientConfig();
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig getClientConfig();
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
+        getClientConfigOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+        getRulesList();
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(int index);
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    int getRulesCount();
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    java.util.List<
+            ? extends
+                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
+        getRulesOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
+        getRulesOrBuilder(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    boolean hasFailurePolicy();
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    java.lang.String getFailurePolicy();
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    com.google.protobuf.ByteString getFailurePolicyBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    boolean hasMatchPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    java.lang.String getMatchPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    com.google.protobuf.ByteString getMatchPolicyBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    boolean hasNamespaceSelector();
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector();
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getNamespaceSelectorOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+     * </code>
+     */
+    boolean hasObjectSelector();
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getObjectSelector();
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getObjectSelectorOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    boolean hasSideEffects();
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    java.lang.String getSideEffects();
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    com.google.protobuf.ByteString getSideEffectsBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+     * the webhook call will be ignored or the API call will fail based on the
+     * failure policy.
+     * The timeout value must be between 1 and 30 seconds.
+     * Default to 30 seconds.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 timeoutSeconds = 7;</code>
+     */
+    boolean hasTimeoutSeconds();
+    /**
+     *
+     *
+     * <pre>
+     * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+     * the webhook call will be ignored or the API call will fail based on the
+     * failure policy.
+     * The timeout value must be between 1 and 30 seconds.
+     * Default to 30 seconds.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 timeoutSeconds = 7;</code>
+     */
+    int getTimeoutSeconds();
+
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    java.util.List<java.lang.String> getAdmissionReviewVersionsList();
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    int getAdmissionReviewVersionsCount();
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    java.lang.String getAdmissionReviewVersions(int index);
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    com.google.protobuf.ByteString getAdmissionReviewVersionsBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+     * Allowed values are "Never" and "IfNeeded".
+     * Never: the webhook will not be called more than once in a single admission evaluation.
+     * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+     * if the object being admitted is modified by other admission plugins after the initial webhook call.
+     * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+     * Note:
+     * * the number of additional invocations is not guaranteed to be exactly one.
+     * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+     * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+     * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+     * Defaults to "Never".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reinvocationPolicy = 10;</code>
+     */
+    boolean hasReinvocationPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+     * Allowed values are "Never" and "IfNeeded".
+     * Never: the webhook will not be called more than once in a single admission evaluation.
+     * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+     * if the object being admitted is modified by other admission plugins after the initial webhook call.
+     * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+     * Note:
+     * * the number of additional invocations is not guaranteed to be exactly one.
+     * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+     * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+     * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+     * Defaults to "Never".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reinvocationPolicy = 10;</code>
+     */
+    java.lang.String getReinvocationPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+     * Allowed values are "Never" and "IfNeeded".
+     * Never: the webhook will not be called more than once in a single admission evaluation.
+     * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+     * if the object being admitted is modified by other admission plugins after the initial webhook call.
+     * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+     * Note:
+     * * the number of additional invocations is not guaranteed to be exactly one.
+     * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+     * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+     * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+     * Defaults to "Never".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reinvocationPolicy = 10;</code>
+     */
+    com.google.protobuf.ByteString getReinvocationPolicyBytes();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * MutatingWebhook describes an admission webhook and the resources and operations it applies to.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.MutatingWebhook}
+   */
+  public static final class MutatingWebhook extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.admissionregistration.v1beta1.MutatingWebhook)
+      MutatingWebhookOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use MutatingWebhook.newBuilder() to construct.
+    private MutatingWebhook(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private MutatingWebhook() {
+      name_ = "";
+      rules_ = java.util.Collections.emptyList();
+      failurePolicy_ = "";
+      matchPolicy_ = "";
+      sideEffects_ = "";
+      timeoutSeconds_ = 0;
+      admissionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      reinvocationPolicy_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private MutatingWebhook(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                name_ = bs;
+                break;
+              }
+            case 18:
+              {
+                io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
+                    subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = clientConfig_.toBuilder();
+                }
+                clientConfig_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                            .PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(clientConfig_);
+                  clientConfig_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
+            case 26:
+              {
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  rules_ =
+                      new java.util.ArrayList<
+                          io.kubernetes.client.proto.V1beta1Admissionregistration
+                              .RuleWithOperations>();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                rules_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
+                            .PARSER,
+                        extensionRegistry));
+                break;
+              }
+            case 34:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000004;
+                failurePolicy_ = bs;
+                break;
+              }
+            case 42:
+              {
+                io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                  subBuilder = namespaceSelector_.toBuilder();
+                }
+                namespaceSelector_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(namespaceSelector_);
+                  namespaceSelector_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000010;
+                break;
+              }
+            case 50:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000040;
+                sideEffects_ = bs;
+                break;
+              }
+            case 56:
+              {
+                bitField0_ |= 0x00000080;
+                timeoutSeconds_ = input.readInt32();
+                break;
+              }
+            case 66:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+                  admissionReviewVersions_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000200;
+                }
+                admissionReviewVersions_.add(bs);
+                break;
+              }
+            case 74:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000008;
+                matchPolicy_ = bs;
+                break;
+              }
+            case 82:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000100;
+                reinvocationPolicy_ = bs;
+                break;
+              }
+            case 90:
+              {
+                io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                  subBuilder = objectSelector_.toBuilder();
+                }
+                objectSelector_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(objectSelector_);
+                  objectSelector_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000020;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          rules_ = java.util.Collections.unmodifiableList(rules_);
+        }
+        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+          admissionReviewVersions_ = admissionReviewVersions_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Admissionregistration
+          .internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Admissionregistration
+          .internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.class,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder
+                  .class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CLIENTCONFIG_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+        clientConfig_;
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    public boolean hasClientConfig() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+        getClientConfig() {
+      return clientConfig_ == null
+          ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+              .getDefaultInstance()
+          : clientConfig_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
+        getClientConfigOrBuilder() {
+      return clientConfig_ == null
+          ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+              .getDefaultInstance()
+          : clientConfig_;
+    }
+
+    public static final int RULES_FIELD_NUMBER = 3;
+    private java.util.List<
+            io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+        rules_;
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public java.util.List<
+            io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+        getRulesList() {
+      return rules_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public java.util.List<
+            ? extends
+                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
+        getRulesOrBuilderList() {
+      return rules_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public int getRulesCount() {
+      return rules_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(
+        int index) {
+      return rules_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
+        getRulesOrBuilder(int index) {
+      return rules_.get(index);
+    }
+
+    public static final int FAILUREPOLICY_FIELD_NUMBER = 4;
+    private volatile java.lang.Object failurePolicy_;
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    public boolean hasFailurePolicy() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    public java.lang.String getFailurePolicy() {
+      java.lang.Object ref = failurePolicy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          failurePolicy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    public com.google.protobuf.ByteString getFailurePolicyBytes() {
+      java.lang.Object ref = failurePolicy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        failurePolicy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MATCHPOLICY_FIELD_NUMBER = 9;
+    private volatile java.lang.Object matchPolicy_;
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    public boolean hasMatchPolicy() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    public java.lang.String getMatchPolicy() {
+      java.lang.Object ref = matchPolicy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          matchPolicy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    public com.google.protobuf.ByteString getMatchPolicyBytes() {
+      java.lang.Object ref = matchPolicy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        matchPolicy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAMESPACESELECTOR_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.Meta.LabelSelector namespaceSelector_;
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    public boolean hasNamespaceSelector() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector() {
+      return namespaceSelector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : namespaceSelector_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getNamespaceSelectorOrBuilder() {
+      return namespaceSelector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : namespaceSelector_;
+    }
+
+    public static final int OBJECTSELECTOR_FIELD_NUMBER = 11;
+    private io.kubernetes.client.proto.Meta.LabelSelector objectSelector_;
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+     * </code>
+     */
+    public boolean hasObjectSelector() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getObjectSelector() {
+      return objectSelector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : objectSelector_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getObjectSelectorOrBuilder() {
+      return objectSelector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : objectSelector_;
+    }
+
+    public static final int SIDEEFFECTS_FIELD_NUMBER = 6;
+    private volatile java.lang.Object sideEffects_;
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    public boolean hasSideEffects() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    public java.lang.String getSideEffects() {
+      java.lang.Object ref = sideEffects_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          sideEffects_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    public com.google.protobuf.ByteString getSideEffectsBytes() {
+      java.lang.Object ref = sideEffects_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        sideEffects_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMEOUTSECONDS_FIELD_NUMBER = 7;
+    private int timeoutSeconds_;
+    /**
+     *
+     *
+     * <pre>
+     * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+     * the webhook call will be ignored or the API call will fail based on the
+     * failure policy.
+     * The timeout value must be between 1 and 30 seconds.
+     * Default to 30 seconds.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 timeoutSeconds = 7;</code>
+     */
+    public boolean hasTimeoutSeconds() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+     * the webhook call will be ignored or the API call will fail based on the
+     * failure policy.
+     * The timeout value must be between 1 and 30 seconds.
+     * Default to 30 seconds.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 timeoutSeconds = 7;</code>
+     */
+    public int getTimeoutSeconds() {
+      return timeoutSeconds_;
+    }
+
+    public static final int ADMISSIONREVIEWVERSIONS_FIELD_NUMBER = 8;
+    private com.google.protobuf.LazyStringList admissionReviewVersions_;
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getAdmissionReviewVersionsList() {
+      return admissionReviewVersions_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    public int getAdmissionReviewVersionsCount() {
+      return admissionReviewVersions_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    public java.lang.String getAdmissionReviewVersions(int index) {
+      return admissionReviewVersions_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    public com.google.protobuf.ByteString getAdmissionReviewVersionsBytes(int index) {
+      return admissionReviewVersions_.getByteString(index);
+    }
+
+    public static final int REINVOCATIONPOLICY_FIELD_NUMBER = 10;
+    private volatile java.lang.Object reinvocationPolicy_;
+    /**
+     *
+     *
+     * <pre>
+     * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+     * Allowed values are "Never" and "IfNeeded".
+     * Never: the webhook will not be called more than once in a single admission evaluation.
+     * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+     * if the object being admitted is modified by other admission plugins after the initial webhook call.
+     * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+     * Note:
+     * * the number of additional invocations is not guaranteed to be exactly one.
+     * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+     * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+     * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+     * Defaults to "Never".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reinvocationPolicy = 10;</code>
+     */
+    public boolean hasReinvocationPolicy() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+     * Allowed values are "Never" and "IfNeeded".
+     * Never: the webhook will not be called more than once in a single admission evaluation.
+     * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+     * if the object being admitted is modified by other admission plugins after the initial webhook call.
+     * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+     * Note:
+     * * the number of additional invocations is not guaranteed to be exactly one.
+     * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+     * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+     * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+     * Defaults to "Never".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reinvocationPolicy = 10;</code>
+     */
+    public java.lang.String getReinvocationPolicy() {
+      java.lang.Object ref = reinvocationPolicy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          reinvocationPolicy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+     * Allowed values are "Never" and "IfNeeded".
+     * Never: the webhook will not be called more than once in a single admission evaluation.
+     * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+     * if the object being admitted is modified by other admission plugins after the initial webhook call.
+     * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+     * Note:
+     * * the number of additional invocations is not guaranteed to be exactly one.
+     * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+     * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+     * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+     * Defaults to "Never".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string reinvocationPolicy = 10;</code>
+     */
+    public com.google.protobuf.ByteString getReinvocationPolicyBytes() {
+      java.lang.Object ref = reinvocationPolicy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        reinvocationPolicy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getClientConfig());
+      }
+      for (int i = 0; i < rules_.size(); i++) {
+        output.writeMessage(3, rules_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, failurePolicy_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getNamespaceSelector());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sideEffects_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(7, timeoutSeconds_);
+      }
+      for (int i = 0; i < admissionReviewVersions_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(
+            output, 8, admissionReviewVersions_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, matchPolicy_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, reinvocationPolicy_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(11, getObjectSelector());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getClientConfig());
+      }
+      for (int i = 0; i < rules_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, rules_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, failurePolicy_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getNamespaceSelector());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sideEffects_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(7, timeoutSeconds_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < admissionReviewVersions_.size(); i++) {
+          dataSize += computeStringSizeNoTag(admissionReviewVersions_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAdmissionReviewVersionsList().size();
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, matchPolicy_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, reinvocationPolicy_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(11, getObjectSelector());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj
+          instanceof io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook other =
+          (io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName().equals(other.getName());
+      }
+      result = result && (hasClientConfig() == other.hasClientConfig());
+      if (hasClientConfig()) {
+        result = result && getClientConfig().equals(other.getClientConfig());
+      }
+      result = result && getRulesList().equals(other.getRulesList());
+      result = result && (hasFailurePolicy() == other.hasFailurePolicy());
+      if (hasFailurePolicy()) {
+        result = result && getFailurePolicy().equals(other.getFailurePolicy());
+      }
+      result = result && (hasMatchPolicy() == other.hasMatchPolicy());
+      if (hasMatchPolicy()) {
+        result = result && getMatchPolicy().equals(other.getMatchPolicy());
+      }
+      result = result && (hasNamespaceSelector() == other.hasNamespaceSelector());
+      if (hasNamespaceSelector()) {
+        result = result && getNamespaceSelector().equals(other.getNamespaceSelector());
+      }
+      result = result && (hasObjectSelector() == other.hasObjectSelector());
+      if (hasObjectSelector()) {
+        result = result && getObjectSelector().equals(other.getObjectSelector());
+      }
+      result = result && (hasSideEffects() == other.hasSideEffects());
+      if (hasSideEffects()) {
+        result = result && getSideEffects().equals(other.getSideEffects());
+      }
+      result = result && (hasTimeoutSeconds() == other.hasTimeoutSeconds());
+      if (hasTimeoutSeconds()) {
+        result = result && (getTimeoutSeconds() == other.getTimeoutSeconds());
+      }
+      result =
+          result && getAdmissionReviewVersionsList().equals(other.getAdmissionReviewVersionsList());
+      result = result && (hasReinvocationPolicy() == other.hasReinvocationPolicy());
+      if (hasReinvocationPolicy()) {
+        result = result && getReinvocationPolicy().equals(other.getReinvocationPolicy());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasClientConfig()) {
+        hash = (37 * hash) + CLIENTCONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getClientConfig().hashCode();
+      }
+      if (getRulesCount() > 0) {
+        hash = (37 * hash) + RULES_FIELD_NUMBER;
+        hash = (53 * hash) + getRulesList().hashCode();
+      }
+      if (hasFailurePolicy()) {
+        hash = (37 * hash) + FAILUREPOLICY_FIELD_NUMBER;
+        hash = (53 * hash) + getFailurePolicy().hashCode();
+      }
+      if (hasMatchPolicy()) {
+        hash = (37 * hash) + MATCHPOLICY_FIELD_NUMBER;
+        hash = (53 * hash) + getMatchPolicy().hashCode();
+      }
+      if (hasNamespaceSelector()) {
+        hash = (37 * hash) + NAMESPACESELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getNamespaceSelector().hashCode();
+      }
+      if (hasObjectSelector()) {
+        hash = (37 * hash) + OBJECTSELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getObjectSelector().hashCode();
+      }
+      if (hasSideEffects()) {
+        hash = (37 * hash) + SIDEEFFECTS_FIELD_NUMBER;
+        hash = (53 * hash) + getSideEffects().hashCode();
+      }
+      if (hasTimeoutSeconds()) {
+        hash = (37 * hash) + TIMEOUTSECONDS_FIELD_NUMBER;
+        hash = (53 * hash) + getTimeoutSeconds();
+      }
+      if (getAdmissionReviewVersionsCount() > 0) {
+        hash = (37 * hash) + ADMISSIONREVIEWVERSIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getAdmissionReviewVersionsList().hashCode();
+      }
+      if (hasReinvocationPolicy()) {
+        hash = (37 * hash) + REINVOCATIONPOLICY_FIELD_NUMBER;
+        hash = (53 * hash) + getReinvocationPolicy().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * MutatingWebhook describes an admission webhook and the resources and operations it applies to.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.MutatingWebhook}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.admissionregistration.v1beta1.MutatingWebhook)
+        io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Admissionregistration
+            .internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Admissionregistration
+            .internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.class,
+                io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder
+                    .class);
+      }
+
+      // Construct using
+      // io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getClientConfigFieldBuilder();
+          getRulesFieldBuilder();
+          getNamespaceSelectorFieldBuilder();
+          getObjectSelectorFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (clientConfigBuilder_ == null) {
+          clientConfig_ = null;
+        } else {
+          clientConfigBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (rulesBuilder_ == null) {
+          rules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          rulesBuilder_.clear();
+        }
+        failurePolicy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        matchPolicy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        if (namespaceSelectorBuilder_ == null) {
+          namespaceSelector_ = null;
+        } else {
+          namespaceSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        if (objectSelectorBuilder_ == null) {
+          objectSelector_ = null;
+        } else {
+          objectSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        sideEffects_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        timeoutSeconds_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        admissionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        reinvocationPolicy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000400);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Admissionregistration
+            .internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook build() {
+        io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+          buildPartial() {
+        io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook result =
+            new io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (clientConfigBuilder_ == null) {
+          result.clientConfig_ = clientConfig_;
+        } else {
+          result.clientConfig_ = clientConfigBuilder_.build();
+        }
+        if (rulesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            rules_ = java.util.Collections.unmodifiableList(rules_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.rules_ = rules_;
+        } else {
+          result.rules_ = rulesBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.failurePolicy_ = failurePolicy_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.matchPolicy_ = matchPolicy_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (namespaceSelectorBuilder_ == null) {
+          result.namespaceSelector_ = namespaceSelector_;
+        } else {
+          result.namespaceSelector_ = namespaceSelectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        if (objectSelectorBuilder_ == null) {
+          result.objectSelector_ = objectSelector_;
+        } else {
+          result.objectSelector_ = objectSelectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.sideEffects_ = sideEffects_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.timeoutSeconds_ = timeoutSeconds_;
+        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          admissionReviewVersions_ = admissionReviewVersions_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000200);
+        }
+        result.admissionReviewVersions_ = admissionReviewVersions_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.reinvocationPolicy_ = reinvocationPolicy_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other
+            instanceof io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook) {
+          return mergeFrom(
+              (io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook other) {
+        if (other
+            == io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+                .getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasClientConfig()) {
+          mergeClientConfig(other.getClientConfig());
+        }
+        if (rulesBuilder_ == null) {
+          if (!other.rules_.isEmpty()) {
+            if (rules_.isEmpty()) {
+              rules_ = other.rules_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureRulesIsMutable();
+              rules_.addAll(other.rules_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rules_.isEmpty()) {
+            if (rulesBuilder_.isEmpty()) {
+              rulesBuilder_.dispose();
+              rulesBuilder_ = null;
+              rules_ = other.rules_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              rulesBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getRulesFieldBuilder()
+                      : null;
+            } else {
+              rulesBuilder_.addAllMessages(other.rules_);
+            }
+          }
+        }
+        if (other.hasFailurePolicy()) {
+          bitField0_ |= 0x00000008;
+          failurePolicy_ = other.failurePolicy_;
+          onChanged();
+        }
+        if (other.hasMatchPolicy()) {
+          bitField0_ |= 0x00000010;
+          matchPolicy_ = other.matchPolicy_;
+          onChanged();
+        }
+        if (other.hasNamespaceSelector()) {
+          mergeNamespaceSelector(other.getNamespaceSelector());
+        }
+        if (other.hasObjectSelector()) {
+          mergeObjectSelector(other.getObjectSelector());
+        }
+        if (other.hasSideEffects()) {
+          bitField0_ |= 0x00000080;
+          sideEffects_ = other.sideEffects_;
+          onChanged();
+        }
+        if (other.hasTimeoutSeconds()) {
+          setTimeoutSeconds(other.getTimeoutSeconds());
+        }
+        if (!other.admissionReviewVersions_.isEmpty()) {
+          if (admissionReviewVersions_.isEmpty()) {
+            admissionReviewVersions_ = other.admissionReviewVersions_;
+            bitField0_ = (bitField0_ & ~0x00000200);
+          } else {
+            ensureAdmissionReviewVersionsIsMutable();
+            admissionReviewVersions_.addAll(other.admissionReviewVersions_);
+          }
+          onChanged();
+        }
+        if (other.hasReinvocationPolicy()) {
+          bitField0_ |= 0x00000400;
+          reinvocationPolicy_ = other.reinvocationPolicy_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook parsedMessage =
+            null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+          clientConfig_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder>
+          clientConfigBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public boolean hasClientConfig() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+          getClientConfig() {
+        if (clientConfigBuilder_ == null) {
+          return clientConfig_ == null
+              ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                  .getDefaultInstance()
+              : clientConfig_;
+        } else {
+          return clientConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public Builder setClientConfig(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig value) {
+        if (clientConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          clientConfig_ = value;
+          onChanged();
+        } else {
+          clientConfigBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public Builder setClientConfig(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
+              builderForValue) {
+        if (clientConfigBuilder_ == null) {
+          clientConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientConfigBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public Builder mergeClientConfig(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig value) {
+        if (clientConfigBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && clientConfig_ != null
+              && clientConfig_
+                  != io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                      .getDefaultInstance()) {
+            clientConfig_ =
+                io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                    .newBuilder(clientConfig_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            clientConfig_ = value;
+          }
+          onChanged();
+        } else {
+          clientConfigBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public Builder clearClientConfig() {
+        if (clientConfigBuilder_ == null) {
+          clientConfig_ = null;
+          onChanged();
+        } else {
+          clientConfigBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
+          getClientConfigBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getClientConfigFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
+          getClientConfigOrBuilder() {
+        if (clientConfigBuilder_ != null) {
+          return clientConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return clientConfig_ == null
+              ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                  .getDefaultInstance()
+              : clientConfig_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder>
+          getClientConfigFieldBuilder() {
+        if (clientConfigBuilder_ == null) {
+          clientConfigBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                      .Builder,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration
+                      .WebhookClientConfigOrBuilder>(
+                  getClientConfig(), getParentForChildren(), isClean());
+          clientConfig_ = null;
+        }
+        return clientConfigBuilder_;
+      }
+
+      private java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+          rules_ = java.util.Collections.emptyList();
+
+      private void ensureRulesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          rules_ =
+              new java.util.ArrayList<
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>(
+                  rules_);
+          bitField0_ |= 0x00000004;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
+          rulesBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+          getRulesList() {
+        if (rulesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rules_);
+        } else {
+          return rulesBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public int getRulesCount() {
+        if (rulesBuilder_ == null) {
+          return rules_.size();
+        } else {
+          return rulesBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(
+          int index) {
+        if (rulesBuilder_ == null) {
+          return rules_.get(index);
+        } else {
+          return rulesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder setRules(
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.set(index, value);
+          onChanged();
+        } else {
+          rulesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder setRules(
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+              builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addRules(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.add(value);
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addRules(
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.add(index, value);
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addRules(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+              builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addRules(
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+              builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addAllRules(
+          java.lang.Iterable<
+                  ? extends
+                      io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+              values) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, rules_);
+          onChanged();
+        } else {
+          rulesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder clearRules() {
+        if (rulesBuilder_ == null) {
+          rules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          rulesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder removeRules(int index) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.remove(index);
+          onChanged();
+        } else {
+          rulesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+          getRulesBuilder(int index) {
+        return getRulesFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
+          getRulesOrBuilder(int index) {
+        if (rulesBuilder_ == null) {
+          return rules_.get(index);
+        } else {
+          return rulesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public java.util.List<
+              ? extends
+                  io.kubernetes.client.proto.V1beta1Admissionregistration
+                      .RuleWithOperationsOrBuilder>
+          getRulesOrBuilderList() {
+        if (rulesBuilder_ != null) {
+          return rulesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rules_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+          addRulesBuilder() {
+        return getRulesFieldBuilder()
+            .addBuilder(
+                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
+                    .getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+          addRulesBuilder(int index) {
+        return getRulesFieldBuilder()
+            .addBuilder(
+                index,
+                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
+                    .getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder>
+          getRulesBuilderList() {
+        return getRulesFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
+          getRulesFieldBuilder() {
+        if (rulesBuilder_ == null) {
+          rulesBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
+                      .Builder,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration
+                      .RuleWithOperationsOrBuilder>(
+                  rules_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          rules_ = null;
+        }
+        return rulesBuilder_;
+      }
+
+      private java.lang.Object failurePolicy_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public boolean hasFailurePolicy() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public java.lang.String getFailurePolicy() {
+        java.lang.Object ref = failurePolicy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            failurePolicy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public com.google.protobuf.ByteString getFailurePolicyBytes() {
+        java.lang.Object ref = failurePolicy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          failurePolicy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public Builder setFailurePolicy(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        failurePolicy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public Builder clearFailurePolicy() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        failurePolicy_ = getDefaultInstance().getFailurePolicy();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public Builder setFailurePolicyBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        failurePolicy_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object matchPolicy_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public boolean hasMatchPolicy() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public java.lang.String getMatchPolicy() {
+        java.lang.Object ref = matchPolicy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            matchPolicy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public com.google.protobuf.ByteString getMatchPolicyBytes() {
+        java.lang.Object ref = matchPolicy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          matchPolicy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public Builder setMatchPolicy(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        matchPolicy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public Builder clearMatchPolicy() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        matchPolicy_ = getDefaultInstance().getMatchPolicy();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public Builder setMatchPolicyBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        matchPolicy_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector namespaceSelector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          namespaceSelectorBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public boolean hasNamespaceSelector() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector() {
+        if (namespaceSelectorBuilder_ == null) {
+          return namespaceSelector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : namespaceSelector_;
+        } else {
+          return namespaceSelectorBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public Builder setNamespaceSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (namespaceSelectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          namespaceSelector_ = value;
+          onChanged();
+        } else {
+          namespaceSelectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public Builder setNamespaceSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (namespaceSelectorBuilder_ == null) {
+          namespaceSelector_ = builderForValue.build();
+          onChanged();
+        } else {
+          namespaceSelectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public Builder mergeNamespaceSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (namespaceSelectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)
+              && namespaceSelector_ != null
+              && namespaceSelector_
+                  != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            namespaceSelector_ =
+                io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(namespaceSelector_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            namespaceSelector_ = value;
+          }
+          onChanged();
+        } else {
+          namespaceSelectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public Builder clearNamespaceSelector() {
+        if (namespaceSelectorBuilder_ == null) {
+          namespaceSelector_ = null;
+          onChanged();
+        } else {
+          namespaceSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getNamespaceSelectorBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getNamespaceSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder
+          getNamespaceSelectorOrBuilder() {
+        if (namespaceSelectorBuilder_ != null) {
+          return namespaceSelectorBuilder_.getMessageOrBuilder();
+        } else {
+          return namespaceSelector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : namespaceSelector_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          getNamespaceSelectorFieldBuilder() {
+        if (namespaceSelectorBuilder_ == null) {
+          namespaceSelectorBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.LabelSelector,
+                  io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+                  io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getNamespaceSelector(), getParentForChildren(), isClean());
+          namespaceSelector_ = null;
+        }
+        return namespaceSelectorBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector objectSelector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          objectSelectorBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      public boolean hasObjectSelector() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getObjectSelector() {
+        if (objectSelectorBuilder_ == null) {
+          return objectSelector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : objectSelector_;
+        } else {
+          return objectSelectorBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      public Builder setObjectSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (objectSelectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          objectSelector_ = value;
+          onChanged();
+        } else {
+          objectSelectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      public Builder setObjectSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (objectSelectorBuilder_ == null) {
+          objectSelector_ = builderForValue.build();
+          onChanged();
+        } else {
+          objectSelectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      public Builder mergeObjectSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (objectSelectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)
+              && objectSelector_ != null
+              && objectSelector_
+                  != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            objectSelector_ =
+                io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(objectSelector_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            objectSelector_ = value;
+          }
+          onChanged();
+        } else {
+          objectSelectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      public Builder clearObjectSelector() {
+        if (objectSelectorBuilder_ == null) {
+          objectSelector_ = null;
+          onChanged();
+        } else {
+          objectSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getObjectSelectorBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getObjectSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getObjectSelectorOrBuilder() {
+        if (objectSelectorBuilder_ != null) {
+          return objectSelectorBuilder_.getMessageOrBuilder();
+        } else {
+          return objectSelector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : objectSelector_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 11;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          getObjectSelectorFieldBuilder() {
+        if (objectSelectorBuilder_ == null) {
+          objectSelectorBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.LabelSelector,
+                  io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+                  io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getObjectSelector(), getParentForChildren(), isClean());
+          objectSelector_ = null;
+        }
+        return objectSelectorBuilder_;
+      }
+
+      private java.lang.Object sideEffects_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public boolean hasSideEffects() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public java.lang.String getSideEffects() {
+        java.lang.Object ref = sideEffects_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            sideEffects_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public com.google.protobuf.ByteString getSideEffectsBytes() {
+        java.lang.Object ref = sideEffects_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          sideEffects_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public Builder setSideEffects(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        sideEffects_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public Builder clearSideEffects() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        sideEffects_ = getDefaultInstance().getSideEffects();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public Builder setSideEffectsBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        sideEffects_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int timeoutSeconds_;
+      /**
+       *
+       *
+       * <pre>
+       * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+       * the webhook call will be ignored or the API call will fail based on the
+       * failure policy.
+       * The timeout value must be between 1 and 30 seconds.
+       * Default to 30 seconds.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 timeoutSeconds = 7;</code>
+       */
+      public boolean hasTimeoutSeconds() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+       * the webhook call will be ignored or the API call will fail based on the
+       * failure policy.
+       * The timeout value must be between 1 and 30 seconds.
+       * Default to 30 seconds.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 timeoutSeconds = 7;</code>
+       */
+      public int getTimeoutSeconds() {
+        return timeoutSeconds_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+       * the webhook call will be ignored or the API call will fail based on the
+       * failure policy.
+       * The timeout value must be between 1 and 30 seconds.
+       * Default to 30 seconds.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 timeoutSeconds = 7;</code>
+       */
+      public Builder setTimeoutSeconds(int value) {
+        bitField0_ |= 0x00000100;
+        timeoutSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+       * the webhook call will be ignored or the API call will fail based on the
+       * failure policy.
+       * The timeout value must be between 1 and 30 seconds.
+       * Default to 30 seconds.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 timeoutSeconds = 7;</code>
+       */
+      public Builder clearTimeoutSeconds() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        timeoutSeconds_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList admissionReviewVersions_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureAdmissionReviewVersionsIsMutable() {
+        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+          admissionReviewVersions_ =
+              new com.google.protobuf.LazyStringArrayList(admissionReviewVersions_);
+          bitField0_ |= 0x00000200;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getAdmissionReviewVersionsList() {
+        return admissionReviewVersions_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public int getAdmissionReviewVersionsCount() {
+        return admissionReviewVersions_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public java.lang.String getAdmissionReviewVersions(int index) {
+        return admissionReviewVersions_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public com.google.protobuf.ByteString getAdmissionReviewVersionsBytes(int index) {
+        return admissionReviewVersions_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder setAdmissionReviewVersions(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdmissionReviewVersionsIsMutable();
+        admissionReviewVersions_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder addAdmissionReviewVersions(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdmissionReviewVersionsIsMutable();
+        admissionReviewVersions_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder addAllAdmissionReviewVersions(java.lang.Iterable<java.lang.String> values) {
+        ensureAdmissionReviewVersionsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, admissionReviewVersions_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder clearAdmissionReviewVersions() {
+        admissionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder addAdmissionReviewVersionsBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdmissionReviewVersionsIsMutable();
+        admissionReviewVersions_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object reinvocationPolicy_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+       * Allowed values are "Never" and "IfNeeded".
+       * Never: the webhook will not be called more than once in a single admission evaluation.
+       * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+       * if the object being admitted is modified by other admission plugins after the initial webhook call.
+       * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+       * Note:
+       * * the number of additional invocations is not guaranteed to be exactly one.
+       * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+       * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+       * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+       * Defaults to "Never".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reinvocationPolicy = 10;</code>
+       */
+      public boolean hasReinvocationPolicy() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+       * Allowed values are "Never" and "IfNeeded".
+       * Never: the webhook will not be called more than once in a single admission evaluation.
+       * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+       * if the object being admitted is modified by other admission plugins after the initial webhook call.
+       * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+       * Note:
+       * * the number of additional invocations is not guaranteed to be exactly one.
+       * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+       * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+       * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+       * Defaults to "Never".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reinvocationPolicy = 10;</code>
+       */
+      public java.lang.String getReinvocationPolicy() {
+        java.lang.Object ref = reinvocationPolicy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            reinvocationPolicy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+       * Allowed values are "Never" and "IfNeeded".
+       * Never: the webhook will not be called more than once in a single admission evaluation.
+       * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+       * if the object being admitted is modified by other admission plugins after the initial webhook call.
+       * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+       * Note:
+       * * the number of additional invocations is not guaranteed to be exactly one.
+       * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+       * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+       * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+       * Defaults to "Never".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reinvocationPolicy = 10;</code>
+       */
+      public com.google.protobuf.ByteString getReinvocationPolicyBytes() {
+        java.lang.Object ref = reinvocationPolicy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          reinvocationPolicy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+       * Allowed values are "Never" and "IfNeeded".
+       * Never: the webhook will not be called more than once in a single admission evaluation.
+       * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+       * if the object being admitted is modified by other admission plugins after the initial webhook call.
+       * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+       * Note:
+       * * the number of additional invocations is not guaranteed to be exactly one.
+       * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+       * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+       * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+       * Defaults to "Never".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reinvocationPolicy = 10;</code>
+       */
+      public Builder setReinvocationPolicy(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000400;
+        reinvocationPolicy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+       * Allowed values are "Never" and "IfNeeded".
+       * Never: the webhook will not be called more than once in a single admission evaluation.
+       * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+       * if the object being admitted is modified by other admission plugins after the initial webhook call.
+       * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+       * Note:
+       * * the number of additional invocations is not guaranteed to be exactly one.
+       * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+       * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+       * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+       * Defaults to "Never".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reinvocationPolicy = 10;</code>
+       */
+      public Builder clearReinvocationPolicy() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        reinvocationPolicy_ = getDefaultInstance().getReinvocationPolicy();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * reinvocationPolicy indicates whether this webhook should be called multiple times as part of a single admission evaluation.
+       * Allowed values are "Never" and "IfNeeded".
+       * Never: the webhook will not be called more than once in a single admission evaluation.
+       * IfNeeded: the webhook will be called at least one additional time as part of the admission evaluation
+       * if the object being admitted is modified by other admission plugins after the initial webhook call.
+       * Webhooks that specify this option *must* be idempotent, able to process objects they previously admitted.
+       * Note:
+       * * the number of additional invocations is not guaranteed to be exactly one.
+       * * if additional invocations result in further modifications to the object, webhooks are not guaranteed to be invoked again.
+       * * webhooks that use this option may be reordered to minimize the number of additional invocations.
+       * * to validate an object after all mutations are guaranteed complete, use a validating admission webhook instead.
+       * Defaults to "Never".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string reinvocationPolicy = 10;</code>
+       */
+      public Builder setReinvocationPolicyBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000400;
+        reinvocationPolicy_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.admissionregistration.v1beta1.MutatingWebhook)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.admissionregistration.v1beta1.MutatingWebhook)
+    private static final io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE =
+          new io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<MutatingWebhook> PARSER =
+        new com.google.protobuf.AbstractParser<MutatingWebhook>() {
+          @java.lang.Override
+          public MutatingWebhook parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new MutatingWebhook(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<MutatingWebhook> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MutatingWebhook> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   public interface MutatingWebhookConfigurationOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.admissionregistration.v1beta1.MutatingWebhookConfiguration)
@@ -30,7 +5170,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -41,7 +5181,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -52,7 +5192,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -70,9 +5210,9 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
-    java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+    java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook>
         getWebhooksList();
     /**
      *
@@ -84,9 +5224,9 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
-    io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook getWebhooks(int index);
+    io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook getWebhooks(int index);
     /**
      *
      *
@@ -97,7 +5237,7 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
     int getWebhooksCount();
     /**
@@ -110,10 +5250,11 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
     java.util.List<
-            ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+            ? extends
+                io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder>
         getWebhooksOrBuilderList();
     /**
      *
@@ -125,16 +5266,17 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
-    io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder getWebhooksOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder
+        getWebhooksOrBuilder(int index);
   }
   /**
    *
    *
    * <pre>
    * MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
+   * Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 MutatingWebhookConfiguration instead.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.MutatingWebhookConfiguration}
@@ -200,12 +5342,14 @@ public final class V1beta1Admissionregistration {
                 if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                   webhooks_ =
                       new java.util.ArrayList<
-                          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>();
+                          io.kubernetes.client.proto.V1beta1Admissionregistration
+                              .MutatingWebhook>();
                   mutable_bitField0_ |= 0x00000002;
                 }
                 webhooks_.add(
                     input.readMessage(
-                        io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.PARSER,
+                        io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
+                            .PARSER,
                         extensionRegistry));
                 break;
               }
@@ -255,7 +5399,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -268,7 +5412,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -283,7 +5427,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -296,7 +5440,7 @@ public final class V1beta1Admissionregistration {
     }
 
     public static final int WEBHOOKS_FIELD_NUMBER = 2;
-    private java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+    private java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook>
         webhooks_;
     /**
      *
@@ -308,9 +5452,9 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
-    public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+    public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook>
         getWebhooksList() {
       return webhooks_;
     }
@@ -324,10 +5468,11 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
     public java.util.List<
-            ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+            ? extends
+                io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder>
         getWebhooksOrBuilderList() {
       return webhooks_;
     }
@@ -341,7 +5486,7 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
     public int getWebhooksCount() {
       return webhooks_.size();
@@ -356,9 +5501,10 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook getWebhooks(int index) {
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook getWebhooks(
+        int index) {
       return webhooks_.get(index);
     }
     /**
@@ -371,9 +5517,9 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;</code>
      */
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder
         getWebhooksOrBuilder(int index) {
       return webhooks_.get(index);
     }
@@ -583,6 +5729,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * MutatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and may change the object.
+     * Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 MutatingWebhookConfiguration instead.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.MutatingWebhookConfiguration}
@@ -830,7 +5977,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -843,7 +5990,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -862,7 +6009,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -885,7 +6032,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -906,7 +6053,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -935,7 +6082,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -955,7 +6102,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -970,7 +6117,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -989,7 +6136,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -1012,22 +6159,24 @@ public final class V1beta1Admissionregistration {
         return metadataBuilder_;
       }
 
-      private java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+      private java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook>
           webhooks_ = java.util.Collections.emptyList();
 
       private void ensureWebhooksIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           webhooks_ =
               new java.util.ArrayList<
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>(webhooks_);
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook>(
+                  webhooks_);
           bitField0_ |= 0x00000002;
         }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder>
           webhooksBuilder_;
 
       /**
@@ -1040,9 +6189,10 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+      public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook>
           getWebhooksList() {
         if (webhooksBuilder_ == null) {
           return java.util.Collections.unmodifiableList(webhooks_);
@@ -1060,7 +6210,8 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public int getWebhooksCount() {
         if (webhooksBuilder_ == null) {
@@ -1079,9 +6230,10 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook getWebhooks(
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook getWebhooks(
           int index) {
         if (webhooksBuilder_ == null) {
           return webhooks_.get(index);
@@ -1099,10 +6251,12 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder setWebhooks(
-          int index, io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook value) {
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook value) {
         if (webhooksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1125,11 +6279,13 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder setWebhooks(
           int index,
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder builderForValue) {
+          io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder
+              builderForValue) {
         if (webhooksBuilder_ == null) {
           ensureWebhooksIsMutable();
           webhooks_.set(index, builderForValue.build());
@@ -1149,10 +6305,11 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addWebhooks(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook value) {
+          io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook value) {
         if (webhooksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1175,10 +6332,12 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addWebhooks(
-          int index, io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook value) {
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook value) {
         if (webhooksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1201,10 +6360,12 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addWebhooks(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder builderForValue) {
+          io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder
+              builderForValue) {
         if (webhooksBuilder_ == null) {
           ensureWebhooksIsMutable();
           webhooks_.add(builderForValue.build());
@@ -1224,11 +6385,13 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addWebhooks(
           int index,
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder builderForValue) {
+          io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder
+              builderForValue) {
         if (webhooksBuilder_ == null) {
           ensureWebhooksIsMutable();
           webhooks_.add(index, builderForValue.build());
@@ -1248,11 +6411,12 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addAllWebhooks(
           java.lang.Iterable<
-                  ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+                  ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook>
               values) {
         if (webhooksBuilder_ == null) {
           ensureWebhooksIsMutable();
@@ -1273,7 +6437,8 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder clearWebhooks() {
         if (webhooksBuilder_ == null) {
@@ -1295,7 +6460,8 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder removeWebhooks(int index) {
         if (webhooksBuilder_ == null) {
@@ -1317,9 +6483,10 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder
           getWebhooksBuilder(int index) {
         return getWebhooksFieldBuilder().getBuilder(index);
       }
@@ -1333,9 +6500,10 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder
           getWebhooksOrBuilder(int index) {
         if (webhooksBuilder_ == null) {
           return webhooks_.get(index);
@@ -1353,10 +6521,12 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
       public java.util.List<
-              ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+              ? extends
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder>
           getWebhooksOrBuilderList() {
         if (webhooksBuilder_ != null) {
           return webhooksBuilder_.getMessageOrBuilderList();
@@ -1374,13 +6544,14 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder
           addWebhooksBuilder() {
         return getWebhooksFieldBuilder()
             .addBuilder(
-                io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
+                io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
                     .getDefaultInstance());
       }
       /**
@@ -1393,14 +6564,15 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder
           addWebhooksBuilder(int index) {
         return getWebhooksFieldBuilder()
             .addBuilder(
                 index,
-                io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
+                io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook
                     .getDefaultInstance());
       }
       /**
@@ -1413,24 +6585,26 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.MutatingWebhook Webhooks = 2;
+       * </code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder>
+      public java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder>
           getWebhooksBuilderList() {
         return getWebhooksFieldBuilder().getBuilderList();
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder>
           getWebhooksFieldBuilder() {
         if (webhooksBuilder_ == null) {
           webhooksBuilder_ =
               new com.google.protobuf.RepeatedFieldBuilderV3<
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook,
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder,
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>(
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhook.Builder,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.MutatingWebhookOrBuilder>(
                   webhooks_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -1510,7 +6684,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -1522,7 +6696,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -1534,7 +6708,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -1739,7 +6913,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -1753,7 +6927,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -1769,7 +6943,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -2328,7 +7502,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -2342,7 +7516,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -2362,7 +7536,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -2386,7 +7560,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -2407,7 +7581,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -2437,7 +7611,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -2458,7 +7632,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -2474,7 +7648,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -2494,7 +7668,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -3205,6 +8379,61 @@ public final class V1beta1Admissionregistration {
      * <code>repeated string resources = 3;</code>
      */
     com.google.protobuf.ByteString getResourcesBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * scope specifies the scope of this rule.
+     * Valid values are "Cluster", "Namespaced", and "*"
+     * "Cluster" means that only cluster-scoped resources will match this rule.
+     * Namespace API objects are cluster-scoped.
+     * "Namespaced" means that only namespaced resources will match this rule.
+     * "*" means that there are no scope restrictions.
+     * Subresources match the scope of their parent resource.
+     * Default is "*".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string scope = 4;</code>
+     */
+    boolean hasScope();
+    /**
+     *
+     *
+     * <pre>
+     * scope specifies the scope of this rule.
+     * Valid values are "Cluster", "Namespaced", and "*"
+     * "Cluster" means that only cluster-scoped resources will match this rule.
+     * Namespace API objects are cluster-scoped.
+     * "Namespaced" means that only namespaced resources will match this rule.
+     * "*" means that there are no scope restrictions.
+     * Subresources match the scope of their parent resource.
+     * Default is "*".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string scope = 4;</code>
+     */
+    java.lang.String getScope();
+    /**
+     *
+     *
+     * <pre>
+     * scope specifies the scope of this rule.
+     * Valid values are "Cluster", "Namespaced", and "*"
+     * "Cluster" means that only cluster-scoped resources will match this rule.
+     * Namespace API objects are cluster-scoped.
+     * "Namespaced" means that only namespaced resources will match this rule.
+     * "*" means that there are no scope restrictions.
+     * Subresources match the scope of their parent resource.
+     * Default is "*".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string scope = 4;</code>
+     */
+    com.google.protobuf.ByteString getScopeBytes();
   }
   /**
    *
@@ -3230,6 +8459,7 @@ public final class V1beta1Admissionregistration {
       apiGroups_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       apiVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       resources_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      scope_ = "";
     }
 
     @java.lang.Override
@@ -3286,6 +8516,13 @@ public final class V1beta1Admissionregistration {
                 resources_.add(bs);
                 break;
               }
+            case 34:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                scope_ = bs;
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -3329,6 +8566,7 @@ public final class V1beta1Admissionregistration {
               io.kubernetes.client.proto.V1beta1Admissionregistration.Rule.Builder.class);
     }
 
+    private int bitField0_;
     public static final int APIGROUPS_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList apiGroups_;
     /**
@@ -3542,6 +8780,87 @@ public final class V1beta1Admissionregistration {
       return resources_.getByteString(index);
     }
 
+    public static final int SCOPE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object scope_;
+    /**
+     *
+     *
+     * <pre>
+     * scope specifies the scope of this rule.
+     * Valid values are "Cluster", "Namespaced", and "*"
+     * "Cluster" means that only cluster-scoped resources will match this rule.
+     * Namespace API objects are cluster-scoped.
+     * "Namespaced" means that only namespaced resources will match this rule.
+     * "*" means that there are no scope restrictions.
+     * Subresources match the scope of their parent resource.
+     * Default is "*".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string scope = 4;</code>
+     */
+    public boolean hasScope() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * scope specifies the scope of this rule.
+     * Valid values are "Cluster", "Namespaced", and "*"
+     * "Cluster" means that only cluster-scoped resources will match this rule.
+     * Namespace API objects are cluster-scoped.
+     * "Namespaced" means that only namespaced resources will match this rule.
+     * "*" means that there are no scope restrictions.
+     * Subresources match the scope of their parent resource.
+     * Default is "*".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string scope = 4;</code>
+     */
+    public java.lang.String getScope() {
+      java.lang.Object ref = scope_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          scope_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * scope specifies the scope of this rule.
+     * Valid values are "Cluster", "Namespaced", and "*"
+     * "Cluster" means that only cluster-scoped resources will match this rule.
+     * Namespace API objects are cluster-scoped.
+     * "Namespaced" means that only namespaced resources will match this rule.
+     * "*" means that there are no scope restrictions.
+     * Subresources match the scope of their parent resource.
+     * Default is "*".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string scope = 4;</code>
+     */
+    public com.google.protobuf.ByteString getScopeBytes() {
+      java.lang.Object ref = scope_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        scope_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -3564,6 +8883,9 @@ public final class V1beta1Admissionregistration {
       }
       for (int i = 0; i < resources_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, resources_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, scope_);
       }
       unknownFields.writeTo(output);
     }
@@ -3598,6 +8920,9 @@ public final class V1beta1Admissionregistration {
         size += dataSize;
         size += 1 * getResourcesList().size();
       }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, scope_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3618,6 +8943,10 @@ public final class V1beta1Admissionregistration {
       result = result && getApiGroupsList().equals(other.getApiGroupsList());
       result = result && getApiVersionsList().equals(other.getApiVersionsList());
       result = result && getResourcesList().equals(other.getResourcesList());
+      result = result && (hasScope() == other.hasScope());
+      if (hasScope()) {
+        result = result && getScope().equals(other.getScope());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3640,6 +8969,10 @@ public final class V1beta1Admissionregistration {
       if (getResourcesCount() > 0) {
         hash = (37 * hash) + RESOURCES_FIELD_NUMBER;
         hash = (53 * hash) + getResourcesList().hashCode();
+      }
+      if (hasScope()) {
+        hash = (37 * hash) + SCOPE_FIELD_NUMBER;
+        hash = (53 * hash) + getScope().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3773,8 +9106,7 @@ public final class V1beta1Admissionregistration {
                 io.kubernetes.client.proto.V1beta1Admissionregistration.Rule.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Admissionregistration.Rule.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Admissionregistration.Rule.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3797,6 +9129,8 @@ public final class V1beta1Admissionregistration {
         bitField0_ = (bitField0_ & ~0x00000002);
         resources_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        scope_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -3826,6 +9160,7 @@ public final class V1beta1Admissionregistration {
         io.kubernetes.client.proto.V1beta1Admissionregistration.Rule result =
             new io.kubernetes.client.proto.V1beta1Admissionregistration.Rule(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           apiGroups_ = apiGroups_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -3841,6 +9176,11 @@ public final class V1beta1Admissionregistration {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.resources_ = resources_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.scope_ = scope_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3922,6 +9262,11 @@ public final class V1beta1Admissionregistration {
             ensureResourcesIsMutable();
             resources_.addAll(other.resources_);
           }
+          onChanged();
+        }
+        if (other.hasScope()) {
+          bitField0_ |= 0x00000008;
+          scope_ = other.scope_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -4518,6 +9863,161 @@ public final class V1beta1Admissionregistration {
         return this;
       }
 
+      private java.lang.Object scope_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * scope specifies the scope of this rule.
+       * Valid values are "Cluster", "Namespaced", and "*"
+       * "Cluster" means that only cluster-scoped resources will match this rule.
+       * Namespace API objects are cluster-scoped.
+       * "Namespaced" means that only namespaced resources will match this rule.
+       * "*" means that there are no scope restrictions.
+       * Subresources match the scope of their parent resource.
+       * Default is "*".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string scope = 4;</code>
+       */
+      public boolean hasScope() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scope specifies the scope of this rule.
+       * Valid values are "Cluster", "Namespaced", and "*"
+       * "Cluster" means that only cluster-scoped resources will match this rule.
+       * Namespace API objects are cluster-scoped.
+       * "Namespaced" means that only namespaced resources will match this rule.
+       * "*" means that there are no scope restrictions.
+       * Subresources match the scope of their parent resource.
+       * Default is "*".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string scope = 4;</code>
+       */
+      public java.lang.String getScope() {
+        java.lang.Object ref = scope_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            scope_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scope specifies the scope of this rule.
+       * Valid values are "Cluster", "Namespaced", and "*"
+       * "Cluster" means that only cluster-scoped resources will match this rule.
+       * Namespace API objects are cluster-scoped.
+       * "Namespaced" means that only namespaced resources will match this rule.
+       * "*" means that there are no scope restrictions.
+       * Subresources match the scope of their parent resource.
+       * Default is "*".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string scope = 4;</code>
+       */
+      public com.google.protobuf.ByteString getScopeBytes() {
+        java.lang.Object ref = scope_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          scope_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scope specifies the scope of this rule.
+       * Valid values are "Cluster", "Namespaced", and "*"
+       * "Cluster" means that only cluster-scoped resources will match this rule.
+       * Namespace API objects are cluster-scoped.
+       * "Namespaced" means that only namespaced resources will match this rule.
+       * "*" means that there are no scope restrictions.
+       * Subresources match the scope of their parent resource.
+       * Default is "*".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string scope = 4;</code>
+       */
+      public Builder setScope(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        scope_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scope specifies the scope of this rule.
+       * Valid values are "Cluster", "Namespaced", and "*"
+       * "Cluster" means that only cluster-scoped resources will match this rule.
+       * Namespace API objects are cluster-scoped.
+       * "Namespaced" means that only namespaced resources will match this rule.
+       * "*" means that there are no scope restrictions.
+       * Subresources match the scope of their parent resource.
+       * Default is "*".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string scope = 4;</code>
+       */
+      public Builder clearScope() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        scope_ = getDefaultInstance().getScope();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scope specifies the scope of this rule.
+       * Valid values are "Cluster", "Namespaced", and "*"
+       * "Cluster" means that only cluster-scoped resources will match this rule.
+       * Namespace API objects are cluster-scoped.
+       * "Namespaced" means that only namespaced resources will match this rule.
+       * "*" means that there are no scope restrictions.
+       * Subresources match the scope of their parent resource.
+       * Default is "*".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string scope = 4;</code>
+       */
+      public Builder setScopeBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        scope_ = value;
+        onChanged();
+        return this;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4583,8 +10083,8 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-     * for all operations.
+     * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+     * for all of those operations and any future admission operations that are added.
      * If '*' is present, the length of the slice must be one.
      * Required.
      * </pre>
@@ -4596,8 +10096,8 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-     * for all operations.
+     * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+     * for all of those operations and any future admission operations that are added.
      * If '*' is present, the length of the slice must be one.
      * Required.
      * </pre>
@@ -4609,8 +10109,8 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-     * for all operations.
+     * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+     * for all of those operations and any future admission operations that are added.
      * If '*' is present, the length of the slice must be one.
      * Required.
      * </pre>
@@ -4622,8 +10122,8 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-     * for all operations.
+     * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+     * for all of those operations and any future admission operations that are added.
      * If '*' is present, the length of the slice must be one.
      * Required.
      * </pre>
@@ -4787,8 +10287,8 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-     * for all operations.
+     * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+     * for all of those operations and any future admission operations that are added.
      * If '*' is present, the length of the slice must be one.
      * Required.
      * </pre>
@@ -4802,8 +10302,8 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-     * for all operations.
+     * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+     * for all of those operations and any future admission operations that are added.
      * If '*' is present, the length of the slice must be one.
      * Required.
      * </pre>
@@ -4817,8 +10317,8 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-     * for all operations.
+     * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+     * for all of those operations and any future admission operations that are added.
      * If '*' is present, the length of the slice must be one.
      * Required.
      * </pre>
@@ -4832,8 +10332,8 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-     * for all operations.
+     * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+     * for all of those operations and any future admission operations that are added.
      * If '*' is present, the length of the slice must be one.
      * Required.
      * </pre>
@@ -5303,8 +10803,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5318,8 +10818,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5333,8 +10833,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5348,8 +10848,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5363,8 +10863,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5384,8 +10884,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5405,8 +10905,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5423,8 +10923,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5441,8 +10941,8 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Operations is the operations the admission hook cares about - CREATE, UPDATE, or *
-       * for all operations.
+       * Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or *
+       * for all of those operations and any future admission operations that are added.
        * If '*' is present, the length of the slice must be one.
        * Required.
        * </pre>
@@ -5820,6 +11320,33 @@ public final class V1beta1Admissionregistration {
      * <code>optional string path = 3;</code>
      */
     com.google.protobuf.ByteString getPathBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * If specified, the port on the service that hosting webhook.
+     * Default to 443 for backward compatibility.
+     * `port` should be a valid port number (1-65535, inclusive).
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 port = 4;</code>
+     */
+    boolean hasPort();
+    /**
+     *
+     *
+     * <pre>
+     * If specified, the port on the service that hosting webhook.
+     * Default to 443 for backward compatibility.
+     * `port` should be a valid port number (1-65535, inclusive).
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 port = 4;</code>
+     */
+    int getPort();
   }
   /**
    *
@@ -5844,6 +11371,7 @@ public final class V1beta1Admissionregistration {
       namespace_ = "";
       name_ = "";
       path_ = "";
+      port_ = 0;
     }
 
     @java.lang.Override
@@ -5889,6 +11417,12 @@ public final class V1beta1Admissionregistration {
                 com.google.protobuf.ByteString bs = input.readBytes();
                 bitField0_ |= 0x00000004;
                 path_ = bs;
+                break;
+              }
+            case 32:
+              {
+                bitField0_ |= 0x00000008;
+                port_ = input.readInt32();
                 break;
               }
             default:
@@ -6110,6 +11644,39 @@ public final class V1beta1Admissionregistration {
       }
     }
 
+    public static final int PORT_FIELD_NUMBER = 4;
+    private int port_;
+    /**
+     *
+     *
+     * <pre>
+     * If specified, the port on the service that hosting webhook.
+     * Default to 443 for backward compatibility.
+     * `port` should be a valid port number (1-65535, inclusive).
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 port = 4;</code>
+     */
+    public boolean hasPort() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * If specified, the port on the service that hosting webhook.
+     * Default to 443 for backward compatibility.
+     * `port` should be a valid port number (1-65535, inclusive).
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 port = 4;</code>
+     */
+    public int getPort() {
+      return port_;
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -6133,6 +11700,9 @@ public final class V1beta1Admissionregistration {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, path_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, port_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6150,6 +11720,9 @@ public final class V1beta1Admissionregistration {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, path_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(4, port_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6181,6 +11754,10 @@ public final class V1beta1Admissionregistration {
       if (hasPath()) {
         result = result && getPath().equals(other.getPath());
       }
+      result = result && (hasPort() == other.hasPort());
+      if (hasPort()) {
+        result = result && (getPort() == other.getPort());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6203,6 +11780,10 @@ public final class V1beta1Admissionregistration {
       if (hasPath()) {
         hash = (37 * hash) + PATH_FIELD_NUMBER;
         hash = (53 * hash) + getPath().hashCode();
+      }
+      if (hasPort()) {
+        hash = (37 * hash) + PORT_FIELD_NUMBER;
+        hash = (53 * hash) + getPort();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6366,6 +11947,8 @@ public final class V1beta1Admissionregistration {
         bitField0_ = (bitField0_ & ~0x00000002);
         path_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        port_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -6411,6 +11994,10 @@ public final class V1beta1Admissionregistration {
           to_bitField0_ |= 0x00000004;
         }
         result.path_ = path_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.port_ = port_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6482,6 +12069,9 @@ public final class V1beta1Admissionregistration {
           bitField0_ |= 0x00000004;
           path_ = other.path_;
           onChanged();
+        }
+        if (other.hasPort()) {
+          setPort(other.getPort());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6862,6 +12452,74 @@ public final class V1beta1Admissionregistration {
         return this;
       }
 
+      private int port_;
+      /**
+       *
+       *
+       * <pre>
+       * If specified, the port on the service that hosting webhook.
+       * Default to 443 for backward compatibility.
+       * `port` should be a valid port number (1-65535, inclusive).
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 port = 4;</code>
+       */
+      public boolean hasPort() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If specified, the port on the service that hosting webhook.
+       * Default to 443 for backward compatibility.
+       * `port` should be a valid port number (1-65535, inclusive).
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 port = 4;</code>
+       */
+      public int getPort() {
+        return port_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If specified, the port on the service that hosting webhook.
+       * Default to 443 for backward compatibility.
+       * `port` should be a valid port number (1-65535, inclusive).
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 port = 4;</code>
+       */
+      public Builder setPort(int value) {
+        bitField0_ |= 0x00000008;
+        port_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If specified, the port on the service that hosting webhook.
+       * Default to 443 for backward compatibility.
+       * `port` should be a valid port number (1-65535, inclusive).
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 port = 4;</code>
+       */
+      public Builder clearPort() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        port_ = 0;
+        onChanged();
+        return this;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6919,6 +12577,4779 @@ public final class V1beta1Admissionregistration {
     }
   }
 
+  public interface ValidatingWebhookOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString getNameBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    boolean hasClientConfig();
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig getClientConfig();
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
+        getClientConfigOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+        getRulesList();
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(int index);
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    int getRulesCount();
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    java.util.List<
+            ? extends
+                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
+        getRulesOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
+        getRulesOrBuilder(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    boolean hasFailurePolicy();
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    java.lang.String getFailurePolicy();
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    com.google.protobuf.ByteString getFailurePolicyBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    boolean hasMatchPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    java.lang.String getMatchPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    com.google.protobuf.ByteString getMatchPolicyBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    boolean hasNamespaceSelector();
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector();
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getNamespaceSelectorOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+     * </code>
+     */
+    boolean hasObjectSelector();
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelector getObjectSelector();
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getObjectSelectorOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    boolean hasSideEffects();
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    java.lang.String getSideEffects();
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    com.google.protobuf.ByteString getSideEffectsBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+     * the webhook call will be ignored or the API call will fail based on the
+     * failure policy.
+     * The timeout value must be between 1 and 30 seconds.
+     * Default to 30 seconds.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 timeoutSeconds = 7;</code>
+     */
+    boolean hasTimeoutSeconds();
+    /**
+     *
+     *
+     * <pre>
+     * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+     * the webhook call will be ignored or the API call will fail based on the
+     * failure policy.
+     * The timeout value must be between 1 and 30 seconds.
+     * Default to 30 seconds.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 timeoutSeconds = 7;</code>
+     */
+    int getTimeoutSeconds();
+
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    java.util.List<java.lang.String> getAdmissionReviewVersionsList();
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    int getAdmissionReviewVersionsCount();
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    java.lang.String getAdmissionReviewVersions(int index);
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    com.google.protobuf.ByteString getAdmissionReviewVersionsBytes(int index);
+  }
+  /**
+   *
+   *
+   * <pre>
+   * ValidatingWebhook describes an admission webhook and the resources and operations it applies to.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook}
+   */
+  public static final class ValidatingWebhook extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook)
+      ValidatingWebhookOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use ValidatingWebhook.newBuilder() to construct.
+    private ValidatingWebhook(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private ValidatingWebhook() {
+      name_ = "";
+      rules_ = java.util.Collections.emptyList();
+      failurePolicy_ = "";
+      matchPolicy_ = "";
+      sideEffects_ = "";
+      timeoutSeconds_ = 0;
+      admissionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private ValidatingWebhook(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                name_ = bs;
+                break;
+              }
+            case 18:
+              {
+                io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
+                    subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = clientConfig_.toBuilder();
+                }
+                clientConfig_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                            .PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(clientConfig_);
+                  clientConfig_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
+            case 26:
+              {
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  rules_ =
+                      new java.util.ArrayList<
+                          io.kubernetes.client.proto.V1beta1Admissionregistration
+                              .RuleWithOperations>();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                rules_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
+                            .PARSER,
+                        extensionRegistry));
+                break;
+              }
+            case 34:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000004;
+                failurePolicy_ = bs;
+                break;
+              }
+            case 42:
+              {
+                io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                  subBuilder = namespaceSelector_.toBuilder();
+                }
+                namespaceSelector_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(namespaceSelector_);
+                  namespaceSelector_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000010;
+                break;
+              }
+            case 50:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000040;
+                sideEffects_ = bs;
+                break;
+              }
+            case 56:
+              {
+                bitField0_ |= 0x00000080;
+                timeoutSeconds_ = input.readInt32();
+                break;
+              }
+            case 66:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+                  admissionReviewVersions_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000200;
+                }
+                admissionReviewVersions_.add(bs);
+                break;
+              }
+            case 74:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000008;
+                matchPolicy_ = bs;
+                break;
+              }
+            case 82:
+              {
+                io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                  subBuilder = objectSelector_.toBuilder();
+                }
+                objectSelector_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(objectSelector_);
+                  objectSelector_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000020;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          rules_ = java.util.Collections.unmodifiableList(rules_);
+        }
+        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+          admissionReviewVersions_ = admissionReviewVersions_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Admissionregistration
+          .internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Admissionregistration
+          .internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.class,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder
+                  .class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The name of the admission webhook.
+     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+     * of the organization.
+     * Required.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CLIENTCONFIG_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+        clientConfig_;
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    public boolean hasClientConfig() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+        getClientConfig() {
+      return clientConfig_ == null
+          ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+              .getDefaultInstance()
+          : clientConfig_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ClientConfig defines how to communicate with the hook.
+     * Required
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
+        getClientConfigOrBuilder() {
+      return clientConfig_ == null
+          ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+              .getDefaultInstance()
+          : clientConfig_;
+    }
+
+    public static final int RULES_FIELD_NUMBER = 3;
+    private java.util.List<
+            io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+        rules_;
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public java.util.List<
+            io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+        getRulesList() {
+      return rules_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public java.util.List<
+            ? extends
+                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
+        getRulesOrBuilderList() {
+      return rules_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public int getRulesCount() {
+      return rules_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(
+        int index) {
+      return rules_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Rules describes what operations on what resources/subresources the webhook cares about.
+     * The webhook cares about an operation if it matches _any_ Rule.
+     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+     * from putting the cluster in a state which cannot be recovered from without completely
+     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
+        getRulesOrBuilder(int index) {
+      return rules_.get(index);
+    }
+
+    public static final int FAILUREPOLICY_FIELD_NUMBER = 4;
+    private volatile java.lang.Object failurePolicy_;
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    public boolean hasFailurePolicy() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    public java.lang.String getFailurePolicy() {
+      java.lang.Object ref = failurePolicy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          failurePolicy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+     * allowed values are Ignore or Fail. Defaults to Ignore.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string failurePolicy = 4;</code>
+     */
+    public com.google.protobuf.ByteString getFailurePolicyBytes() {
+      java.lang.Object ref = failurePolicy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        failurePolicy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MATCHPOLICY_FIELD_NUMBER = 9;
+    private volatile java.lang.Object matchPolicy_;
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    public boolean hasMatchPolicy() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    public java.lang.String getMatchPolicy() {
+      java.lang.Object ref = matchPolicy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          matchPolicy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * matchPolicy defines how the "rules" list is used to match incoming requests.
+     * Allowed values are "Exact" or "Equivalent".
+     * - Exact: match a request only if it exactly matches a specified rule.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+     * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+     * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+     * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+     * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+     * Defaults to "Exact"
+     * +optional
+     * </pre>
+     *
+     * <code>optional string matchPolicy = 9;</code>
+     */
+    public com.google.protobuf.ByteString getMatchPolicyBytes() {
+      java.lang.Object ref = matchPolicy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        matchPolicy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAMESPACESELECTOR_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.Meta.LabelSelector namespaceSelector_;
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    public boolean hasNamespaceSelector() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector() {
+      return namespaceSelector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : namespaceSelector_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * NamespaceSelector decides whether to run the webhook on an object based
+     * on whether the namespace for that object matches the selector. If the
+     * object itself is a namespace, the matching is performed on
+     * object.metadata.labels. If the object is another cluster scoped resource,
+     * it never skips the webhook.
+     * For example, to run the webhook on any objects whose namespace is not
+     * associated with "runlevel" of "0" or "1";  you will set the selector as
+     * follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "runlevel",
+     *       "operator": "NotIn",
+     *       "values": [
+     *         "0",
+     *         "1"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * If instead you want to only run the webhook on any objects whose
+     * namespace is associated with the "environment" of "prod" or "staging";
+     * you will set the selector as follows:
+     * "namespaceSelector": {
+     *   "matchExpressions": [
+     *     {
+     *       "key": "environment",
+     *       "operator": "In",
+     *       "values": [
+     *         "prod",
+     *         "staging"
+     *       ]
+     *     }
+     *   ]
+     * }
+     * See
+     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     * for more examples of label selectors.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getNamespaceSelectorOrBuilder() {
+      return namespaceSelector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : namespaceSelector_;
+    }
+
+    public static final int OBJECTSELECTOR_FIELD_NUMBER = 10;
+    private io.kubernetes.client.proto.Meta.LabelSelector objectSelector_;
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+     * </code>
+     */
+    public boolean hasObjectSelector() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelector getObjectSelector() {
+      return objectSelector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : objectSelector_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ObjectSelector decides whether to run the webhook based on if the
+     * object has matching labels. objectSelector is evaluated against both
+     * the oldObject and newObject that would be sent to the webhook, and
+     * is considered to match if either object matches the selector. A null
+     * object (oldObject in the case of create, or newObject in the case of
+     * delete) or an object that cannot have labels (like a
+     * DeploymentRollback or a PodProxyOptions object) is not considered to
+     * match.
+     * Use the object selector only if the webhook is opt-in, because end
+     * users may skip the admission webhook by setting the labels.
+     * Default to the empty LabelSelector, which matches everything.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getObjectSelectorOrBuilder() {
+      return objectSelector_ == null
+          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+          : objectSelector_;
+    }
+
+    public static final int SIDEEFFECTS_FIELD_NUMBER = 6;
+    private volatile java.lang.Object sideEffects_;
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    public boolean hasSideEffects() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    public java.lang.String getSideEffects() {
+      java.lang.Object ref = sideEffects_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          sideEffects_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * SideEffects states whether this webhook has side effects.
+     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+     * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+     * sideEffects == Unknown or Some. Defaults to Unknown.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string sideEffects = 6;</code>
+     */
+    public com.google.protobuf.ByteString getSideEffectsBytes() {
+      java.lang.Object ref = sideEffects_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        sideEffects_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMEOUTSECONDS_FIELD_NUMBER = 7;
+    private int timeoutSeconds_;
+    /**
+     *
+     *
+     * <pre>
+     * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+     * the webhook call will be ignored or the API call will fail based on the
+     * failure policy.
+     * The timeout value must be between 1 and 30 seconds.
+     * Default to 30 seconds.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 timeoutSeconds = 7;</code>
+     */
+    public boolean hasTimeoutSeconds() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+     * the webhook call will be ignored or the API call will fail based on the
+     * failure policy.
+     * The timeout value must be between 1 and 30 seconds.
+     * Default to 30 seconds.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 timeoutSeconds = 7;</code>
+     */
+    public int getTimeoutSeconds() {
+      return timeoutSeconds_;
+    }
+
+    public static final int ADMISSIONREVIEWVERSIONS_FIELD_NUMBER = 8;
+    private com.google.protobuf.LazyStringList admissionReviewVersions_;
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getAdmissionReviewVersionsList() {
+      return admissionReviewVersions_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    public int getAdmissionReviewVersionsCount() {
+      return admissionReviewVersions_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    public java.lang.String getAdmissionReviewVersions(int index) {
+      return admissionReviewVersions_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+     * versions the Webhook expects. API server will try to use first version in
+     * the list which it supports. If none of the versions specified in this list
+     * supported by API server, validation will fail for this object.
+     * If a persisted webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail
+     * and be subject to the failure policy.
+     * Default to `['v1beta1']`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string admissionReviewVersions = 8;</code>
+     */
+    public com.google.protobuf.ByteString getAdmissionReviewVersionsBytes(int index) {
+      return admissionReviewVersions_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getClientConfig());
+      }
+      for (int i = 0; i < rules_.size(); i++) {
+        output.writeMessage(3, rules_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, failurePolicy_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getNamespaceSelector());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sideEffects_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(7, timeoutSeconds_);
+      }
+      for (int i = 0; i < admissionReviewVersions_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(
+            output, 8, admissionReviewVersions_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, matchPolicy_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(10, getObjectSelector());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getClientConfig());
+      }
+      for (int i = 0; i < rules_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, rules_.get(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, failurePolicy_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getNamespaceSelector());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sideEffects_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(7, timeoutSeconds_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < admissionReviewVersions_.size(); i++) {
+          dataSize += computeStringSizeNoTag(admissionReviewVersions_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAdmissionReviewVersionsList().size();
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, matchPolicy_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(10, getObjectSelector());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj
+          instanceof io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook other =
+          (io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName().equals(other.getName());
+      }
+      result = result && (hasClientConfig() == other.hasClientConfig());
+      if (hasClientConfig()) {
+        result = result && getClientConfig().equals(other.getClientConfig());
+      }
+      result = result && getRulesList().equals(other.getRulesList());
+      result = result && (hasFailurePolicy() == other.hasFailurePolicy());
+      if (hasFailurePolicy()) {
+        result = result && getFailurePolicy().equals(other.getFailurePolicy());
+      }
+      result = result && (hasMatchPolicy() == other.hasMatchPolicy());
+      if (hasMatchPolicy()) {
+        result = result && getMatchPolicy().equals(other.getMatchPolicy());
+      }
+      result = result && (hasNamespaceSelector() == other.hasNamespaceSelector());
+      if (hasNamespaceSelector()) {
+        result = result && getNamespaceSelector().equals(other.getNamespaceSelector());
+      }
+      result = result && (hasObjectSelector() == other.hasObjectSelector());
+      if (hasObjectSelector()) {
+        result = result && getObjectSelector().equals(other.getObjectSelector());
+      }
+      result = result && (hasSideEffects() == other.hasSideEffects());
+      if (hasSideEffects()) {
+        result = result && getSideEffects().equals(other.getSideEffects());
+      }
+      result = result && (hasTimeoutSeconds() == other.hasTimeoutSeconds());
+      if (hasTimeoutSeconds()) {
+        result = result && (getTimeoutSeconds() == other.getTimeoutSeconds());
+      }
+      result =
+          result && getAdmissionReviewVersionsList().equals(other.getAdmissionReviewVersionsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasClientConfig()) {
+        hash = (37 * hash) + CLIENTCONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getClientConfig().hashCode();
+      }
+      if (getRulesCount() > 0) {
+        hash = (37 * hash) + RULES_FIELD_NUMBER;
+        hash = (53 * hash) + getRulesList().hashCode();
+      }
+      if (hasFailurePolicy()) {
+        hash = (37 * hash) + FAILUREPOLICY_FIELD_NUMBER;
+        hash = (53 * hash) + getFailurePolicy().hashCode();
+      }
+      if (hasMatchPolicy()) {
+        hash = (37 * hash) + MATCHPOLICY_FIELD_NUMBER;
+        hash = (53 * hash) + getMatchPolicy().hashCode();
+      }
+      if (hasNamespaceSelector()) {
+        hash = (37 * hash) + NAMESPACESELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getNamespaceSelector().hashCode();
+      }
+      if (hasObjectSelector()) {
+        hash = (37 * hash) + OBJECTSELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getObjectSelector().hashCode();
+      }
+      if (hasSideEffects()) {
+        hash = (37 * hash) + SIDEEFFECTS_FIELD_NUMBER;
+        hash = (53 * hash) + getSideEffects().hashCode();
+      }
+      if (hasTimeoutSeconds()) {
+        hash = (37 * hash) + TIMEOUTSECONDS_FIELD_NUMBER;
+        hash = (53 * hash) + getTimeoutSeconds();
+      }
+      if (getAdmissionReviewVersionsCount() > 0) {
+        hash = (37 * hash) + ADMISSIONREVIEWVERSIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getAdmissionReviewVersionsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(
+            java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ValidatingWebhook describes an admission webhook and the resources and operations it applies to.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook)
+        io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhookOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Admissionregistration
+            .internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Admissionregistration
+            .internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.class,
+                io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder
+                    .class);
+      }
+
+      // Construct using
+      // io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getClientConfigFieldBuilder();
+          getRulesFieldBuilder();
+          getNamespaceSelectorFieldBuilder();
+          getObjectSelectorFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (clientConfigBuilder_ == null) {
+          clientConfig_ = null;
+        } else {
+          clientConfigBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (rulesBuilder_ == null) {
+          rules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          rulesBuilder_.clear();
+        }
+        failurePolicy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        matchPolicy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        if (namespaceSelectorBuilder_ == null) {
+          namespaceSelector_ = null;
+        } else {
+          namespaceSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        if (objectSelectorBuilder_ == null) {
+          objectSelector_ = null;
+        } else {
+          objectSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        sideEffects_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        timeoutSeconds_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        admissionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Admissionregistration
+            .internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook build() {
+        io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+          buildPartial() {
+        io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook result =
+            new io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (clientConfigBuilder_ == null) {
+          result.clientConfig_ = clientConfig_;
+        } else {
+          result.clientConfig_ = clientConfigBuilder_.build();
+        }
+        if (rulesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            rules_ = java.util.Collections.unmodifiableList(rules_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.rules_ = rules_;
+        } else {
+          result.rules_ = rulesBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.failurePolicy_ = failurePolicy_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.matchPolicy_ = matchPolicy_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (namespaceSelectorBuilder_ == null) {
+          result.namespaceSelector_ = namespaceSelector_;
+        } else {
+          result.namespaceSelector_ = namespaceSelectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        if (objectSelectorBuilder_ == null) {
+          result.objectSelector_ = objectSelector_;
+        } else {
+          result.objectSelector_ = objectSelectorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.sideEffects_ = sideEffects_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.timeoutSeconds_ = timeoutSeconds_;
+        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          admissionReviewVersions_ = admissionReviewVersions_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000200);
+        }
+        result.admissionReviewVersions_ = admissionReviewVersions_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other
+            instanceof io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook) {
+          return mergeFrom(
+              (io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook other) {
+        if (other
+            == io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+                .getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasClientConfig()) {
+          mergeClientConfig(other.getClientConfig());
+        }
+        if (rulesBuilder_ == null) {
+          if (!other.rules_.isEmpty()) {
+            if (rules_.isEmpty()) {
+              rules_ = other.rules_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureRulesIsMutable();
+              rules_.addAll(other.rules_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rules_.isEmpty()) {
+            if (rulesBuilder_.isEmpty()) {
+              rulesBuilder_.dispose();
+              rulesBuilder_ = null;
+              rules_ = other.rules_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              rulesBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getRulesFieldBuilder()
+                      : null;
+            } else {
+              rulesBuilder_.addAllMessages(other.rules_);
+            }
+          }
+        }
+        if (other.hasFailurePolicy()) {
+          bitField0_ |= 0x00000008;
+          failurePolicy_ = other.failurePolicy_;
+          onChanged();
+        }
+        if (other.hasMatchPolicy()) {
+          bitField0_ |= 0x00000010;
+          matchPolicy_ = other.matchPolicy_;
+          onChanged();
+        }
+        if (other.hasNamespaceSelector()) {
+          mergeNamespaceSelector(other.getNamespaceSelector());
+        }
+        if (other.hasObjectSelector()) {
+          mergeObjectSelector(other.getObjectSelector());
+        }
+        if (other.hasSideEffects()) {
+          bitField0_ |= 0x00000080;
+          sideEffects_ = other.sideEffects_;
+          onChanged();
+        }
+        if (other.hasTimeoutSeconds()) {
+          setTimeoutSeconds(other.getTimeoutSeconds());
+        }
+        if (!other.admissionReviewVersions_.isEmpty()) {
+          if (admissionReviewVersions_.isEmpty()) {
+            admissionReviewVersions_ = other.admissionReviewVersions_;
+            bitField0_ = (bitField0_ & ~0x00000200);
+          } else {
+            ensureAdmissionReviewVersionsIsMutable();
+            admissionReviewVersions_.addAll(other.admissionReviewVersions_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook parsedMessage =
+            null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The name of the admission webhook.
+       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
+       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
+       * of the organization.
+       * Required.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+          clientConfig_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder>
+          clientConfigBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public boolean hasClientConfig() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+          getClientConfig() {
+        if (clientConfigBuilder_ == null) {
+          return clientConfig_ == null
+              ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                  .getDefaultInstance()
+              : clientConfig_;
+        } else {
+          return clientConfigBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public Builder setClientConfig(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig value) {
+        if (clientConfigBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          clientConfig_ = value;
+          onChanged();
+        } else {
+          clientConfigBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public Builder setClientConfig(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
+              builderForValue) {
+        if (clientConfigBuilder_ == null) {
+          clientConfig_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientConfigBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public Builder mergeClientConfig(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig value) {
+        if (clientConfigBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && clientConfig_ != null
+              && clientConfig_
+                  != io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                      .getDefaultInstance()) {
+            clientConfig_ =
+                io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                    .newBuilder(clientConfig_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            clientConfig_ = value;
+          }
+          onChanged();
+        } else {
+          clientConfigBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public Builder clearClientConfig() {
+        if (clientConfigBuilder_ == null) {
+          clientConfig_ = null;
+          onChanged();
+        } else {
+          clientConfigBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
+          getClientConfigBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getClientConfigFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
+          getClientConfigOrBuilder() {
+        if (clientConfigBuilder_ != null) {
+          return clientConfigBuilder_.getMessageOrBuilder();
+        } else {
+          return clientConfig_ == null
+              ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                  .getDefaultInstance()
+              : clientConfig_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ClientConfig defines how to communicate with the hook.
+       * Required
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder>
+          getClientConfigFieldBuilder() {
+        if (clientConfigBuilder_ == null) {
+          clientConfigBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
+                      .Builder,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration
+                      .WebhookClientConfigOrBuilder>(
+                  getClientConfig(), getParentForChildren(), isClean());
+          clientConfig_ = null;
+        }
+        return clientConfigBuilder_;
+      }
+
+      private java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+          rules_ = java.util.Collections.emptyList();
+
+      private void ensureRulesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          rules_ =
+              new java.util.ArrayList<
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>(
+                  rules_);
+          bitField0_ |= 0x00000004;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
+          rulesBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+          getRulesList() {
+        if (rulesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rules_);
+        } else {
+          return rulesBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public int getRulesCount() {
+        if (rulesBuilder_ == null) {
+          return rules_.size();
+        } else {
+          return rulesBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(
+          int index) {
+        if (rulesBuilder_ == null) {
+          return rules_.get(index);
+        } else {
+          return rulesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder setRules(
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.set(index, value);
+          onChanged();
+        } else {
+          rulesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder setRules(
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+              builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addRules(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.add(value);
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addRules(
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
+        if (rulesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRulesIsMutable();
+          rules_.add(index, value);
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addRules(
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+              builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addRules(
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+              builderForValue) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rulesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder addAllRules(
+          java.lang.Iterable<
+                  ? extends
+                      io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
+              values) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, rules_);
+          onChanged();
+        } else {
+          rulesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder clearRules() {
+        if (rulesBuilder_ == null) {
+          rules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          rulesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public Builder removeRules(int index) {
+        if (rulesBuilder_ == null) {
+          ensureRulesIsMutable();
+          rules_.remove(index);
+          onChanged();
+        } else {
+          rulesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+          getRulesBuilder(int index) {
+        return getRulesFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
+          getRulesOrBuilder(int index) {
+        if (rulesBuilder_ == null) {
+          return rules_.get(index);
+        } else {
+          return rulesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public java.util.List<
+              ? extends
+                  io.kubernetes.client.proto.V1beta1Admissionregistration
+                      .RuleWithOperationsOrBuilder>
+          getRulesOrBuilderList() {
+        if (rulesBuilder_ != null) {
+          return rulesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rules_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+          addRulesBuilder() {
+        return getRulesFieldBuilder()
+            .addBuilder(
+                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
+                    .getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
+          addRulesBuilder(int index) {
+        return getRulesFieldBuilder()
+            .addBuilder(
+                index,
+                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
+                    .getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Rules describes what operations on what resources/subresources the webhook cares about.
+       * The webhook cares about an operation if it matches _any_ Rule.
+       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
+       * from putting the cluster in a state which cannot be recovered from without completely
+       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
+       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
+       * </code>
+       */
+      public java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder>
+          getRulesBuilderList() {
+        return getRulesFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
+          getRulesFieldBuilder() {
+        if (rulesBuilder_ == null) {
+          rulesBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
+                      .Builder,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration
+                      .RuleWithOperationsOrBuilder>(
+                  rules_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          rules_ = null;
+        }
+        return rulesBuilder_;
+      }
+
+      private java.lang.Object failurePolicy_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public boolean hasFailurePolicy() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public java.lang.String getFailurePolicy() {
+        java.lang.Object ref = failurePolicy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            failurePolicy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public com.google.protobuf.ByteString getFailurePolicyBytes() {
+        java.lang.Object ref = failurePolicy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          failurePolicy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public Builder setFailurePolicy(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        failurePolicy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public Builder clearFailurePolicy() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        failurePolicy_ = getDefaultInstance().getFailurePolicy();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
+       * allowed values are Ignore or Fail. Defaults to Ignore.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string failurePolicy = 4;</code>
+       */
+      public Builder setFailurePolicyBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        failurePolicy_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object matchPolicy_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public boolean hasMatchPolicy() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public java.lang.String getMatchPolicy() {
+        java.lang.Object ref = matchPolicy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            matchPolicy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public com.google.protobuf.ByteString getMatchPolicyBytes() {
+        java.lang.Object ref = matchPolicy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          matchPolicy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public Builder setMatchPolicy(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        matchPolicy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public Builder clearMatchPolicy() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        matchPolicy_ = getDefaultInstance().getMatchPolicy();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * matchPolicy defines how the "rules" list is used to match incoming requests.
+       * Allowed values are "Exact" or "Equivalent".
+       * - Exact: match a request only if it exactly matches a specified rule.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * but "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the webhook.
+       * - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version.
+       * For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1,
+       * and "rules" only included `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]`,
+       * a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the webhook.
+       * Defaults to "Exact"
+       * +optional
+       * </pre>
+       *
+       * <code>optional string matchPolicy = 9;</code>
+       */
+      public Builder setMatchPolicyBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        matchPolicy_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector namespaceSelector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          namespaceSelectorBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public boolean hasNamespaceSelector() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector() {
+        if (namespaceSelectorBuilder_ == null) {
+          return namespaceSelector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : namespaceSelector_;
+        } else {
+          return namespaceSelectorBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public Builder setNamespaceSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (namespaceSelectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          namespaceSelector_ = value;
+          onChanged();
+        } else {
+          namespaceSelectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public Builder setNamespaceSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (namespaceSelectorBuilder_ == null) {
+          namespaceSelector_ = builderForValue.build();
+          onChanged();
+        } else {
+          namespaceSelectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public Builder mergeNamespaceSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (namespaceSelectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)
+              && namespaceSelector_ != null
+              && namespaceSelector_
+                  != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            namespaceSelector_ =
+                io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(namespaceSelector_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            namespaceSelector_ = value;
+          }
+          onChanged();
+        } else {
+          namespaceSelectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public Builder clearNamespaceSelector() {
+        if (namespaceSelectorBuilder_ == null) {
+          namespaceSelector_ = null;
+          onChanged();
+        } else {
+          namespaceSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getNamespaceSelectorBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getNamespaceSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder
+          getNamespaceSelectorOrBuilder() {
+        if (namespaceSelectorBuilder_ != null) {
+          return namespaceSelectorBuilder_.getMessageOrBuilder();
+        } else {
+          return namespaceSelector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : namespaceSelector_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * NamespaceSelector decides whether to run the webhook on an object based
+       * on whether the namespace for that object matches the selector. If the
+       * object itself is a namespace, the matching is performed on
+       * object.metadata.labels. If the object is another cluster scoped resource,
+       * it never skips the webhook.
+       * For example, to run the webhook on any objects whose namespace is not
+       * associated with "runlevel" of "0" or "1";  you will set the selector as
+       * follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "runlevel",
+       *       "operator": "NotIn",
+       *       "values": [
+       *         "0",
+       *         "1"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * If instead you want to only run the webhook on any objects whose
+       * namespace is associated with the "environment" of "prod" or "staging";
+       * you will set the selector as follows:
+       * "namespaceSelector": {
+       *   "matchExpressions": [
+       *     {
+       *       "key": "environment",
+       *       "operator": "In",
+       *       "values": [
+       *         "prod",
+       *         "staging"
+       *       ]
+       *     }
+       *   ]
+       * }
+       * See
+       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+       * for more examples of label selectors.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          getNamespaceSelectorFieldBuilder() {
+        if (namespaceSelectorBuilder_ == null) {
+          namespaceSelectorBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.LabelSelector,
+                  io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+                  io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getNamespaceSelector(), getParentForChildren(), isClean());
+          namespaceSelector_ = null;
+        }
+        return namespaceSelectorBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Meta.LabelSelector objectSelector_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          objectSelectorBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      public boolean hasObjectSelector() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector getObjectSelector() {
+        if (objectSelectorBuilder_ == null) {
+          return objectSelector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : objectSelector_;
+        } else {
+          return objectSelectorBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      public Builder setObjectSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (objectSelectorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          objectSelector_ = value;
+          onChanged();
+        } else {
+          objectSelectorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      public Builder setObjectSelector(
+          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
+        if (objectSelectorBuilder_ == null) {
+          objectSelector_ = builderForValue.build();
+          onChanged();
+        } else {
+          objectSelectorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      public Builder mergeObjectSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
+        if (objectSelectorBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)
+              && objectSelector_ != null
+              && objectSelector_
+                  != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
+            objectSelector_ =
+                io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(objectSelector_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            objectSelector_ = value;
+          }
+          onChanged();
+        } else {
+          objectSelectorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      public Builder clearObjectSelector() {
+        if (objectSelectorBuilder_ == null) {
+          objectSelector_ = null;
+          onChanged();
+        } else {
+          objectSelectorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getObjectSelectorBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getObjectSelectorFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getObjectSelectorOrBuilder() {
+        if (objectSelectorBuilder_ != null) {
+          return objectSelectorBuilder_.getMessageOrBuilder();
+        } else {
+          return objectSelector_ == null
+              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
+              : objectSelector_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ObjectSelector decides whether to run the webhook based on if the
+       * object has matching labels. objectSelector is evaluated against both
+       * the oldObject and newObject that would be sent to the webhook, and
+       * is considered to match if either object matches the selector. A null
+       * object (oldObject in the case of create, or newObject in the case of
+       * delete) or an object that cannot have labels (like a
+       * DeploymentRollback or a PodProxyOptions object) is not considered to
+       * match.
+       * Use the object selector only if the webhook is opt-in, because end
+       * users may skip the admission webhook by setting the labels.
+       * Default to the empty LabelSelector, which matches everything.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector objectSelector = 10;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.LabelSelector,
+              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
+          getObjectSelectorFieldBuilder() {
+        if (objectSelectorBuilder_ == null) {
+          objectSelectorBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.LabelSelector,
+                  io.kubernetes.client.proto.Meta.LabelSelector.Builder,
+                  io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
+                  getObjectSelector(), getParentForChildren(), isClean());
+          objectSelector_ = null;
+        }
+        return objectSelectorBuilder_;
+      }
+
+      private java.lang.Object sideEffects_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public boolean hasSideEffects() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public java.lang.String getSideEffects() {
+        java.lang.Object ref = sideEffects_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            sideEffects_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public com.google.protobuf.ByteString getSideEffectsBytes() {
+        java.lang.Object ref = sideEffects_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          sideEffects_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public Builder setSideEffects(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        sideEffects_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public Builder clearSideEffects() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        sideEffects_ = getDefaultInstance().getSideEffects();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * SideEffects states whether this webhook has side effects.
+       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
+       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
+       * rejected by a future step in the admission chain and the side effects therefore need to be undone.
+       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
+       * sideEffects == Unknown or Some. Defaults to Unknown.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string sideEffects = 6;</code>
+       */
+      public Builder setSideEffectsBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000080;
+        sideEffects_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int timeoutSeconds_;
+      /**
+       *
+       *
+       * <pre>
+       * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+       * the webhook call will be ignored or the API call will fail based on the
+       * failure policy.
+       * The timeout value must be between 1 and 30 seconds.
+       * Default to 30 seconds.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 timeoutSeconds = 7;</code>
+       */
+      public boolean hasTimeoutSeconds() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+       * the webhook call will be ignored or the API call will fail based on the
+       * failure policy.
+       * The timeout value must be between 1 and 30 seconds.
+       * Default to 30 seconds.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 timeoutSeconds = 7;</code>
+       */
+      public int getTimeoutSeconds() {
+        return timeoutSeconds_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+       * the webhook call will be ignored or the API call will fail based on the
+       * failure policy.
+       * The timeout value must be between 1 and 30 seconds.
+       * Default to 30 seconds.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 timeoutSeconds = 7;</code>
+       */
+      public Builder setTimeoutSeconds(int value) {
+        bitField0_ |= 0x00000100;
+        timeoutSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TimeoutSeconds specifies the timeout for this webhook. After the timeout passes,
+       * the webhook call will be ignored or the API call will fail based on the
+       * failure policy.
+       * The timeout value must be between 1 and 30 seconds.
+       * Default to 30 seconds.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 timeoutSeconds = 7;</code>
+       */
+      public Builder clearTimeoutSeconds() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        timeoutSeconds_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList admissionReviewVersions_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureAdmissionReviewVersionsIsMutable() {
+        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+          admissionReviewVersions_ =
+              new com.google.protobuf.LazyStringArrayList(admissionReviewVersions_);
+          bitField0_ |= 0x00000200;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getAdmissionReviewVersionsList() {
+        return admissionReviewVersions_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public int getAdmissionReviewVersionsCount() {
+        return admissionReviewVersions_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public java.lang.String getAdmissionReviewVersions(int index) {
+        return admissionReviewVersions_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public com.google.protobuf.ByteString getAdmissionReviewVersionsBytes(int index) {
+        return admissionReviewVersions_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder setAdmissionReviewVersions(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdmissionReviewVersionsIsMutable();
+        admissionReviewVersions_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder addAdmissionReviewVersions(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdmissionReviewVersionsIsMutable();
+        admissionReviewVersions_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder addAllAdmissionReviewVersions(java.lang.Iterable<java.lang.String> values) {
+        ensureAdmissionReviewVersionsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, admissionReviewVersions_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder clearAdmissionReviewVersions() {
+        admissionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AdmissionReviewVersions is an ordered list of preferred `AdmissionReview`
+       * versions the Webhook expects. API server will try to use first version in
+       * the list which it supports. If none of the versions specified in this list
+       * supported by API server, validation will fail for this object.
+       * If a persisted webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail
+       * and be subject to the failure policy.
+       * Default to `['v1beta1']`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string admissionReviewVersions = 8;</code>
+       */
+      public Builder addAdmissionReviewVersionsBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAdmissionReviewVersionsIsMutable();
+        admissionReviewVersions_.add(value);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook)
+    private static final io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE =
+          new io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<ValidatingWebhook> PARSER =
+        new com.google.protobuf.AbstractParser<ValidatingWebhook>() {
+          @java.lang.Override
+          public ValidatingWebhook parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new ValidatingWebhook(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<ValidatingWebhook> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ValidatingWebhook> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   public interface ValidatingWebhookConfigurationOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration)
@@ -6928,7 +17359,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -6939,7 +17370,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -6950,7 +17381,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -6968,9 +17399,10 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
-    java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+    java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook>
         getWebhooksList();
     /**
      *
@@ -6982,9 +17414,11 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
-    io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook getWebhooks(int index);
+    io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook getWebhooks(
+        int index);
     /**
      *
      *
@@ -6995,7 +17429,8 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
     int getWebhooksCount();
     /**
@@ -7008,10 +17443,12 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
     java.util.List<
-            ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+            ? extends
+                io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhookOrBuilder>
         getWebhooksOrBuilderList();
     /**
      *
@@ -7023,16 +17460,18 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
-    io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder getWebhooksOrBuilder(
-        int index);
+    io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhookOrBuilder
+        getWebhooksOrBuilder(int index);
   }
   /**
    *
    *
    * <pre>
    * ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
+   * Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 ValidatingWebhookConfiguration instead.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration}
@@ -7098,12 +17537,14 @@ public final class V1beta1Admissionregistration {
                 if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                   webhooks_ =
                       new java.util.ArrayList<
-                          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>();
+                          io.kubernetes.client.proto.V1beta1Admissionregistration
+                              .ValidatingWebhook>();
                   mutable_bitField0_ |= 0x00000002;
                 }
                 webhooks_.add(
                     input.readMessage(
-                        io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.PARSER,
+                        io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
+                            .PARSER,
                         extensionRegistry));
                 break;
               }
@@ -7153,7 +17594,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -7166,7 +17607,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -7181,7 +17622,7 @@ public final class V1beta1Admissionregistration {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -7194,7 +17635,8 @@ public final class V1beta1Admissionregistration {
     }
 
     public static final int WEBHOOKS_FIELD_NUMBER = 2;
-    private java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+    private java.util.List<
+            io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook>
         webhooks_;
     /**
      *
@@ -7206,9 +17648,10 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
-    public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+    public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook>
         getWebhooksList() {
       return webhooks_;
     }
@@ -7222,10 +17665,12 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
     public java.util.List<
-            ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+            ? extends
+                io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhookOrBuilder>
         getWebhooksOrBuilderList() {
       return webhooks_;
     }
@@ -7239,7 +17684,8 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
     public int getWebhooksCount() {
       return webhooks_.size();
@@ -7254,9 +17700,11 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook getWebhooks(int index) {
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook getWebhooks(
+        int index) {
       return webhooks_.get(index);
     }
     /**
@@ -7269,9 +17717,10 @@ public final class V1beta1Admissionregistration {
      * +patchStrategy=merge
      * </pre>
      *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+     * </code>
      */
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder
+    public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhookOrBuilder
         getWebhooksOrBuilder(int index) {
       return webhooks_.get(index);
     }
@@ -7481,6 +17930,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
+     * Deprecated in v1.16, planned for removal in v1.19. Use admissionregistration.k8s.io/v1 ValidatingWebhookConfiguration instead.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.ValidatingWebhookConfiguration}
@@ -7731,7 +18181,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7744,7 +18194,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7763,7 +18213,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7786,7 +18236,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7807,7 +18257,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7836,7 +18286,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7856,7 +18306,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7871,7 +18321,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7890,7 +18340,7 @@ public final class V1beta1Admissionregistration {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -7913,22 +18363,24 @@ public final class V1beta1Admissionregistration {
         return metadataBuilder_;
       }
 
-      private java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+      private java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook>
           webhooks_ = java.util.Collections.emptyList();
 
       private void ensureWebhooksIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           webhooks_ =
               new java.util.ArrayList<
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>(webhooks_);
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook>(
+                  webhooks_);
           bitField0_ |= 0x00000002;
         }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhookOrBuilder>
           webhooksBuilder_;
 
       /**
@@ -7941,9 +18393,11 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+      public java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook>
           getWebhooksList() {
         if (webhooksBuilder_ == null) {
           return java.util.Collections.unmodifiableList(webhooks_);
@@ -7961,7 +18415,8 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public int getWebhooksCount() {
         if (webhooksBuilder_ == null) {
@@ -7980,9 +18435,10 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook getWebhooks(
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook getWebhooks(
           int index) {
         if (webhooksBuilder_ == null) {
           return webhooks_.get(index);
@@ -8000,10 +18456,12 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder setWebhooks(
-          int index, io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook value) {
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook value) {
         if (webhooksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -8026,11 +18484,13 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder setWebhooks(
           int index,
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder builderForValue) {
+          io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder
+              builderForValue) {
         if (webhooksBuilder_ == null) {
           ensureWebhooksIsMutable();
           webhooks_.set(index, builderForValue.build());
@@ -8050,10 +18510,11 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addWebhooks(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook value) {
+          io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook value) {
         if (webhooksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -8076,10 +18537,12 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addWebhooks(
-          int index, io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook value) {
+          int index,
+          io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook value) {
         if (webhooksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -8102,10 +18565,12 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addWebhooks(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder builderForValue) {
+          io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder
+              builderForValue) {
         if (webhooksBuilder_ == null) {
           ensureWebhooksIsMutable();
           webhooks_.add(builderForValue.build());
@@ -8125,11 +18590,13 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addWebhooks(
           int index,
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder builderForValue) {
+          io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder
+              builderForValue) {
         if (webhooksBuilder_ == null) {
           ensureWebhooksIsMutable();
           webhooks_.add(index, builderForValue.build());
@@ -8149,11 +18616,13 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder addAllWebhooks(
           java.lang.Iterable<
-                  ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook>
+                  ? extends
+                      io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook>
               values) {
         if (webhooksBuilder_ == null) {
           ensureWebhooksIsMutable();
@@ -8174,7 +18643,8 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder clearWebhooks() {
         if (webhooksBuilder_ == null) {
@@ -8196,7 +18666,8 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public Builder removeWebhooks(int index) {
         if (webhooksBuilder_ == null) {
@@ -8218,9 +18689,10 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder
           getWebhooksBuilder(int index) {
         return getWebhooksFieldBuilder().getBuilder(index);
       }
@@ -8234,9 +18706,10 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhookOrBuilder
           getWebhooksOrBuilder(int index) {
         if (webhooksBuilder_ == null) {
           return webhooks_.get(index);
@@ -8254,10 +18727,13 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
       public java.util.List<
-              ? extends io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+              ? extends
+                  io.kubernetes.client.proto.V1beta1Admissionregistration
+                      .ValidatingWebhookOrBuilder>
           getWebhooksOrBuilderList() {
         if (webhooksBuilder_ != null) {
           return webhooksBuilder_.getMessageOrBuilderList();
@@ -8275,13 +18751,14 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder
           addWebhooksBuilder() {
         return getWebhooksFieldBuilder()
             .addBuilder(
-                io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
+                io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
                     .getDefaultInstance());
       }
       /**
@@ -8294,14 +18771,15 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder
+      public io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder
           addWebhooksBuilder(int index) {
         return getWebhooksFieldBuilder()
             .addBuilder(
                 index,
-                io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
+                io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook
                     .getDefaultInstance());
       }
       /**
@@ -8314,24 +18792,27 @@ public final class V1beta1Admissionregistration {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.Webhook Webhooks = 2;</code>
+       * <code>repeated .k8s.io.api.admissionregistration.v1beta1.ValidatingWebhook Webhooks = 2;
+       * </code>
        */
-      public java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder>
+      public java.util.List<
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder>
           getWebhooksBuilderList() {
         return getWebhooksFieldBuilder().getBuilderList();
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder,
+              io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhookOrBuilder>
           getWebhooksFieldBuilder() {
         if (webhooksBuilder_ == null) {
           webhooksBuilder_ =
               new com.google.protobuf.RepeatedFieldBuilderV3<
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook,
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder,
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder>(
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration.ValidatingWebhook.Builder,
+                  io.kubernetes.client.proto.V1beta1Admissionregistration
+                      .ValidatingWebhookOrBuilder>(
                   webhooks_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -8411,7 +18892,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -8423,7 +18904,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -8435,7 +18916,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -8641,7 +19122,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -8655,7 +19136,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -8671,7 +19152,7 @@ public final class V1beta1Admissionregistration {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -9230,7 +19711,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9244,7 +19725,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9264,7 +19745,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9288,7 +19769,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9309,7 +19790,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9339,7 +19820,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9360,7 +19841,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9376,7 +19857,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9396,7 +19877,7 @@ public final class V1beta1Admissionregistration {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -9925,3361 +20406,6 @@ public final class V1beta1Admissionregistration {
     }
   }
 
-  public interface WebhookOrBuilder
-      extends
-      // @@protoc_insertion_point(interface_extends:k8s.io.api.admissionregistration.v1beta1.Webhook)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     *
-     *
-     * <pre>
-     * The name of the admission webhook.
-     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-     * of the organization.
-     * Required.
-     * </pre>
-     *
-     * <code>optional string name = 1;</code>
-     */
-    boolean hasName();
-    /**
-     *
-     *
-     * <pre>
-     * The name of the admission webhook.
-     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-     * of the organization.
-     * Required.
-     * </pre>
-     *
-     * <code>optional string name = 1;</code>
-     */
-    java.lang.String getName();
-    /**
-     *
-     *
-     * <pre>
-     * The name of the admission webhook.
-     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-     * of the organization.
-     * Required.
-     * </pre>
-     *
-     * <code>optional string name = 1;</code>
-     */
-    com.google.protobuf.ByteString getNameBytes();
-
-    /**
-     *
-     *
-     * <pre>
-     * ClientConfig defines how to communicate with the hook.
-     * Required
-     * </pre>
-     *
-     * <code>
-     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-     * </code>
-     */
-    boolean hasClientConfig();
-    /**
-     *
-     *
-     * <pre>
-     * ClientConfig defines how to communicate with the hook.
-     * Required
-     * </pre>
-     *
-     * <code>
-     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-     * </code>
-     */
-    io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig getClientConfig();
-    /**
-     *
-     *
-     * <pre>
-     * ClientConfig defines how to communicate with the hook.
-     * Required
-     * </pre>
-     *
-     * <code>
-     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-     * </code>
-     */
-    io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
-        getClientConfigOrBuilder();
-
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    java.util.List<io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
-        getRulesList();
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(int index);
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    int getRulesCount();
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    java.util.List<
-            ? extends
-                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
-        getRulesOrBuilderList();
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
-        getRulesOrBuilder(int index);
-
-    /**
-     *
-     *
-     * <pre>
-     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-     * allowed values are Ignore or Fail. Defaults to Ignore.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string failurePolicy = 4;</code>
-     */
-    boolean hasFailurePolicy();
-    /**
-     *
-     *
-     * <pre>
-     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-     * allowed values are Ignore or Fail. Defaults to Ignore.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string failurePolicy = 4;</code>
-     */
-    java.lang.String getFailurePolicy();
-    /**
-     *
-     *
-     * <pre>
-     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-     * allowed values are Ignore or Fail. Defaults to Ignore.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string failurePolicy = 4;</code>
-     */
-    com.google.protobuf.ByteString getFailurePolicyBytes();
-
-    /**
-     *
-     *
-     * <pre>
-     * NamespaceSelector decides whether to run the webhook on an object based
-     * on whether the namespace for that object matches the selector. If the
-     * object itself is a namespace, the matching is performed on
-     * object.metadata.labels. If the object is another cluster scoped resource,
-     * it never skips the webhook.
-     * For example, to run the webhook on any objects whose namespace is not
-     * associated with "runlevel" of "0" or "1";  you will set the selector as
-     * follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "runlevel",
-     *       "operator": "NotIn",
-     *       "values": [
-     *         "0",
-     *         "1"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * If instead you want to only run the webhook on any objects whose
-     * namespace is associated with the "environment" of "prod" or "staging";
-     * you will set the selector as follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "environment",
-     *       "operator": "In",
-     *       "values": [
-     *         "prod",
-     *         "staging"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * See
-     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-     * for more examples of label selectors.
-     * Default to the empty LabelSelector, which matches everything.
-     * +optional
-     * </pre>
-     *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-     * </code>
-     */
-    boolean hasNamespaceSelector();
-    /**
-     *
-     *
-     * <pre>
-     * NamespaceSelector decides whether to run the webhook on an object based
-     * on whether the namespace for that object matches the selector. If the
-     * object itself is a namespace, the matching is performed on
-     * object.metadata.labels. If the object is another cluster scoped resource,
-     * it never skips the webhook.
-     * For example, to run the webhook on any objects whose namespace is not
-     * associated with "runlevel" of "0" or "1";  you will set the selector as
-     * follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "runlevel",
-     *       "operator": "NotIn",
-     *       "values": [
-     *         "0",
-     *         "1"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * If instead you want to only run the webhook on any objects whose
-     * namespace is associated with the "environment" of "prod" or "staging";
-     * you will set the selector as follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "environment",
-     *       "operator": "In",
-     *       "values": [
-     *         "prod",
-     *         "staging"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * See
-     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-     * for more examples of label selectors.
-     * Default to the empty LabelSelector, which matches everything.
-     * +optional
-     * </pre>
-     *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-     * </code>
-     */
-    io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector();
-    /**
-     *
-     *
-     * <pre>
-     * NamespaceSelector decides whether to run the webhook on an object based
-     * on whether the namespace for that object matches the selector. If the
-     * object itself is a namespace, the matching is performed on
-     * object.metadata.labels. If the object is another cluster scoped resource,
-     * it never skips the webhook.
-     * For example, to run the webhook on any objects whose namespace is not
-     * associated with "runlevel" of "0" or "1";  you will set the selector as
-     * follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "runlevel",
-     *       "operator": "NotIn",
-     *       "values": [
-     *         "0",
-     *         "1"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * If instead you want to only run the webhook on any objects whose
-     * namespace is associated with the "environment" of "prod" or "staging";
-     * you will set the selector as follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "environment",
-     *       "operator": "In",
-     *       "values": [
-     *         "prod",
-     *         "staging"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * See
-     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-     * for more examples of label selectors.
-     * Default to the empty LabelSelector, which matches everything.
-     * +optional
-     * </pre>
-     *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-     * </code>
-     */
-    io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getNamespaceSelectorOrBuilder();
-
-    /**
-     *
-     *
-     * <pre>
-     * SideEffects states whether this webhookk has side effects.
-     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-     * rejected by a future step in the admission change and the side effects therefore need to be undone.
-     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-     * sideEffects == Unknown or Some. Defaults to Unknown.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string sideEffects = 6;</code>
-     */
-    boolean hasSideEffects();
-    /**
-     *
-     *
-     * <pre>
-     * SideEffects states whether this webhookk has side effects.
-     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-     * rejected by a future step in the admission change and the side effects therefore need to be undone.
-     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-     * sideEffects == Unknown or Some. Defaults to Unknown.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string sideEffects = 6;</code>
-     */
-    java.lang.String getSideEffects();
-    /**
-     *
-     *
-     * <pre>
-     * SideEffects states whether this webhookk has side effects.
-     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-     * rejected by a future step in the admission change and the side effects therefore need to be undone.
-     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-     * sideEffects == Unknown or Some. Defaults to Unknown.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string sideEffects = 6;</code>
-     */
-    com.google.protobuf.ByteString getSideEffectsBytes();
-  }
-  /**
-   *
-   *
-   * <pre>
-   * Webhook describes an admission webhook and the resources and operations it applies to.
-   * </pre>
-   *
-   * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.Webhook}
-   */
-  public static final class Webhook extends com.google.protobuf.GeneratedMessageV3
-      implements
-      // @@protoc_insertion_point(message_implements:k8s.io.api.admissionregistration.v1beta1.Webhook)
-      WebhookOrBuilder {
-    private static final long serialVersionUID = 0L;
-    // Use Webhook.newBuilder() to construct.
-    private Webhook(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-
-    private Webhook() {
-      name_ = "";
-      rules_ = java.util.Collections.emptyList();
-      failurePolicy_ = "";
-      sideEffects_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
-      return this.unknownFields;
-    }
-
-    private Webhook(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10:
-              {
-                com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000001;
-                name_ = bs;
-                break;
-              }
-            case 18:
-              {
-                io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
-                    subBuilder = null;
-                if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                  subBuilder = clientConfig_.toBuilder();
-                }
-                clientConfig_ =
-                    input.readMessage(
-                        io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-                            .PARSER,
-                        extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(clientConfig_);
-                  clientConfig_ = subBuilder.buildPartial();
-                }
-                bitField0_ |= 0x00000002;
-                break;
-              }
-            case 26:
-              {
-                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                  rules_ =
-                      new java.util.ArrayList<
-                          io.kubernetes.client.proto.V1beta1Admissionregistration
-                              .RuleWithOperations>();
-                  mutable_bitField0_ |= 0x00000004;
-                }
-                rules_.add(
-                    input.readMessage(
-                        io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
-                            .PARSER,
-                        extensionRegistry));
-                break;
-              }
-            case 34:
-              {
-                com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000004;
-                failurePolicy_ = bs;
-                break;
-              }
-            case 42:
-              {
-                io.kubernetes.client.proto.Meta.LabelSelector.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                  subBuilder = namespaceSelector_.toBuilder();
-                }
-                namespaceSelector_ =
-                    input.readMessage(
-                        io.kubernetes.client.proto.Meta.LabelSelector.PARSER, extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(namespaceSelector_);
-                  namespaceSelector_ = subBuilder.buildPartial();
-                }
-                bitField0_ |= 0x00000008;
-                break;
-              }
-            case 50:
-              {
-                com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000010;
-                sideEffects_ = bs;
-                break;
-              }
-            default:
-              {
-                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          rules_ = java.util.Collections.unmodifiableList(rules_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-
-    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
-      return io.kubernetes.client.proto.V1beta1Admissionregistration
-          .internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1beta1Admissionregistration
-          .internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.class,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
-    /**
-     *
-     *
-     * <pre>
-     * The name of the admission webhook.
-     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-     * of the organization.
-     * Required.
-     * </pre>
-     *
-     * <code>optional string name = 1;</code>
-     */
-    public boolean hasName() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     *
-     *
-     * <pre>
-     * The name of the admission webhook.
-     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-     * of the organization.
-     * Required.
-     * </pre>
-     *
-     * <code>optional string name = 1;</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          name_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * The name of the admission webhook.
-     * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-     * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-     * of the organization.
-     * Required.
-     * </pre>
-     *
-     * <code>optional string name = 1;</code>
-     */
-    public com.google.protobuf.ByteString getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CLIENTCONFIG_FIELD_NUMBER = 2;
-    private io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-        clientConfig_;
-    /**
-     *
-     *
-     * <pre>
-     * ClientConfig defines how to communicate with the hook.
-     * Required
-     * </pre>
-     *
-     * <code>
-     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-     * </code>
-     */
-    public boolean hasClientConfig() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     *
-     *
-     * <pre>
-     * ClientConfig defines how to communicate with the hook.
-     * Required
-     * </pre>
-     *
-     * <code>
-     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-     * </code>
-     */
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-        getClientConfig() {
-      return clientConfig_ == null
-          ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-              .getDefaultInstance()
-          : clientConfig_;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * ClientConfig defines how to communicate with the hook.
-     * Required
-     * </pre>
-     *
-     * <code>
-     * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-     * </code>
-     */
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
-        getClientConfigOrBuilder() {
-      return clientConfig_ == null
-          ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-              .getDefaultInstance()
-          : clientConfig_;
-    }
-
-    public static final int RULES_FIELD_NUMBER = 3;
-    private java.util.List<
-            io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
-        rules_;
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    public java.util.List<
-            io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
-        getRulesList() {
-      return rules_;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    public java.util.List<
-            ? extends
-                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
-        getRulesOrBuilderList() {
-      return rules_;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    public int getRulesCount() {
-      return rules_.size();
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(
-        int index) {
-      return rules_.get(index);
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Rules describes what operations on what resources/subresources the webhook cares about.
-     * The webhook cares about an operation if it matches _any_ Rule.
-     * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-     * from putting the cluster in a state which cannot be recovered from without completely
-     * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-     * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-     * </pre>
-     *
-     * <code>repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-     * </code>
-     */
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
-        getRulesOrBuilder(int index) {
-      return rules_.get(index);
-    }
-
-    public static final int FAILUREPOLICY_FIELD_NUMBER = 4;
-    private volatile java.lang.Object failurePolicy_;
-    /**
-     *
-     *
-     * <pre>
-     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-     * allowed values are Ignore or Fail. Defaults to Ignore.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string failurePolicy = 4;</code>
-     */
-    public boolean hasFailurePolicy() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     *
-     *
-     * <pre>
-     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-     * allowed values are Ignore or Fail. Defaults to Ignore.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string failurePolicy = 4;</code>
-     */
-    public java.lang.String getFailurePolicy() {
-      java.lang.Object ref = failurePolicy_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          failurePolicy_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-     * allowed values are Ignore or Fail. Defaults to Ignore.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string failurePolicy = 4;</code>
-     */
-    public com.google.protobuf.ByteString getFailurePolicyBytes() {
-      java.lang.Object ref = failurePolicy_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        failurePolicy_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int NAMESPACESELECTOR_FIELD_NUMBER = 5;
-    private io.kubernetes.client.proto.Meta.LabelSelector namespaceSelector_;
-    /**
-     *
-     *
-     * <pre>
-     * NamespaceSelector decides whether to run the webhook on an object based
-     * on whether the namespace for that object matches the selector. If the
-     * object itself is a namespace, the matching is performed on
-     * object.metadata.labels. If the object is another cluster scoped resource,
-     * it never skips the webhook.
-     * For example, to run the webhook on any objects whose namespace is not
-     * associated with "runlevel" of "0" or "1";  you will set the selector as
-     * follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "runlevel",
-     *       "operator": "NotIn",
-     *       "values": [
-     *         "0",
-     *         "1"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * If instead you want to only run the webhook on any objects whose
-     * namespace is associated with the "environment" of "prod" or "staging";
-     * you will set the selector as follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "environment",
-     *       "operator": "In",
-     *       "values": [
-     *         "prod",
-     *         "staging"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * See
-     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-     * for more examples of label selectors.
-     * Default to the empty LabelSelector, which matches everything.
-     * +optional
-     * </pre>
-     *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-     * </code>
-     */
-    public boolean hasNamespaceSelector() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     *
-     *
-     * <pre>
-     * NamespaceSelector decides whether to run the webhook on an object based
-     * on whether the namespace for that object matches the selector. If the
-     * object itself is a namespace, the matching is performed on
-     * object.metadata.labels. If the object is another cluster scoped resource,
-     * it never skips the webhook.
-     * For example, to run the webhook on any objects whose namespace is not
-     * associated with "runlevel" of "0" or "1";  you will set the selector as
-     * follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "runlevel",
-     *       "operator": "NotIn",
-     *       "values": [
-     *         "0",
-     *         "1"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * If instead you want to only run the webhook on any objects whose
-     * namespace is associated with the "environment" of "prod" or "staging";
-     * you will set the selector as follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "environment",
-     *       "operator": "In",
-     *       "values": [
-     *         "prod",
-     *         "staging"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * See
-     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-     * for more examples of label selectors.
-     * Default to the empty LabelSelector, which matches everything.
-     * +optional
-     * </pre>
-     *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-     * </code>
-     */
-    public io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector() {
-      return namespaceSelector_ == null
-          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
-          : namespaceSelector_;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * NamespaceSelector decides whether to run the webhook on an object based
-     * on whether the namespace for that object matches the selector. If the
-     * object itself is a namespace, the matching is performed on
-     * object.metadata.labels. If the object is another cluster scoped resource,
-     * it never skips the webhook.
-     * For example, to run the webhook on any objects whose namespace is not
-     * associated with "runlevel" of "0" or "1";  you will set the selector as
-     * follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "runlevel",
-     *       "operator": "NotIn",
-     *       "values": [
-     *         "0",
-     *         "1"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * If instead you want to only run the webhook on any objects whose
-     * namespace is associated with the "environment" of "prod" or "staging";
-     * you will set the selector as follows:
-     * "namespaceSelector": {
-     *   "matchExpressions": [
-     *     {
-     *       "key": "environment",
-     *       "operator": "In",
-     *       "values": [
-     *         "prod",
-     *         "staging"
-     *       ]
-     *     }
-     *   ]
-     * }
-     * See
-     * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-     * for more examples of label selectors.
-     * Default to the empty LabelSelector, which matches everything.
-     * +optional
-     * </pre>
-     *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-     * </code>
-     */
-    public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getNamespaceSelectorOrBuilder() {
-      return namespaceSelector_ == null
-          ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
-          : namespaceSelector_;
-    }
-
-    public static final int SIDEEFFECTS_FIELD_NUMBER = 6;
-    private volatile java.lang.Object sideEffects_;
-    /**
-     *
-     *
-     * <pre>
-     * SideEffects states whether this webhookk has side effects.
-     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-     * rejected by a future step in the admission change and the side effects therefore need to be undone.
-     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-     * sideEffects == Unknown or Some. Defaults to Unknown.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string sideEffects = 6;</code>
-     */
-    public boolean hasSideEffects() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     *
-     *
-     * <pre>
-     * SideEffects states whether this webhookk has side effects.
-     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-     * rejected by a future step in the admission change and the side effects therefore need to be undone.
-     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-     * sideEffects == Unknown or Some. Defaults to Unknown.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string sideEffects = 6;</code>
-     */
-    public java.lang.String getSideEffects() {
-      java.lang.Object ref = sideEffects_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          sideEffects_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     *
-     *
-     * <pre>
-     * SideEffects states whether this webhookk has side effects.
-     * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-     * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-     * rejected by a future step in the admission change and the side effects therefore need to be undone.
-     * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-     * sideEffects == Unknown or Some. Defaults to Unknown.
-     * +optional
-     * </pre>
-     *
-     * <code>optional string sideEffects = 6;</code>
-     */
-    public com.google.protobuf.ByteString getSideEffectsBytes() {
-      java.lang.Object ref = sideEffects_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-        sideEffects_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, getClientConfig());
-      }
-      for (int i = 0; i < rules_.size(); i++) {
-        output.writeMessage(3, rules_.get(i));
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, failurePolicy_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(5, getNamespaceSelector());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sideEffects_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getClientConfig());
-      }
-      for (int i = 0; i < rules_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, rules_.get(i));
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, failurePolicy_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getNamespaceSelector());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sideEffects_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-        return true;
-      }
-      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook)) {
-        return super.equals(obj);
-      }
-      io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook other =
-          (io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook) obj;
-
-      boolean result = true;
-      result = result && (hasName() == other.hasName());
-      if (hasName()) {
-        result = result && getName().equals(other.getName());
-      }
-      result = result && (hasClientConfig() == other.hasClientConfig());
-      if (hasClientConfig()) {
-        result = result && getClientConfig().equals(other.getClientConfig());
-      }
-      result = result && getRulesList().equals(other.getRulesList());
-      result = result && (hasFailurePolicy() == other.hasFailurePolicy());
-      if (hasFailurePolicy()) {
-        result = result && getFailurePolicy().equals(other.getFailurePolicy());
-      }
-      result = result && (hasNamespaceSelector() == other.hasNamespaceSelector());
-      if (hasNamespaceSelector()) {
-        result = result && getNamespaceSelector().equals(other.getNamespaceSelector());
-      }
-      result = result && (hasSideEffects() == other.hasSideEffects());
-      if (hasSideEffects()) {
-        result = result && getSideEffects().equals(other.getSideEffects());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasName()) {
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
-      }
-      if (hasClientConfig()) {
-        hash = (37 * hash) + CLIENTCONFIG_FIELD_NUMBER;
-        hash = (53 * hash) + getClientConfig().hashCode();
-      }
-      if (getRulesCount() > 0) {
-        hash = (37 * hash) + RULES_FIELD_NUMBER;
-        hash = (53 * hash) + getRulesList().hashCode();
-      }
-      if (hasFailurePolicy()) {
-        hash = (37 * hash) + FAILUREPOLICY_FIELD_NUMBER;
-        hash = (53 * hash) + getFailurePolicy().hashCode();
-      }
-      if (hasNamespaceSelector()) {
-        hash = (37 * hash) + NAMESPACESELECTOR_FIELD_NUMBER;
-        hash = (53 * hash) + getNamespaceSelector().hashCode();
-      }
-      if (hasSideEffects()) {
-        hash = (37 * hash) + SIDEEFFECTS_FIELD_NUMBER;
-        hash = (53 * hash) + getSideEffects().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        java.io.InputStream input) throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
-          PARSER, input, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
-        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
-        parseDelimitedFrom(
-            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
-          PARSER, input, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
-          PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    public static Builder newBuilder(
-        io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Webhook describes an admission webhook and the resources and operations it applies to.
-     * </pre>
-     *
-     * Protobuf type {@code k8s.io.api.admissionregistration.v1beta1.Webhook}
-     */
-    public static final class Builder
-        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
-        implements
-        // @@protoc_insertion_point(builder_implements:k8s.io.api.admissionregistration.v1beta1.Webhook)
-        io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
-        return io.kubernetes.client.proto.V1beta1Admissionregistration
-            .internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1beta1Admissionregistration
-            .internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.class,
-                io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.Builder.class);
-      }
-
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
-          getClientConfigFieldBuilder();
-          getRulesFieldBuilder();
-          getNamespaceSelectorFieldBuilder();
-        }
-      }
-
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        if (clientConfigBuilder_ == null) {
-          clientConfig_ = null;
-        } else {
-          clientConfigBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (rulesBuilder_ == null) {
-          rules_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        } else {
-          rulesBuilder_.clear();
-        }
-        failurePolicy_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
-        if (namespaceSelectorBuilder_ == null) {
-          namespaceSelector_ = null;
-        } else {
-          namespaceSelectorBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000010);
-        sideEffects_ = "";
-        bitField0_ = (bitField0_ & ~0x00000020);
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
-        return io.kubernetes.client.proto.V1beta1Admissionregistration
-            .internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_descriptor;
-      }
-
-      @java.lang.Override
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
-          getDefaultInstanceForType() {
-        return io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook build() {
-        io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook buildPartial() {
-        io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook result =
-            new io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.name_ = name_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        if (clientConfigBuilder_ == null) {
-          result.clientConfig_ = clientConfig_;
-        } else {
-          result.clientConfig_ = clientConfigBuilder_.build();
-        }
-        if (rulesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            rules_ = java.util.Collections.unmodifiableList(rules_);
-            bitField0_ = (bitField0_ & ~0x00000004);
-          }
-          result.rules_ = rules_;
-        } else {
-          result.rules_ = rulesBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.failurePolicy_ = failurePolicy_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        if (namespaceSelectorBuilder_ == null) {
-          result.namespaceSelector_ = namespaceSelector_;
-        } else {
-          result.namespaceSelector_ = namespaceSelectorBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.sideEffects_ = sideEffects_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-
-      @java.lang.Override
-      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index,
-          java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook) {
-          return mergeFrom((io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook) other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook other) {
-        if (other
-            == io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook.getDefaultInstance())
-          return this;
-        if (other.hasName()) {
-          bitField0_ |= 0x00000001;
-          name_ = other.name_;
-          onChanged();
-        }
-        if (other.hasClientConfig()) {
-          mergeClientConfig(other.getClientConfig());
-        }
-        if (rulesBuilder_ == null) {
-          if (!other.rules_.isEmpty()) {
-            if (rules_.isEmpty()) {
-              rules_ = other.rules_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-            } else {
-              ensureRulesIsMutable();
-              rules_.addAll(other.rules_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.rules_.isEmpty()) {
-            if (rulesBuilder_.isEmpty()) {
-              rulesBuilder_.dispose();
-              rulesBuilder_ = null;
-              rules_ = other.rules_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-              rulesBuilder_ =
-                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
-                      ? getRulesFieldBuilder()
-                      : null;
-            } else {
-              rulesBuilder_.addAllMessages(other.rules_);
-            }
-          }
-        }
-        if (other.hasFailurePolicy()) {
-          bitField0_ |= 0x00000008;
-          failurePolicy_ = other.failurePolicy_;
-          onChanged();
-        }
-        if (other.hasNamespaceSelector()) {
-          mergeNamespaceSelector(other.getNamespaceSelector());
-        }
-        if (other.hasSideEffects()) {
-          bitField0_ |= 0x00000020;
-          sideEffects_ = other.sideEffects_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage =
-              (io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook)
-                  e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int bitField0_;
-
-      private java.lang.Object name_ = "";
-      /**
-       *
-       *
-       * <pre>
-       * The name of the admission webhook.
-       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-       * of the organization.
-       * Required.
-       * </pre>
-       *
-       * <code>optional string name = 1;</code>
-       */
-      public boolean hasName() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       *
-       *
-       * <pre>
-       * The name of the admission webhook.
-       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-       * of the organization.
-       * Required.
-       * </pre>
-       *
-       * <code>optional string name = 1;</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * The name of the admission webhook.
-       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-       * of the organization.
-       * Required.
-       * </pre>
-       *
-       * <code>optional string name = 1;</code>
-       */
-      public com.google.protobuf.ByteString getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * The name of the admission webhook.
-       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-       * of the organization.
-       * Required.
-       * </pre>
-       *
-       * <code>optional string name = 1;</code>
-       */
-      public Builder setName(java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * The name of the admission webhook.
-       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-       * of the organization.
-       * Required.
-       * </pre>
-       *
-       * <code>optional string name = 1;</code>
-       */
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * The name of the admission webhook.
-       * Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where
-       * "imagepolicy" is the name of the webhook, and kubernetes.io is the name
-       * of the organization.
-       * Required.
-       * </pre>
-       *
-       * <code>optional string name = 1;</code>
-       */
-      public Builder setNameBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-          clientConfig_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder>
-          clientConfigBuilder_;
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      public boolean hasClientConfig() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-          getClientConfig() {
-        if (clientConfigBuilder_ == null) {
-          return clientConfig_ == null
-              ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-                  .getDefaultInstance()
-              : clientConfig_;
-        } else {
-          return clientConfigBuilder_.getMessage();
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      public Builder setClientConfig(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig value) {
-        if (clientConfigBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          clientConfig_ = value;
-          onChanged();
-        } else {
-          clientConfigBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      public Builder setClientConfig(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
-              builderForValue) {
-        if (clientConfigBuilder_ == null) {
-          clientConfig_ = builderForValue.build();
-          onChanged();
-        } else {
-          clientConfigBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      public Builder mergeClientConfig(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig value) {
-        if (clientConfigBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)
-              && clientConfig_ != null
-              && clientConfig_
-                  != io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-                      .getDefaultInstance()) {
-            clientConfig_ =
-                io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-                    .newBuilder(clientConfig_)
-                    .mergeFrom(value)
-                    .buildPartial();
-          } else {
-            clientConfig_ = value;
-          }
-          onChanged();
-        } else {
-          clientConfigBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      public Builder clearClientConfig() {
-        if (clientConfigBuilder_ == null) {
-          clientConfig_ = null;
-          onChanged();
-        } else {
-          clientConfigBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder
-          getClientConfigBuilder() {
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return getClientConfigFieldBuilder().getBuilder();
-      }
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder
-          getClientConfigOrBuilder() {
-        if (clientConfigBuilder_ != null) {
-          return clientConfigBuilder_.getMessageOrBuilder();
-        } else {
-          return clientConfig_ == null
-              ? io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-                  .getDefaultInstance()
-              : clientConfig_;
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * ClientConfig defines how to communicate with the hook.
-       * Required
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig clientConfig = 2;
-       * </code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig.Builder,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfigOrBuilder>
-          getClientConfigFieldBuilder() {
-        if (clientConfigBuilder_ == null) {
-          clientConfigBuilder_ =
-              new com.google.protobuf.SingleFieldBuilderV3<
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig,
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.WebhookClientConfig
-                      .Builder,
-                  io.kubernetes.client.proto.V1beta1Admissionregistration
-                      .WebhookClientConfigOrBuilder>(
-                  getClientConfig(), getParentForChildren(), isClean());
-          clientConfig_ = null;
-        }
-        return clientConfigBuilder_;
-      }
-
-      private java.util.List<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
-          rules_ = java.util.Collections.emptyList();
-
-      private void ensureRulesIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          rules_ =
-              new java.util.ArrayList<
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>(
-                  rules_);
-          bitField0_ |= 0x00000004;
-        }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
-          rulesBuilder_;
-
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public java.util.List<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
-          getRulesList() {
-        if (rulesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(rules_);
-        } else {
-          return rulesBuilder_.getMessageList();
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public int getRulesCount() {
-        if (rulesBuilder_ == null) {
-          return rules_.size();
-        } else {
-          return rulesBuilder_.getCount();
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations getRules(
-          int index) {
-        if (rulesBuilder_ == null) {
-          return rules_.get(index);
-        } else {
-          return rulesBuilder_.getMessage(index);
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder setRules(
-          int index,
-          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
-        if (rulesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRulesIsMutable();
-          rules_.set(index, value);
-          onChanged();
-        } else {
-          rulesBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder setRules(
-          int index,
-          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
-              builderForValue) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          rules_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          rulesBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder addRules(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
-        if (rulesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRulesIsMutable();
-          rules_.add(value);
-          onChanged();
-        } else {
-          rulesBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder addRules(
-          int index,
-          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations value) {
-        if (rulesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRulesIsMutable();
-          rules_.add(index, value);
-          onChanged();
-        } else {
-          rulesBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder addRules(
-          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
-              builderForValue) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          rules_.add(builderForValue.build());
-          onChanged();
-        } else {
-          rulesBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder addRules(
-          int index,
-          io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
-              builderForValue) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          rules_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          rulesBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder addAllRules(
-          java.lang.Iterable<
-                  ? extends
-                      io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations>
-              values) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, rules_);
-          onChanged();
-        } else {
-          rulesBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder clearRules() {
-        if (rulesBuilder_ == null) {
-          rules_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
-          onChanged();
-        } else {
-          rulesBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public Builder removeRules(int index) {
-        if (rulesBuilder_ == null) {
-          ensureRulesIsMutable();
-          rules_.remove(index);
-          onChanged();
-        } else {
-          rulesBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
-          getRulesBuilder(int index) {
-        return getRulesFieldBuilder().getBuilder(index);
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder
-          getRulesOrBuilder(int index) {
-        if (rulesBuilder_ == null) {
-          return rules_.get(index);
-        } else {
-          return rulesBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public java.util.List<
-              ? extends
-                  io.kubernetes.client.proto.V1beta1Admissionregistration
-                      .RuleWithOperationsOrBuilder>
-          getRulesOrBuilderList() {
-        if (rulesBuilder_ != null) {
-          return rulesBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(rules_);
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
-          addRulesBuilder() {
-        return getRulesFieldBuilder()
-            .addBuilder(
-                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
-                    .getDefaultInstance());
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder
-          addRulesBuilder(int index) {
-        return getRulesFieldBuilder()
-            .addBuilder(
-                index,
-                io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
-                    .getDefaultInstance());
-      }
-      /**
-       *
-       *
-       * <pre>
-       * Rules describes what operations on what resources/subresources the webhook cares about.
-       * The webhook cares about an operation if it matches _any_ Rule.
-       * However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks
-       * from putting the cluster in a state which cannot be recovered from without completely
-       * disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called
-       * on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.
-       * </pre>
-       *
-       * <code>
-       * repeated .k8s.io.api.admissionregistration.v1beta1.RuleWithOperations rules = 3;
-       * </code>
-       */
-      public java.util.List<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder>
-          getRulesBuilderList() {
-        return getRulesFieldBuilder().getBuilderList();
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations.Builder,
-              io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperationsOrBuilder>
-          getRulesFieldBuilder() {
-        if (rulesBuilder_ == null) {
-          rulesBuilder_ =
-              new com.google.protobuf.RepeatedFieldBuilderV3<
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations,
-                  io.kubernetes.client.proto.V1beta1Admissionregistration.RuleWithOperations
-                      .Builder,
-                  io.kubernetes.client.proto.V1beta1Admissionregistration
-                      .RuleWithOperationsOrBuilder>(
-                  rules_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
-                  getParentForChildren(),
-                  isClean());
-          rules_ = null;
-        }
-        return rulesBuilder_;
-      }
-
-      private java.lang.Object failurePolicy_ = "";
-      /**
-       *
-       *
-       * <pre>
-       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-       * allowed values are Ignore or Fail. Defaults to Ignore.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string failurePolicy = 4;</code>
-       */
-      public boolean hasFailurePolicy() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       *
-       *
-       * <pre>
-       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-       * allowed values are Ignore or Fail. Defaults to Ignore.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string failurePolicy = 4;</code>
-       */
-      public java.lang.String getFailurePolicy() {
-        java.lang.Object ref = failurePolicy_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            failurePolicy_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-       * allowed values are Ignore or Fail. Defaults to Ignore.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string failurePolicy = 4;</code>
-       */
-      public com.google.protobuf.ByteString getFailurePolicyBytes() {
-        java.lang.Object ref = failurePolicy_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          failurePolicy_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-       * allowed values are Ignore or Fail. Defaults to Ignore.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string failurePolicy = 4;</code>
-       */
-      public Builder setFailurePolicy(java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000008;
-        failurePolicy_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-       * allowed values are Ignore or Fail. Defaults to Ignore.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string failurePolicy = 4;</code>
-       */
-      public Builder clearFailurePolicy() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        failurePolicy_ = getDefaultInstance().getFailurePolicy();
-        onChanged();
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * FailurePolicy defines how unrecognized errors from the admission endpoint are handled -
-       * allowed values are Ignore or Fail. Defaults to Ignore.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string failurePolicy = 4;</code>
-       */
-      public Builder setFailurePolicyBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000008;
-        failurePolicy_ = value;
-        onChanged();
-        return this;
-      }
-
-      private io.kubernetes.client.proto.Meta.LabelSelector namespaceSelector_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.LabelSelector,
-              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
-              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
-          namespaceSelectorBuilder_;
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      public boolean hasNamespaceSelector() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      public io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector() {
-        if (namespaceSelectorBuilder_ == null) {
-          return namespaceSelector_ == null
-              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
-              : namespaceSelector_;
-        } else {
-          return namespaceSelectorBuilder_.getMessage();
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      public Builder setNamespaceSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
-        if (namespaceSelectorBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          namespaceSelector_ = value;
-          onChanged();
-        } else {
-          namespaceSelectorBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000010;
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      public Builder setNamespaceSelector(
-          io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
-        if (namespaceSelectorBuilder_ == null) {
-          namespaceSelector_ = builderForValue.build();
-          onChanged();
-        } else {
-          namespaceSelectorBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000010;
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      public Builder mergeNamespaceSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
-        if (namespaceSelectorBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)
-              && namespaceSelector_ != null
-              && namespaceSelector_
-                  != io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()) {
-            namespaceSelector_ =
-                io.kubernetes.client.proto.Meta.LabelSelector.newBuilder(namespaceSelector_)
-                    .mergeFrom(value)
-                    .buildPartial();
-          } else {
-            namespaceSelector_ = value;
-          }
-          onChanged();
-        } else {
-          namespaceSelectorBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000010;
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      public Builder clearNamespaceSelector() {
-        if (namespaceSelectorBuilder_ == null) {
-          namespaceSelector_ = null;
-          onChanged();
-        } else {
-          namespaceSelectorBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000010);
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      public io.kubernetes.client.proto.Meta.LabelSelector.Builder getNamespaceSelectorBuilder() {
-        bitField0_ |= 0x00000010;
-        onChanged();
-        return getNamespaceSelectorFieldBuilder().getBuilder();
-      }
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder
-          getNamespaceSelectorOrBuilder() {
-        if (namespaceSelectorBuilder_ != null) {
-          return namespaceSelectorBuilder_.getMessageOrBuilder();
-        } else {
-          return namespaceSelector_ == null
-              ? io.kubernetes.client.proto.Meta.LabelSelector.getDefaultInstance()
-              : namespaceSelector_;
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * NamespaceSelector decides whether to run the webhook on an object based
-       * on whether the namespace for that object matches the selector. If the
-       * object itself is a namespace, the matching is performed on
-       * object.metadata.labels. If the object is another cluster scoped resource,
-       * it never skips the webhook.
-       * For example, to run the webhook on any objects whose namespace is not
-       * associated with "runlevel" of "0" or "1";  you will set the selector as
-       * follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "runlevel",
-       *       "operator": "NotIn",
-       *       "values": [
-       *         "0",
-       *         "1"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * If instead you want to only run the webhook on any objects whose
-       * namespace is associated with the "environment" of "prod" or "staging";
-       * you will set the selector as follows:
-       * "namespaceSelector": {
-       *   "matchExpressions": [
-       *     {
-       *       "key": "environment",
-       *       "operator": "In",
-       *       "values": [
-       *         "prod",
-       *         "staging"
-       *       ]
-       *     }
-       *   ]
-       * }
-       * See
-       * https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-       * for more examples of label selectors.
-       * Default to the empty LabelSelector, which matches everything.
-       * +optional
-       * </pre>
-       *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 5;
-       * </code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-              io.kubernetes.client.proto.Meta.LabelSelector,
-              io.kubernetes.client.proto.Meta.LabelSelector.Builder,
-              io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>
-          getNamespaceSelectorFieldBuilder() {
-        if (namespaceSelectorBuilder_ == null) {
-          namespaceSelectorBuilder_ =
-              new com.google.protobuf.SingleFieldBuilderV3<
-                  io.kubernetes.client.proto.Meta.LabelSelector,
-                  io.kubernetes.client.proto.Meta.LabelSelector.Builder,
-                  io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder>(
-                  getNamespaceSelector(), getParentForChildren(), isClean());
-          namespaceSelector_ = null;
-        }
-        return namespaceSelectorBuilder_;
-      }
-
-      private java.lang.Object sideEffects_ = "";
-      /**
-       *
-       *
-       * <pre>
-       * SideEffects states whether this webhookk has side effects.
-       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-       * rejected by a future step in the admission change and the side effects therefore need to be undone.
-       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-       * sideEffects == Unknown or Some. Defaults to Unknown.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string sideEffects = 6;</code>
-       */
-      public boolean hasSideEffects() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
-      }
-      /**
-       *
-       *
-       * <pre>
-       * SideEffects states whether this webhookk has side effects.
-       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-       * rejected by a future step in the admission change and the side effects therefore need to be undone.
-       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-       * sideEffects == Unknown or Some. Defaults to Unknown.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string sideEffects = 6;</code>
-       */
-      public java.lang.String getSideEffects() {
-        java.lang.Object ref = sideEffects_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            sideEffects_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * SideEffects states whether this webhookk has side effects.
-       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-       * rejected by a future step in the admission change and the side effects therefore need to be undone.
-       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-       * sideEffects == Unknown or Some. Defaults to Unknown.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string sideEffects = 6;</code>
-       */
-      public com.google.protobuf.ByteString getSideEffectsBytes() {
-        java.lang.Object ref = sideEffects_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-          sideEffects_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       *
-       *
-       * <pre>
-       * SideEffects states whether this webhookk has side effects.
-       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-       * rejected by a future step in the admission change and the side effects therefore need to be undone.
-       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-       * sideEffects == Unknown or Some. Defaults to Unknown.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string sideEffects = 6;</code>
-       */
-      public Builder setSideEffects(java.lang.String value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000020;
-        sideEffects_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * SideEffects states whether this webhookk has side effects.
-       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-       * rejected by a future step in the admission change and the side effects therefore need to be undone.
-       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-       * sideEffects == Unknown or Some. Defaults to Unknown.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string sideEffects = 6;</code>
-       */
-      public Builder clearSideEffects() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        sideEffects_ = getDefaultInstance().getSideEffects();
-        onChanged();
-        return this;
-      }
-      /**
-       *
-       *
-       * <pre>
-       * SideEffects states whether this webhookk has side effects.
-       * Acceptable values are: Unknown, None, Some, NoneOnDryRun
-       * Webhooks with side effects MUST implement a reconciliation system, since a request may be
-       * rejected by a future step in the admission change and the side effects therefore need to be undone.
-       * Requests with the dryRun attribute will be auto-rejected if they match a webhook with
-       * sideEffects == Unknown or Some. Defaults to Unknown.
-       * +optional
-       * </pre>
-       *
-       * <code>optional string sideEffects = 6;</code>
-       */
-      public Builder setSideEffectsBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000020;
-        sideEffects_ = value;
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-      // @@protoc_insertion_point(builder_scope:k8s.io.api.admissionregistration.v1beta1.Webhook)
-    }
-
-    // @@protoc_insertion_point(class_scope:k8s.io.api.admissionregistration.v1beta1.Webhook)
-    private static final io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
-        DEFAULT_INSTANCE;
-
-    static {
-      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook();
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
-        getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<Webhook> PARSER =
-        new com.google.protobuf.AbstractParser<Webhook>() {
-          @java.lang.Override
-          public Webhook parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return new Webhook(input, extensionRegistry);
-          }
-        };
-
-    public static com.google.protobuf.Parser<Webhook> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Webhook> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.kubernetes.client.proto.V1beta1Admissionregistration.Webhook
-        getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-  }
-
   public interface WebhookClientConfigOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.admissionregistration.v1beta1.WebhookClientConfig)
@@ -13383,12 +20509,10 @@ public final class V1beta1Admissionregistration {
      * `service` is a reference to the service for this webhook. Either
      * `service` or `url` must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
-     * </code>
+     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;</code>
      */
     boolean hasService();
     /**
@@ -13398,12 +20522,10 @@ public final class V1beta1Admissionregistration {
      * `service` is a reference to the service for this webhook. Either
      * `service` or `url` must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
-     * </code>
+     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;</code>
      */
     io.kubernetes.client.proto.V1beta1Admissionregistration.ServiceReference getService();
     /**
@@ -13413,12 +20535,10 @@ public final class V1beta1Admissionregistration {
      * `service` is a reference to the service for this webhook. Either
      * `service` or `url` must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
-     * </code>
+     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;</code>
      */
     io.kubernetes.client.proto.V1beta1Admissionregistration.ServiceReferenceOrBuilder
         getServiceOrBuilder();
@@ -13691,12 +20811,10 @@ public final class V1beta1Admissionregistration {
      * `service` is a reference to the service for this webhook. Either
      * `service` or `url` must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
-     * </code>
+     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;</code>
      */
     public boolean hasService() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -13708,12 +20826,10 @@ public final class V1beta1Admissionregistration {
      * `service` is a reference to the service for this webhook. Either
      * `service` or `url` must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
-     * </code>
+     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;</code>
      */
     public io.kubernetes.client.proto.V1beta1Admissionregistration.ServiceReference getService() {
       return service_ == null
@@ -13728,12 +20844,10 @@ public final class V1beta1Admissionregistration {
      * `service` is a reference to the service for this webhook. Either
      * `service` or `url` must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
-     * </code>
+     * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;</code>
      */
     public io.kubernetes.client.proto.V1beta1Admissionregistration.ServiceReferenceOrBuilder
         getServiceOrBuilder() {
@@ -14430,12 +21544,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       public boolean hasService() {
@@ -14448,12 +21560,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Admissionregistration.ServiceReference getService() {
@@ -14473,12 +21583,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       public Builder setService(
@@ -14502,12 +21610,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       public Builder setService(
@@ -14529,12 +21635,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       public Builder mergeService(
@@ -14567,12 +21671,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       public Builder clearService() {
@@ -14592,12 +21694,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Admissionregistration.ServiceReference.Builder
@@ -14613,12 +21713,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Admissionregistration.ServiceReferenceOrBuilder
@@ -14639,12 +21737,10 @@ public final class V1beta1Admissionregistration {
        * `service` is a reference to the service for this webhook. Either
        * `service` or `url` must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
+       * <code>optional .k8s.io.api.admissionregistration.v1beta1.ServiceReference service = 1;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -14789,6 +21885,10 @@ public final class V1beta1Admissionregistration {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfiguration_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfiguration_fieldAccessorTable;
@@ -14809,6 +21909,10 @@ public final class V1beta1Admissionregistration {
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_admissionregistration_v1beta1_ServiceReference_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfiguration_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfiguration_fieldAccessorTable;
@@ -14816,10 +21920,6 @@ public final class V1beta1Admissionregistration {
       internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfigurationList_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfigurationList_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_descriptor;
-  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_admissionregistration_v1beta1_WebhookClientConfig_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -14839,44 +21939,62 @@ public final class V1beta1Admissionregistration {
           + "y/pkg/apis/meta/v1/generated.proto\032/k8s."
           + "io/apimachinery/pkg/runtime/generated.pr"
           + "oto\0326k8s.io/apimachinery/pkg/runtime/sch"
-          + "ema/generated.proto\"\247\001\n\034MutatingWebhookC"
-          + "onfiguration\022B\n\010metadata\030\001 \001(\01320.k8s.io."
-          + "apimachinery.pkg.apis.meta.v1.ObjectMeta"
-          + "\022C\n\010Webhooks\030\002 \003(\01321.k8s.io.api.admissio"
-          + "nregistration.v1beta1.Webhook\"\273\001\n Mutati"
-          + "ngWebhookConfigurationList\022@\n\010metadata\030\001"
-          + " \001(\0132..k8s.io.apimachinery.pkg.apis.meta"
-          + ".v1.ListMeta\022U\n\005items\030\002 \003(\0132F.k8s.io.api"
-          + ".admissionregistration.v1beta1.MutatingW"
-          + "ebhookConfiguration\"A\n\004Rule\022\021\n\tapiGroups"
-          + "\030\001 \003(\t\022\023\n\013apiVersions\030\002 \003(\t\022\021\n\tresources"
-          + "\030\003 \003(\t\"f\n\022RuleWithOperations\022\022\n\noperatio"
-          + "ns\030\001 \003(\t\022<\n\004rule\030\002 \001(\0132..k8s.io.api.admi"
-          + "ssionregistration.v1beta1.Rule\"A\n\020Servic"
-          + "eReference\022\021\n\tnamespace\030\001 \001(\t\022\014\n\004name\030\002 "
-          + "\001(\t\022\014\n\004path\030\003 \001(\t\"\251\001\n\036ValidatingWebhookC"
-          + "onfiguration\022B\n\010metadata\030\001 \001(\01320.k8s.io."
-          + "apimachinery.pkg.apis.meta.v1.ObjectMeta"
-          + "\022C\n\010Webhooks\030\002 \003(\01321.k8s.io.api.admissio"
-          + "nregistration.v1beta1.Webhook\"\277\001\n\"Valida"
-          + "tingWebhookConfigurationList\022@\n\010metadata"
-          + "\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis.me"
-          + "ta.v1.ListMeta\022W\n\005items\030\002 \003(\0132H.k8s.io.a"
-          + "pi.admissionregistration.v1beta1.Validat"
-          + "ingWebhookConfiguration\"\265\002\n\007Webhook\022\014\n\004n"
-          + "ame\030\001 \001(\t\022S\n\014clientConfig\030\002 \001(\0132=.k8s.io"
-          + ".api.admissionregistration.v1beta1.Webho"
-          + "okClientConfig\022K\n\005rules\030\003 \003(\0132<.k8s.io.a"
-          + "pi.admissionregistration.v1beta1.RuleWit"
-          + "hOperations\022\025\n\rfailurePolicy\030\004 \001(\t\022N\n\021na"
-          + "mespaceSelector\030\005 \001(\01323.k8s.io.apimachin"
-          + "ery.pkg.apis.meta.v1.LabelSelector\022\023\n\013si"
-          + "deEffects\030\006 \001(\t\"\201\001\n\023WebhookClientConfig\022"
-          + "\013\n\003url\030\003 \001(\t\022K\n\007service\030\001 \001(\0132:.k8s.io.a"
-          + "pi.admissionregistration.v1beta1.Service"
-          + "Reference\022\020\n\010caBundle\030\002 \001(\014BC\n\032io.kubern"
-          + "etes.client.protoB\034V1beta1Admissionregis"
-          + "trationZ\007v1beta1"
+          + "ema/generated.proto\"\364\003\n\017MutatingWebhook\022"
+          + "\014\n\004name\030\001 \001(\t\022S\n\014clientConfig\030\002 \001(\0132=.k8"
+          + "s.io.api.admissionregistration.v1beta1.W"
+          + "ebhookClientConfig\022K\n\005rules\030\003 \003(\0132<.k8s."
+          + "io.api.admissionregistration.v1beta1.Rul"
+          + "eWithOperations\022\025\n\rfailurePolicy\030\004 \001(\t\022\023"
+          + "\n\013matchPolicy\030\t \001(\t\022N\n\021namespaceSelector"
+          + "\030\005 \001(\01323.k8s.io.apimachinery.pkg.apis.me"
+          + "ta.v1.LabelSelector\022K\n\016objectSelector\030\013 "
+          + "\001(\01323.k8s.io.apimachinery.pkg.apis.meta."
+          + "v1.LabelSelector\022\023\n\013sideEffects\030\006 \001(\t\022\026\n"
+          + "\016timeoutSeconds\030\007 \001(\005\022\037\n\027admissionReview"
+          + "Versions\030\010 \003(\t\022\032\n\022reinvocationPolicy\030\n \001"
+          + "(\t\"\257\001\n\034MutatingWebhookConfiguration\022B\n\010m"
+          + "etadata\030\001 \001(\01320.k8s.io.apimachinery.pkg."
+          + "apis.meta.v1.ObjectMeta\022K\n\010Webhooks\030\002 \003("
+          + "\01329.k8s.io.api.admissionregistration.v1b"
+          + "eta1.MutatingWebhook\"\273\001\n MutatingWebhook"
+          + "ConfigurationList\022@\n\010metadata\030\001 \001(\0132..k8"
+          + "s.io.apimachinery.pkg.apis.meta.v1.ListM"
+          + "eta\022U\n\005items\030\002 \003(\0132F.k8s.io.api.admissio"
+          + "nregistration.v1beta1.MutatingWebhookCon"
+          + "figuration\"P\n\004Rule\022\021\n\tapiGroups\030\001 \003(\t\022\023\n"
+          + "\013apiVersions\030\002 \003(\t\022\021\n\tresources\030\003 \003(\t\022\r\n"
+          + "\005scope\030\004 \001(\t\"f\n\022RuleWithOperations\022\022\n\nop"
+          + "erations\030\001 \003(\t\022<\n\004rule\030\002 \001(\0132..k8s.io.ap"
+          + "i.admissionregistration.v1beta1.Rule\"O\n\020"
+          + "ServiceReference\022\021\n\tnamespace\030\001 \001(\t\022\014\n\004n"
+          + "ame\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\014\n\004port\030\004 \001(\005\"\332\003"
+          + "\n\021ValidatingWebhook\022\014\n\004name\030\001 \001(\t\022S\n\014cli"
+          + "entConfig\030\002 \001(\0132=.k8s.io.api.admissionre"
+          + "gistration.v1beta1.WebhookClientConfig\022K"
+          + "\n\005rules\030\003 \003(\0132<.k8s.io.api.admissionregi"
+          + "stration.v1beta1.RuleWithOperations\022\025\n\rf"
+          + "ailurePolicy\030\004 \001(\t\022\023\n\013matchPolicy\030\t \001(\t\022"
+          + "N\n\021namespaceSelector\030\005 \001(\01323.k8s.io.apim"
+          + "achinery.pkg.apis.meta.v1.LabelSelector\022"
+          + "K\n\016objectSelector\030\n \001(\01323.k8s.io.apimach"
+          + "inery.pkg.apis.meta.v1.LabelSelector\022\023\n\013"
+          + "sideEffects\030\006 \001(\t\022\026\n\016timeoutSeconds\030\007 \001("
+          + "\005\022\037\n\027admissionReviewVersions\030\010 \003(\t\"\263\001\n\036V"
+          + "alidatingWebhookConfiguration\022B\n\010metadat"
+          + "a\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis.m"
+          + "eta.v1.ObjectMeta\022M\n\010Webhooks\030\002 \003(\0132;.k8"
+          + "s.io.api.admissionregistration.v1beta1.V"
+          + "alidatingWebhook\"\277\001\n\"ValidatingWebhookCo"
+          + "nfigurationList\022@\n\010metadata\030\001 \001(\0132..k8s."
+          + "io.apimachinery.pkg.apis.meta.v1.ListMet"
+          + "a\022W\n\005items\030\002 \003(\0132H.k8s.io.api.admissionr"
+          + "egistration.v1beta1.ValidatingWebhookCon"
+          + "figuration\"\201\001\n\023WebhookClientConfig\022\013\n\003ur"
+          + "l\030\003 \001(\t\022K\n\007service\030\001 \001(\0132:.k8s.io.api.ad"
+          + "missionregistration.v1beta1.ServiceRefer"
+          + "ence\022\020\n\010caBundle\030\002 \001(\014BC\n\032io.kubernetes."
+          + "client.protoB\034V1beta1Admissionregistrati"
+          + "onZ\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -14894,8 +22012,26 @@ public final class V1beta1Admissionregistration {
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
         },
         assigner);
-    internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfiguration_descriptor =
+    internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_descriptor =
         getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhook_descriptor,
+            new java.lang.String[] {
+              "Name",
+              "ClientConfig",
+              "Rules",
+              "FailurePolicy",
+              "MatchPolicy",
+              "NamespaceSelector",
+              "ObjectSelector",
+              "SideEffects",
+              "TimeoutSeconds",
+              "AdmissionReviewVersions",
+              "ReinvocationPolicy",
+            });
+    internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfiguration_descriptor =
+        getDescriptor().getMessageTypes().get(1);
     internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfiguration_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfiguration_descriptor,
@@ -14903,7 +22039,7 @@ public final class V1beta1Admissionregistration {
               "Metadata", "Webhooks",
             });
     internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfigurationList_descriptor =
-        getDescriptor().getMessageTypes().get(1);
+        getDescriptor().getMessageTypes().get(2);
     internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfigurationList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admissionregistration_v1beta1_MutatingWebhookConfigurationList_descriptor,
@@ -14911,15 +22047,15 @@ public final class V1beta1Admissionregistration {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_admissionregistration_v1beta1_Rule_descriptor =
-        getDescriptor().getMessageTypes().get(2);
+        getDescriptor().getMessageTypes().get(3);
     internal_static_k8s_io_api_admissionregistration_v1beta1_Rule_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admissionregistration_v1beta1_Rule_descriptor,
             new java.lang.String[] {
-              "ApiGroups", "ApiVersions", "Resources",
+              "ApiGroups", "ApiVersions", "Resources", "Scope",
             });
     internal_static_k8s_io_api_admissionregistration_v1beta1_RuleWithOperations_descriptor =
-        getDescriptor().getMessageTypes().get(3);
+        getDescriptor().getMessageTypes().get(4);
     internal_static_k8s_io_api_admissionregistration_v1beta1_RuleWithOperations_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admissionregistration_v1beta1_RuleWithOperations_descriptor,
@@ -14927,15 +22063,32 @@ public final class V1beta1Admissionregistration {
               "Operations", "Rule",
             });
     internal_static_k8s_io_api_admissionregistration_v1beta1_ServiceReference_descriptor =
-        getDescriptor().getMessageTypes().get(4);
+        getDescriptor().getMessageTypes().get(5);
     internal_static_k8s_io_api_admissionregistration_v1beta1_ServiceReference_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admissionregistration_v1beta1_ServiceReference_descriptor,
             new java.lang.String[] {
-              "Namespace", "Name", "Path",
+              "Namespace", "Name", "Path", "Port",
+            });
+    internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_descriptor =
+        getDescriptor().getMessageTypes().get(6);
+    internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhook_descriptor,
+            new java.lang.String[] {
+              "Name",
+              "ClientConfig",
+              "Rules",
+              "FailurePolicy",
+              "MatchPolicy",
+              "NamespaceSelector",
+              "ObjectSelector",
+              "SideEffects",
+              "TimeoutSeconds",
+              "AdmissionReviewVersions",
             });
     internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfiguration_descriptor =
-        getDescriptor().getMessageTypes().get(5);
+        getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfiguration_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfiguration_descriptor,
@@ -14943,23 +22096,15 @@ public final class V1beta1Admissionregistration {
               "Metadata", "Webhooks",
             });
     internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfigurationList_descriptor =
-        getDescriptor().getMessageTypes().get(6);
+        getDescriptor().getMessageTypes().get(8);
     internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfigurationList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admissionregistration_v1beta1_ValidatingWebhookConfigurationList_descriptor,
             new java.lang.String[] {
               "Metadata", "Items",
             });
-    internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_descriptor =
-        getDescriptor().getMessageTypes().get(7);
-    internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_fieldAccessorTable =
-        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_k8s_io_api_admissionregistration_v1beta1_Webhook_descriptor,
-            new java.lang.String[] {
-              "Name", "ClientConfig", "Rules", "FailurePolicy", "NamespaceSelector", "SideEffects",
-            });
     internal_static_k8s_io_api_admissionregistration_v1beta1_WebhookClientConfig_descriptor =
-        getDescriptor().getMessageTypes().get(8);
+        getDescriptor().getMessageTypes().get(9);
     internal_static_k8s_io_api_admissionregistration_v1beta1_WebhookClientConfig_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admissionregistration_v1beta1_WebhookClientConfig_descriptor,

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,11081 @@ public final class V1Storage {
     registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
 
+  public interface CSIDriverOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.CSIDriver)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Standard object metadata.
+     * metadata.Name indicates the name of the CSI driver that this object
+     * refers to; it MUST be the same name returned by the CSI GetPluginName()
+     * call for that driver.
+     * The driver name must be 63 characters or less, beginning and ending with
+     * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+     * alphanumerics between.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    boolean hasMetadata();
+    /**
+     *
+     *
+     * <pre>
+     * Standard object metadata.
+     * metadata.Name indicates the name of the CSI driver that this object
+     * refers to; it MUST be the same name returned by the CSI GetPluginName()
+     * call for that driver.
+     * The driver name must be 63 characters or less, beginning and ending with
+     * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+     * alphanumerics between.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
+    /**
+     *
+     *
+     * <pre>
+     * Standard object metadata.
+     * metadata.Name indicates the name of the CSI driver that this object
+     * refers to; it MUST be the same name returned by the CSI GetPluginName()
+     * call for that driver.
+     * The driver name must be 63 characters or less, beginning and ending with
+     * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+     * alphanumerics between.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * Specification of the CSI Driver.
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+     */
+    boolean hasSpec();
+    /**
+     *
+     *
+     * <pre>
+     * Specification of the CSI Driver.
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSIDriverSpec getSpec();
+    /**
+     *
+     *
+     * <pre>
+     * Specification of the CSI Driver.
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSIDriverSpecOrBuilder getSpecOrBuilder();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * CSIDriver captures information about a Container Storage Interface (CSI)
+   * volume driver deployed on the cluster.
+   * Kubernetes attach detach controller uses this object to determine whether attach is required.
+   * Kubelet uses this object to determine whether pod information needs to be passed on mount.
+   * CSIDriver objects are non-namespaced.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.CSIDriver}
+   */
+  public static final class CSIDriver extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.CSIDriver)
+      CSIDriverOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CSIDriver.newBuilder() to construct.
+    private CSIDriver(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CSIDriver() {}
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CSIDriver(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
+              }
+            case 18:
+              {
+                io.kubernetes.client.proto.V1Storage.CSIDriverSpec.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = spec_.toBuilder();
+                }
+                spec_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Storage.CSIDriverSpec.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(spec_);
+                  spec_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSIDriver_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSIDriver_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.CSIDriver.class,
+              io.kubernetes.client.proto.V1Storage.CSIDriver.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int METADATA_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
+    /**
+     *
+     *
+     * <pre>
+     * Standard object metadata.
+     * metadata.Name indicates the name of the CSI driver that this object
+     * refers to; it MUST be the same name returned by the CSI GetPluginName()
+     * call for that driver.
+     * The driver name must be 63 characters or less, beginning and ending with
+     * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+     * alphanumerics between.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public boolean hasMetadata() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Standard object metadata.
+     * metadata.Name indicates the name of the CSI driver that this object
+     * refers to; it MUST be the same name returned by the CSI GetPluginName()
+     * call for that driver.
+     * The driver name must be 63 characters or less, beginning and ending with
+     * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+     * alphanumerics between.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Standard object metadata.
+     * metadata.Name indicates the name of the CSI driver that this object
+     * refers to; it MUST be the same name returned by the CSI GetPluginName()
+     * call for that driver.
+     * The driver name must be 63 characters or less, beginning and ending with
+     * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+     * alphanumerics between.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
+    }
+
+    public static final int SPEC_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1Storage.CSIDriverSpec spec_;
+    /**
+     *
+     *
+     * <pre>
+     * Specification of the CSI Driver.
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+     */
+    public boolean hasSpec() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Specification of the CSI Driver.
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSIDriverSpec getSpec() {
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1Storage.CSIDriverSpec.getDefaultInstance()
+          : spec_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Specification of the CSI Driver.
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSIDriverSpecOrBuilder getSpecOrBuilder() {
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1Storage.CSIDriverSpec.getDefaultInstance()
+          : spec_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getMetadata());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getSpec());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getSpec());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.CSIDriver)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.CSIDriver other =
+          (io.kubernetes.client.proto.V1Storage.CSIDriver) obj;
+
+      boolean result = true;
+      result = result && (hasMetadata() == other.hasMetadata());
+      if (hasMetadata()) {
+        result = result && getMetadata().equals(other.getMetadata());
+      }
+      result = result && (hasSpec() == other.hasSpec());
+      if (hasSpec()) {
+        result = result && getSpec().equals(other.getSpec());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMetadata()) {
+        hash = (37 * hash) + METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getMetadata().hashCode();
+      }
+      if (hasSpec()) {
+        hash = (37 * hash) + SPEC_FIELD_NUMBER;
+        hash = (53 * hash) + getSpec().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Storage.CSIDriver prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * CSIDriver captures information about a Container Storage Interface (CSI)
+     * volume driver deployed on the cluster.
+     * Kubernetes attach detach controller uses this object to determine whether attach is required.
+     * Kubelet uses this object to determine whether pod information needs to be passed on mount.
+     * CSIDriver objects are non-namespaced.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.CSIDriver}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.CSIDriver)
+        io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriver_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriver_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.CSIDriver.class,
+                io.kubernetes.client.proto.V1Storage.CSIDriver.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.CSIDriver.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getMetadataFieldBuilder();
+          getSpecFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (specBuilder_ == null) {
+          spec_ = null;
+        } else {
+          specBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriver_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriver getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.CSIDriver.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriver build() {
+        io.kubernetes.client.proto.V1Storage.CSIDriver result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriver buildPartial() {
+        io.kubernetes.client.proto.V1Storage.CSIDriver result =
+            new io.kubernetes.client.proto.V1Storage.CSIDriver(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (metadataBuilder_ == null) {
+          result.metadata_ = metadata_;
+        } else {
+          result.metadata_ = metadataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (specBuilder_ == null) {
+          result.spec_ = spec_;
+        } else {
+          result.spec_ = specBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.CSIDriver) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.CSIDriver) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.CSIDriver other) {
+        if (other == io.kubernetes.client.proto.V1Storage.CSIDriver.getDefaultInstance())
+          return this;
+        if (other.hasMetadata()) {
+          mergeMetadata(other.getMetadata());
+        }
+        if (other.hasSpec()) {
+          mergeSpec(other.getSpec());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.CSIDriver parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1Storage.CSIDriver) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private io.kubernetes.client.proto.Meta.ObjectMeta metadata_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
+          metadataBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public boolean hasMetadata() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
+        if (metadataBuilder_ == null) {
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
+        } else {
+          return metadataBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
+        if (metadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metadata_ = value;
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(
+          io.kubernetes.client.proto.Meta.ObjectMeta.Builder builderForValue) {
+        if (metadataBuilder_ == null) {
+          metadata_ = builderForValue.build();
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
+        if (metadataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
+            metadata_ =
+                io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            metadata_ = value;
+          }
+          onChanged();
+        } else {
+          metadataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder clearMetadata() {
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+          onChanged();
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMeta.Builder getMetadataBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getMetadataFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
+        if (metadataBuilder_ != null) {
+          return metadataBuilder_.getMessageOrBuilder();
+        } else {
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard object metadata.
+       * metadata.Name indicates the name of the CSI driver that this object
+       * refers to; it MUST be the same name returned by the CSI GetPluginName()
+       * call for that driver.
+       * The driver name must be 63 characters or less, beginning and ending with
+       * an alphanumeric character ([a-z0-9A-Z]) with dashes (-), dots (.), and
+       * alphanumerics between.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
+          getMetadataFieldBuilder() {
+        if (metadataBuilder_ == null) {
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ObjectMeta,
+                  io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
+          metadata_ = null;
+        }
+        return metadataBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1Storage.CSIDriverSpec spec_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSIDriverSpec,
+              io.kubernetes.client.proto.V1Storage.CSIDriverSpec.Builder,
+              io.kubernetes.client.proto.V1Storage.CSIDriverSpecOrBuilder>
+          specBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      public boolean hasSpec() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSIDriverSpec getSpec() {
+        if (specBuilder_ == null) {
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1Storage.CSIDriverSpec.getDefaultInstance()
+              : spec_;
+        } else {
+          return specBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      public Builder setSpec(io.kubernetes.client.proto.V1Storage.CSIDriverSpec value) {
+        if (specBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          spec_ = value;
+          onChanged();
+        } else {
+          specBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      public Builder setSpec(
+          io.kubernetes.client.proto.V1Storage.CSIDriverSpec.Builder builderForValue) {
+        if (specBuilder_ == null) {
+          spec_ = builderForValue.build();
+          onChanged();
+        } else {
+          specBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      public Builder mergeSpec(io.kubernetes.client.proto.V1Storage.CSIDriverSpec value) {
+        if (specBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && spec_ != null
+              && spec_ != io.kubernetes.client.proto.V1Storage.CSIDriverSpec.getDefaultInstance()) {
+            spec_ =
+                io.kubernetes.client.proto.V1Storage.CSIDriverSpec.newBuilder(spec_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            spec_ = value;
+          }
+          onChanged();
+        } else {
+          specBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      public Builder clearSpec() {
+        if (specBuilder_ == null) {
+          spec_ = null;
+          onChanged();
+        } else {
+          specBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSIDriverSpec.Builder getSpecBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getSpecFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSIDriverSpecOrBuilder getSpecOrBuilder() {
+        if (specBuilder_ != null) {
+          return specBuilder_.getMessageOrBuilder();
+        } else {
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1Storage.CSIDriverSpec.getDefaultInstance()
+              : spec_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Specification of the CSI Driver.
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSIDriverSpec spec = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSIDriverSpec,
+              io.kubernetes.client.proto.V1Storage.CSIDriverSpec.Builder,
+              io.kubernetes.client.proto.V1Storage.CSIDriverSpecOrBuilder>
+          getSpecFieldBuilder() {
+        if (specBuilder_ == null) {
+          specBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Storage.CSIDriverSpec,
+                  io.kubernetes.client.proto.V1Storage.CSIDriverSpec.Builder,
+                  io.kubernetes.client.proto.V1Storage.CSIDriverSpecOrBuilder>(
+                  getSpec(), getParentForChildren(), isClean());
+          spec_ = null;
+        }
+        return specBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.CSIDriver)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.CSIDriver)
+    private static final io.kubernetes.client.proto.V1Storage.CSIDriver DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.CSIDriver();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriver getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<CSIDriver> PARSER =
+        new com.google.protobuf.AbstractParser<CSIDriver>() {
+          @java.lang.Override
+          public CSIDriver parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CSIDriver(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CSIDriver> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CSIDriver> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.CSIDriver getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface CSIDriverListOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.CSIDriverList)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    boolean hasMetadata();
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ListMeta getMetadata();
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1Storage.CSIDriver> getItemsList();
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSIDriver getItems(int index);
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    int getItemsCount();
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder>
+        getItemsOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder getItemsOrBuilder(int index);
+  }
+  /**
+   *
+   *
+   * <pre>
+   * CSIDriverList is a collection of CSIDriver objects.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.CSIDriverList}
+   */
+  public static final class CSIDriverList extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.CSIDriverList)
+      CSIDriverListOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CSIDriverList.newBuilder() to construct.
+    private CSIDriverList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CSIDriverList() {
+      items_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CSIDriverList(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ListMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
+              }
+            case 18:
+              {
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                  items_ =
+                      new java.util.ArrayList<io.kubernetes.client.proto.V1Storage.CSIDriver>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                items_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Storage.CSIDriver.PARSER, extensionRegistry));
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          items_ = java.util.Collections.unmodifiableList(items_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSIDriverList_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSIDriverList_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.CSIDriverList.class,
+              io.kubernetes.client.proto.V1Storage.CSIDriverList.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int METADATA_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.Meta.ListMeta metadata_;
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    public boolean hasMetadata() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
+    }
+
+    public static final int ITEMS_FIELD_NUMBER = 2;
+    private java.util.List<io.kubernetes.client.proto.V1Storage.CSIDriver> items_;
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1Storage.CSIDriver> getItemsList() {
+      return items_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder>
+        getItemsOrBuilderList() {
+      return items_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    public int getItemsCount() {
+      return items_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSIDriver getItems(int index) {
+      return items_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSIDriver
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder getItemsOrBuilder(int index) {
+      return items_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getMetadata());
+      }
+      for (int i = 0; i < items_.size(); i++) {
+        output.writeMessage(2, items_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
+      }
+      for (int i = 0; i < items_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, items_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.CSIDriverList)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.CSIDriverList other =
+          (io.kubernetes.client.proto.V1Storage.CSIDriverList) obj;
+
+      boolean result = true;
+      result = result && (hasMetadata() == other.hasMetadata());
+      if (hasMetadata()) {
+        result = result && getMetadata().equals(other.getMetadata());
+      }
+      result = result && getItemsList().equals(other.getItemsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMetadata()) {
+        hash = (37 * hash) + METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getMetadata().hashCode();
+      }
+      if (getItemsCount() > 0) {
+        hash = (37 * hash) + ITEMS_FIELD_NUMBER;
+        hash = (53 * hash) + getItemsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Storage.CSIDriverList prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * CSIDriverList is a collection of CSIDriver objects.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.CSIDriverList}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.CSIDriverList)
+        io.kubernetes.client.proto.V1Storage.CSIDriverListOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriverList_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriverList_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.CSIDriverList.class,
+                io.kubernetes.client.proto.V1Storage.CSIDriverList.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.CSIDriverList.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getMetadataFieldBuilder();
+          getItemsFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriverList_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriverList getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.CSIDriverList.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriverList build() {
+        io.kubernetes.client.proto.V1Storage.CSIDriverList result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriverList buildPartial() {
+        io.kubernetes.client.proto.V1Storage.CSIDriverList result =
+            new io.kubernetes.client.proto.V1Storage.CSIDriverList(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (metadataBuilder_ == null) {
+          result.metadata_ = metadata_;
+        } else {
+          result.metadata_ = metadataBuilder_.build();
+        }
+        if (itemsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            items_ = java.util.Collections.unmodifiableList(items_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.items_ = items_;
+        } else {
+          result.items_ = itemsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.CSIDriverList) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.CSIDriverList) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.CSIDriverList other) {
+        if (other == io.kubernetes.client.proto.V1Storage.CSIDriverList.getDefaultInstance())
+          return this;
+        if (other.hasMetadata()) {
+          mergeMetadata(other.getMetadata());
+        }
+        if (itemsBuilder_ == null) {
+          if (!other.items_.isEmpty()) {
+            if (items_.isEmpty()) {
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureItemsIsMutable();
+              items_.addAll(other.items_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.items_.isEmpty()) {
+            if (itemsBuilder_.isEmpty()) {
+              itemsBuilder_.dispose();
+              itemsBuilder_ = null;
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              itemsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getItemsFieldBuilder()
+                      : null;
+            } else {
+              itemsBuilder_.addAllMessages(other.items_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.CSIDriverList parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Storage.CSIDriverList) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private io.kubernetes.client.proto.Meta.ListMeta metadata_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
+          metadataBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public boolean hasMetadata() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
+        if (metadataBuilder_ == null) {
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
+        } else {
+          return metadataBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
+        if (metadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metadata_ = value;
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
+        if (metadataBuilder_ == null) {
+          metadata_ = builderForValue.build();
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
+        if (metadataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()) {
+            metadata_ =
+                io.kubernetes.client.proto.Meta.ListMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            metadata_ = value;
+          }
+          onChanged();
+        } else {
+          metadataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public Builder clearMetadata() {
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+          onChanged();
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ListMeta.Builder getMetadataBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getMetadataFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
+        if (metadataBuilder_ != null) {
+          return metadataBuilder_.getMessageOrBuilder();
+        } else {
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
+          getMetadataFieldBuilder() {
+        if (metadataBuilder_ == null) {
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ListMeta,
+                  io.kubernetes.client.proto.Meta.ListMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ListMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
+          metadata_ = null;
+        }
+        return metadataBuilder_;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.V1Storage.CSIDriver> items_ =
+          java.util.Collections.emptyList();
+
+      private void ensureItemsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Storage.CSIDriver>(items_);
+          bitField0_ |= 0x00000002;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSIDriver,
+              io.kubernetes.client.proto.V1Storage.CSIDriver.Builder,
+              io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder>
+          itemsBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1Storage.CSIDriver> getItemsList() {
+        if (itemsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(items_);
+        } else {
+          return itemsBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public int getItemsCount() {
+        if (itemsBuilder_ == null) {
+          return items_.size();
+        } else {
+          return itemsBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSIDriver getItems(int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);
+        } else {
+          return itemsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder setItems(int index, io.kubernetes.client.proto.V1Storage.CSIDriver value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.set(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder setItems(
+          int index, io.kubernetes.client.proto.V1Storage.CSIDriver.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder addItems(io.kubernetes.client.proto.V1Storage.CSIDriver value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder addItems(int index, io.kubernetes.client.proto.V1Storage.CSIDriver value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder addItems(
+          io.kubernetes.client.proto.V1Storage.CSIDriver.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder addItems(
+          int index, io.kubernetes.client.proto.V1Storage.CSIDriver.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder addAllItems(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1Storage.CSIDriver> values) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, items_);
+          onChanged();
+        } else {
+          itemsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder clearItems() {
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public Builder removeItems(int index) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.remove(index);
+          onChanged();
+        } else {
+          itemsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSIDriver.Builder getItemsBuilder(int index) {
+        return getItemsFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder getItemsOrBuilder(int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);
+        } else {
+          return itemsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder>
+          getItemsOrBuilderList() {
+        if (itemsBuilder_ != null) {
+          return itemsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(items_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSIDriver.Builder addItemsBuilder() {
+        return getItemsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1Storage.CSIDriver.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSIDriver.Builder addItemsBuilder(int index) {
+        return getItemsFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.V1Storage.CSIDriver.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSIDriver
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSIDriver items = 2;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1Storage.CSIDriver.Builder>
+          getItemsBuilderList() {
+        return getItemsFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSIDriver,
+              io.kubernetes.client.proto.V1Storage.CSIDriver.Builder,
+              io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder>
+          getItemsFieldBuilder() {
+        if (itemsBuilder_ == null) {
+          itemsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Storage.CSIDriver,
+                  io.kubernetes.client.proto.V1Storage.CSIDriver.Builder,
+                  io.kubernetes.client.proto.V1Storage.CSIDriverOrBuilder>(
+                  items_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          items_ = null;
+        }
+        return itemsBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.CSIDriverList)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.CSIDriverList)
+    private static final io.kubernetes.client.proto.V1Storage.CSIDriverList DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.CSIDriverList();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverList getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<CSIDriverList> PARSER =
+        new com.google.protobuf.AbstractParser<CSIDriverList>() {
+          @java.lang.Override
+          public CSIDriverList parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CSIDriverList(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CSIDriverList> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CSIDriverList> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.CSIDriverList getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface CSIDriverSpecOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.CSIDriverSpec)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * attachRequired indicates this CSI volume driver requires an attach
+     * operation (because it implements the CSI ControllerPublishVolume()
+     * method), and that the Kubernetes attach detach controller should call
+     * the attach volume interface which checks the volumeattachment status
+     * and waits until the volume is attached before proceeding to mounting.
+     * The CSI external-attacher coordinates with CSI volume driver and updates
+     * the volumeattachment status when the attach operation is complete.
+     * If the CSIDriverRegistry feature gate is enabled and the value is
+     * specified to false, the attach operation will be skipped.
+     * Otherwise the attach operation will be called.
+     * This field is immutable.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool attachRequired = 1;</code>
+     */
+    boolean hasAttachRequired();
+    /**
+     *
+     *
+     * <pre>
+     * attachRequired indicates this CSI volume driver requires an attach
+     * operation (because it implements the CSI ControllerPublishVolume()
+     * method), and that the Kubernetes attach detach controller should call
+     * the attach volume interface which checks the volumeattachment status
+     * and waits until the volume is attached before proceeding to mounting.
+     * The CSI external-attacher coordinates with CSI volume driver and updates
+     * the volumeattachment status when the attach operation is complete.
+     * If the CSIDriverRegistry feature gate is enabled and the value is
+     * specified to false, the attach operation will be skipped.
+     * Otherwise the attach operation will be called.
+     * This field is immutable.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool attachRequired = 1;</code>
+     */
+    boolean getAttachRequired();
+
+    /**
+     *
+     *
+     * <pre>
+     * If set to true, podInfoOnMount indicates this CSI volume driver
+     * requires additional pod information (like podName, podUID, etc.) during
+     * mount operations.
+     * If set to false, pod information will not be passed on mount.
+     * Default is false.
+     * The CSI driver specifies podInfoOnMount as part of driver deployment.
+     * If true, Kubelet will pass pod information as VolumeContext in the CSI
+     * NodePublishVolume() calls.
+     * The CSI driver is responsible for parsing and validating the information
+     * passed in as VolumeContext.
+     * The following VolumeConext will be passed if podInfoOnMount is set to true.
+     * This list might grow, but the prefix will be used.
+     * "csi.storage.k8s.io/pod.name": pod.Name
+     * "csi.storage.k8s.io/pod.namespace": pod.Namespace
+     * "csi.storage.k8s.io/pod.uid": string(pod.UID)
+     * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral inline volume
+     *                                 defined by a CSIVolumeSource, otherwise "false"
+     * "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only
+     * required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode.
+     * Other drivers can leave pod info disabled and/or ignore this field.
+     * As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when
+     * deployed on such a cluster and the deployment determines which mode that is, for example
+     * via a command line parameter of the driver.
+     * This field is immutable.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool podInfoOnMount = 2;</code>
+     */
+    boolean hasPodInfoOnMount();
+    /**
+     *
+     *
+     * <pre>
+     * If set to true, podInfoOnMount indicates this CSI volume driver
+     * requires additional pod information (like podName, podUID, etc.) during
+     * mount operations.
+     * If set to false, pod information will not be passed on mount.
+     * Default is false.
+     * The CSI driver specifies podInfoOnMount as part of driver deployment.
+     * If true, Kubelet will pass pod information as VolumeContext in the CSI
+     * NodePublishVolume() calls.
+     * The CSI driver is responsible for parsing and validating the information
+     * passed in as VolumeContext.
+     * The following VolumeConext will be passed if podInfoOnMount is set to true.
+     * This list might grow, but the prefix will be used.
+     * "csi.storage.k8s.io/pod.name": pod.Name
+     * "csi.storage.k8s.io/pod.namespace": pod.Namespace
+     * "csi.storage.k8s.io/pod.uid": string(pod.UID)
+     * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral inline volume
+     *                                 defined by a CSIVolumeSource, otherwise "false"
+     * "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only
+     * required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode.
+     * Other drivers can leave pod info disabled and/or ignore this field.
+     * As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when
+     * deployed on such a cluster and the deployment determines which mode that is, for example
+     * via a command line parameter of the driver.
+     * This field is immutable.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool podInfoOnMount = 2;</code>
+     */
+    boolean getPodInfoOnMount();
+
+    /**
+     *
+     *
+     * <pre>
+     * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+     * The default if the list is empty is "Persistent", which is the usage
+     * defined by the CSI specification and implemented in Kubernetes via the usual
+     * PV/PVC mechanism.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this
+     * because it is only going to get a NodePublishVolume call for such a volume.
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+     * A driver can support one or more of these modes and
+     * more modes may be added in the future.
+     * This field is beta.
+     * This field is immutable.
+     * +optional
+     * +listType=set
+     * </pre>
+     *
+     * <code>repeated string volumeLifecycleModes = 3;</code>
+     */
+    java.util.List<java.lang.String> getVolumeLifecycleModesList();
+    /**
+     *
+     *
+     * <pre>
+     * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+     * The default if the list is empty is "Persistent", which is the usage
+     * defined by the CSI specification and implemented in Kubernetes via the usual
+     * PV/PVC mechanism.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this
+     * because it is only going to get a NodePublishVolume call for such a volume.
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+     * A driver can support one or more of these modes and
+     * more modes may be added in the future.
+     * This field is beta.
+     * This field is immutable.
+     * +optional
+     * +listType=set
+     * </pre>
+     *
+     * <code>repeated string volumeLifecycleModes = 3;</code>
+     */
+    int getVolumeLifecycleModesCount();
+    /**
+     *
+     *
+     * <pre>
+     * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+     * The default if the list is empty is "Persistent", which is the usage
+     * defined by the CSI specification and implemented in Kubernetes via the usual
+     * PV/PVC mechanism.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this
+     * because it is only going to get a NodePublishVolume call for such a volume.
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+     * A driver can support one or more of these modes and
+     * more modes may be added in the future.
+     * This field is beta.
+     * This field is immutable.
+     * +optional
+     * +listType=set
+     * </pre>
+     *
+     * <code>repeated string volumeLifecycleModes = 3;</code>
+     */
+    java.lang.String getVolumeLifecycleModes(int index);
+    /**
+     *
+     *
+     * <pre>
+     * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+     * The default if the list is empty is "Persistent", which is the usage
+     * defined by the CSI specification and implemented in Kubernetes via the usual
+     * PV/PVC mechanism.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this
+     * because it is only going to get a NodePublishVolume call for such a volume.
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+     * A driver can support one or more of these modes and
+     * more modes may be added in the future.
+     * This field is beta.
+     * This field is immutable.
+     * +optional
+     * +listType=set
+     * </pre>
+     *
+     * <code>repeated string volumeLifecycleModes = 3;</code>
+     */
+    com.google.protobuf.ByteString getVolumeLifecycleModesBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * If set to true, storageCapacity indicates that the CSI
+     * volume driver wants pod scheduling to consider the storage
+     * capacity that the driver deployment will report by creating
+     * CSIStorageCapacity objects with capacity information.
+     * The check can be enabled immediately when deploying a driver.
+     * In that case, provisioning new volumes with late binding
+     * will pause until the driver deployment has published
+     * some suitable CSIStorageCapacity object.
+     * Alternatively, the driver can be deployed with the field
+     * unset or false and it can be flipped later when storage
+     * capacity information has been published.
+     * This field was immutable in Kubernetes &lt;= 1.22 and now is mutable.
+     * This is a beta field and only available when the CSIStorageCapacity
+     * feature is enabled. The default is false.
+     * +optional
+     * +featureGate=CSIStorageCapacity
+     * </pre>
+     *
+     * <code>optional bool storageCapacity = 4;</code>
+     */
+    boolean hasStorageCapacity();
+    /**
+     *
+     *
+     * <pre>
+     * If set to true, storageCapacity indicates that the CSI
+     * volume driver wants pod scheduling to consider the storage
+     * capacity that the driver deployment will report by creating
+     * CSIStorageCapacity objects with capacity information.
+     * The check can be enabled immediately when deploying a driver.
+     * In that case, provisioning new volumes with late binding
+     * will pause until the driver deployment has published
+     * some suitable CSIStorageCapacity object.
+     * Alternatively, the driver can be deployed with the field
+     * unset or false and it can be flipped later when storage
+     * capacity information has been published.
+     * This field was immutable in Kubernetes &lt;= 1.22 and now is mutable.
+     * This is a beta field and only available when the CSIStorageCapacity
+     * feature is enabled. The default is false.
+     * +optional
+     * +featureGate=CSIStorageCapacity
+     * </pre>
+     *
+     * <code>optional bool storageCapacity = 4;</code>
+     */
+    boolean getStorageCapacity();
+
+    /**
+     *
+     *
+     * <pre>
+     * Defines if the underlying volume supports changing ownership and
+     * permission of the volume before being mounted.
+     * Refer to the specific FSGroupPolicy values for additional details.
+     * This field is immutable.
+     * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+     * to determine if Kubernetes should modify ownership and permissions of the volume.
+     * With the default policy the defined fsGroup will only be applied
+     * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string fsGroupPolicy = 5;</code>
+     */
+    boolean hasFsGroupPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * Defines if the underlying volume supports changing ownership and
+     * permission of the volume before being mounted.
+     * Refer to the specific FSGroupPolicy values for additional details.
+     * This field is immutable.
+     * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+     * to determine if Kubernetes should modify ownership and permissions of the volume.
+     * With the default policy the defined fsGroup will only be applied
+     * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string fsGroupPolicy = 5;</code>
+     */
+    java.lang.String getFsGroupPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * Defines if the underlying volume supports changing ownership and
+     * permission of the volume before being mounted.
+     * Refer to the specific FSGroupPolicy values for additional details.
+     * This field is immutable.
+     * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+     * to determine if Kubernetes should modify ownership and permissions of the volume.
+     * With the default policy the defined fsGroup will only be applied
+     * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string fsGroupPolicy = 5;</code>
+     */
+    com.google.protobuf.ByteString getFsGroupPolicyBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1Storage.TokenRequest> getTokenRequestsList();
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.TokenRequest getTokenRequests(int index);
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    int getTokenRequestsCount();
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder>
+        getTokenRequestsOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder getTokenRequestsOrBuilder(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+     * being periodically called to reflect any possible change in the mounted
+     * volume. This field defaults to false.
+     * Note: After a successful initial NodePublishVolume call, subsequent calls
+     * to NodePublishVolume should only update the contents of the volume. New
+     * mount points will not be seen by a running container.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool requiresRepublish = 7;</code>
+     */
+    boolean hasRequiresRepublish();
+    /**
+     *
+     *
+     * <pre>
+     * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+     * being periodically called to reflect any possible change in the mounted
+     * volume. This field defaults to false.
+     * Note: After a successful initial NodePublishVolume call, subsequent calls
+     * to NodePublishVolume should only update the contents of the volume. New
+     * mount points will not be seen by a running container.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool requiresRepublish = 7;</code>
+     */
+    boolean getRequiresRepublish();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * CSIDriverSpec is the specification of a CSIDriver.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.CSIDriverSpec}
+   */
+  public static final class CSIDriverSpec extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.CSIDriverSpec)
+      CSIDriverSpecOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CSIDriverSpec.newBuilder() to construct.
+    private CSIDriverSpec(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CSIDriverSpec() {
+      attachRequired_ = false;
+      podInfoOnMount_ = false;
+      volumeLifecycleModes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      storageCapacity_ = false;
+      fsGroupPolicy_ = "";
+      tokenRequests_ = java.util.Collections.emptyList();
+      requiresRepublish_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CSIDriverSpec(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8:
+              {
+                bitField0_ |= 0x00000001;
+                attachRequired_ = input.readBool();
+                break;
+              }
+            case 16:
+              {
+                bitField0_ |= 0x00000002;
+                podInfoOnMount_ = input.readBool();
+                break;
+              }
+            case 26:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  volumeLifecycleModes_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                volumeLifecycleModes_.add(bs);
+                break;
+              }
+            case 32:
+              {
+                bitField0_ |= 0x00000004;
+                storageCapacity_ = input.readBool();
+                break;
+              }
+            case 42:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000008;
+                fsGroupPolicy_ = bs;
+                break;
+              }
+            case 50:
+              {
+                if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                  tokenRequests_ =
+                      new java.util.ArrayList<io.kubernetes.client.proto.V1Storage.TokenRequest>();
+                  mutable_bitField0_ |= 0x00000020;
+                }
+                tokenRequests_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Storage.TokenRequest.PARSER,
+                        extensionRegistry));
+                break;
+              }
+            case 56:
+              {
+                bitField0_ |= 0x00000010;
+                requiresRepublish_ = input.readBool();
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          volumeLifecycleModes_ = volumeLifecycleModes_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          tokenRequests_ = java.util.Collections.unmodifiableList(tokenRequests_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSIDriverSpec_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSIDriverSpec_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.CSIDriverSpec.class,
+              io.kubernetes.client.proto.V1Storage.CSIDriverSpec.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ATTACHREQUIRED_FIELD_NUMBER = 1;
+    private boolean attachRequired_;
+    /**
+     *
+     *
+     * <pre>
+     * attachRequired indicates this CSI volume driver requires an attach
+     * operation (because it implements the CSI ControllerPublishVolume()
+     * method), and that the Kubernetes attach detach controller should call
+     * the attach volume interface which checks the volumeattachment status
+     * and waits until the volume is attached before proceeding to mounting.
+     * The CSI external-attacher coordinates with CSI volume driver and updates
+     * the volumeattachment status when the attach operation is complete.
+     * If the CSIDriverRegistry feature gate is enabled and the value is
+     * specified to false, the attach operation will be skipped.
+     * Otherwise the attach operation will be called.
+     * This field is immutable.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool attachRequired = 1;</code>
+     */
+    public boolean hasAttachRequired() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * attachRequired indicates this CSI volume driver requires an attach
+     * operation (because it implements the CSI ControllerPublishVolume()
+     * method), and that the Kubernetes attach detach controller should call
+     * the attach volume interface which checks the volumeattachment status
+     * and waits until the volume is attached before proceeding to mounting.
+     * The CSI external-attacher coordinates with CSI volume driver and updates
+     * the volumeattachment status when the attach operation is complete.
+     * If the CSIDriverRegistry feature gate is enabled and the value is
+     * specified to false, the attach operation will be skipped.
+     * Otherwise the attach operation will be called.
+     * This field is immutable.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool attachRequired = 1;</code>
+     */
+    public boolean getAttachRequired() {
+      return attachRequired_;
+    }
+
+    public static final int PODINFOONMOUNT_FIELD_NUMBER = 2;
+    private boolean podInfoOnMount_;
+    /**
+     *
+     *
+     * <pre>
+     * If set to true, podInfoOnMount indicates this CSI volume driver
+     * requires additional pod information (like podName, podUID, etc.) during
+     * mount operations.
+     * If set to false, pod information will not be passed on mount.
+     * Default is false.
+     * The CSI driver specifies podInfoOnMount as part of driver deployment.
+     * If true, Kubelet will pass pod information as VolumeContext in the CSI
+     * NodePublishVolume() calls.
+     * The CSI driver is responsible for parsing and validating the information
+     * passed in as VolumeContext.
+     * The following VolumeConext will be passed if podInfoOnMount is set to true.
+     * This list might grow, but the prefix will be used.
+     * "csi.storage.k8s.io/pod.name": pod.Name
+     * "csi.storage.k8s.io/pod.namespace": pod.Namespace
+     * "csi.storage.k8s.io/pod.uid": string(pod.UID)
+     * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral inline volume
+     *                                 defined by a CSIVolumeSource, otherwise "false"
+     * "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only
+     * required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode.
+     * Other drivers can leave pod info disabled and/or ignore this field.
+     * As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when
+     * deployed on such a cluster and the deployment determines which mode that is, for example
+     * via a command line parameter of the driver.
+     * This field is immutable.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool podInfoOnMount = 2;</code>
+     */
+    public boolean hasPodInfoOnMount() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * If set to true, podInfoOnMount indicates this CSI volume driver
+     * requires additional pod information (like podName, podUID, etc.) during
+     * mount operations.
+     * If set to false, pod information will not be passed on mount.
+     * Default is false.
+     * The CSI driver specifies podInfoOnMount as part of driver deployment.
+     * If true, Kubelet will pass pod information as VolumeContext in the CSI
+     * NodePublishVolume() calls.
+     * The CSI driver is responsible for parsing and validating the information
+     * passed in as VolumeContext.
+     * The following VolumeConext will be passed if podInfoOnMount is set to true.
+     * This list might grow, but the prefix will be used.
+     * "csi.storage.k8s.io/pod.name": pod.Name
+     * "csi.storage.k8s.io/pod.namespace": pod.Namespace
+     * "csi.storage.k8s.io/pod.uid": string(pod.UID)
+     * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral inline volume
+     *                                 defined by a CSIVolumeSource, otherwise "false"
+     * "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only
+     * required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode.
+     * Other drivers can leave pod info disabled and/or ignore this field.
+     * As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when
+     * deployed on such a cluster and the deployment determines which mode that is, for example
+     * via a command line parameter of the driver.
+     * This field is immutable.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool podInfoOnMount = 2;</code>
+     */
+    public boolean getPodInfoOnMount() {
+      return podInfoOnMount_;
+    }
+
+    public static final int VOLUMELIFECYCLEMODES_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList volumeLifecycleModes_;
+    /**
+     *
+     *
+     * <pre>
+     * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+     * The default if the list is empty is "Persistent", which is the usage
+     * defined by the CSI specification and implemented in Kubernetes via the usual
+     * PV/PVC mechanism.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this
+     * because it is only going to get a NodePublishVolume call for such a volume.
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+     * A driver can support one or more of these modes and
+     * more modes may be added in the future.
+     * This field is beta.
+     * This field is immutable.
+     * +optional
+     * +listType=set
+     * </pre>
+     *
+     * <code>repeated string volumeLifecycleModes = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getVolumeLifecycleModesList() {
+      return volumeLifecycleModes_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+     * The default if the list is empty is "Persistent", which is the usage
+     * defined by the CSI specification and implemented in Kubernetes via the usual
+     * PV/PVC mechanism.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this
+     * because it is only going to get a NodePublishVolume call for such a volume.
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+     * A driver can support one or more of these modes and
+     * more modes may be added in the future.
+     * This field is beta.
+     * This field is immutable.
+     * +optional
+     * +listType=set
+     * </pre>
+     *
+     * <code>repeated string volumeLifecycleModes = 3;</code>
+     */
+    public int getVolumeLifecycleModesCount() {
+      return volumeLifecycleModes_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+     * The default if the list is empty is "Persistent", which is the usage
+     * defined by the CSI specification and implemented in Kubernetes via the usual
+     * PV/PVC mechanism.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this
+     * because it is only going to get a NodePublishVolume call for such a volume.
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+     * A driver can support one or more of these modes and
+     * more modes may be added in the future.
+     * This field is beta.
+     * This field is immutable.
+     * +optional
+     * +listType=set
+     * </pre>
+     *
+     * <code>repeated string volumeLifecycleModes = 3;</code>
+     */
+    public java.lang.String getVolumeLifecycleModes(int index) {
+      return volumeLifecycleModes_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+     * The default if the list is empty is "Persistent", which is the usage
+     * defined by the CSI specification and implemented in Kubernetes via the usual
+     * PV/PVC mechanism.
+     * The other mode is "Ephemeral". In this mode, volumes are defined inline
+     * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+     * the lifecycle of that pod. A driver has to be aware of this
+     * because it is only going to get a NodePublishVolume call for such a volume.
+     * For more information about implementing this mode, see
+     * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+     * A driver can support one or more of these modes and
+     * more modes may be added in the future.
+     * This field is beta.
+     * This field is immutable.
+     * +optional
+     * +listType=set
+     * </pre>
+     *
+     * <code>repeated string volumeLifecycleModes = 3;</code>
+     */
+    public com.google.protobuf.ByteString getVolumeLifecycleModesBytes(int index) {
+      return volumeLifecycleModes_.getByteString(index);
+    }
+
+    public static final int STORAGECAPACITY_FIELD_NUMBER = 4;
+    private boolean storageCapacity_;
+    /**
+     *
+     *
+     * <pre>
+     * If set to true, storageCapacity indicates that the CSI
+     * volume driver wants pod scheduling to consider the storage
+     * capacity that the driver deployment will report by creating
+     * CSIStorageCapacity objects with capacity information.
+     * The check can be enabled immediately when deploying a driver.
+     * In that case, provisioning new volumes with late binding
+     * will pause until the driver deployment has published
+     * some suitable CSIStorageCapacity object.
+     * Alternatively, the driver can be deployed with the field
+     * unset or false and it can be flipped later when storage
+     * capacity information has been published.
+     * This field was immutable in Kubernetes &lt;= 1.22 and now is mutable.
+     * This is a beta field and only available when the CSIStorageCapacity
+     * feature is enabled. The default is false.
+     * +optional
+     * +featureGate=CSIStorageCapacity
+     * </pre>
+     *
+     * <code>optional bool storageCapacity = 4;</code>
+     */
+    public boolean hasStorageCapacity() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * If set to true, storageCapacity indicates that the CSI
+     * volume driver wants pod scheduling to consider the storage
+     * capacity that the driver deployment will report by creating
+     * CSIStorageCapacity objects with capacity information.
+     * The check can be enabled immediately when deploying a driver.
+     * In that case, provisioning new volumes with late binding
+     * will pause until the driver deployment has published
+     * some suitable CSIStorageCapacity object.
+     * Alternatively, the driver can be deployed with the field
+     * unset or false and it can be flipped later when storage
+     * capacity information has been published.
+     * This field was immutable in Kubernetes &lt;= 1.22 and now is mutable.
+     * This is a beta field and only available when the CSIStorageCapacity
+     * feature is enabled. The default is false.
+     * +optional
+     * +featureGate=CSIStorageCapacity
+     * </pre>
+     *
+     * <code>optional bool storageCapacity = 4;</code>
+     */
+    public boolean getStorageCapacity() {
+      return storageCapacity_;
+    }
+
+    public static final int FSGROUPPOLICY_FIELD_NUMBER = 5;
+    private volatile java.lang.Object fsGroupPolicy_;
+    /**
+     *
+     *
+     * <pre>
+     * Defines if the underlying volume supports changing ownership and
+     * permission of the volume before being mounted.
+     * Refer to the specific FSGroupPolicy values for additional details.
+     * This field is immutable.
+     * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+     * to determine if Kubernetes should modify ownership and permissions of the volume.
+     * With the default policy the defined fsGroup will only be applied
+     * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string fsGroupPolicy = 5;</code>
+     */
+    public boolean hasFsGroupPolicy() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Defines if the underlying volume supports changing ownership and
+     * permission of the volume before being mounted.
+     * Refer to the specific FSGroupPolicy values for additional details.
+     * This field is immutable.
+     * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+     * to determine if Kubernetes should modify ownership and permissions of the volume.
+     * With the default policy the defined fsGroup will only be applied
+     * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string fsGroupPolicy = 5;</code>
+     */
+    public java.lang.String getFsGroupPolicy() {
+      java.lang.Object ref = fsGroupPolicy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          fsGroupPolicy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Defines if the underlying volume supports changing ownership and
+     * permission of the volume before being mounted.
+     * Refer to the specific FSGroupPolicy values for additional details.
+     * This field is immutable.
+     * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+     * to determine if Kubernetes should modify ownership and permissions of the volume.
+     * With the default policy the defined fsGroup will only be applied
+     * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string fsGroupPolicy = 5;</code>
+     */
+    public com.google.protobuf.ByteString getFsGroupPolicyBytes() {
+      java.lang.Object ref = fsGroupPolicy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        fsGroupPolicy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOKENREQUESTS_FIELD_NUMBER = 6;
+    private java.util.List<io.kubernetes.client.proto.V1Storage.TokenRequest> tokenRequests_;
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1Storage.TokenRequest>
+        getTokenRequestsList() {
+      return tokenRequests_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder>
+        getTokenRequestsOrBuilderList() {
+      return tokenRequests_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    public int getTokenRequestsCount() {
+      return tokenRequests_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.TokenRequest getTokenRequests(int index) {
+      return tokenRequests_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequests indicates the CSI driver needs pods' service account
+     * tokens it is mounting volume for to do necessary authentication. Kubelet
+     * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+     * The CSI driver should parse and validate the following VolumeContext:
+     * "csi.storage.k8s.io/serviceAccount.tokens": {
+     *   "&lt;audience&gt;": {
+     *     "token": &lt;token&gt;,
+     *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+     *   },
+     *   ...
+     * }
+     * Note: Audience in each TokenRequest should be different and at
+     * most one token is empty string. To receive a new token after expiry,
+     * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+     * +optional
+     * +listType=atomic
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder getTokenRequestsOrBuilder(
+        int index) {
+      return tokenRequests_.get(index);
+    }
+
+    public static final int REQUIRESREPUBLISH_FIELD_NUMBER = 7;
+    private boolean requiresRepublish_;
+    /**
+     *
+     *
+     * <pre>
+     * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+     * being periodically called to reflect any possible change in the mounted
+     * volume. This field defaults to false.
+     * Note: After a successful initial NodePublishVolume call, subsequent calls
+     * to NodePublishVolume should only update the contents of the volume. New
+     * mount points will not be seen by a running container.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool requiresRepublish = 7;</code>
+     */
+    public boolean hasRequiresRepublish() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+     * being periodically called to reflect any possible change in the mounted
+     * volume. This field defaults to false.
+     * Note: After a successful initial NodePublishVolume call, subsequent calls
+     * to NodePublishVolume should only update the contents of the volume. New
+     * mount points will not be seen by a running container.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool requiresRepublish = 7;</code>
+     */
+    public boolean getRequiresRepublish() {
+      return requiresRepublish_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, attachRequired_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, podInfoOnMount_);
+      }
+      for (int i = 0; i < volumeLifecycleModes_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(
+            output, 3, volumeLifecycleModes_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(4, storageCapacity_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, fsGroupPolicy_);
+      }
+      for (int i = 0; i < tokenRequests_.size(); i++) {
+        output.writeMessage(6, tokenRequests_.get(i));
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBool(7, requiresRepublish_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(1, attachRequired_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(2, podInfoOnMount_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < volumeLifecycleModes_.size(); i++) {
+          dataSize += computeStringSizeNoTag(volumeLifecycleModes_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getVolumeLifecycleModesList().size();
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(4, storageCapacity_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, fsGroupPolicy_);
+      }
+      for (int i = 0; i < tokenRequests_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(6, tokenRequests_.get(i));
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(7, requiresRepublish_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.CSIDriverSpec)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.CSIDriverSpec other =
+          (io.kubernetes.client.proto.V1Storage.CSIDriverSpec) obj;
+
+      boolean result = true;
+      result = result && (hasAttachRequired() == other.hasAttachRequired());
+      if (hasAttachRequired()) {
+        result = result && (getAttachRequired() == other.getAttachRequired());
+      }
+      result = result && (hasPodInfoOnMount() == other.hasPodInfoOnMount());
+      if (hasPodInfoOnMount()) {
+        result = result && (getPodInfoOnMount() == other.getPodInfoOnMount());
+      }
+      result = result && getVolumeLifecycleModesList().equals(other.getVolumeLifecycleModesList());
+      result = result && (hasStorageCapacity() == other.hasStorageCapacity());
+      if (hasStorageCapacity()) {
+        result = result && (getStorageCapacity() == other.getStorageCapacity());
+      }
+      result = result && (hasFsGroupPolicy() == other.hasFsGroupPolicy());
+      if (hasFsGroupPolicy()) {
+        result = result && getFsGroupPolicy().equals(other.getFsGroupPolicy());
+      }
+      result = result && getTokenRequestsList().equals(other.getTokenRequestsList());
+      result = result && (hasRequiresRepublish() == other.hasRequiresRepublish());
+      if (hasRequiresRepublish()) {
+        result = result && (getRequiresRepublish() == other.getRequiresRepublish());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasAttachRequired()) {
+        hash = (37 * hash) + ATTACHREQUIRED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getAttachRequired());
+      }
+      if (hasPodInfoOnMount()) {
+        hash = (37 * hash) + PODINFOONMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getPodInfoOnMount());
+      }
+      if (getVolumeLifecycleModesCount() > 0) {
+        hash = (37 * hash) + VOLUMELIFECYCLEMODES_FIELD_NUMBER;
+        hash = (53 * hash) + getVolumeLifecycleModesList().hashCode();
+      }
+      if (hasStorageCapacity()) {
+        hash = (37 * hash) + STORAGECAPACITY_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getStorageCapacity());
+      }
+      if (hasFsGroupPolicy()) {
+        hash = (37 * hash) + FSGROUPPOLICY_FIELD_NUMBER;
+        hash = (53 * hash) + getFsGroupPolicy().hashCode();
+      }
+      if (getTokenRequestsCount() > 0) {
+        hash = (37 * hash) + TOKENREQUESTS_FIELD_NUMBER;
+        hash = (53 * hash) + getTokenRequestsList().hashCode();
+      }
+      if (hasRequiresRepublish()) {
+        hash = (37 * hash) + REQUIRESREPUBLISH_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getRequiresRepublish());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Storage.CSIDriverSpec prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * CSIDriverSpec is the specification of a CSIDriver.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.CSIDriverSpec}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.CSIDriverSpec)
+        io.kubernetes.client.proto.V1Storage.CSIDriverSpecOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriverSpec_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriverSpec_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.CSIDriverSpec.class,
+                io.kubernetes.client.proto.V1Storage.CSIDriverSpec.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.CSIDriverSpec.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getTokenRequestsFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        attachRequired_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        podInfoOnMount_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        volumeLifecycleModes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        storageCapacity_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        fsGroupPolicy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        if (tokenRequestsBuilder_ == null) {
+          tokenRequests_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          tokenRequestsBuilder_.clear();
+        }
+        requiresRepublish_ = false;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSIDriverSpec_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriverSpec getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.CSIDriverSpec.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriverSpec build() {
+        io.kubernetes.client.proto.V1Storage.CSIDriverSpec result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSIDriverSpec buildPartial() {
+        io.kubernetes.client.proto.V1Storage.CSIDriverSpec result =
+            new io.kubernetes.client.proto.V1Storage.CSIDriverSpec(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.attachRequired_ = attachRequired_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.podInfoOnMount_ = podInfoOnMount_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          volumeLifecycleModes_ = volumeLifecycleModes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.volumeLifecycleModes_ = volumeLifecycleModes_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.storageCapacity_ = storageCapacity_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.fsGroupPolicy_ = fsGroupPolicy_;
+        if (tokenRequestsBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            tokenRequests_ = java.util.Collections.unmodifiableList(tokenRequests_);
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.tokenRequests_ = tokenRequests_;
+        } else {
+          result.tokenRequests_ = tokenRequestsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.requiresRepublish_ = requiresRepublish_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.CSIDriverSpec) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.CSIDriverSpec) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.CSIDriverSpec other) {
+        if (other == io.kubernetes.client.proto.V1Storage.CSIDriverSpec.getDefaultInstance())
+          return this;
+        if (other.hasAttachRequired()) {
+          setAttachRequired(other.getAttachRequired());
+        }
+        if (other.hasPodInfoOnMount()) {
+          setPodInfoOnMount(other.getPodInfoOnMount());
+        }
+        if (!other.volumeLifecycleModes_.isEmpty()) {
+          if (volumeLifecycleModes_.isEmpty()) {
+            volumeLifecycleModes_ = other.volumeLifecycleModes_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureVolumeLifecycleModesIsMutable();
+            volumeLifecycleModes_.addAll(other.volumeLifecycleModes_);
+          }
+          onChanged();
+        }
+        if (other.hasStorageCapacity()) {
+          setStorageCapacity(other.getStorageCapacity());
+        }
+        if (other.hasFsGroupPolicy()) {
+          bitField0_ |= 0x00000010;
+          fsGroupPolicy_ = other.fsGroupPolicy_;
+          onChanged();
+        }
+        if (tokenRequestsBuilder_ == null) {
+          if (!other.tokenRequests_.isEmpty()) {
+            if (tokenRequests_.isEmpty()) {
+              tokenRequests_ = other.tokenRequests_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+            } else {
+              ensureTokenRequestsIsMutable();
+              tokenRequests_.addAll(other.tokenRequests_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.tokenRequests_.isEmpty()) {
+            if (tokenRequestsBuilder_.isEmpty()) {
+              tokenRequestsBuilder_.dispose();
+              tokenRequestsBuilder_ = null;
+              tokenRequests_ = other.tokenRequests_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              tokenRequestsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getTokenRequestsFieldBuilder()
+                      : null;
+            } else {
+              tokenRequestsBuilder_.addAllMessages(other.tokenRequests_);
+            }
+          }
+        }
+        if (other.hasRequiresRepublish()) {
+          setRequiresRepublish(other.getRequiresRepublish());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.CSIDriverSpec parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Storage.CSIDriverSpec) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private boolean attachRequired_;
+      /**
+       *
+       *
+       * <pre>
+       * attachRequired indicates this CSI volume driver requires an attach
+       * operation (because it implements the CSI ControllerPublishVolume()
+       * method), and that the Kubernetes attach detach controller should call
+       * the attach volume interface which checks the volumeattachment status
+       * and waits until the volume is attached before proceeding to mounting.
+       * The CSI external-attacher coordinates with CSI volume driver and updates
+       * the volumeattachment status when the attach operation is complete.
+       * If the CSIDriverRegistry feature gate is enabled and the value is
+       * specified to false, the attach operation will be skipped.
+       * Otherwise the attach operation will be called.
+       * This field is immutable.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool attachRequired = 1;</code>
+       */
+      public boolean hasAttachRequired() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * attachRequired indicates this CSI volume driver requires an attach
+       * operation (because it implements the CSI ControllerPublishVolume()
+       * method), and that the Kubernetes attach detach controller should call
+       * the attach volume interface which checks the volumeattachment status
+       * and waits until the volume is attached before proceeding to mounting.
+       * The CSI external-attacher coordinates with CSI volume driver and updates
+       * the volumeattachment status when the attach operation is complete.
+       * If the CSIDriverRegistry feature gate is enabled and the value is
+       * specified to false, the attach operation will be skipped.
+       * Otherwise the attach operation will be called.
+       * This field is immutable.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool attachRequired = 1;</code>
+       */
+      public boolean getAttachRequired() {
+        return attachRequired_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * attachRequired indicates this CSI volume driver requires an attach
+       * operation (because it implements the CSI ControllerPublishVolume()
+       * method), and that the Kubernetes attach detach controller should call
+       * the attach volume interface which checks the volumeattachment status
+       * and waits until the volume is attached before proceeding to mounting.
+       * The CSI external-attacher coordinates with CSI volume driver and updates
+       * the volumeattachment status when the attach operation is complete.
+       * If the CSIDriverRegistry feature gate is enabled and the value is
+       * specified to false, the attach operation will be skipped.
+       * Otherwise the attach operation will be called.
+       * This field is immutable.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool attachRequired = 1;</code>
+       */
+      public Builder setAttachRequired(boolean value) {
+        bitField0_ |= 0x00000001;
+        attachRequired_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * attachRequired indicates this CSI volume driver requires an attach
+       * operation (because it implements the CSI ControllerPublishVolume()
+       * method), and that the Kubernetes attach detach controller should call
+       * the attach volume interface which checks the volumeattachment status
+       * and waits until the volume is attached before proceeding to mounting.
+       * The CSI external-attacher coordinates with CSI volume driver and updates
+       * the volumeattachment status when the attach operation is complete.
+       * If the CSIDriverRegistry feature gate is enabled and the value is
+       * specified to false, the attach operation will be skipped.
+       * Otherwise the attach operation will be called.
+       * This field is immutable.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool attachRequired = 1;</code>
+       */
+      public Builder clearAttachRequired() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        attachRequired_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean podInfoOnMount_;
+      /**
+       *
+       *
+       * <pre>
+       * If set to true, podInfoOnMount indicates this CSI volume driver
+       * requires additional pod information (like podName, podUID, etc.) during
+       * mount operations.
+       * If set to false, pod information will not be passed on mount.
+       * Default is false.
+       * The CSI driver specifies podInfoOnMount as part of driver deployment.
+       * If true, Kubelet will pass pod information as VolumeContext in the CSI
+       * NodePublishVolume() calls.
+       * The CSI driver is responsible for parsing and validating the information
+       * passed in as VolumeContext.
+       * The following VolumeConext will be passed if podInfoOnMount is set to true.
+       * This list might grow, but the prefix will be used.
+       * "csi.storage.k8s.io/pod.name": pod.Name
+       * "csi.storage.k8s.io/pod.namespace": pod.Namespace
+       * "csi.storage.k8s.io/pod.uid": string(pod.UID)
+       * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral inline volume
+       *                                 defined by a CSIVolumeSource, otherwise "false"
+       * "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only
+       * required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode.
+       * Other drivers can leave pod info disabled and/or ignore this field.
+       * As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when
+       * deployed on such a cluster and the deployment determines which mode that is, for example
+       * via a command line parameter of the driver.
+       * This field is immutable.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool podInfoOnMount = 2;</code>
+       */
+      public boolean hasPodInfoOnMount() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set to true, podInfoOnMount indicates this CSI volume driver
+       * requires additional pod information (like podName, podUID, etc.) during
+       * mount operations.
+       * If set to false, pod information will not be passed on mount.
+       * Default is false.
+       * The CSI driver specifies podInfoOnMount as part of driver deployment.
+       * If true, Kubelet will pass pod information as VolumeContext in the CSI
+       * NodePublishVolume() calls.
+       * The CSI driver is responsible for parsing and validating the information
+       * passed in as VolumeContext.
+       * The following VolumeConext will be passed if podInfoOnMount is set to true.
+       * This list might grow, but the prefix will be used.
+       * "csi.storage.k8s.io/pod.name": pod.Name
+       * "csi.storage.k8s.io/pod.namespace": pod.Namespace
+       * "csi.storage.k8s.io/pod.uid": string(pod.UID)
+       * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral inline volume
+       *                                 defined by a CSIVolumeSource, otherwise "false"
+       * "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only
+       * required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode.
+       * Other drivers can leave pod info disabled and/or ignore this field.
+       * As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when
+       * deployed on such a cluster and the deployment determines which mode that is, for example
+       * via a command line parameter of the driver.
+       * This field is immutable.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool podInfoOnMount = 2;</code>
+       */
+      public boolean getPodInfoOnMount() {
+        return podInfoOnMount_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set to true, podInfoOnMount indicates this CSI volume driver
+       * requires additional pod information (like podName, podUID, etc.) during
+       * mount operations.
+       * If set to false, pod information will not be passed on mount.
+       * Default is false.
+       * The CSI driver specifies podInfoOnMount as part of driver deployment.
+       * If true, Kubelet will pass pod information as VolumeContext in the CSI
+       * NodePublishVolume() calls.
+       * The CSI driver is responsible for parsing and validating the information
+       * passed in as VolumeContext.
+       * The following VolumeConext will be passed if podInfoOnMount is set to true.
+       * This list might grow, but the prefix will be used.
+       * "csi.storage.k8s.io/pod.name": pod.Name
+       * "csi.storage.k8s.io/pod.namespace": pod.Namespace
+       * "csi.storage.k8s.io/pod.uid": string(pod.UID)
+       * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral inline volume
+       *                                 defined by a CSIVolumeSource, otherwise "false"
+       * "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only
+       * required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode.
+       * Other drivers can leave pod info disabled and/or ignore this field.
+       * As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when
+       * deployed on such a cluster and the deployment determines which mode that is, for example
+       * via a command line parameter of the driver.
+       * This field is immutable.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool podInfoOnMount = 2;</code>
+       */
+      public Builder setPodInfoOnMount(boolean value) {
+        bitField0_ |= 0x00000002;
+        podInfoOnMount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set to true, podInfoOnMount indicates this CSI volume driver
+       * requires additional pod information (like podName, podUID, etc.) during
+       * mount operations.
+       * If set to false, pod information will not be passed on mount.
+       * Default is false.
+       * The CSI driver specifies podInfoOnMount as part of driver deployment.
+       * If true, Kubelet will pass pod information as VolumeContext in the CSI
+       * NodePublishVolume() calls.
+       * The CSI driver is responsible for parsing and validating the information
+       * passed in as VolumeContext.
+       * The following VolumeConext will be passed if podInfoOnMount is set to true.
+       * This list might grow, but the prefix will be used.
+       * "csi.storage.k8s.io/pod.name": pod.Name
+       * "csi.storage.k8s.io/pod.namespace": pod.Namespace
+       * "csi.storage.k8s.io/pod.uid": string(pod.UID)
+       * "csi.storage.k8s.io/ephemeral": "true" if the volume is an ephemeral inline volume
+       *                                 defined by a CSIVolumeSource, otherwise "false"
+       * "csi.storage.k8s.io/ephemeral" is a new feature in Kubernetes 1.16. It is only
+       * required for drivers which support both the "Persistent" and "Ephemeral" VolumeLifecycleMode.
+       * Other drivers can leave pod info disabled and/or ignore this field.
+       * As Kubernetes 1.15 doesn't support this field, drivers can only support one mode when
+       * deployed on such a cluster and the deployment determines which mode that is, for example
+       * via a command line parameter of the driver.
+       * This field is immutable.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool podInfoOnMount = 2;</code>
+       */
+      public Builder clearPodInfoOnMount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        podInfoOnMount_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList volumeLifecycleModes_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureVolumeLifecycleModesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          volumeLifecycleModes_ =
+              new com.google.protobuf.LazyStringArrayList(volumeLifecycleModes_);
+          bitField0_ |= 0x00000004;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getVolumeLifecycleModesList() {
+        return volumeLifecycleModes_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public int getVolumeLifecycleModesCount() {
+        return volumeLifecycleModes_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public java.lang.String getVolumeLifecycleModes(int index) {
+        return volumeLifecycleModes_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public com.google.protobuf.ByteString getVolumeLifecycleModesBytes(int index) {
+        return volumeLifecycleModes_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public Builder setVolumeLifecycleModes(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVolumeLifecycleModesIsMutable();
+        volumeLifecycleModes_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public Builder addVolumeLifecycleModes(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVolumeLifecycleModesIsMutable();
+        volumeLifecycleModes_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public Builder addAllVolumeLifecycleModes(java.lang.Iterable<java.lang.String> values) {
+        ensureVolumeLifecycleModesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, volumeLifecycleModes_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public Builder clearVolumeLifecycleModes() {
+        volumeLifecycleModes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * volumeLifecycleModes defines what kind of volumes this CSI volume driver supports.
+       * The default if the list is empty is "Persistent", which is the usage
+       * defined by the CSI specification and implemented in Kubernetes via the usual
+       * PV/PVC mechanism.
+       * The other mode is "Ephemeral". In this mode, volumes are defined inline
+       * inside the pod spec with CSIVolumeSource and their lifecycle is tied to
+       * the lifecycle of that pod. A driver has to be aware of this
+       * because it is only going to get a NodePublishVolume call for such a volume.
+       * For more information about implementing this mode, see
+       * https://kubernetes-csi.github.io/docs/ephemeral-local-volumes.html
+       * A driver can support one or more of these modes and
+       * more modes may be added in the future.
+       * This field is beta.
+       * This field is immutable.
+       * +optional
+       * +listType=set
+       * </pre>
+       *
+       * <code>repeated string volumeLifecycleModes = 3;</code>
+       */
+      public Builder addVolumeLifecycleModesBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureVolumeLifecycleModesIsMutable();
+        volumeLifecycleModes_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private boolean storageCapacity_;
+      /**
+       *
+       *
+       * <pre>
+       * If set to true, storageCapacity indicates that the CSI
+       * volume driver wants pod scheduling to consider the storage
+       * capacity that the driver deployment will report by creating
+       * CSIStorageCapacity objects with capacity information.
+       * The check can be enabled immediately when deploying a driver.
+       * In that case, provisioning new volumes with late binding
+       * will pause until the driver deployment has published
+       * some suitable CSIStorageCapacity object.
+       * Alternatively, the driver can be deployed with the field
+       * unset or false and it can be flipped later when storage
+       * capacity information has been published.
+       * This field was immutable in Kubernetes &lt;= 1.22 and now is mutable.
+       * This is a beta field and only available when the CSIStorageCapacity
+       * feature is enabled. The default is false.
+       * +optional
+       * +featureGate=CSIStorageCapacity
+       * </pre>
+       *
+       * <code>optional bool storageCapacity = 4;</code>
+       */
+      public boolean hasStorageCapacity() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set to true, storageCapacity indicates that the CSI
+       * volume driver wants pod scheduling to consider the storage
+       * capacity that the driver deployment will report by creating
+       * CSIStorageCapacity objects with capacity information.
+       * The check can be enabled immediately when deploying a driver.
+       * In that case, provisioning new volumes with late binding
+       * will pause until the driver deployment has published
+       * some suitable CSIStorageCapacity object.
+       * Alternatively, the driver can be deployed with the field
+       * unset or false and it can be flipped later when storage
+       * capacity information has been published.
+       * This field was immutable in Kubernetes &lt;= 1.22 and now is mutable.
+       * This is a beta field and only available when the CSIStorageCapacity
+       * feature is enabled. The default is false.
+       * +optional
+       * +featureGate=CSIStorageCapacity
+       * </pre>
+       *
+       * <code>optional bool storageCapacity = 4;</code>
+       */
+      public boolean getStorageCapacity() {
+        return storageCapacity_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set to true, storageCapacity indicates that the CSI
+       * volume driver wants pod scheduling to consider the storage
+       * capacity that the driver deployment will report by creating
+       * CSIStorageCapacity objects with capacity information.
+       * The check can be enabled immediately when deploying a driver.
+       * In that case, provisioning new volumes with late binding
+       * will pause until the driver deployment has published
+       * some suitable CSIStorageCapacity object.
+       * Alternatively, the driver can be deployed with the field
+       * unset or false and it can be flipped later when storage
+       * capacity information has been published.
+       * This field was immutable in Kubernetes &lt;= 1.22 and now is mutable.
+       * This is a beta field and only available when the CSIStorageCapacity
+       * feature is enabled. The default is false.
+       * +optional
+       * +featureGate=CSIStorageCapacity
+       * </pre>
+       *
+       * <code>optional bool storageCapacity = 4;</code>
+       */
+      public Builder setStorageCapacity(boolean value) {
+        bitField0_ |= 0x00000008;
+        storageCapacity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set to true, storageCapacity indicates that the CSI
+       * volume driver wants pod scheduling to consider the storage
+       * capacity that the driver deployment will report by creating
+       * CSIStorageCapacity objects with capacity information.
+       * The check can be enabled immediately when deploying a driver.
+       * In that case, provisioning new volumes with late binding
+       * will pause until the driver deployment has published
+       * some suitable CSIStorageCapacity object.
+       * Alternatively, the driver can be deployed with the field
+       * unset or false and it can be flipped later when storage
+       * capacity information has been published.
+       * This field was immutable in Kubernetes &lt;= 1.22 and now is mutable.
+       * This is a beta field and only available when the CSIStorageCapacity
+       * feature is enabled. The default is false.
+       * +optional
+       * +featureGate=CSIStorageCapacity
+       * </pre>
+       *
+       * <code>optional bool storageCapacity = 4;</code>
+       */
+      public Builder clearStorageCapacity() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        storageCapacity_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fsGroupPolicy_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Defines if the underlying volume supports changing ownership and
+       * permission of the volume before being mounted.
+       * Refer to the specific FSGroupPolicy values for additional details.
+       * This field is immutable.
+       * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+       * to determine if Kubernetes should modify ownership and permissions of the volume.
+       * With the default policy the defined fsGroup will only be applied
+       * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string fsGroupPolicy = 5;</code>
+       */
+      public boolean hasFsGroupPolicy() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Defines if the underlying volume supports changing ownership and
+       * permission of the volume before being mounted.
+       * Refer to the specific FSGroupPolicy values for additional details.
+       * This field is immutable.
+       * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+       * to determine if Kubernetes should modify ownership and permissions of the volume.
+       * With the default policy the defined fsGroup will only be applied
+       * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string fsGroupPolicy = 5;</code>
+       */
+      public java.lang.String getFsGroupPolicy() {
+        java.lang.Object ref = fsGroupPolicy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            fsGroupPolicy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Defines if the underlying volume supports changing ownership and
+       * permission of the volume before being mounted.
+       * Refer to the specific FSGroupPolicy values for additional details.
+       * This field is immutable.
+       * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+       * to determine if Kubernetes should modify ownership and permissions of the volume.
+       * With the default policy the defined fsGroup will only be applied
+       * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string fsGroupPolicy = 5;</code>
+       */
+      public com.google.protobuf.ByteString getFsGroupPolicyBytes() {
+        java.lang.Object ref = fsGroupPolicy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          fsGroupPolicy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Defines if the underlying volume supports changing ownership and
+       * permission of the volume before being mounted.
+       * Refer to the specific FSGroupPolicy values for additional details.
+       * This field is immutable.
+       * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+       * to determine if Kubernetes should modify ownership and permissions of the volume.
+       * With the default policy the defined fsGroup will only be applied
+       * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string fsGroupPolicy = 5;</code>
+       */
+      public Builder setFsGroupPolicy(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        fsGroupPolicy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Defines if the underlying volume supports changing ownership and
+       * permission of the volume before being mounted.
+       * Refer to the specific FSGroupPolicy values for additional details.
+       * This field is immutable.
+       * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+       * to determine if Kubernetes should modify ownership and permissions of the volume.
+       * With the default policy the defined fsGroup will only be applied
+       * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string fsGroupPolicy = 5;</code>
+       */
+      public Builder clearFsGroupPolicy() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        fsGroupPolicy_ = getDefaultInstance().getFsGroupPolicy();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Defines if the underlying volume supports changing ownership and
+       * permission of the volume before being mounted.
+       * Refer to the specific FSGroupPolicy values for additional details.
+       * This field is immutable.
+       * Defaults to ReadWriteOnceWithFSType, which will examine each volume
+       * to determine if Kubernetes should modify ownership and permissions of the volume.
+       * With the default policy the defined fsGroup will only be applied
+       * if a fstype is defined and the volume's access mode contains ReadWriteOnce.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string fsGroupPolicy = 5;</code>
+       */
+      public Builder setFsGroupPolicyBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        fsGroupPolicy_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.V1Storage.TokenRequest> tokenRequests_ =
+          java.util.Collections.emptyList();
+
+      private void ensureTokenRequestsIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          tokenRequests_ =
+              new java.util.ArrayList<io.kubernetes.client.proto.V1Storage.TokenRequest>(
+                  tokenRequests_);
+          bitField0_ |= 0x00000020;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.TokenRequest,
+              io.kubernetes.client.proto.V1Storage.TokenRequest.Builder,
+              io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder>
+          tokenRequestsBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1Storage.TokenRequest>
+          getTokenRequestsList() {
+        if (tokenRequestsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tokenRequests_);
+        } else {
+          return tokenRequestsBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public int getTokenRequestsCount() {
+        if (tokenRequestsBuilder_ == null) {
+          return tokenRequests_.size();
+        } else {
+          return tokenRequestsBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.TokenRequest getTokenRequests(int index) {
+        if (tokenRequestsBuilder_ == null) {
+          return tokenRequests_.get(index);
+        } else {
+          return tokenRequestsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder setTokenRequests(
+          int index, io.kubernetes.client.proto.V1Storage.TokenRequest value) {
+        if (tokenRequestsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTokenRequestsIsMutable();
+          tokenRequests_.set(index, value);
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder setTokenRequests(
+          int index, io.kubernetes.client.proto.V1Storage.TokenRequest.Builder builderForValue) {
+        if (tokenRequestsBuilder_ == null) {
+          ensureTokenRequestsIsMutable();
+          tokenRequests_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder addTokenRequests(io.kubernetes.client.proto.V1Storage.TokenRequest value) {
+        if (tokenRequestsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTokenRequestsIsMutable();
+          tokenRequests_.add(value);
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder addTokenRequests(
+          int index, io.kubernetes.client.proto.V1Storage.TokenRequest value) {
+        if (tokenRequestsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTokenRequestsIsMutable();
+          tokenRequests_.add(index, value);
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder addTokenRequests(
+          io.kubernetes.client.proto.V1Storage.TokenRequest.Builder builderForValue) {
+        if (tokenRequestsBuilder_ == null) {
+          ensureTokenRequestsIsMutable();
+          tokenRequests_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder addTokenRequests(
+          int index, io.kubernetes.client.proto.V1Storage.TokenRequest.Builder builderForValue) {
+        if (tokenRequestsBuilder_ == null) {
+          ensureTokenRequestsIsMutable();
+          tokenRequests_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder addAllTokenRequests(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1Storage.TokenRequest> values) {
+        if (tokenRequestsBuilder_ == null) {
+          ensureTokenRequestsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, tokenRequests_);
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder clearTokenRequests() {
+        if (tokenRequestsBuilder_ == null) {
+          tokenRequests_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public Builder removeTokenRequests(int index) {
+        if (tokenRequestsBuilder_ == null) {
+          ensureTokenRequestsIsMutable();
+          tokenRequests_.remove(index);
+          onChanged();
+        } else {
+          tokenRequestsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.TokenRequest.Builder getTokenRequestsBuilder(
+          int index) {
+        return getTokenRequestsFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder getTokenRequestsOrBuilder(
+          int index) {
+        if (tokenRequestsBuilder_ == null) {
+          return tokenRequests_.get(index);
+        } else {
+          return tokenRequestsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder>
+          getTokenRequestsOrBuilderList() {
+        if (tokenRequestsBuilder_ != null) {
+          return tokenRequestsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tokenRequests_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.TokenRequest.Builder addTokenRequestsBuilder() {
+        return getTokenRequestsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1Storage.TokenRequest.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.TokenRequest.Builder addTokenRequestsBuilder(
+          int index) {
+        return getTokenRequestsFieldBuilder()
+            .addBuilder(
+                index, io.kubernetes.client.proto.V1Storage.TokenRequest.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * TokenRequests indicates the CSI driver needs pods' service account
+       * tokens it is mounting volume for to do necessary authentication. Kubelet
+       * will pass the tokens in VolumeContext in the CSI NodePublishVolume calls.
+       * The CSI driver should parse and validate the following VolumeContext:
+       * "csi.storage.k8s.io/serviceAccount.tokens": {
+       *   "&lt;audience&gt;": {
+       *     "token": &lt;token&gt;,
+       *     "expirationTimestamp": &lt;expiration timestamp in RFC3339&gt;,
+       *   },
+       *   ...
+       * }
+       * Note: Audience in each TokenRequest should be different and at
+       * most one token is empty string. To receive a new token after expiry,
+       * RequiresRepublish can be used to trigger NodePublishVolume periodically.
+       * +optional
+       * +listType=atomic
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.TokenRequest tokenRequests = 6;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1Storage.TokenRequest.Builder>
+          getTokenRequestsBuilderList() {
+        return getTokenRequestsFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.TokenRequest,
+              io.kubernetes.client.proto.V1Storage.TokenRequest.Builder,
+              io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder>
+          getTokenRequestsFieldBuilder() {
+        if (tokenRequestsBuilder_ == null) {
+          tokenRequestsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Storage.TokenRequest,
+                  io.kubernetes.client.proto.V1Storage.TokenRequest.Builder,
+                  io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder>(
+                  tokenRequests_,
+                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  getParentForChildren(),
+                  isClean());
+          tokenRequests_ = null;
+        }
+        return tokenRequestsBuilder_;
+      }
+
+      private boolean requiresRepublish_;
+      /**
+       *
+       *
+       * <pre>
+       * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+       * being periodically called to reflect any possible change in the mounted
+       * volume. This field defaults to false.
+       * Note: After a successful initial NodePublishVolume call, subsequent calls
+       * to NodePublishVolume should only update the contents of the volume. New
+       * mount points will not be seen by a running container.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool requiresRepublish = 7;</code>
+       */
+      public boolean hasRequiresRepublish() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+       * being periodically called to reflect any possible change in the mounted
+       * volume. This field defaults to false.
+       * Note: After a successful initial NodePublishVolume call, subsequent calls
+       * to NodePublishVolume should only update the contents of the volume. New
+       * mount points will not be seen by a running container.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool requiresRepublish = 7;</code>
+       */
+      public boolean getRequiresRepublish() {
+        return requiresRepublish_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+       * being periodically called to reflect any possible change in the mounted
+       * volume. This field defaults to false.
+       * Note: After a successful initial NodePublishVolume call, subsequent calls
+       * to NodePublishVolume should only update the contents of the volume. New
+       * mount points will not be seen by a running container.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool requiresRepublish = 7;</code>
+       */
+      public Builder setRequiresRepublish(boolean value) {
+        bitField0_ |= 0x00000040;
+        requiresRepublish_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequiresRepublish indicates the CSI driver wants `NodePublishVolume`
+       * being periodically called to reflect any possible change in the mounted
+       * volume. This field defaults to false.
+       * Note: After a successful initial NodePublishVolume call, subsequent calls
+       * to NodePublishVolume should only update the contents of the volume. New
+       * mount points will not be seen by a running container.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool requiresRepublish = 7;</code>
+       */
+      public Builder clearRequiresRepublish() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        requiresRepublish_ = false;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.CSIDriverSpec)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.CSIDriverSpec)
+    private static final io.kubernetes.client.proto.V1Storage.CSIDriverSpec DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.CSIDriverSpec();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSIDriverSpec getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<CSIDriverSpec> PARSER =
+        new com.google.protobuf.AbstractParser<CSIDriverSpec>() {
+          @java.lang.Override
+          public CSIDriverSpec parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CSIDriverSpec(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CSIDriverSpec> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CSIDriverSpec> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.CSIDriverSpec getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface CSINodeOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.CSINode)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * metadata.name must be the Kubernetes node name.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    boolean hasMetadata();
+    /**
+     *
+     *
+     * <pre>
+     * metadata.name must be the Kubernetes node name.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
+    /**
+     *
+     *
+     * <pre>
+     * metadata.name must be the Kubernetes node name.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * spec is the specification of CSINode
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+     */
+    boolean hasSpec();
+    /**
+     *
+     *
+     * <pre>
+     * spec is the specification of CSINode
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSINodeSpec getSpec();
+    /**
+     *
+     *
+     * <pre>
+     * spec is the specification of CSINode
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSINodeSpecOrBuilder getSpecOrBuilder();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * CSINode holds information about all CSI drivers installed on a node.
+   * CSI drivers do not need to create the CSINode object directly. As long as
+   * they use the node-driver-registrar sidecar container, the kubelet will
+   * automatically populate the CSINode object for the CSI driver as part of
+   * kubelet plugin registration.
+   * CSINode has the same name as a node. If the object is missing, it means either
+   * there are no CSI Drivers available on the node, or the Kubelet version is low
+   * enough that it doesn't create this object.
+   * CSINode has an OwnerReference that points to the corresponding node object.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.CSINode}
+   */
+  public static final class CSINode extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.CSINode)
+      CSINodeOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CSINode.newBuilder() to construct.
+    private CSINode(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CSINode() {}
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CSINode(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ObjectMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ObjectMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
+              }
+            case 18:
+              {
+                io.kubernetes.client.proto.V1Storage.CSINodeSpec.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = spec_.toBuilder();
+                }
+                spec_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Storage.CSINodeSpec.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(spec_);
+                  spec_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSINode_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSINode_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.CSINode.class,
+              io.kubernetes.client.proto.V1Storage.CSINode.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int METADATA_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
+    /**
+     *
+     *
+     * <pre>
+     * metadata.name must be the Kubernetes node name.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public boolean hasMetadata() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * metadata.name must be the Kubernetes node name.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * metadata.name must be the Kubernetes node name.
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+          : metadata_;
+    }
+
+    public static final int SPEC_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1Storage.CSINodeSpec spec_;
+    /**
+     *
+     *
+     * <pre>
+     * spec is the specification of CSINode
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+     */
+    public boolean hasSpec() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * spec is the specification of CSINode
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSINodeSpec getSpec() {
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1Storage.CSINodeSpec.getDefaultInstance()
+          : spec_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * spec is the specification of CSINode
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSINodeSpecOrBuilder getSpecOrBuilder() {
+      return spec_ == null
+          ? io.kubernetes.client.proto.V1Storage.CSINodeSpec.getDefaultInstance()
+          : spec_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getMetadata());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getSpec());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getSpec());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.CSINode)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.CSINode other =
+          (io.kubernetes.client.proto.V1Storage.CSINode) obj;
+
+      boolean result = true;
+      result = result && (hasMetadata() == other.hasMetadata());
+      if (hasMetadata()) {
+        result = result && getMetadata().equals(other.getMetadata());
+      }
+      result = result && (hasSpec() == other.hasSpec());
+      if (hasSpec()) {
+        result = result && getSpec().equals(other.getSpec());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMetadata()) {
+        hash = (37 * hash) + METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getMetadata().hashCode();
+      }
+      if (hasSpec()) {
+        hash = (37 * hash) + SPEC_FIELD_NUMBER;
+        hash = (53 * hash) + getSpec().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Storage.CSINode prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * CSINode holds information about all CSI drivers installed on a node.
+     * CSI drivers do not need to create the CSINode object directly. As long as
+     * they use the node-driver-registrar sidecar container, the kubelet will
+     * automatically populate the CSINode object for the CSI driver as part of
+     * kubelet plugin registration.
+     * CSINode has the same name as a node. If the object is missing, it means either
+     * there are no CSI Drivers available on the node, or the Kubelet version is low
+     * enough that it doesn't create this object.
+     * CSINode has an OwnerReference that points to the corresponding node object.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.CSINode}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.CSINode)
+        io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINode_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINode_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.CSINode.class,
+                io.kubernetes.client.proto.V1Storage.CSINode.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.CSINode.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getMetadataFieldBuilder();
+          getSpecFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (specBuilder_ == null) {
+          spec_ = null;
+        } else {
+          specBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINode_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINode getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.CSINode.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINode build() {
+        io.kubernetes.client.proto.V1Storage.CSINode result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINode buildPartial() {
+        io.kubernetes.client.proto.V1Storage.CSINode result =
+            new io.kubernetes.client.proto.V1Storage.CSINode(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (metadataBuilder_ == null) {
+          result.metadata_ = metadata_;
+        } else {
+          result.metadata_ = metadataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (specBuilder_ == null) {
+          result.spec_ = spec_;
+        } else {
+          result.spec_ = specBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.CSINode) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.CSINode) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.CSINode other) {
+        if (other == io.kubernetes.client.proto.V1Storage.CSINode.getDefaultInstance()) return this;
+        if (other.hasMetadata()) {
+          mergeMetadata(other.getMetadata());
+        }
+        if (other.hasSpec()) {
+          mergeSpec(other.getSpec());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.CSINode parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.V1Storage.CSINode) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private io.kubernetes.client.proto.Meta.ObjectMeta metadata_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
+          metadataBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public boolean hasMetadata() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
+        if (metadataBuilder_ == null) {
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
+        } else {
+          return metadataBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
+        if (metadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metadata_ = value;
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(
+          io.kubernetes.client.proto.Meta.ObjectMeta.Builder builderForValue) {
+        if (metadataBuilder_ == null) {
+          metadata_ = builderForValue.build();
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
+        if (metadataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()) {
+            metadata_ =
+                io.kubernetes.client.proto.Meta.ObjectMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            metadata_ = value;
+          }
+          onChanged();
+        } else {
+          metadataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public Builder clearMetadata() {
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+          onChanged();
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMeta.Builder getMetadataBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getMetadataFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
+        if (metadataBuilder_ != null) {
+          return metadataBuilder_.getMessageOrBuilder();
+        } else {
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
+              : metadata_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * metadata.name must be the Kubernetes node name.
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ObjectMeta,
+              io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+              io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
+          getMetadataFieldBuilder() {
+        if (metadataBuilder_ == null) {
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ObjectMeta,
+                  io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
+          metadata_ = null;
+        }
+        return metadataBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1Storage.CSINodeSpec spec_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSINodeSpec,
+              io.kubernetes.client.proto.V1Storage.CSINodeSpec.Builder,
+              io.kubernetes.client.proto.V1Storage.CSINodeSpecOrBuilder>
+          specBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      public boolean hasSpec() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeSpec getSpec() {
+        if (specBuilder_ == null) {
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1Storage.CSINodeSpec.getDefaultInstance()
+              : spec_;
+        } else {
+          return specBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      public Builder setSpec(io.kubernetes.client.proto.V1Storage.CSINodeSpec value) {
+        if (specBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          spec_ = value;
+          onChanged();
+        } else {
+          specBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      public Builder setSpec(
+          io.kubernetes.client.proto.V1Storage.CSINodeSpec.Builder builderForValue) {
+        if (specBuilder_ == null) {
+          spec_ = builderForValue.build();
+          onChanged();
+        } else {
+          specBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      public Builder mergeSpec(io.kubernetes.client.proto.V1Storage.CSINodeSpec value) {
+        if (specBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && spec_ != null
+              && spec_ != io.kubernetes.client.proto.V1Storage.CSINodeSpec.getDefaultInstance()) {
+            spec_ =
+                io.kubernetes.client.proto.V1Storage.CSINodeSpec.newBuilder(spec_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            spec_ = value;
+          }
+          onChanged();
+        } else {
+          specBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      public Builder clearSpec() {
+        if (specBuilder_ == null) {
+          spec_ = null;
+          onChanged();
+        } else {
+          specBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeSpec.Builder getSpecBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getSpecFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeSpecOrBuilder getSpecOrBuilder() {
+        if (specBuilder_ != null) {
+          return specBuilder_.getMessageOrBuilder();
+        } else {
+          return spec_ == null
+              ? io.kubernetes.client.proto.V1Storage.CSINodeSpec.getDefaultInstance()
+              : spec_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * spec is the specification of CSINode
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.CSINodeSpec spec = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSINodeSpec,
+              io.kubernetes.client.proto.V1Storage.CSINodeSpec.Builder,
+              io.kubernetes.client.proto.V1Storage.CSINodeSpecOrBuilder>
+          getSpecFieldBuilder() {
+        if (specBuilder_ == null) {
+          specBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Storage.CSINodeSpec,
+                  io.kubernetes.client.proto.V1Storage.CSINodeSpec.Builder,
+                  io.kubernetes.client.proto.V1Storage.CSINodeSpecOrBuilder>(
+                  getSpec(), getParentForChildren(), isClean());
+          spec_ = null;
+        }
+        return specBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.CSINode)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.CSINode)
+    private static final io.kubernetes.client.proto.V1Storage.CSINode DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.CSINode();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINode getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<CSINode> PARSER =
+        new com.google.protobuf.AbstractParser<CSINode>() {
+          @java.lang.Override
+          public CSINode parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CSINode(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CSINode> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CSINode> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.CSINode getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface CSINodeDriverOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.CSINodeDriver)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * This is the name of the CSI driver that this object refers to.
+     * This MUST be the same name returned by the CSI GetPluginName() call for
+     * that driver.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     *
+     *
+     * <pre>
+     * This is the name of the CSI driver that this object refers to.
+     * This MUST be the same name returned by the CSI GetPluginName() call for
+     * that driver.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     *
+     *
+     * <pre>
+     * This is the name of the CSI driver that this object refers to.
+     * This MUST be the same name returned by the CSI GetPluginName() call for
+     * that driver.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString getNameBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * nodeID of the node from the driver point of view.
+     * This field enables Kubernetes to communicate with storage systems that do
+     * not share the same nomenclature for nodes. For example, Kubernetes may
+     * refer to a given node as "node1", but the storage system may refer to
+     * the same node as "nodeA". When Kubernetes issues a command to the storage
+     * system to attach a volume to a specific node, it can use this field to
+     * refer to the node name using the ID that the storage system will
+     * understand, e.g. "nodeA" instead of "node1". This field is required.
+     * </pre>
+     *
+     * <code>optional string nodeID = 2;</code>
+     */
+    boolean hasNodeID();
+    /**
+     *
+     *
+     * <pre>
+     * nodeID of the node from the driver point of view.
+     * This field enables Kubernetes to communicate with storage systems that do
+     * not share the same nomenclature for nodes. For example, Kubernetes may
+     * refer to a given node as "node1", but the storage system may refer to
+     * the same node as "nodeA". When Kubernetes issues a command to the storage
+     * system to attach a volume to a specific node, it can use this field to
+     * refer to the node name using the ID that the storage system will
+     * understand, e.g. "nodeA" instead of "node1". This field is required.
+     * </pre>
+     *
+     * <code>optional string nodeID = 2;</code>
+     */
+    java.lang.String getNodeID();
+    /**
+     *
+     *
+     * <pre>
+     * nodeID of the node from the driver point of view.
+     * This field enables Kubernetes to communicate with storage systems that do
+     * not share the same nomenclature for nodes. For example, Kubernetes may
+     * refer to a given node as "node1", but the storage system may refer to
+     * the same node as "nodeA". When Kubernetes issues a command to the storage
+     * system to attach a volume to a specific node, it can use this field to
+     * refer to the node name using the ID that the storage system will
+     * understand, e.g. "nodeA" instead of "node1". This field is required.
+     * </pre>
+     *
+     * <code>optional string nodeID = 2;</code>
+     */
+    com.google.protobuf.ByteString getNodeIDBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * topologyKeys is the list of keys supported by the driver.
+     * When a driver is initialized on a cluster, it provides a set of topology
+     * keys that it understands (e.g. "company.com/zone", "company.com/region").
+     * When a driver is initialized on a node, it provides the same topology keys
+     * along with values. Kubelet will expose these topology keys as labels
+     * on its own node object.
+     * When Kubernetes does topology aware provisioning, it can use this list to
+     * determine which labels it should retrieve from the node object and pass
+     * back to the driver.
+     * It is possible for different nodes to use different topology keys.
+     * This can be empty if driver does not support topology.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string topologyKeys = 3;</code>
+     */
+    java.util.List<java.lang.String> getTopologyKeysList();
+    /**
+     *
+     *
+     * <pre>
+     * topologyKeys is the list of keys supported by the driver.
+     * When a driver is initialized on a cluster, it provides a set of topology
+     * keys that it understands (e.g. "company.com/zone", "company.com/region").
+     * When a driver is initialized on a node, it provides the same topology keys
+     * along with values. Kubelet will expose these topology keys as labels
+     * on its own node object.
+     * When Kubernetes does topology aware provisioning, it can use this list to
+     * determine which labels it should retrieve from the node object and pass
+     * back to the driver.
+     * It is possible for different nodes to use different topology keys.
+     * This can be empty if driver does not support topology.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string topologyKeys = 3;</code>
+     */
+    int getTopologyKeysCount();
+    /**
+     *
+     *
+     * <pre>
+     * topologyKeys is the list of keys supported by the driver.
+     * When a driver is initialized on a cluster, it provides a set of topology
+     * keys that it understands (e.g. "company.com/zone", "company.com/region").
+     * When a driver is initialized on a node, it provides the same topology keys
+     * along with values. Kubelet will expose these topology keys as labels
+     * on its own node object.
+     * When Kubernetes does topology aware provisioning, it can use this list to
+     * determine which labels it should retrieve from the node object and pass
+     * back to the driver.
+     * It is possible for different nodes to use different topology keys.
+     * This can be empty if driver does not support topology.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string topologyKeys = 3;</code>
+     */
+    java.lang.String getTopologyKeys(int index);
+    /**
+     *
+     *
+     * <pre>
+     * topologyKeys is the list of keys supported by the driver.
+     * When a driver is initialized on a cluster, it provides a set of topology
+     * keys that it understands (e.g. "company.com/zone", "company.com/region").
+     * When a driver is initialized on a node, it provides the same topology keys
+     * along with values. Kubelet will expose these topology keys as labels
+     * on its own node object.
+     * When Kubernetes does topology aware provisioning, it can use this list to
+     * determine which labels it should retrieve from the node object and pass
+     * back to the driver.
+     * It is possible for different nodes to use different topology keys.
+     * This can be empty if driver does not support topology.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string topologyKeys = 3;</code>
+     */
+    com.google.protobuf.ByteString getTopologyKeysBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * allocatable represents the volume resources of a node that are available for scheduling.
+     * This field is beta.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+     */
+    boolean hasAllocatable();
+    /**
+     *
+     *
+     * <pre>
+     * allocatable represents the volume resources of a node that are available for scheduling.
+     * This field is beta.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.VolumeNodeResources getAllocatable();
+    /**
+     *
+     *
+     * <pre>
+     * allocatable represents the volume resources of a node that are available for scheduling.
+     * This field is beta.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.VolumeNodeResourcesOrBuilder getAllocatableOrBuilder();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * CSINodeDriver holds information about the specification of one CSI driver installed on a node
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.CSINodeDriver}
+   */
+  public static final class CSINodeDriver extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.CSINodeDriver)
+      CSINodeDriverOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CSINodeDriver.newBuilder() to construct.
+    private CSINodeDriver(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CSINodeDriver() {
+      name_ = "";
+      nodeID_ = "";
+      topologyKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CSINodeDriver(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                name_ = bs;
+                break;
+              }
+            case 18:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000002;
+                nodeID_ = bs;
+                break;
+              }
+            case 26:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  topologyKeys_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                topologyKeys_.add(bs);
+                break;
+              }
+            case 34:
+              {
+                io.kubernetes.client.proto.V1Storage.VolumeNodeResources.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                  subBuilder = allocatable_.toBuilder();
+                }
+                allocatable_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Storage.VolumeNodeResources.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(allocatable_);
+                  allocatable_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000004;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          topologyKeys_ = topologyKeys_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSINodeDriver_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSINodeDriver_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.CSINodeDriver.class,
+              io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     *
+     *
+     * <pre>
+     * This is the name of the CSI driver that this object refers to.
+     * This MUST be the same name returned by the CSI GetPluginName() call for
+     * that driver.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * This is the name of the CSI driver that this object refers to.
+     * This MUST be the same name returned by the CSI GetPluginName() call for
+     * that driver.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * This is the name of the CSI driver that this object refers to.
+     * This MUST be the same name returned by the CSI GetPluginName() call for
+     * that driver.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NODEID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object nodeID_;
+    /**
+     *
+     *
+     * <pre>
+     * nodeID of the node from the driver point of view.
+     * This field enables Kubernetes to communicate with storage systems that do
+     * not share the same nomenclature for nodes. For example, Kubernetes may
+     * refer to a given node as "node1", but the storage system may refer to
+     * the same node as "nodeA". When Kubernetes issues a command to the storage
+     * system to attach a volume to a specific node, it can use this field to
+     * refer to the node name using the ID that the storage system will
+     * understand, e.g. "nodeA" instead of "node1". This field is required.
+     * </pre>
+     *
+     * <code>optional string nodeID = 2;</code>
+     */
+    public boolean hasNodeID() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * nodeID of the node from the driver point of view.
+     * This field enables Kubernetes to communicate with storage systems that do
+     * not share the same nomenclature for nodes. For example, Kubernetes may
+     * refer to a given node as "node1", but the storage system may refer to
+     * the same node as "nodeA". When Kubernetes issues a command to the storage
+     * system to attach a volume to a specific node, it can use this field to
+     * refer to the node name using the ID that the storage system will
+     * understand, e.g. "nodeA" instead of "node1". This field is required.
+     * </pre>
+     *
+     * <code>optional string nodeID = 2;</code>
+     */
+    public java.lang.String getNodeID() {
+      java.lang.Object ref = nodeID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          nodeID_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * nodeID of the node from the driver point of view.
+     * This field enables Kubernetes to communicate with storage systems that do
+     * not share the same nomenclature for nodes. For example, Kubernetes may
+     * refer to a given node as "node1", but the storage system may refer to
+     * the same node as "nodeA". When Kubernetes issues a command to the storage
+     * system to attach a volume to a specific node, it can use this field to
+     * refer to the node name using the ID that the storage system will
+     * understand, e.g. "nodeA" instead of "node1". This field is required.
+     * </pre>
+     *
+     * <code>optional string nodeID = 2;</code>
+     */
+    public com.google.protobuf.ByteString getNodeIDBytes() {
+      java.lang.Object ref = nodeID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        nodeID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOPOLOGYKEYS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList topologyKeys_;
+    /**
+     *
+     *
+     * <pre>
+     * topologyKeys is the list of keys supported by the driver.
+     * When a driver is initialized on a cluster, it provides a set of topology
+     * keys that it understands (e.g. "company.com/zone", "company.com/region").
+     * When a driver is initialized on a node, it provides the same topology keys
+     * along with values. Kubelet will expose these topology keys as labels
+     * on its own node object.
+     * When Kubernetes does topology aware provisioning, it can use this list to
+     * determine which labels it should retrieve from the node object and pass
+     * back to the driver.
+     * It is possible for different nodes to use different topology keys.
+     * This can be empty if driver does not support topology.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string topologyKeys = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getTopologyKeysList() {
+      return topologyKeys_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * topologyKeys is the list of keys supported by the driver.
+     * When a driver is initialized on a cluster, it provides a set of topology
+     * keys that it understands (e.g. "company.com/zone", "company.com/region").
+     * When a driver is initialized on a node, it provides the same topology keys
+     * along with values. Kubelet will expose these topology keys as labels
+     * on its own node object.
+     * When Kubernetes does topology aware provisioning, it can use this list to
+     * determine which labels it should retrieve from the node object and pass
+     * back to the driver.
+     * It is possible for different nodes to use different topology keys.
+     * This can be empty if driver does not support topology.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string topologyKeys = 3;</code>
+     */
+    public int getTopologyKeysCount() {
+      return topologyKeys_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * topologyKeys is the list of keys supported by the driver.
+     * When a driver is initialized on a cluster, it provides a set of topology
+     * keys that it understands (e.g. "company.com/zone", "company.com/region").
+     * When a driver is initialized on a node, it provides the same topology keys
+     * along with values. Kubelet will expose these topology keys as labels
+     * on its own node object.
+     * When Kubernetes does topology aware provisioning, it can use this list to
+     * determine which labels it should retrieve from the node object and pass
+     * back to the driver.
+     * It is possible for different nodes to use different topology keys.
+     * This can be empty if driver does not support topology.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string topologyKeys = 3;</code>
+     */
+    public java.lang.String getTopologyKeys(int index) {
+      return topologyKeys_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * topologyKeys is the list of keys supported by the driver.
+     * When a driver is initialized on a cluster, it provides a set of topology
+     * keys that it understands (e.g. "company.com/zone", "company.com/region").
+     * When a driver is initialized on a node, it provides the same topology keys
+     * along with values. Kubelet will expose these topology keys as labels
+     * on its own node object.
+     * When Kubernetes does topology aware provisioning, it can use this list to
+     * determine which labels it should retrieve from the node object and pass
+     * back to the driver.
+     * It is possible for different nodes to use different topology keys.
+     * This can be empty if driver does not support topology.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string topologyKeys = 3;</code>
+     */
+    public com.google.protobuf.ByteString getTopologyKeysBytes(int index) {
+      return topologyKeys_.getByteString(index);
+    }
+
+    public static final int ALLOCATABLE_FIELD_NUMBER = 4;
+    private io.kubernetes.client.proto.V1Storage.VolumeNodeResources allocatable_;
+    /**
+     *
+     *
+     * <pre>
+     * allocatable represents the volume resources of a node that are available for scheduling.
+     * This field is beta.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+     */
+    public boolean hasAllocatable() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * allocatable represents the volume resources of a node that are available for scheduling.
+     * This field is beta.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.VolumeNodeResources getAllocatable() {
+      return allocatable_ == null
+          ? io.kubernetes.client.proto.V1Storage.VolumeNodeResources.getDefaultInstance()
+          : allocatable_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * allocatable represents the volume resources of a node that are available for scheduling.
+     * This field is beta.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.VolumeNodeResourcesOrBuilder
+        getAllocatableOrBuilder() {
+      return allocatable_ == null
+          ? io.kubernetes.client.proto.V1Storage.VolumeNodeResources.getDefaultInstance()
+          : allocatable_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nodeID_);
+      }
+      for (int i = 0; i < topologyKeys_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topologyKeys_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(4, getAllocatable());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nodeID_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < topologyKeys_.size(); i++) {
+          dataSize += computeStringSizeNoTag(topologyKeys_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTopologyKeysList().size();
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getAllocatable());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.CSINodeDriver)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.CSINodeDriver other =
+          (io.kubernetes.client.proto.V1Storage.CSINodeDriver) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName().equals(other.getName());
+      }
+      result = result && (hasNodeID() == other.hasNodeID());
+      if (hasNodeID()) {
+        result = result && getNodeID().equals(other.getNodeID());
+      }
+      result = result && getTopologyKeysList().equals(other.getTopologyKeysList());
+      result = result && (hasAllocatable() == other.hasAllocatable());
+      if (hasAllocatable()) {
+        result = result && getAllocatable().equals(other.getAllocatable());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasNodeID()) {
+        hash = (37 * hash) + NODEID_FIELD_NUMBER;
+        hash = (53 * hash) + getNodeID().hashCode();
+      }
+      if (getTopologyKeysCount() > 0) {
+        hash = (37 * hash) + TOPOLOGYKEYS_FIELD_NUMBER;
+        hash = (53 * hash) + getTopologyKeysList().hashCode();
+      }
+      if (hasAllocatable()) {
+        hash = (37 * hash) + ALLOCATABLE_FIELD_NUMBER;
+        hash = (53 * hash) + getAllocatable().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Storage.CSINodeDriver prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * CSINodeDriver holds information about the specification of one CSI driver installed on a node
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.CSINodeDriver}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.CSINodeDriver)
+        io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeDriver_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeDriver_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.CSINodeDriver.class,
+                io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.CSINodeDriver.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getAllocatableFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        nodeID_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        topologyKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (allocatableBuilder_ == null) {
+          allocatable_ = null;
+        } else {
+          allocatableBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeDriver_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeDriver getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.CSINodeDriver.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeDriver build() {
+        io.kubernetes.client.proto.V1Storage.CSINodeDriver result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeDriver buildPartial() {
+        io.kubernetes.client.proto.V1Storage.CSINodeDriver result =
+            new io.kubernetes.client.proto.V1Storage.CSINodeDriver(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.nodeID_ = nodeID_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          topologyKeys_ = topologyKeys_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.topologyKeys_ = topologyKeys_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (allocatableBuilder_ == null) {
+          result.allocatable_ = allocatable_;
+        } else {
+          result.allocatable_ = allocatableBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.CSINodeDriver) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.CSINodeDriver) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.CSINodeDriver other) {
+        if (other == io.kubernetes.client.proto.V1Storage.CSINodeDriver.getDefaultInstance())
+          return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasNodeID()) {
+          bitField0_ |= 0x00000002;
+          nodeID_ = other.nodeID_;
+          onChanged();
+        }
+        if (!other.topologyKeys_.isEmpty()) {
+          if (topologyKeys_.isEmpty()) {
+            topologyKeys_ = other.topologyKeys_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureTopologyKeysIsMutable();
+            topologyKeys_.addAll(other.topologyKeys_);
+          }
+          onChanged();
+        }
+        if (other.hasAllocatable()) {
+          mergeAllocatable(other.getAllocatable());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.CSINodeDriver parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Storage.CSINodeDriver) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * This is the name of the CSI driver that this object refers to.
+       * This MUST be the same name returned by the CSI GetPluginName() call for
+       * that driver.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * This is the name of the CSI driver that this object refers to.
+       * This MUST be the same name returned by the CSI GetPluginName() call for
+       * that driver.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * This is the name of the CSI driver that this object refers to.
+       * This MUST be the same name returned by the CSI GetPluginName() call for
+       * that driver.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * This is the name of the CSI driver that this object refers to.
+       * This MUST be the same name returned by the CSI GetPluginName() call for
+       * that driver.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * This is the name of the CSI driver that this object refers to.
+       * This MUST be the same name returned by the CSI GetPluginName() call for
+       * that driver.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * This is the name of the CSI driver that this object refers to.
+       * This MUST be the same name returned by the CSI GetPluginName() call for
+       * that driver.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object nodeID_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * nodeID of the node from the driver point of view.
+       * This field enables Kubernetes to communicate with storage systems that do
+       * not share the same nomenclature for nodes. For example, Kubernetes may
+       * refer to a given node as "node1", but the storage system may refer to
+       * the same node as "nodeA". When Kubernetes issues a command to the storage
+       * system to attach a volume to a specific node, it can use this field to
+       * refer to the node name using the ID that the storage system will
+       * understand, e.g. "nodeA" instead of "node1". This field is required.
+       * </pre>
+       *
+       * <code>optional string nodeID = 2;</code>
+       */
+      public boolean hasNodeID() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * nodeID of the node from the driver point of view.
+       * This field enables Kubernetes to communicate with storage systems that do
+       * not share the same nomenclature for nodes. For example, Kubernetes may
+       * refer to a given node as "node1", but the storage system may refer to
+       * the same node as "nodeA". When Kubernetes issues a command to the storage
+       * system to attach a volume to a specific node, it can use this field to
+       * refer to the node name using the ID that the storage system will
+       * understand, e.g. "nodeA" instead of "node1". This field is required.
+       * </pre>
+       *
+       * <code>optional string nodeID = 2;</code>
+       */
+      public java.lang.String getNodeID() {
+        java.lang.Object ref = nodeID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            nodeID_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * nodeID of the node from the driver point of view.
+       * This field enables Kubernetes to communicate with storage systems that do
+       * not share the same nomenclature for nodes. For example, Kubernetes may
+       * refer to a given node as "node1", but the storage system may refer to
+       * the same node as "nodeA". When Kubernetes issues a command to the storage
+       * system to attach a volume to a specific node, it can use this field to
+       * refer to the node name using the ID that the storage system will
+       * understand, e.g. "nodeA" instead of "node1". This field is required.
+       * </pre>
+       *
+       * <code>optional string nodeID = 2;</code>
+       */
+      public com.google.protobuf.ByteString getNodeIDBytes() {
+        java.lang.Object ref = nodeID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          nodeID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * nodeID of the node from the driver point of view.
+       * This field enables Kubernetes to communicate with storage systems that do
+       * not share the same nomenclature for nodes. For example, Kubernetes may
+       * refer to a given node as "node1", but the storage system may refer to
+       * the same node as "nodeA". When Kubernetes issues a command to the storage
+       * system to attach a volume to a specific node, it can use this field to
+       * refer to the node name using the ID that the storage system will
+       * understand, e.g. "nodeA" instead of "node1". This field is required.
+       * </pre>
+       *
+       * <code>optional string nodeID = 2;</code>
+       */
+      public Builder setNodeID(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        nodeID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * nodeID of the node from the driver point of view.
+       * This field enables Kubernetes to communicate with storage systems that do
+       * not share the same nomenclature for nodes. For example, Kubernetes may
+       * refer to a given node as "node1", but the storage system may refer to
+       * the same node as "nodeA". When Kubernetes issues a command to the storage
+       * system to attach a volume to a specific node, it can use this field to
+       * refer to the node name using the ID that the storage system will
+       * understand, e.g. "nodeA" instead of "node1". This field is required.
+       * </pre>
+       *
+       * <code>optional string nodeID = 2;</code>
+       */
+      public Builder clearNodeID() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        nodeID_ = getDefaultInstance().getNodeID();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * nodeID of the node from the driver point of view.
+       * This field enables Kubernetes to communicate with storage systems that do
+       * not share the same nomenclature for nodes. For example, Kubernetes may
+       * refer to a given node as "node1", but the storage system may refer to
+       * the same node as "nodeA". When Kubernetes issues a command to the storage
+       * system to attach a volume to a specific node, it can use this field to
+       * refer to the node name using the ID that the storage system will
+       * understand, e.g. "nodeA" instead of "node1". This field is required.
+       * </pre>
+       *
+       * <code>optional string nodeID = 2;</code>
+       */
+      public Builder setNodeIDBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        nodeID_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList topologyKeys_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureTopologyKeysIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          topologyKeys_ = new com.google.protobuf.LazyStringArrayList(topologyKeys_);
+          bitField0_ |= 0x00000004;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getTopologyKeysList() {
+        return topologyKeys_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public int getTopologyKeysCount() {
+        return topologyKeys_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public java.lang.String getTopologyKeys(int index) {
+        return topologyKeys_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public com.google.protobuf.ByteString getTopologyKeysBytes(int index) {
+        return topologyKeys_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public Builder setTopologyKeys(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTopologyKeysIsMutable();
+        topologyKeys_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public Builder addTopologyKeys(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTopologyKeysIsMutable();
+        topologyKeys_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public Builder addAllTopologyKeys(java.lang.Iterable<java.lang.String> values) {
+        ensureTopologyKeysIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, topologyKeys_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public Builder clearTopologyKeys() {
+        topologyKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * topologyKeys is the list of keys supported by the driver.
+       * When a driver is initialized on a cluster, it provides a set of topology
+       * keys that it understands (e.g. "company.com/zone", "company.com/region").
+       * When a driver is initialized on a node, it provides the same topology keys
+       * along with values. Kubelet will expose these topology keys as labels
+       * on its own node object.
+       * When Kubernetes does topology aware provisioning, it can use this list to
+       * determine which labels it should retrieve from the node object and pass
+       * back to the driver.
+       * It is possible for different nodes to use different topology keys.
+       * This can be empty if driver does not support topology.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string topologyKeys = 3;</code>
+       */
+      public Builder addTopologyKeysBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureTopologyKeysIsMutable();
+        topologyKeys_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V1Storage.VolumeNodeResources allocatable_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.VolumeNodeResources,
+              io.kubernetes.client.proto.V1Storage.VolumeNodeResources.Builder,
+              io.kubernetes.client.proto.V1Storage.VolumeNodeResourcesOrBuilder>
+          allocatableBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      public boolean hasAllocatable() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.VolumeNodeResources getAllocatable() {
+        if (allocatableBuilder_ == null) {
+          return allocatable_ == null
+              ? io.kubernetes.client.proto.V1Storage.VolumeNodeResources.getDefaultInstance()
+              : allocatable_;
+        } else {
+          return allocatableBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      public Builder setAllocatable(
+          io.kubernetes.client.proto.V1Storage.VolumeNodeResources value) {
+        if (allocatableBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          allocatable_ = value;
+          onChanged();
+        } else {
+          allocatableBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      public Builder setAllocatable(
+          io.kubernetes.client.proto.V1Storage.VolumeNodeResources.Builder builderForValue) {
+        if (allocatableBuilder_ == null) {
+          allocatable_ = builderForValue.build();
+          onChanged();
+        } else {
+          allocatableBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      public Builder mergeAllocatable(
+          io.kubernetes.client.proto.V1Storage.VolumeNodeResources value) {
+        if (allocatableBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)
+              && allocatable_ != null
+              && allocatable_
+                  != io.kubernetes.client.proto.V1Storage.VolumeNodeResources
+                      .getDefaultInstance()) {
+            allocatable_ =
+                io.kubernetes.client.proto.V1Storage.VolumeNodeResources.newBuilder(allocatable_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            allocatable_ = value;
+          }
+          onChanged();
+        } else {
+          allocatableBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      public Builder clearAllocatable() {
+        if (allocatableBuilder_ == null) {
+          allocatable_ = null;
+          onChanged();
+        } else {
+          allocatableBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.VolumeNodeResources.Builder
+          getAllocatableBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getAllocatableFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.VolumeNodeResourcesOrBuilder
+          getAllocatableOrBuilder() {
+        if (allocatableBuilder_ != null) {
+          return allocatableBuilder_.getMessageOrBuilder();
+        } else {
+          return allocatable_ == null
+              ? io.kubernetes.client.proto.V1Storage.VolumeNodeResources.getDefaultInstance()
+              : allocatable_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allocatable represents the volume resources of a node that are available for scheduling.
+       * This field is beta.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.storage.v1.VolumeNodeResources allocatable = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.VolumeNodeResources,
+              io.kubernetes.client.proto.V1Storage.VolumeNodeResources.Builder,
+              io.kubernetes.client.proto.V1Storage.VolumeNodeResourcesOrBuilder>
+          getAllocatableFieldBuilder() {
+        if (allocatableBuilder_ == null) {
+          allocatableBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Storage.VolumeNodeResources,
+                  io.kubernetes.client.proto.V1Storage.VolumeNodeResources.Builder,
+                  io.kubernetes.client.proto.V1Storage.VolumeNodeResourcesOrBuilder>(
+                  getAllocatable(), getParentForChildren(), isClean());
+          allocatable_ = null;
+        }
+        return allocatableBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.CSINodeDriver)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.CSINodeDriver)
+    private static final io.kubernetes.client.proto.V1Storage.CSINodeDriver DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.CSINodeDriver();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeDriver getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<CSINodeDriver> PARSER =
+        new com.google.protobuf.AbstractParser<CSINodeDriver>() {
+          @java.lang.Override
+          public CSINodeDriver parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CSINodeDriver(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CSINodeDriver> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CSINodeDriver> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.CSINodeDriver getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface CSINodeListOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.CSINodeList)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    boolean hasMetadata();
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ListMeta getMetadata();
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1Storage.CSINode> getItemsList();
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSINode getItems(int index);
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    int getItemsCount();
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder>
+        getItemsOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder getItemsOrBuilder(int index);
+  }
+  /**
+   *
+   *
+   * <pre>
+   * CSINodeList is a collection of CSINode objects.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.CSINodeList}
+   */
+  public static final class CSINodeList extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.CSINodeList)
+      CSINodeListOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CSINodeList.newBuilder() to construct.
+    private CSINodeList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CSINodeList() {
+      items_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CSINodeList(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                io.kubernetes.client.proto.Meta.ListMeta.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = metadata_.toBuilder();
+                }
+                metadata_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.ListMeta.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(metadata_);
+                  metadata_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
+              }
+            case 18:
+              {
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                  items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Storage.CSINode>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                items_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Storage.CSINode.PARSER, extensionRegistry));
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          items_ = java.util.Collections.unmodifiableList(items_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSINodeList_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSINodeList_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.CSINodeList.class,
+              io.kubernetes.client.proto.V1Storage.CSINodeList.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int METADATA_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.Meta.ListMeta metadata_;
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    public boolean hasMetadata() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Standard list metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
+      return metadata_ == null
+          ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+          : metadata_;
+    }
+
+    public static final int ITEMS_FIELD_NUMBER = 2;
+    private java.util.List<io.kubernetes.client.proto.V1Storage.CSINode> items_;
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1Storage.CSINode> getItemsList() {
+      return items_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder>
+        getItemsOrBuilderList() {
+      return items_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    public int getItemsCount() {
+      return items_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSINode getItems(int index) {
+      return items_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * items is the list of CSINode
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder getItemsOrBuilder(int index) {
+      return items_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getMetadata());
+      }
+      for (int i = 0; i < items_.size(); i++) {
+        output.writeMessage(2, items_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMetadata());
+      }
+      for (int i = 0; i < items_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, items_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.CSINodeList)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.CSINodeList other =
+          (io.kubernetes.client.proto.V1Storage.CSINodeList) obj;
+
+      boolean result = true;
+      result = result && (hasMetadata() == other.hasMetadata());
+      if (hasMetadata()) {
+        result = result && getMetadata().equals(other.getMetadata());
+      }
+      result = result && getItemsList().equals(other.getItemsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMetadata()) {
+        hash = (37 * hash) + METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getMetadata().hashCode();
+      }
+      if (getItemsCount() > 0) {
+        hash = (37 * hash) + ITEMS_FIELD_NUMBER;
+        hash = (53 * hash) + getItemsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Storage.CSINodeList prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * CSINodeList is a collection of CSINode objects.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.CSINodeList}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.CSINodeList)
+        io.kubernetes.client.proto.V1Storage.CSINodeListOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeList_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeList_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.CSINodeList.class,
+                io.kubernetes.client.proto.V1Storage.CSINodeList.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.CSINodeList.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getMetadataFieldBuilder();
+          getItemsFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeList_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeList getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.CSINodeList.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeList build() {
+        io.kubernetes.client.proto.V1Storage.CSINodeList result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeList buildPartial() {
+        io.kubernetes.client.proto.V1Storage.CSINodeList result =
+            new io.kubernetes.client.proto.V1Storage.CSINodeList(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (metadataBuilder_ == null) {
+          result.metadata_ = metadata_;
+        } else {
+          result.metadata_ = metadataBuilder_.build();
+        }
+        if (itemsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            items_ = java.util.Collections.unmodifiableList(items_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.items_ = items_;
+        } else {
+          result.items_ = itemsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.CSINodeList) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.CSINodeList) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.CSINodeList other) {
+        if (other == io.kubernetes.client.proto.V1Storage.CSINodeList.getDefaultInstance())
+          return this;
+        if (other.hasMetadata()) {
+          mergeMetadata(other.getMetadata());
+        }
+        if (itemsBuilder_ == null) {
+          if (!other.items_.isEmpty()) {
+            if (items_.isEmpty()) {
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureItemsIsMutable();
+              items_.addAll(other.items_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.items_.isEmpty()) {
+            if (itemsBuilder_.isEmpty()) {
+              itemsBuilder_.dispose();
+              itemsBuilder_ = null;
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              itemsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getItemsFieldBuilder()
+                      : null;
+            } else {
+              itemsBuilder_.addAllMessages(other.items_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.CSINodeList parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Storage.CSINodeList) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private io.kubernetes.client.proto.Meta.ListMeta metadata_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
+          metadataBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public boolean hasMetadata() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
+        if (metadataBuilder_ == null) {
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
+        } else {
+          return metadataBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
+        if (metadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          metadata_ = value;
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
+        if (metadataBuilder_ == null) {
+          metadata_ = builderForValue.build();
+          onChanged();
+        } else {
+          metadataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
+        if (metadataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && metadata_ != null
+              && metadata_ != io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()) {
+            metadata_ =
+                io.kubernetes.client.proto.Meta.ListMeta.newBuilder(metadata_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            metadata_ = value;
+          }
+          onChanged();
+        } else {
+          metadataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public Builder clearMetadata() {
+        if (metadataBuilder_ == null) {
+          metadata_ = null;
+          onChanged();
+        } else {
+          metadataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ListMeta.Builder getMetadataBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getMetadataFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
+        if (metadataBuilder_ != null) {
+          return metadataBuilder_.getMessageOrBuilder();
+        } else {
+          return metadata_ == null
+              ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
+              : metadata_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Standard list metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ListMeta,
+              io.kubernetes.client.proto.Meta.ListMeta.Builder,
+              io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
+          getMetadataFieldBuilder() {
+        if (metadataBuilder_ == null) {
+          metadataBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.ListMeta,
+                  io.kubernetes.client.proto.Meta.ListMeta.Builder,
+                  io.kubernetes.client.proto.Meta.ListMetaOrBuilder>(
+                  getMetadata(), getParentForChildren(), isClean());
+          metadata_ = null;
+        }
+        return metadataBuilder_;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.V1Storage.CSINode> items_ =
+          java.util.Collections.emptyList();
+
+      private void ensureItemsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          items_ = new java.util.ArrayList<io.kubernetes.client.proto.V1Storage.CSINode>(items_);
+          bitField0_ |= 0x00000002;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSINode,
+              io.kubernetes.client.proto.V1Storage.CSINode.Builder,
+              io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder>
+          itemsBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1Storage.CSINode> getItemsList() {
+        if (itemsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(items_);
+        } else {
+          return itemsBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public int getItemsCount() {
+        if (itemsBuilder_ == null) {
+          return items_.size();
+        } else {
+          return itemsBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINode getItems(int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);
+        } else {
+          return itemsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder setItems(int index, io.kubernetes.client.proto.V1Storage.CSINode value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.set(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder setItems(
+          int index, io.kubernetes.client.proto.V1Storage.CSINode.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder addItems(io.kubernetes.client.proto.V1Storage.CSINode value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder addItems(int index, io.kubernetes.client.proto.V1Storage.CSINode value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder addItems(
+          io.kubernetes.client.proto.V1Storage.CSINode.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder addItems(
+          int index, io.kubernetes.client.proto.V1Storage.CSINode.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder addAllItems(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1Storage.CSINode> values) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, items_);
+          onChanged();
+        } else {
+          itemsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder clearItems() {
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public Builder removeItems(int index) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.remove(index);
+          onChanged();
+        } else {
+          itemsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINode.Builder getItemsBuilder(int index) {
+        return getItemsFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder getItemsOrBuilder(int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);
+        } else {
+          return itemsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder>
+          getItemsOrBuilderList() {
+        if (itemsBuilder_ != null) {
+          return itemsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(items_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINode.Builder addItemsBuilder() {
+        return getItemsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1Storage.CSINode.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINode.Builder addItemsBuilder(int index) {
+        return getItemsFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.V1Storage.CSINode.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * items is the list of CSINode
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINode items = 2;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1Storage.CSINode.Builder>
+          getItemsBuilderList() {
+        return getItemsFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSINode,
+              io.kubernetes.client.proto.V1Storage.CSINode.Builder,
+              io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder>
+          getItemsFieldBuilder() {
+        if (itemsBuilder_ == null) {
+          itemsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Storage.CSINode,
+                  io.kubernetes.client.proto.V1Storage.CSINode.Builder,
+                  io.kubernetes.client.proto.V1Storage.CSINodeOrBuilder>(
+                  items_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          items_ = null;
+        }
+        return itemsBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.CSINodeList)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.CSINodeList)
+    private static final io.kubernetes.client.proto.V1Storage.CSINodeList DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.CSINodeList();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeList getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<CSINodeList> PARSER =
+        new com.google.protobuf.AbstractParser<CSINodeList>() {
+          @java.lang.Override
+          public CSINodeList parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CSINodeList(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CSINodeList> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CSINodeList> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.CSINodeList getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface CSINodeSpecOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.CSINodeSpec)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1Storage.CSINodeDriver> getDriversList();
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSINodeDriver getDrivers(int index);
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    int getDriversCount();
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder>
+        getDriversOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder getDriversOrBuilder(int index);
+  }
+  /**
+   *
+   *
+   * <pre>
+   * CSINodeSpec holds information about the specification of all CSI drivers installed on a node
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.CSINodeSpec}
+   */
+  public static final class CSINodeSpec extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.CSINodeSpec)
+      CSINodeSpecOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use CSINodeSpec.newBuilder() to construct.
+    private CSINodeSpec(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private CSINodeSpec() {
+      drivers_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private CSINodeSpec(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                  drivers_ =
+                      new java.util.ArrayList<io.kubernetes.client.proto.V1Storage.CSINodeDriver>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                drivers_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1Storage.CSINodeDriver.PARSER,
+                        extensionRegistry));
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          drivers_ = java.util.Collections.unmodifiableList(drivers_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSINodeSpec_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_CSINodeSpec_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.CSINodeSpec.class,
+              io.kubernetes.client.proto.V1Storage.CSINodeSpec.Builder.class);
+    }
+
+    public static final int DRIVERS_FIELD_NUMBER = 1;
+    private java.util.List<io.kubernetes.client.proto.V1Storage.CSINodeDriver> drivers_;
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1Storage.CSINodeDriver> getDriversList() {
+      return drivers_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder>
+        getDriversOrBuilderList() {
+      return drivers_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    public int getDriversCount() {
+      return drivers_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSINodeDriver getDrivers(int index) {
+      return drivers_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * drivers is a list of information of all CSI Drivers existing on a node.
+     * If all drivers in the list are uninstalled, this can become empty.
+     * +patchMergeKey=name
+     * +patchStrategy=merge
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+     */
+    public io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder getDriversOrBuilder(
+        int index) {
+      return drivers_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      for (int i = 0; i < drivers_.size(); i++) {
+        output.writeMessage(1, drivers_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < drivers_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, drivers_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.CSINodeSpec)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.CSINodeSpec other =
+          (io.kubernetes.client.proto.V1Storage.CSINodeSpec) obj;
+
+      boolean result = true;
+      result = result && getDriversList().equals(other.getDriversList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getDriversCount() > 0) {
+        hash = (37 * hash) + DRIVERS_FIELD_NUMBER;
+        hash = (53 * hash) + getDriversList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Storage.CSINodeSpec prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * CSINodeSpec holds information about the specification of all CSI drivers installed on a node
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.CSINodeSpec}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.CSINodeSpec)
+        io.kubernetes.client.proto.V1Storage.CSINodeSpecOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeSpec_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeSpec_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.CSINodeSpec.class,
+                io.kubernetes.client.proto.V1Storage.CSINodeSpec.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.CSINodeSpec.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getDriversFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (driversBuilder_ == null) {
+          drivers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          driversBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_CSINodeSpec_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeSpec getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.CSINodeSpec.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeSpec build() {
+        io.kubernetes.client.proto.V1Storage.CSINodeSpec result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.CSINodeSpec buildPartial() {
+        io.kubernetes.client.proto.V1Storage.CSINodeSpec result =
+            new io.kubernetes.client.proto.V1Storage.CSINodeSpec(this);
+        int from_bitField0_ = bitField0_;
+        if (driversBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            drivers_ = java.util.Collections.unmodifiableList(drivers_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.drivers_ = drivers_;
+        } else {
+          result.drivers_ = driversBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.CSINodeSpec) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.CSINodeSpec) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.CSINodeSpec other) {
+        if (other == io.kubernetes.client.proto.V1Storage.CSINodeSpec.getDefaultInstance())
+          return this;
+        if (driversBuilder_ == null) {
+          if (!other.drivers_.isEmpty()) {
+            if (drivers_.isEmpty()) {
+              drivers_ = other.drivers_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDriversIsMutable();
+              drivers_.addAll(other.drivers_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.drivers_.isEmpty()) {
+            if (driversBuilder_.isEmpty()) {
+              driversBuilder_.dispose();
+              driversBuilder_ = null;
+              drivers_ = other.drivers_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              driversBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getDriversFieldBuilder()
+                      : null;
+            } else {
+              driversBuilder_.addAllMessages(other.drivers_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.CSINodeSpec parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Storage.CSINodeSpec) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.util.List<io.kubernetes.client.proto.V1Storage.CSINodeDriver> drivers_ =
+          java.util.Collections.emptyList();
+
+      private void ensureDriversIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          drivers_ =
+              new java.util.ArrayList<io.kubernetes.client.proto.V1Storage.CSINodeDriver>(drivers_);
+          bitField0_ |= 0x00000001;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSINodeDriver,
+              io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder,
+              io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder>
+          driversBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1Storage.CSINodeDriver> getDriversList() {
+        if (driversBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(drivers_);
+        } else {
+          return driversBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public int getDriversCount() {
+        if (driversBuilder_ == null) {
+          return drivers_.size();
+        } else {
+          return driversBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeDriver getDrivers(int index) {
+        if (driversBuilder_ == null) {
+          return drivers_.get(index);
+        } else {
+          return driversBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder setDrivers(
+          int index, io.kubernetes.client.proto.V1Storage.CSINodeDriver value) {
+        if (driversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDriversIsMutable();
+          drivers_.set(index, value);
+          onChanged();
+        } else {
+          driversBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder setDrivers(
+          int index, io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder builderForValue) {
+        if (driversBuilder_ == null) {
+          ensureDriversIsMutable();
+          drivers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          driversBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder addDrivers(io.kubernetes.client.proto.V1Storage.CSINodeDriver value) {
+        if (driversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDriversIsMutable();
+          drivers_.add(value);
+          onChanged();
+        } else {
+          driversBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder addDrivers(
+          int index, io.kubernetes.client.proto.V1Storage.CSINodeDriver value) {
+        if (driversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDriversIsMutable();
+          drivers_.add(index, value);
+          onChanged();
+        } else {
+          driversBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder addDrivers(
+          io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder builderForValue) {
+        if (driversBuilder_ == null) {
+          ensureDriversIsMutable();
+          drivers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          driversBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder addDrivers(
+          int index, io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder builderForValue) {
+        if (driversBuilder_ == null) {
+          ensureDriversIsMutable();
+          drivers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          driversBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder addAllDrivers(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1Storage.CSINodeDriver> values) {
+        if (driversBuilder_ == null) {
+          ensureDriversIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, drivers_);
+          onChanged();
+        } else {
+          driversBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder clearDrivers() {
+        if (driversBuilder_ == null) {
+          drivers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          driversBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public Builder removeDrivers(int index) {
+        if (driversBuilder_ == null) {
+          ensureDriversIsMutable();
+          drivers_.remove(index);
+          onChanged();
+        } else {
+          driversBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder getDriversBuilder(
+          int index) {
+        return getDriversFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder getDriversOrBuilder(
+          int index) {
+        if (driversBuilder_ == null) {
+          return drivers_.get(index);
+        } else {
+          return driversBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder>
+          getDriversOrBuilderList() {
+        if (driversBuilder_ != null) {
+          return driversBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(drivers_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder addDriversBuilder() {
+        return getDriversFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.V1Storage.CSINodeDriver.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder addDriversBuilder(
+          int index) {
+        return getDriversFieldBuilder()
+            .addBuilder(
+                index, io.kubernetes.client.proto.V1Storage.CSINodeDriver.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * drivers is a list of information of all CSI Drivers existing on a node.
+       * If all drivers in the list are uninstalled, this can become empty.
+       * +patchMergeKey=name
+       * +patchStrategy=merge
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.storage.v1.CSINodeDriver drivers = 1;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder>
+          getDriversBuilderList() {
+        return getDriversFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1Storage.CSINodeDriver,
+              io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder,
+              io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder>
+          getDriversFieldBuilder() {
+        if (driversBuilder_ == null) {
+          driversBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1Storage.CSINodeDriver,
+                  io.kubernetes.client.proto.V1Storage.CSINodeDriver.Builder,
+                  io.kubernetes.client.proto.V1Storage.CSINodeDriverOrBuilder>(
+                  drivers_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          drivers_ = null;
+        }
+        return driversBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.CSINodeSpec)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.CSINodeSpec)
+    private static final io.kubernetes.client.proto.V1Storage.CSINodeSpec DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.CSINodeSpec();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.CSINodeSpec getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<CSINodeSpec> PARSER =
+        new com.google.protobuf.AbstractParser<CSINodeSpec>() {
+          @java.lang.Override
+          public CSINodeSpec parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CSINodeSpec(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<CSINodeSpec> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CSINodeSpec> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.CSINodeSpec getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   public interface StorageClassOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.StorageClass)
@@ -31,7 +11106,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -43,7 +11118,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -55,7 +11130,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -320,6 +11395,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -334,6 +11410,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -348,6 +11425,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -362,6 +11440,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -377,6 +11456,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -579,7 +11659,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -593,7 +11673,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -609,7 +11689,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1014,6 +12094,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -1031,6 +12112,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -1048,6 +12130,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -1064,6 +12147,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -1080,6 +12164,7 @@ public final class V1Storage {
      * An empty TopologySelectorTerm list means there is no topology restriction.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -1675,7 +12760,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1689,7 +12774,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1709,7 +12794,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1733,7 +12818,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1755,7 +12840,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1785,7 +12870,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1806,7 +12891,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1822,7 +12907,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1842,7 +12927,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2641,6 +13726,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2662,6 +13748,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2682,6 +13769,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2702,6 +13790,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2729,6 +13818,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2753,6 +13843,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2780,6 +13871,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2807,6 +13899,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2831,6 +13924,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2855,6 +13949,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2879,6 +13974,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2902,6 +13998,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2925,6 +14022,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2942,6 +14040,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2963,6 +14062,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -2984,6 +14084,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -3002,6 +14103,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -3021,6 +14123,7 @@ public final class V1Storage {
        * An empty TopologySelectorTerm list means there is no topology restriction.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.TopologySelectorTerm allowedTopologies = 8;</code>
@@ -3113,7 +14216,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3125,7 +14228,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3137,7 +14240,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3318,7 +14421,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3332,7 +14435,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3348,7 +14451,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3835,7 +14938,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3849,7 +14952,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3869,7 +14972,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3893,7 +14996,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3914,7 +15017,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3944,7 +15047,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3965,7 +15068,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3981,7 +15084,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4001,7 +15104,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4433,6 +15536,847 @@ public final class V1Storage {
     }
   }
 
+  public interface TokenRequestOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.TokenRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Audience is the intended audience of the token in "TokenRequestSpec".
+     * It will default to the audiences of kube apiserver.
+     * </pre>
+     *
+     * <code>optional string audience = 1;</code>
+     */
+    boolean hasAudience();
+    /**
+     *
+     *
+     * <pre>
+     * Audience is the intended audience of the token in "TokenRequestSpec".
+     * It will default to the audiences of kube apiserver.
+     * </pre>
+     *
+     * <code>optional string audience = 1;</code>
+     */
+    java.lang.String getAudience();
+    /**
+     *
+     *
+     * <pre>
+     * Audience is the intended audience of the token in "TokenRequestSpec".
+     * It will default to the audiences of kube apiserver.
+     * </pre>
+     *
+     * <code>optional string audience = 1;</code>
+     */
+    com.google.protobuf.ByteString getAudienceBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec".
+     * It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 expirationSeconds = 2;</code>
+     */
+    boolean hasExpirationSeconds();
+    /**
+     *
+     *
+     * <pre>
+     * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec".
+     * It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 expirationSeconds = 2;</code>
+     */
+    long getExpirationSeconds();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * TokenRequest contains parameters of a service account token.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.TokenRequest}
+   */
+  public static final class TokenRequest extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.TokenRequest)
+      TokenRequestOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use TokenRequest.newBuilder() to construct.
+    private TokenRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private TokenRequest() {
+      audience_ = "";
+      expirationSeconds_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private TokenRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                audience_ = bs;
+                break;
+              }
+            case 16:
+              {
+                bitField0_ |= 0x00000002;
+                expirationSeconds_ = input.readInt64();
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_TokenRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_TokenRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.TokenRequest.class,
+              io.kubernetes.client.proto.V1Storage.TokenRequest.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int AUDIENCE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object audience_;
+    /**
+     *
+     *
+     * <pre>
+     * Audience is the intended audience of the token in "TokenRequestSpec".
+     * It will default to the audiences of kube apiserver.
+     * </pre>
+     *
+     * <code>optional string audience = 1;</code>
+     */
+    public boolean hasAudience() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Audience is the intended audience of the token in "TokenRequestSpec".
+     * It will default to the audiences of kube apiserver.
+     * </pre>
+     *
+     * <code>optional string audience = 1;</code>
+     */
+    public java.lang.String getAudience() {
+      java.lang.Object ref = audience_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          audience_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Audience is the intended audience of the token in "TokenRequestSpec".
+     * It will default to the audiences of kube apiserver.
+     * </pre>
+     *
+     * <code>optional string audience = 1;</code>
+     */
+    public com.google.protobuf.ByteString getAudienceBytes() {
+      java.lang.Object ref = audience_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        audience_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXPIRATIONSECONDS_FIELD_NUMBER = 2;
+    private long expirationSeconds_;
+    /**
+     *
+     *
+     * <pre>
+     * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec".
+     * It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 expirationSeconds = 2;</code>
+     */
+    public boolean hasExpirationSeconds() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec".
+     * It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 expirationSeconds = 2;</code>
+     */
+    public long getExpirationSeconds() {
+      return expirationSeconds_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, audience_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, expirationSeconds_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, audience_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt64Size(2, expirationSeconds_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.TokenRequest)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.TokenRequest other =
+          (io.kubernetes.client.proto.V1Storage.TokenRequest) obj;
+
+      boolean result = true;
+      result = result && (hasAudience() == other.hasAudience());
+      if (hasAudience()) {
+        result = result && getAudience().equals(other.getAudience());
+      }
+      result = result && (hasExpirationSeconds() == other.hasExpirationSeconds());
+      if (hasExpirationSeconds()) {
+        result = result && (getExpirationSeconds() == other.getExpirationSeconds());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasAudience()) {
+        hash = (37 * hash) + AUDIENCE_FIELD_NUMBER;
+        hash = (53 * hash) + getAudience().hashCode();
+      }
+      if (hasExpirationSeconds()) {
+        hash = (37 * hash) + EXPIRATIONSECONDS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getExpirationSeconds());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.V1Storage.TokenRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * TokenRequest contains parameters of a service account token.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.TokenRequest}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.TokenRequest)
+        io.kubernetes.client.proto.V1Storage.TokenRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_TokenRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_TokenRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.TokenRequest.class,
+                io.kubernetes.client.proto.V1Storage.TokenRequest.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.TokenRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        audience_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        expirationSeconds_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_TokenRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.TokenRequest getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.TokenRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.TokenRequest build() {
+        io.kubernetes.client.proto.V1Storage.TokenRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.TokenRequest buildPartial() {
+        io.kubernetes.client.proto.V1Storage.TokenRequest result =
+            new io.kubernetes.client.proto.V1Storage.TokenRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.audience_ = audience_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.expirationSeconds_ = expirationSeconds_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.TokenRequest) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.TokenRequest) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.TokenRequest other) {
+        if (other == io.kubernetes.client.proto.V1Storage.TokenRequest.getDefaultInstance())
+          return this;
+        if (other.hasAudience()) {
+          bitField0_ |= 0x00000001;
+          audience_ = other.audience_;
+          onChanged();
+        }
+        if (other.hasExpirationSeconds()) {
+          setExpirationSeconds(other.getExpirationSeconds());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.TokenRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Storage.TokenRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object audience_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Audience is the intended audience of the token in "TokenRequestSpec".
+       * It will default to the audiences of kube apiserver.
+       * </pre>
+       *
+       * <code>optional string audience = 1;</code>
+       */
+      public boolean hasAudience() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Audience is the intended audience of the token in "TokenRequestSpec".
+       * It will default to the audiences of kube apiserver.
+       * </pre>
+       *
+       * <code>optional string audience = 1;</code>
+       */
+      public java.lang.String getAudience() {
+        java.lang.Object ref = audience_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            audience_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Audience is the intended audience of the token in "TokenRequestSpec".
+       * It will default to the audiences of kube apiserver.
+       * </pre>
+       *
+       * <code>optional string audience = 1;</code>
+       */
+      public com.google.protobuf.ByteString getAudienceBytes() {
+        java.lang.Object ref = audience_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          audience_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Audience is the intended audience of the token in "TokenRequestSpec".
+       * It will default to the audiences of kube apiserver.
+       * </pre>
+       *
+       * <code>optional string audience = 1;</code>
+       */
+      public Builder setAudience(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        audience_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Audience is the intended audience of the token in "TokenRequestSpec".
+       * It will default to the audiences of kube apiserver.
+       * </pre>
+       *
+       * <code>optional string audience = 1;</code>
+       */
+      public Builder clearAudience() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        audience_ = getDefaultInstance().getAudience();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Audience is the intended audience of the token in "TokenRequestSpec".
+       * It will default to the audiences of kube apiserver.
+       * </pre>
+       *
+       * <code>optional string audience = 1;</code>
+       */
+      public Builder setAudienceBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        audience_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long expirationSeconds_;
+      /**
+       *
+       *
+       * <pre>
+       * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec".
+       * It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 expirationSeconds = 2;</code>
+       */
+      public boolean hasExpirationSeconds() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec".
+       * It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 expirationSeconds = 2;</code>
+       */
+      public long getExpirationSeconds() {
+        return expirationSeconds_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec".
+       * It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 expirationSeconds = 2;</code>
+       */
+      public Builder setExpirationSeconds(long value) {
+        bitField0_ |= 0x00000002;
+        expirationSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * ExpirationSeconds is the duration of validity of the token in "TokenRequestSpec".
+       * It has the same default value of "ExpirationSeconds" in "TokenRequestSpec".
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 expirationSeconds = 2;</code>
+       */
+      public Builder clearExpirationSeconds() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        expirationSeconds_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.TokenRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.TokenRequest)
+    private static final io.kubernetes.client.proto.V1Storage.TokenRequest DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.TokenRequest();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.TokenRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<TokenRequest> PARSER =
+        new com.google.protobuf.AbstractParser<TokenRequest>() {
+          @java.lang.Override
+          public TokenRequest parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new TokenRequest(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<TokenRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TokenRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.TokenRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   public interface VolumeAttachmentOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.VolumeAttachment)
@@ -4443,7 +16387,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -4455,7 +16399,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -4467,7 +16411,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -4689,7 +16633,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -4703,7 +16647,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -4719,7 +16663,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5253,7 +17197,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5267,7 +17211,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5287,7 +17231,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5311,7 +17255,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5333,7 +17277,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5363,7 +17307,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5384,7 +17328,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5400,7 +17344,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5420,7 +17364,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5915,7 +17859,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5927,7 +17871,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5939,7 +17883,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6121,7 +18065,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6135,7 +18079,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6151,7 +18095,7 @@ public final class V1Storage {
      *
      * <pre>
      * Standard list metadata
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6435,8 +18379,7 @@ public final class V1Storage {
                 io.kubernetes.client.proto.V1Storage.VolumeAttachmentList.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1Storage.VolumeAttachmentList.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1Storage.VolumeAttachmentList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6640,7 +18583,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6654,7 +18597,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6674,7 +18617,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6698,7 +18641,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6719,7 +18662,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6749,7 +18692,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6770,7 +18713,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6786,7 +18729,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6806,7 +18749,7 @@ public final class V1Storage {
        *
        * <pre>
        * Standard list metadata
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7285,6 +19228,55 @@ public final class V1Storage {
      * <code>optional string persistentVolumeName = 1;</code>
      */
     com.google.protobuf.ByteString getPersistentVolumeNameBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * inlineVolumeSpec contains all the information necessary to attach
+     * a persistent volume defined by a pod's inline VolumeSource. This field
+     * is populated only for the CSIMigration feature. It contains
+     * translated fields from a pod's inline VolumeSource to a
+     * PersistentVolumeSpec. This field is beta-level and is only
+     * honored by servers that enabled the CSIMigration feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+     */
+    boolean hasInlineVolumeSpec();
+    /**
+     *
+     *
+     * <pre>
+     * inlineVolumeSpec contains all the information necessary to attach
+     * a persistent volume defined by a pod's inline VolumeSource. This field
+     * is populated only for the CSIMigration feature. It contains
+     * translated fields from a pod's inline VolumeSource to a
+     * PersistentVolumeSpec. This field is beta-level and is only
+     * honored by servers that enabled the CSIMigration feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+     */
+    io.kubernetes.client.proto.V1.PersistentVolumeSpec getInlineVolumeSpec();
+    /**
+     *
+     *
+     * <pre>
+     * inlineVolumeSpec contains all the information necessary to attach
+     * a persistent volume defined by a pod's inline VolumeSource. This field
+     * is populated only for the CSIMigration feature. It contains
+     * translated fields from a pod's inline VolumeSource to a
+     * PersistentVolumeSpec. This field is beta-level and is only
+     * honored by servers that enabled the CSIMigration feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+     */
+    io.kubernetes.client.proto.V1.PersistentVolumeSpecOrBuilder getInlineVolumeSpecOrBuilder();
   }
   /**
    *
@@ -7341,6 +19333,23 @@ public final class V1Storage {
                 com.google.protobuf.ByteString bs = input.readBytes();
                 bitField0_ |= 0x00000001;
                 persistentVolumeName_ = bs;
+                break;
+              }
+            case 18:
+              {
+                io.kubernetes.client.proto.V1.PersistentVolumeSpec.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = inlineVolumeSpec_.toBuilder();
+                }
+                inlineVolumeSpec_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1.PersistentVolumeSpec.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(inlineVolumeSpec_);
+                  inlineVolumeSpec_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
                 break;
               }
             default:
@@ -7438,6 +19447,68 @@ public final class V1Storage {
       }
     }
 
+    public static final int INLINEVOLUMESPEC_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V1.PersistentVolumeSpec inlineVolumeSpec_;
+    /**
+     *
+     *
+     * <pre>
+     * inlineVolumeSpec contains all the information necessary to attach
+     * a persistent volume defined by a pod's inline VolumeSource. This field
+     * is populated only for the CSIMigration feature. It contains
+     * translated fields from a pod's inline VolumeSource to a
+     * PersistentVolumeSpec. This field is beta-level and is only
+     * honored by servers that enabled the CSIMigration feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+     */
+    public boolean hasInlineVolumeSpec() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * inlineVolumeSpec contains all the information necessary to attach
+     * a persistent volume defined by a pod's inline VolumeSource. This field
+     * is populated only for the CSIMigration feature. It contains
+     * translated fields from a pod's inline VolumeSource to a
+     * PersistentVolumeSpec. This field is beta-level and is only
+     * honored by servers that enabled the CSIMigration feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1.PersistentVolumeSpec getInlineVolumeSpec() {
+      return inlineVolumeSpec_ == null
+          ? io.kubernetes.client.proto.V1.PersistentVolumeSpec.getDefaultInstance()
+          : inlineVolumeSpec_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * inlineVolumeSpec contains all the information necessary to attach
+     * a persistent volume defined by a pod's inline VolumeSource. This field
+     * is populated only for the CSIMigration feature. It contains
+     * translated fields from a pod's inline VolumeSource to a
+     * PersistentVolumeSpec. This field is beta-level and is only
+     * honored by servers that enabled the CSIMigration feature.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+     */
+    public io.kubernetes.client.proto.V1.PersistentVolumeSpecOrBuilder
+        getInlineVolumeSpecOrBuilder() {
+      return inlineVolumeSpec_ == null
+          ? io.kubernetes.client.proto.V1.PersistentVolumeSpec.getDefaultInstance()
+          : inlineVolumeSpec_;
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -7455,6 +19526,9 @@ public final class V1Storage {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, persistentVolumeName_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getInlineVolumeSpec());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7466,6 +19540,9 @@ public final class V1Storage {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, persistentVolumeName_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getInlineVolumeSpec());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7488,6 +19565,10 @@ public final class V1Storage {
       if (hasPersistentVolumeName()) {
         result = result && getPersistentVolumeName().equals(other.getPersistentVolumeName());
       }
+      result = result && (hasInlineVolumeSpec() == other.hasInlineVolumeSpec());
+      if (hasInlineVolumeSpec()) {
+        result = result && getInlineVolumeSpec().equals(other.getInlineVolumeSpec());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -7502,6 +19583,10 @@ public final class V1Storage {
       if (hasPersistentVolumeName()) {
         hash = (37 * hash) + PERSISTENTVOLUMENAME_FIELD_NUMBER;
         hash = (53 * hash) + getPersistentVolumeName().hashCode();
+      }
+      if (hasInlineVolumeSpec()) {
+        hash = (37 * hash) + INLINEVOLUMESPEC_FIELD_NUMBER;
+        hash = (53 * hash) + getInlineVolumeSpec().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7637,8 +19722,7 @@ public final class V1Storage {
                 io.kubernetes.client.proto.V1Storage.VolumeAttachmentSource.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1Storage.VolumeAttachmentSource.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1Storage.VolumeAttachmentSource.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7649,7 +19733,9 @@ public final class V1Storage {
       }
 
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getInlineVolumeSpecFieldBuilder();
+        }
       }
 
       @java.lang.Override
@@ -7657,6 +19743,12 @@ public final class V1Storage {
         super.clear();
         persistentVolumeName_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        if (inlineVolumeSpecBuilder_ == null) {
+          inlineVolumeSpec_ = null;
+        } else {
+          inlineVolumeSpecBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -7691,6 +19783,14 @@ public final class V1Storage {
           to_bitField0_ |= 0x00000001;
         }
         result.persistentVolumeName_ = persistentVolumeName_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (inlineVolumeSpecBuilder_ == null) {
+          result.inlineVolumeSpec_ = inlineVolumeSpec_;
+        } else {
+          result.inlineVolumeSpec_ = inlineVolumeSpecBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7749,6 +19849,9 @@ public final class V1Storage {
           bitField0_ |= 0x00000001;
           persistentVolumeName_ = other.persistentVolumeName_;
           onChanged();
+        }
+        if (other.hasInlineVolumeSpec()) {
+          mergeInlineVolumeSpec(other.getInlineVolumeSpec());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7894,6 +19997,247 @@ public final class V1Storage {
         persistentVolumeName_ = value;
         onChanged();
         return this;
+      }
+
+      private io.kubernetes.client.proto.V1.PersistentVolumeSpec inlineVolumeSpec_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1.PersistentVolumeSpec,
+              io.kubernetes.client.proto.V1.PersistentVolumeSpec.Builder,
+              io.kubernetes.client.proto.V1.PersistentVolumeSpecOrBuilder>
+          inlineVolumeSpecBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      public boolean hasInlineVolumeSpec() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1.PersistentVolumeSpec getInlineVolumeSpec() {
+        if (inlineVolumeSpecBuilder_ == null) {
+          return inlineVolumeSpec_ == null
+              ? io.kubernetes.client.proto.V1.PersistentVolumeSpec.getDefaultInstance()
+              : inlineVolumeSpec_;
+        } else {
+          return inlineVolumeSpecBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      public Builder setInlineVolumeSpec(io.kubernetes.client.proto.V1.PersistentVolumeSpec value) {
+        if (inlineVolumeSpecBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          inlineVolumeSpec_ = value;
+          onChanged();
+        } else {
+          inlineVolumeSpecBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      public Builder setInlineVolumeSpec(
+          io.kubernetes.client.proto.V1.PersistentVolumeSpec.Builder builderForValue) {
+        if (inlineVolumeSpecBuilder_ == null) {
+          inlineVolumeSpec_ = builderForValue.build();
+          onChanged();
+        } else {
+          inlineVolumeSpecBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      public Builder mergeInlineVolumeSpec(
+          io.kubernetes.client.proto.V1.PersistentVolumeSpec value) {
+        if (inlineVolumeSpecBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && inlineVolumeSpec_ != null
+              && inlineVolumeSpec_
+                  != io.kubernetes.client.proto.V1.PersistentVolumeSpec.getDefaultInstance()) {
+            inlineVolumeSpec_ =
+                io.kubernetes.client.proto.V1.PersistentVolumeSpec.newBuilder(inlineVolumeSpec_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            inlineVolumeSpec_ = value;
+          }
+          onChanged();
+        } else {
+          inlineVolumeSpecBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      public Builder clearInlineVolumeSpec() {
+        if (inlineVolumeSpecBuilder_ == null) {
+          inlineVolumeSpec_ = null;
+          onChanged();
+        } else {
+          inlineVolumeSpecBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1.PersistentVolumeSpec.Builder
+          getInlineVolumeSpecBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getInlineVolumeSpecFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      public io.kubernetes.client.proto.V1.PersistentVolumeSpecOrBuilder
+          getInlineVolumeSpecOrBuilder() {
+        if (inlineVolumeSpecBuilder_ != null) {
+          return inlineVolumeSpecBuilder_.getMessageOrBuilder();
+        } else {
+          return inlineVolumeSpec_ == null
+              ? io.kubernetes.client.proto.V1.PersistentVolumeSpec.getDefaultInstance()
+              : inlineVolumeSpec_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * inlineVolumeSpec contains all the information necessary to attach
+       * a persistent volume defined by a pod's inline VolumeSource. This field
+       * is populated only for the CSIMigration feature. It contains
+       * translated fields from a pod's inline VolumeSource to a
+       * PersistentVolumeSpec. This field is beta-level and is only
+       * honored by servers that enabled the CSIMigration feature.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.PersistentVolumeSpec inlineVolumeSpec = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1.PersistentVolumeSpec,
+              io.kubernetes.client.proto.V1.PersistentVolumeSpec.Builder,
+              io.kubernetes.client.proto.V1.PersistentVolumeSpecOrBuilder>
+          getInlineVolumeSpecFieldBuilder() {
+        if (inlineVolumeSpecBuilder_ == null) {
+          inlineVolumeSpecBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1.PersistentVolumeSpec,
+                  io.kubernetes.client.proto.V1.PersistentVolumeSpec.Builder,
+                  io.kubernetes.client.proto.V1.PersistentVolumeSpecOrBuilder>(
+                  getInlineVolumeSpec(), getParentForChildren(), isClean());
+          inlineVolumeSpec_ = null;
+        }
+        return inlineVolumeSpecBuilder_;
       }
 
       @java.lang.Override
@@ -8551,8 +20895,7 @@ public final class V1Storage {
                 io.kubernetes.client.proto.V1Storage.VolumeAttachmentSpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1Storage.VolumeAttachmentSpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1Storage.VolumeAttachmentSpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10042,8 +22385,7 @@ public final class V1Storage {
                 io.kubernetes.client.proto.V1Storage.VolumeAttachmentStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1Storage.VolumeAttachmentStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1Storage.VolumeAttachmentStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11988,6 +24330,652 @@ public final class V1Storage {
     }
   }
 
+  public interface VolumeNodeResourcesOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.storage.v1.VolumeNodeResources)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Maximum number of unique volumes managed by the CSI driver that can be used on a node.
+     * A volume that is both attached and mounted on a node is considered to be used once, not twice.
+     * The same rule applies for a unique volume that is shared among multiple pods on the same node.
+     * If this field is not specified, then the supported number of volumes on this node is unbounded.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 count = 1;</code>
+     */
+    boolean hasCount();
+    /**
+     *
+     *
+     * <pre>
+     * Maximum number of unique volumes managed by the CSI driver that can be used on a node.
+     * A volume that is both attached and mounted on a node is considered to be used once, not twice.
+     * The same rule applies for a unique volume that is shared among multiple pods on the same node.
+     * If this field is not specified, then the supported number of volumes on this node is unbounded.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 count = 1;</code>
+     */
+    int getCount();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * VolumeNodeResources is a set of resource limits for scheduling of volumes.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.storage.v1.VolumeNodeResources}
+   */
+  public static final class VolumeNodeResources extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.storage.v1.VolumeNodeResources)
+      VolumeNodeResourcesOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use VolumeNodeResources.newBuilder() to construct.
+    private VolumeNodeResources(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private VolumeNodeResources() {
+      count_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private VolumeNodeResources(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8:
+              {
+                bitField0_ |= 0x00000001;
+                count_ = input.readInt32();
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_VolumeNodeResources_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1Storage
+          .internal_static_k8s_io_api_storage_v1_VolumeNodeResources_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1Storage.VolumeNodeResources.class,
+              io.kubernetes.client.proto.V1Storage.VolumeNodeResources.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int COUNT_FIELD_NUMBER = 1;
+    private int count_;
+    /**
+     *
+     *
+     * <pre>
+     * Maximum number of unique volumes managed by the CSI driver that can be used on a node.
+     * A volume that is both attached and mounted on a node is considered to be used once, not twice.
+     * The same rule applies for a unique volume that is shared among multiple pods on the same node.
+     * If this field is not specified, then the supported number of volumes on this node is unbounded.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 count = 1;</code>
+     */
+    public boolean hasCount() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Maximum number of unique volumes managed by the CSI driver that can be used on a node.
+     * A volume that is both attached and mounted on a node is considered to be used once, not twice.
+     * The same rule applies for a unique volume that is shared among multiple pods on the same node.
+     * If this field is not specified, then the supported number of volumes on this node is unbounded.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 count = 1;</code>
+     */
+    public int getCount() {
+      return count_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, count_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(1, count_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1Storage.VolumeNodeResources)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1Storage.VolumeNodeResources other =
+          (io.kubernetes.client.proto.V1Storage.VolumeNodeResources) obj;
+
+      boolean result = true;
+      result = result && (hasCount() == other.hasCount());
+      if (hasCount()) {
+        result = result && (getCount() == other.getCount());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCount()) {
+        hash = (37 * hash) + COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getCount();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1Storage.VolumeNodeResources prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * VolumeNodeResources is a set of resource limits for scheduling of volumes.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.storage.v1.VolumeNodeResources}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.storage.v1.VolumeNodeResources)
+        io.kubernetes.client.proto.V1Storage.VolumeNodeResourcesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_VolumeNodeResources_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_VolumeNodeResources_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1Storage.VolumeNodeResources.class,
+                io.kubernetes.client.proto.V1Storage.VolumeNodeResources.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1Storage.VolumeNodeResources.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        count_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1Storage
+            .internal_static_k8s_io_api_storage_v1_VolumeNodeResources_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.VolumeNodeResources getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1Storage.VolumeNodeResources.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.VolumeNodeResources build() {
+        io.kubernetes.client.proto.V1Storage.VolumeNodeResources result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1Storage.VolumeNodeResources buildPartial() {
+        io.kubernetes.client.proto.V1Storage.VolumeNodeResources result =
+            new io.kubernetes.client.proto.V1Storage.VolumeNodeResources(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.count_ = count_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1Storage.VolumeNodeResources) {
+          return mergeFrom((io.kubernetes.client.proto.V1Storage.VolumeNodeResources) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1Storage.VolumeNodeResources other) {
+        if (other == io.kubernetes.client.proto.V1Storage.VolumeNodeResources.getDefaultInstance())
+          return this;
+        if (other.hasCount()) {
+          setCount(other.getCount());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1Storage.VolumeNodeResources parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1Storage.VolumeNodeResources) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private int count_;
+      /**
+       *
+       *
+       * <pre>
+       * Maximum number of unique volumes managed by the CSI driver that can be used on a node.
+       * A volume that is both attached and mounted on a node is considered to be used once, not twice.
+       * The same rule applies for a unique volume that is shared among multiple pods on the same node.
+       * If this field is not specified, then the supported number of volumes on this node is unbounded.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 count = 1;</code>
+       */
+      public boolean hasCount() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Maximum number of unique volumes managed by the CSI driver that can be used on a node.
+       * A volume that is both attached and mounted on a node is considered to be used once, not twice.
+       * The same rule applies for a unique volume that is shared among multiple pods on the same node.
+       * If this field is not specified, then the supported number of volumes on this node is unbounded.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 count = 1;</code>
+       */
+      public int getCount() {
+        return count_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Maximum number of unique volumes managed by the CSI driver that can be used on a node.
+       * A volume that is both attached and mounted on a node is considered to be used once, not twice.
+       * The same rule applies for a unique volume that is shared among multiple pods on the same node.
+       * If this field is not specified, then the supported number of volumes on this node is unbounded.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 count = 1;</code>
+       */
+      public Builder setCount(int value) {
+        bitField0_ |= 0x00000001;
+        count_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Maximum number of unique volumes managed by the CSI driver that can be used on a node.
+       * A volume that is both attached and mounted on a node is considered to be used once, not twice.
+       * The same rule applies for a unique volume that is shared among multiple pods on the same node.
+       * If this field is not specified, then the supported number of volumes on this node is unbounded.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 count = 1;</code>
+       */
+      public Builder clearCount() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        count_ = 0;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.storage.v1.VolumeNodeResources)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.storage.v1.VolumeNodeResources)
+    private static final io.kubernetes.client.proto.V1Storage.VolumeNodeResources DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1Storage.VolumeNodeResources();
+    }
+
+    public static io.kubernetes.client.proto.V1Storage.VolumeNodeResources getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<VolumeNodeResources> PARSER =
+        new com.google.protobuf.AbstractParser<VolumeNodeResources>() {
+          @java.lang.Override
+          public VolumeNodeResources parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new VolumeNodeResources(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<VolumeNodeResources> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<VolumeNodeResources> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1Storage.VolumeNodeResources getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_CSIDriver_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_CSIDriver_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_CSIDriverList_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_CSIDriverList_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_CSIDriverSpec_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_CSIDriverSpec_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_CSINode_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_CSINode_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_CSINodeDriver_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_CSINodeDriver_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_CSINodeList_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_CSINodeList_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_CSINodeSpec_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_CSINodeSpec_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_storage_v1_StorageClass_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12000,6 +24988,10 @@ public final class V1Storage {
       internal_static_k8s_io_api_storage_v1_StorageClassList_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_storage_v1_StorageClassList_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_TokenRequest_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_TokenRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_storage_v1_VolumeAttachment_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12028,6 +25020,10 @@ public final class V1Storage {
       internal_static_k8s_io_api_storage_v1_VolumeError_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_storage_v1_VolumeError_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_storage_v1_VolumeNodeResources_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_storage_v1_VolumeNodeResources_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
     return descriptor;
@@ -12043,7 +25039,31 @@ public final class V1Storage {
           + "pkg/apis/meta/v1/generated.proto\032/k8s.io"
           + "/apimachinery/pkg/runtime/generated.prot"
           + "o\0326k8s.io/apimachinery/pkg/runtime/schem"
-          + "a/generated.proto\"\216\003\n\014StorageClass\022B\n\010me"
+          + "a/generated.proto\"\203\001\n\tCSIDriver\022B\n\010metad"
+          + "ata\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis"
+          + ".meta.v1.ObjectMeta\0222\n\004spec\030\002 \001(\0132$.k8s."
+          + "io.api.storage.v1.CSIDriverSpec\"\202\001\n\rCSID"
+          + "riverList\022@\n\010metadata\030\001 \001(\0132..k8s.io.api"
+          + "machinery.pkg.apis.meta.v1.ListMeta\022/\n\005i"
+          + "tems\030\002 \003(\0132 .k8s.io.api.storage.v1.CSIDr"
+          + "iver\"\344\001\n\rCSIDriverSpec\022\026\n\016attachRequired"
+          + "\030\001 \001(\010\022\026\n\016podInfoOnMount\030\002 \001(\010\022\034\n\024volume"
+          + "LifecycleModes\030\003 \003(\t\022\027\n\017storageCapacity\030"
+          + "\004 \001(\010\022\025\n\rfsGroupPolicy\030\005 \001(\t\022:\n\rtokenReq"
+          + "uests\030\006 \003(\0132#.k8s.io.api.storage.v1.Toke"
+          + "nRequest\022\031\n\021requiresRepublish\030\007 \001(\010\"\177\n\007C"
+          + "SINode\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimac"
+          + "hinery.pkg.apis.meta.v1.ObjectMeta\0220\n\004sp"
+          + "ec\030\002 \001(\0132\".k8s.io.api.storage.v1.CSINode"
+          + "Spec\"\204\001\n\rCSINodeDriver\022\014\n\004name\030\001 \001(\t\022\016\n\006"
+          + "nodeID\030\002 \001(\t\022\024\n\014topologyKeys\030\003 \003(\t\022?\n\013al"
+          + "locatable\030\004 \001(\0132*.k8s.io.api.storage.v1."
+          + "VolumeNodeResources\"~\n\013CSINodeList\022@\n\010me"
+          + "tadata\030\001 \001(\0132..k8s.io.apimachinery.pkg.a"
+          + "pis.meta.v1.ListMeta\022-\n\005items\030\002 \003(\0132\036.k8"
+          + "s.io.api.storage.v1.CSINode\"D\n\013CSINodeSp"
+          + "ec\0225\n\007drivers\030\001 \003(\0132$.k8s.io.api.storage"
+          + ".v1.CSINodeDriver\"\216\003\n\014StorageClass\022B\n\010me"
           + "tadata\030\001 \001(\01320.k8s.io.apimachinery.pkg.a"
           + "pis.meta.v1.ObjectMeta\022\023\n\013provisioner\030\002 "
           + "\001(\t\022G\n\nparameters\030\003 \003(\01323.k8s.io.api.sto"
@@ -12056,32 +25076,36 @@ public final class V1Storage {
           + "\r\n\005value\030\002 \001(\t:\0028\001\"\210\001\n\020StorageClassList\022"
           + "@\n\010metadata\030\001 \001(\0132..k8s.io.apimachinery."
           + "pkg.apis.meta.v1.ListMeta\0222\n\005items\030\002 \003(\013"
-          + "2#.k8s.io.api.storage.v1.StorageClass\"\320\001"
-          + "\n\020VolumeAttachment\022B\n\010metadata\030\001 \001(\01320.k"
-          + "8s.io.apimachinery.pkg.apis.meta.v1.Obje"
-          + "ctMeta\0229\n\004spec\030\002 \001(\0132+.k8s.io.api.storag"
-          + "e.v1.VolumeAttachmentSpec\022=\n\006status\030\003 \001("
-          + "\0132-.k8s.io.api.storage.v1.VolumeAttachme"
-          + "ntStatus\"\220\001\n\024VolumeAttachmentList\022@\n\010met"
-          + "adata\030\001 \001(\0132..k8s.io.apimachinery.pkg.ap"
-          + "is.meta.v1.ListMeta\0226\n\005items\030\002 \003(\0132\'.k8s"
-          + ".io.api.storage.v1.VolumeAttachment\"6\n\026V"
-          + "olumeAttachmentSource\022\034\n\024persistentVolum"
-          + "eName\030\001 \001(\t\"y\n\024VolumeAttachmentSpec\022\020\n\010a"
-          + "ttacher\030\001 \001(\t\022=\n\006source\030\002 \001(\0132-.k8s.io.a"
-          + "pi.storage.v1.VolumeAttachmentSource\022\020\n\010"
-          + "nodeName\030\003 \001(\t\"\272\002\n\026VolumeAttachmentStatu"
-          + "s\022\020\n\010attached\030\001 \001(\010\022a\n\022attachmentMetadat"
-          + "a\030\002 \003(\0132E.k8s.io.api.storage.v1.VolumeAt"
-          + "tachmentStatus.AttachmentMetadataEntry\0227"
-          + "\n\013attachError\030\003 \001(\0132\".k8s.io.api.storage"
-          + ".v1.VolumeError\0227\n\013detachError\030\004 \001(\0132\".k"
-          + "8s.io.api.storage.v1.VolumeError\0329\n\027Atta"
-          + "chmentMetadataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
-          + "e\030\002 \001(\t:\0028\001\"X\n\013VolumeError\0228\n\004time\030\001 \001(\013"
-          + "2*.k8s.io.apimachinery.pkg.apis.meta.v1."
-          + "Time\022\017\n\007message\030\002 \001(\tB+\n\032io.kubernetes.c"
-          + "lient.protoB\tV1StorageZ\002v1"
+          + "2#.k8s.io.api.storage.v1.StorageClass\";\n"
+          + "\014TokenRequest\022\020\n\010audience\030\001 \001(\t\022\031\n\021expir"
+          + "ationSeconds\030\002 \001(\003\"\320\001\n\020VolumeAttachment\022"
+          + "B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery."
+          + "pkg.apis.meta.v1.ObjectMeta\0229\n\004spec\030\002 \001("
+          + "\0132+.k8s.io.api.storage.v1.VolumeAttachme"
+          + "ntSpec\022=\n\006status\030\003 \001(\0132-.k8s.io.api.stor"
+          + "age.v1.VolumeAttachmentStatus\"\220\001\n\024Volume"
+          + "AttachmentList\022@\n\010metadata\030\001 \001(\0132..k8s.i"
+          + "o.apimachinery.pkg.apis.meta.v1.ListMeta"
+          + "\0226\n\005items\030\002 \003(\0132\'.k8s.io.api.storage.v1."
+          + "VolumeAttachment\"z\n\026VolumeAttachmentSour"
+          + "ce\022\034\n\024persistentVolumeName\030\001 \001(\t\022B\n\020inli"
+          + "neVolumeSpec\030\002 \001(\0132(.k8s.io.api.core.v1."
+          + "PersistentVolumeSpec\"y\n\024VolumeAttachment"
+          + "Spec\022\020\n\010attacher\030\001 \001(\t\022=\n\006source\030\002 \001(\0132-"
+          + ".k8s.io.api.storage.v1.VolumeAttachmentS"
+          + "ource\022\020\n\010nodeName\030\003 \001(\t\"\272\002\n\026VolumeAttach"
+          + "mentStatus\022\020\n\010attached\030\001 \001(\010\022a\n\022attachme"
+          + "ntMetadata\030\002 \003(\0132E.k8s.io.api.storage.v1"
+          + ".VolumeAttachmentStatus.AttachmentMetada"
+          + "taEntry\0227\n\013attachError\030\003 \001(\0132\".k8s.io.ap"
+          + "i.storage.v1.VolumeError\0227\n\013detachError\030"
+          + "\004 \001(\0132\".k8s.io.api.storage.v1.VolumeErro"
+          + "r\0329\n\027AttachmentMetadataEntry\022\013\n\003key\030\001 \001("
+          + "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"X\n\013VolumeError\0228\n\004t"
+          + "ime\030\001 \001(\0132*.k8s.io.apimachinery.pkg.apis"
+          + ".meta.v1.Time\022\017\n\007message\030\002 \001(\t\"$\n\023Volume"
+          + "NodeResources\022\r\n\005count\030\001 \001(\005B+\n\032io.kuber"
+          + "netes.client.protoB\tV1StorageZ\002v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -12100,8 +25124,70 @@ public final class V1Storage {
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
         },
         assigner);
-    internal_static_k8s_io_api_storage_v1_StorageClass_descriptor =
+    internal_static_k8s_io_api_storage_v1_CSIDriver_descriptor =
         getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_storage_v1_CSIDriver_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_CSIDriver_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Spec",
+            });
+    internal_static_k8s_io_api_storage_v1_CSIDriverList_descriptor =
+        getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_api_storage_v1_CSIDriverList_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_CSIDriverList_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Items",
+            });
+    internal_static_k8s_io_api_storage_v1_CSIDriverSpec_descriptor =
+        getDescriptor().getMessageTypes().get(2);
+    internal_static_k8s_io_api_storage_v1_CSIDriverSpec_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_CSIDriverSpec_descriptor,
+            new java.lang.String[] {
+              "AttachRequired",
+              "PodInfoOnMount",
+              "VolumeLifecycleModes",
+              "StorageCapacity",
+              "FsGroupPolicy",
+              "TokenRequests",
+              "RequiresRepublish",
+            });
+    internal_static_k8s_io_api_storage_v1_CSINode_descriptor =
+        getDescriptor().getMessageTypes().get(3);
+    internal_static_k8s_io_api_storage_v1_CSINode_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_CSINode_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Spec",
+            });
+    internal_static_k8s_io_api_storage_v1_CSINodeDriver_descriptor =
+        getDescriptor().getMessageTypes().get(4);
+    internal_static_k8s_io_api_storage_v1_CSINodeDriver_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_CSINodeDriver_descriptor,
+            new java.lang.String[] {
+              "Name", "NodeID", "TopologyKeys", "Allocatable",
+            });
+    internal_static_k8s_io_api_storage_v1_CSINodeList_descriptor =
+        getDescriptor().getMessageTypes().get(5);
+    internal_static_k8s_io_api_storage_v1_CSINodeList_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_CSINodeList_descriptor,
+            new java.lang.String[] {
+              "Metadata", "Items",
+            });
+    internal_static_k8s_io_api_storage_v1_CSINodeSpec_descriptor =
+        getDescriptor().getMessageTypes().get(6);
+    internal_static_k8s_io_api_storage_v1_CSINodeSpec_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_CSINodeSpec_descriptor,
+            new java.lang.String[] {
+              "Drivers",
+            });
+    internal_static_k8s_io_api_storage_v1_StorageClass_descriptor =
+        getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_storage_v1_StorageClass_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_storage_v1_StorageClass_descriptor,
@@ -12124,15 +25210,23 @@ public final class V1Storage {
               "Key", "Value",
             });
     internal_static_k8s_io_api_storage_v1_StorageClassList_descriptor =
-        getDescriptor().getMessageTypes().get(1);
+        getDescriptor().getMessageTypes().get(8);
     internal_static_k8s_io_api_storage_v1_StorageClassList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_storage_v1_StorageClassList_descriptor,
             new java.lang.String[] {
               "Metadata", "Items",
             });
+    internal_static_k8s_io_api_storage_v1_TokenRequest_descriptor =
+        getDescriptor().getMessageTypes().get(9);
+    internal_static_k8s_io_api_storage_v1_TokenRequest_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_TokenRequest_descriptor,
+            new java.lang.String[] {
+              "Audience", "ExpirationSeconds",
+            });
     internal_static_k8s_io_api_storage_v1_VolumeAttachment_descriptor =
-        getDescriptor().getMessageTypes().get(2);
+        getDescriptor().getMessageTypes().get(10);
     internal_static_k8s_io_api_storage_v1_VolumeAttachment_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_storage_v1_VolumeAttachment_descriptor,
@@ -12140,7 +25234,7 @@ public final class V1Storage {
               "Metadata", "Spec", "Status",
             });
     internal_static_k8s_io_api_storage_v1_VolumeAttachmentList_descriptor =
-        getDescriptor().getMessageTypes().get(3);
+        getDescriptor().getMessageTypes().get(11);
     internal_static_k8s_io_api_storage_v1_VolumeAttachmentList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_storage_v1_VolumeAttachmentList_descriptor,
@@ -12148,15 +25242,15 @@ public final class V1Storage {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_storage_v1_VolumeAttachmentSource_descriptor =
-        getDescriptor().getMessageTypes().get(4);
+        getDescriptor().getMessageTypes().get(12);
     internal_static_k8s_io_api_storage_v1_VolumeAttachmentSource_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_storage_v1_VolumeAttachmentSource_descriptor,
             new java.lang.String[] {
-              "PersistentVolumeName",
+              "PersistentVolumeName", "InlineVolumeSpec",
             });
     internal_static_k8s_io_api_storage_v1_VolumeAttachmentSpec_descriptor =
-        getDescriptor().getMessageTypes().get(5);
+        getDescriptor().getMessageTypes().get(13);
     internal_static_k8s_io_api_storage_v1_VolumeAttachmentSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_storage_v1_VolumeAttachmentSpec_descriptor,
@@ -12164,7 +25258,7 @@ public final class V1Storage {
               "Attacher", "Source", "NodeName",
             });
     internal_static_k8s_io_api_storage_v1_VolumeAttachmentStatus_descriptor =
-        getDescriptor().getMessageTypes().get(6);
+        getDescriptor().getMessageTypes().get(14);
     internal_static_k8s_io_api_storage_v1_VolumeAttachmentStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_storage_v1_VolumeAttachmentStatus_descriptor,
@@ -12182,12 +25276,20 @@ public final class V1Storage {
               "Key", "Value",
             });
     internal_static_k8s_io_api_storage_v1_VolumeError_descriptor =
-        getDescriptor().getMessageTypes().get(7);
+        getDescriptor().getMessageTypes().get(15);
     internal_static_k8s_io_api_storage_v1_VolumeError_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_storage_v1_VolumeError_descriptor,
             new java.lang.String[] {
               "Time", "Message",
+            });
+    internal_static_k8s_io_api_storage_v1_VolumeNodeResources_descriptor =
+        getDescriptor().getMessageTypes().get(16);
+    internal_static_k8s_io_api_storage_v1_VolumeNodeResources_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_storage_v1_VolumeNodeResources_descriptor,
+            new java.lang.String[] {
+              "Count",
             });
     io.kubernetes.client.proto.V1.getDescriptor();
     io.kubernetes.client.proto.Meta.getDescriptor();

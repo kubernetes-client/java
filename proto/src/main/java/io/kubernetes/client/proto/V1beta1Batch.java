@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -43,7 +43,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -55,7 +55,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -68,7 +68,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -80,7 +80,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -92,7 +92,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -105,7 +105,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Current status of a cron job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -117,7 +117,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Current status of a cron job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -129,7 +129,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Current status of a cron job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -274,7 +274,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -288,7 +288,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -304,7 +304,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -323,7 +323,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -337,7 +337,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -353,7 +353,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -372,7 +372,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Current status of a cron job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -386,7 +386,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Current status of a cron job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -402,7 +402,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Current status of a cron job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -834,7 +834,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -848,7 +848,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -868,7 +868,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -892,7 +892,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -914,7 +914,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -944,7 +944,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -965,7 +965,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -981,7 +981,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1001,7 +1001,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1035,7 +1035,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1049,7 +1049,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1069,7 +1069,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1093,7 +1093,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1115,7 +1115,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1146,7 +1146,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1167,7 +1167,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1183,7 +1183,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1203,7 +1203,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1237,7 +1237,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1251,7 +1251,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1271,7 +1271,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1295,7 +1295,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1317,7 +1317,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1348,7 +1348,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1369,7 +1369,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1385,7 +1385,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1405,7 +1405,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Current status of a cron job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -1491,7 +1491,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1503,7 +1503,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1515,7 +1515,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1695,7 +1695,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1709,7 +1709,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1725,7 +1725,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2212,7 +2212,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2226,7 +2226,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2246,7 +2246,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2270,7 +2270,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2291,7 +2291,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2321,7 +2321,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2342,7 +2342,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2358,7 +2358,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2378,7 +2378,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4717,6 +4717,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4728,6 +4729,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4739,6 +4741,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4750,6 +4753,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4762,6 +4766,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4801,6 +4806,40 @@ public final class V1beta1Batch {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
      */
     io.kubernetes.client.proto.Meta.TimeOrBuilder getLastScheduleTimeOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * Information when was the last time the job successfully completed.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+     */
+    boolean hasLastSuccessfulTime();
+    /**
+     *
+     *
+     * <pre>
+     * Information when was the last time the job successfully completed.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+     */
+    io.kubernetes.client.proto.Meta.Time getLastSuccessfulTime();
+    /**
+     *
+     *
+     * <pre>
+     * Information when was the last time the job successfully completed.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+     */
+    io.kubernetes.client.proto.Meta.TimeOrBuilder getLastSuccessfulTimeOrBuilder();
   }
   /**
    *
@@ -4877,6 +4916,22 @@ public final class V1beta1Batch {
                 bitField0_ |= 0x00000001;
                 break;
               }
+            case 42:
+              {
+                io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = lastSuccessfulTime_.toBuilder();
+                }
+                lastSuccessfulTime_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(lastSuccessfulTime_);
+                  lastSuccessfulTime_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -4923,6 +4978,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4936,6 +4992,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4950,6 +5007,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4963,6 +5021,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -4976,6 +5035,7 @@ public final class V1beta1Batch {
      * <pre>
      * A list of pointers to currently running jobs.
      * +optional
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5030,6 +5090,52 @@ public final class V1beta1Batch {
           : lastScheduleTime_;
     }
 
+    public static final int LASTSUCCESSFULTIME_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.Meta.Time lastSuccessfulTime_;
+    /**
+     *
+     *
+     * <pre>
+     * Information when was the last time the job successfully completed.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+     */
+    public boolean hasLastSuccessfulTime() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Information when was the last time the job successfully completed.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+     */
+    public io.kubernetes.client.proto.Meta.Time getLastSuccessfulTime() {
+      return lastSuccessfulTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : lastSuccessfulTime_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Information when was the last time the job successfully completed.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+     */
+    public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastSuccessfulTimeOrBuilder() {
+      return lastSuccessfulTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : lastSuccessfulTime_;
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -5050,6 +5156,9 @@ public final class V1beta1Batch {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(4, getLastScheduleTime());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(5, getLastSuccessfulTime());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5064,6 +5173,10 @@ public final class V1beta1Batch {
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getLastScheduleTime());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(5, getLastSuccessfulTime());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5087,6 +5200,10 @@ public final class V1beta1Batch {
       if (hasLastScheduleTime()) {
         result = result && getLastScheduleTime().equals(other.getLastScheduleTime());
       }
+      result = result && (hasLastSuccessfulTime() == other.hasLastSuccessfulTime());
+      if (hasLastSuccessfulTime()) {
+        result = result && getLastSuccessfulTime().equals(other.getLastSuccessfulTime());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5105,6 +5222,10 @@ public final class V1beta1Batch {
       if (hasLastScheduleTime()) {
         hash = (37 * hash) + LASTSCHEDULETIME_FIELD_NUMBER;
         hash = (53 * hash) + getLastScheduleTime().hashCode();
+      }
+      if (hasLastSuccessfulTime()) {
+        hash = (37 * hash) + LASTSUCCESSFULTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getLastSuccessfulTime().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5251,6 +5372,7 @@ public final class V1beta1Batch {
         if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getActiveFieldBuilder();
           getLastScheduleTimeFieldBuilder();
+          getLastSuccessfulTimeFieldBuilder();
         }
       }
 
@@ -5269,6 +5391,12 @@ public final class V1beta1Batch {
           lastScheduleTimeBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (lastSuccessfulTimeBuilder_ == null) {
+          lastSuccessfulTime_ = null;
+        } else {
+          lastSuccessfulTimeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -5314,6 +5442,14 @@ public final class V1beta1Batch {
           result.lastScheduleTime_ = lastScheduleTime_;
         } else {
           result.lastScheduleTime_ = lastScheduleTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (lastSuccessfulTimeBuilder_ == null) {
+          result.lastSuccessfulTime_ = lastSuccessfulTime_;
+        } else {
+          result.lastSuccessfulTime_ = lastSuccessfulTimeBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -5398,6 +5534,9 @@ public final class V1beta1Batch {
         if (other.hasLastScheduleTime()) {
           mergeLastScheduleTime(other.getLastScheduleTime());
         }
+        if (other.hasLastSuccessfulTime()) {
+          mergeLastSuccessfulTime(other.getLastSuccessfulTime());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5452,6 +5591,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5469,6 +5609,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5486,6 +5627,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5503,6 +5645,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5526,6 +5669,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5547,6 +5691,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5570,6 +5715,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5593,6 +5739,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5614,6 +5761,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5635,6 +5783,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5656,6 +5805,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5676,6 +5826,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5696,6 +5847,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5709,6 +5861,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5726,6 +5879,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5744,6 +5898,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5758,6 +5913,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5772,6 +5928,7 @@ public final class V1beta1Batch {
        * <pre>
        * A list of pointers to currently running jobs.
        * +optional
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated .k8s.io.api.core.v1.ObjectReference active = 1;</code>
@@ -5815,8 +5972,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       public boolean hasLastScheduleTime() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -5829,8 +5985,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastScheduleTime() {
         if (lastScheduleTimeBuilder_ == null) {
@@ -5849,8 +6004,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       public Builder setLastScheduleTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastScheduleTimeBuilder_ == null) {
@@ -5873,8 +6027,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       public Builder setLastScheduleTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -5895,8 +6048,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       public Builder mergeLastScheduleTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastScheduleTimeBuilder_ == null) {
@@ -5925,8 +6077,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       public Builder clearLastScheduleTime() {
         if (lastScheduleTimeBuilder_ == null) {
@@ -5946,8 +6097,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastScheduleTimeBuilder() {
         bitField0_ |= 0x00000002;
@@ -5962,8 +6112,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastScheduleTimeOrBuilder() {
         if (lastScheduleTimeBuilder_ != null) {
@@ -5982,8 +6131,7 @@ public final class V1beta1Batch {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastScheduleTime = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -6000,6 +6148,198 @@ public final class V1beta1Batch {
           lastScheduleTime_ = null;
         }
         return lastScheduleTimeBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Meta.Time lastSuccessfulTime_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
+          lastSuccessfulTimeBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      public boolean hasLastSuccessfulTime() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Time getLastSuccessfulTime() {
+        if (lastSuccessfulTimeBuilder_ == null) {
+          return lastSuccessfulTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : lastSuccessfulTime_;
+        } else {
+          return lastSuccessfulTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      public Builder setLastSuccessfulTime(io.kubernetes.client.proto.Meta.Time value) {
+        if (lastSuccessfulTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          lastSuccessfulTime_ = value;
+          onChanged();
+        } else {
+          lastSuccessfulTimeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      public Builder setLastSuccessfulTime(
+          io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
+        if (lastSuccessfulTimeBuilder_ == null) {
+          lastSuccessfulTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          lastSuccessfulTimeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      public Builder mergeLastSuccessfulTime(io.kubernetes.client.proto.Meta.Time value) {
+        if (lastSuccessfulTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)
+              && lastSuccessfulTime_ != null
+              && lastSuccessfulTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
+            lastSuccessfulTime_ =
+                io.kubernetes.client.proto.Meta.Time.newBuilder(lastSuccessfulTime_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            lastSuccessfulTime_ = value;
+          }
+          onChanged();
+        } else {
+          lastSuccessfulTimeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      public Builder clearLastSuccessfulTime() {
+        if (lastSuccessfulTimeBuilder_ == null) {
+          lastSuccessfulTime_ = null;
+          onChanged();
+        } else {
+          lastSuccessfulTimeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Time.Builder getLastSuccessfulTimeBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getLastSuccessfulTimeFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastSuccessfulTimeOrBuilder() {
+        if (lastSuccessfulTimeBuilder_ != null) {
+          return lastSuccessfulTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return lastSuccessfulTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : lastSuccessfulTime_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Information when was the last time the job successfully completed.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastSuccessfulTime = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
+          getLastSuccessfulTimeFieldBuilder() {
+        if (lastSuccessfulTimeBuilder_ == null) {
+          lastSuccessfulTimeBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.Time,
+                  io.kubernetes.client.proto.Meta.Time.Builder,
+                  io.kubernetes.client.proto.Meta.TimeOrBuilder>(
+                  getLastSuccessfulTime(), getParentForChildren(), isClean());
+          lastSuccessfulTime_ = null;
+        }
+        return lastSuccessfulTimeBuilder_;
       }
 
       @java.lang.Override
@@ -6065,7 +6405,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6077,7 +6417,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6089,7 +6429,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6102,7 +6442,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Defines jobs that will be created from this template.
-     * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -6114,7 +6454,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Defines jobs that will be created from this template.
-     * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -6126,7 +6466,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Defines jobs that will be created from this template.
-     * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -6254,7 +6594,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6268,7 +6608,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6284,7 +6624,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6303,7 +6643,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Defines jobs that will be created from this template.
-     * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -6317,7 +6657,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Defines jobs that will be created from this template.
-     * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -6333,7 +6673,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Defines jobs that will be created from this template.
-     * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -6734,7 +7074,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6748,7 +7088,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6768,7 +7108,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6792,7 +7132,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6814,7 +7154,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6844,7 +7184,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6865,7 +7205,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6881,7 +7221,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6901,7 +7241,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6935,7 +7275,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -6949,7 +7289,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -6969,7 +7309,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -6993,7 +7333,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -7015,7 +7355,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -7046,7 +7386,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -7067,7 +7407,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -7083,7 +7423,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -7104,7 +7444,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Defines jobs that will be created from this template.
-       * https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -7190,7 +7530,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata of the jobs created from this template.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7202,7 +7542,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata of the jobs created from this template.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7214,7 +7554,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata of the jobs created from this template.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7227,7 +7567,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of the job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -7239,7 +7579,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of the job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -7251,7 +7591,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of the job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -7378,7 +7718,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata of the jobs created from this template.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7392,7 +7732,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata of the jobs created from this template.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7408,7 +7748,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Standard object's metadata of the jobs created from this template.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7427,7 +7767,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of the job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -7441,7 +7781,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of the job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -7457,7 +7797,7 @@ public final class V1beta1Batch {
      *
      * <pre>
      * Specification of the desired behavior of the job.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -7858,7 +8198,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7872,7 +8212,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7892,7 +8232,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7916,7 +8256,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7938,7 +8278,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7968,7 +8308,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7989,7 +8329,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8005,7 +8345,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8025,7 +8365,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Standard object's metadata of the jobs created from this template.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8059,7 +8399,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8073,7 +8413,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8093,7 +8433,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8117,7 +8457,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8138,7 +8478,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8168,7 +8508,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8189,7 +8529,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8205,7 +8545,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8225,7 +8565,7 @@ public final class V1beta1Batch {
        *
        * <pre>
        * Specification of the desired behavior of the job.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -8355,19 +8695,21 @@ public final class V1beta1Batch {
           + "suspend\030\004 \001(\010\022>\n\013jobTemplate\030\005 \001(\0132).k8s"
           + ".io.api.batch.v1beta1.JobTemplateSpec\022\"\n"
           + "\032successfulJobsHistoryLimit\030\006 \001(\005\022\036\n\026fai"
-          + "ledJobsHistoryLimit\030\007 \001(\005\"\212\001\n\rCronJobSta"
+          + "ledJobsHistoryLimit\030\007 \001(\005\"\322\001\n\rCronJobSta"
           + "tus\0223\n\006active\030\001 \003(\0132#.k8s.io.api.core.v1"
           + ".ObjectReference\022D\n\020lastScheduleTime\030\004 \001"
           + "(\0132*.k8s.io.apimachinery.pkg.apis.meta.v"
-          + "1.Time\"\216\001\n\013JobTemplate\022B\n\010metadata\030\001 \001(\013"
-          + "20.k8s.io.apimachinery.pkg.apis.meta.v1."
-          + "ObjectMeta\022;\n\010template\030\002 \001(\0132).k8s.io.ap"
-          + "i.batch.v1beta1.JobTemplateSpec\"\201\001\n\017JobT"
-          + "emplateSpec\022B\n\010metadata\030\001 \001(\01320.k8s.io.a"
-          + "pimachinery.pkg.apis.meta.v1.ObjectMeta\022"
-          + "*\n\004spec\030\002 \001(\0132\034.k8s.io.api.batch.v1.JobS"
-          + "pecB3\n\032io.kubernetes.client.protoB\014V1bet"
-          + "a1BatchZ\007v1beta1"
+          + "1.Time\022F\n\022lastSuccessfulTime\030\005 \001(\0132*.k8s"
+          + ".io.apimachinery.pkg.apis.meta.v1.Time\"\216"
+          + "\001\n\013JobTemplate\022B\n\010metadata\030\001 \001(\01320.k8s.i"
+          + "o.apimachinery.pkg.apis.meta.v1.ObjectMe"
+          + "ta\022;\n\010template\030\002 \001(\0132).k8s.io.api.batch."
+          + "v1beta1.JobTemplateSpec\"\201\001\n\017JobTemplateS"
+          + "pec\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachin"
+          + "ery.pkg.apis.meta.v1.ObjectMeta\022*\n\004spec\030"
+          + "\002 \001(\0132\034.k8s.io.api.batch.v1.JobSpecB3\n\032i"
+          + "o.kubernetes.client.protoB\014V1beta1BatchZ"
+          + "\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -8423,7 +8765,7 @@ public final class V1beta1Batch {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_batch_v1beta1_CronJobStatus_descriptor,
             new java.lang.String[] {
-              "Active", "LastScheduleTime",
+              "Active", "LastScheduleTime", "LastSuccessfulTime",
             });
     internal_static_k8s_io_api_batch_v1beta1_JobTemplate_descriptor =
         getDescriptor().getMessageTypes().get(4);

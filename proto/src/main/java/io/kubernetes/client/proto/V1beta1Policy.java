@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,686 @@ public final class V1beta1Policy {
 
   public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
     registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+
+  public interface AllowedCSIDriverOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.policy.v1beta1.AllowedCSIDriver)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString getNameBytes();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.policy.v1beta1.AllowedCSIDriver}
+   */
+  public static final class AllowedCSIDriver extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.policy.v1beta1.AllowedCSIDriver)
+      AllowedCSIDriverOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use AllowedCSIDriver.newBuilder() to construct.
+    private AllowedCSIDriver(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private AllowedCSIDriver() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private AllowedCSIDriver(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                name_ = bs;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Policy
+          .internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Policy
+          .internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.class,
+              io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver other =
+          (io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName().equals(other.getName());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.policy.v1beta1.AllowedCSIDriver}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.policy.v1beta1.AllowedCSIDriver)
+        io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Policy
+            .internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Policy
+            .internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.class,
+                io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Policy
+            .internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver build() {
+        io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver buildPartial() {
+        io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver result =
+            new io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver other) {
+        if (other == io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.getDefaultInstance())
+          return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.policy.v1beta1.AllowedCSIDriver)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.policy.v1beta1.AllowedCSIDriver)
+    private static final io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<AllowedCSIDriver> PARSER =
+        new com.google.protobuf.AbstractParser<AllowedCSIDriver>() {
+          @java.lang.Override
+          public AllowedCSIDriver parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new AllowedCSIDriver(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<AllowedCSIDriver> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AllowedCSIDriver> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
   }
 
   public interface AllowedFlexVolumeOrBuilder
@@ -399,8 +1079,7 @@ public final class V1beta1Policy {
                 io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1636,8 +2315,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;</code>
      */
     boolean hasDeleteOptions();
     /**
@@ -1648,8 +2326,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;</code>
      */
     io.kubernetes.client.proto.Meta.DeleteOptions getDeleteOptions();
     /**
@@ -1660,8 +2337,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;</code>
      */
     io.kubernetes.client.proto.Meta.DeleteOptionsOrBuilder getDeleteOptionsOrBuilder();
   }
@@ -1835,8 +2511,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;</code>
      */
     public boolean hasDeleteOptions() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -1849,8 +2524,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;</code>
      */
     public io.kubernetes.client.proto.Meta.DeleteOptions getDeleteOptions() {
       return deleteOptions_ == null
@@ -1865,8 +2539,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.DeleteOptions deleteOptions = 2;</code>
      */
     public io.kubernetes.client.proto.Meta.DeleteOptionsOrBuilder getDeleteOptionsOrBuilder() {
       return deleteOptions_ == null
@@ -5451,6 +6124,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5461,6 +6136,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5471,6 +6148,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5685,6 +6364,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5697,6 +6378,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5711,6 +6394,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6040,8 +6725,7 @@ public final class V1beta1Policy {
                 io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6240,6 +6924,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6252,6 +6938,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6270,6 +6958,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6292,6 +6982,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6312,6 +7004,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6340,6 +7034,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6359,6 +7055,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6373,6 +7071,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6391,6 +7091,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6628,8 +7330,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -6642,8 +7343,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetStatus getStatus() {
         if (statusBuilder_ == null) {
@@ -6663,8 +7363,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       public Builder setStatus(
           io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetStatus value) {
@@ -6688,8 +7387,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       public Builder setStatus(
           io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetStatus.Builder
@@ -6711,8 +7409,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       public Builder mergeStatus(
           io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetStatus value) {
@@ -6745,8 +7442,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       public Builder clearStatus() {
         if (statusBuilder_ == null) {
@@ -6766,8 +7462,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetStatus.Builder
           getStatusBuilder() {
@@ -6783,8 +7478,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetStatusOrBuilder
           getStatusOrBuilder() {
@@ -6805,8 +7499,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.PodDisruptionBudgetStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetStatus,
@@ -6890,6 +7583,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6900,6 +7595,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6910,6 +7607,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6917,16 +7616,56 @@ public final class V1beta1Policy {
      */
     io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder();
 
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     java.util.List<io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget> getItemsList();
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget getItems(int index);
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     int getItemsCount();
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     java.util.List<? extends io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetOrBuilder>
         getItemsOrBuilderList();
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetOrBuilder getItemsOrBuilder(
         int index);
   }
@@ -7051,6 +7790,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7063,6 +7804,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7077,6 +7820,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7090,26 +7835,66 @@ public final class V1beta1Policy {
 
     public static final int ITEMS_FIELD_NUMBER = 2;
     private java.util.List<io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget> items_;
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     public java.util.List<io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget>
         getItemsList() {
       return items_;
     }
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     public java.util.List<
             ? extends io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetOrBuilder>
         getItemsOrBuilderList() {
       return items_;
     }
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     public int getItemsCount() {
       return items_.size();
     }
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget getItems(int index) {
       return items_.get(index);
     }
-    /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * items list individual PodDisruptionBudget objects
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+     */
     public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetOrBuilder getItemsOrBuilder(
         int index) {
       return items_.get(index);
@@ -7533,6 +8318,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7545,6 +8332,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7563,6 +8352,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7585,6 +8376,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7604,6 +8397,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7632,6 +8427,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7651,6 +8448,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7665,6 +8464,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7683,6 +8484,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7723,7 +8526,15 @@ public final class V1beta1Policy {
               io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetOrBuilder>
           itemsBuilder_;
 
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public java.util.List<io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget>
           getItemsList() {
         if (itemsBuilder_ == null) {
@@ -7732,7 +8543,15 @@ public final class V1beta1Policy {
           return itemsBuilder_.getMessageList();
         }
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public int getItemsCount() {
         if (itemsBuilder_ == null) {
           return items_.size();
@@ -7740,7 +8559,15 @@ public final class V1beta1Policy {
           return itemsBuilder_.getCount();
         }
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget getItems(int index) {
         if (itemsBuilder_ == null) {
           return items_.get(index);
@@ -7748,7 +8575,15 @@ public final class V1beta1Policy {
           return itemsBuilder_.getMessage(index);
         }
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder setItems(
           int index, io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget value) {
         if (itemsBuilder_ == null) {
@@ -7763,7 +8598,15 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder setItems(
           int index,
           io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.Builder builderForValue) {
@@ -7776,7 +8619,15 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder addItems(io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget value) {
         if (itemsBuilder_ == null) {
           if (value == null) {
@@ -7790,7 +8641,15 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder addItems(
           int index, io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget value) {
         if (itemsBuilder_ == null) {
@@ -7805,7 +8664,15 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder addItems(
           io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.Builder builderForValue) {
         if (itemsBuilder_ == null) {
@@ -7817,7 +8684,15 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder addItems(
           int index,
           io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.Builder builderForValue) {
@@ -7830,7 +8705,15 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder addAllItems(
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget>
               values) {
@@ -7843,7 +8726,15 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder clearItems() {
         if (itemsBuilder_ == null) {
           items_ = java.util.Collections.emptyList();
@@ -7854,7 +8745,15 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public Builder removeItems(int index) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
@@ -7865,12 +8764,28 @@ public final class V1beta1Policy {
         }
         return this;
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.Builder getItemsBuilder(
           int index) {
         return getItemsFieldBuilder().getBuilder(index);
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetOrBuilder
           getItemsOrBuilder(int index) {
         if (itemsBuilder_ == null) {
@@ -7879,7 +8794,15 @@ public final class V1beta1Policy {
           return itemsBuilder_.getMessageOrBuilder(index);
         }
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudgetOrBuilder>
           getItemsOrBuilderList() {
@@ -7889,14 +8812,30 @@ public final class V1beta1Policy {
           return java.util.Collections.unmodifiableList(items_);
         }
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.Builder
           addItemsBuilder() {
         return getItemsFieldBuilder()
             .addBuilder(
                 io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.getDefaultInstance());
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.Builder addItemsBuilder(
           int index) {
         return getItemsFieldBuilder()
@@ -7904,7 +8843,15 @@ public final class V1beta1Policy {
                 index,
                 io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.getDefaultInstance());
       }
-      /** <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * items list individual PodDisruptionBudget objects
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.PodDisruptionBudget items = 2;</code>
+       */
       public java.util.List<io.kubernetes.client.proto.V1beta1Policy.PodDisruptionBudget.Builder>
           getItemsBuilderList() {
         return getItemsFieldBuilder().getBuilderList();
@@ -8040,6 +8987,10 @@ public final class V1beta1Policy {
      * <pre>
      * Label query over pods whose evictions are managed by the disruption
      * budget.
+     * A null selector selects no pods.
+     * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+     * In policy/v1, an empty selector will select all pods in the namespace.
+     * +patchStrategy=replace
      * +optional
      * </pre>
      *
@@ -8052,6 +9003,10 @@ public final class V1beta1Policy {
      * <pre>
      * Label query over pods whose evictions are managed by the disruption
      * budget.
+     * A null selector selects no pods.
+     * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+     * In policy/v1, an empty selector will select all pods in the namespace.
+     * +patchStrategy=replace
      * +optional
      * </pre>
      *
@@ -8064,6 +9019,10 @@ public final class V1beta1Policy {
      * <pre>
      * Label query over pods whose evictions are managed by the disruption
      * budget.
+     * A null selector selects no pods.
+     * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+     * In policy/v1, an empty selector will select all pods in the namespace.
+     * +patchStrategy=replace
      * +optional
      * </pre>
      *
@@ -8082,8 +9041,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
      */
     boolean hasMaxUnavailable();
     /**
@@ -8097,8 +9055,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable();
     /**
@@ -8112,8 +9069,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder();
   }
@@ -8308,6 +9264,10 @@ public final class V1beta1Policy {
      * <pre>
      * Label query over pods whose evictions are managed by the disruption
      * budget.
+     * A null selector selects no pods.
+     * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+     * In policy/v1, an empty selector will select all pods in the namespace.
+     * +patchStrategy=replace
      * +optional
      * </pre>
      *
@@ -8322,6 +9282,10 @@ public final class V1beta1Policy {
      * <pre>
      * Label query over pods whose evictions are managed by the disruption
      * budget.
+     * A null selector selects no pods.
+     * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+     * In policy/v1, an empty selector will select all pods in the namespace.
+     * +patchStrategy=replace
      * +optional
      * </pre>
      *
@@ -8338,6 +9302,10 @@ public final class V1beta1Policy {
      * <pre>
      * Label query over pods whose evictions are managed by the disruption
      * budget.
+     * A null selector selects no pods.
+     * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+     * In policy/v1, an empty selector will select all pods in the namespace.
+     * +patchStrategy=replace
      * +optional
      * </pre>
      *
@@ -8362,8 +9330,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
      */
     public boolean hasMaxUnavailable() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -8379,8 +9346,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
       return maxUnavailable_ == null
@@ -8398,8 +9364,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
       return maxUnavailable_ == null
@@ -8842,8 +9807,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       public boolean hasMinAvailable() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -8859,8 +9823,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString getMinAvailable() {
         if (minAvailableBuilder_ == null) {
@@ -8882,8 +9845,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       public Builder setMinAvailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (minAvailableBuilder_ == null) {
@@ -8909,8 +9871,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       public Builder setMinAvailable(
           io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
@@ -8934,8 +9895,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       public Builder mergeMinAvailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (minAvailableBuilder_ == null) {
@@ -8968,8 +9928,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       public Builder clearMinAvailable() {
         if (minAvailableBuilder_ == null) {
@@ -8992,8 +9951,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString.Builder getMinAvailableBuilder() {
         bitField0_ |= 0x00000001;
@@ -9011,8 +9969,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMinAvailableOrBuilder() {
         if (minAvailableBuilder_ != null) {
@@ -9034,8 +9991,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString minAvailable = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.IntStr.IntOrString,
@@ -9066,11 +10022,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -9081,11 +10040,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -9102,11 +10064,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -9127,11 +10092,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -9150,11 +10118,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -9181,11 +10152,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -9203,11 +10177,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000002;
@@ -9220,11 +10197,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -9241,11 +10221,14 @@ public final class V1beta1Policy {
        * <pre>
        * Label query over pods whose evictions are managed by the disruption
        * budget.
+       * A null selector selects no pods.
+       * An empty selector ({}) also selects no pods, which differs from standard behavior of selecting all pods.
+       * In policy/v1, an empty selector will select all pods in the namespace.
+       * +patchStrategy=replace
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -9281,8 +10264,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       public boolean hasMaxUnavailable() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -9298,8 +10280,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -9321,8 +10302,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       public Builder setMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -9348,8 +10328,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       public Builder setMaxUnavailable(
           io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
@@ -9373,8 +10352,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       public Builder mergeMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -9407,8 +10385,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       public Builder clearMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -9431,8 +10408,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString.Builder getMaxUnavailableBuilder() {
         bitField0_ |= 0x00000004;
@@ -9450,8 +10426,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
         if (maxUnavailableBuilder_ != null) {
@@ -9473,8 +10448,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.IntStr.IntOrString,
@@ -9558,8 +10532,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
-     * status informatio is valid only if observedGeneration equals to PDB's object generation.
+     * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
+     * status information is valid only if observedGeneration equals to PDB's object generation.
      * +optional
      * </pre>
      *
@@ -9570,8 +10544,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
-     * status informatio is valid only if observedGeneration equals to PDB's object generation.
+     * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
+     * status information is valid only if observedGeneration equals to PDB's object generation.
      * +optional
      * </pre>
      *
@@ -9597,8 +10571,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     int getDisruptedPodsCount();
     /**
@@ -9619,8 +10592,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     boolean containsDisruptedPods(java.lang.String key);
     /** Use {@link #getDisruptedPodsMap()} instead. */
@@ -9644,8 +10616,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     java.util.Map<java.lang.String, io.kubernetes.client.proto.Meta.Time> getDisruptedPodsMap();
     /**
@@ -9666,8 +10637,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     io.kubernetes.client.proto.Meta.Time getDisruptedPodsOrDefault(
         java.lang.String key, io.kubernetes.client.proto.Meta.Time defaultValue);
@@ -9689,8 +10659,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     io.kubernetes.client.proto.Meta.Time getDisruptedPodsOrThrow(java.lang.String key);
 
@@ -9777,6 +10746,138 @@ public final class V1beta1Policy {
      * <code>optional int32 expectedPods = 6;</code>
      */
     int getExpectedPods();
+
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.Meta.Condition> getConditionsList();
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    io.kubernetes.client.proto.Meta.Condition getConditions(int index);
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    int getConditionsCount();
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.Meta.ConditionOrBuilder>
+        getConditionsOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    io.kubernetes.client.proto.Meta.ConditionOrBuilder getConditionsOrBuilder(int index);
   }
   /**
    *
@@ -9804,6 +10905,7 @@ public final class V1beta1Policy {
       currentHealthy_ = 0;
       desiredHealthy_ = 0;
       expectedPods_ = 0;
+      conditions_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -9878,6 +10980,18 @@ public final class V1beta1Policy {
                 expectedPods_ = input.readInt32();
                 break;
               }
+            case 58:
+              {
+                if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                  conditions_ =
+                      new java.util.ArrayList<io.kubernetes.client.proto.Meta.Condition>();
+                  mutable_bitField0_ |= 0x00000040;
+                }
+                conditions_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.Condition.PARSER, extensionRegistry));
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -9892,6 +11006,9 @@ public final class V1beta1Policy {
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          conditions_ = java.util.Collections.unmodifiableList(conditions_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -9930,8 +11047,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
-     * status informatio is valid only if observedGeneration equals to PDB's object generation.
+     * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
+     * status information is valid only if observedGeneration equals to PDB's object generation.
      * +optional
      * </pre>
      *
@@ -9944,8 +11061,8 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
-     * status informatio is valid only if observedGeneration equals to PDB's object generation.
+     * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
+     * status information is valid only if observedGeneration equals to PDB's object generation.
      * +optional
      * </pre>
      *
@@ -10004,8 +11121,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     public boolean containsDisruptedPods(java.lang.String key) {
       if (key == null) {
@@ -10037,8 +11153,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     public java.util.Map<java.lang.String, io.kubernetes.client.proto.Meta.Time>
         getDisruptedPodsMap() {
@@ -10062,8 +11177,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     public io.kubernetes.client.proto.Meta.Time getDisruptedPodsOrDefault(
         java.lang.String key, io.kubernetes.client.proto.Meta.Time defaultValue) {
@@ -10092,8 +11206,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
-     * </code>
+     * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;</code>
      */
     public io.kubernetes.client.proto.Meta.Time getDisruptedPodsOrThrow(java.lang.String key) {
       if (key == null) {
@@ -10215,6 +11328,150 @@ public final class V1beta1Policy {
       return expectedPods_;
     }
 
+    public static final int CONDITIONS_FIELD_NUMBER = 7;
+    private java.util.List<io.kubernetes.client.proto.Meta.Condition> conditions_;
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.Meta.Condition> getConditionsList() {
+      return conditions_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    public java.util.List<? extends io.kubernetes.client.proto.Meta.ConditionOrBuilder>
+        getConditionsOrBuilderList() {
+      return conditions_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    public int getConditionsCount() {
+      return conditions_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    public io.kubernetes.client.proto.Meta.Condition getConditions(int index) {
+      return conditions_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Conditions contain conditions for PDB. The disruption controller sets the
+     * DisruptionAllowed condition. The following are known values for the reason field
+     * (additional reasons could be added in the future):
+     * - SyncFailed: The controller encountered an error and wasn't able to compute
+     *               the number of allowed disruptions. Therefore no disruptions are
+     *               allowed and the status of the condition will be False.
+     * - InsufficientPods: The number of pods are either at or below the number
+     *                     required by the PodDisruptionBudget. No disruptions are
+     *                     allowed and the status of the condition will be False.
+     * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+     *                   The condition will be True, and the number of allowed
+     *                   disruptions are provided by the disruptionsAllowed property.
+     * +optional
+     * +patchMergeKey=type
+     * +patchStrategy=merge
+     * +listType=map
+     * +listMapKey=type
+     * </pre>
+     *
+     * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ConditionOrBuilder getConditionsOrBuilder(int index) {
+      return conditions_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -10245,6 +11502,9 @@ public final class V1beta1Policy {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt32(6, expectedPods_);
+      }
+      for (int i = 0; i < conditions_.size(); i++) {
+        output.writeMessage(7, conditions_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -10280,6 +11540,9 @@ public final class V1beta1Policy {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream.computeInt32Size(6, expectedPods_);
+      }
+      for (int i = 0; i < conditions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(7, conditions_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10319,6 +11582,7 @@ public final class V1beta1Policy {
       if (hasExpectedPods()) {
         result = result && (getExpectedPods() == other.getExpectedPods());
       }
+      result = result && getConditionsList().equals(other.getConditionsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10353,6 +11617,10 @@ public final class V1beta1Policy {
       if (hasExpectedPods()) {
         hash = (37 * hash) + EXPECTEDPODS_FIELD_NUMBER;
         hash = (53 * hash) + getExpectedPods();
+      }
+      if (getConditionsCount() > 0) {
+        hash = (37 * hash) + CONDITIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getConditionsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -10519,7 +11787,9 @@ public final class V1beta1Policy {
       }
 
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getConditionsFieldBuilder();
+        }
       }
 
       @java.lang.Override
@@ -10536,6 +11806,12 @@ public final class V1beta1Policy {
         bitField0_ = (bitField0_ & ~0x00000010);
         expectedPods_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
+        if (conditionsBuilder_ == null) {
+          conditions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        } else {
+          conditionsBuilder_.clear();
+        }
         return this;
       }
 
@@ -10589,6 +11865,15 @@ public final class V1beta1Policy {
           to_bitField0_ |= 0x00000010;
         }
         result.expectedPods_ = expectedPods_;
+        if (conditionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            conditions_ = java.util.Collections.unmodifiableList(conditions_);
+            bitField0_ = (bitField0_ & ~0x00000040);
+          }
+          result.conditions_ = conditions_;
+        } else {
+          result.conditions_ = conditionsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10661,6 +11946,33 @@ public final class V1beta1Policy {
         if (other.hasExpectedPods()) {
           setExpectedPods(other.getExpectedPods());
         }
+        if (conditionsBuilder_ == null) {
+          if (!other.conditions_.isEmpty()) {
+            if (conditions_.isEmpty()) {
+              conditions_ = other.conditions_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+            } else {
+              ensureConditionsIsMutable();
+              conditions_.addAll(other.conditions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.conditions_.isEmpty()) {
+            if (conditionsBuilder_.isEmpty()) {
+              conditionsBuilder_.dispose();
+              conditionsBuilder_ = null;
+              conditions_ = other.conditions_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+              conditionsBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getConditionsFieldBuilder()
+                      : null;
+            } else {
+              conditionsBuilder_.addAllMessages(other.conditions_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -10699,8 +12011,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
-       * status informatio is valid only if observedGeneration equals to PDB's object generation.
+       * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
+       * status information is valid only if observedGeneration equals to PDB's object generation.
        * +optional
        * </pre>
        *
@@ -10713,8 +12025,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
-       * status informatio is valid only if observedGeneration equals to PDB's object generation.
+       * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
+       * status information is valid only if observedGeneration equals to PDB's object generation.
        * +optional
        * </pre>
        *
@@ -10727,8 +12039,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
-       * status informatio is valid only if observedGeneration equals to PDB's object generation.
+       * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
+       * status information is valid only if observedGeneration equals to PDB's object generation.
        * +optional
        * </pre>
        *
@@ -10744,8 +12056,8 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other
-       * status informatio is valid only if observedGeneration equals to PDB's object generation.
+       * Most recent generation observed when updating this PDB status. DisruptionsAllowed and other
+       * status information is valid only if observedGeneration equals to PDB's object generation.
        * +optional
        * </pre>
        *
@@ -10806,8 +12118,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>
-       * map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
+       * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
        * </code>
        */
       public boolean containsDisruptedPods(java.lang.String key) {
@@ -10840,8 +12151,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>
-       * map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
+       * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
        * </code>
        */
       public java.util.Map<java.lang.String, io.kubernetes.client.proto.Meta.Time>
@@ -10866,8 +12176,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>
-       * map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
+       * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
        * </code>
        */
       public io.kubernetes.client.proto.Meta.Time getDisruptedPodsOrDefault(
@@ -10897,8 +12206,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>
-       * map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
+       * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
        * </code>
        */
       public io.kubernetes.client.proto.Meta.Time getDisruptedPodsOrThrow(java.lang.String key) {
@@ -10935,8 +12243,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>
-       * map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
+       * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
        * </code>
        */
       public Builder removeDisruptedPods(java.lang.String key) {
@@ -10970,8 +12277,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>
-       * map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
+       * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
        * </code>
        */
       public Builder putDisruptedPods(
@@ -11003,8 +12309,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>
-       * map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
+       * <code>map&lt;string, .k8s.io.apimachinery.pkg.apis.meta.v1.Time&gt; disruptedPods = 2;
        * </code>
        */
       public Builder putAllDisruptedPods(
@@ -11237,6 +12542,648 @@ public final class V1beta1Policy {
         return this;
       }
 
+      private java.util.List<io.kubernetes.client.proto.Meta.Condition> conditions_ =
+          java.util.Collections.emptyList();
+
+      private void ensureConditionsIsMutable() {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+          conditions_ =
+              new java.util.ArrayList<io.kubernetes.client.proto.Meta.Condition>(conditions_);
+          bitField0_ |= 0x00000040;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Condition,
+              io.kubernetes.client.proto.Meta.Condition.Builder,
+              io.kubernetes.client.proto.Meta.ConditionOrBuilder>
+          conditionsBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.Meta.Condition> getConditionsList() {
+        if (conditionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(conditions_);
+        } else {
+          return conditionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public int getConditionsCount() {
+        if (conditionsBuilder_ == null) {
+          return conditions_.size();
+        } else {
+          return conditionsBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Condition getConditions(int index) {
+        if (conditionsBuilder_ == null) {
+          return conditions_.get(index);
+        } else {
+          return conditionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder setConditions(int index, io.kubernetes.client.proto.Meta.Condition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.set(index, value);
+          onChanged();
+        } else {
+          conditionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder setConditions(
+          int index, io.kubernetes.client.proto.Meta.Condition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder addConditions(io.kubernetes.client.proto.Meta.Condition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.add(value);
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder addConditions(int index, io.kubernetes.client.proto.Meta.Condition value) {
+        if (conditionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConditionsIsMutable();
+          conditions_.add(index, value);
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder addConditions(
+          io.kubernetes.client.proto.Meta.Condition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder addConditions(
+          int index, io.kubernetes.client.proto.Meta.Condition.Builder builderForValue) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          conditionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder addAllConditions(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.Meta.Condition> values) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, conditions_);
+          onChanged();
+        } else {
+          conditionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder clearConditions() {
+        if (conditionsBuilder_ == null) {
+          conditions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+          onChanged();
+        } else {
+          conditionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public Builder removeConditions(int index) {
+        if (conditionsBuilder_ == null) {
+          ensureConditionsIsMutable();
+          conditions_.remove(index);
+          onChanged();
+        } else {
+          conditionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Condition.Builder getConditionsBuilder(int index) {
+        return getConditionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ConditionOrBuilder getConditionsOrBuilder(int index) {
+        if (conditionsBuilder_ == null) {
+          return conditions_.get(index);
+        } else {
+          return conditionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public java.util.List<? extends io.kubernetes.client.proto.Meta.ConditionOrBuilder>
+          getConditionsOrBuilderList() {
+        if (conditionsBuilder_ != null) {
+          return conditionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(conditions_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Condition.Builder addConditionsBuilder() {
+        return getConditionsFieldBuilder()
+            .addBuilder(io.kubernetes.client.proto.Meta.Condition.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Condition.Builder addConditionsBuilder(int index) {
+        return getConditionsFieldBuilder()
+            .addBuilder(index, io.kubernetes.client.proto.Meta.Condition.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Conditions contain conditions for PDB. The disruption controller sets the
+       * DisruptionAllowed condition. The following are known values for the reason field
+       * (additional reasons could be added in the future):
+       * - SyncFailed: The controller encountered an error and wasn't able to compute
+       *               the number of allowed disruptions. Therefore no disruptions are
+       *               allowed and the status of the condition will be False.
+       * - InsufficientPods: The number of pods are either at or below the number
+       *                     required by the PodDisruptionBudget. No disruptions are
+       *                     allowed and the status of the condition will be False.
+       * - SufficientPods: There are more pods than required by the PodDisruptionBudget.
+       *                   The condition will be True, and the number of allowed
+       *                   disruptions are provided by the disruptionsAllowed property.
+       * +optional
+       * +patchMergeKey=type
+       * +patchStrategy=merge
+       * +listType=map
+       * +listMapKey=type
+       * </pre>
+       *
+       * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.Meta.Condition.Builder>
+          getConditionsBuilderList() {
+        return getConditionsFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Condition,
+              io.kubernetes.client.proto.Meta.Condition.Builder,
+              io.kubernetes.client.proto.Meta.ConditionOrBuilder>
+          getConditionsFieldBuilder() {
+        if (conditionsBuilder_ == null) {
+          conditionsBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.Condition,
+                  io.kubernetes.client.proto.Meta.Condition.Builder,
+                  io.kubernetes.client.proto.Meta.ConditionOrBuilder>(
+                  conditions_,
+                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  getParentForChildren(),
+                  isClean());
+          conditions_ = null;
+        }
+        return conditionsBuilder_;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -11303,7 +13250,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -11315,7 +13262,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -11327,7 +13274,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -11375,6 +13322,7 @@ public final class V1beta1Policy {
    * <pre>
    * PodSecurityPolicy governs the ability to make requests that affect the Security Context
    * that will be applied to a pod and container.
+   * Deprecated in 1.21.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.policy.v1beta1.PodSecurityPolicy}
@@ -11491,7 +13439,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -11505,7 +13453,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -11521,7 +13469,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -11767,6 +13715,7 @@ public final class V1beta1Policy {
      * <pre>
      * PodSecurityPolicy governs the ability to make requests that affect the Security Context
      * that will be applied to a pod and container.
+     * Deprecated in 1.21.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.policy.v1beta1.PodSecurityPolicy}
@@ -11791,8 +13740,7 @@ public final class V1beta1Policy {
                 io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicy.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicy.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicy.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11973,7 +13921,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11987,7 +13935,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12007,7 +13955,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12031,7 +13979,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12053,7 +14001,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12083,7 +14031,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12104,7 +14052,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12120,7 +14068,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12140,7 +14088,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12424,7 +14372,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12436,7 +14384,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12448,7 +14396,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12631,7 +14579,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12645,7 +14593,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12661,7 +14609,7 @@ public final class V1beta1Policy {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12947,8 +14895,7 @@ public final class V1beta1Policy {
                 io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicyList.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicyList.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicyList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13156,7 +15103,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13170,7 +15117,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13190,7 +15137,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13214,7 +15161,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13235,7 +15182,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13265,7 +15212,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13286,7 +15233,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13302,7 +15249,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13322,7 +15269,7 @@ public final class V1beta1Policy {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13960,7 +15907,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -13972,7 +15919,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -13984,7 +15931,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -13996,7 +15943,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -14205,8 +16152,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-     * </code>
+     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
      */
     boolean hasRunAsGroup();
     /**
@@ -14219,8 +16165,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-     * </code>
+     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
      */
     io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptions getRunAsGroup();
     /**
@@ -14233,8 +16178,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-     * </code>
+     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
      */
     io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptionsOrBuilder
         getRunAsGroupOrBuilder();
@@ -14394,7 +16338,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -14407,7 +16351,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -14419,7 +16363,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -14431,7 +16375,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -14444,7 +16388,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -14458,14 +16402,13 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume>
         getAllowedFlexVolumesList();
@@ -14473,42 +16416,39 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume getAllowedFlexVolumes(int index);
     /**
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     int getAllowedFlexVolumesCount();
     /**
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     java.util.List<? extends io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolumeOrBuilder>
         getAllowedFlexVolumesOrBuilderList();
@@ -14516,14 +16456,13 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolumeOrBuilder
         getAllowedFlexVolumesOrBuilder(int index);
@@ -14532,10 +16471,79 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver>
+        getAllowedCSIDriversList();
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver getAllowedCSIDrivers(int index);
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    int getAllowedCSIDriversCount();
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder>
+        getAllowedCSIDriversOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder
+        getAllowedCSIDriversOrBuilder(int index);
+
+    /**
+     *
+     *
+     * <pre>
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -14552,7 +16560,7 @@ public final class V1beta1Policy {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -14569,7 +16577,7 @@ public final class V1beta1Policy {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -14586,7 +16594,7 @@ public final class V1beta1Policy {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -14666,7 +16674,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -14679,7 +16687,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -14692,7 +16700,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -14705,7 +16713,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -14714,6 +16722,50 @@ public final class V1beta1Policy {
      * <code>repeated string allowedProcMountTypes = 21;</code>
      */
     com.google.protobuf.ByteString getAllowedProcMountTypesBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    boolean hasRuntimeClass();
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions getRuntimeClass();
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptionsOrBuilder
+        getRuntimeClassOrBuilder();
   }
   /**
    *
@@ -14749,6 +16801,7 @@ public final class V1beta1Policy {
       allowPrivilegeEscalation_ = false;
       allowedHostPaths_ = java.util.Collections.emptyList();
       allowedFlexVolumes_ = java.util.Collections.emptyList();
+      allowedCSIDrivers_ = java.util.Collections.emptyList();
       allowedUnsafeSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       forbiddenSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       allowedProcMountTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -14978,9 +17031,9 @@ public final class V1beta1Policy {
             case 154:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                if (!((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+                if (!((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
                   allowedUnsafeSysctls_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00080000;
+                  mutable_bitField0_ |= 0x00100000;
                 }
                 allowedUnsafeSysctls_.add(bs);
                 break;
@@ -14988,9 +17041,9 @@ public final class V1beta1Policy {
             case 162:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                if (!((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+                if (!((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
                   forbiddenSysctls_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00100000;
+                  mutable_bitField0_ |= 0x00200000;
                 }
                 forbiddenSysctls_.add(bs);
                 break;
@@ -14998,9 +17051,9 @@ public final class V1beta1Policy {
             case 170:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                if (!((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
+                if (!((mutable_bitField0_ & 0x00400000) == 0x00400000)) {
                   allowedProcMountTypes_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00200000;
+                  mutable_bitField0_ |= 0x00400000;
                 }
                 allowedProcMountTypes_.add(bs);
                 break;
@@ -15021,6 +17074,38 @@ public final class V1beta1Policy {
                   runAsGroup_ = subBuilder.buildPartial();
                 }
                 bitField0_ |= 0x00000040;
+                break;
+              }
+            case 186:
+              {
+                if (!((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+                  allowedCSIDrivers_ =
+                      new java.util.ArrayList<
+                          io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver>();
+                  mutable_bitField0_ |= 0x00080000;
+                }
+                allowedCSIDrivers_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.PARSER,
+                        extensionRegistry));
+                break;
+              }
+            case 194:
+              {
+                io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.Builder
+                    subBuilder = null;
+                if (((bitField0_ & 0x00001000) == 0x00001000)) {
+                  subBuilder = runtimeClass_.toBuilder();
+                }
+                runtimeClass_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(runtimeClass_);
+                  runtimeClass_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00001000;
                 break;
               }
             default:
@@ -15058,14 +17143,17 @@ public final class V1beta1Policy {
         if (((mutable_bitField0_ & 0x00040000) == 0x00040000)) {
           allowedFlexVolumes_ = java.util.Collections.unmodifiableList(allowedFlexVolumes_);
         }
-        if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+        if (((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
           allowedUnsafeSysctls_ = allowedUnsafeSysctls_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+        if (((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
           forbiddenSysctls_ = forbiddenSysctls_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
+        if (((mutable_bitField0_ & 0x00400000) == 0x00400000)) {
           allowedProcMountTypes_ = allowedProcMountTypes_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+          allowedCSIDrivers_ = java.util.Collections.unmodifiableList(allowedCSIDrivers_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -15312,7 +17400,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -15326,7 +17414,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -15340,7 +17428,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -15354,7 +17442,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -15623,8 +17711,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-     * </code>
+     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
      */
     public boolean hasRunAsGroup() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
@@ -15639,8 +17726,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-     * </code>
+     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
      */
     public io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptions getRunAsGroup() {
       return runAsGroup_ == null
@@ -15657,8 +17743,7 @@ public final class V1beta1Policy {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-     * </code>
+     * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
      */
     public io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptionsOrBuilder
         getRunAsGroupOrBuilder() {
@@ -15871,7 +17956,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -15886,7 +17971,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -15902,7 +17987,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -15916,7 +18001,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -15930,7 +18015,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
@@ -15949,14 +18034,13 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     public java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume>
         getAllowedFlexVolumesList() {
@@ -15966,14 +18050,13 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     public java.util.List<
             ? extends io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolumeOrBuilder>
@@ -15984,14 +18067,13 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     public int getAllowedFlexVolumesCount() {
       return allowedFlexVolumes_.size();
@@ -16000,14 +18082,13 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     public io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume getAllowedFlexVolumes(
         int index) {
@@ -16017,18 +18098,101 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-     * </code>
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
      */
     public io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolumeOrBuilder
         getAllowedFlexVolumesOrBuilder(int index) {
       return allowedFlexVolumes_.get(index);
+    }
+
+    public static final int ALLOWEDCSIDRIVERS_FIELD_NUMBER = 23;
+    private java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver>
+        allowedCSIDrivers_;
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver>
+        getAllowedCSIDriversList() {
+      return allowedCSIDrivers_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public java.util.List<
+            ? extends io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder>
+        getAllowedCSIDriversOrBuilderList() {
+      return allowedCSIDrivers_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public int getAllowedCSIDriversCount() {
+      return allowedCSIDrivers_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver getAllowedCSIDrivers(
+        int index) {
+      return allowedCSIDrivers_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder
+        getAllowedCSIDriversOrBuilder(int index) {
+      return allowedCSIDrivers_.get(index);
     }
 
     public static final int ALLOWEDUNSAFESYSCTLS_FIELD_NUMBER = 19;
@@ -16040,7 +18204,7 @@ public final class V1beta1Policy {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -16059,7 +18223,7 @@ public final class V1beta1Policy {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -16078,7 +18242,7 @@ public final class V1beta1Policy {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -16097,7 +18261,7 @@ public final class V1beta1Policy {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -16191,7 +18355,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -16206,7 +18370,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -16221,7 +18385,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -16236,7 +18400,7 @@ public final class V1beta1Policy {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -16246,6 +18410,64 @@ public final class V1beta1Policy {
      */
     public com.google.protobuf.ByteString getAllowedProcMountTypesBytes(int index) {
       return allowedProcMountTypes_.getByteString(index);
+    }
+
+    public static final int RUNTIMECLASS_FIELD_NUMBER = 24;
+    private io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions runtimeClass_;
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    public boolean hasRuntimeClass() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions getRuntimeClass() {
+      return runtimeClass_ == null
+          ? io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+              .getDefaultInstance()
+          : runtimeClass_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptionsOrBuilder
+        getRuntimeClassOrBuilder() {
+      return runtimeClass_ == null
+          ? io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+              .getDefaultInstance()
+          : runtimeClass_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -16332,6 +18554,12 @@ public final class V1beta1Policy {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeMessage(22, getRunAsGroup());
+      }
+      for (int i = 0; i < allowedCSIDrivers_.size(); i++) {
+        output.writeMessage(23, allowedCSIDrivers_.get(i));
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeMessage(24, getRuntimeClass());
       }
       unknownFields.writeTo(output);
     }
@@ -16450,6 +18678,13 @@ public final class V1beta1Policy {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(22, getRunAsGroup());
       }
+      for (int i = 0; i < allowedCSIDrivers_.size(); i++) {
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(23, allowedCSIDrivers_.get(i));
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(24, getRuntimeClass());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -16531,10 +18766,15 @@ public final class V1beta1Policy {
       }
       result = result && getAllowedHostPathsList().equals(other.getAllowedHostPathsList());
       result = result && getAllowedFlexVolumesList().equals(other.getAllowedFlexVolumesList());
+      result = result && getAllowedCSIDriversList().equals(other.getAllowedCSIDriversList());
       result = result && getAllowedUnsafeSysctlsList().equals(other.getAllowedUnsafeSysctlsList());
       result = result && getForbiddenSysctlsList().equals(other.getForbiddenSysctlsList());
       result =
           result && getAllowedProcMountTypesList().equals(other.getAllowedProcMountTypesList());
+      result = result && (hasRuntimeClass() == other.hasRuntimeClass());
+      if (hasRuntimeClass()) {
+        result = result && getRuntimeClass().equals(other.getRuntimeClass());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -16625,6 +18865,10 @@ public final class V1beta1Policy {
         hash = (37 * hash) + ALLOWEDFLEXVOLUMES_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedFlexVolumesList().hashCode();
       }
+      if (getAllowedCSIDriversCount() > 0) {
+        hash = (37 * hash) + ALLOWEDCSIDRIVERS_FIELD_NUMBER;
+        hash = (53 * hash) + getAllowedCSIDriversList().hashCode();
+      }
       if (getAllowedUnsafeSysctlsCount() > 0) {
         hash = (37 * hash) + ALLOWEDUNSAFESYSCTLS_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedUnsafeSysctlsList().hashCode();
@@ -16636,6 +18880,10 @@ public final class V1beta1Policy {
       if (getAllowedProcMountTypesCount() > 0) {
         hash = (37 * hash) + ALLOWEDPROCMOUNTTYPES_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedProcMountTypesList().hashCode();
+      }
+      if (hasRuntimeClass()) {
+        hash = (37 * hash) + RUNTIMECLASS_FIELD_NUMBER;
+        hash = (53 * hash) + getRuntimeClass().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -16768,8 +19016,7 @@ public final class V1beta1Policy {
                 io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicySpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicySpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Policy.PodSecurityPolicySpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -16789,6 +19036,8 @@ public final class V1beta1Policy {
           getFsGroupFieldBuilder();
           getAllowedHostPathsFieldBuilder();
           getAllowedFlexVolumesFieldBuilder();
+          getAllowedCSIDriversFieldBuilder();
+          getRuntimeClassFieldBuilder();
         }
       }
 
@@ -16865,12 +19114,24 @@ public final class V1beta1Policy {
         } else {
           allowedFlexVolumesBuilder_.clear();
         }
+        if (allowedCSIDriversBuilder_ == null) {
+          allowedCSIDrivers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00080000);
+        } else {
+          allowedCSIDriversBuilder_.clear();
+        }
         allowedUnsafeSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00080000);
-        forbiddenSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00100000);
-        allowedProcMountTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        forbiddenSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00200000);
+        allowedProcMountTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00400000);
+        if (runtimeClassBuilder_ == null) {
+          runtimeClass_ = null;
+        } else {
+          runtimeClassBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00800000);
         return this;
       }
 
@@ -17016,21 +19277,38 @@ public final class V1beta1Policy {
         } else {
           result.allowedFlexVolumes_ = allowedFlexVolumesBuilder_.build();
         }
-        if (((bitField0_ & 0x00080000) == 0x00080000)) {
-          allowedUnsafeSysctls_ = allowedUnsafeSysctls_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00080000);
+        if (allowedCSIDriversBuilder_ == null) {
+          if (((bitField0_ & 0x00080000) == 0x00080000)) {
+            allowedCSIDrivers_ = java.util.Collections.unmodifiableList(allowedCSIDrivers_);
+            bitField0_ = (bitField0_ & ~0x00080000);
+          }
+          result.allowedCSIDrivers_ = allowedCSIDrivers_;
+        } else {
+          result.allowedCSIDrivers_ = allowedCSIDriversBuilder_.build();
         }
-        result.allowedUnsafeSysctls_ = allowedUnsafeSysctls_;
         if (((bitField0_ & 0x00100000) == 0x00100000)) {
-          forbiddenSysctls_ = forbiddenSysctls_.getUnmodifiableView();
+          allowedUnsafeSysctls_ = allowedUnsafeSysctls_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00100000);
         }
-        result.forbiddenSysctls_ = forbiddenSysctls_;
+        result.allowedUnsafeSysctls_ = allowedUnsafeSysctls_;
         if (((bitField0_ & 0x00200000) == 0x00200000)) {
-          allowedProcMountTypes_ = allowedProcMountTypes_.getUnmodifiableView();
+          forbiddenSysctls_ = forbiddenSysctls_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00200000);
         }
+        result.forbiddenSysctls_ = forbiddenSysctls_;
+        if (((bitField0_ & 0x00400000) == 0x00400000)) {
+          allowedProcMountTypes_ = allowedProcMountTypes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00400000);
+        }
         result.allowedProcMountTypes_ = allowedProcMountTypes_;
+        if (((from_bitField0_ & 0x00800000) == 0x00800000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        if (runtimeClassBuilder_ == null) {
+          result.runtimeClass_ = runtimeClass_;
+        } else {
+          result.runtimeClass_ = runtimeClassBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17243,10 +19521,37 @@ public final class V1beta1Policy {
             }
           }
         }
+        if (allowedCSIDriversBuilder_ == null) {
+          if (!other.allowedCSIDrivers_.isEmpty()) {
+            if (allowedCSIDrivers_.isEmpty()) {
+              allowedCSIDrivers_ = other.allowedCSIDrivers_;
+              bitField0_ = (bitField0_ & ~0x00080000);
+            } else {
+              ensureAllowedCSIDriversIsMutable();
+              allowedCSIDrivers_.addAll(other.allowedCSIDrivers_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.allowedCSIDrivers_.isEmpty()) {
+            if (allowedCSIDriversBuilder_.isEmpty()) {
+              allowedCSIDriversBuilder_.dispose();
+              allowedCSIDriversBuilder_ = null;
+              allowedCSIDrivers_ = other.allowedCSIDrivers_;
+              bitField0_ = (bitField0_ & ~0x00080000);
+              allowedCSIDriversBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getAllowedCSIDriversFieldBuilder()
+                      : null;
+            } else {
+              allowedCSIDriversBuilder_.addAllMessages(other.allowedCSIDrivers_);
+            }
+          }
+        }
         if (!other.allowedUnsafeSysctls_.isEmpty()) {
           if (allowedUnsafeSysctls_.isEmpty()) {
             allowedUnsafeSysctls_ = other.allowedUnsafeSysctls_;
-            bitField0_ = (bitField0_ & ~0x00080000);
+            bitField0_ = (bitField0_ & ~0x00100000);
           } else {
             ensureAllowedUnsafeSysctlsIsMutable();
             allowedUnsafeSysctls_.addAll(other.allowedUnsafeSysctls_);
@@ -17256,7 +19561,7 @@ public final class V1beta1Policy {
         if (!other.forbiddenSysctls_.isEmpty()) {
           if (forbiddenSysctls_.isEmpty()) {
             forbiddenSysctls_ = other.forbiddenSysctls_;
-            bitField0_ = (bitField0_ & ~0x00100000);
+            bitField0_ = (bitField0_ & ~0x00200000);
           } else {
             ensureForbiddenSysctlsIsMutable();
             forbiddenSysctls_.addAll(other.forbiddenSysctls_);
@@ -17266,12 +19571,15 @@ public final class V1beta1Policy {
         if (!other.allowedProcMountTypes_.isEmpty()) {
           if (allowedProcMountTypes_.isEmpty()) {
             allowedProcMountTypes_ = other.allowedProcMountTypes_;
-            bitField0_ = (bitField0_ & ~0x00200000);
+            bitField0_ = (bitField0_ & ~0x00400000);
           } else {
             ensureAllowedProcMountTypesIsMutable();
             allowedProcMountTypes_.addAll(other.allowedProcMountTypes_);
           }
           onChanged();
+        }
+        if (other.hasRuntimeClass()) {
+          mergeRuntimeClass(other.getRuntimeClass());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -17888,7 +20196,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -17902,7 +20210,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -17916,7 +20224,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -17930,7 +20238,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -17944,7 +20252,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -17964,7 +20272,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -17984,7 +20292,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -18001,7 +20309,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -18018,7 +20326,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -18802,8 +21110,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       public boolean hasRunAsUser() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
@@ -18815,8 +21122,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.RunAsUserStrategyOptions getRunAsUser() {
         if (runAsUserBuilder_ == null) {
@@ -18835,8 +21141,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       public Builder setRunAsUser(
           io.kubernetes.client.proto.V1beta1Policy.RunAsUserStrategyOptions value) {
@@ -18859,8 +21164,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       public Builder setRunAsUser(
           io.kubernetes.client.proto.V1beta1Policy.RunAsUserStrategyOptions.Builder
@@ -18881,8 +21185,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       public Builder mergeRunAsUser(
           io.kubernetes.client.proto.V1beta1Policy.RunAsUserStrategyOptions value) {
@@ -18914,8 +21217,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       public Builder clearRunAsUser() {
         if (runAsUserBuilder_ == null) {
@@ -18934,8 +21236,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.RunAsUserStrategyOptions.Builder
           getRunAsUserBuilder() {
@@ -18950,8 +21251,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.RunAsUserStrategyOptionsOrBuilder
           getRunAsUserOrBuilder() {
@@ -18971,8 +21271,7 @@ public final class V1beta1Policy {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Policy.RunAsUserStrategyOptions,
@@ -19007,8 +21306,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       public boolean hasRunAsGroup() {
         return ((bitField0_ & 0x00000800) == 0x00000800);
@@ -19023,8 +21321,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptions getRunAsGroup() {
         if (runAsGroupBuilder_ == null) {
@@ -19046,8 +21343,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       public Builder setRunAsGroup(
           io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptions value) {
@@ -19073,8 +21369,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       public Builder setRunAsGroup(
           io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptions.Builder
@@ -19098,8 +21393,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       public Builder mergeRunAsGroup(
           io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptions value) {
@@ -19134,8 +21428,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       public Builder clearRunAsGroup() {
         if (runAsGroupBuilder_ == null) {
@@ -19157,8 +21450,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptions.Builder
           getRunAsGroupBuilder() {
@@ -19176,8 +21468,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptionsOrBuilder
           getRunAsGroupOrBuilder() {
@@ -19200,8 +21491,7 @@ public final class V1beta1Policy {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
-       * </code>
+       * <code>optional .k8s.io.api.policy.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Policy.RunAsGroupStrategyOptions,
@@ -19850,13 +22140,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath>
           getAllowedHostPathsList() {
@@ -19870,13 +22159,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public int getAllowedHostPathsCount() {
         if (allowedHostPathsBuilder_ == null) {
@@ -19889,13 +22177,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath getAllowedHostPaths(
           int index) {
@@ -19909,13 +22196,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder setAllowedHostPaths(
           int index, io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath value) {
@@ -19935,13 +22221,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder setAllowedHostPaths(
           int index,
@@ -19959,13 +22244,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllowedHostPaths(
           io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath value) {
@@ -19985,13 +22269,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllowedHostPaths(
           int index, io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath value) {
@@ -20011,13 +22294,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllowedHostPaths(
           io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath.Builder builderForValue) {
@@ -20034,13 +22316,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllowedHostPaths(
           int index,
@@ -20058,13 +22339,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllAllowedHostPaths(
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath>
@@ -20082,13 +22362,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder clearAllowedHostPaths() {
         if (allowedHostPathsBuilder_ == null) {
@@ -20104,13 +22383,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder removeAllowedHostPaths(int index) {
         if (allowedHostPathsBuilder_ == null) {
@@ -20126,13 +22404,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath.Builder
           getAllowedHostPathsBuilder(int index) {
@@ -20142,13 +22419,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedHostPathOrBuilder
           getAllowedHostPathsOrBuilder(int index) {
@@ -20162,13 +22438,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V1beta1Policy.AllowedHostPathOrBuilder>
@@ -20183,13 +22458,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath.Builder
           addAllowedHostPathsBuilder() {
@@ -20201,13 +22475,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath.Builder
           addAllowedHostPathsBuilder(int index) {
@@ -20220,13 +22493,12 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedHostPath.Builder>
           getAllowedHostPathsBuilderList() {
@@ -20275,14 +22547,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume>
           getAllowedFlexVolumesList() {
@@ -20296,14 +22567,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public int getAllowedFlexVolumesCount() {
         if (allowedFlexVolumesBuilder_ == null) {
@@ -20316,14 +22586,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume getAllowedFlexVolumes(
           int index) {
@@ -20337,14 +22606,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder setAllowedFlexVolumes(
           int index, io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume value) {
@@ -20364,14 +22632,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder setAllowedFlexVolumes(
           int index,
@@ -20389,14 +22656,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder addAllowedFlexVolumes(
           io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume value) {
@@ -20416,14 +22682,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder addAllowedFlexVolumes(
           int index, io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume value) {
@@ -20443,14 +22708,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder addAllowedFlexVolumes(
           io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume.Builder builderForValue) {
@@ -20467,14 +22731,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder addAllowedFlexVolumes(
           int index,
@@ -20492,14 +22755,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder addAllAllowedFlexVolumes(
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume>
@@ -20517,14 +22779,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder clearAllowedFlexVolumes() {
         if (allowedFlexVolumesBuilder_ == null) {
@@ -20540,14 +22801,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public Builder removeAllowedFlexVolumes(int index) {
         if (allowedFlexVolumesBuilder_ == null) {
@@ -20563,14 +22823,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume.Builder
           getAllowedFlexVolumesBuilder(int index) {
@@ -20580,14 +22839,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolumeOrBuilder
           getAllowedFlexVolumesOrBuilder(int index) {
@@ -20601,14 +22859,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolumeOrBuilder>
@@ -20623,14 +22880,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume.Builder
           addAllowedFlexVolumesBuilder() {
@@ -20642,14 +22898,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume.Builder
           addAllowedFlexVolumesBuilder(int index) {
@@ -20662,14 +22917,13 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
-       * </code>
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedFlexVolume.Builder>
           getAllowedFlexVolumesBuilderList() {
@@ -20696,14 +22950,439 @@ public final class V1beta1Policy {
         return allowedFlexVolumesBuilder_;
       }
 
+      private java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver>
+          allowedCSIDrivers_ = java.util.Collections.emptyList();
+
+      private void ensureAllowedCSIDriversIsMutable() {
+        if (!((bitField0_ & 0x00080000) == 0x00080000)) {
+          allowedCSIDrivers_ =
+              new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver>(
+                  allowedCSIDrivers_);
+          bitField0_ |= 0x00080000;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver,
+              io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder,
+              io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder>
+          allowedCSIDriversBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver>
+          getAllowedCSIDriversList() {
+        if (allowedCSIDriversBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(allowedCSIDrivers_);
+        } else {
+          return allowedCSIDriversBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public int getAllowedCSIDriversCount() {
+        if (allowedCSIDriversBuilder_ == null) {
+          return allowedCSIDrivers_.size();
+        } else {
+          return allowedCSIDriversBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver getAllowedCSIDrivers(
+          int index) {
+        if (allowedCSIDriversBuilder_ == null) {
+          return allowedCSIDrivers_.get(index);
+        } else {
+          return allowedCSIDriversBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder setAllowedCSIDrivers(
+          int index, io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver value) {
+        if (allowedCSIDriversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.set(index, value);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder setAllowedCSIDrivers(
+          int index,
+          io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder builderForValue) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder addAllowedCSIDrivers(
+          io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver value) {
+        if (allowedCSIDriversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.add(value);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder addAllowedCSIDrivers(
+          int index, io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver value) {
+        if (allowedCSIDriversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.add(index, value);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder addAllowedCSIDrivers(
+          io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder builderForValue) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder addAllowedCSIDrivers(
+          int index,
+          io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder builderForValue) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder addAllAllowedCSIDrivers(
+          java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver>
+              values) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, allowedCSIDrivers_);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder clearAllowedCSIDrivers() {
+        if (allowedCSIDriversBuilder_ == null) {
+          allowedCSIDrivers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00080000);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public Builder removeAllowedCSIDrivers(int index) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.remove(index);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder
+          getAllowedCSIDriversBuilder(int index) {
+        return getAllowedCSIDriversFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder
+          getAllowedCSIDriversOrBuilder(int index) {
+        if (allowedCSIDriversBuilder_ == null) {
+          return allowedCSIDrivers_.get(index);
+        } else {
+          return allowedCSIDriversBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public java.util.List<
+              ? extends io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder>
+          getAllowedCSIDriversOrBuilderList() {
+        if (allowedCSIDriversBuilder_ != null) {
+          return allowedCSIDriversBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(allowedCSIDrivers_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder
+          addAllowedCSIDriversBuilder() {
+        return getAllowedCSIDriversFieldBuilder()
+            .addBuilder(
+                io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder
+          addAllowedCSIDriversBuilder(int index) {
+        return getAllowedCSIDriversFieldBuilder()
+            .addBuilder(
+                index,
+                io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * This is a beta field, and is only honored if the API server enables the CSIInlineVolume feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.policy.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder>
+          getAllowedCSIDriversBuilderList() {
+        return getAllowedCSIDriversFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver,
+              io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder,
+              io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder>
+          getAllowedCSIDriversFieldBuilder() {
+        if (allowedCSIDriversBuilder_ == null) {
+          allowedCSIDriversBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver,
+                  io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriver.Builder,
+                  io.kubernetes.client.proto.V1beta1Policy.AllowedCSIDriverOrBuilder>(
+                  allowedCSIDrivers_,
+                  ((bitField0_ & 0x00080000) == 0x00080000),
+                  getParentForChildren(),
+                  isClean());
+          allowedCSIDrivers_ = null;
+        }
+        return allowedCSIDriversBuilder_;
+      }
+
       private com.google.protobuf.LazyStringList allowedUnsafeSysctls_ =
           com.google.protobuf.LazyStringArrayList.EMPTY;
 
       private void ensureAllowedUnsafeSysctlsIsMutable() {
-        if (!((bitField0_ & 0x00080000) == 0x00080000)) {
+        if (!((bitField0_ & 0x00100000) == 0x00100000)) {
           allowedUnsafeSysctls_ =
               new com.google.protobuf.LazyStringArrayList(allowedUnsafeSysctls_);
-          bitField0_ |= 0x00080000;
+          bitField0_ |= 0x00100000;
         }
       }
       /**
@@ -20713,7 +23392,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20732,7 +23411,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20751,7 +23430,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20770,7 +23449,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20789,7 +23468,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20814,7 +23493,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20839,7 +23518,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20861,7 +23540,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20872,7 +23551,7 @@ public final class V1beta1Policy {
        */
       public Builder clearAllowedUnsafeSysctls() {
         allowedUnsafeSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         onChanged();
         return this;
       }
@@ -20883,7 +23562,7 @@ public final class V1beta1Policy {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all allowed unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -20906,9 +23585,9 @@ public final class V1beta1Policy {
           com.google.protobuf.LazyStringArrayList.EMPTY;
 
       private void ensureForbiddenSysctlsIsMutable() {
-        if (!((bitField0_ & 0x00100000) == 0x00100000)) {
+        if (!((bitField0_ & 0x00200000) == 0x00200000)) {
           forbiddenSysctls_ = new com.google.protobuf.LazyStringArrayList(forbiddenSysctls_);
-          bitField0_ |= 0x00100000;
+          bitField0_ |= 0x00200000;
         }
       }
       /**
@@ -21069,7 +23748,7 @@ public final class V1beta1Policy {
        */
       public Builder clearForbiddenSysctls() {
         forbiddenSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00200000);
         onChanged();
         return this;
       }
@@ -21102,17 +23781,17 @@ public final class V1beta1Policy {
           com.google.protobuf.LazyStringArrayList.EMPTY;
 
       private void ensureAllowedProcMountTypesIsMutable() {
-        if (!((bitField0_ & 0x00200000) == 0x00200000)) {
+        if (!((bitField0_ & 0x00400000) == 0x00400000)) {
           allowedProcMountTypes_ =
               new com.google.protobuf.LazyStringArrayList(allowedProcMountTypes_);
-          bitField0_ |= 0x00200000;
+          bitField0_ |= 0x00400000;
         }
       }
       /**
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21127,7 +23806,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21142,7 +23821,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21157,7 +23836,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21172,7 +23851,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21193,7 +23872,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21214,7 +23893,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21232,7 +23911,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21242,7 +23921,7 @@ public final class V1beta1Policy {
        */
       public Builder clearAllowedProcMountTypes() {
         allowedProcMountTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00400000);
         onChanged();
         return this;
       }
@@ -21250,7 +23929,7 @@ public final class V1beta1Policy {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -21266,6 +23945,237 @@ public final class V1beta1Policy {
         allowedProcMountTypes_.add(value);
         onChanged();
         return this;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions runtimeClass_ =
+          null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions,
+              io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.Builder,
+              io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptionsOrBuilder>
+          runtimeClassBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public boolean hasRuntimeClass() {
+        return ((bitField0_ & 0x00800000) == 0x00800000);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+          getRuntimeClass() {
+        if (runtimeClassBuilder_ == null) {
+          return runtimeClass_ == null
+              ? io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+                  .getDefaultInstance()
+              : runtimeClass_;
+        } else {
+          return runtimeClassBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public Builder setRuntimeClass(
+          io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions value) {
+        if (runtimeClassBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          runtimeClass_ = value;
+          onChanged();
+        } else {
+          runtimeClassBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public Builder setRuntimeClass(
+          io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.Builder
+              builderForValue) {
+        if (runtimeClassBuilder_ == null) {
+          runtimeClass_ = builderForValue.build();
+          onChanged();
+        } else {
+          runtimeClassBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public Builder mergeRuntimeClass(
+          io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions value) {
+        if (runtimeClassBuilder_ == null) {
+          if (((bitField0_ & 0x00800000) == 0x00800000)
+              && runtimeClass_ != null
+              && runtimeClass_
+                  != io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+                      .getDefaultInstance()) {
+            runtimeClass_ =
+                io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.newBuilder(
+                        runtimeClass_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            runtimeClass_ = value;
+          }
+          onChanged();
+        } else {
+          runtimeClassBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public Builder clearRuntimeClass() {
+        if (runtimeClassBuilder_ == null) {
+          runtimeClass_ = null;
+          onChanged();
+        } else {
+          runtimeClassBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00800000);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.Builder
+          getRuntimeClassBuilder() {
+        bitField0_ |= 0x00800000;
+        onChanged();
+        return getRuntimeClassFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptionsOrBuilder
+          getRuntimeClassOrBuilder() {
+        if (runtimeClassBuilder_ != null) {
+          return runtimeClassBuilder_.getMessageOrBuilder();
+        } else {
+          return runtimeClass_ == null
+              ? io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+                  .getDefaultInstance()
+              : runtimeClass_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions,
+              io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.Builder,
+              io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptionsOrBuilder>
+          getRuntimeClassFieldBuilder() {
+        if (runtimeClassBuilder_ == null) {
+          runtimeClassBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions,
+                  io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.Builder,
+                  io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptionsOrBuilder>(
+                  getRuntimeClass(), getParentForChildren(), isClean());
+          runtimeClass_ = null;
+        }
+        return runtimeClassBuilder_;
       }
 
       @java.lang.Override
@@ -23906,6 +26816,1057 @@ public final class V1beta1Policy {
     }
   }
 
+  public interface RuntimeClassStrategyOptionsOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    java.util.List<java.lang.String> getAllowedRuntimeClassNamesList();
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    int getAllowedRuntimeClassNamesCount();
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    java.lang.String getAllowedRuntimeClassNames(int index);
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    com.google.protobuf.ByteString getAllowedRuntimeClassNamesBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    boolean hasDefaultRuntimeClassName();
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    java.lang.String getDefaultRuntimeClassName();
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    com.google.protobuf.ByteString getDefaultRuntimeClassNameBytes();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses
+   * for a pod.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions}
+   */
+  public static final class RuntimeClassStrategyOptions
+      extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions)
+      RuntimeClassStrategyOptionsOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use RuntimeClassStrategyOptions.newBuilder() to construct.
+    private RuntimeClassStrategyOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private RuntimeClassStrategyOptions() {
+      allowedRuntimeClassNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      defaultRuntimeClassName_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private RuntimeClassStrategyOptions(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                  allowedRuntimeClassNames_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                allowedRuntimeClassNames_.add(bs);
+                break;
+              }
+            case 18:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                defaultRuntimeClassName_ = bs;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          allowedRuntimeClassNames_ = allowedRuntimeClassNames_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Policy
+          .internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Policy
+          .internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.class,
+              io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ALLOWEDRUNTIMECLASSNAMES_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList allowedRuntimeClassNames_;
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getAllowedRuntimeClassNamesList() {
+      return allowedRuntimeClassNames_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    public int getAllowedRuntimeClassNamesCount() {
+      return allowedRuntimeClassNames_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    public java.lang.String getAllowedRuntimeClassNames(int index) {
+      return allowedRuntimeClassNames_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    public com.google.protobuf.ByteString getAllowedRuntimeClassNamesBytes(int index) {
+      return allowedRuntimeClassNames_.getByteString(index);
+    }
+
+    public static final int DEFAULTRUNTIMECLASSNAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object defaultRuntimeClassName_;
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    public boolean hasDefaultRuntimeClassName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    public java.lang.String getDefaultRuntimeClassName() {
+      java.lang.Object ref = defaultRuntimeClassName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          defaultRuntimeClassName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    public com.google.protobuf.ByteString getDefaultRuntimeClassNameBytes() {
+      java.lang.Object ref = defaultRuntimeClassName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        defaultRuntimeClassName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      for (int i = 0; i < allowedRuntimeClassNames_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(
+            output, 1, allowedRuntimeClassNames_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, defaultRuntimeClassName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < allowedRuntimeClassNames_.size(); i++) {
+          dataSize += computeStringSizeNoTag(allowedRuntimeClassNames_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAllowedRuntimeClassNamesList().size();
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size +=
+            com.google.protobuf.GeneratedMessageV3.computeStringSize(2, defaultRuntimeClassName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions other =
+          (io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions) obj;
+
+      boolean result = true;
+      result =
+          result
+              && getAllowedRuntimeClassNamesList().equals(other.getAllowedRuntimeClassNamesList());
+      result = result && (hasDefaultRuntimeClassName() == other.hasDefaultRuntimeClassName());
+      if (hasDefaultRuntimeClassName()) {
+        result = result && getDefaultRuntimeClassName().equals(other.getDefaultRuntimeClassName());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getAllowedRuntimeClassNamesCount() > 0) {
+        hash = (37 * hash) + ALLOWEDRUNTIMECLASSNAMES_FIELD_NUMBER;
+        hash = (53 * hash) + getAllowedRuntimeClassNamesList().hashCode();
+      }
+      if (hasDefaultRuntimeClassName()) {
+        hash = (37 * hash) + DEFAULTRUNTIMECLASSNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getDefaultRuntimeClassName().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses
+     * for a pod.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions)
+        io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Policy
+            .internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Policy
+            .internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.class,
+                io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.Builder.class);
+      }
+
+      // Construct using
+      // io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        allowedRuntimeClassNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        defaultRuntimeClassName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Policy
+            .internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions build() {
+        io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions buildPartial() {
+        io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions result =
+            new io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          allowedRuntimeClassNames_ = allowedRuntimeClassNames_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.allowedRuntimeClassNames_ = allowedRuntimeClassNames_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.defaultRuntimeClassName_ = defaultRuntimeClassName_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions) {
+          return mergeFrom(
+              (io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions other) {
+        if (other
+            == io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+                .getDefaultInstance()) return this;
+        if (!other.allowedRuntimeClassNames_.isEmpty()) {
+          if (allowedRuntimeClassNames_.isEmpty()) {
+            allowedRuntimeClassNames_ = other.allowedRuntimeClassNames_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureAllowedRuntimeClassNamesIsMutable();
+            allowedRuntimeClassNames_.addAll(other.allowedRuntimeClassNames_);
+          }
+          onChanged();
+        }
+        if (other.hasDefaultRuntimeClassName()) {
+          bitField0_ |= 0x00000002;
+          defaultRuntimeClassName_ = other.defaultRuntimeClassName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList allowedRuntimeClassNames_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureAllowedRuntimeClassNamesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          allowedRuntimeClassNames_ =
+              new com.google.protobuf.LazyStringArrayList(allowedRuntimeClassNames_);
+          bitField0_ |= 0x00000001;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getAllowedRuntimeClassNamesList() {
+        return allowedRuntimeClassNames_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public int getAllowedRuntimeClassNamesCount() {
+        return allowedRuntimeClassNames_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public java.lang.String getAllowedRuntimeClassNames(int index) {
+        return allowedRuntimeClassNames_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public com.google.protobuf.ByteString getAllowedRuntimeClassNamesBytes(int index) {
+        return allowedRuntimeClassNames_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder setAllowedRuntimeClassNames(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAllowedRuntimeClassNamesIsMutable();
+        allowedRuntimeClassNames_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder addAllowedRuntimeClassNames(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAllowedRuntimeClassNamesIsMutable();
+        allowedRuntimeClassNames_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder addAllAllowedRuntimeClassNames(java.lang.Iterable<java.lang.String> values) {
+        ensureAllowedRuntimeClassNamesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, allowedRuntimeClassNames_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder clearAllowedRuntimeClassNames() {
+        allowedRuntimeClassNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder addAllowedRuntimeClassNamesBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAllowedRuntimeClassNamesIsMutable();
+        allowedRuntimeClassNames_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object defaultRuntimeClassName_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public boolean hasDefaultRuntimeClassName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public java.lang.String getDefaultRuntimeClassName() {
+        java.lang.Object ref = defaultRuntimeClassName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            defaultRuntimeClassName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public com.google.protobuf.ByteString getDefaultRuntimeClassNameBytes() {
+        java.lang.Object ref = defaultRuntimeClassName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          defaultRuntimeClassName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public Builder setDefaultRuntimeClassName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        defaultRuntimeClassName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public Builder clearDefaultRuntimeClassName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        defaultRuntimeClassName_ = getDefaultInstance().getDefaultRuntimeClassName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public Builder setDefaultRuntimeClassNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        defaultRuntimeClassName_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.policy.v1beta1.RuntimeClassStrategyOptions)
+    private static final io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<RuntimeClassStrategyOptions> PARSER =
+        new com.google.protobuf.AbstractParser<RuntimeClassStrategyOptions>() {
+          @java.lang.Override
+          public RuntimeClassStrategyOptions parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new RuntimeClassStrategyOptions(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<RuntimeClassStrategyOptions> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RuntimeClassStrategyOptions> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Policy.RuntimeClassStrategyOptions
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   public interface SELinuxStrategyOptionsOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.policy.v1beta1.SELinuxStrategyOptions)
@@ -26251,6 +30212,10 @@ public final class V1beta1Policy {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_policy_v1beta1_AllowedFlexVolume_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_policy_v1beta1_AllowedFlexVolume_fieldAccessorTable;
@@ -26315,6 +30280,10 @@ public final class V1beta1Policy {
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_policy_v1beta1_RunAsUserStrategyOptions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_policy_v1beta1_SELinuxStrategyOptions_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_policy_v1beta1_SELinuxStrategyOptions_fieldAccessorTable;
@@ -26338,86 +30307,95 @@ public final class V1beta1Policy {
           + "\032/k8s.io/apimachinery/pkg/runtime/genera"
           + "ted.proto\0326k8s.io/apimachinery/pkg/runti"
           + "me/schema/generated.proto\0323k8s.io/apimac"
-          + "hinery/pkg/util/intstr/generated.proto\"#"
-          + "\n\021AllowedFlexVolume\022\016\n\006driver\030\001 \001(\t\"7\n\017A"
-          + "llowedHostPath\022\022\n\npathPrefix\030\001 \001(\t\022\020\n\010re"
-          + "adOnly\030\002 \001(\010\"\232\001\n\010Eviction\022B\n\010metadata\030\001 "
-          + "\001(\01320.k8s.io.apimachinery.pkg.apis.meta."
-          + "v1.ObjectMeta\022J\n\rdeleteOptions\030\002 \001(\01323.k"
-          + "8s.io.apimachinery.pkg.apis.meta.v1.Dele"
-          + "teOptions\"Z\n\026FSGroupStrategyOptions\022\014\n\004r"
-          + "ule\030\001 \001(\t\0222\n\006ranges\030\002 \003(\0132\".k8s.io.api.p"
-          + "olicy.v1beta1.IDRange\")\n\rHostPortRange\022\013"
-          + "\n\003min\030\001 \001(\005\022\013\n\003max\030\002 \001(\005\"#\n\007IDRange\022\013\n\003m"
-          + "in\030\001 \001(\003\022\013\n\003max\030\002 \001(\003\"\341\001\n\023PodDisruptionB"
-          + "udget\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimach"
-          + "inery.pkg.apis.meta.v1.ObjectMeta\022@\n\004spe"
-          + "c\030\002 \001(\01322.k8s.io.api.policy.v1beta1.PodD"
-          + "isruptionBudgetSpec\022D\n\006status\030\003 \001(\01324.k8"
-          + "s.io.api.policy.v1beta1.PodDisruptionBud"
-          + "getStatus\"\232\001\n\027PodDisruptionBudgetList\022@\n"
-          + "\010metadata\030\001 \001(\0132..k8s.io.apimachinery.pk"
-          + "g.apis.meta.v1.ListMeta\022=\n\005items\030\002 \003(\0132."
-          + ".k8s.io.api.policy.v1beta1.PodDisruption"
-          + "Budget\"\362\001\n\027PodDisruptionBudgetSpec\022F\n\014mi"
-          + "nAvailable\030\001 \001(\01320.k8s.io.apimachinery.p"
-          + "kg.util.intstr.IntOrString\022E\n\010selector\030\002"
-          + " \001(\01323.k8s.io.apimachinery.pkg.apis.meta"
-          + ".v1.LabelSelector\022H\n\016maxUnavailable\030\003 \001("
-          + "\01320.k8s.io.apimachinery.pkg.util.intstr."
-          + "IntOrString\"\333\002\n\031PodDisruptionBudgetStatu"
-          + "s\022\032\n\022observedGeneration\030\001 \001(\003\022^\n\rdisrupt"
-          + "edPods\030\002 \003(\0132G.k8s.io.api.policy.v1beta1"
-          + ".PodDisruptionBudgetStatus.DisruptedPods"
-          + "Entry\022\032\n\022disruptionsAllowed\030\003 \001(\005\022\026\n\016cur"
-          + "rentHealthy\030\004 \001(\005\022\026\n\016desiredHealthy\030\005 \001("
-          + "\005\022\024\n\014expectedPods\030\006 \001(\005\032`\n\022DisruptedPods"
-          + "Entry\022\013\n\003key\030\001 \001(\t\0229\n\005value\030\002 \001(\0132*.k8s."
-          + "io.apimachinery.pkg.apis.meta.v1.Time:\0028"
-          + "\001\"\227\001\n\021PodSecurityPolicy\022B\n\010metadata\030\001 \001("
-          + "\01320.k8s.io.apimachinery.pkg.apis.meta.v1"
-          + ".ObjectMeta\022>\n\004spec\030\002 \001(\01320.k8s.io.api.p"
-          + "olicy.v1beta1.PodSecurityPolicySpec\"\226\001\n\025"
-          + "PodSecurityPolicyList\022@\n\010metadata\030\001 \001(\0132"
-          + "..k8s.io.apimachinery.pkg.apis.meta.v1.L"
-          + "istMeta\022;\n\005items\030\002 \003(\0132,.k8s.io.api.poli"
-          + "cy.v1beta1.PodSecurityPolicy\"\325\007\n\025PodSecu"
-          + "rityPolicySpec\022\022\n\nprivileged\030\001 \001(\010\022\036\n\026de"
-          + "faultAddCapabilities\030\002 \003(\t\022 \n\030requiredDr"
-          + "opCapabilities\030\003 \003(\t\022\033\n\023allowedCapabilit"
-          + "ies\030\004 \003(\t\022\017\n\007volumes\030\005 \003(\t\022\023\n\013hostNetwor"
-          + "k\030\006 \001(\010\022;\n\thostPorts\030\007 \003(\0132(.k8s.io.api."
-          + "policy.v1beta1.HostPortRange\022\017\n\007hostPID\030"
-          + "\010 \001(\010\022\017\n\007hostIPC\030\t \001(\010\022B\n\007seLinux\030\n \001(\0132"
-          + "1.k8s.io.api.policy.v1beta1.SELinuxStrat"
-          + "egyOptions\022F\n\trunAsUser\030\013 \001(\01323.k8s.io.a"
-          + "pi.policy.v1beta1.RunAsUserStrategyOptio"
-          + "ns\022H\n\nrunAsGroup\030\026 \001(\01324.k8s.io.api.poli"
-          + "cy.v1beta1.RunAsGroupStrategyOptions\022X\n\022"
-          + "supplementalGroups\030\014 \001(\0132<.k8s.io.api.po"
-          + "licy.v1beta1.SupplementalGroupsStrategyO"
-          + "ptions\022B\n\007fsGroup\030\r \001(\01321.k8s.io.api.pol"
-          + "icy.v1beta1.FSGroupStrategyOptions\022\036\n\026re"
-          + "adOnlyRootFilesystem\030\016 \001(\010\022\'\n\037defaultAll"
-          + "owPrivilegeEscalation\030\017 \001(\010\022 \n\030allowPriv"
-          + "ilegeEscalation\030\020 \001(\010\022D\n\020allowedHostPath"
-          + "s\030\021 \003(\0132*.k8s.io.api.policy.v1beta1.Allo"
-          + "wedHostPath\022H\n\022allowedFlexVolumes\030\022 \003(\0132"
-          + ",.k8s.io.api.policy.v1beta1.AllowedFlexV"
-          + "olume\022\034\n\024allowedUnsafeSysctls\030\023 \003(\t\022\030\n\020f"
-          + "orbiddenSysctls\030\024 \003(\t\022\035\n\025allowedProcMoun"
-          + "tTypes\030\025 \003(\t\"]\n\031RunAsGroupStrategyOption"
-          + "s\022\014\n\004rule\030\001 \001(\t\0222\n\006ranges\030\002 \003(\0132\".k8s.io"
-          + ".api.policy.v1beta1.IDRange\"\\\n\030RunAsUser"
-          + "StrategyOptions\022\014\n\004rule\030\001 \001(\t\0222\n\006ranges\030"
-          + "\002 \003(\0132\".k8s.io.api.policy.v1beta1.IDRang"
-          + "e\"b\n\026SELinuxStrategyOptions\022\014\n\004rule\030\001 \001("
-          + "\t\022:\n\016seLinuxOptions\030\002 \001(\0132\".k8s.io.api.c"
-          + "ore.v1.SELinuxOptions\"e\n!SupplementalGro"
-          + "upsStrategyOptions\022\014\n\004rule\030\001 \001(\t\0222\n\006rang"
-          + "es\030\002 \003(\0132\".k8s.io.api.policy.v1beta1.IDR"
-          + "angeB4\n\032io.kubernetes.client.protoB\rV1be"
-          + "ta1PolicyZ\007v1beta1"
+          + "hinery/pkg/util/intstr/generated.proto\" "
+          + "\n\020AllowedCSIDriver\022\014\n\004name\030\001 \001(\t\"#\n\021Allo"
+          + "wedFlexVolume\022\016\n\006driver\030\001 \001(\t\"7\n\017Allowed"
+          + "HostPath\022\022\n\npathPrefix\030\001 \001(\t\022\020\n\010readOnly"
+          + "\030\002 \001(\010\"\232\001\n\010Eviction\022B\n\010metadata\030\001 \001(\01320."
+          + "k8s.io.apimachinery.pkg.apis.meta.v1.Obj"
+          + "ectMeta\022J\n\rdeleteOptions\030\002 \001(\01323.k8s.io."
+          + "apimachinery.pkg.apis.meta.v1.DeleteOpti"
+          + "ons\"Z\n\026FSGroupStrategyOptions\022\014\n\004rule\030\001 "
+          + "\001(\t\0222\n\006ranges\030\002 \003(\0132\".k8s.io.api.policy."
+          + "v1beta1.IDRange\")\n\rHostPortRange\022\013\n\003min\030"
+          + "\001 \001(\005\022\013\n\003max\030\002 \001(\005\"#\n\007IDRange\022\013\n\003min\030\001 \001"
+          + "(\003\022\013\n\003max\030\002 \001(\003\"\341\001\n\023PodDisruptionBudget\022"
+          + "B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery."
+          + "pkg.apis.meta.v1.ObjectMeta\022@\n\004spec\030\002 \001("
+          + "\01322.k8s.io.api.policy.v1beta1.PodDisrupt"
+          + "ionBudgetSpec\022D\n\006status\030\003 \001(\01324.k8s.io.a"
+          + "pi.policy.v1beta1.PodDisruptionBudgetSta"
+          + "tus\"\232\001\n\027PodDisruptionBudgetList\022@\n\010metad"
+          + "ata\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis"
+          + ".meta.v1.ListMeta\022=\n\005items\030\002 \003(\0132..k8s.i"
+          + "o.api.policy.v1beta1.PodDisruptionBudget"
+          + "\"\362\001\n\027PodDisruptionBudgetSpec\022F\n\014minAvail"
+          + "able\030\001 \001(\01320.k8s.io.apimachinery.pkg.uti"
+          + "l.intstr.IntOrString\022E\n\010selector\030\002 \001(\01323"
+          + ".k8s.io.apimachinery.pkg.apis.meta.v1.La"
+          + "belSelector\022H\n\016maxUnavailable\030\003 \001(\01320.k8"
+          + "s.io.apimachinery.pkg.util.intstr.IntOrS"
+          + "tring\"\240\003\n\031PodDisruptionBudgetStatus\022\032\n\022o"
+          + "bservedGeneration\030\001 \001(\003\022^\n\rdisruptedPods"
+          + "\030\002 \003(\0132G.k8s.io.api.policy.v1beta1.PodDi"
+          + "sruptionBudgetStatus.DisruptedPodsEntry\022"
+          + "\032\n\022disruptionsAllowed\030\003 \001(\005\022\026\n\016currentHe"
+          + "althy\030\004 \001(\005\022\026\n\016desiredHealthy\030\005 \001(\005\022\024\n\014e"
+          + "xpectedPods\030\006 \001(\005\022C\n\nconditions\030\007 \003(\0132/."
+          + "k8s.io.apimachinery.pkg.apis.meta.v1.Con"
+          + "dition\032`\n\022DisruptedPodsEntry\022\013\n\003key\030\001 \001("
+          + "\t\0229\n\005value\030\002 \001(\0132*.k8s.io.apimachinery.p"
+          + "kg.apis.meta.v1.Time:\0028\001\"\227\001\n\021PodSecurity"
+          + "Policy\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimac"
+          + "hinery.pkg.apis.meta.v1.ObjectMeta\022>\n\004sp"
+          + "ec\030\002 \001(\01320.k8s.io.api.policy.v1beta1.Pod"
+          + "SecurityPolicySpec\"\226\001\n\025PodSecurityPolicy"
+          + "List\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachi"
+          + "nery.pkg.apis.meta.v1.ListMeta\022;\n\005items\030"
+          + "\002 \003(\0132,.k8s.io.api.policy.v1beta1.PodSec"
+          + "urityPolicy\"\353\010\n\025PodSecurityPolicySpec\022\022\n"
+          + "\nprivileged\030\001 \001(\010\022\036\n\026defaultAddCapabilit"
+          + "ies\030\002 \003(\t\022 \n\030requiredDropCapabilities\030\003 "
+          + "\003(\t\022\033\n\023allowedCapabilities\030\004 \003(\t\022\017\n\007volu"
+          + "mes\030\005 \003(\t\022\023\n\013hostNetwork\030\006 \001(\010\022;\n\thostPo"
+          + "rts\030\007 \003(\0132(.k8s.io.api.policy.v1beta1.Ho"
+          + "stPortRange\022\017\n\007hostPID\030\010 \001(\010\022\017\n\007hostIPC\030"
+          + "\t \001(\010\022B\n\007seLinux\030\n \001(\01321.k8s.io.api.poli"
+          + "cy.v1beta1.SELinuxStrategyOptions\022F\n\trun"
+          + "AsUser\030\013 \001(\01323.k8s.io.api.policy.v1beta1"
+          + ".RunAsUserStrategyOptions\022H\n\nrunAsGroup\030"
+          + "\026 \001(\01324.k8s.io.api.policy.v1beta1.RunAsG"
+          + "roupStrategyOptions\022X\n\022supplementalGroup"
+          + "s\030\014 \001(\0132<.k8s.io.api.policy.v1beta1.Supp"
+          + "lementalGroupsStrategyOptions\022B\n\007fsGroup"
+          + "\030\r \001(\01321.k8s.io.api.policy.v1beta1.FSGro"
+          + "upStrategyOptions\022\036\n\026readOnlyRootFilesys"
+          + "tem\030\016 \001(\010\022\'\n\037defaultAllowPrivilegeEscala"
+          + "tion\030\017 \001(\010\022 \n\030allowPrivilegeEscalation\030\020"
+          + " \001(\010\022D\n\020allowedHostPaths\030\021 \003(\0132*.k8s.io."
+          + "api.policy.v1beta1.AllowedHostPath\022H\n\022al"
+          + "lowedFlexVolumes\030\022 \003(\0132,.k8s.io.api.poli"
+          + "cy.v1beta1.AllowedFlexVolume\022F\n\021allowedC"
+          + "SIDrivers\030\027 \003(\0132+.k8s.io.api.policy.v1be"
+          + "ta1.AllowedCSIDriver\022\034\n\024allowedUnsafeSys"
+          + "ctls\030\023 \003(\t\022\030\n\020forbiddenSysctls\030\024 \003(\t\022\035\n\025"
+          + "allowedProcMountTypes\030\025 \003(\t\022L\n\014runtimeCl"
+          + "ass\030\030 \001(\01326.k8s.io.api.policy.v1beta1.Ru"
+          + "ntimeClassStrategyOptions\"]\n\031RunAsGroupS"
+          + "trategyOptions\022\014\n\004rule\030\001 \001(\t\0222\n\006ranges\030\002"
+          + " \003(\0132\".k8s.io.api.policy.v1beta1.IDRange"
+          + "\"\\\n\030RunAsUserStrategyOptions\022\014\n\004rule\030\001 \001"
+          + "(\t\0222\n\006ranges\030\002 \003(\0132\".k8s.io.api.policy.v"
+          + "1beta1.IDRange\"`\n\033RuntimeClassStrategyOp"
+          + "tions\022 \n\030allowedRuntimeClassNames\030\001 \003(\t\022"
+          + "\037\n\027defaultRuntimeClassName\030\002 \001(\t\"b\n\026SELi"
+          + "nuxStrategyOptions\022\014\n\004rule\030\001 \001(\t\022:\n\016seLi"
+          + "nuxOptions\030\002 \001(\0132\".k8s.io.api.core.v1.SE"
+          + "LinuxOptions\"e\n!SupplementalGroupsStrate"
+          + "gyOptions\022\014\n\004rule\030\001 \001(\t\0222\n\006ranges\030\002 \003(\0132"
+          + "\".k8s.io.api.policy.v1beta1.IDRangeB4\n\032i"
+          + "o.kubernetes.client.protoB\rV1beta1Policy"
+          + "Z\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -26437,8 +30415,16 @@ public final class V1beta1Policy {
           io.kubernetes.client.proto.IntStr.getDescriptor(),
         },
         assigner);
-    internal_static_k8s_io_api_policy_v1beta1_AllowedFlexVolume_descriptor =
+    internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_descriptor =
         getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_policy_v1beta1_AllowedCSIDriver_descriptor,
+            new java.lang.String[] {
+              "Name",
+            });
+    internal_static_k8s_io_api_policy_v1beta1_AllowedFlexVolume_descriptor =
+        getDescriptor().getMessageTypes().get(1);
     internal_static_k8s_io_api_policy_v1beta1_AllowedFlexVolume_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_AllowedFlexVolume_descriptor,
@@ -26446,7 +30432,7 @@ public final class V1beta1Policy {
               "Driver",
             });
     internal_static_k8s_io_api_policy_v1beta1_AllowedHostPath_descriptor =
-        getDescriptor().getMessageTypes().get(1);
+        getDescriptor().getMessageTypes().get(2);
     internal_static_k8s_io_api_policy_v1beta1_AllowedHostPath_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_AllowedHostPath_descriptor,
@@ -26454,7 +30440,7 @@ public final class V1beta1Policy {
               "PathPrefix", "ReadOnly",
             });
     internal_static_k8s_io_api_policy_v1beta1_Eviction_descriptor =
-        getDescriptor().getMessageTypes().get(2);
+        getDescriptor().getMessageTypes().get(3);
     internal_static_k8s_io_api_policy_v1beta1_Eviction_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_Eviction_descriptor,
@@ -26462,7 +30448,7 @@ public final class V1beta1Policy {
               "Metadata", "DeleteOptions",
             });
     internal_static_k8s_io_api_policy_v1beta1_FSGroupStrategyOptions_descriptor =
-        getDescriptor().getMessageTypes().get(3);
+        getDescriptor().getMessageTypes().get(4);
     internal_static_k8s_io_api_policy_v1beta1_FSGroupStrategyOptions_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_FSGroupStrategyOptions_descriptor,
@@ -26470,7 +30456,7 @@ public final class V1beta1Policy {
               "Rule", "Ranges",
             });
     internal_static_k8s_io_api_policy_v1beta1_HostPortRange_descriptor =
-        getDescriptor().getMessageTypes().get(4);
+        getDescriptor().getMessageTypes().get(5);
     internal_static_k8s_io_api_policy_v1beta1_HostPortRange_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_HostPortRange_descriptor,
@@ -26478,7 +30464,7 @@ public final class V1beta1Policy {
               "Min", "Max",
             });
     internal_static_k8s_io_api_policy_v1beta1_IDRange_descriptor =
-        getDescriptor().getMessageTypes().get(5);
+        getDescriptor().getMessageTypes().get(6);
     internal_static_k8s_io_api_policy_v1beta1_IDRange_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_IDRange_descriptor,
@@ -26486,7 +30472,7 @@ public final class V1beta1Policy {
               "Min", "Max",
             });
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudget_descriptor =
-        getDescriptor().getMessageTypes().get(6);
+        getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudget_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudget_descriptor,
@@ -26494,7 +30480,7 @@ public final class V1beta1Policy {
               "Metadata", "Spec", "Status",
             });
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetList_descriptor =
-        getDescriptor().getMessageTypes().get(7);
+        getDescriptor().getMessageTypes().get(8);
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetList_descriptor,
@@ -26502,7 +30488,7 @@ public final class V1beta1Policy {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetSpec_descriptor =
-        getDescriptor().getMessageTypes().get(8);
+        getDescriptor().getMessageTypes().get(9);
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetSpec_descriptor,
@@ -26510,7 +30496,7 @@ public final class V1beta1Policy {
               "MinAvailable", "Selector", "MaxUnavailable",
             });
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetStatus_descriptor =
-        getDescriptor().getMessageTypes().get(9);
+        getDescriptor().getMessageTypes().get(10);
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetStatus_descriptor,
@@ -26521,6 +30507,7 @@ public final class V1beta1Policy {
               "CurrentHealthy",
               "DesiredHealthy",
               "ExpectedPods",
+              "Conditions",
             });
     internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetStatus_DisruptedPodsEntry_descriptor =
         internal_static_k8s_io_api_policy_v1beta1_PodDisruptionBudgetStatus_descriptor
@@ -26533,7 +30520,7 @@ public final class V1beta1Policy {
               "Key", "Value",
             });
     internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicy_descriptor =
-        getDescriptor().getMessageTypes().get(10);
+        getDescriptor().getMessageTypes().get(11);
     internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicy_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicy_descriptor,
@@ -26541,7 +30528,7 @@ public final class V1beta1Policy {
               "Metadata", "Spec",
             });
     internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicyList_descriptor =
-        getDescriptor().getMessageTypes().get(11);
+        getDescriptor().getMessageTypes().get(12);
     internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicyList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicyList_descriptor,
@@ -26549,7 +30536,7 @@ public final class V1beta1Policy {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicySpec_descriptor =
-        getDescriptor().getMessageTypes().get(12);
+        getDescriptor().getMessageTypes().get(13);
     internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicySpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_PodSecurityPolicySpec_descriptor,
@@ -26573,12 +30560,14 @@ public final class V1beta1Policy {
               "AllowPrivilegeEscalation",
               "AllowedHostPaths",
               "AllowedFlexVolumes",
+              "AllowedCSIDrivers",
               "AllowedUnsafeSysctls",
               "ForbiddenSysctls",
               "AllowedProcMountTypes",
+              "RuntimeClass",
             });
     internal_static_k8s_io_api_policy_v1beta1_RunAsGroupStrategyOptions_descriptor =
-        getDescriptor().getMessageTypes().get(13);
+        getDescriptor().getMessageTypes().get(14);
     internal_static_k8s_io_api_policy_v1beta1_RunAsGroupStrategyOptions_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_RunAsGroupStrategyOptions_descriptor,
@@ -26586,15 +30575,23 @@ public final class V1beta1Policy {
               "Rule", "Ranges",
             });
     internal_static_k8s_io_api_policy_v1beta1_RunAsUserStrategyOptions_descriptor =
-        getDescriptor().getMessageTypes().get(14);
+        getDescriptor().getMessageTypes().get(15);
     internal_static_k8s_io_api_policy_v1beta1_RunAsUserStrategyOptions_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_RunAsUserStrategyOptions_descriptor,
             new java.lang.String[] {
               "Rule", "Ranges",
             });
+    internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_descriptor =
+        getDescriptor().getMessageTypes().get(16);
+    internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_policy_v1beta1_RuntimeClassStrategyOptions_descriptor,
+            new java.lang.String[] {
+              "AllowedRuntimeClassNames", "DefaultRuntimeClassName",
+            });
     internal_static_k8s_io_api_policy_v1beta1_SELinuxStrategyOptions_descriptor =
-        getDescriptor().getMessageTypes().get(15);
+        getDescriptor().getMessageTypes().get(17);
     internal_static_k8s_io_api_policy_v1beta1_SELinuxStrategyOptions_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_SELinuxStrategyOptions_descriptor,
@@ -26602,7 +30599,7 @@ public final class V1beta1Policy {
               "Rule", "SeLinuxOptions",
             });
     internal_static_k8s_io_api_policy_v1beta1_SupplementalGroupsStrategyOptions_descriptor =
-        getDescriptor().getMessageTypes().get(16);
+        getDescriptor().getMessageTypes().get(18);
     internal_static_k8s_io_api_policy_v1beta1_SupplementalGroupsStrategyOptions_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_policy_v1beta1_SupplementalGroupsStrategyOptions_descriptor,

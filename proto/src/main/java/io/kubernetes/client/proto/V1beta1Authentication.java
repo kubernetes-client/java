@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -350,8 +350,7 @@ public final class V1beta1Authentication {
                 io.kubernetes.client.proto.V1beta1Authentication.ExtraValue.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Authentication.ExtraValue.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Authentication.ExtraValue.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -633,6 +632,8 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -643,6 +644,8 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -653,6 +656,8 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -695,7 +700,7 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
-     * Status is filled in by the server and indicates whether the request can be authenticated.
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -706,7 +711,7 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
-     * Status is filled in by the server and indicates whether the request can be authenticated.
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -717,7 +722,7 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
-     * Status is filled in by the server and indicates whether the request can be authenticated.
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -866,6 +871,8 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -878,6 +885,8 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -892,6 +901,8 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -953,7 +964,7 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
-     * Status is filled in by the server and indicates whether the request can be authenticated.
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -966,7 +977,7 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
-     * Status is filled in by the server and indicates whether the request can be authenticated.
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -981,7 +992,7 @@ public final class V1beta1Authentication {
      *
      *
      * <pre>
-     * Status is filled in by the server and indicates whether the request can be authenticated.
+     * Status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -1220,8 +1231,7 @@ public final class V1beta1Authentication {
                 io.kubernetes.client.proto.V1beta1Authentication.TokenReview.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Authentication.TokenReview.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Authentication.TokenReview.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1420,6 +1430,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1432,6 +1444,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1450,6 +1464,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1472,6 +1488,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1492,6 +1510,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1520,6 +1540,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1539,6 +1561,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1553,6 +1577,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1571,6 +1597,8 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1795,12 +1823,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       public boolean hasStatus() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -1809,12 +1836,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus getStatus() {
         if (statusBuilder_ == null) {
@@ -1830,12 +1856,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       public Builder setStatus(
           io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus value) {
@@ -1855,12 +1880,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       public Builder setStatus(
           io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus.Builder
@@ -1878,12 +1902,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       public Builder mergeStatus(
           io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus value) {
@@ -1912,12 +1935,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       public Builder clearStatus() {
         if (statusBuilder_ == null) {
@@ -1933,12 +1955,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus.Builder
           getStatusBuilder() {
@@ -1950,12 +1971,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatusOrBuilder
           getStatusOrBuilder() {
@@ -1972,12 +1992,11 @@ public final class V1beta1Authentication {
        *
        *
        * <pre>
-       * Status is filled in by the server and indicates whether the request can be authenticated.
+       * Status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;
-       * </code>
+       * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewStatus status = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus,
@@ -5616,8 +5635,7 @@ public final class V1beta1Authentication {
                 io.kubernetes.client.proto.V1beta1Authentication.UserInfo.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Authentication.UserInfo.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Authentication.UserInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6218,8 +6236,7 @@ public final class V1beta1Authentication {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;</code>
        */
       public boolean containsExtra(java.lang.String key) {
         if (key == null) {
@@ -6242,8 +6259,7 @@ public final class V1beta1Authentication {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;</code>
        */
       public java.util.Map<
               java.lang.String, io.kubernetes.client.proto.V1beta1Authentication.ExtraValue>
@@ -6258,8 +6274,7 @@ public final class V1beta1Authentication {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authentication.ExtraValue getExtraOrDefault(
           java.lang.String key,
@@ -6279,8 +6294,7 @@ public final class V1beta1Authentication {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authentication.ExtraValue getExtraOrThrow(
           java.lang.String key) {
@@ -6307,8 +6321,7 @@ public final class V1beta1Authentication {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;</code>
        */
       public Builder removeExtra(java.lang.String key) {
         if (key == null) {
@@ -6332,8 +6345,7 @@ public final class V1beta1Authentication {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;</code>
        */
       public Builder putExtra(
           java.lang.String key, io.kubernetes.client.proto.V1beta1Authentication.ExtraValue value) {
@@ -6354,8 +6366,7 @@ public final class V1beta1Authentication {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authentication.v1beta1.ExtraValue&gt; extra = 4;</code>
        */
       public Builder putAllExtra(
           java.util.Map<

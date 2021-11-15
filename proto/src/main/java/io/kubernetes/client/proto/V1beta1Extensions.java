@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,6 +19,693 @@ public final class V1beta1Extensions {
 
   public static void registerAllExtensions(com.google.protobuf.ExtensionRegistry registry) {
     registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+
+  public interface AllowedCSIDriverOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.extensions.v1beta1.AllowedCSIDriver)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString getNameBytes();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.extensions.v1beta1.AllowedCSIDriver}
+   */
+  public static final class AllowedCSIDriver extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.extensions.v1beta1.AllowedCSIDriver)
+      AllowedCSIDriverOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use AllowedCSIDriver.newBuilder() to construct.
+    private AllowedCSIDriver(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private AllowedCSIDriver() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private AllowedCSIDriver(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                name_ = bs;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Extensions
+          .internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Extensions
+          .internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.class,
+              io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Name is the registered name of the CSI driver
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver other =
+          (io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName().equals(other.getName());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDriver represents a single inline CSI Driver that is allowed to be used.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.extensions.v1beta1.AllowedCSIDriver}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.extensions.v1beta1.AllowedCSIDriver)
+        io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Extensions
+            .internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Extensions
+            .internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.class,
+                io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Extensions
+            .internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver build() {
+        io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver buildPartial() {
+        io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver result =
+            new io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver) {
+          return mergeFrom((io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver other) {
+        if (other
+            == io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.getDefaultInstance())
+          return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the registered name of the CSI driver
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.extensions.v1beta1.AllowedCSIDriver)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.extensions.v1beta1.AllowedCSIDriver)
+    private static final io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<AllowedCSIDriver> PARSER =
+        new com.google.protobuf.AbstractParser<AllowedCSIDriver>() {
+          @java.lang.Override
+          public AllowedCSIDriver parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new AllowedCSIDriver(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<AllowedCSIDriver> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AllowedCSIDriver> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
   }
 
   public interface AllowedFlexVolumeOrBuilder
@@ -401,8 +1088,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1196,8 +1882,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1614,7 +2299,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1626,7 +2311,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1638,7 +2323,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1651,7 +2336,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1663,7 +2348,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1675,7 +2360,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1691,7 +2376,7 @@ public final class V1beta1Extensions {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1706,7 +2391,7 @@ public final class V1beta1Extensions {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1721,7 +2406,7 @@ public final class V1beta1Extensions {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1870,7 +2555,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1884,7 +2569,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1900,7 +2585,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1919,7 +2604,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1933,7 +2618,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1949,7 +2634,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1971,7 +2656,7 @@ public final class V1beta1Extensions {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -1988,7 +2673,7 @@ public final class V1beta1Extensions {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2007,7 +2692,7 @@ public final class V1beta1Extensions {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2443,7 +3128,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2457,7 +3142,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2477,7 +3162,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2501,7 +3186,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2523,7 +3208,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2553,7 +3238,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2574,7 +3259,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2590,7 +3275,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2610,7 +3295,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2644,7 +3329,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2658,7 +3343,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2678,7 +3363,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2702,7 +3387,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2724,7 +3409,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2756,7 +3441,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2777,7 +3462,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2793,7 +3478,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2814,7 +3499,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2851,7 +3536,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2868,7 +3553,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2891,7 +3576,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2918,7 +3603,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2943,7 +3628,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -2979,7 +3664,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3003,7 +3688,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3023,7 +3708,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3047,7 +3732,7 @@ public final class V1beta1Extensions {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -4382,8 +5067,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -4396,8 +5080,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -4416,8 +5099,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -4440,8 +5122,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -4462,8 +5143,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -4492,8 +5172,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -4513,8 +5192,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000004;
@@ -4529,8 +5207,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -4549,8 +5226,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -4861,7 +5537,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -4873,7 +5549,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -4885,7 +5561,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5067,7 +5743,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5081,7 +5757,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5097,7 +5773,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5381,8 +6057,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.DaemonSetList.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.DaemonSetList.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.DaemonSetList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5588,7 +6263,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5602,7 +6277,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5622,7 +6297,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5646,7 +6321,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5667,7 +6342,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5697,7 +6372,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5718,7 +6393,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5734,7 +6409,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -5754,7 +6429,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7091,8 +7766,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.DaemonSetSpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.DaemonSetSpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.DaemonSetSpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7324,8 +7998,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -7341,8 +8014,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -7364,8 +8036,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -7391,8 +8062,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -7416,8 +8086,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -7449,8 +8118,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -7473,8 +8141,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000001;
@@ -7492,8 +8159,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -7515,8 +8181,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -7769,8 +8434,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       public boolean hasUpdateStrategy() {
@@ -7784,8 +8448,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DaemonSetUpdateStrategy
@@ -7807,8 +8470,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       public Builder setUpdateStrategy(
@@ -7833,8 +8495,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       public Builder setUpdateStrategy(
@@ -7857,8 +8518,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       public Builder mergeUpdateStrategy(
@@ -7892,8 +8552,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       public Builder clearUpdateStrategy() {
@@ -7914,8 +8573,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DaemonSetUpdateStrategy.Builder
@@ -7932,8 +8590,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DaemonSetUpdateStrategyOrBuilder
@@ -7955,8 +8612,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
+       * <code>optional .k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy updateStrategy = 3;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -9382,8 +10038,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.DaemonSetStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.DaemonSetStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.DaemonSetStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -10246,8 +10901,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition>
           getConditionsList() {
@@ -10267,8 +10921,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public int getConditionsCount() {
         if (conditionsBuilder_ == null) {
@@ -10287,8 +10940,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition getConditions(
           int index) {
@@ -10308,8 +10960,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder setConditions(
           int index, io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition value) {
@@ -10335,8 +10986,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder setConditions(
           int index,
@@ -10360,8 +11010,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder addConditions(
           io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition value) {
@@ -10387,8 +11036,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder addConditions(
           int index, io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition value) {
@@ -10414,8 +11062,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder addConditions(
           io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition.Builder builderForValue) {
@@ -10438,8 +11085,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder addConditions(
           int index,
@@ -10463,8 +11109,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder addAllConditions(
           java.lang.Iterable<
@@ -10489,8 +11134,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder clearConditions() {
         if (conditionsBuilder_ == null) {
@@ -10512,8 +11156,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public Builder removeConditions(int index) {
         if (conditionsBuilder_ == null) {
@@ -10535,8 +11178,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition.Builder
           getConditionsBuilder(int index) {
@@ -10552,8 +11194,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DaemonSetConditionOrBuilder
           getConditionsOrBuilder(int index) {
@@ -10573,8 +11214,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V1beta1Extensions.DaemonSetConditionOrBuilder>
@@ -10595,8 +11235,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition.Builder
           addConditionsBuilder() {
@@ -10615,8 +11254,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition.Builder
           addConditionsBuilder(int index) {
@@ -10636,8 +11274,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DaemonSetCondition conditions = 10;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.DaemonSetCondition.Builder>
           getConditionsBuilderList() {
@@ -10812,7 +11449,17 @@ public final class V1beta1Extensions {
     io.kubernetes.client.proto.V1beta1Extensions.RollingUpdateDaemonSetOrBuilder
         getRollingUpdateOrBuilder();
   }
-  /** Protobuf type {@code k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy} */
+  /**
+   *
+   *
+   * <pre>
+   * DaemonSetUpdateStrategy indicates the strategy that the DaemonSet
+   * controller will use to perform updates. It includes any additional parameters
+   * necessary to perform the update for the indicated strategy.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy}
+   */
   public static final class DaemonSetUpdateStrategy extends com.google.protobuf.GeneratedMessageV3
       implements
       // @@protoc_insertion_point(message_implements:k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy)
@@ -11218,7 +11865,17 @@ public final class V1beta1Extensions {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /** Protobuf type {@code k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy} */
+    /**
+     *
+     *
+     * <pre>
+     * DaemonSetUpdateStrategy indicates the strategy that the DaemonSet
+     * controller will use to perform updates. It includes any additional parameters
+     * necessary to perform the update for the indicated strategy.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.extensions.v1beta1.DaemonSetUpdateStrategy}
+     */
     public static final class Builder
         extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
         implements
@@ -11546,8 +12203,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       public boolean hasRollingUpdate() {
@@ -11565,8 +12221,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RollingUpdateDaemonSet
@@ -11592,8 +12247,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       public Builder setRollingUpdate(
@@ -11622,8 +12276,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       public Builder setRollingUpdate(
@@ -11650,8 +12303,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       public Builder mergeRollingUpdate(
@@ -11689,8 +12341,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       public Builder clearRollingUpdate() {
@@ -11715,8 +12366,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RollingUpdateDaemonSet.Builder
@@ -11737,8 +12387,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RollingUpdateDaemonSetOrBuilder
@@ -11764,8 +12413,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDaemonSet rollingUpdate = 2;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -14818,8 +15466,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
@@ -14831,8 +15478,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -14850,8 +15496,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -14873,8 +15518,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -14894,8 +15538,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -14923,8 +15566,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -14943,8 +15585,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000008;
@@ -14958,8 +15599,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -14977,8 +15617,7 @@ public final class V1beta1Extensions {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -15792,8 +16431,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.DeploymentList.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.DeploymentList.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.DeploymentList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -18179,7 +18817,7 @@ public final class V1beta1Extensions {
      * The number of old ReplicaSets to retain to allow rollback.
      * This is a pointer to distinguish between explicit zero and not specified.
      * This is set to the max value of int32 (i.e. 2147483647) by default, which
-     * means "retaining all old RelicaSets".
+     * means "retaining all old ReplicaSets".
      * +optional
      * </pre>
      *
@@ -18193,7 +18831,7 @@ public final class V1beta1Extensions {
      * The number of old ReplicaSets to retain to allow rollback.
      * This is a pointer to distinguish between explicit zero and not specified.
      * This is set to the max value of int32 (i.e. 2147483647) by default, which
-     * means "retaining all old RelicaSets".
+     * means "retaining all old ReplicaSets".
      * +optional
      * </pre>
      *
@@ -18695,7 +19333,7 @@ public final class V1beta1Extensions {
      * The number of old ReplicaSets to retain to allow rollback.
      * This is a pointer to distinguish between explicit zero and not specified.
      * This is set to the max value of int32 (i.e. 2147483647) by default, which
-     * means "retaining all old RelicaSets".
+     * means "retaining all old ReplicaSets".
      * +optional
      * </pre>
      *
@@ -18711,7 +19349,7 @@ public final class V1beta1Extensions {
      * The number of old ReplicaSets to retain to allow rollback.
      * This is a pointer to distinguish between explicit zero and not specified.
      * This is set to the max value of int32 (i.e. 2147483647) by default, which
-     * means "retaining all old RelicaSets".
+     * means "retaining all old ReplicaSets".
      * +optional
      * </pre>
      *
@@ -19149,8 +19787,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.DeploymentSpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.DeploymentSpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.DeploymentSpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -19481,8 +20118,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -19496,8 +20132,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -19517,8 +20152,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -19542,8 +20176,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -19565,8 +20198,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -19596,8 +20228,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -19618,8 +20249,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000002;
@@ -19635,8 +20265,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -19656,8 +20285,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -20143,7 +20771,7 @@ public final class V1beta1Extensions {
        * The number of old ReplicaSets to retain to allow rollback.
        * This is a pointer to distinguish between explicit zero and not specified.
        * This is set to the max value of int32 (i.e. 2147483647) by default, which
-       * means "retaining all old RelicaSets".
+       * means "retaining all old ReplicaSets".
        * +optional
        * </pre>
        *
@@ -20159,7 +20787,7 @@ public final class V1beta1Extensions {
        * The number of old ReplicaSets to retain to allow rollback.
        * This is a pointer to distinguish between explicit zero and not specified.
        * This is set to the max value of int32 (i.e. 2147483647) by default, which
-       * means "retaining all old RelicaSets".
+       * means "retaining all old ReplicaSets".
        * +optional
        * </pre>
        *
@@ -20175,7 +20803,7 @@ public final class V1beta1Extensions {
        * The number of old ReplicaSets to retain to allow rollback.
        * This is a pointer to distinguish between explicit zero and not specified.
        * This is set to the max value of int32 (i.e. 2147483647) by default, which
-       * means "retaining all old RelicaSets".
+       * means "retaining all old ReplicaSets".
        * +optional
        * </pre>
        *
@@ -20194,7 +20822,7 @@ public final class V1beta1Extensions {
        * The number of old ReplicaSets to retain to allow rollback.
        * This is a pointer to distinguish between explicit zero and not specified.
        * This is set to the max value of int32 (i.e. 2147483647) by default, which
-       * means "retaining all old RelicaSets".
+       * means "retaining all old ReplicaSets".
        * +optional
        * </pre>
        *
@@ -21580,8 +22208,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.DeploymentStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.DeploymentStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.DeploymentStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -22218,8 +22845,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition>
           getConditionsList() {
@@ -22238,8 +22864,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public int getConditionsCount() {
         if (conditionsBuilder_ == null) {
@@ -22257,8 +22882,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition getConditions(
           int index) {
@@ -22277,8 +22901,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder setConditions(
           int index, io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition value) {
@@ -22303,8 +22926,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder setConditions(
           int index,
@@ -22328,8 +22950,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder addConditions(
           io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition value) {
@@ -22354,8 +22975,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder addConditions(
           int index, io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition value) {
@@ -22380,8 +23000,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder addConditions(
           io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition.Builder
@@ -22404,8 +23023,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder addConditions(
           int index,
@@ -22429,8 +23047,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder addAllConditions(
           java.lang.Iterable<
@@ -22454,8 +23071,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder clearConditions() {
         if (conditionsBuilder_ == null) {
@@ -22476,8 +23092,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public Builder removeConditions(int index) {
         if (conditionsBuilder_ == null) {
@@ -22498,8 +23113,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition.Builder
           getConditionsBuilder(int index) {
@@ -22514,8 +23128,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DeploymentConditionOrBuilder
           getConditionsOrBuilder(int index) {
@@ -22534,8 +23147,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V1beta1Extensions.DeploymentConditionOrBuilder>
@@ -22555,8 +23167,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition.Builder
           addConditionsBuilder() {
@@ -22574,8 +23185,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition.Builder
           addConditionsBuilder(int index) {
@@ -22594,8 +23204,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.DeploymentCondition conditions = 6;</code>
        */
       public java.util.List<
               io.kubernetes.client.proto.V1beta1Extensions.DeploymentCondition.Builder>
@@ -23576,8 +24185,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       public boolean hasRollingUpdate() {
@@ -23595,8 +24203,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RollingUpdateDeployment
@@ -23622,8 +24229,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       public Builder setRollingUpdate(
@@ -23652,8 +24258,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       public Builder setRollingUpdate(
@@ -23680,8 +24285,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       public Builder mergeRollingUpdate(
@@ -23719,8 +24323,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       public Builder clearRollingUpdate() {
@@ -23745,8 +24348,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RollingUpdateDeployment.Builder
@@ -23767,8 +24369,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RollingUpdateDeploymentOrBuilder
@@ -23794,8 +24395,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RollingUpdateDeployment rollingUpdate = 2;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -25193,13 +25793,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-     * (i.e this follows the egrep/unix syntax, not the perl syntax)
-     * matched against the path of an incoming request. Currently it can
-     * contain characters disallowed from the conventional "path"
-     * part of a URL as defined by RFC 3986. Paths must begin with
-     * a '/'. If unspecified, the path defaults to a catch all sending
-     * traffic to the backend.
+     * Path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+     * all paths from incoming requests are matched.
      * +optional
      * </pre>
      *
@@ -25210,13 +25807,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-     * (i.e this follows the egrep/unix syntax, not the perl syntax)
-     * matched against the path of an incoming request. Currently it can
-     * contain characters disallowed from the conventional "path"
-     * part of a URL as defined by RFC 3986. Paths must begin with
-     * a '/'. If unspecified, the path defaults to a catch all sending
-     * traffic to the backend.
+     * Path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+     * all paths from incoming requests are matched.
      * +optional
      * </pre>
      *
@@ -25227,19 +25821,89 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-     * (i.e this follows the egrep/unix syntax, not the perl syntax)
-     * matched against the path of an incoming request. Currently it can
-     * contain characters disallowed from the conventional "path"
-     * part of a URL as defined by RFC 3986. Paths must begin with
-     * a '/'. If unspecified, the path defaults to a catch all sending
-     * traffic to the backend.
+     * Path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+     * all paths from incoming requests are matched.
      * +optional
      * </pre>
      *
      * <code>optional string path = 1;</code>
      */
     com.google.protobuf.ByteString getPathBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * PathType determines the interpretation of the Path matching. PathType can
+     * be one of the following values:
+     * * Exact: Matches the URL path exactly.
+     * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+     *   done on a path element by element basis. A path element refers is the
+     *   list of labels in the path split by the '/' separator. A request is a
+     *   match for path p if every p is an element-wise prefix of p of the
+     *   request path. Note that if the last element of the path is a substring
+     *   of the last element in request path, it is not a match (e.g. /foo/bar
+     *   matches /foo/bar/baz, but does not match /foo/barbaz).
+     * * ImplementationSpecific: Interpretation of the Path matching is up to
+     *   the IngressClass. Implementations can treat this as a separate PathType
+     *   or treat it identically to Prefix or Exact path types.
+     * Implementations are required to support all path types.
+     * Defaults to ImplementationSpecific.
+     * </pre>
+     *
+     * <code>optional string pathType = 3;</code>
+     */
+    boolean hasPathType();
+    /**
+     *
+     *
+     * <pre>
+     * PathType determines the interpretation of the Path matching. PathType can
+     * be one of the following values:
+     * * Exact: Matches the URL path exactly.
+     * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+     *   done on a path element by element basis. A path element refers is the
+     *   list of labels in the path split by the '/' separator. A request is a
+     *   match for path p if every p is an element-wise prefix of p of the
+     *   request path. Note that if the last element of the path is a substring
+     *   of the last element in request path, it is not a match (e.g. /foo/bar
+     *   matches /foo/bar/baz, but does not match /foo/barbaz).
+     * * ImplementationSpecific: Interpretation of the Path matching is up to
+     *   the IngressClass. Implementations can treat this as a separate PathType
+     *   or treat it identically to Prefix or Exact path types.
+     * Implementations are required to support all path types.
+     * Defaults to ImplementationSpecific.
+     * </pre>
+     *
+     * <code>optional string pathType = 3;</code>
+     */
+    java.lang.String getPathType();
+    /**
+     *
+     *
+     * <pre>
+     * PathType determines the interpretation of the Path matching. PathType can
+     * be one of the following values:
+     * * Exact: Matches the URL path exactly.
+     * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+     *   done on a path element by element basis. A path element refers is the
+     *   list of labels in the path split by the '/' separator. A request is a
+     *   match for path p if every p is an element-wise prefix of p of the
+     *   request path. Note that if the last element of the path is a substring
+     *   of the last element in request path, it is not a match (e.g. /foo/bar
+     *   matches /foo/bar/baz, but does not match /foo/barbaz).
+     * * ImplementationSpecific: Interpretation of the Path matching is up to
+     *   the IngressClass. Implementations can treat this as a separate PathType
+     *   or treat it identically to Prefix or Exact path types.
+     * Implementations are required to support all path types.
+     * Defaults to ImplementationSpecific.
+     * </pre>
+     *
+     * <code>optional string pathType = 3;</code>
+     */
+    com.google.protobuf.ByteString getPathTypeBytes();
 
     /**
      *
@@ -25279,8 +25943,8 @@ public final class V1beta1Extensions {
    *
    *
    * <pre>
-   * HTTPIngressPath associates a path regex with a backend. Incoming urls matching
-   * the path are forwarded to the backend.
+   * HTTPIngressPath associates a path with a backend. Incoming urls matching the
+   * path are forwarded to the backend.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.extensions.v1beta1.HTTPIngressPath}
@@ -25297,6 +25961,7 @@ public final class V1beta1Extensions {
 
     private HTTPIngressPath() {
       path_ = "";
+      pathType_ = "";
     }
 
     @java.lang.Override
@@ -25334,7 +25999,7 @@ public final class V1beta1Extensions {
               {
                 io.kubernetes.client.proto.V1beta1Extensions.IngressBackend.Builder subBuilder =
                     null;
-                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                if (((bitField0_ & 0x00000004) == 0x00000004)) {
                   subBuilder = backend_.toBuilder();
                 }
                 backend_ =
@@ -25345,7 +26010,14 @@ public final class V1beta1Extensions {
                   subBuilder.mergeFrom(backend_);
                   backend_ = subBuilder.buildPartial();
                 }
+                bitField0_ |= 0x00000004;
+                break;
+              }
+            case 26:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
                 bitField0_ |= 0x00000002;
+                pathType_ = bs;
                 break;
               }
             default:
@@ -25389,13 +26061,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-     * (i.e this follows the egrep/unix syntax, not the perl syntax)
-     * matched against the path of an incoming request. Currently it can
-     * contain characters disallowed from the conventional "path"
-     * part of a URL as defined by RFC 3986. Paths must begin with
-     * a '/'. If unspecified, the path defaults to a catch all sending
-     * traffic to the backend.
+     * Path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+     * all paths from incoming requests are matched.
      * +optional
      * </pre>
      *
@@ -25408,13 +26077,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-     * (i.e this follows the egrep/unix syntax, not the perl syntax)
-     * matched against the path of an incoming request. Currently it can
-     * contain characters disallowed from the conventional "path"
-     * part of a URL as defined by RFC 3986. Paths must begin with
-     * a '/'. If unspecified, the path defaults to a catch all sending
-     * traffic to the backend.
+     * Path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+     * all paths from incoming requests are matched.
      * +optional
      * </pre>
      *
@@ -25437,13 +26103,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-     * (i.e this follows the egrep/unix syntax, not the perl syntax)
-     * matched against the path of an incoming request. Currently it can
-     * contain characters disallowed from the conventional "path"
-     * part of a URL as defined by RFC 3986. Paths must begin with
-     * a '/'. If unspecified, the path defaults to a catch all sending
-     * traffic to the backend.
+     * Path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+     * all paths from incoming requests are matched.
      * +optional
      * </pre>
      *
@@ -25455,6 +26118,105 @@ public final class V1beta1Extensions {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         path_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PATHTYPE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object pathType_;
+    /**
+     *
+     *
+     * <pre>
+     * PathType determines the interpretation of the Path matching. PathType can
+     * be one of the following values:
+     * * Exact: Matches the URL path exactly.
+     * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+     *   done on a path element by element basis. A path element refers is the
+     *   list of labels in the path split by the '/' separator. A request is a
+     *   match for path p if every p is an element-wise prefix of p of the
+     *   request path. Note that if the last element of the path is a substring
+     *   of the last element in request path, it is not a match (e.g. /foo/bar
+     *   matches /foo/bar/baz, but does not match /foo/barbaz).
+     * * ImplementationSpecific: Interpretation of the Path matching is up to
+     *   the IngressClass. Implementations can treat this as a separate PathType
+     *   or treat it identically to Prefix or Exact path types.
+     * Implementations are required to support all path types.
+     * Defaults to ImplementationSpecific.
+     * </pre>
+     *
+     * <code>optional string pathType = 3;</code>
+     */
+    public boolean hasPathType() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * PathType determines the interpretation of the Path matching. PathType can
+     * be one of the following values:
+     * * Exact: Matches the URL path exactly.
+     * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+     *   done on a path element by element basis. A path element refers is the
+     *   list of labels in the path split by the '/' separator. A request is a
+     *   match for path p if every p is an element-wise prefix of p of the
+     *   request path. Note that if the last element of the path is a substring
+     *   of the last element in request path, it is not a match (e.g. /foo/bar
+     *   matches /foo/bar/baz, but does not match /foo/barbaz).
+     * * ImplementationSpecific: Interpretation of the Path matching is up to
+     *   the IngressClass. Implementations can treat this as a separate PathType
+     *   or treat it identically to Prefix or Exact path types.
+     * Implementations are required to support all path types.
+     * Defaults to ImplementationSpecific.
+     * </pre>
+     *
+     * <code>optional string pathType = 3;</code>
+     */
+    public java.lang.String getPathType() {
+      java.lang.Object ref = pathType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          pathType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * PathType determines the interpretation of the Path matching. PathType can
+     * be one of the following values:
+     * * Exact: Matches the URL path exactly.
+     * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+     *   done on a path element by element basis. A path element refers is the
+     *   list of labels in the path split by the '/' separator. A request is a
+     *   match for path p if every p is an element-wise prefix of p of the
+     *   request path. Note that if the last element of the path is a substring
+     *   of the last element in request path, it is not a match (e.g. /foo/bar
+     *   matches /foo/bar/baz, but does not match /foo/barbaz).
+     * * ImplementationSpecific: Interpretation of the Path matching is up to
+     *   the IngressClass. Implementations can treat this as a separate PathType
+     *   or treat it identically to Prefix or Exact path types.
+     * Implementations are required to support all path types.
+     * Defaults to ImplementationSpecific.
+     * </pre>
+     *
+     * <code>optional string pathType = 3;</code>
+     */
+    public com.google.protobuf.ByteString getPathTypeBytes() {
+      java.lang.Object ref = pathType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        pathType_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -25474,7 +26236,7 @@ public final class V1beta1Extensions {
      * <code>optional .k8s.io.api.extensions.v1beta1.IngressBackend backend = 2;</code>
      */
     public boolean hasBackend() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      *
@@ -25525,8 +26287,11 @@ public final class V1beta1Extensions {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, path_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeMessage(2, getBackend());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, pathType_);
       }
       unknownFields.writeTo(output);
     }
@@ -25540,8 +26305,11 @@ public final class V1beta1Extensions {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, path_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getBackend());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, pathType_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -25564,6 +26332,10 @@ public final class V1beta1Extensions {
       if (hasPath()) {
         result = result && getPath().equals(other.getPath());
       }
+      result = result && (hasPathType() == other.hasPathType());
+      if (hasPathType()) {
+        result = result && getPathType().equals(other.getPathType());
+      }
       result = result && (hasBackend() == other.hasBackend());
       if (hasBackend()) {
         result = result && getBackend().equals(other.getBackend());
@@ -25582,6 +26354,10 @@ public final class V1beta1Extensions {
       if (hasPath()) {
         hash = (37 * hash) + PATH_FIELD_NUMBER;
         hash = (53 * hash) + getPath().hashCode();
+      }
+      if (hasPathType()) {
+        hash = (37 * hash) + PATHTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getPathType().hashCode();
       }
       if (hasBackend()) {
         hash = (37 * hash) + BACKEND_FIELD_NUMBER;
@@ -25693,8 +26469,8 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * HTTPIngressPath associates a path regex with a backend. Incoming urls matching
-     * the path are forwarded to the backend.
+     * HTTPIngressPath associates a path with a backend. Incoming urls matching the
+     * path are forwarded to the backend.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.extensions.v1beta1.HTTPIngressPath}
@@ -25719,8 +26495,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.HTTPIngressPath.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.HTTPIngressPath.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.HTTPIngressPath.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -25741,12 +26516,14 @@ public final class V1beta1Extensions {
         super.clear();
         path_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        pathType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (backendBuilder_ == null) {
           backend_ = null;
         } else {
           backendBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -25783,6 +26560,10 @@ public final class V1beta1Extensions {
         result.path_ = path_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
+        }
+        result.pathType_ = pathType_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
         }
         if (backendBuilder_ == null) {
           result.backend_ = backend_;
@@ -25848,6 +26629,11 @@ public final class V1beta1Extensions {
           path_ = other.path_;
           onChanged();
         }
+        if (other.hasPathType()) {
+          bitField0_ |= 0x00000002;
+          pathType_ = other.pathType_;
+          onChanged();
+        }
         if (other.hasBackend()) {
           mergeBackend(other.getBackend());
         }
@@ -25889,13 +26675,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-       * (i.e this follows the egrep/unix syntax, not the perl syntax)
-       * matched against the path of an incoming request. Currently it can
-       * contain characters disallowed from the conventional "path"
-       * part of a URL as defined by RFC 3986. Paths must begin with
-       * a '/'. If unspecified, the path defaults to a catch all sending
-       * traffic to the backend.
+       * Path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+       * all paths from incoming requests are matched.
        * +optional
        * </pre>
        *
@@ -25908,13 +26691,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-       * (i.e this follows the egrep/unix syntax, not the perl syntax)
-       * matched against the path of an incoming request. Currently it can
-       * contain characters disallowed from the conventional "path"
-       * part of a URL as defined by RFC 3986. Paths must begin with
-       * a '/'. If unspecified, the path defaults to a catch all sending
-       * traffic to the backend.
+       * Path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+       * all paths from incoming requests are matched.
        * +optional
        * </pre>
        *
@@ -25937,13 +26717,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-       * (i.e this follows the egrep/unix syntax, not the perl syntax)
-       * matched against the path of an incoming request. Currently it can
-       * contain characters disallowed from the conventional "path"
-       * part of a URL as defined by RFC 3986. Paths must begin with
-       * a '/'. If unspecified, the path defaults to a catch all sending
-       * traffic to the backend.
+       * Path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+       * all paths from incoming requests are matched.
        * +optional
        * </pre>
        *
@@ -25964,13 +26741,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-       * (i.e this follows the egrep/unix syntax, not the perl syntax)
-       * matched against the path of an incoming request. Currently it can
-       * contain characters disallowed from the conventional "path"
-       * part of a URL as defined by RFC 3986. Paths must begin with
-       * a '/'. If unspecified, the path defaults to a catch all sending
-       * traffic to the backend.
+       * Path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+       * all paths from incoming requests are matched.
        * +optional
        * </pre>
        *
@@ -25989,13 +26763,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-       * (i.e this follows the egrep/unix syntax, not the perl syntax)
-       * matched against the path of an incoming request. Currently it can
-       * contain characters disallowed from the conventional "path"
-       * part of a URL as defined by RFC 3986. Paths must begin with
-       * a '/'. If unspecified, the path defaults to a catch all sending
-       * traffic to the backend.
+       * Path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+       * all paths from incoming requests are matched.
        * +optional
        * </pre>
        *
@@ -26011,13 +26782,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Path is an extended POSIX regex as defined by IEEE Std 1003.1,
-       * (i.e this follows the egrep/unix syntax, not the perl syntax)
-       * matched against the path of an incoming request. Currently it can
-       * contain characters disallowed from the conventional "path"
-       * part of a URL as defined by RFC 3986. Paths must begin with
-       * a '/'. If unspecified, the path defaults to a catch all sending
-       * traffic to the backend.
+       * Path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'. When unspecified,
+       * all paths from incoming requests are matched.
        * +optional
        * </pre>
        *
@@ -26029,6 +26797,197 @@ public final class V1beta1Extensions {
         }
         bitField0_ |= 0x00000001;
         path_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object pathType_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * PathType determines the interpretation of the Path matching. PathType can
+       * be one of the following values:
+       * * Exact: Matches the URL path exactly.
+       * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+       *   done on a path element by element basis. A path element refers is the
+       *   list of labels in the path split by the '/' separator. A request is a
+       *   match for path p if every p is an element-wise prefix of p of the
+       *   request path. Note that if the last element of the path is a substring
+       *   of the last element in request path, it is not a match (e.g. /foo/bar
+       *   matches /foo/bar/baz, but does not match /foo/barbaz).
+       * * ImplementationSpecific: Interpretation of the Path matching is up to
+       *   the IngressClass. Implementations can treat this as a separate PathType
+       *   or treat it identically to Prefix or Exact path types.
+       * Implementations are required to support all path types.
+       * Defaults to ImplementationSpecific.
+       * </pre>
+       *
+       * <code>optional string pathType = 3;</code>
+       */
+      public boolean hasPathType() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PathType determines the interpretation of the Path matching. PathType can
+       * be one of the following values:
+       * * Exact: Matches the URL path exactly.
+       * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+       *   done on a path element by element basis. A path element refers is the
+       *   list of labels in the path split by the '/' separator. A request is a
+       *   match for path p if every p is an element-wise prefix of p of the
+       *   request path. Note that if the last element of the path is a substring
+       *   of the last element in request path, it is not a match (e.g. /foo/bar
+       *   matches /foo/bar/baz, but does not match /foo/barbaz).
+       * * ImplementationSpecific: Interpretation of the Path matching is up to
+       *   the IngressClass. Implementations can treat this as a separate PathType
+       *   or treat it identically to Prefix or Exact path types.
+       * Implementations are required to support all path types.
+       * Defaults to ImplementationSpecific.
+       * </pre>
+       *
+       * <code>optional string pathType = 3;</code>
+       */
+      public java.lang.String getPathType() {
+        java.lang.Object ref = pathType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            pathType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PathType determines the interpretation of the Path matching. PathType can
+       * be one of the following values:
+       * * Exact: Matches the URL path exactly.
+       * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+       *   done on a path element by element basis. A path element refers is the
+       *   list of labels in the path split by the '/' separator. A request is a
+       *   match for path p if every p is an element-wise prefix of p of the
+       *   request path. Note that if the last element of the path is a substring
+       *   of the last element in request path, it is not a match (e.g. /foo/bar
+       *   matches /foo/bar/baz, but does not match /foo/barbaz).
+       * * ImplementationSpecific: Interpretation of the Path matching is up to
+       *   the IngressClass. Implementations can treat this as a separate PathType
+       *   or treat it identically to Prefix or Exact path types.
+       * Implementations are required to support all path types.
+       * Defaults to ImplementationSpecific.
+       * </pre>
+       *
+       * <code>optional string pathType = 3;</code>
+       */
+      public com.google.protobuf.ByteString getPathTypeBytes() {
+        java.lang.Object ref = pathType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          pathType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PathType determines the interpretation of the Path matching. PathType can
+       * be one of the following values:
+       * * Exact: Matches the URL path exactly.
+       * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+       *   done on a path element by element basis. A path element refers is the
+       *   list of labels in the path split by the '/' separator. A request is a
+       *   match for path p if every p is an element-wise prefix of p of the
+       *   request path. Note that if the last element of the path is a substring
+       *   of the last element in request path, it is not a match (e.g. /foo/bar
+       *   matches /foo/bar/baz, but does not match /foo/barbaz).
+       * * ImplementationSpecific: Interpretation of the Path matching is up to
+       *   the IngressClass. Implementations can treat this as a separate PathType
+       *   or treat it identically to Prefix or Exact path types.
+       * Implementations are required to support all path types.
+       * Defaults to ImplementationSpecific.
+       * </pre>
+       *
+       * <code>optional string pathType = 3;</code>
+       */
+      public Builder setPathType(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        pathType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PathType determines the interpretation of the Path matching. PathType can
+       * be one of the following values:
+       * * Exact: Matches the URL path exactly.
+       * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+       *   done on a path element by element basis. A path element refers is the
+       *   list of labels in the path split by the '/' separator. A request is a
+       *   match for path p if every p is an element-wise prefix of p of the
+       *   request path. Note that if the last element of the path is a substring
+       *   of the last element in request path, it is not a match (e.g. /foo/bar
+       *   matches /foo/bar/baz, but does not match /foo/barbaz).
+       * * ImplementationSpecific: Interpretation of the Path matching is up to
+       *   the IngressClass. Implementations can treat this as a separate PathType
+       *   or treat it identically to Prefix or Exact path types.
+       * Implementations are required to support all path types.
+       * Defaults to ImplementationSpecific.
+       * </pre>
+       *
+       * <code>optional string pathType = 3;</code>
+       */
+      public Builder clearPathType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        pathType_ = getDefaultInstance().getPathType();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PathType determines the interpretation of the Path matching. PathType can
+       * be one of the following values:
+       * * Exact: Matches the URL path exactly.
+       * * Prefix: Matches based on a URL path prefix split by '/'. Matching is
+       *   done on a path element by element basis. A path element refers is the
+       *   list of labels in the path split by the '/' separator. A request is a
+       *   match for path p if every p is an element-wise prefix of p of the
+       *   request path. Note that if the last element of the path is a substring
+       *   of the last element in request path, it is not a match (e.g. /foo/bar
+       *   matches /foo/bar/baz, but does not match /foo/barbaz).
+       * * ImplementationSpecific: Interpretation of the Path matching is up to
+       *   the IngressClass. Implementations can treat this as a separate PathType
+       *   or treat it identically to Prefix or Exact path types.
+       * Implementations are required to support all path types.
+       * Defaults to ImplementationSpecific.
+       * </pre>
+       *
+       * <code>optional string pathType = 3;</code>
+       */
+      public Builder setPathTypeBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        pathType_ = value;
         onChanged();
         return this;
       }
@@ -26050,7 +27009,7 @@ public final class V1beta1Extensions {
        * <code>optional .k8s.io.api.extensions.v1beta1.IngressBackend backend = 2;</code>
        */
       public boolean hasBackend() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        *
@@ -26091,7 +27050,7 @@ public final class V1beta1Extensions {
         } else {
           backendBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -26112,7 +27071,7 @@ public final class V1beta1Extensions {
         } else {
           backendBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -26128,7 +27087,7 @@ public final class V1beta1Extensions {
       public Builder mergeBackend(
           io.kubernetes.client.proto.V1beta1Extensions.IngressBackend value) {
         if (backendBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)
+          if (((bitField0_ & 0x00000004) == 0x00000004)
               && backend_ != null
               && backend_
                   != io.kubernetes.client.proto.V1beta1Extensions.IngressBackend
@@ -26144,7 +27103,7 @@ public final class V1beta1Extensions {
         } else {
           backendBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -26164,7 +27123,7 @@ public final class V1beta1Extensions {
         } else {
           backendBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
@@ -26179,7 +27138,7 @@ public final class V1beta1Extensions {
        */
       public io.kubernetes.client.proto.V1beta1Extensions.IngressBackend.Builder
           getBackendBuilder() {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
         return getBackendFieldBuilder().getBuilder();
       }
@@ -27726,8 +28685,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.HostPortRange.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.HostPortRange.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.HostPortRange.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -28776,7 +29734,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * CIDR is a string representing the IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -28787,7 +29745,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * CIDR is a string representing the IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -28798,7 +29756,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * CIDR is a string representing the IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -28810,7 +29768,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Except is a slice of CIDRs that should not be included within an IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * Except values will be rejected if they are outside the CIDR range
      * +optional
      * </pre>
@@ -28823,7 +29781,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Except is a slice of CIDRs that should not be included within an IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * Except values will be rejected if they are outside the CIDR range
      * +optional
      * </pre>
@@ -28836,7 +29794,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Except is a slice of CIDRs that should not be included within an IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * Except values will be rejected if they are outside the CIDR range
      * +optional
      * </pre>
@@ -28849,7 +29807,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Except is a slice of CIDRs that should not be included within an IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * Except values will be rejected if they are outside the CIDR range
      * +optional
      * </pre>
@@ -28863,9 +29821,9 @@ public final class V1beta1Extensions {
    *
    * <pre>
    * DEPRECATED 1.9 - This group version of IPBlock is deprecated by networking/v1/IPBlock.
-   * IPBlock describes a particular CIDR (Ex. "192.168.1.1/24") that is allowed to the pods
-   * matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should
-   * not be included within this rule.
+   * IPBlock describes a particular CIDR (Ex. "192.168.1.1/24","2001:db9::/64") that is allowed
+   * to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs
+   * that should not be included within this rule.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.extensions.v1beta1.IPBlock}
@@ -28971,7 +29929,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * CIDR is a string representing the IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -28984,7 +29942,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * CIDR is a string representing the IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -29007,7 +29965,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * CIDR is a string representing the IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -29031,7 +29989,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Except is a slice of CIDRs that should not be included within an IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * Except values will be rejected if they are outside the CIDR range
      * +optional
      * </pre>
@@ -29046,7 +30004,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Except is a slice of CIDRs that should not be included within an IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * Except values will be rejected if they are outside the CIDR range
      * +optional
      * </pre>
@@ -29061,7 +30019,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Except is a slice of CIDRs that should not be included within an IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * Except values will be rejected if they are outside the CIDR range
      * +optional
      * </pre>
@@ -29076,7 +30034,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Except is a slice of CIDRs that should not be included within an IP Block
-     * Valid examples are "192.168.1.1/24"
+     * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
      * Except values will be rejected if they are outside the CIDR range
      * +optional
      * </pre>
@@ -29275,9 +30233,9 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * DEPRECATED 1.9 - This group version of IPBlock is deprecated by networking/v1/IPBlock.
-     * IPBlock describes a particular CIDR (Ex. "192.168.1.1/24") that is allowed to the pods
-     * matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs that should
-     * not be included within this rule.
+     * IPBlock describes a particular CIDR (Ex. "192.168.1.1/24","2001:db9::/64") that is allowed
+     * to the pods matched by a NetworkPolicySpec's podSelector. The except entry describes CIDRs
+     * that should not be included within this rule.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.extensions.v1beta1.IPBlock}
@@ -29467,7 +30425,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * CIDR is a string representing the IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -29480,7 +30438,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * CIDR is a string representing the IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -29503,7 +30461,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * CIDR is a string representing the IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -29524,7 +30482,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * CIDR is a string representing the IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -29543,7 +30501,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * CIDR is a string representing the IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -29559,7 +30517,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * CIDR is a string representing the IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -29588,7 +30546,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29603,7 +30561,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29618,7 +30576,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29633,7 +30591,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29648,7 +30606,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29669,7 +30627,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29690,7 +30648,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29708,7 +30666,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29726,7 +30684,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Except is a slice of CIDRs that should not be included within an IP Block
-       * Valid examples are "192.168.1.1/24"
+       * Valid examples are "192.168.1.1/24" or "2001:db9::/64"
        * Except values will be rejected if they are outside the CIDR range
        * +optional
        * </pre>
@@ -29806,7 +30764,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -29818,7 +30776,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -29830,7 +30788,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -29843,7 +30801,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec is the desired state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -29855,7 +30813,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec is the desired state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -29867,7 +30825,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec is the desired state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -29880,7 +30838,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Status is the current state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -29892,7 +30850,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Status is the current state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -29904,7 +30862,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Status is the current state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -29920,6 +30878,7 @@ public final class V1beta1Extensions {
    * endpoints defined by a backend. An Ingress can be configured to give services
    * externally-reachable urls, load balance traffic, terminate SSL, offer name
    * based virtual hosting etc.
+   * DEPRECATED - This group version of Ingress is deprecated by networking.k8s.io/v1beta1 Ingress. See the release notes for more information.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.extensions.v1beta1.Ingress}
@@ -30053,7 +31012,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -30067,7 +31026,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -30083,7 +31042,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -30102,7 +31061,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec is the desired state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -30116,7 +31075,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec is the desired state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -30132,7 +31091,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec is the desired state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -30151,7 +31110,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Status is the current state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -30165,7 +31124,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Status is the current state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -30181,7 +31140,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Status is the current state of the Ingress.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -30397,6 +31356,7 @@ public final class V1beta1Extensions {
      * endpoints defined by a backend. An Ingress can be configured to give services
      * externally-reachable urls, load balance traffic, terminate SSL, offer name
      * based virtual hosting etc.
+     * DEPRECATED - This group version of Ingress is deprecated by networking.k8s.io/v1beta1 Ingress. See the release notes for more information.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.extensions.v1beta1.Ingress}
@@ -30618,7 +31578,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30632,7 +31592,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30652,7 +31612,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30676,7 +31636,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30698,7 +31658,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30728,7 +31688,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30749,7 +31709,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30765,7 +31725,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30785,7 +31745,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -30819,7 +31779,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -30833,7 +31793,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -30853,7 +31813,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -30877,7 +31837,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -30899,7 +31859,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -30931,7 +31891,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -30952,7 +31912,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -30968,7 +31928,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -30988,7 +31948,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec is the desired state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31022,7 +31982,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31036,7 +31996,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31056,7 +32016,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31080,7 +32040,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31102,7 +32062,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31134,7 +32094,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31155,7 +32115,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31171,7 +32131,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31192,7 +32152,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Status is the current state of the Ingress.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -31278,6 +32238,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the name of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional string serviceName = 1;</code>
@@ -31288,6 +32249,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the name of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional string serviceName = 1;</code>
@@ -31298,6 +32260,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the name of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional string serviceName = 1;</code>
@@ -31309,6 +32272,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the port of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
@@ -31319,6 +32283,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the port of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
@@ -31329,11 +32294,52 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the port of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getServicePortOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * Resource is an ObjectRef to another Kubernetes resource in the namespace
+     * of the Ingress object. If resource is specified, serviceName and servicePort
+     * must not be specified.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+     */
+    boolean hasResource();
+    /**
+     *
+     *
+     * <pre>
+     * Resource is an ObjectRef to another Kubernetes resource in the namespace
+     * of the Ingress object. If resource is specified, serviceName and servicePort
+     * must not be specified.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+     */
+    io.kubernetes.client.proto.V1.TypedLocalObjectReference getResource();
+    /**
+     *
+     *
+     * <pre>
+     * Resource is an ObjectRef to another Kubernetes resource in the namespace
+     * of the Ingress object. If resource is specified, serviceName and servicePort
+     * must not be specified.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+     */
+    io.kubernetes.client.proto.V1.TypedLocalObjectReferenceOrBuilder getResourceOrBuilder();
   }
   /**
    *
@@ -31405,6 +32411,23 @@ public final class V1beta1Extensions {
                 bitField0_ |= 0x00000002;
                 break;
               }
+            case 26:
+              {
+                io.kubernetes.client.proto.V1.TypedLocalObjectReference.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                  subBuilder = resource_.toBuilder();
+                }
+                resource_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1.TypedLocalObjectReference.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(resource_);
+                  resource_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000004;
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -31447,6 +32470,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the name of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional string serviceName = 1;</code>
@@ -31459,6 +32483,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the name of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional string serviceName = 1;</code>
@@ -31481,6 +32506,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the name of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional string serviceName = 1;</code>
@@ -31504,6 +32530,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the port of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
@@ -31516,6 +32543,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the port of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
@@ -31530,6 +32558,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Specifies the port of the referenced service.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
@@ -31538,6 +32567,58 @@ public final class V1beta1Extensions {
       return servicePort_ == null
           ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
           : servicePort_;
+    }
+
+    public static final int RESOURCE_FIELD_NUMBER = 3;
+    private io.kubernetes.client.proto.V1.TypedLocalObjectReference resource_;
+    /**
+     *
+     *
+     * <pre>
+     * Resource is an ObjectRef to another Kubernetes resource in the namespace
+     * of the Ingress object. If resource is specified, serviceName and servicePort
+     * must not be specified.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+     */
+    public boolean hasResource() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Resource is an ObjectRef to another Kubernetes resource in the namespace
+     * of the Ingress object. If resource is specified, serviceName and servicePort
+     * must not be specified.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1.TypedLocalObjectReference getResource() {
+      return resource_ == null
+          ? io.kubernetes.client.proto.V1.TypedLocalObjectReference.getDefaultInstance()
+          : resource_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Resource is an ObjectRef to another Kubernetes resource in the namespace
+     * of the Ingress object. If resource is specified, serviceName and servicePort
+     * must not be specified.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+     */
+    public io.kubernetes.client.proto.V1.TypedLocalObjectReferenceOrBuilder getResourceOrBuilder() {
+      return resource_ == null
+          ? io.kubernetes.client.proto.V1.TypedLocalObjectReference.getDefaultInstance()
+          : resource_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -31560,6 +32641,9 @@ public final class V1beta1Extensions {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, getServicePort());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getResource());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -31574,6 +32658,9 @@ public final class V1beta1Extensions {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getServicePort());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, getResource());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31600,6 +32687,10 @@ public final class V1beta1Extensions {
       if (hasServicePort()) {
         result = result && getServicePort().equals(other.getServicePort());
       }
+      result = result && (hasResource() == other.hasResource());
+      if (hasResource()) {
+        result = result && getResource().equals(other.getResource());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -31618,6 +32709,10 @@ public final class V1beta1Extensions {
       if (hasServicePort()) {
         hash = (37 * hash) + SERVICEPORT_FIELD_NUMBER;
         hash = (53 * hash) + getServicePort().hashCode();
+      }
+      if (hasResource()) {
+        hash = (37 * hash) + RESOURCE_FIELD_NUMBER;
+        hash = (53 * hash) + getResource().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -31750,8 +32845,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.IngressBackend.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.IngressBackend.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.IngressBackend.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -31764,6 +32858,7 @@ public final class V1beta1Extensions {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getServicePortFieldBuilder();
+          getResourceFieldBuilder();
         }
       }
 
@@ -31778,6 +32873,12 @@ public final class V1beta1Extensions {
           servicePortBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (resourceBuilder_ == null) {
+          resource_ = null;
+        } else {
+          resourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -31819,6 +32920,14 @@ public final class V1beta1Extensions {
           result.servicePort_ = servicePort_;
         } else {
           result.servicePort_ = servicePortBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (resourceBuilder_ == null) {
+          result.resource_ = resource_;
+        } else {
+          result.resource_ = resourceBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -31882,6 +32991,9 @@ public final class V1beta1Extensions {
         if (other.hasServicePort()) {
           mergeServicePort(other.getServicePort());
         }
+        if (other.hasResource()) {
+          mergeResource(other.getResource());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -31921,6 +33033,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the name of the referenced service.
+       * +optional
        * </pre>
        *
        * <code>optional string serviceName = 1;</code>
@@ -31933,6 +33046,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the name of the referenced service.
+       * +optional
        * </pre>
        *
        * <code>optional string serviceName = 1;</code>
@@ -31955,6 +33069,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the name of the referenced service.
+       * +optional
        * </pre>
        *
        * <code>optional string serviceName = 1;</code>
@@ -31975,6 +33090,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the name of the referenced service.
+       * +optional
        * </pre>
        *
        * <code>optional string serviceName = 1;</code>
@@ -31993,6 +33109,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the name of the referenced service.
+       * +optional
        * </pre>
        *
        * <code>optional string serviceName = 1;</code>
@@ -32008,6 +33125,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the name of the referenced service.
+       * +optional
        * </pre>
        *
        * <code>optional string serviceName = 1;</code>
@@ -32033,10 +33151,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       public boolean hasServicePort() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -32046,10 +33164,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString getServicePort() {
         if (servicePortBuilder_ == null) {
@@ -32065,10 +33183,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       public Builder setServicePort(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (servicePortBuilder_ == null) {
@@ -32088,10 +33206,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       public Builder setServicePort(
           io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
@@ -32109,10 +33227,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       public Builder mergeServicePort(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (servicePortBuilder_ == null) {
@@ -32139,10 +33257,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       public Builder clearServicePort() {
         if (servicePortBuilder_ == null) {
@@ -32159,10 +33277,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString.Builder getServicePortBuilder() {
         bitField0_ |= 0x00000002;
@@ -32174,10 +33292,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getServicePortOrBuilder() {
         if (servicePortBuilder_ != null) {
@@ -32193,10 +33311,10 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Specifies the port of the referenced service.
+       * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString servicePort = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.IntStr.IntOrString,
@@ -32213,6 +33331,218 @@ public final class V1beta1Extensions {
           servicePort_ = null;
         }
         return servicePortBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V1.TypedLocalObjectReference resource_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1.TypedLocalObjectReference,
+              io.kubernetes.client.proto.V1.TypedLocalObjectReference.Builder,
+              io.kubernetes.client.proto.V1.TypedLocalObjectReferenceOrBuilder>
+          resourceBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      public boolean hasResource() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1.TypedLocalObjectReference getResource() {
+        if (resourceBuilder_ == null) {
+          return resource_ == null
+              ? io.kubernetes.client.proto.V1.TypedLocalObjectReference.getDefaultInstance()
+              : resource_;
+        } else {
+          return resourceBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      public Builder setResource(io.kubernetes.client.proto.V1.TypedLocalObjectReference value) {
+        if (resourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          resource_ = value;
+          onChanged();
+        } else {
+          resourceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      public Builder setResource(
+          io.kubernetes.client.proto.V1.TypedLocalObjectReference.Builder builderForValue) {
+        if (resourceBuilder_ == null) {
+          resource_ = builderForValue.build();
+          onChanged();
+        } else {
+          resourceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      public Builder mergeResource(io.kubernetes.client.proto.V1.TypedLocalObjectReference value) {
+        if (resourceBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)
+              && resource_ != null
+              && resource_
+                  != io.kubernetes.client.proto.V1.TypedLocalObjectReference.getDefaultInstance()) {
+            resource_ =
+                io.kubernetes.client.proto.V1.TypedLocalObjectReference.newBuilder(resource_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            resource_ = value;
+          }
+          onChanged();
+        } else {
+          resourceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      public Builder clearResource() {
+        if (resourceBuilder_ == null) {
+          resource_ = null;
+          onChanged();
+        } else {
+          resourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1.TypedLocalObjectReference.Builder getResourceBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getResourceFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      public io.kubernetes.client.proto.V1.TypedLocalObjectReferenceOrBuilder
+          getResourceOrBuilder() {
+        if (resourceBuilder_ != null) {
+          return resourceBuilder_.getMessageOrBuilder();
+        } else {
+          return resource_ == null
+              ? io.kubernetes.client.proto.V1.TypedLocalObjectReference.getDefaultInstance()
+              : resource_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Resource is an ObjectRef to another Kubernetes resource in the namespace
+       * of the Ingress object. If resource is specified, serviceName and servicePort
+       * must not be specified.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.core.v1.TypedLocalObjectReference resource = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1.TypedLocalObjectReference,
+              io.kubernetes.client.proto.V1.TypedLocalObjectReference.Builder,
+              io.kubernetes.client.proto.V1.TypedLocalObjectReferenceOrBuilder>
+          getResourceFieldBuilder() {
+        if (resourceBuilder_ == null) {
+          resourceBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1.TypedLocalObjectReference,
+                  io.kubernetes.client.proto.V1.TypedLocalObjectReference.Builder,
+                  io.kubernetes.client.proto.V1.TypedLocalObjectReferenceOrBuilder>(
+                  getResource(), getParentForChildren(), isClean());
+          resource_ = null;
+        }
+        return resourceBuilder_;
       }
 
       @java.lang.Override
@@ -32279,7 +33609,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -32291,7 +33621,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -32303,7 +33633,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -32485,7 +33815,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -32499,7 +33829,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -32515,7 +33845,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -33003,7 +34333,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33017,7 +34347,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33037,7 +34367,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33061,7 +34391,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33082,7 +34412,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33112,7 +34442,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33133,7 +34463,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33149,7 +34479,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33169,7 +34499,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -33615,18 +34945,27 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Host is the fully qualified domain name of a network host, as defined
-     * by RFC 3986. Note the following deviations from the "host" part of the
-     * URI as defined in the RFC:
-     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-     * 	  IP in the Spec of the parent Ingress.
+     * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+     * Note the following deviations from the "host" part of the
+     * URI as defined in RFC 3986:
+     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+     *    the IP in the Spec of the parent Ingress.
      * 2. The `:` delimiter is not respected because ports are not allowed.
      * 	  Currently the port of an Ingress is implicitly :80 for http and
      * 	  :443 for https.
      * Both these may change in the future.
-     * Incoming requests are matched against the host before the IngressRuleValue.
-     * If the host is unspecified, the Ingress routes all traffic based on the
-     * specified IngressRuleValue.
+     * Incoming requests are matched against the host before the
+     * IngressRuleValue. If the host is unspecified, the Ingress routes all
+     * traffic based on the specified IngressRuleValue.
+     * Host can be "precise" which is a domain name without the terminating dot of
+     * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+     * prefixed with a single wildcard label (e.g. "*.foo.com").
+     * The wildcard character '*' must appear by itself as the first DNS label and
+     * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+     * Requests will be matched against the Host field in the following way:
+     * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+     * 2. If Host is a wildcard, then the request matches this rule if the http host header
+     * is to equal to the suffix (removing the first label) of the wildcard rule.
      * +optional
      * </pre>
      *
@@ -33637,18 +34976,27 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Host is the fully qualified domain name of a network host, as defined
-     * by RFC 3986. Note the following deviations from the "host" part of the
-     * URI as defined in the RFC:
-     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-     * 	  IP in the Spec of the parent Ingress.
+     * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+     * Note the following deviations from the "host" part of the
+     * URI as defined in RFC 3986:
+     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+     *    the IP in the Spec of the parent Ingress.
      * 2. The `:` delimiter is not respected because ports are not allowed.
      * 	  Currently the port of an Ingress is implicitly :80 for http and
      * 	  :443 for https.
      * Both these may change in the future.
-     * Incoming requests are matched against the host before the IngressRuleValue.
-     * If the host is unspecified, the Ingress routes all traffic based on the
-     * specified IngressRuleValue.
+     * Incoming requests are matched against the host before the
+     * IngressRuleValue. If the host is unspecified, the Ingress routes all
+     * traffic based on the specified IngressRuleValue.
+     * Host can be "precise" which is a domain name without the terminating dot of
+     * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+     * prefixed with a single wildcard label (e.g. "*.foo.com").
+     * The wildcard character '*' must appear by itself as the first DNS label and
+     * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+     * Requests will be matched against the Host field in the following way:
+     * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+     * 2. If Host is a wildcard, then the request matches this rule if the http host header
+     * is to equal to the suffix (removing the first label) of the wildcard rule.
      * +optional
      * </pre>
      *
@@ -33659,18 +35007,27 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Host is the fully qualified domain name of a network host, as defined
-     * by RFC 3986. Note the following deviations from the "host" part of the
-     * URI as defined in the RFC:
-     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-     * 	  IP in the Spec of the parent Ingress.
+     * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+     * Note the following deviations from the "host" part of the
+     * URI as defined in RFC 3986:
+     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+     *    the IP in the Spec of the parent Ingress.
      * 2. The `:` delimiter is not respected because ports are not allowed.
      * 	  Currently the port of an Ingress is implicitly :80 for http and
      * 	  :443 for https.
      * Both these may change in the future.
-     * Incoming requests are matched against the host before the IngressRuleValue.
-     * If the host is unspecified, the Ingress routes all traffic based on the
-     * specified IngressRuleValue.
+     * Incoming requests are matched against the host before the
+     * IngressRuleValue. If the host is unspecified, the Ingress routes all
+     * traffic based on the specified IngressRuleValue.
+     * Host can be "precise" which is a domain name without the terminating dot of
+     * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+     * prefixed with a single wildcard label (e.g. "*.foo.com").
+     * The wildcard character '*' must appear by itself as the first DNS label and
+     * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+     * Requests will be matched against the Host field in the following way:
+     * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+     * 2. If Host is a wildcard, then the request matches this rule if the http host header
+     * is to equal to the suffix (removing the first label) of the wildcard rule.
      * +optional
      * </pre>
      *
@@ -33690,8 +35047,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
      */
     boolean hasIngressRuleValue();
     /**
@@ -33706,8 +35062,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue getIngressRuleValue();
     /**
@@ -33722,8 +35077,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValueOrBuilder
         getIngressRuleValueOrBuilder();
@@ -33843,18 +35197,27 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Host is the fully qualified domain name of a network host, as defined
-     * by RFC 3986. Note the following deviations from the "host" part of the
-     * URI as defined in the RFC:
-     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-     * 	  IP in the Spec of the parent Ingress.
+     * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+     * Note the following deviations from the "host" part of the
+     * URI as defined in RFC 3986:
+     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+     *    the IP in the Spec of the parent Ingress.
      * 2. The `:` delimiter is not respected because ports are not allowed.
      * 	  Currently the port of an Ingress is implicitly :80 for http and
      * 	  :443 for https.
      * Both these may change in the future.
-     * Incoming requests are matched against the host before the IngressRuleValue.
-     * If the host is unspecified, the Ingress routes all traffic based on the
-     * specified IngressRuleValue.
+     * Incoming requests are matched against the host before the
+     * IngressRuleValue. If the host is unspecified, the Ingress routes all
+     * traffic based on the specified IngressRuleValue.
+     * Host can be "precise" which is a domain name without the terminating dot of
+     * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+     * prefixed with a single wildcard label (e.g. "*.foo.com").
+     * The wildcard character '*' must appear by itself as the first DNS label and
+     * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+     * Requests will be matched against the Host field in the following way:
+     * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+     * 2. If Host is a wildcard, then the request matches this rule if the http host header
+     * is to equal to the suffix (removing the first label) of the wildcard rule.
      * +optional
      * </pre>
      *
@@ -33867,18 +35230,27 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Host is the fully qualified domain name of a network host, as defined
-     * by RFC 3986. Note the following deviations from the "host" part of the
-     * URI as defined in the RFC:
-     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-     * 	  IP in the Spec of the parent Ingress.
+     * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+     * Note the following deviations from the "host" part of the
+     * URI as defined in RFC 3986:
+     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+     *    the IP in the Spec of the parent Ingress.
      * 2. The `:` delimiter is not respected because ports are not allowed.
      * 	  Currently the port of an Ingress is implicitly :80 for http and
      * 	  :443 for https.
      * Both these may change in the future.
-     * Incoming requests are matched against the host before the IngressRuleValue.
-     * If the host is unspecified, the Ingress routes all traffic based on the
-     * specified IngressRuleValue.
+     * Incoming requests are matched against the host before the
+     * IngressRuleValue. If the host is unspecified, the Ingress routes all
+     * traffic based on the specified IngressRuleValue.
+     * Host can be "precise" which is a domain name without the terminating dot of
+     * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+     * prefixed with a single wildcard label (e.g. "*.foo.com").
+     * The wildcard character '*' must appear by itself as the first DNS label and
+     * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+     * Requests will be matched against the Host field in the following way:
+     * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+     * 2. If Host is a wildcard, then the request matches this rule if the http host header
+     * is to equal to the suffix (removing the first label) of the wildcard rule.
      * +optional
      * </pre>
      *
@@ -33901,18 +35273,27 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Host is the fully qualified domain name of a network host, as defined
-     * by RFC 3986. Note the following deviations from the "host" part of the
-     * URI as defined in the RFC:
-     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-     * 	  IP in the Spec of the parent Ingress.
+     * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+     * Note the following deviations from the "host" part of the
+     * URI as defined in RFC 3986:
+     * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+     *    the IP in the Spec of the parent Ingress.
      * 2. The `:` delimiter is not respected because ports are not allowed.
      * 	  Currently the port of an Ingress is implicitly :80 for http and
      * 	  :443 for https.
      * Both these may change in the future.
-     * Incoming requests are matched against the host before the IngressRuleValue.
-     * If the host is unspecified, the Ingress routes all traffic based on the
-     * specified IngressRuleValue.
+     * Incoming requests are matched against the host before the
+     * IngressRuleValue. If the host is unspecified, the Ingress routes all
+     * traffic based on the specified IngressRuleValue.
+     * Host can be "precise" which is a domain name without the terminating dot of
+     * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+     * prefixed with a single wildcard label (e.g. "*.foo.com").
+     * The wildcard character '*' must appear by itself as the first DNS label and
+     * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+     * Requests will be matched against the Host field in the following way:
+     * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+     * 2. If Host is a wildcard, then the request matches this rule if the http host header
+     * is to equal to the suffix (removing the first label) of the wildcard rule.
      * +optional
      * </pre>
      *
@@ -33944,8 +35325,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
      */
     public boolean hasIngressRuleValue() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -33962,8 +35342,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue getIngressRuleValue() {
       return ingressRuleValue_ == null
@@ -33982,8 +35361,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValueOrBuilder
         getIngressRuleValueOrBuilder() {
@@ -34370,18 +35748,27 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Host is the fully qualified domain name of a network host, as defined
-       * by RFC 3986. Note the following deviations from the "host" part of the
-       * URI as defined in the RFC:
-       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-       * 	  IP in the Spec of the parent Ingress.
+       * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+       * Note the following deviations from the "host" part of the
+       * URI as defined in RFC 3986:
+       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+       *    the IP in the Spec of the parent Ingress.
        * 2. The `:` delimiter is not respected because ports are not allowed.
        * 	  Currently the port of an Ingress is implicitly :80 for http and
        * 	  :443 for https.
        * Both these may change in the future.
-       * Incoming requests are matched against the host before the IngressRuleValue.
-       * If the host is unspecified, the Ingress routes all traffic based on the
-       * specified IngressRuleValue.
+       * Incoming requests are matched against the host before the
+       * IngressRuleValue. If the host is unspecified, the Ingress routes all
+       * traffic based on the specified IngressRuleValue.
+       * Host can be "precise" which is a domain name without the terminating dot of
+       * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+       * prefixed with a single wildcard label (e.g. "*.foo.com").
+       * The wildcard character '*' must appear by itself as the first DNS label and
+       * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+       * Requests will be matched against the Host field in the following way:
+       * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+       * 2. If Host is a wildcard, then the request matches this rule if the http host header
+       * is to equal to the suffix (removing the first label) of the wildcard rule.
        * +optional
        * </pre>
        *
@@ -34394,18 +35781,27 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Host is the fully qualified domain name of a network host, as defined
-       * by RFC 3986. Note the following deviations from the "host" part of the
-       * URI as defined in the RFC:
-       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-       * 	  IP in the Spec of the parent Ingress.
+       * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+       * Note the following deviations from the "host" part of the
+       * URI as defined in RFC 3986:
+       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+       *    the IP in the Spec of the parent Ingress.
        * 2. The `:` delimiter is not respected because ports are not allowed.
        * 	  Currently the port of an Ingress is implicitly :80 for http and
        * 	  :443 for https.
        * Both these may change in the future.
-       * Incoming requests are matched against the host before the IngressRuleValue.
-       * If the host is unspecified, the Ingress routes all traffic based on the
-       * specified IngressRuleValue.
+       * Incoming requests are matched against the host before the
+       * IngressRuleValue. If the host is unspecified, the Ingress routes all
+       * traffic based on the specified IngressRuleValue.
+       * Host can be "precise" which is a domain name without the terminating dot of
+       * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+       * prefixed with a single wildcard label (e.g. "*.foo.com").
+       * The wildcard character '*' must appear by itself as the first DNS label and
+       * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+       * Requests will be matched against the Host field in the following way:
+       * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+       * 2. If Host is a wildcard, then the request matches this rule if the http host header
+       * is to equal to the suffix (removing the first label) of the wildcard rule.
        * +optional
        * </pre>
        *
@@ -34428,18 +35824,27 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Host is the fully qualified domain name of a network host, as defined
-       * by RFC 3986. Note the following deviations from the "host" part of the
-       * URI as defined in the RFC:
-       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-       * 	  IP in the Spec of the parent Ingress.
+       * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+       * Note the following deviations from the "host" part of the
+       * URI as defined in RFC 3986:
+       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+       *    the IP in the Spec of the parent Ingress.
        * 2. The `:` delimiter is not respected because ports are not allowed.
        * 	  Currently the port of an Ingress is implicitly :80 for http and
        * 	  :443 for https.
        * Both these may change in the future.
-       * Incoming requests are matched against the host before the IngressRuleValue.
-       * If the host is unspecified, the Ingress routes all traffic based on the
-       * specified IngressRuleValue.
+       * Incoming requests are matched against the host before the
+       * IngressRuleValue. If the host is unspecified, the Ingress routes all
+       * traffic based on the specified IngressRuleValue.
+       * Host can be "precise" which is a domain name without the terminating dot of
+       * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+       * prefixed with a single wildcard label (e.g. "*.foo.com").
+       * The wildcard character '*' must appear by itself as the first DNS label and
+       * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+       * Requests will be matched against the Host field in the following way:
+       * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+       * 2. If Host is a wildcard, then the request matches this rule if the http host header
+       * is to equal to the suffix (removing the first label) of the wildcard rule.
        * +optional
        * </pre>
        *
@@ -34460,18 +35865,27 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Host is the fully qualified domain name of a network host, as defined
-       * by RFC 3986. Note the following deviations from the "host" part of the
-       * URI as defined in the RFC:
-       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-       * 	  IP in the Spec of the parent Ingress.
+       * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+       * Note the following deviations from the "host" part of the
+       * URI as defined in RFC 3986:
+       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+       *    the IP in the Spec of the parent Ingress.
        * 2. The `:` delimiter is not respected because ports are not allowed.
        * 	  Currently the port of an Ingress is implicitly :80 for http and
        * 	  :443 for https.
        * Both these may change in the future.
-       * Incoming requests are matched against the host before the IngressRuleValue.
-       * If the host is unspecified, the Ingress routes all traffic based on the
-       * specified IngressRuleValue.
+       * Incoming requests are matched against the host before the
+       * IngressRuleValue. If the host is unspecified, the Ingress routes all
+       * traffic based on the specified IngressRuleValue.
+       * Host can be "precise" which is a domain name without the terminating dot of
+       * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+       * prefixed with a single wildcard label (e.g. "*.foo.com").
+       * The wildcard character '*' must appear by itself as the first DNS label and
+       * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+       * Requests will be matched against the Host field in the following way:
+       * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+       * 2. If Host is a wildcard, then the request matches this rule if the http host header
+       * is to equal to the suffix (removing the first label) of the wildcard rule.
        * +optional
        * </pre>
        *
@@ -34490,18 +35904,27 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Host is the fully qualified domain name of a network host, as defined
-       * by RFC 3986. Note the following deviations from the "host" part of the
-       * URI as defined in the RFC:
-       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-       * 	  IP in the Spec of the parent Ingress.
+       * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+       * Note the following deviations from the "host" part of the
+       * URI as defined in RFC 3986:
+       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+       *    the IP in the Spec of the parent Ingress.
        * 2. The `:` delimiter is not respected because ports are not allowed.
        * 	  Currently the port of an Ingress is implicitly :80 for http and
        * 	  :443 for https.
        * Both these may change in the future.
-       * Incoming requests are matched against the host before the IngressRuleValue.
-       * If the host is unspecified, the Ingress routes all traffic based on the
-       * specified IngressRuleValue.
+       * Incoming requests are matched against the host before the
+       * IngressRuleValue. If the host is unspecified, the Ingress routes all
+       * traffic based on the specified IngressRuleValue.
+       * Host can be "precise" which is a domain name without the terminating dot of
+       * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+       * prefixed with a single wildcard label (e.g. "*.foo.com").
+       * The wildcard character '*' must appear by itself as the first DNS label and
+       * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+       * Requests will be matched against the Host field in the following way:
+       * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+       * 2. If Host is a wildcard, then the request matches this rule if the http host header
+       * is to equal to the suffix (removing the first label) of the wildcard rule.
        * +optional
        * </pre>
        *
@@ -34517,18 +35940,27 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Host is the fully qualified domain name of a network host, as defined
-       * by RFC 3986. Note the following deviations from the "host" part of the
-       * URI as defined in the RFC:
-       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to the
-       * 	  IP in the Spec of the parent Ingress.
+       * Host is the fully qualified domain name of a network host, as defined by RFC 3986.
+       * Note the following deviations from the "host" part of the
+       * URI as defined in RFC 3986:
+       * 1. IPs are not allowed. Currently an IngressRuleValue can only apply to
+       *    the IP in the Spec of the parent Ingress.
        * 2. The `:` delimiter is not respected because ports are not allowed.
        * 	  Currently the port of an Ingress is implicitly :80 for http and
        * 	  :443 for https.
        * Both these may change in the future.
-       * Incoming requests are matched against the host before the IngressRuleValue.
-       * If the host is unspecified, the Ingress routes all traffic based on the
-       * specified IngressRuleValue.
+       * Incoming requests are matched against the host before the
+       * IngressRuleValue. If the host is unspecified, the Ingress routes all
+       * traffic based on the specified IngressRuleValue.
+       * Host can be "precise" which is a domain name without the terminating dot of
+       * a network host (e.g. "foo.bar.com") or "wildcard", which is a domain name
+       * prefixed with a single wildcard label (e.g. "*.foo.com").
+       * The wildcard character '*' must appear by itself as the first DNS label and
+       * matches only a single label. You cannot have a wildcard label by itself (e.g. Host == "*").
+       * Requests will be matched against the Host field in the following way:
+       * 1. If Host is precise, the request matches this rule if the http host header is equal to Host.
+       * 2. If Host is a wildcard, then the request matches this rule if the http host header
+       * is to equal to the suffix (removing the first label) of the wildcard rule.
        * +optional
        * </pre>
        *
@@ -34563,8 +35995,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       public boolean hasIngressRuleValue() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -34581,8 +36012,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue getIngressRuleValue() {
         if (ingressRuleValueBuilder_ == null) {
@@ -34605,8 +36035,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       public Builder setIngressRuleValue(
           io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue value) {
@@ -34634,8 +36063,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       public Builder setIngressRuleValue(
           io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue.Builder builderForValue) {
@@ -34660,8 +36088,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       public Builder mergeIngressRuleValue(
           io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue value) {
@@ -34698,8 +36125,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       public Builder clearIngressRuleValue() {
         if (ingressRuleValueBuilder_ == null) {
@@ -34723,8 +36149,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue.Builder
           getIngressRuleValueBuilder() {
@@ -34744,8 +36169,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValueOrBuilder
           getIngressRuleValueOrBuilder() {
@@ -34769,8 +36193,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.IngressRuleValue ingressRuleValue = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue,
@@ -34851,7 +36274,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * +optional
+     * http is a list of http selectors pointing to backends.
+     * A path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'.
+     * A backend defines the referenced service endpoint to which the traffic
+     * will be forwarded to.
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -34861,7 +36289,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * +optional
+     * http is a list of http selectors pointing to backends.
+     * A path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'.
+     * A backend defines the referenced service endpoint to which the traffic
+     * will be forwarded to.
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -34871,7 +36304,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * +optional
+     * http is a list of http selectors pointing to backends.
+     * A path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'.
+     * A backend defines the referenced service endpoint to which the traffic
+     * will be forwarded to.
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -34985,7 +36423,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * +optional
+     * http is a list of http selectors pointing to backends.
+     * A path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'.
+     * A backend defines the referenced service endpoint to which the traffic
+     * will be forwarded to.
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -34997,7 +36440,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * +optional
+     * http is a list of http selectors pointing to backends.
+     * A path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'.
+     * A backend defines the referenced service endpoint to which the traffic
+     * will be forwarded to.
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35011,7 +36459,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * +optional
+     * http is a list of http selectors pointing to backends.
+     * A path is matched against the path of an incoming request. Currently it can
+     * contain characters disallowed from the conventional "path" part of a URL
+     * as defined by RFC 3986. Paths must begin with a '/'.
+     * A backend defines the referenced service endpoint to which the traffic
+     * will be forwarded to.
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35222,8 +36675,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.IngressRuleValue.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -35387,7 +36839,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35399,7 +36856,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35418,7 +36880,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35441,7 +36908,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35462,7 +36934,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35493,7 +36970,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35512,7 +36994,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35527,7 +37014,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35547,7 +37039,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * +optional
+       * http is a list of http selectors pointing to backends.
+       * A path is matched against the path of an incoming request. Currently it can
+       * contain characters disallowed from the conventional "path" part of a URL
+       * as defined by RFC 3986. Paths must begin with a '/'.
+       * A backend defines the referenced service endpoint to which the traffic
+       * will be forwarded to.
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.HTTPIngressRuleValue http = 1;</code>
@@ -35629,6 +37126,67 @@ public final class V1beta1Extensions {
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.extensions.v1beta1.IngressSpec)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * IngressClassName is the name of the IngressClass cluster resource. The
+     * associated IngressClass defines which controller will implement the
+     * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+     * annotation. For backwards compatibility, when that annotation is set, it
+     * must be given precedence over this field. The controller may emit a
+     * warning if the field and annotation have different values.
+     * Implementations of this API should ignore Ingresses without a class
+     * specified. An IngressClass resource may be marked as default, which can
+     * be used to set a default value for this field. For more information,
+     * refer to the IngressClass documentation.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string ingressClassName = 4;</code>
+     */
+    boolean hasIngressClassName();
+    /**
+     *
+     *
+     * <pre>
+     * IngressClassName is the name of the IngressClass cluster resource. The
+     * associated IngressClass defines which controller will implement the
+     * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+     * annotation. For backwards compatibility, when that annotation is set, it
+     * must be given precedence over this field. The controller may emit a
+     * warning if the field and annotation have different values.
+     * Implementations of this API should ignore Ingresses without a class
+     * specified. An IngressClass resource may be marked as default, which can
+     * be used to set a default value for this field. For more information,
+     * refer to the IngressClass documentation.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string ingressClassName = 4;</code>
+     */
+    java.lang.String getIngressClassName();
+    /**
+     *
+     *
+     * <pre>
+     * IngressClassName is the name of the IngressClass cluster resource. The
+     * associated IngressClass defines which controller will implement the
+     * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+     * annotation. For backwards compatibility, when that annotation is set, it
+     * must be given precedence over this field. The controller may emit a
+     * warning if the field and annotation have different values.
+     * Implementations of this API should ignore Ingresses without a class
+     * specified. An IngressClass resource may be marked as default, which can
+     * be used to set a default value for this field. For more information,
+     * refer to the IngressClass documentation.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string ingressClassName = 4;</code>
+     */
+    com.google.protobuf.ByteString getIngressClassNameBytes();
 
     /**
      *
@@ -35832,6 +37390,7 @@ public final class V1beta1Extensions {
     }
 
     private IngressSpec() {
+      ingressClassName_ = "";
       tls_ = java.util.Collections.emptyList();
       rules_ = java.util.Collections.emptyList();
     }
@@ -35864,7 +37423,7 @@ public final class V1beta1Extensions {
               {
                 io.kubernetes.client.proto.V1beta1Extensions.IngressBackend.Builder subBuilder =
                     null;
-                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
                   subBuilder = backend_.toBuilder();
                 }
                 backend_ =
@@ -35875,16 +37434,16 @@ public final class V1beta1Extensions {
                   subBuilder.mergeFrom(backend_);
                   backend_ = subBuilder.buildPartial();
                 }
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
                 break;
               }
             case 18:
               {
-                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                   tls_ =
                       new java.util.ArrayList<
                           io.kubernetes.client.proto.V1beta1Extensions.IngressTLS>();
-                  mutable_bitField0_ |= 0x00000002;
+                  mutable_bitField0_ |= 0x00000004;
                 }
                 tls_.add(
                     input.readMessage(
@@ -35894,16 +37453,23 @@ public final class V1beta1Extensions {
               }
             case 26:
               {
-                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                   rules_ =
                       new java.util.ArrayList<
                           io.kubernetes.client.proto.V1beta1Extensions.IngressRule>();
-                  mutable_bitField0_ |= 0x00000004;
+                  mutable_bitField0_ |= 0x00000008;
                 }
                 rules_.add(
                     input.readMessage(
                         io.kubernetes.client.proto.V1beta1Extensions.IngressRule.PARSER,
                         extensionRegistry));
+                break;
+              }
+            case 34:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                ingressClassName_ = bs;
                 break;
               }
             default:
@@ -35920,10 +37486,10 @@ public final class V1beta1Extensions {
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           tls_ = java.util.Collections.unmodifiableList(tls_);
         }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           rules_ = java.util.Collections.unmodifiableList(rules_);
         }
         this.unknownFields = unknownFields.build();
@@ -35947,6 +37513,93 @@ public final class V1beta1Extensions {
     }
 
     private int bitField0_;
+    public static final int INGRESSCLASSNAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object ingressClassName_;
+    /**
+     *
+     *
+     * <pre>
+     * IngressClassName is the name of the IngressClass cluster resource. The
+     * associated IngressClass defines which controller will implement the
+     * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+     * annotation. For backwards compatibility, when that annotation is set, it
+     * must be given precedence over this field. The controller may emit a
+     * warning if the field and annotation have different values.
+     * Implementations of this API should ignore Ingresses without a class
+     * specified. An IngressClass resource may be marked as default, which can
+     * be used to set a default value for this field. For more information,
+     * refer to the IngressClass documentation.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string ingressClassName = 4;</code>
+     */
+    public boolean hasIngressClassName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * IngressClassName is the name of the IngressClass cluster resource. The
+     * associated IngressClass defines which controller will implement the
+     * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+     * annotation. For backwards compatibility, when that annotation is set, it
+     * must be given precedence over this field. The controller may emit a
+     * warning if the field and annotation have different values.
+     * Implementations of this API should ignore Ingresses without a class
+     * specified. An IngressClass resource may be marked as default, which can
+     * be used to set a default value for this field. For more information,
+     * refer to the IngressClass documentation.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string ingressClassName = 4;</code>
+     */
+    public java.lang.String getIngressClassName() {
+      java.lang.Object ref = ingressClassName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          ingressClassName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * IngressClassName is the name of the IngressClass cluster resource. The
+     * associated IngressClass defines which controller will implement the
+     * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+     * annotation. For backwards compatibility, when that annotation is set, it
+     * must be given precedence over this field. The controller may emit a
+     * warning if the field and annotation have different values.
+     * Implementations of this API should ignore Ingresses without a class
+     * specified. An IngressClass resource may be marked as default, which can
+     * be used to set a default value for this field. For more information,
+     * refer to the IngressClass documentation.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string ingressClassName = 4;</code>
+     */
+    public com.google.protobuf.ByteString getIngressClassNameBytes() {
+      java.lang.Object ref = ingressClassName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        ingressClassName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int BACKEND_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.V1beta1Extensions.IngressBackend backend_;
     /**
@@ -35963,7 +37616,7 @@ public final class V1beta1Extensions {
      * <code>optional .k8s.io.api.extensions.v1beta1.IngressBackend backend = 1;</code>
      */
     public boolean hasBackend() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      *
@@ -36184,7 +37837,7 @@ public final class V1beta1Extensions {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(1, getBackend());
       }
       for (int i = 0; i < tls_.size(); i++) {
@@ -36192,6 +37845,9 @@ public final class V1beta1Extensions {
       }
       for (int i = 0; i < rules_.size(); i++) {
         output.writeMessage(3, rules_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, ingressClassName_);
       }
       unknownFields.writeTo(output);
     }
@@ -36202,7 +37858,7 @@ public final class V1beta1Extensions {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getBackend());
       }
       for (int i = 0; i < tls_.size(); i++) {
@@ -36210,6 +37866,9 @@ public final class V1beta1Extensions {
       }
       for (int i = 0; i < rules_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(3, rules_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, ingressClassName_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -36228,6 +37887,10 @@ public final class V1beta1Extensions {
           (io.kubernetes.client.proto.V1beta1Extensions.IngressSpec) obj;
 
       boolean result = true;
+      result = result && (hasIngressClassName() == other.hasIngressClassName());
+      if (hasIngressClassName()) {
+        result = result && getIngressClassName().equals(other.getIngressClassName());
+      }
       result = result && (hasBackend() == other.hasBackend());
       if (hasBackend()) {
         result = result && getBackend().equals(other.getBackend());
@@ -36245,6 +37908,10 @@ public final class V1beta1Extensions {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasIngressClassName()) {
+        hash = (37 * hash) + INGRESSCLASSNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getIngressClassName().hashCode();
+      }
       if (hasBackend()) {
         hash = (37 * hash) + BACKEND_FIELD_NUMBER;
         hash = (53 * hash) + getBackend().hashCode();
@@ -36409,21 +38076,23 @@ public final class V1beta1Extensions {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        ingressClassName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (backendBuilder_ == null) {
           backend_ = null;
         } else {
           backendBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (tlsBuilder_ == null) {
           tls_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           tlsBuilder_.clear();
         }
         if (rulesBuilder_ == null) {
           rules_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           rulesBuilder_.clear();
         }
@@ -36459,24 +38128,28 @@ public final class V1beta1Extensions {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
+        result.ingressClassName_ = ingressClassName_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         if (backendBuilder_ == null) {
           result.backend_ = backend_;
         } else {
           result.backend_ = backendBuilder_.build();
         }
         if (tlsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             tls_ = java.util.Collections.unmodifiableList(tls_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.tls_ = tls_;
         } else {
           result.tls_ = tlsBuilder_.build();
         }
         if (rulesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
             rules_ = java.util.Collections.unmodifiableList(rules_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.rules_ = rules_;
         } else {
@@ -36535,6 +38208,11 @@ public final class V1beta1Extensions {
       public Builder mergeFrom(io.kubernetes.client.proto.V1beta1Extensions.IngressSpec other) {
         if (other == io.kubernetes.client.proto.V1beta1Extensions.IngressSpec.getDefaultInstance())
           return this;
+        if (other.hasIngressClassName()) {
+          bitField0_ |= 0x00000001;
+          ingressClassName_ = other.ingressClassName_;
+          onChanged();
+        }
         if (other.hasBackend()) {
           mergeBackend(other.getBackend());
         }
@@ -36542,7 +38220,7 @@ public final class V1beta1Extensions {
           if (!other.tls_.isEmpty()) {
             if (tls_.isEmpty()) {
               tls_ = other.tls_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureTlsIsMutable();
               tls_.addAll(other.tls_);
@@ -36555,7 +38233,7 @@ public final class V1beta1Extensions {
               tlsBuilder_.dispose();
               tlsBuilder_ = null;
               tls_ = other.tls_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
               tlsBuilder_ =
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
                       ? getTlsFieldBuilder()
@@ -36569,7 +38247,7 @@ public final class V1beta1Extensions {
           if (!other.rules_.isEmpty()) {
             if (rules_.isEmpty()) {
               rules_ = other.rules_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureRulesIsMutable();
               rules_.addAll(other.rules_);
@@ -36582,7 +38260,7 @@ public final class V1beta1Extensions {
               rulesBuilder_.dispose();
               rulesBuilder_ = null;
               rules_ = other.rules_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               rulesBuilder_ =
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
                       ? getRulesFieldBuilder()
@@ -36624,6 +38302,173 @@ public final class V1beta1Extensions {
 
       private int bitField0_;
 
+      private java.lang.Object ingressClassName_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * IngressClassName is the name of the IngressClass cluster resource. The
+       * associated IngressClass defines which controller will implement the
+       * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+       * annotation. For backwards compatibility, when that annotation is set, it
+       * must be given precedence over this field. The controller may emit a
+       * warning if the field and annotation have different values.
+       * Implementations of this API should ignore Ingresses without a class
+       * specified. An IngressClass resource may be marked as default, which can
+       * be used to set a default value for this field. For more information,
+       * refer to the IngressClass documentation.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string ingressClassName = 4;</code>
+       */
+      public boolean hasIngressClassName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * IngressClassName is the name of the IngressClass cluster resource. The
+       * associated IngressClass defines which controller will implement the
+       * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+       * annotation. For backwards compatibility, when that annotation is set, it
+       * must be given precedence over this field. The controller may emit a
+       * warning if the field and annotation have different values.
+       * Implementations of this API should ignore Ingresses without a class
+       * specified. An IngressClass resource may be marked as default, which can
+       * be used to set a default value for this field. For more information,
+       * refer to the IngressClass documentation.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string ingressClassName = 4;</code>
+       */
+      public java.lang.String getIngressClassName() {
+        java.lang.Object ref = ingressClassName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            ingressClassName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * IngressClassName is the name of the IngressClass cluster resource. The
+       * associated IngressClass defines which controller will implement the
+       * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+       * annotation. For backwards compatibility, when that annotation is set, it
+       * must be given precedence over this field. The controller may emit a
+       * warning if the field and annotation have different values.
+       * Implementations of this API should ignore Ingresses without a class
+       * specified. An IngressClass resource may be marked as default, which can
+       * be used to set a default value for this field. For more information,
+       * refer to the IngressClass documentation.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string ingressClassName = 4;</code>
+       */
+      public com.google.protobuf.ByteString getIngressClassNameBytes() {
+        java.lang.Object ref = ingressClassName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          ingressClassName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * IngressClassName is the name of the IngressClass cluster resource. The
+       * associated IngressClass defines which controller will implement the
+       * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+       * annotation. For backwards compatibility, when that annotation is set, it
+       * must be given precedence over this field. The controller may emit a
+       * warning if the field and annotation have different values.
+       * Implementations of this API should ignore Ingresses without a class
+       * specified. An IngressClass resource may be marked as default, which can
+       * be used to set a default value for this field. For more information,
+       * refer to the IngressClass documentation.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string ingressClassName = 4;</code>
+       */
+      public Builder setIngressClassName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        ingressClassName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * IngressClassName is the name of the IngressClass cluster resource. The
+       * associated IngressClass defines which controller will implement the
+       * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+       * annotation. For backwards compatibility, when that annotation is set, it
+       * must be given precedence over this field. The controller may emit a
+       * warning if the field and annotation have different values.
+       * Implementations of this API should ignore Ingresses without a class
+       * specified. An IngressClass resource may be marked as default, which can
+       * be used to set a default value for this field. For more information,
+       * refer to the IngressClass documentation.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string ingressClassName = 4;</code>
+       */
+      public Builder clearIngressClassName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        ingressClassName_ = getDefaultInstance().getIngressClassName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * IngressClassName is the name of the IngressClass cluster resource. The
+       * associated IngressClass defines which controller will implement the
+       * resource. This replaces the deprecated `kubernetes.io/ingress.class`
+       * annotation. For backwards compatibility, when that annotation is set, it
+       * must be given precedence over this field. The controller may emit a
+       * warning if the field and annotation have different values.
+       * Implementations of this API should ignore Ingresses without a class
+       * specified. An IngressClass resource may be marked as default, which can
+       * be used to set a default value for this field. For more information,
+       * refer to the IngressClass documentation.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string ingressClassName = 4;</code>
+       */
+      public Builder setIngressClassNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        ingressClassName_ = value;
+        onChanged();
+        return this;
+      }
+
       private io.kubernetes.client.proto.V1beta1Extensions.IngressBackend backend_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Extensions.IngressBackend,
@@ -36644,7 +38489,7 @@ public final class V1beta1Extensions {
        * <code>optional .k8s.io.api.extensions.v1beta1.IngressBackend backend = 1;</code>
        */
       public boolean hasBackend() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        *
@@ -36691,7 +38536,7 @@ public final class V1beta1Extensions {
         } else {
           backendBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -36715,7 +38560,7 @@ public final class V1beta1Extensions {
         } else {
           backendBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -36734,7 +38579,7 @@ public final class V1beta1Extensions {
       public Builder mergeBackend(
           io.kubernetes.client.proto.V1beta1Extensions.IngressBackend value) {
         if (backendBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)
+          if (((bitField0_ & 0x00000002) == 0x00000002)
               && backend_ != null
               && backend_
                   != io.kubernetes.client.proto.V1beta1Extensions.IngressBackend
@@ -36750,7 +38595,7 @@ public final class V1beta1Extensions {
         } else {
           backendBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -36773,7 +38618,7 @@ public final class V1beta1Extensions {
         } else {
           backendBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
@@ -36791,7 +38636,7 @@ public final class V1beta1Extensions {
        */
       public io.kubernetes.client.proto.V1beta1Extensions.IngressBackend.Builder
           getBackendBuilder() {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         onChanged();
         return getBackendFieldBuilder().getBuilder();
       }
@@ -36852,11 +38697,11 @@ public final class V1beta1Extensions {
           java.util.Collections.emptyList();
 
       private void ensureTlsIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           tls_ =
               new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Extensions.IngressTLS>(
                   tls_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
         }
       }
 
@@ -37132,7 +38977,7 @@ public final class V1beta1Extensions {
       public Builder clearTls() {
         if (tlsBuilder_ == null) {
           tls_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           tlsBuilder_.clear();
@@ -37297,7 +39142,7 @@ public final class V1beta1Extensions {
                   io.kubernetes.client.proto.V1beta1Extensions.IngressTLS.Builder,
                   io.kubernetes.client.proto.V1beta1Extensions.IngressTLSOrBuilder>(
                   tls_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           tls_ = null;
@@ -37309,11 +39154,11 @@ public final class V1beta1Extensions {
           java.util.Collections.emptyList();
 
       private void ensureRulesIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           rules_ =
               new java.util.ArrayList<io.kubernetes.client.proto.V1beta1Extensions.IngressRule>(
                   rules_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
         }
       }
 
@@ -37557,7 +39402,7 @@ public final class V1beta1Extensions {
       public Builder clearRules() {
         if (rulesBuilder_ == null) {
           rules_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           rulesBuilder_.clear();
@@ -37701,7 +39546,7 @@ public final class V1beta1Extensions {
                   io.kubernetes.client.proto.V1beta1Extensions.IngressRule.Builder,
                   io.kubernetes.client.proto.V1beta1Extensions.IngressRuleOrBuilder>(
                   rules_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
           rules_ = null;
@@ -38139,8 +39984,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.IngressStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.IngressStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.IngressStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -39638,7 +41482,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -39650,7 +41494,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -39662,7 +41506,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -39826,7 +41670,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -39840,7 +41684,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -39856,7 +41700,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -40126,8 +41970,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicy.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicy.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicy.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -40308,7 +42151,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -40322,7 +42165,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -40342,7 +42185,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -40366,7 +42209,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -40388,7 +42231,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -40418,7 +42261,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -40439,7 +42282,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -40455,7 +42298,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -40475,7 +42318,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -42718,7 +44561,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -42733,7 +44576,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -42748,7 +44591,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -42763,7 +44606,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -42780,7 +44623,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -43008,7 +44851,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -43026,7 +44869,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -43045,7 +44888,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -43062,7 +44905,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -43079,7 +44922,7 @@ public final class V1beta1Extensions {
      * List of sources which should be able to access the pods selected for this rule.
      * Items in this list are combined using a logical OR operation.
      * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-     * If this field is present and contains at least on item, this rule allows traffic only if the
+     * If this field is present and contains at least one item, this rule allows traffic only if the
      * traffic matches at least one item in the from list.
      * +optional
      * </pre>
@@ -44011,7 +45854,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44033,7 +45876,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44054,7 +45897,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44075,7 +45918,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44103,7 +45946,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44129,7 +45972,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44156,7 +45999,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44184,7 +46027,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44209,7 +46052,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44235,7 +46078,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44262,7 +46105,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44286,7 +46129,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44310,7 +46153,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44328,7 +46171,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44350,7 +46193,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44373,7 +46216,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44394,7 +46237,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44416,7 +46259,7 @@ public final class V1beta1Extensions {
        * List of sources which should be able to access the pods selected for this rule.
        * Items in this list are combined using a logical OR operation.
        * If this field is empty or missing, this rule matches all sources (traffic not restricted by source).
-       * If this field is present and contains at least on item, this rule allows traffic only if the
+       * If this field is present and contains at least one item, this rule allows traffic only if the
        * traffic matches at least one item in the from list.
        * +optional
        * </pre>
@@ -44515,7 +46358,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -44527,7 +46370,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -44539,7 +46382,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -44723,7 +46566,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -44737,7 +46580,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -44753,7 +46596,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -45040,8 +46883,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyList.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyList.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -45249,7 +47091,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45263,7 +47105,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45283,7 +47125,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45307,7 +47149,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45328,7 +47170,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45358,7 +47200,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45379,7 +47221,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45395,7 +47237,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45415,7 +47257,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -45879,8 +47721,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     boolean hasPodSelector();
     /**
@@ -45895,8 +47736,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     io.kubernetes.client.proto.Meta.LabelSelector getPodSelector();
     /**
@@ -45911,8 +47751,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getPodSelectorOrBuilder();
 
@@ -46145,8 +47984,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     public boolean hasPodSelector() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -46163,8 +48001,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelector getPodSelector() {
       return podSelector_ == null
@@ -46183,8 +48020,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getPodSelectorOrBuilder() {
       return podSelector_ == null
@@ -46526,8 +48362,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyPeer.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyPeer.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyPeer.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -46735,8 +48570,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public boolean hasPodSelector() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -46753,8 +48587,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getPodSelector() {
         if (podSelectorBuilder_ == null) {
@@ -46777,8 +48610,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public Builder setPodSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (podSelectorBuilder_ == null) {
@@ -46805,8 +48637,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public Builder setPodSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -46831,8 +48662,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public Builder mergePodSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (podSelectorBuilder_ == null) {
@@ -46866,8 +48696,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public Builder clearPodSelector() {
         if (podSelectorBuilder_ == null) {
@@ -46891,8 +48720,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getPodSelectorBuilder() {
         bitField0_ |= 0x00000001;
@@ -46911,8 +48739,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getPodSelectorOrBuilder() {
         if (podSelectorBuilder_ != null) {
@@ -46935,8 +48762,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -46973,8 +48799,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       public boolean hasNamespaceSelector() {
@@ -46992,8 +48817,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getNamespaceSelector() {
@@ -47017,8 +48841,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       public Builder setNamespaceSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
@@ -47046,8 +48869,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       public Builder setNamespaceSelector(
@@ -47073,8 +48895,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       public Builder mergeNamespaceSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
@@ -47109,8 +48930,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       public Builder clearNamespaceSelector() {
@@ -47135,8 +48955,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getNamespaceSelectorBuilder() {
@@ -47156,8 +48975,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder
@@ -47182,8 +49000,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector namespaceSelector = 2;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -47507,11 +49324,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * If specified, the port on the given protocol.  This can
-     * either be a numerical or named port on a pod.  If this field is not provided,
-     * this matches all port names and numbers.
-     * If present, only traffic on the specified protocol AND port
-     * will be matched.
+     * The port on the given protocol. This can either be a numerical or named
+     * port on a pod. If this field is not provided, this matches all port names and
+     * numbers.
+     * If present, only traffic on the specified protocol AND port will be matched.
      * +optional
      * </pre>
      *
@@ -47522,11 +49338,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * If specified, the port on the given protocol.  This can
-     * either be a numerical or named port on a pod.  If this field is not provided,
-     * this matches all port names and numbers.
-     * If present, only traffic on the specified protocol AND port
-     * will be matched.
+     * The port on the given protocol. This can either be a numerical or named
+     * port on a pod. If this field is not provided, this matches all port names and
+     * numbers.
+     * If present, only traffic on the specified protocol AND port will be matched.
      * +optional
      * </pre>
      *
@@ -47537,17 +49352,49 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * If specified, the port on the given protocol.  This can
-     * either be a numerical or named port on a pod.  If this field is not provided,
-     * this matches all port names and numbers.
-     * If present, only traffic on the specified protocol AND port
-     * will be matched.
+     * The port on the given protocol. This can either be a numerical or named
+     * port on a pod. If this field is not provided, this matches all port names and
+     * numbers.
+     * If present, only traffic on the specified protocol AND port will be matched.
      * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString port = 2;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getPortOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * If set, indicates that the range of ports from port to endPort, inclusive,
+     * should be allowed by the policy. This field cannot be defined if the port field
+     * is not defined or if the port field is defined as a named (string) port.
+     * The endPort must be equal or greater than port.
+     * This feature is in Beta state and is enabled by default.
+     * It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 endPort = 3;</code>
+     */
+    boolean hasEndPort();
+    /**
+     *
+     *
+     * <pre>
+     * If set, indicates that the range of ports from port to endPort, inclusive,
+     * should be allowed by the policy. This field cannot be defined if the port field
+     * is not defined or if the port field is defined as a named (string) port.
+     * The endPort must be equal or greater than port.
+     * This feature is in Beta state and is enabled by default.
+     * It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 endPort = 3;</code>
+     */
+    int getEndPort();
   }
   /**
    *
@@ -47570,6 +49417,7 @@ public final class V1beta1Extensions {
 
     private NetworkPolicyPort() {
       protocol_ = "";
+      endPort_ = 0;
     }
 
     @java.lang.Override
@@ -47617,6 +49465,12 @@ public final class V1beta1Extensions {
                   port_ = subBuilder.buildPartial();
                 }
                 bitField0_ |= 0x00000002;
+                break;
+              }
+            case 24:
+              {
+                bitField0_ |= 0x00000004;
+                endPort_ = input.readInt32();
                 break;
               }
             default:
@@ -47723,11 +49577,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * If specified, the port on the given protocol.  This can
-     * either be a numerical or named port on a pod.  If this field is not provided,
-     * this matches all port names and numbers.
-     * If present, only traffic on the specified protocol AND port
-     * will be matched.
+     * The port on the given protocol. This can either be a numerical or named
+     * port on a pod. If this field is not provided, this matches all port names and
+     * numbers.
+     * If present, only traffic on the specified protocol AND port will be matched.
      * +optional
      * </pre>
      *
@@ -47740,11 +49593,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * If specified, the port on the given protocol.  This can
-     * either be a numerical or named port on a pod.  If this field is not provided,
-     * this matches all port names and numbers.
-     * If present, only traffic on the specified protocol AND port
-     * will be matched.
+     * The port on the given protocol. This can either be a numerical or named
+     * port on a pod. If this field is not provided, this matches all port names and
+     * numbers.
+     * If present, only traffic on the specified protocol AND port will be matched.
      * +optional
      * </pre>
      *
@@ -47759,11 +49611,10 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * If specified, the port on the given protocol.  This can
-     * either be a numerical or named port on a pod.  If this field is not provided,
-     * this matches all port names and numbers.
-     * If present, only traffic on the specified protocol AND port
-     * will be matched.
+     * The port on the given protocol. This can either be a numerical or named
+     * port on a pod. If this field is not provided, this matches all port names and
+     * numbers.
+     * If present, only traffic on the specified protocol AND port will be matched.
      * +optional
      * </pre>
      *
@@ -47773,6 +49624,45 @@ public final class V1beta1Extensions {
       return port_ == null
           ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
           : port_;
+    }
+
+    public static final int ENDPORT_FIELD_NUMBER = 3;
+    private int endPort_;
+    /**
+     *
+     *
+     * <pre>
+     * If set, indicates that the range of ports from port to endPort, inclusive,
+     * should be allowed by the policy. This field cannot be defined if the port field
+     * is not defined or if the port field is defined as a named (string) port.
+     * The endPort must be equal or greater than port.
+     * This feature is in Beta state and is enabled by default.
+     * It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 endPort = 3;</code>
+     */
+    public boolean hasEndPort() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * If set, indicates that the range of ports from port to endPort, inclusive,
+     * should be allowed by the policy. This field cannot be defined if the port field
+     * is not defined or if the port field is defined as a named (string) port.
+     * The endPort must be equal or greater than port.
+     * This feature is in Beta state and is enabled by default.
+     * It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 endPort = 3;</code>
+     */
+    public int getEndPort() {
+      return endPort_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -47795,6 +49685,9 @@ public final class V1beta1Extensions {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, getPort());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, endPort_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -47809,6 +49702,9 @@ public final class V1beta1Extensions {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getPort());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(3, endPort_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -47835,6 +49731,10 @@ public final class V1beta1Extensions {
       if (hasPort()) {
         result = result && getPort().equals(other.getPort());
       }
+      result = result && (hasEndPort() == other.hasEndPort());
+      if (hasEndPort()) {
+        result = result && (getEndPort() == other.getEndPort());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -47853,6 +49753,10 @@ public final class V1beta1Extensions {
       if (hasPort()) {
         hash = (37 * hash) + PORT_FIELD_NUMBER;
         hash = (53 * hash) + getPort().hashCode();
+      }
+      if (hasEndPort()) {
+        hash = (37 * hash) + ENDPORT_FIELD_NUMBER;
+        hash = (53 * hash) + getEndPort();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -47985,8 +49889,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyPort.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyPort.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyPort.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -48013,6 +49916,8 @@ public final class V1beta1Extensions {
           portBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        endPort_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -48055,6 +49960,10 @@ public final class V1beta1Extensions {
         } else {
           result.port_ = portBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.endPort_ = endPort_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -48117,6 +50026,9 @@ public final class V1beta1Extensions {
         }
         if (other.hasPort()) {
           mergePort(other.getPort());
+        }
+        if (other.hasEndPort()) {
+          setEndPort(other.getEndPort());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -48280,11 +50192,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48297,11 +50208,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48320,11 +50230,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48347,11 +50256,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48372,11 +50280,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48405,11 +50312,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48429,11 +50335,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48448,11 +50353,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48471,11 +50375,10 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * If specified, the port on the given protocol.  This can
-       * either be a numerical or named port on a pod.  If this field is not provided,
-       * this matches all port names and numbers.
-       * If present, only traffic on the specified protocol AND port
-       * will be matched.
+       * The port on the given protocol. This can either be a numerical or named
+       * port on a pod. If this field is not provided, this matches all port names and
+       * numbers.
+       * If present, only traffic on the specified protocol AND port will be matched.
        * +optional
        * </pre>
        *
@@ -48496,6 +50399,86 @@ public final class V1beta1Extensions {
           port_ = null;
         }
         return portBuilder_;
+      }
+
+      private int endPort_;
+      /**
+       *
+       *
+       * <pre>
+       * If set, indicates that the range of ports from port to endPort, inclusive,
+       * should be allowed by the policy. This field cannot be defined if the port field
+       * is not defined or if the port field is defined as a named (string) port.
+       * The endPort must be equal or greater than port.
+       * This feature is in Beta state and is enabled by default.
+       * It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 endPort = 3;</code>
+       */
+      public boolean hasEndPort() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set, indicates that the range of ports from port to endPort, inclusive,
+       * should be allowed by the policy. This field cannot be defined if the port field
+       * is not defined or if the port field is defined as a named (string) port.
+       * The endPort must be equal or greater than port.
+       * This feature is in Beta state and is enabled by default.
+       * It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 endPort = 3;</code>
+       */
+      public int getEndPort() {
+        return endPort_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set, indicates that the range of ports from port to endPort, inclusive,
+       * should be allowed by the policy. This field cannot be defined if the port field
+       * is not defined or if the port field is defined as a named (string) port.
+       * The endPort must be equal or greater than port.
+       * This feature is in Beta state and is enabled by default.
+       * It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 endPort = 3;</code>
+       */
+      public Builder setEndPort(int value) {
+        bitField0_ |= 0x00000004;
+        endPort_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * If set, indicates that the range of ports from port to endPort, inclusive,
+       * should be allowed by the policy. This field cannot be defined if the port field
+       * is not defined or if the port field is defined as a named (string) port.
+       * The endPort must be equal or greater than port.
+       * This feature is in Beta state and is enabled by default.
+       * It can be disabled using the Feature Gate "NetworkPolicyEndPort".
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 endPort = 3;</code>
+       */
+      public Builder clearEndPort() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        endPort_ = 0;
+        onChanged();
+        return this;
       }
 
       @java.lang.Override
@@ -48570,8 +50553,7 @@ public final class V1beta1Extensions {
      * An empty podSelector matches all pods in this namespace.
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     boolean hasPodSelector();
     /**
@@ -48585,8 +50567,7 @@ public final class V1beta1Extensions {
      * An empty podSelector matches all pods in this namespace.
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     io.kubernetes.client.proto.Meta.LabelSelector getPodSelector();
     /**
@@ -48600,8 +50581,7 @@ public final class V1beta1Extensions {
      * An empty podSelector matches all pods in this namespace.
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getPodSelectorOrBuilder();
 
@@ -48619,8 +50599,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     java.util.List<io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule>
         getIngressList();
@@ -48638,8 +50617,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule getIngress(int index);
     /**
@@ -48656,8 +50634,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     int getIngressCount();
     /**
@@ -48674,8 +50651,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     java.util.List<
             ? extends
@@ -48695,8 +50671,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRuleOrBuilder
         getIngressOrBuilder(int index);
@@ -48796,7 +50771,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * List of rule types that the NetworkPolicy relates to.
-     * Valid options are Ingress, Egress, or Ingress,Egress.
+     * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
      * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
      * policies that contain an Egress section are assumed to affect Egress, and all policies
      * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -48816,7 +50791,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * List of rule types that the NetworkPolicy relates to.
-     * Valid options are Ingress, Egress, or Ingress,Egress.
+     * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
      * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
      * policies that contain an Egress section are assumed to affect Egress, and all policies
      * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -48836,7 +50811,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * List of rule types that the NetworkPolicy relates to.
-     * Valid options are Ingress, Egress, or Ingress,Egress.
+     * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
      * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
      * policies that contain an Egress section are assumed to affect Egress, and all policies
      * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -48856,7 +50831,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * List of rule types that the NetworkPolicy relates to.
-     * Valid options are Ingress, Egress, or Ingress,Egress.
+     * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
      * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
      * policies that contain an Egress section are assumed to affect Egress, and all policies
      * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -49033,8 +51008,7 @@ public final class V1beta1Extensions {
      * An empty podSelector matches all pods in this namespace.
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     public boolean hasPodSelector() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -49050,8 +51024,7 @@ public final class V1beta1Extensions {
      * An empty podSelector matches all pods in this namespace.
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelector getPodSelector() {
       return podSelector_ == null
@@ -49069,8 +51042,7 @@ public final class V1beta1Extensions {
      * An empty podSelector matches all pods in this namespace.
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
      */
     public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getPodSelectorOrBuilder() {
       return podSelector_ == null
@@ -49095,8 +51067,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule>
         getIngressList() {
@@ -49116,8 +51087,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     public java.util.List<
             ? extends
@@ -49139,8 +51109,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     public int getIngressCount() {
       return ingress_.size();
@@ -49159,8 +51128,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule getIngress(
         int index) {
@@ -49180,8 +51148,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRuleOrBuilder
         getIngressOrBuilder(int index) {
@@ -49299,7 +51266,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * List of rule types that the NetworkPolicy relates to.
-     * Valid options are Ingress, Egress, or Ingress,Egress.
+     * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
      * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
      * policies that contain an Egress section are assumed to affect Egress, and all policies
      * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -49321,7 +51288,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * List of rule types that the NetworkPolicy relates to.
-     * Valid options are Ingress, Egress, or Ingress,Egress.
+     * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
      * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
      * policies that contain an Egress section are assumed to affect Egress, and all policies
      * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -49343,7 +51310,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * List of rule types that the NetworkPolicy relates to.
-     * Valid options are Ingress, Egress, or Ingress,Egress.
+     * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
      * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
      * policies that contain an Egress section are assumed to affect Egress, and all policies
      * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -49365,7 +51332,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * List of rule types that the NetworkPolicy relates to.
-     * Valid options are Ingress, Egress, or Ingress,Egress.
+     * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
      * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
      * policies that contain an Egress section are assumed to affect Egress, and all policies
      * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -49617,8 +51584,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicySpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicySpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicySpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -49892,8 +51858,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public boolean hasPodSelector() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -49909,8 +51874,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getPodSelector() {
         if (podSelectorBuilder_ == null) {
@@ -49932,8 +51896,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public Builder setPodSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (podSelectorBuilder_ == null) {
@@ -49959,8 +51922,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public Builder setPodSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -49984,8 +51946,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public Builder mergePodSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (podSelectorBuilder_ == null) {
@@ -50018,8 +51979,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public Builder clearPodSelector() {
         if (podSelectorBuilder_ == null) {
@@ -50042,8 +52002,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getPodSelectorBuilder() {
         bitField0_ |= 0x00000001;
@@ -50061,8 +52020,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getPodSelectorOrBuilder() {
         if (podSelectorBuilder_ != null) {
@@ -50084,8 +52042,7 @@ public final class V1beta1Extensions {
        * An empty podSelector matches all pods in this namespace.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector podSelector = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -50136,8 +52093,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule>
           getIngressList() {
@@ -50161,8 +52117,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public int getIngressCount() {
         if (ingressBuilder_ == null) {
@@ -50185,8 +52140,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule getIngress(
           int index) {
@@ -50210,8 +52164,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder setIngress(
           int index, io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule value) {
@@ -50241,8 +52194,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder setIngress(
           int index,
@@ -50271,8 +52223,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder addIngress(
           io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule value) {
@@ -50302,8 +52253,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder addIngress(
           int index, io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule value) {
@@ -50333,8 +52283,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder addIngress(
           io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule.Builder
@@ -50362,8 +52311,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder addIngress(
           int index,
@@ -50392,8 +52340,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder addAllIngress(
           java.lang.Iterable<
@@ -50422,8 +52369,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder clearIngress() {
         if (ingressBuilder_ == null) {
@@ -50449,8 +52395,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public Builder removeIngress(int index) {
         if (ingressBuilder_ == null) {
@@ -50476,8 +52421,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule.Builder
           getIngressBuilder(int index) {
@@ -50497,8 +52441,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRuleOrBuilder
           getIngressOrBuilder(int index) {
@@ -50522,8 +52465,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public java.util.List<
               ? extends
@@ -50549,8 +52491,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule.Builder
           addIngressBuilder() {
@@ -50573,8 +52514,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule.Builder
           addIngressBuilder(int index) {
@@ -50598,8 +52538,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
        */
       public java.util.List<
               io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyIngressRule.Builder>
@@ -50659,8 +52598,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule>
           getEgressList() {
@@ -50684,8 +52622,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public int getEgressCount() {
         if (egressBuilder_ == null) {
@@ -50708,8 +52645,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule getEgress(
           int index) {
@@ -50733,8 +52669,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder setEgress(
           int index, io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule value) {
@@ -50764,8 +52699,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder setEgress(
           int index,
@@ -50794,8 +52728,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder addEgress(
           io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule value) {
@@ -50825,8 +52758,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder addEgress(
           int index, io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule value) {
@@ -50856,8 +52788,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder addEgress(
           io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule.Builder
@@ -50885,8 +52816,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder addEgress(
           int index,
@@ -50915,8 +52845,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder addAllEgress(
           java.lang.Iterable<
@@ -50945,8 +52874,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder clearEgress() {
         if (egressBuilder_ == null) {
@@ -50972,8 +52900,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public Builder removeEgress(int index) {
         if (egressBuilder_ == null) {
@@ -50999,8 +52926,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule.Builder
           getEgressBuilder(int index) {
@@ -51020,8 +52946,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRuleOrBuilder
           getEgressOrBuilder(int index) {
@@ -51045,8 +52970,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public java.util.List<
               ? extends
@@ -51072,8 +52996,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule.Builder
           addEgressBuilder() {
@@ -51096,8 +53019,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule.Builder
           addEgressBuilder(int index) {
@@ -51121,8 +53043,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
        */
       public java.util.List<
               io.kubernetes.client.proto.V1beta1Extensions.NetworkPolicyEgressRule.Builder>
@@ -51164,7 +53085,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51186,7 +53107,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51208,7 +53129,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51230,7 +53151,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51252,7 +53173,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51280,7 +53201,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51308,7 +53229,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51333,7 +53254,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51358,7 +53279,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * List of rule types that the NetworkPolicy relates to.
-       * Valid options are Ingress, Egress, or Ingress,Egress.
+       * Valid options are ["Ingress"], ["Egress"], or ["Ingress", "Egress"].
        * If this field is not specified, it will default based on the existence of Ingress or Egress rules;
        * policies that contain an Egress section are assumed to affect Egress, and all policies
        * (whether or not they contain an Ingress section) are assumed to affect Ingress.
@@ -51448,7 +53369,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -51460,7 +53381,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -51472,7 +53393,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -51637,7 +53558,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -51651,7 +53572,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -51667,7 +53588,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -51938,8 +53859,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.PodSecurityPolicy.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.PodSecurityPolicy.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.PodSecurityPolicy.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -52122,7 +54042,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52136,7 +54056,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52156,7 +54076,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52180,7 +54100,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52202,7 +54122,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52232,7 +54152,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52253,7 +54173,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52269,7 +54189,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52289,7 +54209,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -52579,7 +54499,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -52591,7 +54511,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -52603,7 +54523,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -52788,7 +54708,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -52802,7 +54722,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -52818,7 +54738,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -53317,7 +55237,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -53331,7 +55251,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -53351,7 +55271,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -53375,7 +55295,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -53396,7 +55316,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -53426,7 +55346,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -53447,7 +55367,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -53463,7 +55383,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -53483,7 +55403,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -54126,7 +56046,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -54138,7 +56058,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -54150,7 +56070,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -54162,7 +56082,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -54337,8 +56257,7 @@ public final class V1beta1Extensions {
      * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
      */
     boolean hasRunAsUser();
     /**
@@ -54348,8 +56267,7 @@ public final class V1beta1Extensions {
      * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
      */
     io.kubernetes.client.proto.V1beta1Extensions.RunAsUserStrategyOptions getRunAsUser();
     /**
@@ -54359,8 +56277,7 @@ public final class V1beta1Extensions {
      * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
      */
     io.kubernetes.client.proto.V1beta1Extensions.RunAsUserStrategyOptionsOrBuilder
         getRunAsUserOrBuilder();
@@ -54565,13 +56482,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath>
         getAllowedHostPathsList();
@@ -54579,39 +56495,36 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath getAllowedHostPaths(int index);
     /**
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     int getAllowedHostPathsCount();
     /**
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     java.util.List<? extends io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPathOrBuilder>
         getAllowedHostPathsOrBuilderList();
@@ -54619,13 +56532,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPathOrBuilder
         getAllowedHostPathsOrBuilder(int index);
@@ -54634,7 +56546,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -54649,7 +56561,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -54663,7 +56575,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -54677,7 +56589,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -54693,7 +56605,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -54709,10 +56621,74 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver>
+        getAllowedCSIDriversList();
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver getAllowedCSIDrivers(int index);
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    int getAllowedCSIDriversCount();
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    java.util.List<? extends io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder>
+        getAllowedCSIDriversOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder
+        getAllowedCSIDriversOrBuilder(int index);
+
+    /**
+     *
+     *
+     * <pre>
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -54729,7 +56705,7 @@ public final class V1beta1Extensions {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -54746,7 +56722,7 @@ public final class V1beta1Extensions {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -54763,7 +56739,7 @@ public final class V1beta1Extensions {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -54843,7 +56819,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -54856,7 +56832,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -54869,7 +56845,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -54882,7 +56858,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -54891,6 +56867,50 @@ public final class V1beta1Extensions {
      * <code>repeated string allowedProcMountTypes = 21;</code>
      */
     com.google.protobuf.ByteString getAllowedProcMountTypesBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    boolean hasRuntimeClass();
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions getRuntimeClass();
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptionsOrBuilder
+        getRuntimeClassOrBuilder();
   }
   /**
    *
@@ -54927,6 +56947,7 @@ public final class V1beta1Extensions {
       allowPrivilegeEscalation_ = false;
       allowedHostPaths_ = java.util.Collections.emptyList();
       allowedFlexVolumes_ = java.util.Collections.emptyList();
+      allowedCSIDrivers_ = java.util.Collections.emptyList();
       allowedUnsafeSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       forbiddenSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       allowedProcMountTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -55158,9 +57179,9 @@ public final class V1beta1Extensions {
             case 154:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                if (!((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+                if (!((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
                   allowedUnsafeSysctls_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00080000;
+                  mutable_bitField0_ |= 0x00100000;
                 }
                 allowedUnsafeSysctls_.add(bs);
                 break;
@@ -55168,9 +57189,9 @@ public final class V1beta1Extensions {
             case 162:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                if (!((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+                if (!((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
                   forbiddenSysctls_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00100000;
+                  mutable_bitField0_ |= 0x00200000;
                 }
                 forbiddenSysctls_.add(bs);
                 break;
@@ -55178,9 +57199,9 @@ public final class V1beta1Extensions {
             case 170:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                if (!((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
+                if (!((mutable_bitField0_ & 0x00400000) == 0x00400000)) {
                   allowedProcMountTypes_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00200000;
+                  mutable_bitField0_ |= 0x00400000;
                 }
                 allowedProcMountTypes_.add(bs);
                 break;
@@ -55202,6 +57223,39 @@ public final class V1beta1Extensions {
                   runAsGroup_ = subBuilder.buildPartial();
                 }
                 bitField0_ |= 0x00000040;
+                break;
+              }
+            case 186:
+              {
+                if (!((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+                  allowedCSIDrivers_ =
+                      new java.util.ArrayList<
+                          io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver>();
+                  mutable_bitField0_ |= 0x00080000;
+                }
+                allowedCSIDrivers_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.PARSER,
+                        extensionRegistry));
+                break;
+              }
+            case 194:
+              {
+                io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.Builder
+                    subBuilder = null;
+                if (((bitField0_ & 0x00001000) == 0x00001000)) {
+                  subBuilder = runtimeClass_.toBuilder();
+                }
+                runtimeClass_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+                            .PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(runtimeClass_);
+                  runtimeClass_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00001000;
                 break;
               }
             default:
@@ -55239,14 +57293,17 @@ public final class V1beta1Extensions {
         if (((mutable_bitField0_ & 0x00040000) == 0x00040000)) {
           allowedFlexVolumes_ = java.util.Collections.unmodifiableList(allowedFlexVolumes_);
         }
-        if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+        if (((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
           allowedUnsafeSysctls_ = allowedUnsafeSysctls_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+        if (((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
           forbiddenSysctls_ = forbiddenSysctls_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
+        if (((mutable_bitField0_ & 0x00400000) == 0x00400000)) {
           allowedProcMountTypes_ = allowedProcMountTypes_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+          allowedCSIDrivers_ = java.util.Collections.unmodifiableList(allowedCSIDrivers_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -55493,7 +57550,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -55507,7 +57564,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -55521,7 +57578,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -55535,7 +57592,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * volumes is a white list of allowed volume plugins. Empty indicates that
+     * volumes is an allowlist of volume plugins. Empty indicates that
      * no volumes may be used. To allow all volumes you may use '*'.
      * +optional
      * </pre>
@@ -55758,8 +57815,7 @@ public final class V1beta1Extensions {
      * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
      */
     public boolean hasRunAsUser() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
@@ -55771,8 +57827,7 @@ public final class V1beta1Extensions {
      * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
      */
     public io.kubernetes.client.proto.V1beta1Extensions.RunAsUserStrategyOptions getRunAsUser() {
       return runAsUser_ == null
@@ -55787,8 +57842,7 @@ public final class V1beta1Extensions {
      * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
      * </pre>
      *
-     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
-     * </code>
+     * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;</code>
      */
     public io.kubernetes.client.proto.V1beta1Extensions.RunAsUserStrategyOptionsOrBuilder
         getRunAsUserOrBuilder() {
@@ -56060,13 +58114,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath>
         getAllowedHostPathsList() {
@@ -56076,13 +58129,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     public java.util.List<
             ? extends io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPathOrBuilder>
@@ -56093,13 +58145,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     public int getAllowedHostPathsCount() {
       return allowedHostPaths_.size();
@@ -56108,13 +58159,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     public io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath getAllowedHostPaths(
         int index) {
@@ -56124,13 +58174,12 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedHostPaths is a white list of allowed host paths. Empty indicates
+     * allowedHostPaths is an allowlist of host paths. Empty indicates
      * that all host paths may be used.
      * +optional
      * </pre>
      *
-     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-     * </code>
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
      */
     public io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPathOrBuilder
         getAllowedHostPathsOrBuilder(int index) {
@@ -56144,7 +58193,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -56161,7 +58210,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -56179,7 +58228,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -56195,7 +58244,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -56212,7 +58261,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+     * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
      * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
      * is allowed in the "volumes" field.
      * +optional
@@ -56226,6 +58275,85 @@ public final class V1beta1Extensions {
       return allowedFlexVolumes_.get(index);
     }
 
+    public static final int ALLOWEDCSIDRIVERS_FIELD_NUMBER = 23;
+    private java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver>
+        allowedCSIDrivers_;
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver>
+        getAllowedCSIDriversList() {
+      return allowedCSIDrivers_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public java.util.List<
+            ? extends io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder>
+        getAllowedCSIDriversOrBuilderList() {
+      return allowedCSIDrivers_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public int getAllowedCSIDriversCount() {
+      return allowedCSIDrivers_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver getAllowedCSIDrivers(
+        int index) {
+      return allowedCSIDrivers_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+     * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;</code>
+     */
+    public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder
+        getAllowedCSIDriversOrBuilder(int index) {
+      return allowedCSIDrivers_.get(index);
+    }
+
     public static final int ALLOWEDUNSAFESYSCTLS_FIELD_NUMBER = 19;
     private com.google.protobuf.LazyStringList allowedUnsafeSysctls_;
     /**
@@ -56235,7 +58363,7 @@ public final class V1beta1Extensions {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -56254,7 +58382,7 @@ public final class V1beta1Extensions {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -56273,7 +58401,7 @@ public final class V1beta1Extensions {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -56292,7 +58420,7 @@ public final class V1beta1Extensions {
      * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
      * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
      * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-     * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+     * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
      * Examples:
      * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
      * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -56386,7 +58514,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -56401,7 +58529,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -56416,7 +58544,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -56431,7 +58559,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+     * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
      * Empty or nil indicates that only the DefaultProcMountType may be used.
      * This requires the ProcMountType feature flag to be enabled.
      * +optional
@@ -56441,6 +58569,65 @@ public final class V1beta1Extensions {
      */
     public com.google.protobuf.ByteString getAllowedProcMountTypesBytes(int index) {
       return allowedProcMountTypes_.getByteString(index);
+    }
+
+    public static final int RUNTIMECLASS_FIELD_NUMBER = 24;
+    private io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions runtimeClass_;
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    public boolean hasRuntimeClass() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        getRuntimeClass() {
+      return runtimeClass_ == null
+          ? io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+              .getDefaultInstance()
+          : runtimeClass_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+     * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+     * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptionsOrBuilder
+        getRuntimeClassOrBuilder() {
+      return runtimeClass_ == null
+          ? io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+              .getDefaultInstance()
+          : runtimeClass_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -56527,6 +58714,12 @@ public final class V1beta1Extensions {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeMessage(22, getRunAsGroup());
+      }
+      for (int i = 0; i < allowedCSIDrivers_.size(); i++) {
+        output.writeMessage(23, allowedCSIDrivers_.get(i));
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeMessage(24, getRuntimeClass());
       }
       unknownFields.writeTo(output);
     }
@@ -56645,6 +58838,13 @@ public final class V1beta1Extensions {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(22, getRunAsGroup());
       }
+      for (int i = 0; i < allowedCSIDrivers_.size(); i++) {
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(23, allowedCSIDrivers_.get(i));
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(24, getRuntimeClass());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -56726,10 +58926,15 @@ public final class V1beta1Extensions {
       }
       result = result && getAllowedHostPathsList().equals(other.getAllowedHostPathsList());
       result = result && getAllowedFlexVolumesList().equals(other.getAllowedFlexVolumesList());
+      result = result && getAllowedCSIDriversList().equals(other.getAllowedCSIDriversList());
       result = result && getAllowedUnsafeSysctlsList().equals(other.getAllowedUnsafeSysctlsList());
       result = result && getForbiddenSysctlsList().equals(other.getForbiddenSysctlsList());
       result =
           result && getAllowedProcMountTypesList().equals(other.getAllowedProcMountTypesList());
+      result = result && (hasRuntimeClass() == other.hasRuntimeClass());
+      if (hasRuntimeClass()) {
+        result = result && getRuntimeClass().equals(other.getRuntimeClass());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -56820,6 +59025,10 @@ public final class V1beta1Extensions {
         hash = (37 * hash) + ALLOWEDFLEXVOLUMES_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedFlexVolumesList().hashCode();
       }
+      if (getAllowedCSIDriversCount() > 0) {
+        hash = (37 * hash) + ALLOWEDCSIDRIVERS_FIELD_NUMBER;
+        hash = (53 * hash) + getAllowedCSIDriversList().hashCode();
+      }
       if (getAllowedUnsafeSysctlsCount() > 0) {
         hash = (37 * hash) + ALLOWEDUNSAFESYSCTLS_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedUnsafeSysctlsList().hashCode();
@@ -56831,6 +59040,10 @@ public final class V1beta1Extensions {
       if (getAllowedProcMountTypesCount() > 0) {
         hash = (37 * hash) + ALLOWEDPROCMOUNTTYPES_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedProcMountTypesList().hashCode();
+      }
+      if (hasRuntimeClass()) {
+        hash = (37 * hash) + RUNTIMECLASS_FIELD_NUMBER;
+        hash = (53 * hash) + getRuntimeClass().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -56986,6 +59199,8 @@ public final class V1beta1Extensions {
           getFsGroupFieldBuilder();
           getAllowedHostPathsFieldBuilder();
           getAllowedFlexVolumesFieldBuilder();
+          getAllowedCSIDriversFieldBuilder();
+          getRuntimeClassFieldBuilder();
         }
       }
 
@@ -57062,12 +59277,24 @@ public final class V1beta1Extensions {
         } else {
           allowedFlexVolumesBuilder_.clear();
         }
+        if (allowedCSIDriversBuilder_ == null) {
+          allowedCSIDrivers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00080000);
+        } else {
+          allowedCSIDriversBuilder_.clear();
+        }
         allowedUnsafeSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00080000);
-        forbiddenSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00100000);
-        allowedProcMountTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        forbiddenSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00200000);
+        allowedProcMountTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00400000);
+        if (runtimeClassBuilder_ == null) {
+          runtimeClass_ = null;
+        } else {
+          runtimeClassBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00800000);
         return this;
       }
 
@@ -57214,21 +59441,38 @@ public final class V1beta1Extensions {
         } else {
           result.allowedFlexVolumes_ = allowedFlexVolumesBuilder_.build();
         }
-        if (((bitField0_ & 0x00080000) == 0x00080000)) {
-          allowedUnsafeSysctls_ = allowedUnsafeSysctls_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00080000);
+        if (allowedCSIDriversBuilder_ == null) {
+          if (((bitField0_ & 0x00080000) == 0x00080000)) {
+            allowedCSIDrivers_ = java.util.Collections.unmodifiableList(allowedCSIDrivers_);
+            bitField0_ = (bitField0_ & ~0x00080000);
+          }
+          result.allowedCSIDrivers_ = allowedCSIDrivers_;
+        } else {
+          result.allowedCSIDrivers_ = allowedCSIDriversBuilder_.build();
         }
-        result.allowedUnsafeSysctls_ = allowedUnsafeSysctls_;
         if (((bitField0_ & 0x00100000) == 0x00100000)) {
-          forbiddenSysctls_ = forbiddenSysctls_.getUnmodifiableView();
+          allowedUnsafeSysctls_ = allowedUnsafeSysctls_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00100000);
         }
-        result.forbiddenSysctls_ = forbiddenSysctls_;
+        result.allowedUnsafeSysctls_ = allowedUnsafeSysctls_;
         if (((bitField0_ & 0x00200000) == 0x00200000)) {
-          allowedProcMountTypes_ = allowedProcMountTypes_.getUnmodifiableView();
+          forbiddenSysctls_ = forbiddenSysctls_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00200000);
         }
+        result.forbiddenSysctls_ = forbiddenSysctls_;
+        if (((bitField0_ & 0x00400000) == 0x00400000)) {
+          allowedProcMountTypes_ = allowedProcMountTypes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00400000);
+        }
         result.allowedProcMountTypes_ = allowedProcMountTypes_;
+        if (((from_bitField0_ & 0x00800000) == 0x00800000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        if (runtimeClassBuilder_ == null) {
+          result.runtimeClass_ = runtimeClass_;
+        } else {
+          result.runtimeClass_ = runtimeClassBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -57442,10 +59686,37 @@ public final class V1beta1Extensions {
             }
           }
         }
+        if (allowedCSIDriversBuilder_ == null) {
+          if (!other.allowedCSIDrivers_.isEmpty()) {
+            if (allowedCSIDrivers_.isEmpty()) {
+              allowedCSIDrivers_ = other.allowedCSIDrivers_;
+              bitField0_ = (bitField0_ & ~0x00080000);
+            } else {
+              ensureAllowedCSIDriversIsMutable();
+              allowedCSIDrivers_.addAll(other.allowedCSIDrivers_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.allowedCSIDrivers_.isEmpty()) {
+            if (allowedCSIDriversBuilder_.isEmpty()) {
+              allowedCSIDriversBuilder_.dispose();
+              allowedCSIDriversBuilder_ = null;
+              allowedCSIDrivers_ = other.allowedCSIDrivers_;
+              bitField0_ = (bitField0_ & ~0x00080000);
+              allowedCSIDriversBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getAllowedCSIDriversFieldBuilder()
+                      : null;
+            } else {
+              allowedCSIDriversBuilder_.addAllMessages(other.allowedCSIDrivers_);
+            }
+          }
+        }
         if (!other.allowedUnsafeSysctls_.isEmpty()) {
           if (allowedUnsafeSysctls_.isEmpty()) {
             allowedUnsafeSysctls_ = other.allowedUnsafeSysctls_;
-            bitField0_ = (bitField0_ & ~0x00080000);
+            bitField0_ = (bitField0_ & ~0x00100000);
           } else {
             ensureAllowedUnsafeSysctlsIsMutable();
             allowedUnsafeSysctls_.addAll(other.allowedUnsafeSysctls_);
@@ -57455,7 +59726,7 @@ public final class V1beta1Extensions {
         if (!other.forbiddenSysctls_.isEmpty()) {
           if (forbiddenSysctls_.isEmpty()) {
             forbiddenSysctls_ = other.forbiddenSysctls_;
-            bitField0_ = (bitField0_ & ~0x00100000);
+            bitField0_ = (bitField0_ & ~0x00200000);
           } else {
             ensureForbiddenSysctlsIsMutable();
             forbiddenSysctls_.addAll(other.forbiddenSysctls_);
@@ -57465,12 +59736,15 @@ public final class V1beta1Extensions {
         if (!other.allowedProcMountTypes_.isEmpty()) {
           if (allowedProcMountTypes_.isEmpty()) {
             allowedProcMountTypes_ = other.allowedProcMountTypes_;
-            bitField0_ = (bitField0_ & ~0x00200000);
+            bitField0_ = (bitField0_ & ~0x00400000);
           } else {
             ensureAllowedProcMountTypesIsMutable();
             allowedProcMountTypes_.addAll(other.allowedProcMountTypes_);
           }
           onChanged();
+        }
+        if (other.hasRuntimeClass()) {
+          mergeRuntimeClass(other.getRuntimeClass());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -58087,7 +60361,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58101,7 +60375,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58115,7 +60389,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58129,7 +60403,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58143,7 +60417,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58163,7 +60437,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58183,7 +60457,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58200,7 +60474,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58217,7 +60491,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * volumes is a white list of allowed volume plugins. Empty indicates that
+       * volumes is an allowlist of volume plugins. Empty indicates that
        * no volumes may be used. To allow all volumes you may use '*'.
        * +optional
        * </pre>
@@ -58815,8 +61089,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       public boolean hasSeLinux() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
@@ -58828,8 +61101,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.SELinuxStrategyOptions getSeLinux() {
         if (seLinuxBuilder_ == null) {
@@ -58848,8 +61120,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       public Builder setSeLinux(
           io.kubernetes.client.proto.V1beta1Extensions.SELinuxStrategyOptions value) {
@@ -58872,8 +61143,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       public Builder setSeLinux(
           io.kubernetes.client.proto.V1beta1Extensions.SELinuxStrategyOptions.Builder
@@ -58894,8 +61164,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       public Builder mergeSeLinux(
           io.kubernetes.client.proto.V1beta1Extensions.SELinuxStrategyOptions value) {
@@ -58927,8 +61196,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       public Builder clearSeLinux() {
         if (seLinuxBuilder_ == null) {
@@ -58947,8 +61215,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.SELinuxStrategyOptions.Builder
           getSeLinuxBuilder() {
@@ -58963,8 +61230,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.SELinuxStrategyOptionsOrBuilder
           getSeLinuxOrBuilder() {
@@ -58984,8 +61250,7 @@ public final class V1beta1Extensions {
        * seLinux is the strategy that will dictate the allowable labels that may be set.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions seLinux = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Extensions.SELinuxStrategyOptions,
@@ -59018,8 +61283,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       public boolean hasRunAsUser() {
@@ -59032,8 +61296,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RunAsUserStrategyOptions getRunAsUser() {
@@ -59053,8 +61316,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       public Builder setRunAsUser(
@@ -59078,8 +61340,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       public Builder setRunAsUser(
@@ -59101,8 +61362,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       public Builder mergeRunAsUser(
@@ -59135,8 +61395,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       public Builder clearRunAsUser() {
@@ -59156,8 +61415,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RunAsUserStrategyOptions.Builder
@@ -59173,8 +61431,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RunAsUserStrategyOptionsOrBuilder
@@ -59195,8 +61452,7 @@ public final class V1beta1Extensions {
        * runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsUserStrategyOptions runAsUser = 11;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -59233,8 +61489,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       public boolean hasRunAsGroup() {
@@ -59250,8 +61505,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RunAsGroupStrategyOptions
@@ -59275,8 +61529,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       public Builder setRunAsGroup(
@@ -59303,8 +61556,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       public Builder setRunAsGroup(
@@ -59329,8 +61581,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       public Builder mergeRunAsGroup(
@@ -59366,8 +61617,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       public Builder clearRunAsGroup() {
@@ -59390,8 +61640,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RunAsGroupStrategyOptions.Builder
@@ -59410,8 +61659,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.RunAsGroupStrategyOptionsOrBuilder
@@ -59435,8 +61683,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
+       * <code>optional .k8s.io.api.extensions.v1beta1.RunAsGroupStrategyOptions runAsGroup = 22;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -59688,8 +61935,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       public boolean hasFsGroup() {
         return ((bitField0_ & 0x00002000) == 0x00002000);
@@ -59701,8 +61947,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.FSGroupStrategyOptions getFsGroup() {
         if (fsGroupBuilder_ == null) {
@@ -59721,8 +61966,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       public Builder setFsGroup(
           io.kubernetes.client.proto.V1beta1Extensions.FSGroupStrategyOptions value) {
@@ -59745,8 +61989,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       public Builder setFsGroup(
           io.kubernetes.client.proto.V1beta1Extensions.FSGroupStrategyOptions.Builder
@@ -59767,8 +62010,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       public Builder mergeFsGroup(
           io.kubernetes.client.proto.V1beta1Extensions.FSGroupStrategyOptions value) {
@@ -59800,8 +62042,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       public Builder clearFsGroup() {
         if (fsGroupBuilder_ == null) {
@@ -59820,8 +62061,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.FSGroupStrategyOptions.Builder
           getFsGroupBuilder() {
@@ -59836,8 +62076,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.FSGroupStrategyOptionsOrBuilder
           getFsGroupOrBuilder() {
@@ -59857,8 +62096,7 @@ public final class V1beta1Extensions {
        * fsGroup is the strategy that will dictate what fs group is used by the SecurityContext.
        * </pre>
        *
-       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;
-       * </code>
+       * <code>optional .k8s.io.api.extensions.v1beta1.FSGroupStrategyOptions fsGroup = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Extensions.FSGroupStrategyOptions,
@@ -60103,13 +62341,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath>
           getAllowedHostPathsList() {
@@ -60123,13 +62360,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public int getAllowedHostPathsCount() {
         if (allowedHostPathsBuilder_ == null) {
@@ -60142,13 +62378,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath getAllowedHostPaths(
           int index) {
@@ -60162,13 +62397,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder setAllowedHostPaths(
           int index, io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath value) {
@@ -60188,13 +62422,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder setAllowedHostPaths(
           int index,
@@ -60212,13 +62445,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllowedHostPaths(
           io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath value) {
@@ -60238,13 +62470,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllowedHostPaths(
           int index, io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath value) {
@@ -60264,13 +62495,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllowedHostPaths(
           io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath.Builder builderForValue) {
@@ -60287,13 +62517,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllowedHostPaths(
           int index,
@@ -60311,13 +62540,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder addAllAllowedHostPaths(
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath>
@@ -60335,13 +62563,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder clearAllowedHostPaths() {
         if (allowedHostPathsBuilder_ == null) {
@@ -60357,13 +62584,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public Builder removeAllowedHostPaths(int index) {
         if (allowedHostPathsBuilder_ == null) {
@@ -60379,13 +62605,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath.Builder
           getAllowedHostPathsBuilder(int index) {
@@ -60395,13 +62620,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPathOrBuilder
           getAllowedHostPathsOrBuilder(int index) {
@@ -60415,13 +62639,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPathOrBuilder>
@@ -60436,13 +62659,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath.Builder
           addAllowedHostPathsBuilder() {
@@ -60454,13 +62676,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath.Builder
           addAllowedHostPathsBuilder(int index) {
@@ -60473,13 +62694,12 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedHostPaths is a white list of allowed host paths. Empty indicates
+       * allowedHostPaths is an allowlist of host paths. Empty indicates
        * that all host paths may be used.
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedHostPath allowedHostPaths = 17;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedHostPath.Builder>
           getAllowedHostPathsBuilderList() {
@@ -60529,14 +62749,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume>
@@ -60551,14 +62770,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public int getAllowedFlexVolumesCount() {
@@ -60572,14 +62790,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume getAllowedFlexVolumes(
@@ -60594,14 +62811,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder setAllowedFlexVolumes(
@@ -60622,14 +62838,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder setAllowedFlexVolumes(
@@ -60648,14 +62863,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder addAllowedFlexVolumes(
@@ -60676,14 +62890,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder addAllowedFlexVolumes(
@@ -60704,14 +62917,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder addAllowedFlexVolumes(
@@ -60729,14 +62941,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder addAllowedFlexVolumes(
@@ -60755,14 +62966,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder addAllAllowedFlexVolumes(
@@ -60782,14 +62992,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder clearAllowedFlexVolumes() {
@@ -60806,14 +63015,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public Builder removeAllowedFlexVolumes(int index) {
@@ -60830,14 +63038,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume.Builder
@@ -60848,14 +63055,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolumeOrBuilder
@@ -60870,14 +63076,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public java.util.List<
@@ -60893,14 +63098,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume.Builder
@@ -60914,14 +63118,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume.Builder
@@ -60936,14 +63139,13 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * allowedFlexVolumes is a whitelist of allowed Flexvolumes.  Empty or nil indicates that all
+       * allowedFlexVolumes is an allowlist of Flexvolumes.  Empty or nil indicates that all
        * Flexvolumes may be used.  This parameter is effective only when the usage of the Flexvolumes
        * is allowed in the "volumes" field.
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedFlexVolume allowedFlexVolumes = 18;
        * </code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedFlexVolume.Builder>
@@ -60971,14 +63173,441 @@ public final class V1beta1Extensions {
         return allowedFlexVolumesBuilder_;
       }
 
+      private java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver>
+          allowedCSIDrivers_ = java.util.Collections.emptyList();
+
+      private void ensureAllowedCSIDriversIsMutable() {
+        if (!((bitField0_ & 0x00080000) == 0x00080000)) {
+          allowedCSIDrivers_ =
+              new java.util.ArrayList<
+                  io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver>(
+                  allowedCSIDrivers_);
+          bitField0_ |= 0x00080000;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver,
+              io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder,
+              io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder>
+          allowedCSIDriversBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver>
+          getAllowedCSIDriversList() {
+        if (allowedCSIDriversBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(allowedCSIDrivers_);
+        } else {
+          return allowedCSIDriversBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public int getAllowedCSIDriversCount() {
+        if (allowedCSIDriversBuilder_ == null) {
+          return allowedCSIDrivers_.size();
+        } else {
+          return allowedCSIDriversBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver getAllowedCSIDrivers(
+          int index) {
+        if (allowedCSIDriversBuilder_ == null) {
+          return allowedCSIDrivers_.get(index);
+        } else {
+          return allowedCSIDriversBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder setAllowedCSIDrivers(
+          int index, io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver value) {
+        if (allowedCSIDriversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.set(index, value);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder setAllowedCSIDrivers(
+          int index,
+          io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder builderForValue) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder addAllowedCSIDrivers(
+          io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver value) {
+        if (allowedCSIDriversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.add(value);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder addAllowedCSIDrivers(
+          int index, io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver value) {
+        if (allowedCSIDriversBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.add(index, value);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder addAllowedCSIDrivers(
+          io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder builderForValue) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.add(builderForValue.build());
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder addAllowedCSIDrivers(
+          int index,
+          io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder builderForValue) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder addAllAllowedCSIDrivers(
+          java.lang.Iterable<
+                  ? extends io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver>
+              values) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, allowedCSIDrivers_);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder clearAllowedCSIDrivers() {
+        if (allowedCSIDriversBuilder_ == null) {
+          allowedCSIDrivers_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00080000);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public Builder removeAllowedCSIDrivers(int index) {
+        if (allowedCSIDriversBuilder_ == null) {
+          ensureAllowedCSIDriversIsMutable();
+          allowedCSIDrivers_.remove(index);
+          onChanged();
+        } else {
+          allowedCSIDriversBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder
+          getAllowedCSIDriversBuilder(int index) {
+        return getAllowedCSIDriversFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder
+          getAllowedCSIDriversOrBuilder(int index) {
+        if (allowedCSIDriversBuilder_ == null) {
+          return allowedCSIDrivers_.get(index);
+        } else {
+          return allowedCSIDriversBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public java.util.List<
+              ? extends io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder>
+          getAllowedCSIDriversOrBuilderList() {
+        if (allowedCSIDriversBuilder_ != null) {
+          return allowedCSIDriversBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(allowedCSIDrivers_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder
+          addAllowedCSIDriversBuilder() {
+        return getAllowedCSIDriversFieldBuilder()
+            .addBuilder(
+                io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder
+          addAllowedCSIDriversBuilder(int index) {
+        return getAllowedCSIDriversFieldBuilder()
+            .addBuilder(
+                index,
+                io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * AllowedCSIDrivers is an allowlist of inline CSI drivers that must be explicitly set to be embedded within a pod spec.
+       * An empty value indicates that any CSI driver can be used for inline ephemeral volumes.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.extensions.v1beta1.AllowedCSIDriver allowedCSIDrivers = 23;
+       * </code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder>
+          getAllowedCSIDriversBuilderList() {
+        return getAllowedCSIDriversFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver,
+              io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder,
+              io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder>
+          getAllowedCSIDriversFieldBuilder() {
+        if (allowedCSIDriversBuilder_ == null) {
+          allowedCSIDriversBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver,
+                  io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriver.Builder,
+                  io.kubernetes.client.proto.V1beta1Extensions.AllowedCSIDriverOrBuilder>(
+                  allowedCSIDrivers_,
+                  ((bitField0_ & 0x00080000) == 0x00080000),
+                  getParentForChildren(),
+                  isClean());
+          allowedCSIDrivers_ = null;
+        }
+        return allowedCSIDriversBuilder_;
+      }
+
       private com.google.protobuf.LazyStringList allowedUnsafeSysctls_ =
           com.google.protobuf.LazyStringArrayList.EMPTY;
 
       private void ensureAllowedUnsafeSysctlsIsMutable() {
-        if (!((bitField0_ & 0x00080000) == 0x00080000)) {
+        if (!((bitField0_ & 0x00100000) == 0x00100000)) {
           allowedUnsafeSysctls_ =
               new com.google.protobuf.LazyStringArrayList(allowedUnsafeSysctls_);
-          bitField0_ |= 0x00080000;
+          bitField0_ |= 0x00100000;
         }
       }
       /**
@@ -60988,7 +63617,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61007,7 +63636,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61026,7 +63655,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61045,7 +63674,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61064,7 +63693,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61089,7 +63718,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61114,7 +63743,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61136,7 +63765,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61147,7 +63776,7 @@ public final class V1beta1Extensions {
        */
       public Builder clearAllowedUnsafeSysctls() {
         allowedUnsafeSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         onChanged();
         return this;
       }
@@ -61158,7 +63787,7 @@ public final class V1beta1Extensions {
        * allowedUnsafeSysctls is a list of explicitly allowed unsafe sysctls, defaults to none.
        * Each entry is either a plain sysctl name or ends in "*" in which case it is considered
        * as a prefix of allowed sysctls. Single * means all unsafe sysctls are allowed.
-       * Kubelet has to whitelist all allowed unsafe sysctls explicitly to avoid rejection.
+       * Kubelet has to allowlist all unsafe sysctls explicitly to avoid rejection.
        * Examples:
        * e.g. "foo/&#42;" allows "foo/bar", "foo/baz", etc.
        * e.g. "foo.*" allows "foo.bar", "foo.baz", etc.
@@ -61181,9 +63810,9 @@ public final class V1beta1Extensions {
           com.google.protobuf.LazyStringArrayList.EMPTY;
 
       private void ensureForbiddenSysctlsIsMutable() {
-        if (!((bitField0_ & 0x00100000) == 0x00100000)) {
+        if (!((bitField0_ & 0x00200000) == 0x00200000)) {
           forbiddenSysctls_ = new com.google.protobuf.LazyStringArrayList(forbiddenSysctls_);
-          bitField0_ |= 0x00100000;
+          bitField0_ |= 0x00200000;
         }
       }
       /**
@@ -61344,7 +63973,7 @@ public final class V1beta1Extensions {
        */
       public Builder clearForbiddenSysctls() {
         forbiddenSysctls_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00200000);
         onChanged();
         return this;
       }
@@ -61377,17 +64006,17 @@ public final class V1beta1Extensions {
           com.google.protobuf.LazyStringArrayList.EMPTY;
 
       private void ensureAllowedProcMountTypesIsMutable() {
-        if (!((bitField0_ & 0x00200000) == 0x00200000)) {
+        if (!((bitField0_ & 0x00400000) == 0x00400000)) {
           allowedProcMountTypes_ =
               new com.google.protobuf.LazyStringArrayList(allowedProcMountTypes_);
-          bitField0_ |= 0x00200000;
+          bitField0_ |= 0x00400000;
         }
       }
       /**
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61402,7 +64031,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61417,7 +64046,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61432,7 +64061,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61447,7 +64076,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61468,7 +64097,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61489,7 +64118,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61507,7 +64136,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61517,7 +64146,7 @@ public final class V1beta1Extensions {
        */
       public Builder clearAllowedProcMountTypes() {
         allowedProcMountTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00400000);
         onChanged();
         return this;
       }
@@ -61525,7 +64154,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * AllowedProcMountTypes is a whitelist of allowed ProcMountTypes.
+       * AllowedProcMountTypes is an allowlist of allowed ProcMountTypes.
        * Empty or nil indicates that only the DefaultProcMountType may be used.
        * This requires the ProcMountType feature flag to be enabled.
        * +optional
@@ -61541,6 +64170,247 @@ public final class V1beta1Extensions {
         allowedProcMountTypes_.add(value);
         onChanged();
         return this;
+      }
+
+      private io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+          runtimeClass_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions,
+              io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.Builder,
+              io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptionsOrBuilder>
+          runtimeClassBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public boolean hasRuntimeClass() {
+        return ((bitField0_ & 0x00800000) == 0x00800000);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+          getRuntimeClass() {
+        if (runtimeClassBuilder_ == null) {
+          return runtimeClass_ == null
+              ? io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+                  .getDefaultInstance()
+              : runtimeClass_;
+        } else {
+          return runtimeClassBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public Builder setRuntimeClass(
+          io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions value) {
+        if (runtimeClassBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          runtimeClass_ = value;
+          onChanged();
+        } else {
+          runtimeClassBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public Builder setRuntimeClass(
+          io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.Builder
+              builderForValue) {
+        if (runtimeClassBuilder_ == null) {
+          runtimeClass_ = builderForValue.build();
+          onChanged();
+        } else {
+          runtimeClassBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public Builder mergeRuntimeClass(
+          io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions value) {
+        if (runtimeClassBuilder_ == null) {
+          if (((bitField0_ & 0x00800000) == 0x00800000)
+              && runtimeClass_ != null
+              && runtimeClass_
+                  != io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+                      .getDefaultInstance()) {
+            runtimeClass_ =
+                io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.newBuilder(
+                        runtimeClass_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            runtimeClass_ = value;
+          }
+          onChanged();
+        } else {
+          runtimeClassBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public Builder clearRuntimeClass() {
+        if (runtimeClassBuilder_ == null) {
+          runtimeClass_ = null;
+          onChanged();
+        } else {
+          runtimeClassBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00800000);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.Builder
+          getRuntimeClassBuilder() {
+        bitField0_ |= 0x00800000;
+        onChanged();
+        return getRuntimeClassFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptionsOrBuilder
+          getRuntimeClassOrBuilder() {
+        if (runtimeClassBuilder_ != null) {
+          return runtimeClassBuilder_.getMessageOrBuilder();
+        } else {
+          return runtimeClass_ == null
+              ? io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+                  .getDefaultInstance()
+              : runtimeClass_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * runtimeClass is the strategy that will dictate the allowable RuntimeClasses for a pod.
+       * If this field is omitted, the pod's runtimeClassName field is unrestricted.
+       * Enforcement of this field depends on the RuntimeClass feature gate being enabled.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions runtimeClass = 24;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions,
+              io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.Builder,
+              io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptionsOrBuilder>
+          getRuntimeClassFieldBuilder() {
+        if (runtimeClassBuilder_ == null) {
+          runtimeClassBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions,
+                  io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.Builder,
+                  io.kubernetes.client.proto.V1beta1Extensions
+                      .RuntimeClassStrategyOptionsOrBuilder>(
+                  getRuntimeClass(), getParentForChildren(), isClean());
+          runtimeClass_ = null;
+        }
+        return runtimeClassBuilder_;
       }
 
       @java.lang.Override
@@ -61610,7 +64480,7 @@ public final class V1beta1Extensions {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -61623,7 +64493,7 @@ public final class V1beta1Extensions {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -61636,7 +64506,7 @@ public final class V1beta1Extensions {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -61649,7 +64519,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61661,7 +64531,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61673,7 +64543,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61689,7 +64559,7 @@ public final class V1beta1Extensions {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61704,7 +64574,7 @@ public final class V1beta1Extensions {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61719,7 +64589,7 @@ public final class V1beta1Extensions {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61869,7 +64739,7 @@ public final class V1beta1Extensions {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -61884,7 +64754,7 @@ public final class V1beta1Extensions {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -61901,7 +64771,7 @@ public final class V1beta1Extensions {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -61920,7 +64790,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61934,7 +64804,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61950,7 +64820,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61972,7 +64842,7 @@ public final class V1beta1Extensions {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -61989,7 +64859,7 @@ public final class V1beta1Extensions {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -62008,7 +64878,7 @@ public final class V1beta1Extensions {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -62445,7 +65315,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62460,7 +65330,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62481,7 +65351,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62506,7 +65376,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62529,7 +65399,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62560,7 +65430,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62582,7 +65452,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62599,7 +65469,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62620,7 +65490,7 @@ public final class V1beta1Extensions {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -62654,7 +65524,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62668,7 +65538,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62688,7 +65558,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62712,7 +65582,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62734,7 +65604,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62766,7 +65636,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62787,7 +65657,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62803,7 +65673,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62824,7 +65694,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62861,7 +65731,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62878,7 +65748,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62901,7 +65771,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62929,7 +65799,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62954,7 +65824,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -62990,7 +65860,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -63014,7 +65884,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -63034,7 +65904,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -63058,7 +65928,7 @@ public final class V1beta1Extensions {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -64395,8 +67265,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -64409,8 +67278,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -64429,8 +67297,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -64453,8 +67320,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -64475,8 +67341,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -64505,8 +67370,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -64526,8 +67390,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000004;
@@ -64542,8 +67405,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -64562,8 +67424,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -64874,7 +67735,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -64886,7 +67747,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -64898,7 +67759,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -65085,7 +67946,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -65099,7 +67960,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -65115,7 +67976,7 @@ public final class V1beta1Extensions {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -65405,8 +68266,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetList.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetList.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -65613,7 +68473,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -65627,7 +68487,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -65647,7 +68507,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -65671,7 +68531,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -65692,7 +68552,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -65722,7 +68582,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -65743,7 +68603,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -65759,7 +68619,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -65779,7 +68639,7 @@ public final class V1beta1Extensions {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -66926,8 +69786,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetSpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetSpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetSpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -67273,8 +70132,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -67290,8 +70148,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -67313,8 +70170,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -67340,8 +70196,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -67365,8 +70220,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -67398,8 +70252,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -67422,8 +70275,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000004;
@@ -67441,8 +70293,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -67464,8 +70315,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -68564,8 +71414,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -69117,8 +71966,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition>
           getConditionsList() {
@@ -69138,8 +71986,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public int getConditionsCount() {
         if (conditionsBuilder_ == null) {
@@ -69158,8 +72005,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition getConditions(
           int index) {
@@ -69179,8 +72025,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder setConditions(
           int index, io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition value) {
@@ -69206,8 +72051,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder setConditions(
           int index,
@@ -69232,8 +72076,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder addConditions(
           io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition value) {
@@ -69259,8 +72102,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder addConditions(
           int index, io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition value) {
@@ -69286,8 +72128,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder addConditions(
           io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition.Builder
@@ -69311,8 +72152,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder addConditions(
           int index,
@@ -69337,8 +72177,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder addAllConditions(
           java.lang.Iterable<
@@ -69363,8 +72202,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder clearConditions() {
         if (conditionsBuilder_ == null) {
@@ -69386,8 +72224,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public Builder removeConditions(int index) {
         if (conditionsBuilder_ == null) {
@@ -69409,8 +72246,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition.Builder
           getConditionsBuilder(int index) {
@@ -69426,8 +72262,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetConditionOrBuilder
           getConditionsOrBuilder(int index) {
@@ -69447,8 +72282,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetConditionOrBuilder>
@@ -69469,8 +72303,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition.Builder
           addConditionsBuilder() {
@@ -69489,8 +72322,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition.Builder
           addConditionsBuilder(int index) {
@@ -69510,8 +72342,7 @@ public final class V1beta1Extensions {
        * +patchStrategy=merge
        * </pre>
        *
-       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;
-       * </code>
+       * <code>repeated .k8s.io.api.extensions.v1beta1.ReplicaSetCondition conditions = 6;</code>
        */
       public java.util.List<
               io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetCondition.Builder>
@@ -69590,469 +72421,6 @@ public final class V1beta1Extensions {
 
     @java.lang.Override
     public io.kubernetes.client.proto.V1beta1Extensions.ReplicaSetStatus
-        getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-  }
-
-  public interface ReplicationControllerDummyOrBuilder
-      extends
-      // @@protoc_insertion_point(interface_extends:k8s.io.api.extensions.v1beta1.ReplicationControllerDummy)
-      com.google.protobuf.MessageOrBuilder {}
-  /**
-   *
-   *
-   * <pre>
-   * Dummy definition
-   * </pre>
-   *
-   * Protobuf type {@code k8s.io.api.extensions.v1beta1.ReplicationControllerDummy}
-   */
-  public static final class ReplicationControllerDummy
-      extends com.google.protobuf.GeneratedMessageV3
-      implements
-      // @@protoc_insertion_point(message_implements:k8s.io.api.extensions.v1beta1.ReplicationControllerDummy)
-      ReplicationControllerDummyOrBuilder {
-    private static final long serialVersionUID = 0L;
-    // Use ReplicationControllerDummy.newBuilder() to construct.
-    private ReplicationControllerDummy(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-
-    private ReplicationControllerDummy() {}
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
-      return this.unknownFields;
-    }
-
-    private ReplicationControllerDummy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default:
-              {
-                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-
-    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
-      return io.kubernetes.client.proto.V1beta1Extensions
-          .internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.kubernetes.client.proto.V1beta1Extensions
-          .internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy.class,
-              io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy.Builder
-                  .class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-        return true;
-      }
-      if (!(obj
-          instanceof io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy)) {
-        return super.equals(obj);
-      }
-      io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy other =
-          (io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy) obj;
-
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        java.io.InputStream input) throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
-          PARSER, input, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
-        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
-        parseDelimitedFrom(
-            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
-          PARSER, input, extensionRegistry);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
-          PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    public static Builder newBuilder(
-        io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     *
-     *
-     * <pre>
-     * Dummy definition
-     * </pre>
-     *
-     * Protobuf type {@code k8s.io.api.extensions.v1beta1.ReplicationControllerDummy}
-     */
-    public static final class Builder
-        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
-        implements
-        // @@protoc_insertion_point(builder_implements:k8s.io.api.extensions.v1beta1.ReplicationControllerDummy)
-        io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummyOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
-        return io.kubernetes.client.proto.V1beta1Extensions
-            .internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.kubernetes.client.proto.V1beta1Extensions
-            .internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy.class,
-                io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy.Builder
-                    .class);
-      }
-
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
-      }
-
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
-        return io.kubernetes.client.proto.V1beta1Extensions
-            .internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_descriptor;
-      }
-
-      @java.lang.Override
-      public io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
-          getDefaultInstanceForType() {
-        return io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
-            .getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy build() {
-        io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy result =
-            buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
-          buildPartial() {
-        io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy result =
-            new io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-
-      @java.lang.Override
-      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index,
-          java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other
-            instanceof io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy) {
-          return mergeFrom(
-              (io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy) other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(
-          io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy other) {
-        if (other
-            == io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
-                .getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy parsedMessage =
-            null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage =
-              (io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy)
-                  e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-      // @@protoc_insertion_point(builder_scope:k8s.io.api.extensions.v1beta1.ReplicationControllerDummy)
-    }
-
-    // @@protoc_insertion_point(class_scope:k8s.io.api.extensions.v1beta1.ReplicationControllerDummy)
-    private static final io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
-        DEFAULT_INSTANCE;
-
-    static {
-      DEFAULT_INSTANCE =
-          new io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy();
-    }
-
-    public static io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
-        getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<ReplicationControllerDummy> PARSER =
-        new com.google.protobuf.AbstractParser<ReplicationControllerDummy>() {
-          @java.lang.Override
-          public ReplicationControllerDummy parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-            return new ReplicationControllerDummy(input, extensionRegistry);
-          }
-        };
-
-    public static com.google.protobuf.Parser<ReplicationControllerDummy> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ReplicationControllerDummy> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.kubernetes.client.proto.V1beta1Extensions.ReplicationControllerDummy
         getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -70399,8 +72767,7 @@ public final class V1beta1Extensions {
                 io.kubernetes.client.proto.V1beta1Extensions.RollbackConfig.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Extensions.RollbackConfig.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Extensions.RollbackConfig.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -70670,21 +73037,20 @@ public final class V1beta1Extensions {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     boolean hasMaxUnavailable();
     /**
@@ -70695,21 +73061,20 @@ public final class V1beta1Extensions {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable();
     /**
@@ -70720,23 +73085,110 @@ public final class V1beta1Extensions {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    boolean hasMaxSurge();
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    io.kubernetes.client.proto.IntStr.IntOrString getMaxSurge();
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxSurgeOrBuilder();
   }
   /**
    *
@@ -70799,6 +73251,22 @@ public final class V1beta1Extensions {
                 bitField0_ |= 0x00000001;
                 break;
               }
+            case 18:
+              {
+                io.kubernetes.client.proto.IntStr.IntOrString.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = maxSurge_.toBuilder();
+                }
+                maxSurge_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.IntStr.IntOrString.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(maxSurge_);
+                  maxSurge_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -70844,21 +73312,20 @@ public final class V1beta1Extensions {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public boolean hasMaxUnavailable() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -70871,21 +73338,20 @@ public final class V1beta1Extensions {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
       return maxUnavailable_ == null
@@ -70900,26 +73366,125 @@ public final class V1beta1Extensions {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
       return maxUnavailable_ == null
           ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
           : maxUnavailable_;
+    }
+
+    public static final int MAXSURGE_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.IntStr.IntOrString maxSurge_;
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    public boolean hasMaxSurge() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    public io.kubernetes.client.proto.IntStr.IntOrString getMaxSurge() {
+      return maxSurge_ == null
+          ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+          : maxSurge_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxSurgeOrBuilder() {
+      return maxSurge_ == null
+          ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+          : maxSurge_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -70939,6 +73504,9 @@ public final class V1beta1Extensions {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMaxUnavailable());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getMaxSurge());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -70950,6 +73518,9 @@ public final class V1beta1Extensions {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMaxUnavailable());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getMaxSurge());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -70972,6 +73543,10 @@ public final class V1beta1Extensions {
       if (hasMaxUnavailable()) {
         result = result && getMaxUnavailable().equals(other.getMaxUnavailable());
       }
+      result = result && (hasMaxSurge() == other.hasMaxSurge());
+      if (hasMaxSurge()) {
+        result = result && getMaxSurge().equals(other.getMaxSurge());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -70986,6 +73561,10 @@ public final class V1beta1Extensions {
       if (hasMaxUnavailable()) {
         hash = (37 * hash) + MAXUNAVAILABLE_FIELD_NUMBER;
         hash = (53 * hash) + getMaxUnavailable().hashCode();
+      }
+      if (hasMaxSurge()) {
+        hash = (37 * hash) + MAXSURGE_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxSurge().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -71133,6 +73712,7 @@ public final class V1beta1Extensions {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMaxUnavailableFieldBuilder();
+          getMaxSurgeFieldBuilder();
         }
       }
 
@@ -71145,6 +73725,12 @@ public final class V1beta1Extensions {
           maxUnavailableBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
+        if (maxSurgeBuilder_ == null) {
+          maxSurge_ = null;
+        } else {
+          maxSurgeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -71183,6 +73769,14 @@ public final class V1beta1Extensions {
           result.maxUnavailable_ = maxUnavailable_;
         } else {
           result.maxUnavailable_ = maxUnavailableBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (maxSurgeBuilder_ == null) {
+          result.maxSurge_ = maxSurge_;
+        } else {
+          result.maxSurge_ = maxSurgeBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -71243,6 +73837,9 @@ public final class V1beta1Extensions {
         if (other.hasMaxUnavailable()) {
           mergeMaxUnavailable(other.getMaxUnavailable());
         }
+        if (other.hasMaxSurge()) {
+          mergeMaxSurge(other.getMaxSurge());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -71290,21 +73887,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public boolean hasMaxUnavailable() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -71317,21 +73913,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -71350,21 +73945,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder setMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -71387,21 +73981,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder setMaxUnavailable(
           io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
@@ -71422,21 +74015,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder mergeMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -71466,21 +74058,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder clearMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -71500,21 +74091,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString.Builder getMaxUnavailableBuilder() {
         bitField0_ |= 0x00000001;
@@ -71529,21 +74119,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
         if (maxUnavailableBuilder_ != null) {
@@ -71562,21 +74151,20 @@ public final class V1beta1Extensions {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.IntStr.IntOrString,
@@ -71593,6 +74181,360 @@ public final class V1beta1Extensions {
           maxUnavailable_ = null;
         }
         return maxUnavailableBuilder_;
+      }
+
+      private io.kubernetes.client.proto.IntStr.IntOrString maxSurge_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.IntStr.IntOrString,
+              io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+              io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>
+          maxSurgeBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public boolean hasMaxSurge() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public io.kubernetes.client.proto.IntStr.IntOrString getMaxSurge() {
+        if (maxSurgeBuilder_ == null) {
+          return maxSurge_ == null
+              ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+              : maxSurge_;
+        } else {
+          return maxSurgeBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public Builder setMaxSurge(io.kubernetes.client.proto.IntStr.IntOrString value) {
+        if (maxSurgeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          maxSurge_ = value;
+          onChanged();
+        } else {
+          maxSurgeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public Builder setMaxSurge(
+          io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
+        if (maxSurgeBuilder_ == null) {
+          maxSurge_ = builderForValue.build();
+          onChanged();
+        } else {
+          maxSurgeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public Builder mergeMaxSurge(io.kubernetes.client.proto.IntStr.IntOrString value) {
+        if (maxSurgeBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && maxSurge_ != null
+              && maxSurge_ != io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()) {
+            maxSurge_ =
+                io.kubernetes.client.proto.IntStr.IntOrString.newBuilder(maxSurge_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            maxSurge_ = value;
+          }
+          onChanged();
+        } else {
+          maxSurgeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public Builder clearMaxSurge() {
+        if (maxSurgeBuilder_ == null) {
+          maxSurge_ = null;
+          onChanged();
+        } else {
+          maxSurgeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public io.kubernetes.client.proto.IntStr.IntOrString.Builder getMaxSurgeBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getMaxSurgeFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxSurgeOrBuilder() {
+        if (maxSurgeBuilder_ != null) {
+          return maxSurgeBuilder_.getMessageOrBuilder();
+        } else {
+          return maxSurge_ == null
+              ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+              : maxSurge_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is an alpha field and requires enabling DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.IntStr.IntOrString,
+              io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+              io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>
+          getMaxSurgeFieldBuilder() {
+        if (maxSurgeBuilder_ == null) {
+          maxSurgeBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.IntStr.IntOrString,
+                  io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+                  io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>(
+                  getMaxSurge(), getParentForChildren(), isClean());
+          maxSurge_ = null;
+        }
+        return maxSurgeBuilder_;
       }
 
       @java.lang.Override
@@ -71673,8 +74615,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     boolean hasMaxUnavailable();
     /**
@@ -71694,8 +74635,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable();
     /**
@@ -71715,8 +74655,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder();
 
@@ -71734,7 +74673,7 @@ public final class V1beta1Extensions {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new RC can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -71755,7 +74694,7 @@ public final class V1beta1Extensions {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new RC can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -71776,7 +74715,7 @@ public final class V1beta1Extensions {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new RC can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -71915,8 +74854,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public boolean hasMaxUnavailable() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -71938,8 +74876,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
       return maxUnavailable_ == null
@@ -71963,8 +74900,7 @@ public final class V1beta1Extensions {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
       return maxUnavailable_ == null
@@ -71988,7 +74924,7 @@ public final class V1beta1Extensions {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new RC can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -72011,7 +74947,7 @@ public final class V1beta1Extensions {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new RC can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -72036,7 +74972,7 @@ public final class V1beta1Extensions {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new RC can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -72458,8 +75394,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public boolean hasMaxUnavailable() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -72481,8 +75416,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -72510,8 +75444,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder setMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -72543,8 +75476,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder setMaxUnavailable(
           io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
@@ -72574,8 +75506,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder mergeMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -72614,8 +75545,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder clearMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -72644,8 +75574,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString.Builder getMaxUnavailableBuilder() {
         bitField0_ |= 0x00000001;
@@ -72669,8 +75598,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
         if (maxUnavailableBuilder_ != null) {
@@ -72698,8 +75626,7 @@ public final class V1beta1Extensions {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.IntStr.IntOrString,
@@ -72738,7 +75665,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -72761,7 +75688,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -72790,7 +75717,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -72823,7 +75750,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -72854,7 +75781,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -72893,7 +75820,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -72923,7 +75850,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -72948,7 +75875,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -72977,7 +75904,7 @@ public final class V1beta1Extensions {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new RC can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -75667,6 +78594,1069 @@ public final class V1beta1Extensions {
     }
   }
 
+  public interface RuntimeClassStrategyOptionsOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    java.util.List<java.lang.String> getAllowedRuntimeClassNamesList();
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    int getAllowedRuntimeClassNamesCount();
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    java.lang.String getAllowedRuntimeClassNames(int index);
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    com.google.protobuf.ByteString getAllowedRuntimeClassNamesBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    boolean hasDefaultRuntimeClassName();
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    java.lang.String getDefaultRuntimeClassName();
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    com.google.protobuf.ByteString getDefaultRuntimeClassNameBytes();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses
+   * for a pod.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions}
+   */
+  public static final class RuntimeClassStrategyOptions
+      extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions)
+      RuntimeClassStrategyOptionsOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use RuntimeClassStrategyOptions.newBuilder() to construct.
+    private RuntimeClassStrategyOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private RuntimeClassStrategyOptions() {
+      allowedRuntimeClassNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      defaultRuntimeClassName_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private RuntimeClassStrategyOptions(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                  allowedRuntimeClassNames_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                allowedRuntimeClassNames_.add(bs);
+                break;
+              }
+            case 18:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                defaultRuntimeClassName_ = bs;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          allowedRuntimeClassNames_ = allowedRuntimeClassNames_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V1beta1Extensions
+          .internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V1beta1Extensions
+          .internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.class,
+              io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.Builder
+                  .class);
+    }
+
+    private int bitField0_;
+    public static final int ALLOWEDRUNTIMECLASSNAMES_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList allowedRuntimeClassNames_;
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getAllowedRuntimeClassNamesList() {
+      return allowedRuntimeClassNames_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    public int getAllowedRuntimeClassNamesCount() {
+      return allowedRuntimeClassNames_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    public java.lang.String getAllowedRuntimeClassNames(int index) {
+      return allowedRuntimeClassNames_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+     * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+     * list. An empty list requires the RuntimeClassName field to be unset.
+     * </pre>
+     *
+     * <code>repeated string allowedRuntimeClassNames = 1;</code>
+     */
+    public com.google.protobuf.ByteString getAllowedRuntimeClassNamesBytes(int index) {
+      return allowedRuntimeClassNames_.getByteString(index);
+    }
+
+    public static final int DEFAULTRUNTIMECLASSNAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object defaultRuntimeClassName_;
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    public boolean hasDefaultRuntimeClassName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    public java.lang.String getDefaultRuntimeClassName() {
+      java.lang.Object ref = defaultRuntimeClassName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          defaultRuntimeClassName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+     * The default MUST be allowed by the allowedRuntimeClassNames list.
+     * A value of nil does not mutate the Pod.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string defaultRuntimeClassName = 2;</code>
+     */
+    public com.google.protobuf.ByteString getDefaultRuntimeClassNameBytes() {
+      java.lang.Object ref = defaultRuntimeClassName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        defaultRuntimeClassName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      for (int i = 0; i < allowedRuntimeClassNames_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(
+            output, 1, allowedRuntimeClassNames_.getRaw(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, defaultRuntimeClassName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < allowedRuntimeClassNames_.size(); i++) {
+          dataSize += computeStringSizeNoTag(allowedRuntimeClassNames_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getAllowedRuntimeClassNamesList().size();
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size +=
+            com.google.protobuf.GeneratedMessageV3.computeStringSize(2, defaultRuntimeClassName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj
+          instanceof io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions other =
+          (io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions) obj;
+
+      boolean result = true;
+      result =
+          result
+              && getAllowedRuntimeClassNamesList().equals(other.getAllowedRuntimeClassNamesList());
+      result = result && (hasDefaultRuntimeClassName() == other.hasDefaultRuntimeClassName());
+      if (hasDefaultRuntimeClassName()) {
+        result = result && getDefaultRuntimeClassName().equals(other.getDefaultRuntimeClassName());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getAllowedRuntimeClassNamesCount() > 0) {
+        hash = (37 * hash) + ALLOWEDRUNTIMECLASSNAMES_FIELD_NUMBER;
+        hash = (53 * hash) + getAllowedRuntimeClassNamesList().hashCode();
+      }
+      if (hasDefaultRuntimeClassName()) {
+        hash = (37 * hash) + DEFAULTRUNTIMECLASSNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getDefaultRuntimeClassName().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(
+            java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses
+     * for a pod.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions)
+        io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V1beta1Extensions
+            .internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V1beta1Extensions
+            .internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.class,
+                io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.Builder
+                    .class);
+      }
+
+      // Construct using
+      // io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        allowedRuntimeClassNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        defaultRuntimeClassName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V1beta1Extensions
+            .internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions build() {
+        io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+          buildPartial() {
+        io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions result =
+            new io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          allowedRuntimeClassNames_ = allowedRuntimeClassNames_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.allowedRuntimeClassNames_ = allowedRuntimeClassNames_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.defaultRuntimeClassName_ = defaultRuntimeClassName_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other
+            instanceof io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions) {
+          return mergeFrom(
+              (io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions other) {
+        if (other
+            == io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+                .getDefaultInstance()) return this;
+        if (!other.allowedRuntimeClassNames_.isEmpty()) {
+          if (allowedRuntimeClassNames_.isEmpty()) {
+            allowedRuntimeClassNames_ = other.allowedRuntimeClassNames_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureAllowedRuntimeClassNamesIsMutable();
+            allowedRuntimeClassNames_.addAll(other.allowedRuntimeClassNames_);
+          }
+          onChanged();
+        }
+        if (other.hasDefaultRuntimeClassName()) {
+          bitField0_ |= 0x00000002;
+          defaultRuntimeClassName_ = other.defaultRuntimeClassName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions parsedMessage =
+            null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList allowedRuntimeClassNames_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureAllowedRuntimeClassNamesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          allowedRuntimeClassNames_ =
+              new com.google.protobuf.LazyStringArrayList(allowedRuntimeClassNames_);
+          bitField0_ |= 0x00000001;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getAllowedRuntimeClassNamesList() {
+        return allowedRuntimeClassNames_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public int getAllowedRuntimeClassNamesCount() {
+        return allowedRuntimeClassNames_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public java.lang.String getAllowedRuntimeClassNames(int index) {
+        return allowedRuntimeClassNames_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public com.google.protobuf.ByteString getAllowedRuntimeClassNamesBytes(int index) {
+        return allowedRuntimeClassNames_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder setAllowedRuntimeClassNames(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAllowedRuntimeClassNamesIsMutable();
+        allowedRuntimeClassNames_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder addAllowedRuntimeClassNames(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAllowedRuntimeClassNamesIsMutable();
+        allowedRuntimeClassNames_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder addAllAllowedRuntimeClassNames(java.lang.Iterable<java.lang.String> values) {
+        ensureAllowedRuntimeClassNamesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, allowedRuntimeClassNames_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder clearAllowedRuntimeClassNames() {
+        allowedRuntimeClassNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * allowedRuntimeClassNames is an allowlist of RuntimeClass names that may be specified on a pod.
+       * A value of "*" means that any RuntimeClass name is allowed, and must be the only item in the
+       * list. An empty list requires the RuntimeClassName field to be unset.
+       * </pre>
+       *
+       * <code>repeated string allowedRuntimeClassNames = 1;</code>
+       */
+      public Builder addAllowedRuntimeClassNamesBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAllowedRuntimeClassNamesIsMutable();
+        allowedRuntimeClassNames_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object defaultRuntimeClassName_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public boolean hasDefaultRuntimeClassName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public java.lang.String getDefaultRuntimeClassName() {
+        java.lang.Object ref = defaultRuntimeClassName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            defaultRuntimeClassName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public com.google.protobuf.ByteString getDefaultRuntimeClassNameBytes() {
+        java.lang.Object ref = defaultRuntimeClassName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          defaultRuntimeClassName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public Builder setDefaultRuntimeClassName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        defaultRuntimeClassName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public Builder clearDefaultRuntimeClassName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        defaultRuntimeClassName_ = getDefaultInstance().getDefaultRuntimeClassName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * defaultRuntimeClassName is the default RuntimeClassName to set on the pod.
+       * The default MUST be allowed by the allowedRuntimeClassNames list.
+       * A value of nil does not mutate the Pod.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string defaultRuntimeClassName = 2;</code>
+       */
+      public Builder setDefaultRuntimeClassNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        defaultRuntimeClassName_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.extensions.v1beta1.RuntimeClassStrategyOptions)
+    private static final io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE =
+          new io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions();
+    }
+
+    public static io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<RuntimeClassStrategyOptions> PARSER =
+        new com.google.protobuf.AbstractParser<RuntimeClassStrategyOptions>() {
+          @java.lang.Override
+          public RuntimeClassStrategyOptions parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new RuntimeClassStrategyOptions(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<RuntimeClassStrategyOptions> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RuntimeClassStrategyOptions> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V1beta1Extensions.RuntimeClassStrategyOptions
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   public interface SELinuxStrategyOptionsOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.extensions.v1beta1.SELinuxStrategyOptions)
@@ -76706,7 +80696,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -76717,7 +80707,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -76728,7 +80718,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -76740,7 +80730,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -76751,7 +80741,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -76762,7 +80752,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -76774,7 +80764,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -76785,7 +80775,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -76796,7 +80786,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -76940,7 +80930,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -76953,7 +80943,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -76968,7 +80958,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -76986,7 +80976,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -76999,7 +80989,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -77014,7 +81004,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -77032,7 +81022,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -77045,7 +81035,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -77060,7 +81050,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -77491,7 +81481,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77504,7 +81494,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77523,7 +81513,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77546,7 +81536,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77567,7 +81557,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77596,7 +81586,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77616,7 +81606,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77631,7 +81621,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77650,7 +81640,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -77683,7 +81673,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77696,7 +81686,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77715,7 +81705,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77738,7 +81728,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77759,7 +81749,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77789,7 +81779,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77809,7 +81799,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77824,7 +81814,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77843,7 +81833,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -77876,7 +81866,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -77889,7 +81879,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -77908,7 +81898,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -77931,7 +81921,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -77952,7 +81942,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -77983,7 +81973,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -78003,7 +81993,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -78018,7 +82008,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -78038,7 +82028,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -78740,6 +82730,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -78751,6 +82742,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -78765,6 +82757,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -78776,6 +82769,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -78787,6 +82781,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79022,6 +83017,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79043,6 +83039,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79056,6 +83053,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79074,6 +83072,7 @@ public final class V1beta1Extensions {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79656,6 +83655,7 @@ public final class V1beta1Extensions {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79677,6 +83677,7 @@ public final class V1beta1Extensions {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79690,6 +83691,7 @@ public final class V1beta1Extensions {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79708,6 +83710,7 @@ public final class V1beta1Extensions {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79733,6 +83736,7 @@ public final class V1beta1Extensions {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79755,6 +83759,7 @@ public final class V1beta1Extensions {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -79775,6 +83780,7 @@ public final class V1beta1Extensions {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -81316,6 +85322,10 @@ public final class V1beta1Extensions {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_extensions_v1beta1_AllowedFlexVolume_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_extensions_v1beta1_AllowedFlexVolume_fieldAccessorTable;
@@ -81496,10 +85506,6 @@ public final class V1beta1Extensions {
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetStatus_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_descriptor;
-  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_extensions_v1beta1_RollbackConfig_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_extensions_v1beta1_RollbackConfig_fieldAccessorTable;
@@ -81519,6 +85525,10 @@ public final class V1beta1Extensions {
       internal_static_k8s_io_api_extensions_v1beta1_RunAsUserStrategyOptions_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_extensions_v1beta1_RunAsUserStrategyOptions_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_extensions_v1beta1_SELinuxStrategyOptions_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -81560,232 +85570,244 @@ public final class V1beta1Extensions {
           + "e/generated.proto\0326k8s.io/apimachinery/p"
           + "kg/runtime/schema/generated.proto\0323k8s.i"
           + "o/apimachinery/pkg/util/intstr/generated"
-          + ".proto\"#\n\021AllowedFlexVolume\022\016\n\006driver\030\001 "
-          + "\001(\t\"7\n\017AllowedHostPath\022\022\n\npathPrefix\030\001 \001"
-          + "(\t\022\020\n\010readOnly\030\002 \001(\010\"\313\001\n\tDaemonSet\022B\n\010me"
-          + "tadata\030\001 \001(\01320.k8s.io.apimachinery.pkg.a"
-          + "pis.meta.v1.ObjectMeta\022:\n\004spec\030\002 \001(\0132,.k"
-          + "8s.io.api.extensions.v1beta1.DaemonSetSp"
-          + "ec\022>\n\006status\030\003 \001(\0132..k8s.io.api.extensio"
-          + "ns.v1beta1.DaemonSetStatus\"\233\001\n\022DaemonSet"
-          + "Condition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022"
-          + "F\n\022lastTransitionTime\030\003 \001(\0132*.k8s.io.api"
-          + "machinery.pkg.apis.meta.v1.Time\022\016\n\006reaso"
-          + "n\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\212\001\n\rDaemonSetLi"
-          + "st\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachine"
-          + "ry.pkg.apis.meta.v1.ListMeta\0227\n\005items\030\002 "
-          + "\003(\0132(.k8s.io.api.extensions.v1beta1.Daem"
-          + "onSet\"\260\002\n\rDaemonSetSpec\022E\n\010selector\030\001 \001("
-          + "\01323.k8s.io.apimachinery.pkg.apis.meta.v1"
-          + ".LabelSelector\0225\n\010template\030\002 \001(\0132#.k8s.i"
-          + "o.api.core.v1.PodTemplateSpec\022N\n\016updateS"
-          + "trategy\030\003 \001(\01326.k8s.io.api.extensions.v1"
-          + "beta1.DaemonSetUpdateStrategy\022\027\n\017minRead"
-          + "ySeconds\030\004 \001(\005\022\032\n\022templateGeneration\030\005 \001"
-          + "(\003\022\034\n\024revisionHistoryLimit\030\006 \001(\005\"\321\002\n\017Dae"
-          + "monSetStatus\022\036\n\026currentNumberScheduled\030\001"
-          + " \001(\005\022\032\n\022numberMisscheduled\030\002 \001(\005\022\036\n\026desi"
-          + "redNumberScheduled\030\003 \001(\005\022\023\n\013numberReady\030"
-          + "\004 \001(\005\022\032\n\022observedGeneration\030\005 \001(\003\022\036\n\026upd"
-          + "atedNumberScheduled\030\006 \001(\005\022\027\n\017numberAvail"
-          + "able\030\007 \001(\005\022\031\n\021numberUnavailable\030\010 \001(\005\022\026\n"
-          + "\016collisionCount\030\t \001(\005\022E\n\nconditions\030\n \003("
-          + "\01321.k8s.io.api.extensions.v1beta1.Daemon"
-          + "SetCondition\"u\n\027DaemonSetUpdateStrategy\022"
-          + "\014\n\004type\030\001 \001(\t\022L\n\rrollingUpdate\030\002 \001(\01325.k"
-          + "8s.io.api.extensions.v1beta1.RollingUpda"
-          + "teDaemonSet\"\316\001\n\nDeployment\022B\n\010metadata\030\001"
-          + " \001(\01320.k8s.io.apimachinery.pkg.apis.meta"
-          + ".v1.ObjectMeta\022;\n\004spec\030\002 \001(\0132-.k8s.io.ap"
-          + "i.extensions.v1beta1.DeploymentSpec\022?\n\006s"
-          + "tatus\030\003 \001(\0132/.k8s.io.api.extensions.v1be"
-          + "ta1.DeploymentStatus\"\340\001\n\023DeploymentCondi"
-          + "tion\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022B\n\016la"
-          + "stUpdateTime\030\006 \001(\0132*.k8s.io.apimachinery"
-          + ".pkg.apis.meta.v1.Time\022F\n\022lastTransition"
-          + "Time\030\007 \001(\0132*.k8s.io.apimachinery.pkg.api"
-          + "s.meta.v1.Time\022\016\n\006reason\030\004 \001(\t\022\017\n\007messag"
-          + "e\030\005 \001(\t\"\214\001\n\016DeploymentList\022@\n\010metadata\030\001"
-          + " \001(\0132..k8s.io.apimachinery.pkg.apis.meta"
-          + ".v1.ListMeta\0228\n\005items\030\002 \003(\0132).k8s.io.api"
-          + ".extensions.v1beta1.Deployment\"\207\002\n\022Deplo"
-          + "ymentRollback\022\014\n\004name\030\001 \001(\t\022e\n\022updatedAn"
-          + "notations\030\002 \003(\0132I.k8s.io.api.extensions."
-          + "v1beta1.DeploymentRollback.UpdatedAnnota"
-          + "tionsEntry\022A\n\nrollbackTo\030\003 \001(\0132-.k8s.io."
-          + "api.extensions.v1beta1.RollbackConfig\0329\n"
-          + "\027UpdatedAnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
-          + "\005value\030\002 \001(\t:\0028\001\"\220\003\n\016DeploymentSpec\022\020\n\010r"
-          + "eplicas\030\001 \001(\005\022E\n\010selector\030\002 \001(\01323.k8s.io"
-          + ".apimachinery.pkg.apis.meta.v1.LabelSele"
-          + "ctor\0225\n\010template\030\003 \001(\0132#.k8s.io.api.core"
-          + ".v1.PodTemplateSpec\022C\n\010strategy\030\004 \001(\01321."
-          + "k8s.io.api.extensions.v1beta1.Deployment"
-          + "Strategy\022\027\n\017minReadySeconds\030\005 \001(\005\022\034\n\024rev"
-          + "isionHistoryLimit\030\006 \001(\005\022\016\n\006paused\030\007 \001(\010\022"
-          + "A\n\nrollbackTo\030\010 \001(\0132-.k8s.io.api.extensi"
-          + "ons.v1beta1.RollbackConfig\022\037\n\027progressDe"
-          + "adlineSeconds\030\t \001(\005\"\210\002\n\020DeploymentStatus"
-          + "\022\032\n\022observedGeneration\030\001 \001(\003\022\020\n\010replicas"
-          + "\030\002 \001(\005\022\027\n\017updatedReplicas\030\003 \001(\005\022\025\n\rready"
-          + "Replicas\030\007 \001(\005\022\031\n\021availableReplicas\030\004 \001("
-          + "\005\022\033\n\023unavailableReplicas\030\005 \001(\005\022F\n\ncondit"
-          + "ions\030\006 \003(\01322.k8s.io.api.extensions.v1bet"
-          + "a1.DeploymentCondition\022\026\n\016collisionCount"
-          + "\030\010 \001(\005\"q\n\022DeploymentStrategy\022\014\n\004type\030\001 \001"
-          + "(\t\022M\n\rrollingUpdate\030\002 \001(\01326.k8s.io.api.e"
-          + "xtensions.v1beta1.RollingUpdateDeploymen"
-          + "t\"^\n\026FSGroupStrategyOptions\022\014\n\004rule\030\001 \001("
-          + "\t\0226\n\006ranges\030\002 \003(\0132&.k8s.io.api.extension"
-          + "s.v1beta1.IDRange\"_\n\017HTTPIngressPath\022\014\n\004"
-          + "path\030\001 \001(\t\022>\n\007backend\030\002 \001(\0132-.k8s.io.api"
-          + ".extensions.v1beta1.IngressBackend\"U\n\024HT"
-          + "TPIngressRuleValue\022=\n\005paths\030\001 \003(\0132..k8s."
-          + "io.api.extensions.v1beta1.HTTPIngressPat"
-          + "h\")\n\rHostPortRange\022\013\n\003min\030\001 \001(\005\022\013\n\003max\030\002"
-          + " \001(\005\"#\n\007IDRange\022\013\n\003min\030\001 \001(\003\022\013\n\003max\030\002 \001("
-          + "\003\"\'\n\007IPBlock\022\014\n\004cidr\030\001 \001(\t\022\016\n\006except\030\002 \003"
-          + "(\t\"\305\001\n\007Ingress\022B\n\010metadata\030\001 \001(\01320.k8s.i"
-          + "o.apimachinery.pkg.apis.meta.v1.ObjectMe"
-          + "ta\0228\n\004spec\030\002 \001(\0132*.k8s.io.api.extensions"
-          + ".v1beta1.IngressSpec\022<\n\006status\030\003 \001(\0132,.k"
-          + "8s.io.api.extensions.v1beta1.IngressStat"
-          + "us\"l\n\016IngressBackend\022\023\n\013serviceName\030\001 \001("
-          + "\t\022E\n\013servicePort\030\002 \001(\01320.k8s.io.apimachi"
-          + "nery.pkg.util.intstr.IntOrString\"\206\001\n\013Ing"
-          + "ressList\022@\n\010metadata\030\001 \001(\0132..k8s.io.apim"
-          + "achinery.pkg.apis.meta.v1.ListMeta\0225\n\005it"
-          + "ems\030\002 \003(\0132&.k8s.io.api.extensions.v1beta"
-          + "1.Ingress\"f\n\013IngressRule\022\014\n\004host\030\001 \001(\t\022I"
-          + "\n\020ingressRuleValue\030\002 \001(\0132/.k8s.io.api.ex"
-          + "tensions.v1beta1.IngressRuleValue\"U\n\020Ing"
-          + "ressRuleValue\022A\n\004http\030\001 \001(\01323.k8s.io.api"
-          + ".extensions.v1beta1.HTTPIngressRuleValue"
-          + "\"\300\001\n\013IngressSpec\022>\n\007backend\030\001 \001(\0132-.k8s."
-          + "io.api.extensions.v1beta1.IngressBackend"
-          + "\0226\n\003tls\030\002 \003(\0132).k8s.io.api.extensions.v1"
-          + "beta1.IngressTLS\0229\n\005rules\030\003 \003(\0132*.k8s.io"
-          + ".api.extensions.v1beta1.IngressRule\"M\n\rI"
-          + "ngressStatus\022<\n\014loadBalancer\030\001 \001(\0132&.k8s"
-          + ".io.api.core.v1.LoadBalancerStatus\"/\n\nIn"
-          + "gressTLS\022\r\n\005hosts\030\001 \003(\t\022\022\n\nsecretName\030\002 "
-          + "\001(\t\"\223\001\n\rNetworkPolicy\022B\n\010metadata\030\001 \001(\0132"
-          + "0.k8s.io.apimachinery.pkg.apis.meta.v1.O"
-          + "bjectMeta\022>\n\004spec\030\002 \001(\01320.k8s.io.api.ext"
-          + "ensions.v1beta1.NetworkPolicySpec\"\230\001\n\027Ne"
-          + "tworkPolicyEgressRule\022?\n\005ports\030\001 \003(\01320.k"
-          + "8s.io.api.extensions.v1beta1.NetworkPoli"
-          + "cyPort\022<\n\002to\030\002 \003(\01320.k8s.io.api.extensio"
-          + "ns.v1beta1.NetworkPolicyPeer\"\233\001\n\030Network"
-          + "PolicyIngressRule\022?\n\005ports\030\001 \003(\01320.k8s.i"
-          + "o.api.extensions.v1beta1.NetworkPolicyPo"
-          + "rt\022>\n\004from\030\002 \003(\01320.k8s.io.api.extensions"
-          + ".v1beta1.NetworkPolicyPeer\"\222\001\n\021NetworkPo"
-          + "licyList\022@\n\010metadata\030\001 \001(\0132..k8s.io.apim"
-          + "achinery.pkg.apis.meta.v1.ListMeta\022;\n\005it"
-          + "ems\030\002 \003(\0132,.k8s.io.api.extensions.v1beta"
-          + "1.NetworkPolicy\"\346\001\n\021NetworkPolicyPeer\022H\n"
-          + "\013podSelector\030\001 \001(\01323.k8s.io.apimachinery"
-          + ".pkg.apis.meta.v1.LabelSelector\022N\n\021names"
-          + "paceSelector\030\002 \001(\01323.k8s.io.apimachinery"
-          + ".pkg.apis.meta.v1.LabelSelector\0227\n\007ipBlo"
-          + "ck\030\003 \001(\0132&.k8s.io.api.extensions.v1beta1"
-          + ".IPBlock\"e\n\021NetworkPolicyPort\022\020\n\010protoco"
-          + "l\030\001 \001(\t\022>\n\004port\030\002 \001(\01320.k8s.io.apimachin"
-          + "ery.pkg.util.intstr.IntOrString\"\204\002\n\021Netw"
-          + "orkPolicySpec\022H\n\013podSelector\030\001 \001(\01323.k8s"
-          + ".io.apimachinery.pkg.apis.meta.v1.LabelS"
-          + "elector\022H\n\007ingress\030\002 \003(\01327.k8s.io.api.ex"
-          + "tensions.v1beta1.NetworkPolicyIngressRul"
-          + "e\022F\n\006egress\030\003 \003(\01326.k8s.io.api.extension"
-          + "s.v1beta1.NetworkPolicyEgressRule\022\023\n\013pol"
-          + "icyTypes\030\004 \003(\t\"\233\001\n\021PodSecurityPolicy\022B\n\010"
-          + "metadata\030\001 \001(\01320.k8s.io.apimachinery.pkg"
-          + ".apis.meta.v1.ObjectMeta\022B\n\004spec\030\002 \001(\01324"
-          + ".k8s.io.api.extensions.v1beta1.PodSecuri"
-          + "tyPolicySpec\"\232\001\n\025PodSecurityPolicyList\022@"
-          + "\n\010metadata\030\001 \001(\0132..k8s.io.apimachinery.p"
-          + "kg.apis.meta.v1.ListMeta\022?\n\005items\030\002 \003(\0132"
-          + "0.k8s.io.api.extensions.v1beta1.PodSecur"
-          + "ityPolicy\"\365\007\n\025PodSecurityPolicySpec\022\022\n\np"
-          + "rivileged\030\001 \001(\010\022\036\n\026defaultAddCapabilitie"
-          + "s\030\002 \003(\t\022 \n\030requiredDropCapabilities\030\003 \003("
-          + "\t\022\033\n\023allowedCapabilities\030\004 \003(\t\022\017\n\007volume"
-          + "s\030\005 \003(\t\022\023\n\013hostNetwork\030\006 \001(\010\022?\n\thostPort"
-          + "s\030\007 \003(\0132,.k8s.io.api.extensions.v1beta1."
-          + "HostPortRange\022\017\n\007hostPID\030\010 \001(\010\022\017\n\007hostIP"
-          + "C\030\t \001(\010\022F\n\007seLinux\030\n \001(\01325.k8s.io.api.ex"
-          + "tensions.v1beta1.SELinuxStrategyOptions\022"
-          + "J\n\trunAsUser\030\013 \001(\01327.k8s.io.api.extensio"
-          + "ns.v1beta1.RunAsUserStrategyOptions\022L\n\nr"
-          + "unAsGroup\030\026 \001(\01328.k8s.io.api.extensions."
-          + "v1beta1.RunAsGroupStrategyOptions\022\\\n\022sup"
-          + "plementalGroups\030\014 \001(\0132@.k8s.io.api.exten"
-          + "sions.v1beta1.SupplementalGroupsStrategy"
-          + "Options\022F\n\007fsGroup\030\r \001(\01325.k8s.io.api.ex"
-          + "tensions.v1beta1.FSGroupStrategyOptions\022"
-          + "\036\n\026readOnlyRootFilesystem\030\016 \001(\010\022\'\n\037defau"
-          + "ltAllowPrivilegeEscalation\030\017 \001(\010\022 \n\030allo"
-          + "wPrivilegeEscalation\030\020 \001(\010\022H\n\020allowedHos"
-          + "tPaths\030\021 \003(\0132..k8s.io.api.extensions.v1b"
-          + "eta1.AllowedHostPath\022L\n\022allowedFlexVolum"
-          + "es\030\022 \003(\01320.k8s.io.api.extensions.v1beta1"
-          + ".AllowedFlexVolume\022\034\n\024allowedUnsafeSysct"
-          + "ls\030\023 \003(\t\022\030\n\020forbiddenSysctls\030\024 \003(\t\022\035\n\025al"
-          + "lowedProcMountTypes\030\025 \003(\t\"\316\001\n\nReplicaSet"
-          + "\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery"
-          + ".pkg.apis.meta.v1.ObjectMeta\022;\n\004spec\030\002 \001"
-          + "(\0132-.k8s.io.api.extensions.v1beta1.Repli"
-          + "caSetSpec\022?\n\006status\030\003 \001(\0132/.k8s.io.api.e"
-          + "xtensions.v1beta1.ReplicaSetStatus\"\234\001\n\023R"
-          + "eplicaSetCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006stat"
-          + "us\030\002 \001(\t\022F\n\022lastTransitionTime\030\003 \001(\0132*.k"
-          + "8s.io.apimachinery.pkg.apis.meta.v1.Time"
-          + "\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\214\001\n\016Re"
-          + "plicaSetList\022@\n\010metadata\030\001 \001(\0132..k8s.io."
-          + "apimachinery.pkg.apis.meta.v1.ListMeta\0228"
-          + "\n\005items\030\002 \003(\0132).k8s.io.api.extensions.v1"
-          + "beta1.ReplicaSet\"\271\001\n\016ReplicaSetSpec\022\020\n\010r"
-          + "eplicas\030\001 \001(\005\022\027\n\017minReadySeconds\030\004 \001(\005\022E"
-          + "\n\010selector\030\002 \001(\01323.k8s.io.apimachinery.p"
-          + "kg.apis.meta.v1.LabelSelector\0225\n\010templat"
-          + "e\030\003 \001(\0132#.k8s.io.api.core.v1.PodTemplate"
-          + "Spec\"\330\001\n\020ReplicaSetStatus\022\020\n\010replicas\030\001 "
-          + "\001(\005\022\034\n\024fullyLabeledReplicas\030\002 \001(\005\022\025\n\rrea"
-          + "dyReplicas\030\004 \001(\005\022\031\n\021availableReplicas\030\005 "
-          + "\001(\005\022\032\n\022observedGeneration\030\003 \001(\003\022F\n\ncondi"
-          + "tions\030\006 \003(\01322.k8s.io.api.extensions.v1be"
-          + "ta1.ReplicaSetCondition\"\034\n\032ReplicationCo"
-          + "ntrollerDummy\"\"\n\016RollbackConfig\022\020\n\010revis"
-          + "ion\030\001 \001(\003\"b\n\026RollingUpdateDaemonSet\022H\n\016m"
-          + "axUnavailable\030\001 \001(\01320.k8s.io.apimachiner"
-          + "y.pkg.util.intstr.IntOrString\"\247\001\n\027Rollin"
-          + "gUpdateDeployment\022H\n\016maxUnavailable\030\001 \001("
-          + "\01320.k8s.io.apimachinery.pkg.util.intstr."
-          + "IntOrString\022B\n\010maxSurge\030\002 \001(\01320.k8s.io.a"
-          + "pimachinery.pkg.util.intstr.IntOrString\""
-          + "a\n\031RunAsGroupStrategyOptions\022\014\n\004rule\030\001 \001"
-          + "(\t\0226\n\006ranges\030\002 \003(\0132&.k8s.io.api.extensio"
-          + "ns.v1beta1.IDRange\"`\n\030RunAsUserStrategyO"
-          + "ptions\022\014\n\004rule\030\001 \001(\t\0226\n\006ranges\030\002 \003(\0132&.k"
-          + "8s.io.api.extensions.v1beta1.IDRange\"b\n\026"
-          + "SELinuxStrategyOptions\022\014\n\004rule\030\001 \001(\t\022:\n\016"
-          + "seLinuxOptions\030\002 \001(\0132\".k8s.io.api.core.v"
-          + "1.SELinuxOptions\"\277\001\n\005Scale\022B\n\010metadata\030\001"
-          + " \001(\01320.k8s.io.apimachinery.pkg.apis.meta"
-          + ".v1.ObjectMeta\0226\n\004spec\030\002 \001(\0132(.k8s.io.ap"
-          + "i.extensions.v1beta1.ScaleSpec\022:\n\006status"
-          + "\030\003 \001(\0132*.k8s.io.api.extensions.v1beta1.S"
-          + "caleStatus\"\035\n\tScaleSpec\022\020\n\010replicas\030\001 \001("
-          + "\005\"\264\001\n\013ScaleStatus\022\020\n\010replicas\030\001 \001(\005\022J\n\010s"
-          + "elector\030\002 \003(\01328.k8s.io.api.extensions.v1"
-          + "beta1.ScaleStatus.SelectorEntry\022\026\n\016targe"
-          + "tSelector\030\003 \001(\t\032/\n\rSelectorEntry\022\013\n\003key\030"
-          + "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"i\n!Supplemental"
-          + "GroupsStrategyOptions\022\014\n\004rule\030\001 \001(\t\0226\n\006r"
+          + ".proto\" \n\020AllowedCSIDriver\022\014\n\004name\030\001 \001(\t"
+          + "\"#\n\021AllowedFlexVolume\022\016\n\006driver\030\001 \001(\t\"7\n"
+          + "\017AllowedHostPath\022\022\n\npathPrefix\030\001 \001(\t\022\020\n\010"
+          + "readOnly\030\002 \001(\010\"\313\001\n\tDaemonSet\022B\n\010metadata"
+          + "\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis.me"
+          + "ta.v1.ObjectMeta\022:\n\004spec\030\002 \001(\0132,.k8s.io."
+          + "api.extensions.v1beta1.DaemonSetSpec\022>\n\006"
+          + "status\030\003 \001(\0132..k8s.io.api.extensions.v1b"
+          + "eta1.DaemonSetStatus\"\233\001\n\022DaemonSetCondit"
+          + "ion\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022F\n\022las"
+          + "tTransitionTime\030\003 \001(\0132*.k8s.io.apimachin"
+          + "ery.pkg.apis.meta.v1.Time\022\016\n\006reason\030\004 \001("
+          + "\t\022\017\n\007message\030\005 \001(\t\"\212\001\n\rDaemonSetList\022@\n\010"
+          + "metadata\030\001 \001(\0132..k8s.io.apimachinery.pkg"
+          + ".apis.meta.v1.ListMeta\0227\n\005items\030\002 \003(\0132(."
+          + "k8s.io.api.extensions.v1beta1.DaemonSet\""
+          + "\260\002\n\rDaemonSetSpec\022E\n\010selector\030\001 \001(\01323.k8"
+          + "s.io.apimachinery.pkg.apis.meta.v1.Label"
+          + "Selector\0225\n\010template\030\002 \001(\0132#.k8s.io.api."
+          + "core.v1.PodTemplateSpec\022N\n\016updateStrateg"
+          + "y\030\003 \001(\01326.k8s.io.api.extensions.v1beta1."
+          + "DaemonSetUpdateStrategy\022\027\n\017minReadySecon"
+          + "ds\030\004 \001(\005\022\032\n\022templateGeneration\030\005 \001(\003\022\034\n\024"
+          + "revisionHistoryLimit\030\006 \001(\005\"\321\002\n\017DaemonSet"
+          + "Status\022\036\n\026currentNumberScheduled\030\001 \001(\005\022\032"
+          + "\n\022numberMisscheduled\030\002 \001(\005\022\036\n\026desiredNum"
+          + "berScheduled\030\003 \001(\005\022\023\n\013numberReady\030\004 \001(\005\022"
+          + "\032\n\022observedGeneration\030\005 \001(\003\022\036\n\026updatedNu"
+          + "mberScheduled\030\006 \001(\005\022\027\n\017numberAvailable\030\007"
+          + " \001(\005\022\031\n\021numberUnavailable\030\010 \001(\005\022\026\n\016colli"
+          + "sionCount\030\t \001(\005\022E\n\nconditions\030\n \003(\01321.k8"
+          + "s.io.api.extensions.v1beta1.DaemonSetCon"
+          + "dition\"u\n\027DaemonSetUpdateStrategy\022\014\n\004typ"
+          + "e\030\001 \001(\t\022L\n\rrollingUpdate\030\002 \001(\01325.k8s.io."
+          + "api.extensions.v1beta1.RollingUpdateDaem"
+          + "onSet\"\316\001\n\nDeployment\022B\n\010metadata\030\001 \001(\01320"
+          + ".k8s.io.apimachinery.pkg.apis.meta.v1.Ob"
+          + "jectMeta\022;\n\004spec\030\002 \001(\0132-.k8s.io.api.exte"
+          + "nsions.v1beta1.DeploymentSpec\022?\n\006status\030"
+          + "\003 \001(\0132/.k8s.io.api.extensions.v1beta1.De"
+          + "ploymentStatus\"\340\001\n\023DeploymentCondition\022\014"
+          + "\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022B\n\016lastUpda"
+          + "teTime\030\006 \001(\0132*.k8s.io.apimachinery.pkg.a"
+          + "pis.meta.v1.Time\022F\n\022lastTransitionTime\030\007"
+          + " \001(\0132*.k8s.io.apimachinery.pkg.apis.meta"
+          + ".v1.Time\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001("
+          + "\t\"\214\001\n\016DeploymentList\022@\n\010metadata\030\001 \001(\0132."
+          + ".k8s.io.apimachinery.pkg.apis.meta.v1.Li"
+          + "stMeta\0228\n\005items\030\002 \003(\0132).k8s.io.api.exten"
+          + "sions.v1beta1.Deployment\"\207\002\n\022DeploymentR"
+          + "ollback\022\014\n\004name\030\001 \001(\t\022e\n\022updatedAnnotati"
+          + "ons\030\002 \003(\0132I.k8s.io.api.extensions.v1beta"
+          + "1.DeploymentRollback.UpdatedAnnotationsE"
+          + "ntry\022A\n\nrollbackTo\030\003 \001(\0132-.k8s.io.api.ex"
+          + "tensions.v1beta1.RollbackConfig\0329\n\027Updat"
+          + "edAnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value"
+          + "\030\002 \001(\t:\0028\001\"\220\003\n\016DeploymentSpec\022\020\n\010replica"
+          + "s\030\001 \001(\005\022E\n\010selector\030\002 \001(\01323.k8s.io.apima"
+          + "chinery.pkg.apis.meta.v1.LabelSelector\0225"
+          + "\n\010template\030\003 \001(\0132#.k8s.io.api.core.v1.Po"
+          + "dTemplateSpec\022C\n\010strategy\030\004 \001(\01321.k8s.io"
+          + ".api.extensions.v1beta1.DeploymentStrate"
+          + "gy\022\027\n\017minReadySeconds\030\005 \001(\005\022\034\n\024revisionH"
+          + "istoryLimit\030\006 \001(\005\022\016\n\006paused\030\007 \001(\010\022A\n\nrol"
+          + "lbackTo\030\010 \001(\0132-.k8s.io.api.extensions.v1"
+          + "beta1.RollbackConfig\022\037\n\027progressDeadline"
+          + "Seconds\030\t \001(\005\"\210\002\n\020DeploymentStatus\022\032\n\022ob"
+          + "servedGeneration\030\001 \001(\003\022\020\n\010replicas\030\002 \001(\005"
+          + "\022\027\n\017updatedReplicas\030\003 \001(\005\022\025\n\rreadyReplic"
+          + "as\030\007 \001(\005\022\031\n\021availableReplicas\030\004 \001(\005\022\033\n\023u"
+          + "navailableReplicas\030\005 \001(\005\022F\n\nconditions\030\006"
+          + " \003(\01322.k8s.io.api.extensions.v1beta1.Dep"
+          + "loymentCondition\022\026\n\016collisionCount\030\010 \001(\005"
+          + "\"q\n\022DeploymentStrategy\022\014\n\004type\030\001 \001(\t\022M\n\r"
+          + "rollingUpdate\030\002 \001(\01326.k8s.io.api.extensi"
+          + "ons.v1beta1.RollingUpdateDeployment\"^\n\026F"
+          + "SGroupStrategyOptions\022\014\n\004rule\030\001 \001(\t\0226\n\006r"
           + "anges\030\002 \003(\0132&.k8s.io.api.extensions.v1be"
-          + "ta1.IDRangeB8\n\032io.kubernetes.client.prot"
-          + "oB\021V1beta1ExtensionsZ\007v1beta1"
+          + "ta1.IDRange\"q\n\017HTTPIngressPath\022\014\n\004path\030\001"
+          + " \001(\t\022\020\n\010pathType\030\003 \001(\t\022>\n\007backend\030\002 \001(\0132"
+          + "-.k8s.io.api.extensions.v1beta1.IngressB"
+          + "ackend\"U\n\024HTTPIngressRuleValue\022=\n\005paths\030"
+          + "\001 \003(\0132..k8s.io.api.extensions.v1beta1.HT"
+          + "TPIngressPath\")\n\rHostPortRange\022\013\n\003min\030\001 "
+          + "\001(\005\022\013\n\003max\030\002 \001(\005\"#\n\007IDRange\022\013\n\003min\030\001 \001(\003"
+          + "\022\013\n\003max\030\002 \001(\003\"\'\n\007IPBlock\022\014\n\004cidr\030\001 \001(\t\022\016"
+          + "\n\006except\030\002 \003(\t\"\305\001\n\007Ingress\022B\n\010metadata\030\001"
+          + " \001(\01320.k8s.io.apimachinery.pkg.apis.meta"
+          + ".v1.ObjectMeta\0228\n\004spec\030\002 \001(\0132*.k8s.io.ap"
+          + "i.extensions.v1beta1.IngressSpec\022<\n\006stat"
+          + "us\030\003 \001(\0132,.k8s.io.api.extensions.v1beta1"
+          + ".IngressStatus\"\255\001\n\016IngressBackend\022\023\n\013ser"
+          + "viceName\030\001 \001(\t\022E\n\013servicePort\030\002 \001(\01320.k8"
+          + "s.io.apimachinery.pkg.util.intstr.IntOrS"
+          + "tring\022?\n\010resource\030\003 \001(\0132-.k8s.io.api.cor"
+          + "e.v1.TypedLocalObjectReference\"\206\001\n\013Ingre"
+          + "ssList\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimac"
+          + "hinery.pkg.apis.meta.v1.ListMeta\0225\n\005item"
+          + "s\030\002 \003(\0132&.k8s.io.api.extensions.v1beta1."
+          + "Ingress\"f\n\013IngressRule\022\014\n\004host\030\001 \001(\t\022I\n\020"
+          + "ingressRuleValue\030\002 \001(\0132/.k8s.io.api.exte"
+          + "nsions.v1beta1.IngressRuleValue\"U\n\020Ingre"
+          + "ssRuleValue\022A\n\004http\030\001 \001(\01323.k8s.io.api.e"
+          + "xtensions.v1beta1.HTTPIngressRuleValue\"\332"
+          + "\001\n\013IngressSpec\022\030\n\020ingressClassName\030\004 \001(\t"
+          + "\022>\n\007backend\030\001 \001(\0132-.k8s.io.api.extension"
+          + "s.v1beta1.IngressBackend\0226\n\003tls\030\002 \003(\0132)."
+          + "k8s.io.api.extensions.v1beta1.IngressTLS"
+          + "\0229\n\005rules\030\003 \003(\0132*.k8s.io.api.extensions."
+          + "v1beta1.IngressRule\"M\n\rIngressStatus\022<\n\014"
+          + "loadBalancer\030\001 \001(\0132&.k8s.io.api.core.v1."
+          + "LoadBalancerStatus\"/\n\nIngressTLS\022\r\n\005host"
+          + "s\030\001 \003(\t\022\022\n\nsecretName\030\002 \001(\t\"\223\001\n\rNetworkP"
+          + "olicy\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimach"
+          + "inery.pkg.apis.meta.v1.ObjectMeta\022>\n\004spe"
+          + "c\030\002 \001(\01320.k8s.io.api.extensions.v1beta1."
+          + "NetworkPolicySpec\"\230\001\n\027NetworkPolicyEgres"
+          + "sRule\022?\n\005ports\030\001 \003(\01320.k8s.io.api.extens"
+          + "ions.v1beta1.NetworkPolicyPort\022<\n\002to\030\002 \003"
+          + "(\01320.k8s.io.api.extensions.v1beta1.Netwo"
+          + "rkPolicyPeer\"\233\001\n\030NetworkPolicyIngressRul"
+          + "e\022?\n\005ports\030\001 \003(\01320.k8s.io.api.extensions"
+          + ".v1beta1.NetworkPolicyPort\022>\n\004from\030\002 \003(\013"
+          + "20.k8s.io.api.extensions.v1beta1.Network"
+          + "PolicyPeer\"\222\001\n\021NetworkPolicyList\022@\n\010meta"
+          + "data\030\001 \001(\0132..k8s.io.apimachinery.pkg.api"
+          + "s.meta.v1.ListMeta\022;\n\005items\030\002 \003(\0132,.k8s."
+          + "io.api.extensions.v1beta1.NetworkPolicy\""
+          + "\346\001\n\021NetworkPolicyPeer\022H\n\013podSelector\030\001 \001"
+          + "(\01323.k8s.io.apimachinery.pkg.apis.meta.v"
+          + "1.LabelSelector\022N\n\021namespaceSelector\030\002 \001"
+          + "(\01323.k8s.io.apimachinery.pkg.apis.meta.v"
+          + "1.LabelSelector\0227\n\007ipBlock\030\003 \001(\0132&.k8s.i"
+          + "o.api.extensions.v1beta1.IPBlock\"v\n\021Netw"
+          + "orkPolicyPort\022\020\n\010protocol\030\001 \001(\t\022>\n\004port\030"
+          + "\002 \001(\01320.k8s.io.apimachinery.pkg.util.int"
+          + "str.IntOrString\022\017\n\007endPort\030\003 \001(\005\"\204\002\n\021Net"
+          + "workPolicySpec\022H\n\013podSelector\030\001 \001(\01323.k8"
+          + "s.io.apimachinery.pkg.apis.meta.v1.Label"
+          + "Selector\022H\n\007ingress\030\002 \003(\01327.k8s.io.api.e"
+          + "xtensions.v1beta1.NetworkPolicyIngressRu"
+          + "le\022F\n\006egress\030\003 \003(\01326.k8s.io.api.extensio"
+          + "ns.v1beta1.NetworkPolicyEgressRule\022\023\n\013po"
+          + "licyTypes\030\004 \003(\t\"\233\001\n\021PodSecurityPolicy\022B\n"
+          + "\010metadata\030\001 \001(\01320.k8s.io.apimachinery.pk"
+          + "g.apis.meta.v1.ObjectMeta\022B\n\004spec\030\002 \001(\0132"
+          + "4.k8s.io.api.extensions.v1beta1.PodSecur"
+          + "ityPolicySpec\"\232\001\n\025PodSecurityPolicyList\022"
+          + "@\n\010metadata\030\001 \001(\0132..k8s.io.apimachinery."
+          + "pkg.apis.meta.v1.ListMeta\022?\n\005items\030\002 \003(\013"
+          + "20.k8s.io.api.extensions.v1beta1.PodSecu"
+          + "rityPolicy\"\223\t\n\025PodSecurityPolicySpec\022\022\n\n"
+          + "privileged\030\001 \001(\010\022\036\n\026defaultAddCapabiliti"
+          + "es\030\002 \003(\t\022 \n\030requiredDropCapabilities\030\003 \003"
+          + "(\t\022\033\n\023allowedCapabilities\030\004 \003(\t\022\017\n\007volum"
+          + "es\030\005 \003(\t\022\023\n\013hostNetwork\030\006 \001(\010\022?\n\thostPor"
+          + "ts\030\007 \003(\0132,.k8s.io.api.extensions.v1beta1"
+          + ".HostPortRange\022\017\n\007hostPID\030\010 \001(\010\022\017\n\007hostI"
+          + "PC\030\t \001(\010\022F\n\007seLinux\030\n \001(\01325.k8s.io.api.e"
+          + "xtensions.v1beta1.SELinuxStrategyOptions"
+          + "\022J\n\trunAsUser\030\013 \001(\01327.k8s.io.api.extensi"
+          + "ons.v1beta1.RunAsUserStrategyOptions\022L\n\n"
+          + "runAsGroup\030\026 \001(\01328.k8s.io.api.extensions"
+          + ".v1beta1.RunAsGroupStrategyOptions\022\\\n\022su"
+          + "pplementalGroups\030\014 \001(\0132@.k8s.io.api.exte"
+          + "nsions.v1beta1.SupplementalGroupsStrateg"
+          + "yOptions\022F\n\007fsGroup\030\r \001(\01325.k8s.io.api.e"
+          + "xtensions.v1beta1.FSGroupStrategyOptions"
+          + "\022\036\n\026readOnlyRootFilesystem\030\016 \001(\010\022\'\n\037defa"
+          + "ultAllowPrivilegeEscalation\030\017 \001(\010\022 \n\030all"
+          + "owPrivilegeEscalation\030\020 \001(\010\022H\n\020allowedHo"
+          + "stPaths\030\021 \003(\0132..k8s.io.api.extensions.v1"
+          + "beta1.AllowedHostPath\022L\n\022allowedFlexVolu"
+          + "mes\030\022 \003(\01320.k8s.io.api.extensions.v1beta"
+          + "1.AllowedFlexVolume\022J\n\021allowedCSIDrivers"
+          + "\030\027 \003(\0132/.k8s.io.api.extensions.v1beta1.A"
+          + "llowedCSIDriver\022\034\n\024allowedUnsafeSysctls\030"
+          + "\023 \003(\t\022\030\n\020forbiddenSysctls\030\024 \003(\t\022\035\n\025allow"
+          + "edProcMountTypes\030\025 \003(\t\022P\n\014runtimeClass\030\030"
+          + " \001(\0132:.k8s.io.api.extensions.v1beta1.Run"
+          + "timeClassStrategyOptions\"\316\001\n\nReplicaSet\022"
+          + "B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery."
+          + "pkg.apis.meta.v1.ObjectMeta\022;\n\004spec\030\002 \001("
+          + "\0132-.k8s.io.api.extensions.v1beta1.Replic"
+          + "aSetSpec\022?\n\006status\030\003 \001(\0132/.k8s.io.api.ex"
+          + "tensions.v1beta1.ReplicaSetStatus\"\234\001\n\023Re"
+          + "plicaSetCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006statu"
+          + "s\030\002 \001(\t\022F\n\022lastTransitionTime\030\003 \001(\0132*.k8"
+          + "s.io.apimachinery.pkg.apis.meta.v1.Time\022"
+          + "\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\214\001\n\016Rep"
+          + "licaSetList\022@\n\010metadata\030\001 \001(\0132..k8s.io.a"
+          + "pimachinery.pkg.apis.meta.v1.ListMeta\0228\n"
+          + "\005items\030\002 \003(\0132).k8s.io.api.extensions.v1b"
+          + "eta1.ReplicaSet\"\271\001\n\016ReplicaSetSpec\022\020\n\010re"
+          + "plicas\030\001 \001(\005\022\027\n\017minReadySeconds\030\004 \001(\005\022E\n"
+          + "\010selector\030\002 \001(\01323.k8s.io.apimachinery.pk"
+          + "g.apis.meta.v1.LabelSelector\0225\n\010template"
+          + "\030\003 \001(\0132#.k8s.io.api.core.v1.PodTemplateS"
+          + "pec\"\330\001\n\020ReplicaSetStatus\022\020\n\010replicas\030\001 \001"
+          + "(\005\022\034\n\024fullyLabeledReplicas\030\002 \001(\005\022\025\n\rread"
+          + "yReplicas\030\004 \001(\005\022\031\n\021availableReplicas\030\005 \001"
+          + "(\005\022\032\n\022observedGeneration\030\003 \001(\003\022F\n\ncondit"
+          + "ions\030\006 \003(\01322.k8s.io.api.extensions.v1bet"
+          + "a1.ReplicaSetCondition\"\"\n\016RollbackConfig"
+          + "\022\020\n\010revision\030\001 \001(\003\"\246\001\n\026RollingUpdateDaem"
+          + "onSet\022H\n\016maxUnavailable\030\001 \001(\01320.k8s.io.a"
+          + "pimachinery.pkg.util.intstr.IntOrString\022"
+          + "B\n\010maxSurge\030\002 \001(\01320.k8s.io.apimachinery."
+          + "pkg.util.intstr.IntOrString\"\247\001\n\027RollingU"
+          + "pdateDeployment\022H\n\016maxUnavailable\030\001 \001(\0132"
+          + "0.k8s.io.apimachinery.pkg.util.intstr.In"
+          + "tOrString\022B\n\010maxSurge\030\002 \001(\01320.k8s.io.api"
+          + "machinery.pkg.util.intstr.IntOrString\"a\n"
+          + "\031RunAsGroupStrategyOptions\022\014\n\004rule\030\001 \001(\t"
+          + "\0226\n\006ranges\030\002 \003(\0132&.k8s.io.api.extensions"
+          + ".v1beta1.IDRange\"`\n\030RunAsUserStrategyOpt"
+          + "ions\022\014\n\004rule\030\001 \001(\t\0226\n\006ranges\030\002 \003(\0132&.k8s"
+          + ".io.api.extensions.v1beta1.IDRange\"`\n\033Ru"
+          + "ntimeClassStrategyOptions\022 \n\030allowedRunt"
+          + "imeClassNames\030\001 \003(\t\022\037\n\027defaultRuntimeCla"
+          + "ssName\030\002 \001(\t\"b\n\026SELinuxStrategyOptions\022\014"
+          + "\n\004rule\030\001 \001(\t\022:\n\016seLinuxOptions\030\002 \001(\0132\".k"
+          + "8s.io.api.core.v1.SELinuxOptions\"\277\001\n\005Sca"
+          + "le\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachine"
+          + "ry.pkg.apis.meta.v1.ObjectMeta\0226\n\004spec\030\002"
+          + " \001(\0132(.k8s.io.api.extensions.v1beta1.Sca"
+          + "leSpec\022:\n\006status\030\003 \001(\0132*.k8s.io.api.exte"
+          + "nsions.v1beta1.ScaleStatus\"\035\n\tScaleSpec\022"
+          + "\020\n\010replicas\030\001 \001(\005\"\264\001\n\013ScaleStatus\022\020\n\010rep"
+          + "licas\030\001 \001(\005\022J\n\010selector\030\002 \003(\01328.k8s.io.a"
+          + "pi.extensions.v1beta1.ScaleStatus.Select"
+          + "orEntry\022\026\n\016targetSelector\030\003 \001(\t\032/\n\rSelec"
+          + "torEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001"
+          + "\"i\n!SupplementalGroupsStrategyOptions\022\014\n"
+          + "\004rule\030\001 \001(\t\0226\n\006ranges\030\002 \003(\0132&.k8s.io.api"
+          + ".extensions.v1beta1.IDRangeB8\n\032io.kubern"
+          + "etes.client.protoB\021V1beta1ExtensionsZ\007v1"
+          + "beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -81805,8 +85827,16 @@ public final class V1beta1Extensions {
           io.kubernetes.client.proto.IntStr.getDescriptor(),
         },
         assigner);
-    internal_static_k8s_io_api_extensions_v1beta1_AllowedFlexVolume_descriptor =
+    internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_descriptor =
         getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_extensions_v1beta1_AllowedCSIDriver_descriptor,
+            new java.lang.String[] {
+              "Name",
+            });
+    internal_static_k8s_io_api_extensions_v1beta1_AllowedFlexVolume_descriptor =
+        getDescriptor().getMessageTypes().get(1);
     internal_static_k8s_io_api_extensions_v1beta1_AllowedFlexVolume_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_AllowedFlexVolume_descriptor,
@@ -81814,7 +85844,7 @@ public final class V1beta1Extensions {
               "Driver",
             });
     internal_static_k8s_io_api_extensions_v1beta1_AllowedHostPath_descriptor =
-        getDescriptor().getMessageTypes().get(1);
+        getDescriptor().getMessageTypes().get(2);
     internal_static_k8s_io_api_extensions_v1beta1_AllowedHostPath_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_AllowedHostPath_descriptor,
@@ -81822,7 +85852,7 @@ public final class V1beta1Extensions {
               "PathPrefix", "ReadOnly",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSet_descriptor =
-        getDescriptor().getMessageTypes().get(2);
+        getDescriptor().getMessageTypes().get(3);
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSet_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DaemonSet_descriptor,
@@ -81830,7 +85860,7 @@ public final class V1beta1Extensions {
               "Metadata", "Spec", "Status",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetCondition_descriptor =
-        getDescriptor().getMessageTypes().get(3);
+        getDescriptor().getMessageTypes().get(4);
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetCondition_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DaemonSetCondition_descriptor,
@@ -81838,7 +85868,7 @@ public final class V1beta1Extensions {
               "Type", "Status", "LastTransitionTime", "Reason", "Message",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetList_descriptor =
-        getDescriptor().getMessageTypes().get(4);
+        getDescriptor().getMessageTypes().get(5);
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DaemonSetList_descriptor,
@@ -81846,7 +85876,7 @@ public final class V1beta1Extensions {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetSpec_descriptor =
-        getDescriptor().getMessageTypes().get(5);
+        getDescriptor().getMessageTypes().get(6);
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DaemonSetSpec_descriptor,
@@ -81859,7 +85889,7 @@ public final class V1beta1Extensions {
               "RevisionHistoryLimit",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetStatus_descriptor =
-        getDescriptor().getMessageTypes().get(6);
+        getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DaemonSetStatus_descriptor,
@@ -81876,7 +85906,7 @@ public final class V1beta1Extensions {
               "Conditions",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetUpdateStrategy_descriptor =
-        getDescriptor().getMessageTypes().get(7);
+        getDescriptor().getMessageTypes().get(8);
     internal_static_k8s_io_api_extensions_v1beta1_DaemonSetUpdateStrategy_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DaemonSetUpdateStrategy_descriptor,
@@ -81884,7 +85914,7 @@ public final class V1beta1Extensions {
               "Type", "RollingUpdate",
             });
     internal_static_k8s_io_api_extensions_v1beta1_Deployment_descriptor =
-        getDescriptor().getMessageTypes().get(8);
+        getDescriptor().getMessageTypes().get(9);
     internal_static_k8s_io_api_extensions_v1beta1_Deployment_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_Deployment_descriptor,
@@ -81892,7 +85922,7 @@ public final class V1beta1Extensions {
               "Metadata", "Spec", "Status",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentCondition_descriptor =
-        getDescriptor().getMessageTypes().get(9);
+        getDescriptor().getMessageTypes().get(10);
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentCondition_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DeploymentCondition_descriptor,
@@ -81900,7 +85930,7 @@ public final class V1beta1Extensions {
               "Type", "Status", "LastUpdateTime", "LastTransitionTime", "Reason", "Message",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentList_descriptor =
-        getDescriptor().getMessageTypes().get(10);
+        getDescriptor().getMessageTypes().get(11);
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DeploymentList_descriptor,
@@ -81908,7 +85938,7 @@ public final class V1beta1Extensions {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentRollback_descriptor =
-        getDescriptor().getMessageTypes().get(11);
+        getDescriptor().getMessageTypes().get(12);
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentRollback_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DeploymentRollback_descriptor,
@@ -81926,7 +85956,7 @@ public final class V1beta1Extensions {
               "Key", "Value",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentSpec_descriptor =
-        getDescriptor().getMessageTypes().get(12);
+        getDescriptor().getMessageTypes().get(13);
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DeploymentSpec_descriptor,
@@ -81942,7 +85972,7 @@ public final class V1beta1Extensions {
               "ProgressDeadlineSeconds",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentStatus_descriptor =
-        getDescriptor().getMessageTypes().get(13);
+        getDescriptor().getMessageTypes().get(14);
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DeploymentStatus_descriptor,
@@ -81957,7 +85987,7 @@ public final class V1beta1Extensions {
               "CollisionCount",
             });
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentStrategy_descriptor =
-        getDescriptor().getMessageTypes().get(14);
+        getDescriptor().getMessageTypes().get(15);
     internal_static_k8s_io_api_extensions_v1beta1_DeploymentStrategy_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_DeploymentStrategy_descriptor,
@@ -81965,7 +85995,7 @@ public final class V1beta1Extensions {
               "Type", "RollingUpdate",
             });
     internal_static_k8s_io_api_extensions_v1beta1_FSGroupStrategyOptions_descriptor =
-        getDescriptor().getMessageTypes().get(15);
+        getDescriptor().getMessageTypes().get(16);
     internal_static_k8s_io_api_extensions_v1beta1_FSGroupStrategyOptions_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_FSGroupStrategyOptions_descriptor,
@@ -81973,15 +86003,15 @@ public final class V1beta1Extensions {
               "Rule", "Ranges",
             });
     internal_static_k8s_io_api_extensions_v1beta1_HTTPIngressPath_descriptor =
-        getDescriptor().getMessageTypes().get(16);
+        getDescriptor().getMessageTypes().get(17);
     internal_static_k8s_io_api_extensions_v1beta1_HTTPIngressPath_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_HTTPIngressPath_descriptor,
             new java.lang.String[] {
-              "Path", "Backend",
+              "Path", "PathType", "Backend",
             });
     internal_static_k8s_io_api_extensions_v1beta1_HTTPIngressRuleValue_descriptor =
-        getDescriptor().getMessageTypes().get(17);
+        getDescriptor().getMessageTypes().get(18);
     internal_static_k8s_io_api_extensions_v1beta1_HTTPIngressRuleValue_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_HTTPIngressRuleValue_descriptor,
@@ -81989,7 +86019,7 @@ public final class V1beta1Extensions {
               "Paths",
             });
     internal_static_k8s_io_api_extensions_v1beta1_HostPortRange_descriptor =
-        getDescriptor().getMessageTypes().get(18);
+        getDescriptor().getMessageTypes().get(19);
     internal_static_k8s_io_api_extensions_v1beta1_HostPortRange_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_HostPortRange_descriptor,
@@ -81997,7 +86027,7 @@ public final class V1beta1Extensions {
               "Min", "Max",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IDRange_descriptor =
-        getDescriptor().getMessageTypes().get(19);
+        getDescriptor().getMessageTypes().get(20);
     internal_static_k8s_io_api_extensions_v1beta1_IDRange_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IDRange_descriptor,
@@ -82005,7 +86035,7 @@ public final class V1beta1Extensions {
               "Min", "Max",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IPBlock_descriptor =
-        getDescriptor().getMessageTypes().get(20);
+        getDescriptor().getMessageTypes().get(21);
     internal_static_k8s_io_api_extensions_v1beta1_IPBlock_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IPBlock_descriptor,
@@ -82013,7 +86043,7 @@ public final class V1beta1Extensions {
               "Cidr", "Except",
             });
     internal_static_k8s_io_api_extensions_v1beta1_Ingress_descriptor =
-        getDescriptor().getMessageTypes().get(21);
+        getDescriptor().getMessageTypes().get(22);
     internal_static_k8s_io_api_extensions_v1beta1_Ingress_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_Ingress_descriptor,
@@ -82021,15 +86051,15 @@ public final class V1beta1Extensions {
               "Metadata", "Spec", "Status",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IngressBackend_descriptor =
-        getDescriptor().getMessageTypes().get(22);
+        getDescriptor().getMessageTypes().get(23);
     internal_static_k8s_io_api_extensions_v1beta1_IngressBackend_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IngressBackend_descriptor,
             new java.lang.String[] {
-              "ServiceName", "ServicePort",
+              "ServiceName", "ServicePort", "Resource",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IngressList_descriptor =
-        getDescriptor().getMessageTypes().get(23);
+        getDescriptor().getMessageTypes().get(24);
     internal_static_k8s_io_api_extensions_v1beta1_IngressList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IngressList_descriptor,
@@ -82037,7 +86067,7 @@ public final class V1beta1Extensions {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IngressRule_descriptor =
-        getDescriptor().getMessageTypes().get(24);
+        getDescriptor().getMessageTypes().get(25);
     internal_static_k8s_io_api_extensions_v1beta1_IngressRule_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IngressRule_descriptor,
@@ -82045,7 +86075,7 @@ public final class V1beta1Extensions {
               "Host", "IngressRuleValue",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IngressRuleValue_descriptor =
-        getDescriptor().getMessageTypes().get(25);
+        getDescriptor().getMessageTypes().get(26);
     internal_static_k8s_io_api_extensions_v1beta1_IngressRuleValue_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IngressRuleValue_descriptor,
@@ -82053,15 +86083,15 @@ public final class V1beta1Extensions {
               "Http",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IngressSpec_descriptor =
-        getDescriptor().getMessageTypes().get(26);
+        getDescriptor().getMessageTypes().get(27);
     internal_static_k8s_io_api_extensions_v1beta1_IngressSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IngressSpec_descriptor,
             new java.lang.String[] {
-              "Backend", "Tls", "Rules",
+              "IngressClassName", "Backend", "Tls", "Rules",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IngressStatus_descriptor =
-        getDescriptor().getMessageTypes().get(27);
+        getDescriptor().getMessageTypes().get(28);
     internal_static_k8s_io_api_extensions_v1beta1_IngressStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IngressStatus_descriptor,
@@ -82069,7 +86099,7 @@ public final class V1beta1Extensions {
               "LoadBalancer",
             });
     internal_static_k8s_io_api_extensions_v1beta1_IngressTLS_descriptor =
-        getDescriptor().getMessageTypes().get(28);
+        getDescriptor().getMessageTypes().get(29);
     internal_static_k8s_io_api_extensions_v1beta1_IngressTLS_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_IngressTLS_descriptor,
@@ -82077,7 +86107,7 @@ public final class V1beta1Extensions {
               "Hosts", "SecretName",
             });
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicy_descriptor =
-        getDescriptor().getMessageTypes().get(29);
+        getDescriptor().getMessageTypes().get(30);
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicy_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicy_descriptor,
@@ -82085,7 +86115,7 @@ public final class V1beta1Extensions {
               "Metadata", "Spec",
             });
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyEgressRule_descriptor =
-        getDescriptor().getMessageTypes().get(30);
+        getDescriptor().getMessageTypes().get(31);
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyEgressRule_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyEgressRule_descriptor,
@@ -82093,7 +86123,7 @@ public final class V1beta1Extensions {
               "Ports", "To",
             });
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyIngressRule_descriptor =
-        getDescriptor().getMessageTypes().get(31);
+        getDescriptor().getMessageTypes().get(32);
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyIngressRule_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyIngressRule_descriptor,
@@ -82101,7 +86131,7 @@ public final class V1beta1Extensions {
               "Ports", "From",
             });
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyList_descriptor =
-        getDescriptor().getMessageTypes().get(32);
+        getDescriptor().getMessageTypes().get(33);
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyList_descriptor,
@@ -82109,7 +86139,7 @@ public final class V1beta1Extensions {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyPeer_descriptor =
-        getDescriptor().getMessageTypes().get(33);
+        getDescriptor().getMessageTypes().get(34);
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyPeer_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyPeer_descriptor,
@@ -82117,15 +86147,15 @@ public final class V1beta1Extensions {
               "PodSelector", "NamespaceSelector", "IpBlock",
             });
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyPort_descriptor =
-        getDescriptor().getMessageTypes().get(34);
+        getDescriptor().getMessageTypes().get(35);
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyPort_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicyPort_descriptor,
             new java.lang.String[] {
-              "Protocol", "Port",
+              "Protocol", "Port", "EndPort",
             });
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicySpec_descriptor =
-        getDescriptor().getMessageTypes().get(35);
+        getDescriptor().getMessageTypes().get(36);
     internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicySpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_NetworkPolicySpec_descriptor,
@@ -82133,7 +86163,7 @@ public final class V1beta1Extensions {
               "PodSelector", "Ingress", "Egress", "PolicyTypes",
             });
     internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicy_descriptor =
-        getDescriptor().getMessageTypes().get(36);
+        getDescriptor().getMessageTypes().get(37);
     internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicy_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicy_descriptor,
@@ -82141,7 +86171,7 @@ public final class V1beta1Extensions {
               "Metadata", "Spec",
             });
     internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicyList_descriptor =
-        getDescriptor().getMessageTypes().get(37);
+        getDescriptor().getMessageTypes().get(38);
     internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicyList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicyList_descriptor,
@@ -82149,7 +86179,7 @@ public final class V1beta1Extensions {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicySpec_descriptor =
-        getDescriptor().getMessageTypes().get(38);
+        getDescriptor().getMessageTypes().get(39);
     internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicySpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_PodSecurityPolicySpec_descriptor,
@@ -82173,12 +86203,14 @@ public final class V1beta1Extensions {
               "AllowPrivilegeEscalation",
               "AllowedHostPaths",
               "AllowedFlexVolumes",
+              "AllowedCSIDrivers",
               "AllowedUnsafeSysctls",
               "ForbiddenSysctls",
               "AllowedProcMountTypes",
+              "RuntimeClass",
             });
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSet_descriptor =
-        getDescriptor().getMessageTypes().get(39);
+        getDescriptor().getMessageTypes().get(40);
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSet_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_ReplicaSet_descriptor,
@@ -82186,7 +86218,7 @@ public final class V1beta1Extensions {
               "Metadata", "Spec", "Status",
             });
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetCondition_descriptor =
-        getDescriptor().getMessageTypes().get(40);
+        getDescriptor().getMessageTypes().get(41);
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetCondition_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetCondition_descriptor,
@@ -82194,7 +86226,7 @@ public final class V1beta1Extensions {
               "Type", "Status", "LastTransitionTime", "Reason", "Message",
             });
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetList_descriptor =
-        getDescriptor().getMessageTypes().get(41);
+        getDescriptor().getMessageTypes().get(42);
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetList_descriptor,
@@ -82202,7 +86234,7 @@ public final class V1beta1Extensions {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetSpec_descriptor =
-        getDescriptor().getMessageTypes().get(42);
+        getDescriptor().getMessageTypes().get(43);
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetSpec_descriptor,
@@ -82210,7 +86242,7 @@ public final class V1beta1Extensions {
               "Replicas", "MinReadySeconds", "Selector", "Template",
             });
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetStatus_descriptor =
-        getDescriptor().getMessageTypes().get(43);
+        getDescriptor().getMessageTypes().get(44);
     internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_ReplicaSetStatus_descriptor,
@@ -82222,12 +86254,6 @@ public final class V1beta1Extensions {
               "ObservedGeneration",
               "Conditions",
             });
-    internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_descriptor =
-        getDescriptor().getMessageTypes().get(44);
-    internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_fieldAccessorTable =
-        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_k8s_io_api_extensions_v1beta1_ReplicationControllerDummy_descriptor,
-            new java.lang.String[] {});
     internal_static_k8s_io_api_extensions_v1beta1_RollbackConfig_descriptor =
         getDescriptor().getMessageTypes().get(45);
     internal_static_k8s_io_api_extensions_v1beta1_RollbackConfig_fieldAccessorTable =
@@ -82242,7 +86268,7 @@ public final class V1beta1Extensions {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_RollingUpdateDaemonSet_descriptor,
             new java.lang.String[] {
-              "MaxUnavailable",
+              "MaxUnavailable", "MaxSurge",
             });
     internal_static_k8s_io_api_extensions_v1beta1_RollingUpdateDeployment_descriptor =
         getDescriptor().getMessageTypes().get(47);
@@ -82268,8 +86294,16 @@ public final class V1beta1Extensions {
             new java.lang.String[] {
               "Rule", "Ranges",
             });
-    internal_static_k8s_io_api_extensions_v1beta1_SELinuxStrategyOptions_descriptor =
+    internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_descriptor =
         getDescriptor().getMessageTypes().get(50);
+    internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_extensions_v1beta1_RuntimeClassStrategyOptions_descriptor,
+            new java.lang.String[] {
+              "AllowedRuntimeClassNames", "DefaultRuntimeClassName",
+            });
+    internal_static_k8s_io_api_extensions_v1beta1_SELinuxStrategyOptions_descriptor =
+        getDescriptor().getMessageTypes().get(51);
     internal_static_k8s_io_api_extensions_v1beta1_SELinuxStrategyOptions_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_SELinuxStrategyOptions_descriptor,
@@ -82277,7 +86311,7 @@ public final class V1beta1Extensions {
               "Rule", "SeLinuxOptions",
             });
     internal_static_k8s_io_api_extensions_v1beta1_Scale_descriptor =
-        getDescriptor().getMessageTypes().get(51);
+        getDescriptor().getMessageTypes().get(52);
     internal_static_k8s_io_api_extensions_v1beta1_Scale_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_Scale_descriptor,
@@ -82285,7 +86319,7 @@ public final class V1beta1Extensions {
               "Metadata", "Spec", "Status",
             });
     internal_static_k8s_io_api_extensions_v1beta1_ScaleSpec_descriptor =
-        getDescriptor().getMessageTypes().get(52);
+        getDescriptor().getMessageTypes().get(53);
     internal_static_k8s_io_api_extensions_v1beta1_ScaleSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_ScaleSpec_descriptor,
@@ -82293,7 +86327,7 @@ public final class V1beta1Extensions {
               "Replicas",
             });
     internal_static_k8s_io_api_extensions_v1beta1_ScaleStatus_descriptor =
-        getDescriptor().getMessageTypes().get(53);
+        getDescriptor().getMessageTypes().get(54);
     internal_static_k8s_io_api_extensions_v1beta1_ScaleStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_ScaleStatus_descriptor,
@@ -82311,7 +86345,7 @@ public final class V1beta1Extensions {
               "Key", "Value",
             });
     internal_static_k8s_io_api_extensions_v1beta1_SupplementalGroupsStrategyOptions_descriptor =
-        getDescriptor().getMessageTypes().get(54);
+        getDescriptor().getMessageTypes().get(55);
     internal_static_k8s_io_api_extensions_v1beta1_SupplementalGroupsStrategyOptions_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_extensions_v1beta1_SupplementalGroupsStrategyOptions_descriptor,

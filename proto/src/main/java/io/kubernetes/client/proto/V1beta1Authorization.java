@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -350,8 +350,7 @@ public final class V1beta1Authorization {
                 io.kubernetes.client.proto.V1beta1Authorization.ExtraValue.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Authorization.ExtraValue.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Authorization.ExtraValue.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -632,6 +631,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -642,6 +643,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -652,6 +655,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -702,8 +707,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
@@ -714,8 +718,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus();
     /**
@@ -726,8 +729,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
         getStatusOrBuilder();
@@ -875,6 +877,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -887,6 +891,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -901,6 +907,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -971,8 +979,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -985,8 +992,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus() {
       return status_ == null
@@ -1002,8 +1008,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
         getStatusOrBuilder() {
@@ -1454,6 +1459,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1466,6 +1473,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1484,6 +1493,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1506,6 +1517,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1526,6 +1539,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1554,6 +1569,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1573,6 +1590,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1587,6 +1606,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1605,6 +1626,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1641,8 +1664,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public boolean hasSpec() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -1655,8 +1677,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec getSpec() {
         if (specBuilder_ == null) {
@@ -1676,8 +1697,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public Builder setSpec(
           io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec value) {
@@ -1701,8 +1721,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public Builder setSpec(
           io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec.Builder
@@ -1724,8 +1743,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public Builder mergeSpec(
           io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec value) {
@@ -1758,8 +1776,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public Builder clearSpec() {
         if (specBuilder_ == null) {
@@ -1779,8 +1796,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec.Builder
           getSpecBuilder() {
@@ -1796,8 +1812,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpecOrBuilder
           getSpecOrBuilder() {
@@ -1818,8 +1833,7 @@ public final class V1beta1Authorization {
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec,
@@ -1853,8 +1867,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public boolean hasStatus() {
@@ -1868,8 +1881,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus() {
@@ -1890,8 +1902,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -1916,8 +1927,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -1940,8 +1950,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder mergeStatus(
@@ -1975,8 +1984,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder clearStatus() {
@@ -1997,8 +2005,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus.Builder
@@ -2015,8 +2022,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
@@ -2038,8 +2044,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -7094,8 +7099,7 @@ public final class V1beta1Authorization {
                 io.kubernetes.client.proto.V1beta1Authorization.ResourceRule.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Authorization.ResourceRule.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Authorization.ResourceRule.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -7973,6 +7977,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7983,6 +7989,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -7993,6 +8001,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -8007,8 +8017,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;</code>
      */
     boolean hasSpec();
     /**
@@ -8018,8 +8027,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectAccessReviewSpec getSpec();
     /**
@@ -8029,8 +8037,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectAccessReviewSpecOrBuilder
         getSpecOrBuilder();
@@ -8043,8 +8050,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
@@ -8055,8 +8061,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus();
     /**
@@ -8067,8 +8072,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
         getStatusOrBuilder();
@@ -8216,6 +8220,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -8228,6 +8234,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -8242,6 +8250,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -8262,8 +8272,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;</code>
      */
     public boolean hasSpec() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -8275,8 +8284,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectAccessReviewSpec getSpec() {
       return spec_ == null
@@ -8291,8 +8299,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectAccessReviewSpecOrBuilder
         getSpecOrBuilder() {
@@ -8312,8 +8319,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -8326,8 +8332,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus() {
       return status_ == null
@@ -8343,8 +8348,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
         getStatusOrBuilder() {
@@ -8790,6 +8794,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8802,6 +8808,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8820,6 +8828,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8842,6 +8852,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8862,6 +8874,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8890,6 +8904,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8909,6 +8925,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8923,6 +8941,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8941,6 +8961,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -8977,8 +8999,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       public boolean hasSpec() {
@@ -8991,8 +9012,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectAccessReviewSpec getSpec() {
@@ -9012,8 +9032,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       public Builder setSpec(
@@ -9037,8 +9056,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       public Builder setSpec(
@@ -9060,8 +9078,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       public Builder mergeSpec(
@@ -9094,8 +9111,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       public Builder clearSpec() {
@@ -9115,8 +9131,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectAccessReviewSpec.Builder
@@ -9132,8 +9147,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectAccessReviewSpecOrBuilder
@@ -9154,8 +9168,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectAccessReviewSpec spec = 2;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -9192,8 +9205,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public boolean hasStatus() {
@@ -9207,8 +9219,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus() {
@@ -9229,8 +9240,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -9255,8 +9265,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -9279,8 +9288,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder mergeStatus(
@@ -9314,8 +9322,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder clearStatus() {
@@ -9336,8 +9343,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus.Builder
@@ -9354,8 +9360,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
@@ -9377,8 +9382,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -9469,8 +9473,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     boolean hasResourceAttributes();
@@ -9482,8 +9485,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributes getResourceAttributes();
@@ -9495,8 +9497,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributesOrBuilder
@@ -9674,8 +9675,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     public boolean hasResourceAttributes() {
@@ -9689,8 +9689,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributes
@@ -9707,8 +9706,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributesOrBuilder
@@ -10191,8 +10189,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public boolean hasResourceAttributes() {
@@ -10206,8 +10203,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributes
@@ -10229,8 +10225,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public Builder setResourceAttributes(
@@ -10255,8 +10250,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public Builder setResourceAttributes(
@@ -10279,8 +10273,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public Builder mergeResourceAttributes(
@@ -10314,8 +10307,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public Builder clearResourceAttributes() {
@@ -10336,8 +10328,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributes.Builder
@@ -10354,8 +10345,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributesOrBuilder
@@ -10377,8 +10367,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -10686,6 +10675,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -10696,6 +10687,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -10706,6 +10699,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -10720,8 +10715,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;</code>
      */
     boolean hasSpec();
     /**
@@ -10731,8 +10725,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectRulesReviewSpec getSpec();
     /**
@@ -10742,8 +10735,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectRulesReviewSpecOrBuilder
         getSpecOrBuilder();
@@ -10756,8 +10748,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
@@ -10768,8 +10759,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SubjectRulesReviewStatus getStatus();
     /**
@@ -10780,8 +10770,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SubjectRulesReviewStatusOrBuilder
         getStatusOrBuilder();
@@ -10931,6 +10920,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -10943,6 +10934,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -10957,6 +10950,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -10977,8 +10972,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;</code>
      */
     public boolean hasSpec() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -10990,8 +10984,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectRulesReviewSpec getSpec() {
       return spec_ == null
@@ -11006,8 +10999,7 @@ public final class V1beta1Authorization {
      * Spec holds information about the request being evaluated.
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SelfSubjectRulesReviewSpecOrBuilder
         getSpecOrBuilder() {
@@ -11027,8 +11019,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -11041,8 +11032,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SubjectRulesReviewStatus getStatus() {
       return status_ == null
@@ -11058,8 +11048,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectRulesReviewStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SubjectRulesReviewStatusOrBuilder
         getStatusOrBuilder() {
@@ -11506,6 +11495,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11518,6 +11509,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11536,6 +11529,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11558,6 +11553,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11578,6 +11575,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11606,6 +11605,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11625,6 +11626,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11639,6 +11642,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -11657,6 +11662,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -12190,7 +12197,15 @@ public final class V1beta1Authorization {
      */
     com.google.protobuf.ByteString getNamespaceBytes();
   }
-  /** Protobuf type {@code k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec} */
+  /**
+   *
+   *
+   * <pre>
+   * SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec}
+   */
   public static final class SelfSubjectRulesReviewSpec
       extends com.google.protobuf.GeneratedMessageV3
       implements
@@ -12504,7 +12519,15 @@ public final class V1beta1Authorization {
       Builder builder = new Builder(parent);
       return builder;
     }
-    /** Protobuf type {@code k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec} */
+    /**
+     *
+     *
+     * <pre>
+     * SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.authorization.v1beta1.SelfSubjectRulesReviewSpec}
+     */
     public static final class Builder
         extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
         implements
@@ -12852,6 +12875,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12862,6 +12887,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12872,6 +12899,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -12919,8 +12948,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     boolean hasStatus();
     /**
@@ -12931,8 +12959,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus();
     /**
@@ -12943,8 +12970,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
         getStatusOrBuilder();
@@ -13089,6 +13115,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -13101,6 +13129,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -13115,6 +13145,8 @@ public final class V1beta1Authorization {
      *
      *
      * <pre>
+     * Standard list metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -13182,8 +13214,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public boolean hasStatus() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -13196,8 +13227,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus() {
       return status_ == null
@@ -13213,8 +13243,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
-     * </code>
+     * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
         getStatusOrBuilder() {
@@ -13652,6 +13681,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13664,6 +13695,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13682,6 +13715,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13704,6 +13739,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13724,6 +13761,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13752,6 +13791,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13771,6 +13812,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13785,6 +13828,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13803,6 +13848,8 @@ public final class V1beta1Authorization {
        *
        *
        * <pre>
+       * Standard list metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -13838,8 +13885,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public boolean hasSpec() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -13851,8 +13897,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec getSpec() {
         if (specBuilder_ == null) {
@@ -13871,8 +13916,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public Builder setSpec(
           io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec value) {
@@ -13895,8 +13939,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public Builder setSpec(
           io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec.Builder
@@ -13917,8 +13960,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public Builder mergeSpec(
           io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec value) {
@@ -13950,8 +13992,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public Builder clearSpec() {
         if (specBuilder_ == null) {
@@ -13970,8 +14011,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec.Builder
           getSpecBuilder() {
@@ -13986,8 +14026,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpecOrBuilder
           getSpecOrBuilder() {
@@ -14007,8 +14046,7 @@ public final class V1beta1Authorization {
        * Spec holds information about the request being evaluated
        * </pre>
        *
-       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewSpec spec = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewSpec,
@@ -14042,8 +14080,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public boolean hasStatus() {
@@ -14057,8 +14094,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus getStatus() {
@@ -14079,8 +14115,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -14105,8 +14140,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -14129,8 +14163,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder mergeStatus(
@@ -14164,8 +14197,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public Builder clearStatus() {
@@ -14186,8 +14218,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatus.Builder
@@ -14204,8 +14235,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.SubjectAccessReviewStatusOrBuilder
@@ -14227,8 +14257,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
+       * <code>optional .k8s.io.api.authorization.v1beta1.SubjectAccessReviewStatus status = 3;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -14318,8 +14347,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     boolean hasResourceAttributes();
@@ -14331,8 +14359,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributes getResourceAttributes();
@@ -14344,8 +14371,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributesOrBuilder
@@ -14767,8 +14793,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     public boolean hasResourceAttributes() {
@@ -14782,8 +14807,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributes
@@ -14800,8 +14824,7 @@ public final class V1beta1Authorization {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+     * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributesOrBuilder
@@ -15702,8 +15725,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public boolean hasResourceAttributes() {
@@ -15717,8 +15739,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributes
@@ -15740,8 +15761,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public Builder setResourceAttributes(
@@ -15766,8 +15786,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public Builder setResourceAttributes(
@@ -15790,8 +15809,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public Builder mergeResourceAttributes(
@@ -15825,8 +15843,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public Builder clearResourceAttributes() {
@@ -15847,8 +15864,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributes.Builder
@@ -15865,8 +15881,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceAttributesOrBuilder
@@ -15888,8 +15903,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
+       * <code>optional .k8s.io.api.authorization.v1beta1.ResourceAttributes resourceAttributes = 1;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -16440,8 +16454,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;</code>
        */
       public boolean containsExtra(java.lang.String key) {
         if (key == null) {
@@ -16465,8 +16478,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;</code>
        */
       public java.util.Map<
               java.lang.String, io.kubernetes.client.proto.V1beta1Authorization.ExtraValue>
@@ -16482,8 +16494,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ExtraValue getExtraOrDefault(
           java.lang.String key,
@@ -16504,8 +16515,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ExtraValue getExtraOrThrow(
           java.lang.String key) {
@@ -16533,8 +16543,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;</code>
        */
       public Builder removeExtra(java.lang.String key) {
         if (key == null) {
@@ -16559,8 +16568,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;</code>
        */
       public Builder putExtra(
           java.lang.String key, io.kubernetes.client.proto.V1beta1Authorization.ExtraValue value) {
@@ -16582,8 +16590,7 @@ public final class V1beta1Authorization {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.authorization.v1beta1.ExtraValue&gt; extra = 5;</code>
        */
       public Builder putAllExtra(
           java.util.Map<
@@ -18115,8 +18122,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     java.util.List<io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule>
         getNonResourceRulesList();
@@ -18128,8 +18134,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule getNonResourceRules(int index);
     /**
@@ -18140,8 +18145,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     int getNonResourceRulesCount();
     /**
@@ -18152,8 +18156,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     java.util.List<
             ? extends io.kubernetes.client.proto.V1beta1Authorization.NonResourceRuleOrBuilder>
@@ -18166,8 +18169,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Authorization.NonResourceRuleOrBuilder
         getNonResourceRulesOrBuilder(int index);
@@ -18456,8 +18458,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     public java.util.List<io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule>
         getNonResourceRulesList() {
@@ -18471,8 +18472,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     public java.util.List<
             ? extends io.kubernetes.client.proto.V1beta1Authorization.NonResourceRuleOrBuilder>
@@ -18487,8 +18487,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     public int getNonResourceRulesCount() {
       return nonResourceRules_.size();
@@ -18501,8 +18500,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule getNonResourceRules(
         int index) {
@@ -18516,8 +18514,7 @@ public final class V1beta1Authorization {
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * </pre>
      *
-     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Authorization.NonResourceRuleOrBuilder
         getNonResourceRulesOrBuilder(int index) {
@@ -19138,8 +19135,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Authorization.ResourceRule>
           getResourceRulesList() {
@@ -19157,8 +19153,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public int getResourceRulesCount() {
         if (resourceRulesBuilder_ == null) {
@@ -19175,8 +19170,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceRule getResourceRules(
           int index) {
@@ -19194,8 +19188,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder setResourceRules(
           int index, io.kubernetes.client.proto.V1beta1Authorization.ResourceRule value) {
@@ -19219,8 +19212,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder setResourceRules(
           int index,
@@ -19242,8 +19234,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder addResourceRules(
           io.kubernetes.client.proto.V1beta1Authorization.ResourceRule value) {
@@ -19267,8 +19258,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder addResourceRules(
           int index, io.kubernetes.client.proto.V1beta1Authorization.ResourceRule value) {
@@ -19292,8 +19282,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder addResourceRules(
           io.kubernetes.client.proto.V1beta1Authorization.ResourceRule.Builder builderForValue) {
@@ -19314,8 +19303,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder addResourceRules(
           int index,
@@ -19337,8 +19325,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder addAllResourceRules(
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1beta1Authorization.ResourceRule>
@@ -19360,8 +19347,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder clearResourceRules() {
         if (resourceRulesBuilder_ == null) {
@@ -19381,8 +19367,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public Builder removeResourceRules(int index) {
         if (resourceRulesBuilder_ == null) {
@@ -19402,8 +19387,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceRule.Builder
           getResourceRulesBuilder(int index) {
@@ -19417,8 +19401,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceRuleOrBuilder
           getResourceRulesOrBuilder(int index) {
@@ -19436,8 +19419,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V1beta1Authorization.ResourceRuleOrBuilder>
@@ -19456,8 +19438,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceRule.Builder
           addResourceRulesBuilder() {
@@ -19473,8 +19454,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.ResourceRule.Builder
           addResourceRulesBuilder(int index) {
@@ -19491,8 +19471,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;
-       * </code>
+       * <code>repeated .k8s.io.api.authorization.v1beta1.ResourceRule resourceRules = 1;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Authorization.ResourceRule.Builder>
           getResourceRulesBuilderList() {
@@ -19546,8 +19525,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule>
@@ -19566,8 +19544,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public int getNonResourceRulesCount() {
@@ -19585,8 +19562,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule getNonResourceRules(
@@ -19605,8 +19581,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder setNonResourceRules(
@@ -19631,8 +19606,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder setNonResourceRules(
@@ -19655,8 +19629,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder addNonResourceRules(
@@ -19681,8 +19654,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder addNonResourceRules(
@@ -19707,8 +19679,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder addNonResourceRules(
@@ -19730,8 +19701,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder addNonResourceRules(
@@ -19754,8 +19724,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder addAllNonResourceRules(
@@ -19779,8 +19748,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder clearNonResourceRules() {
@@ -19801,8 +19769,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public Builder removeNonResourceRules(int index) {
@@ -19823,8 +19790,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule.Builder
@@ -19839,8 +19805,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.NonResourceRuleOrBuilder
@@ -19859,8 +19824,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public java.util.List<
@@ -19880,8 +19844,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule.Builder
@@ -19899,8 +19862,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule.Builder
@@ -19919,8 +19881,7 @@ public final class V1beta1Authorization {
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
+       * <code>repeated .k8s.io.api.authorization.v1beta1.NonResourceRule nonResourceRules = 2;
        * </code>
        */
       public java.util.List<io.kubernetes.client.proto.V1beta1Authorization.NonResourceRule.Builder>

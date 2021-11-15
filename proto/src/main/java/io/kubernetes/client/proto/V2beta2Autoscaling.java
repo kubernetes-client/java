@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,6 +21,2523 @@ public final class V2beta2Autoscaling {
     registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
   }
 
+  public interface ContainerResourceMetricSourceOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     *
+     *
+     * <pre>
+     * name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     *
+     *
+     * <pre>
+     * name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString getNameBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * target specifies the target value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+     */
+    boolean hasTarget();
+    /**
+     *
+     *
+     * <pre>
+     * target specifies the target value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget getTarget();
+    /**
+     *
+     *
+     * <pre>
+     * target specifies the target value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.MetricTargetOrBuilder getTargetOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    boolean hasContainer();
+    /**
+     *
+     *
+     * <pre>
+     * container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    java.lang.String getContainer();
+    /**
+     *
+     *
+     * <pre>
+     * container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    com.google.protobuf.ByteString getContainerBytes();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * ContainerResourceMetricSource indicates how to scale on a resource metric known to
+   * Kubernetes, as specified in requests and limits, describing each pod in the
+   * current scale target (e.g. CPU or memory).  The values will be averaged
+   * together before being compared to the target.  Such metrics are built in to
+   * Kubernetes, and have special scaling options on top of those available to
+   * normal per-pod metrics using the "pods" source.  Only one "target" type
+   * should be set.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource}
+   */
+  public static final class ContainerResourceMetricSource
+      extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource)
+      ContainerResourceMetricSourceOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use ContainerResourceMetricSource.newBuilder() to construct.
+    private ContainerResourceMetricSource(
+        com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private ContainerResourceMetricSource() {
+      name_ = "";
+      container_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private ContainerResourceMetricSource(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                name_ = bs;
+                break;
+              }
+            case 18:
+              {
+                io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.Builder subBuilder =
+                    null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = target_.toBuilder();
+                }
+                target_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(target_);
+                  target_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
+            case 26:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000004;
+                container_ = bs;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.class,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.Builder
+                  .class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     *
+     *
+     * <pre>
+     * name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TARGET_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget target_;
+    /**
+     *
+     *
+     * <pre>
+     * target specifies the target value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+     */
+    public boolean hasTarget() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * target specifies the target value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget getTarget() {
+      return target_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.getDefaultInstance()
+          : target_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * target specifies the target value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.MetricTargetOrBuilder
+        getTargetOrBuilder() {
+      return target_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.getDefaultInstance()
+          : target_;
+    }
+
+    public static final int CONTAINER_FIELD_NUMBER = 3;
+    private volatile java.lang.Object container_;
+    /**
+     *
+     *
+     * <pre>
+     * container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    public boolean hasContainer() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    public java.lang.String getContainer() {
+      java.lang.Object ref = container_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          container_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    public com.google.protobuf.ByteString getContainerBytes() {
+      java.lang.Object ref = container_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        container_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getTarget());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, container_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getTarget());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, container_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj
+          instanceof io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource other =
+          (io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName().equals(other.getName());
+      }
+      result = result && (hasTarget() == other.hasTarget());
+      if (hasTarget()) {
+        result = result && getTarget().equals(other.getTarget());
+      }
+      result = result && (hasContainer() == other.hasContainer());
+      if (hasContainer()) {
+        result = result && getContainer().equals(other.getContainer());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasTarget()) {
+        hash = (37 * hash) + TARGET_FIELD_NUMBER;
+        hash = (53 * hash) + getTarget().hashCode();
+      }
+      if (hasContainer()) {
+        hash = (37 * hash) + CONTAINER_FIELD_NUMBER;
+        hash = (53 * hash) + getContainer().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(
+            java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ContainerResourceMetricSource indicates how to scale on a resource metric known to
+     * Kubernetes, as specified in requests and limits, describing each pod in the
+     * current scale target (e.g. CPU or memory).  The values will be averaged
+     * together before being compared to the target.  Such metrics are built in to
+     * Kubernetes, and have special scaling options on top of those available to
+     * normal per-pod metrics using the "pods" source.  Only one "target" type
+     * should be set.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource)
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSourceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.class,
+                io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.Builder
+                    .class);
+      }
+
+      // Construct using
+      // io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getTargetFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (targetBuilder_ == null) {
+          target_ = null;
+        } else {
+          targetBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        container_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource build() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+          buildPartial() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource result =
+            new io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (targetBuilder_ == null) {
+          result.target_ = target_;
+        } else {
+          result.target_ = targetBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.container_ = container_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other
+            instanceof
+            io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource) {
+          return mergeFrom(
+              (io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource other) {
+        if (other
+            == io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+                .getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasTarget()) {
+          mergeTarget(other.getTarget());
+        }
+        if (other.hasContainer()) {
+          bitField0_ |= 0x00000004;
+          container_ = other.container_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource parsedMessage =
+            null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget target_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget,
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricTargetOrBuilder>
+          targetBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      public boolean hasTarget() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget getTarget() {
+        if (targetBuilder_ == null) {
+          return target_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.getDefaultInstance()
+              : target_;
+        } else {
+          return targetBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      public Builder setTarget(io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget value) {
+        if (targetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          target_ = value;
+          onChanged();
+        } else {
+          targetBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      public Builder setTarget(
+          io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.Builder builderForValue) {
+        if (targetBuilder_ == null) {
+          target_ = builderForValue.build();
+          onChanged();
+        } else {
+          targetBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      public Builder mergeTarget(io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget value) {
+        if (targetBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && target_ != null
+              && target_
+                  != io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget
+                      .getDefaultInstance()) {
+            target_ =
+                io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.newBuilder(target_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            target_ = value;
+          }
+          onChanged();
+        } else {
+          targetBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      public Builder clearTarget() {
+        if (targetBuilder_ == null) {
+          target_ = null;
+          onChanged();
+        } else {
+          targetBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.Builder getTargetBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getTargetFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.MetricTargetOrBuilder
+          getTargetOrBuilder() {
+        if (targetBuilder_ != null) {
+          return targetBuilder_.getMessageOrBuilder();
+        } else {
+          return target_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.getDefaultInstance()
+              : target_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * target specifies the target value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricTarget target = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget,
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricTargetOrBuilder>
+          getTargetFieldBuilder() {
+        if (targetBuilder_ == null) {
+          targetBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.Builder,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.MetricTargetOrBuilder>(
+                  getTarget(), getParentForChildren(), isClean());
+          target_ = null;
+        }
+        return targetBuilder_;
+      }
+
+      private java.lang.Object container_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public boolean hasContainer() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public java.lang.String getContainer() {
+        java.lang.Object ref = container_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            container_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public com.google.protobuf.ByteString getContainerBytes() {
+        java.lang.Object ref = container_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          container_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public Builder setContainer(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        container_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public Builder clearContainer() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        container_ = getDefaultInstance().getContainer();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public Builder setContainerBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        container_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource)
+    private static final io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE =
+          new io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource();
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<ContainerResourceMetricSource> PARSER =
+        new com.google.protobuf.AbstractParser<ContainerResourceMetricSource>() {
+          @java.lang.Override
+          public ContainerResourceMetricSource parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new ContainerResourceMetricSource(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<ContainerResourceMetricSource> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ContainerResourceMetricSource> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface ContainerResourceMetricStatusOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     *
+     *
+     * <pre>
+     * Name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     *
+     *
+     * <pre>
+     * Name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString getNameBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * current contains the current value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+     */
+    boolean hasCurrent();
+    /**
+     *
+     *
+     * <pre>
+     * current contains the current value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus getCurrent();
+    /**
+     *
+     *
+     * <pre>
+     * current contains the current value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatusOrBuilder getCurrentOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * Container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    boolean hasContainer();
+    /**
+     *
+     *
+     * <pre>
+     * Container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    java.lang.String getContainer();
+    /**
+     *
+     *
+     * <pre>
+     * Container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    com.google.protobuf.ByteString getContainerBytes();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * ContainerResourceMetricStatus indicates the current value of a resource metric known to
+   * Kubernetes, as specified in requests and limits, describing a single container in each pod in the
+   * current scale target (e.g. CPU or memory).  Such metrics are built in to
+   * Kubernetes, and have special scaling options on top of those available to
+   * normal per-pod metrics using the "pods" source.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus}
+   */
+  public static final class ContainerResourceMetricStatus
+      extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus)
+      ContainerResourceMetricStatusOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use ContainerResourceMetricStatus.newBuilder() to construct.
+    private ContainerResourceMetricStatus(
+        com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private ContainerResourceMetricStatus() {
+      name_ = "";
+      container_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private ContainerResourceMetricStatus(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                name_ = bs;
+                break;
+              }
+            case 18:
+              {
+                io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.Builder subBuilder =
+                    null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = current_.toBuilder();
+                }
+                current_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(current_);
+                  current_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
+            case 26:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000004;
+                container_ = bs;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.class,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.Builder
+                  .class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     *
+     *
+     * <pre>
+     * Name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Name is the name of the resource in question.
+     * </pre>
+     *
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CURRENT_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus current_;
+    /**
+     *
+     *
+     * <pre>
+     * current contains the current value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+     */
+    public boolean hasCurrent() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * current contains the current value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus getCurrent() {
+      return current_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.getDefaultInstance()
+          : current_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * current contains the current value for the given metric
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatusOrBuilder
+        getCurrentOrBuilder() {
+      return current_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.getDefaultInstance()
+          : current_;
+    }
+
+    public static final int CONTAINER_FIELD_NUMBER = 3;
+    private volatile java.lang.Object container_;
+    /**
+     *
+     *
+     * <pre>
+     * Container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    public boolean hasContainer() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    public java.lang.String getContainer() {
+      java.lang.Object ref = container_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          container_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Container is the name of the container in the pods of the scaling target
+     * </pre>
+     *
+     * <code>optional string container = 3;</code>
+     */
+    public com.google.protobuf.ByteString getContainerBytes() {
+      java.lang.Object ref = container_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        container_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getCurrent());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, container_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getCurrent());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, container_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj
+          instanceof io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus other =
+          (io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus) obj;
+
+      boolean result = true;
+      result = result && (hasName() == other.hasName());
+      if (hasName()) {
+        result = result && getName().equals(other.getName());
+      }
+      result = result && (hasCurrent() == other.hasCurrent());
+      if (hasCurrent()) {
+        result = result && getCurrent().equals(other.getCurrent());
+      }
+      result = result && (hasContainer() == other.hasContainer());
+      if (hasContainer()) {
+        result = result && getContainer().equals(other.getContainer());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasName()) {
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+      }
+      if (hasCurrent()) {
+        hash = (37 * hash) + CURRENT_FIELD_NUMBER;
+        hash = (53 * hash) + getCurrent().hashCode();
+      }
+      if (hasContainer()) {
+        hash = (37 * hash) + CONTAINER_FIELD_NUMBER;
+        hash = (53 * hash) + getContainer().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(
+            java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * ContainerResourceMetricStatus indicates the current value of a resource metric known to
+     * Kubernetes, as specified in requests and limits, describing a single container in each pod in the
+     * current scale target (e.g. CPU or memory).  Such metrics are built in to
+     * Kubernetes, and have special scaling options on top of those available to
+     * normal per-pod metrics using the "pods" source.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus)
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatusOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.class,
+                io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.Builder
+                    .class);
+      }
+
+      // Construct using
+      // io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getCurrentFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (currentBuilder_ == null) {
+          current_ = null;
+        } else {
+          currentBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        container_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus build() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+          buildPartial() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus result =
+            new io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (currentBuilder_ == null) {
+          result.current_ = current_;
+        } else {
+          result.current_ = currentBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.container_ = container_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other
+            instanceof
+            io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus) {
+          return mergeFrom(
+              (io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus other) {
+        if (other
+            == io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+                .getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasCurrent()) {
+          mergeCurrent(other.getCurrent());
+        }
+        if (other.hasContainer()) {
+          bitField0_ |= 0x00000004;
+          container_ = other.container_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus parsedMessage =
+            null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the name of the resource in question.
+       * </pre>
+       *
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus current_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus,
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatusOrBuilder>
+          currentBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      public boolean hasCurrent() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus getCurrent() {
+        if (currentBuilder_ == null) {
+          return current_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.getDefaultInstance()
+              : current_;
+        } else {
+          return currentBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      public Builder setCurrent(
+          io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus value) {
+        if (currentBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          current_ = value;
+          onChanged();
+        } else {
+          currentBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      public Builder setCurrent(
+          io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.Builder builderForValue) {
+        if (currentBuilder_ == null) {
+          current_ = builderForValue.build();
+          onChanged();
+        } else {
+          currentBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      public Builder mergeCurrent(
+          io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus value) {
+        if (currentBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && current_ != null
+              && current_
+                  != io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus
+                      .getDefaultInstance()) {
+            current_ =
+                io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.newBuilder(current_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            current_ = value;
+          }
+          onChanged();
+        } else {
+          currentBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      public Builder clearCurrent() {
+        if (currentBuilder_ == null) {
+          current_ = null;
+          onChanged();
+        } else {
+          currentBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.Builder
+          getCurrentBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getCurrentFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatusOrBuilder
+          getCurrentOrBuilder() {
+        if (currentBuilder_ != null) {
+          return currentBuilder_.getMessageOrBuilder();
+        } else {
+          return current_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.getDefaultInstance()
+              : current_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * current contains the current value for the given metric
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.MetricValueStatus current = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus,
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatusOrBuilder>
+          getCurrentFieldBuilder() {
+        if (currentBuilder_ == null) {
+          currentBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatus.Builder,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.MetricValueStatusOrBuilder>(
+                  getCurrent(), getParentForChildren(), isClean());
+          current_ = null;
+        }
+        return currentBuilder_;
+      }
+
+      private java.lang.Object container_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public boolean hasContainer() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public java.lang.String getContainer() {
+        java.lang.Object ref = container_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            container_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public com.google.protobuf.ByteString getContainerBytes() {
+        java.lang.Object ref = container_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          container_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public Builder setContainer(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        container_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public Builder clearContainer() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        container_ = getDefaultInstance().getContainer();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Container is the name of the container in the pods of the scaling target
+       * </pre>
+       *
+       * <code>optional string container = 3;</code>
+       */
+      public Builder setContainerBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        container_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus)
+    private static final io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE =
+          new io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus();
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<ContainerResourceMetricStatus> PARSER =
+        new com.google.protobuf.AbstractParser<ContainerResourceMetricStatus>() {
+          @java.lang.Override
+          public ContainerResourceMetricStatus parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new ContainerResourceMetricStatus(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<ContainerResourceMetricStatus> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ContainerResourceMetricStatus> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   public interface CrossVersionObjectReferenceOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v2beta2.CrossVersionObjectReference)
@@ -30,7 +2547,7 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
      * </pre>
      *
      * <code>optional string kind = 1;</code>
@@ -40,7 +2557,7 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
      * </pre>
      *
      * <code>optional string kind = 1;</code>
@@ -50,7 +2567,7 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
      * </pre>
      *
      * <code>optional string kind = 1;</code>
@@ -235,7 +2752,7 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
      * </pre>
      *
      * <code>optional string kind = 1;</code>
@@ -247,7 +2764,7 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
      * </pre>
      *
      * <code>optional string kind = 1;</code>
@@ -269,7 +2786,7 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+     * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
      * </pre>
      *
      * <code>optional string kind = 1;</code>
@@ -815,7 +3332,7 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
        * </pre>
        *
        * <code>optional string kind = 1;</code>
@@ -827,7 +3344,7 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
        * </pre>
        *
        * <code>optional string kind = 1;</code>
@@ -849,7 +3366,7 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
        * </pre>
        *
        * <code>optional string kind = 1;</code>
@@ -869,7 +3386,7 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
        * </pre>
        *
        * <code>optional string kind = 1;</code>
@@ -887,7 +3404,7 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
        * </pre>
        *
        * <code>optional string kind = 1;</code>
@@ -902,7 +3419,7 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds"
+       * Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds"
        * </pre>
        *
        * <code>optional string kind = 1;</code>
@@ -3379,6 +5896,2507 @@ public final class V2beta2Autoscaling {
     }
   }
 
+  public interface HPAScalingPolicyOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * Type is used to specify the scaling policy.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    boolean hasType();
+    /**
+     *
+     *
+     * <pre>
+     * Type is used to specify the scaling policy.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    java.lang.String getType();
+    /**
+     *
+     *
+     * <pre>
+     * Type is used to specify the scaling policy.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    com.google.protobuf.ByteString getTypeBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * Value contains the amount of change which is permitted by the policy.
+     * It must be greater than zero
+     * </pre>
+     *
+     * <code>optional int32 value = 2;</code>
+     */
+    boolean hasValue();
+    /**
+     *
+     *
+     * <pre>
+     * Value contains the amount of change which is permitted by the policy.
+     * It must be greater than zero
+     * </pre>
+     *
+     * <code>optional int32 value = 2;</code>
+     */
+    int getValue();
+
+    /**
+     *
+     *
+     * <pre>
+     * PeriodSeconds specifies the window of time for which the policy should hold true.
+     * PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+     * </pre>
+     *
+     * <code>optional int32 periodSeconds = 3;</code>
+     */
+    boolean hasPeriodSeconds();
+    /**
+     *
+     *
+     * <pre>
+     * PeriodSeconds specifies the window of time for which the policy should hold true.
+     * PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+     * </pre>
+     *
+     * <code>optional int32 periodSeconds = 3;</code>
+     */
+    int getPeriodSeconds();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * HPAScalingPolicy is a single policy which must hold true for a specified past interval.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy}
+   */
+  public static final class HPAScalingPolicy extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy)
+      HPAScalingPolicyOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use HPAScalingPolicy.newBuilder() to construct.
+    private HPAScalingPolicy(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private HPAScalingPolicy() {
+      type_ = "";
+      value_ = 0;
+      periodSeconds_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private HPAScalingPolicy(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                type_ = bs;
+                break;
+              }
+            case 16:
+              {
+                bitField0_ |= 0x00000002;
+                value_ = input.readInt32();
+                break;
+              }
+            case 24:
+              {
+                bitField0_ |= 0x00000004;
+                periodSeconds_ = input.readInt32();
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.class,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object type_;
+    /**
+     *
+     *
+     * <pre>
+     * Type is used to specify the scaling policy.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Type is used to specify the scaling policy.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          type_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Type is used to specify the scaling policy.
+     * </pre>
+     *
+     * <code>optional string type = 1;</code>
+     */
+    public com.google.protobuf.ByteString getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private int value_;
+    /**
+     *
+     *
+     * <pre>
+     * Value contains the amount of change which is permitted by the policy.
+     * It must be greater than zero
+     * </pre>
+     *
+     * <code>optional int32 value = 2;</code>
+     */
+    public boolean hasValue() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Value contains the amount of change which is permitted by the policy.
+     * It must be greater than zero
+     * </pre>
+     *
+     * <code>optional int32 value = 2;</code>
+     */
+    public int getValue() {
+      return value_;
+    }
+
+    public static final int PERIODSECONDS_FIELD_NUMBER = 3;
+    private int periodSeconds_;
+    /**
+     *
+     *
+     * <pre>
+     * PeriodSeconds specifies the window of time for which the policy should hold true.
+     * PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+     * </pre>
+     *
+     * <code>optional int32 periodSeconds = 3;</code>
+     */
+    public boolean hasPeriodSeconds() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * PeriodSeconds specifies the window of time for which the policy should hold true.
+     * PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+     * </pre>
+     *
+     * <code>optional int32 periodSeconds = 3;</code>
+     */
+    public int getPeriodSeconds() {
+      return periodSeconds_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, value_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, periodSeconds_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(2, value_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(3, periodSeconds_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy other =
+          (io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy) obj;
+
+      boolean result = true;
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && getType().equals(other.getType());
+      }
+      result = result && (hasValue() == other.hasValue());
+      if (hasValue()) {
+        result = result && (getValue() == other.getValue());
+      }
+      result = result && (hasPeriodSeconds() == other.hasPeriodSeconds());
+      if (hasPeriodSeconds()) {
+        result = result && (getPeriodSeconds() == other.getPeriodSeconds());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getType().hashCode();
+      }
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValue();
+      }
+      if (hasPeriodSeconds()) {
+        hash = (37 * hash) + PERIODSECONDS_FIELD_NUMBER;
+        hash = (53 * hash) + getPeriodSeconds();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * HPAScalingPolicy is a single policy which must hold true for a specified past interval.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy)
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.class,
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        type_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        periodSeconds_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy build() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy buildPartial() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy result =
+            new io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.value_ = value_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.periodSeconds_ = periodSeconds_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy) {
+          return mergeFrom((io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy other) {
+        if (other
+            == io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.getDefaultInstance())
+          return this;
+        if (other.hasType()) {
+          bitField0_ |= 0x00000001;
+          type_ = other.type_;
+          onChanged();
+        }
+        if (other.hasValue()) {
+          setValue(other.getValue());
+        }
+        if (other.hasPeriodSeconds()) {
+          setPeriodSeconds(other.getPeriodSeconds());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object type_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Type is used to specify the scaling policy.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Type is used to specify the scaling policy.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public java.lang.String getType() {
+        java.lang.Object ref = type_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            type_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Type is used to specify the scaling policy.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public com.google.protobuf.ByteString getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Type is used to specify the scaling policy.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public Builder setType(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Type is used to specify the scaling policy.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = getDefaultInstance().getType();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Type is used to specify the scaling policy.
+       * </pre>
+       *
+       * <code>optional string type = 1;</code>
+       */
+      public Builder setTypeBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int value_;
+      /**
+       *
+       *
+       * <pre>
+       * Value contains the amount of change which is permitted by the policy.
+       * It must be greater than zero
+       * </pre>
+       *
+       * <code>optional int32 value = 2;</code>
+       */
+      public boolean hasValue() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Value contains the amount of change which is permitted by the policy.
+       * It must be greater than zero
+       * </pre>
+       *
+       * <code>optional int32 value = 2;</code>
+       */
+      public int getValue() {
+        return value_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Value contains the amount of change which is permitted by the policy.
+       * It must be greater than zero
+       * </pre>
+       *
+       * <code>optional int32 value = 2;</code>
+       */
+      public Builder setValue(int value) {
+        bitField0_ |= 0x00000002;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Value contains the amount of change which is permitted by the policy.
+       * It must be greater than zero
+       * </pre>
+       *
+       * <code>optional int32 value = 2;</code>
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        value_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int periodSeconds_;
+      /**
+       *
+       *
+       * <pre>
+       * PeriodSeconds specifies the window of time for which the policy should hold true.
+       * PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+       * </pre>
+       *
+       * <code>optional int32 periodSeconds = 3;</code>
+       */
+      public boolean hasPeriodSeconds() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PeriodSeconds specifies the window of time for which the policy should hold true.
+       * PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+       * </pre>
+       *
+       * <code>optional int32 periodSeconds = 3;</code>
+       */
+      public int getPeriodSeconds() {
+        return periodSeconds_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PeriodSeconds specifies the window of time for which the policy should hold true.
+       * PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+       * </pre>
+       *
+       * <code>optional int32 periodSeconds = 3;</code>
+       */
+      public Builder setPeriodSeconds(int value) {
+        bitField0_ |= 0x00000004;
+        periodSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * PeriodSeconds specifies the window of time for which the policy should hold true.
+       * PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
+       * </pre>
+       *
+       * <code>optional int32 periodSeconds = 3;</code>
+       */
+      public Builder clearPeriodSeconds() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        periodSeconds_ = 0;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy)
+    private static final io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy();
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<HPAScalingPolicy> PARSER =
+        new com.google.protobuf.AbstractParser<HPAScalingPolicy>() {
+          @java.lang.Override
+          public HPAScalingPolicy parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new HPAScalingPolicy(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<HPAScalingPolicy> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HPAScalingPolicy> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface HPAScalingRulesOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v2beta2.HPAScalingRules)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * StabilizationWindowSeconds is the number of seconds for which past recommendations should be
+     * considered while scaling up or scaling down.
+     * StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour).
+     * If not set, use the default values:
+     * - For scale up: 0 (i.e. no stabilization is done).
+     * - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 stabilizationWindowSeconds = 3;</code>
+     */
+    boolean hasStabilizationWindowSeconds();
+    /**
+     *
+     *
+     * <pre>
+     * StabilizationWindowSeconds is the number of seconds for which past recommendations should be
+     * considered while scaling up or scaling down.
+     * StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour).
+     * If not set, use the default values:
+     * - For scale up: 0 (i.e. no stabilization is done).
+     * - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 stabilizationWindowSeconds = 3;</code>
+     */
+    int getStabilizationWindowSeconds();
+
+    /**
+     *
+     *
+     * <pre>
+     * selectPolicy is used to specify which policy should be used.
+     * If not set, the default value MaxPolicySelect is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string selectPolicy = 1;</code>
+     */
+    boolean hasSelectPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * selectPolicy is used to specify which policy should be used.
+     * If not set, the default value MaxPolicySelect is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string selectPolicy = 1;</code>
+     */
+    java.lang.String getSelectPolicy();
+    /**
+     *
+     *
+     * <pre>
+     * selectPolicy is used to specify which policy should be used.
+     * If not set, the default value MaxPolicySelect is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string selectPolicy = 1;</code>
+     */
+    com.google.protobuf.ByteString getSelectPolicyBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy>
+        getPoliciesList();
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy getPolicies(int index);
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    int getPoliciesCount();
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    java.util.List<
+            ? extends io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder>
+        getPoliciesOrBuilderList();
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder getPoliciesOrBuilder(
+        int index);
+  }
+  /**
+   *
+   *
+   * <pre>
+   * HPAScalingRules configures the scaling behavior for one direction.
+   * These Rules are applied after calculating DesiredReplicas from metrics for the HPA.
+   * They can limit the scaling velocity by specifying scaling policies.
+   * They can prevent flapping by specifying the stabilization window, so that the
+   * number of replicas is not set instantly, instead, the safest value from the stabilization
+   * window is chosen.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.HPAScalingRules}
+   */
+  public static final class HPAScalingRules extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.autoscaling.v2beta2.HPAScalingRules)
+      HPAScalingRulesOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use HPAScalingRules.newBuilder() to construct.
+    private HPAScalingRules(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private HPAScalingRules() {
+      stabilizationWindowSeconds_ = 0;
+      selectPolicy_ = "";
+      policies_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private HPAScalingRules(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000002;
+                selectPolicy_ = bs;
+                break;
+              }
+            case 18:
+              {
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  policies_ =
+                      new java.util.ArrayList<
+                          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy>();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                policies_.add(
+                    input.readMessage(
+                        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.PARSER,
+                        extensionRegistry));
+                break;
+              }
+            case 24:
+              {
+                bitField0_ |= 0x00000001;
+                stabilizationWindowSeconds_ = input.readInt32();
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          policies_ = java.util.Collections.unmodifiableList(policies_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.class,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int STABILIZATIONWINDOWSECONDS_FIELD_NUMBER = 3;
+    private int stabilizationWindowSeconds_;
+    /**
+     *
+     *
+     * <pre>
+     * StabilizationWindowSeconds is the number of seconds for which past recommendations should be
+     * considered while scaling up or scaling down.
+     * StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour).
+     * If not set, use the default values:
+     * - For scale up: 0 (i.e. no stabilization is done).
+     * - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 stabilizationWindowSeconds = 3;</code>
+     */
+    public boolean hasStabilizationWindowSeconds() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * StabilizationWindowSeconds is the number of seconds for which past recommendations should be
+     * considered while scaling up or scaling down.
+     * StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour).
+     * If not set, use the default values:
+     * - For scale up: 0 (i.e. no stabilization is done).
+     * - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 stabilizationWindowSeconds = 3;</code>
+     */
+    public int getStabilizationWindowSeconds() {
+      return stabilizationWindowSeconds_;
+    }
+
+    public static final int SELECTPOLICY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object selectPolicy_;
+    /**
+     *
+     *
+     * <pre>
+     * selectPolicy is used to specify which policy should be used.
+     * If not set, the default value MaxPolicySelect is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string selectPolicy = 1;</code>
+     */
+    public boolean hasSelectPolicy() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * selectPolicy is used to specify which policy should be used.
+     * If not set, the default value MaxPolicySelect is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string selectPolicy = 1;</code>
+     */
+    public java.lang.String getSelectPolicy() {
+      java.lang.Object ref = selectPolicy_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          selectPolicy_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * selectPolicy is used to specify which policy should be used.
+     * If not set, the default value MaxPolicySelect is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string selectPolicy = 1;</code>
+     */
+    public com.google.protobuf.ByteString getSelectPolicyBytes() {
+      java.lang.Object ref = selectPolicy_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        selectPolicy_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int POLICIES_FIELD_NUMBER = 2;
+    private java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy>
+        policies_;
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    public java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy>
+        getPoliciesList() {
+      return policies_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    public java.util.List<
+            ? extends io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder>
+        getPoliciesOrBuilderList() {
+      return policies_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    public int getPoliciesCount() {
+      return policies_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy getPolicies(int index) {
+      return policies_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * policies is a list of potential scaling polices which can be used during scaling.
+     * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+     * +optional
+     * </pre>
+     *
+     * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder
+        getPoliciesOrBuilder(int index) {
+      return policies_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, selectPolicy_);
+      }
+      for (int i = 0; i < policies_.size(); i++) {
+        output.writeMessage(2, policies_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(3, stabilizationWindowSeconds_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, selectPolicy_);
+      }
+      for (int i = 0; i < policies_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, policies_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size +=
+            com.google.protobuf.CodedOutputStream.computeInt32Size(3, stabilizationWindowSeconds_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules other =
+          (io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules) obj;
+
+      boolean result = true;
+      result = result && (hasStabilizationWindowSeconds() == other.hasStabilizationWindowSeconds());
+      if (hasStabilizationWindowSeconds()) {
+        result =
+            result && (getStabilizationWindowSeconds() == other.getStabilizationWindowSeconds());
+      }
+      result = result && (hasSelectPolicy() == other.hasSelectPolicy());
+      if (hasSelectPolicy()) {
+        result = result && getSelectPolicy().equals(other.getSelectPolicy());
+      }
+      result = result && getPoliciesList().equals(other.getPoliciesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasStabilizationWindowSeconds()) {
+        hash = (37 * hash) + STABILIZATIONWINDOWSECONDS_FIELD_NUMBER;
+        hash = (53 * hash) + getStabilizationWindowSeconds();
+      }
+      if (hasSelectPolicy()) {
+        hash = (37 * hash) + SELECTPOLICY_FIELD_NUMBER;
+        hash = (53 * hash) + getSelectPolicy().hashCode();
+      }
+      if (getPoliciesCount() > 0) {
+        hash = (37 * hash) + POLICIES_FIELD_NUMBER;
+        hash = (53 * hash) + getPoliciesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * HPAScalingRules configures the scaling behavior for one direction.
+     * These Rules are applied after calculating DesiredReplicas from metrics for the HPA.
+     * They can limit the scaling velocity by specifying scaling policies.
+     * They can prevent flapping by specifying the stabilization window, so that the
+     * number of replicas is not set instantly, instead, the safest value from the stabilization
+     * window is chosen.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.HPAScalingRules}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.autoscaling.v2beta2.HPAScalingRules)
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.class,
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getPoliciesFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        stabilizationWindowSeconds_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        selectPolicy_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (policiesBuilder_ == null) {
+          policies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          policiesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules build() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules buildPartial() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules result =
+            new io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.stabilizationWindowSeconds_ = stabilizationWindowSeconds_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.selectPolicy_ = selectPolicy_;
+        if (policiesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            policies_ = java.util.Collections.unmodifiableList(policies_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.policies_ = policies_;
+        } else {
+          result.policies_ = policiesBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules) {
+          return mergeFrom((io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules other) {
+        if (other
+            == io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance())
+          return this;
+        if (other.hasStabilizationWindowSeconds()) {
+          setStabilizationWindowSeconds(other.getStabilizationWindowSeconds());
+        }
+        if (other.hasSelectPolicy()) {
+          bitField0_ |= 0x00000002;
+          selectPolicy_ = other.selectPolicy_;
+          onChanged();
+        }
+        if (policiesBuilder_ == null) {
+          if (!other.policies_.isEmpty()) {
+            if (policies_.isEmpty()) {
+              policies_ = other.policies_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensurePoliciesIsMutable();
+              policies_.addAll(other.policies_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.policies_.isEmpty()) {
+            if (policiesBuilder_.isEmpty()) {
+              policiesBuilder_.dispose();
+              policiesBuilder_ = null;
+              policies_ = other.policies_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              policiesBuilder_ =
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+                      ? getPoliciesFieldBuilder()
+                      : null;
+            } else {
+              policiesBuilder_.addAllMessages(other.policies_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private int stabilizationWindowSeconds_;
+      /**
+       *
+       *
+       * <pre>
+       * StabilizationWindowSeconds is the number of seconds for which past recommendations should be
+       * considered while scaling up or scaling down.
+       * StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour).
+       * If not set, use the default values:
+       * - For scale up: 0 (i.e. no stabilization is done).
+       * - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 stabilizationWindowSeconds = 3;</code>
+       */
+      public boolean hasStabilizationWindowSeconds() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * StabilizationWindowSeconds is the number of seconds for which past recommendations should be
+       * considered while scaling up or scaling down.
+       * StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour).
+       * If not set, use the default values:
+       * - For scale up: 0 (i.e. no stabilization is done).
+       * - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 stabilizationWindowSeconds = 3;</code>
+       */
+      public int getStabilizationWindowSeconds() {
+        return stabilizationWindowSeconds_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * StabilizationWindowSeconds is the number of seconds for which past recommendations should be
+       * considered while scaling up or scaling down.
+       * StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour).
+       * If not set, use the default values:
+       * - For scale up: 0 (i.e. no stabilization is done).
+       * - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 stabilizationWindowSeconds = 3;</code>
+       */
+      public Builder setStabilizationWindowSeconds(int value) {
+        bitField0_ |= 0x00000001;
+        stabilizationWindowSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * StabilizationWindowSeconds is the number of seconds for which past recommendations should be
+       * considered while scaling up or scaling down.
+       * StabilizationWindowSeconds must be greater than or equal to zero and less than or equal to 3600 (one hour).
+       * If not set, use the default values:
+       * - For scale up: 0 (i.e. no stabilization is done).
+       * - For scale down: 300 (i.e. the stabilization window is 300 seconds long).
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 stabilizationWindowSeconds = 3;</code>
+       */
+      public Builder clearStabilizationWindowSeconds() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        stabilizationWindowSeconds_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object selectPolicy_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * selectPolicy is used to specify which policy should be used.
+       * If not set, the default value MaxPolicySelect is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string selectPolicy = 1;</code>
+       */
+      public boolean hasSelectPolicy() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * selectPolicy is used to specify which policy should be used.
+       * If not set, the default value MaxPolicySelect is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string selectPolicy = 1;</code>
+       */
+      public java.lang.String getSelectPolicy() {
+        java.lang.Object ref = selectPolicy_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            selectPolicy_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * selectPolicy is used to specify which policy should be used.
+       * If not set, the default value MaxPolicySelect is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string selectPolicy = 1;</code>
+       */
+      public com.google.protobuf.ByteString getSelectPolicyBytes() {
+        java.lang.Object ref = selectPolicy_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          selectPolicy_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * selectPolicy is used to specify which policy should be used.
+       * If not set, the default value MaxPolicySelect is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string selectPolicy = 1;</code>
+       */
+      public Builder setSelectPolicy(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        selectPolicy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * selectPolicy is used to specify which policy should be used.
+       * If not set, the default value MaxPolicySelect is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string selectPolicy = 1;</code>
+       */
+      public Builder clearSelectPolicy() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        selectPolicy_ = getDefaultInstance().getSelectPolicy();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * selectPolicy is used to specify which policy should be used.
+       * If not set, the default value MaxPolicySelect is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string selectPolicy = 1;</code>
+       */
+      public Builder setSelectPolicyBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        selectPolicy_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy>
+          policies_ = java.util.Collections.emptyList();
+
+      private void ensurePoliciesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          policies_ =
+              new java.util.ArrayList<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy>(policies_);
+          bitField0_ |= 0x00000004;
+        }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder>
+          policiesBuilder_;
+
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy>
+          getPoliciesList() {
+        if (policiesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(policies_);
+        } else {
+          return policiesBuilder_.getMessageList();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public int getPoliciesCount() {
+        if (policiesBuilder_ == null) {
+          return policies_.size();
+        } else {
+          return policiesBuilder_.getCount();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy getPolicies(int index) {
+        if (policiesBuilder_ == null) {
+          return policies_.get(index);
+        } else {
+          return policiesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder setPolicies(
+          int index, io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy value) {
+        if (policiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePoliciesIsMutable();
+          policies_.set(index, value);
+          onChanged();
+        } else {
+          policiesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder setPolicies(
+          int index,
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder builderForValue) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          policies_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          policiesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder addPolicies(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy value) {
+        if (policiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePoliciesIsMutable();
+          policies_.add(value);
+          onChanged();
+        } else {
+          policiesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder addPolicies(
+          int index, io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy value) {
+        if (policiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePoliciesIsMutable();
+          policies_.add(index, value);
+          onChanged();
+        } else {
+          policiesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder addPolicies(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder builderForValue) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          policies_.add(builderForValue.build());
+          onChanged();
+        } else {
+          policiesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder addPolicies(
+          int index,
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder builderForValue) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          policies_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          policiesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder addAllPolicies(
+          java.lang.Iterable<
+                  ? extends io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy>
+              values) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(values, policies_);
+          onChanged();
+        } else {
+          policiesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder clearPolicies() {
+        if (policiesBuilder_ == null) {
+          policies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          policiesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public Builder removePolicies(int index) {
+        if (policiesBuilder_ == null) {
+          ensurePoliciesIsMutable();
+          policies_.remove(index);
+          onChanged();
+        } else {
+          policiesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder
+          getPoliciesBuilder(int index) {
+        return getPoliciesFieldBuilder().getBuilder(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder
+          getPoliciesOrBuilder(int index) {
+        if (policiesBuilder_ == null) {
+          return policies_.get(index);
+        } else {
+          return policiesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public java.util.List<
+              ? extends io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder>
+          getPoliciesOrBuilderList() {
+        if (policiesBuilder_ != null) {
+          return policiesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(policies_);
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder
+          addPoliciesBuilder() {
+        return getPoliciesFieldBuilder()
+            .addBuilder(
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy
+                    .getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder
+          addPoliciesBuilder(int index) {
+        return getPoliciesFieldBuilder()
+            .addBuilder(
+                index,
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy
+                    .getDefaultInstance());
+      }
+      /**
+       *
+       *
+       * <pre>
+       * policies is a list of potential scaling polices which can be used during scaling.
+       * At least one policy must be specified, otherwise the HPAScalingRules will be discarded as invalid
+       * +optional
+       * </pre>
+       *
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HPAScalingPolicy policies = 2;</code>
+       */
+      public java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder>
+          getPoliciesBuilderList() {
+        return getPoliciesFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder>
+          getPoliciesFieldBuilder() {
+        if (policiesBuilder_ == null) {
+          policiesBuilder_ =
+              new com.google.protobuf.RepeatedFieldBuilderV3<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicy.Builder,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingPolicyOrBuilder>(
+                  policies_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          policies_ = null;
+        }
+        return policiesBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.autoscaling.v2beta2.HPAScalingRules)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.autoscaling.v2beta2.HPAScalingRules)
+    private static final io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules();
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<HPAScalingRules> PARSER =
+        new com.google.protobuf.AbstractParser<HPAScalingRules>() {
+          @java.lang.Override
+          public HPAScalingRules parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new HPAScalingRules(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<HPAScalingRules> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HPAScalingRules> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   public interface HorizontalPodAutoscalerOrBuilder
       extends
       // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler)
@@ -3389,7 +8407,7 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * metadata is the standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3401,7 +8419,7 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * metadata is the standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3413,7 +8431,7 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * metadata is the standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3426,12 +8444,11 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
      */
     boolean hasSpec();
     /**
@@ -3439,12 +8456,11 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
      */
     io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpec getSpec();
     /**
@@ -3452,12 +8468,11 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
      */
     io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpecOrBuilder
         getSpecOrBuilder();
@@ -3643,7 +8658,7 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * metadata is the standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3657,7 +8672,7 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * metadata is the standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3673,7 +8688,7 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * metadata is the standard object metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -3692,12 +8707,11 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
      */
     public boolean hasSpec() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -3707,12 +8721,11 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpec getSpec() {
       return spec_ == null
@@ -3725,12 +8738,11 @@ public final class V2beta2Autoscaling {
      *
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-     * </code>
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
      */
     public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpecOrBuilder
         getSpecOrBuilder() {
@@ -4226,7 +9238,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4240,7 +9252,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4260,7 +9272,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4284,7 +9296,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4306,7 +9318,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4336,7 +9348,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4357,7 +9369,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4373,7 +9385,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4393,7 +9405,7 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * metadata is the standard object metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -4428,12 +9440,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       public boolean hasSpec() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -4443,12 +9454,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpec getSpec() {
         if (specBuilder_ == null) {
@@ -4465,12 +9475,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       public Builder setSpec(
           io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpec value) {
@@ -4491,12 +9500,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       public Builder setSpec(
           io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpec.Builder
@@ -4515,12 +9523,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       public Builder mergeSpec(
           io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpec value) {
@@ -4550,12 +9557,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       public Builder clearSpec() {
         if (specBuilder_ == null) {
@@ -4572,12 +9578,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpec.Builder
           getSpecBuilder() {
@@ -4590,12 +9595,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpecOrBuilder
           getSpecOrBuilder() {
@@ -4613,12 +9617,11 @@ public final class V2beta2Autoscaling {
        *
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerSpec spec = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerSpec,
@@ -4653,8 +9656,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       public boolean hasStatus() {
@@ -4668,8 +9670,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerStatus
@@ -4691,8 +9692,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -4717,8 +9717,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -4741,8 +9740,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       public Builder mergeStatus(
@@ -4776,8 +9774,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       public Builder clearStatus() {
@@ -4798,8 +9795,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerStatus.Builder
@@ -4816,8 +9812,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerStatusOrBuilder
@@ -4839,8 +9834,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerStatus status = 3;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4914,6 +9908,1253 @@ public final class V2beta2Autoscaling {
 
     @java.lang.Override
     public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler
+        getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
+  public interface HorizontalPodAutoscalerBehaviorOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     *
+     *
+     * <pre>
+     * scaleUp is scaling policy for scaling Up.
+     * If not set, the default value is the higher of:
+     *   * increase no more than 4 pods per 60 seconds
+     *   * double the number of pods per 60 seconds
+     * No stabilization is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+     */
+    boolean hasScaleUp();
+    /**
+     *
+     *
+     * <pre>
+     * scaleUp is scaling policy for scaling Up.
+     * If not set, the default value is the higher of:
+     *   * increase no more than 4 pods per 60 seconds
+     *   * double the number of pods per 60 seconds
+     * No stabilization is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules getScaleUp();
+    /**
+     *
+     *
+     * <pre>
+     * scaleUp is scaling policy for scaling Up.
+     * If not set, the default value is the higher of:
+     *   * increase no more than 4 pods per 60 seconds
+     *   * double the number of pods per 60 seconds
+     * No stabilization is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder getScaleUpOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * scaleDown is scaling policy for scaling Down.
+     * If not set, the default value is to allow to scale down to minReplicas pods, with a
+     * 300 second stabilization window (i.e., the highest recommendation for
+     * the last 300sec is used).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+     */
+    boolean hasScaleDown();
+    /**
+     *
+     *
+     * <pre>
+     * scaleDown is scaling policy for scaling Down.
+     * If not set, the default value is to allow to scale down to minReplicas pods, with a
+     * 300 second stabilization window (i.e., the highest recommendation for
+     * the last 300sec is used).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules getScaleDown();
+    /**
+     *
+     *
+     * <pre>
+     * scaleDown is scaling policy for scaling Down.
+     * If not set, the default value is to allow to scale down to minReplicas pods, with a
+     * 300 second stabilization window (i.e., the highest recommendation for
+     * the last 300sec is used).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder getScaleDownOrBuilder();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * HorizontalPodAutoscalerBehavior configures the scaling behavior of the target
+   * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior}
+   */
+  public static final class HorizontalPodAutoscalerBehavior
+      extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior)
+      HorizontalPodAutoscalerBehaviorOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use HorizontalPodAutoscalerBehavior.newBuilder() to construct.
+    private HorizontalPodAutoscalerBehavior(
+        com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private HorizontalPodAutoscalerBehavior() {}
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private HorizontalPodAutoscalerBehavior(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder subBuilder =
+                    null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = scaleUp_.toBuilder();
+                }
+                scaleUp_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(scaleUp_);
+                  scaleUp_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
+              }
+            case 18:
+              {
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder subBuilder =
+                    null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = scaleDown_.toBuilder();
+                }
+                scaleDown_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(scaleDown_);
+                  scaleDown_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.V2beta2Autoscaling
+          .internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior.class,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior.Builder
+                  .class);
+    }
+
+    private int bitField0_;
+    public static final int SCALEUP_FIELD_NUMBER = 1;
+    private io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules scaleUp_;
+    /**
+     *
+     *
+     * <pre>
+     * scaleUp is scaling policy for scaling Up.
+     * If not set, the default value is the higher of:
+     *   * increase no more than 4 pods per 60 seconds
+     *   * double the number of pods per 60 seconds
+     * No stabilization is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+     */
+    public boolean hasScaleUp() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * scaleUp is scaling policy for scaling Up.
+     * If not set, the default value is the higher of:
+     *   * increase no more than 4 pods per 60 seconds
+     *   * double the number of pods per 60 seconds
+     * No stabilization is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules getScaleUp() {
+      return scaleUp_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance()
+          : scaleUp_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * scaleUp is scaling policy for scaling Up.
+     * If not set, the default value is the higher of:
+     *   * increase no more than 4 pods per 60 seconds
+     *   * double the number of pods per 60 seconds
+     * No stabilization is used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder
+        getScaleUpOrBuilder() {
+      return scaleUp_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance()
+          : scaleUp_;
+    }
+
+    public static final int SCALEDOWN_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules scaleDown_;
+    /**
+     *
+     *
+     * <pre>
+     * scaleDown is scaling policy for scaling Down.
+     * If not set, the default value is to allow to scale down to minReplicas pods, with a
+     * 300 second stabilization window (i.e., the highest recommendation for
+     * the last 300sec is used).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+     */
+    public boolean hasScaleDown() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * scaleDown is scaling policy for scaling Down.
+     * If not set, the default value is to allow to scale down to minReplicas pods, with a
+     * 300 second stabilization window (i.e., the highest recommendation for
+     * the last 300sec is used).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules getScaleDown() {
+      return scaleDown_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance()
+          : scaleDown_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * scaleDown is scaling policy for scaling Down.
+     * If not set, the default value is to allow to scale down to minReplicas pods, with a
+     * 300 second stabilization window (i.e., the highest recommendation for
+     * the last 300sec is used).
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder
+        getScaleDownOrBuilder() {
+      return scaleDown_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance()
+          : scaleDown_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, getScaleUp());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getScaleDown());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getScaleUp());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getScaleDown());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj
+          instanceof
+          io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior other =
+          (io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior) obj;
+
+      boolean result = true;
+      result = result && (hasScaleUp() == other.hasScaleUp());
+      if (hasScaleUp()) {
+        result = result && getScaleUp().equals(other.getScaleUp());
+      }
+      result = result && (hasScaleDown() == other.hasScaleDown());
+      if (hasScaleDown()) {
+        result = result && getScaleDown().equals(other.getScaleDown());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasScaleUp()) {
+        hash = (37 * hash) + SCALEUP_FIELD_NUMBER;
+        hash = (53 * hash) + getScaleUp().hashCode();
+      }
+      if (hasScaleDown()) {
+        hash = (37 * hash) + SCALEDOWN_FIELD_NUMBER;
+        hash = (53 * hash) + getScaleDown().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(
+            java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseDelimitedFrom(
+            java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(
+        io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * HorizontalPodAutoscalerBehavior configures the scaling behavior of the target
+     * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior)
+        io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehaviorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior.class,
+                io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+                    .Builder.class);
+      }
+
+      // Construct using
+      // io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+          getScaleUpFieldBuilder();
+          getScaleDownFieldBuilder();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (scaleUpBuilder_ == null) {
+          scaleUp_ = null;
+        } else {
+          scaleUpBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (scaleDownBuilder_ == null) {
+          scaleDown_ = null;
+        } else {
+          scaleDownBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling
+            .internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+          getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+            .getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior build() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior result =
+            buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+          buildPartial() {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior result =
+            new io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (scaleUpBuilder_ == null) {
+          result.scaleUp_ = scaleUp_;
+        } else {
+          result.scaleUp_ = scaleUpBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (scaleDownBuilder_ == null) {
+          result.scaleDown_ = scaleDown_;
+        } else {
+          result.scaleDown_ = scaleDownBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other
+            instanceof
+            io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior) {
+          return mergeFrom(
+              (io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior)
+                  other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior other) {
+        if (other
+            == io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+                .getDefaultInstance()) return this;
+        if (other.hasScaleUp()) {
+          mergeScaleUp(other.getScaleUp());
+        }
+        if (other.hasScaleDown()) {
+          mergeScaleDown(other.getScaleDown());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+            parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior)
+                  e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules scaleUp_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder>
+          scaleUpBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      public boolean hasScaleUp() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules getScaleUp() {
+        if (scaleUpBuilder_ == null) {
+          return scaleUp_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance()
+              : scaleUp_;
+        } else {
+          return scaleUpBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      public Builder setScaleUp(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules value) {
+        if (scaleUpBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scaleUp_ = value;
+          onChanged();
+        } else {
+          scaleUpBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      public Builder setScaleUp(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder builderForValue) {
+        if (scaleUpBuilder_ == null) {
+          scaleUp_ = builderForValue.build();
+          onChanged();
+        } else {
+          scaleUpBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      public Builder mergeScaleUp(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules value) {
+        if (scaleUpBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)
+              && scaleUp_ != null
+              && scaleUp_
+                  != io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules
+                      .getDefaultInstance()) {
+            scaleUp_ =
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.newBuilder(scaleUp_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            scaleUp_ = value;
+          }
+          onChanged();
+        } else {
+          scaleUpBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      public Builder clearScaleUp() {
+        if (scaleUpBuilder_ == null) {
+          scaleUp_ = null;
+          onChanged();
+        } else {
+          scaleUpBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder
+          getScaleUpBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getScaleUpFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder
+          getScaleUpOrBuilder() {
+        if (scaleUpBuilder_ != null) {
+          return scaleUpBuilder_.getMessageOrBuilder();
+        } else {
+          return scaleUp_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance()
+              : scaleUp_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleUp is scaling policy for scaling Up.
+       * If not set, the default value is the higher of:
+       *   * increase no more than 4 pods per 60 seconds
+       *   * double the number of pods per 60 seconds
+       * No stabilization is used.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleUp = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder>
+          getScaleUpFieldBuilder() {
+        if (scaleUpBuilder_ == null) {
+          scaleUpBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder>(
+                  getScaleUp(), getParentForChildren(), isClean());
+          scaleUp_ = null;
+        }
+        return scaleUpBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules scaleDown_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder>
+          scaleDownBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      public boolean hasScaleDown() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules getScaleDown() {
+        if (scaleDownBuilder_ == null) {
+          return scaleDown_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance()
+              : scaleDown_;
+        } else {
+          return scaleDownBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      public Builder setScaleDown(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules value) {
+        if (scaleDownBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scaleDown_ = value;
+          onChanged();
+        } else {
+          scaleDownBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      public Builder setScaleDown(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder builderForValue) {
+        if (scaleDownBuilder_ == null) {
+          scaleDown_ = builderForValue.build();
+          onChanged();
+        } else {
+          scaleDownBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      public Builder mergeScaleDown(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules value) {
+        if (scaleDownBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && scaleDown_ != null
+              && scaleDown_
+                  != io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules
+                      .getDefaultInstance()) {
+            scaleDown_ =
+                io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.newBuilder(scaleDown_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            scaleDown_ = value;
+          }
+          onChanged();
+        } else {
+          scaleDownBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      public Builder clearScaleDown() {
+        if (scaleDownBuilder_ == null) {
+          scaleDown_ = null;
+          onChanged();
+        } else {
+          scaleDownBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder
+          getScaleDownBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getScaleDownFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder
+          getScaleDownOrBuilder() {
+        if (scaleDownBuilder_ != null) {
+          return scaleDownBuilder_.getMessageOrBuilder();
+        } else {
+          return scaleDown_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.getDefaultInstance()
+              : scaleDown_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * scaleDown is scaling policy for scaling Down.
+       * If not set, the default value is to allow to scale down to minReplicas pods, with a
+       * 300 second stabilization window (i.e., the highest recommendation for
+       * the last 300sec is used).
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.HPAScalingRules scaleDown = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder>
+          getScaleDownFieldBuilder() {
+        if (scaleDownBuilder_ == null) {
+          scaleDownBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRules.Builder,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HPAScalingRulesOrBuilder>(
+                  getScaleDown(), getParentForChildren(), isClean());
+          scaleDown_ = null;
+        }
+        return scaleDownBuilder_;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior)
+    private static final io.kubernetes.client.proto.V2beta2Autoscaling
+            .HorizontalPodAutoscalerBehavior
+        DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE =
+          new io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior();
+    }
+
+    public static io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<HorizontalPodAutoscalerBehavior> PARSER =
+        new com.google.protobuf.AbstractParser<HorizontalPodAutoscalerBehavior>() {
+          @java.lang.Override
+          public HorizontalPodAutoscalerBehavior parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new HorizontalPodAutoscalerBehavior(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<HorizontalPodAutoscalerBehavior> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HorizontalPodAutoscalerBehavior> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
         getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -6215,8 +12456,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -6230,8 +12470,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -6251,8 +12490,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -6276,8 +12514,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -6299,8 +12536,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -6330,8 +12566,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -6352,8 +12587,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000004;
@@ -6369,8 +12603,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -6390,8 +12623,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -7664,8 +13896,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler>
           getItemsList() {
@@ -7682,8 +13913,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public int getItemsCount() {
         if (itemsBuilder_ == null) {
@@ -7699,8 +13929,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler getItems(
           int index) {
@@ -7717,8 +13946,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder setItems(
           int index, io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler value) {
@@ -7741,8 +13969,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder setItems(
           int index,
@@ -7764,8 +13991,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder addItems(
           io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler value) {
@@ -7788,8 +14014,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder addItems(
           int index, io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler value) {
@@ -7812,8 +14037,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder addItems(
           io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler.Builder
@@ -7834,8 +14058,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder addItems(
           int index,
@@ -7857,8 +14080,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder addAllItems(
           java.lang.Iterable<
@@ -7880,8 +14102,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder clearItems() {
         if (itemsBuilder_ == null) {
@@ -7900,8 +14121,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public Builder removeItems(int index) {
         if (itemsBuilder_ == null) {
@@ -7920,8 +14140,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler.Builder
           getItemsBuilder(int index) {
@@ -7934,8 +14153,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerOrBuilder
           getItemsOrBuilder(int index) {
@@ -7952,8 +14170,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public java.util.List<
               ? extends
@@ -7972,8 +14189,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler.Builder
           addItemsBuilder() {
@@ -7989,8 +14205,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler.Builder
           addItemsBuilder(int index) {
@@ -8007,8 +14222,7 @@ public final class V2beta2Autoscaling {
        * items is the list of horizontal pod autoscaler objects.
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscaler items = 2;</code>
        */
       public java.util.List<
               io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscaler.Builder>
@@ -8143,8 +14357,11 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
-     * It defaults to 1 pod.
+     * minReplicas is the lower limit for the number of replicas to which the autoscaler
+     * can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the
+     * alpha feature gate HPAScaleToZero is enabled and at least one Object or External
+     * metric is configured.  Scaling is active as long as at least one metric value is
+     * available.
      * +optional
      * </pre>
      *
@@ -8155,8 +14372,11 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
-     * It defaults to 1 pod.
+     * minReplicas is the lower limit for the number of replicas to which the autoscaler
+     * can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the
+     * alpha feature gate HPAScaleToZero is enabled and at least one Object or External
+     * metric is configured.  Scaling is active as long as at least one metric value is
+     * available.
      * +optional
      * </pre>
      *
@@ -8279,6 +14499,50 @@ public final class V2beta2Autoscaling {
      */
     io.kubernetes.client.proto.V2beta2Autoscaling.MetricSpecOrBuilder getMetricsOrBuilder(
         int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * behavior configures the scaling behavior of the target
+     * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+     * If not set, the default HPAScalingRules for scale up and scale down are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+     * </code>
+     */
+    boolean hasBehavior();
+    /**
+     *
+     *
+     * <pre>
+     * behavior configures the scaling behavior of the target
+     * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+     * If not set, the default HPAScalingRules for scale up and scale down are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+     * </code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior getBehavior();
+    /**
+     *
+     *
+     * <pre>
+     * behavior configures the scaling behavior of the target
+     * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+     * If not set, the default HPAScalingRules for scale up and scale down are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+     * </code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehaviorOrBuilder
+        getBehaviorOrBuilder();
   }
   /**
    *
@@ -8373,6 +14637,26 @@ public final class V2beta2Autoscaling {
                     input.readMessage(
                         io.kubernetes.client.proto.V2beta2Autoscaling.MetricSpec.PARSER,
                         extensionRegistry));
+                break;
+              }
+            case 42:
+              {
+                io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+                        .Builder
+                    subBuilder = null;
+                if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                  subBuilder = behavior_.toBuilder();
+                }
+                behavior_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V2beta2Autoscaling
+                            .HorizontalPodAutoscalerBehavior.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(behavior_);
+                  behavior_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000008;
                 break;
               }
             default:
@@ -8477,8 +14761,11 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
-     * It defaults to 1 pod.
+     * minReplicas is the lower limit for the number of replicas to which the autoscaler
+     * can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the
+     * alpha feature gate HPAScaleToZero is enabled and at least one Object or External
+     * metric is configured.  Scaling is active as long as at least one metric value is
+     * available.
      * +optional
      * </pre>
      *
@@ -8491,8 +14778,11 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
-     * It defaults to 1 pod.
+     * minReplicas is the lower limit for the number of replicas to which the autoscaler
+     * can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the
+     * alpha feature gate HPAScaleToZero is enabled and at least one Object or External
+     * metric is configured.  Scaling is active as long as at least one metric value is
+     * available.
      * +optional
      * </pre>
      *
@@ -8638,6 +14928,65 @@ public final class V2beta2Autoscaling {
       return metrics_.get(index);
     }
 
+    public static final int BEHAVIOR_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior behavior_;
+    /**
+     *
+     *
+     * <pre>
+     * behavior configures the scaling behavior of the target
+     * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+     * If not set, the default HPAScalingRules for scale up and scale down are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+     * </code>
+     */
+    public boolean hasBehavior() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * behavior configures the scaling behavior of the target
+     * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+     * If not set, the default HPAScalingRules for scale up and scale down are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+        getBehavior() {
+      return behavior_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+              .getDefaultInstance()
+          : behavior_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * behavior configures the scaling behavior of the target
+     * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+     * If not set, the default HPAScalingRules for scale up and scale down are used.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehaviorOrBuilder
+        getBehaviorOrBuilder() {
+      return behavior_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+              .getDefaultInstance()
+          : behavior_;
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -8664,6 +15013,9 @@ public final class V2beta2Autoscaling {
       for (int i = 0; i < metrics_.size(); i++) {
         output.writeMessage(4, metrics_.get(i));
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(5, getBehavior());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8684,6 +15036,9 @@ public final class V2beta2Autoscaling {
       }
       for (int i = 0; i < metrics_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, metrics_.get(i));
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getBehavior());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8716,6 +15071,10 @@ public final class V2beta2Autoscaling {
         result = result && (getMaxReplicas() == other.getMaxReplicas());
       }
       result = result && getMetricsList().equals(other.getMetricsList());
+      result = result && (hasBehavior() == other.hasBehavior());
+      if (hasBehavior()) {
+        result = result && getBehavior().equals(other.getBehavior());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -8742,6 +15101,10 @@ public final class V2beta2Autoscaling {
       if (getMetricsCount() > 0) {
         hash = (37 * hash) + METRICS_FIELD_NUMBER;
         hash = (53 * hash) + getMetricsList().hashCode();
+      }
+      if (hasBehavior()) {
+        hash = (37 * hash) + BEHAVIOR_FIELD_NUMBER;
+        hash = (53 * hash) + getBehavior().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -8896,6 +15259,7 @@ public final class V2beta2Autoscaling {
         if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getScaleTargetRefFieldBuilder();
           getMetricsFieldBuilder();
+          getBehaviorFieldBuilder();
         }
       }
 
@@ -8918,6 +15282,12 @@ public final class V2beta2Autoscaling {
         } else {
           metricsBuilder_.clear();
         }
+        if (behaviorBuilder_ == null) {
+          behavior_ = null;
+        } else {
+          behaviorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -8975,6 +15345,14 @@ public final class V2beta2Autoscaling {
           result.metrics_ = metrics_;
         } else {
           result.metrics_ = metricsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (behaviorBuilder_ == null) {
+          result.behavior_ = behavior_;
+        } else {
+          result.behavior_ = behaviorBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -9068,6 +15446,9 @@ public final class V2beta2Autoscaling {
               metricsBuilder_.addAllMessages(other.metrics_);
             }
           }
+        }
+        if (other.hasBehavior()) {
+          mergeBehavior(other.getBehavior());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9331,8 +15712,11 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
-       * It defaults to 1 pod.
+       * minReplicas is the lower limit for the number of replicas to which the autoscaler
+       * can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the
+       * alpha feature gate HPAScaleToZero is enabled and at least one Object or External
+       * metric is configured.  Scaling is active as long as at least one metric value is
+       * available.
        * +optional
        * </pre>
        *
@@ -9345,8 +15729,11 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
-       * It defaults to 1 pod.
+       * minReplicas is the lower limit for the number of replicas to which the autoscaler
+       * can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the
+       * alpha feature gate HPAScaleToZero is enabled and at least one Object or External
+       * metric is configured.  Scaling is active as long as at least one metric value is
+       * available.
        * +optional
        * </pre>
        *
@@ -9359,8 +15746,11 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
-       * It defaults to 1 pod.
+       * minReplicas is the lower limit for the number of replicas to which the autoscaler
+       * can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the
+       * alpha feature gate HPAScaleToZero is enabled and at least one Object or External
+       * metric is configured.  Scaling is active as long as at least one metric value is
+       * available.
        * +optional
        * </pre>
        *
@@ -9376,8 +15766,11 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.
-       * It defaults to 1 pod.
+       * minReplicas is the lower limit for the number of replicas to which the autoscaler
+       * can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the
+       * alpha feature gate HPAScaleToZero is enabled and at least one Object or External
+       * metric is configured.  Scaling is active as long as at least one metric value is
+       * available.
        * +optional
        * </pre>
        *
@@ -9962,6 +16355,250 @@ public final class V2beta2Autoscaling {
         return metricsBuilder_;
       }
 
+      private io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+          behavior_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling
+                  .HorizontalPodAutoscalerBehaviorOrBuilder>
+          behaviorBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      public boolean hasBehavior() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+          getBehavior() {
+        if (behaviorBuilder_ == null) {
+          return behavior_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+                  .getDefaultInstance()
+              : behavior_;
+        } else {
+          return behaviorBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      public Builder setBehavior(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior value) {
+        if (behaviorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          behavior_ = value;
+          onChanged();
+        } else {
+          behaviorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      public Builder setBehavior(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior.Builder
+              builderForValue) {
+        if (behaviorBuilder_ == null) {
+          behavior_ = builderForValue.build();
+          onChanged();
+        } else {
+          behaviorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      public Builder mergeBehavior(
+          io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior value) {
+        if (behaviorBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)
+              && behavior_ != null
+              && behavior_
+                  != io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+                      .getDefaultInstance()) {
+            behavior_ =
+                io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+                    .newBuilder(behavior_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            behavior_ = value;
+          }
+          onChanged();
+        } else {
+          behaviorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      public Builder clearBehavior() {
+        if (behaviorBuilder_ == null) {
+          behavior_ = null;
+          onChanged();
+        } else {
+          behaviorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior.Builder
+          getBehaviorBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getBehaviorFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehaviorOrBuilder
+          getBehaviorOrBuilder() {
+        if (behaviorBuilder_ != null) {
+          return behaviorBuilder_.getMessageOrBuilder();
+        } else {
+          return behavior_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+                  .getDefaultInstance()
+              : behavior_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * behavior configures the scaling behavior of the target
+       * in both Up and Down directions (scaleUp and scaleDown fields respectively).
+       * If not set, the default HPAScalingRules for scale up and scale down are used.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.HorizontalPodAutoscalerBehavior behavior = 5;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior,
+              io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling
+                  .HorizontalPodAutoscalerBehaviorOrBuilder>
+          getBehaviorFieldBuilder() {
+        if (behaviorBuilder_ == null) {
+          behaviorBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.HorizontalPodAutoscalerBehavior
+                      .Builder,
+                  io.kubernetes.client.proto.V2beta2Autoscaling
+                      .HorizontalPodAutoscalerBehaviorOrBuilder>(
+                  getBehavior(), getParentForChildren(), isClean());
+          behavior_ = null;
+        }
+        return behaviorBuilder_;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -10195,6 +16832,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10209,6 +16847,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10223,6 +16862,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10236,6 +16876,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10253,6 +16894,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10640,6 +17282,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10657,6 +17300,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10676,6 +17320,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10691,6 +17336,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -10707,6 +17353,7 @@ public final class V2beta2Autoscaling {
      * <pre>
      * conditions is the set of conditions required for this autoscaler to scale its target,
      * and indicates whether or not those conditions are met.
+     * +optional
      * </pre>
      *
      * <code>
@@ -11668,8 +18315,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus>
           getCurrentMetricsList() {
@@ -11687,8 +18333,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public int getCurrentMetricsCount() {
         if (currentMetricsBuilder_ == null) {
@@ -11705,8 +18350,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus getCurrentMetrics(
           int index) {
@@ -11724,8 +18368,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder setCurrentMetrics(
           int index, io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus value) {
@@ -11749,8 +18392,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder setCurrentMetrics(
           int index,
@@ -11772,8 +18414,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder addCurrentMetrics(
           io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus value) {
@@ -11797,8 +18438,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder addCurrentMetrics(
           int index, io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus value) {
@@ -11822,8 +18462,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder addCurrentMetrics(
           io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus.Builder builderForValue) {
@@ -11844,8 +18483,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder addCurrentMetrics(
           int index,
@@ -11867,8 +18505,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder addAllCurrentMetrics(
           java.lang.Iterable<? extends io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus>
@@ -11890,8 +18527,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder clearCurrentMetrics() {
         if (currentMetricsBuilder_ == null) {
@@ -11911,8 +18547,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public Builder removeCurrentMetrics(int index) {
         if (currentMetricsBuilder_ == null) {
@@ -11932,8 +18567,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus.Builder
           getCurrentMetricsBuilder(int index) {
@@ -11947,8 +18581,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatusOrBuilder
           getCurrentMetricsOrBuilder(int index) {
@@ -11966,8 +18599,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public java.util.List<
               ? extends io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatusOrBuilder>
@@ -11986,8 +18618,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus.Builder
           addCurrentMetricsBuilder() {
@@ -12003,8 +18634,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus.Builder
           addCurrentMetricsBuilder(int index) {
@@ -12021,8 +18651,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;
-       * </code>
+       * <code>repeated .k8s.io.api.autoscaling.v2beta2.MetricStatus currentMetrics = 5;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus.Builder>
           getCurrentMetricsBuilderList() {
@@ -12077,6 +18706,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12098,6 +18728,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12117,6 +18748,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12137,6 +18769,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12164,6 +18797,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12189,6 +18823,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12215,6 +18850,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12242,6 +18878,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12266,6 +18903,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12291,6 +18929,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12318,6 +18957,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12340,6 +18980,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12362,6 +19003,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12378,6 +19020,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12398,6 +19041,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12421,6 +19065,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12440,6 +19085,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -12460,6 +19106,7 @@ public final class V2beta2Autoscaling {
        * <pre>
        * conditions is the set of conditions required for this autoscaler to scale its target,
        * and indicates whether or not those conditions are met.
+       * +optional
        * </pre>
        *
        * <code>
@@ -13054,8 +19701,7 @@ public final class V2beta2Autoscaling {
                 io.kubernetes.client.proto.V2beta2Autoscaling.MetricIdentifier.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V2beta2Autoscaling.MetricIdentifier.newBuilder()
+      // Construct using io.kubernetes.client.proto.V2beta2Autoscaling.MetricIdentifier.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13343,8 +19989,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -13359,8 +20004,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -13381,8 +20025,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -13407,8 +20050,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -13431,8 +20073,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -13463,8 +20104,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -13486,8 +20126,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000002;
@@ -13504,8 +20143,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -13526,8 +20164,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -13611,8 +20248,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It should be one of "Object",
-     * "Pods" or "Resource", each mapping to a matching field in the object.
+     * type is the type of metric source.  It should be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -13622,8 +20261,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It should be one of "Object",
-     * "Pods" or "Resource", each mapping to a matching field in the object.
+     * type is the type of metric source.  It should be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -13633,8 +20274,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It should be one of "Object",
-     * "Pods" or "Resource", each mapping to a matching field in the object.
+     * type is the type of metric source.  It should be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -13764,6 +20407,63 @@ public final class V2beta2Autoscaling {
      */
     io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricSourceOrBuilder
         getResourceOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in
+     * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+     * built in to Kubernetes, and have special scaling options on top of those
+     * available to normal per-pod metrics using the "pods" source.
+     * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+     * </code>
+     */
+    boolean hasContainerResource();
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in
+     * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+     * built in to Kubernetes, and have special scaling options on top of those
+     * available to normal per-pod metrics using the "pods" source.
+     * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+     * </code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        getContainerResource();
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in
+     * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+     * built in to Kubernetes, and have special scaling options on top of those
+     * available to normal per-pod metrics using the "pods" source.
+     * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+     * </code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSourceOrBuilder
+        getContainerResourceOrBuilder();
 
     /**
      *
@@ -13925,7 +20625,7 @@ public final class V2beta2Autoscaling {
               {
                 io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource.Builder
                     subBuilder = null;
-                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
                   subBuilder = external_.toBuilder();
                 }
                 external_ =
@@ -13935,6 +20635,25 @@ public final class V2beta2Autoscaling {
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(external_);
                   external_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000020;
+                break;
+              }
+            case 58:
+              {
+                io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.Builder
+                    subBuilder = null;
+                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                  subBuilder = containerResource_.toBuilder();
+                }
+                containerResource_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+                            .PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(containerResource_);
+                  containerResource_ = subBuilder.buildPartial();
                 }
                 bitField0_ |= 0x00000010;
                 break;
@@ -13980,8 +20699,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It should be one of "Object",
-     * "Pods" or "Resource", each mapping to a matching field in the object.
+     * type is the type of metric source.  It should be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -13993,8 +20714,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It should be one of "Object",
-     * "Pods" or "Resource", each mapping to a matching field in the object.
+     * type is the type of metric source.  It should be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -14016,8 +20739,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It should be one of "Object",
-     * "Pods" or "Resource", each mapping to a matching field in the object.
+     * type is the type of metric source.  It should be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -14196,6 +20921,78 @@ public final class V2beta2Autoscaling {
           : resource_;
     }
 
+    public static final int CONTAINERRESOURCE_FIELD_NUMBER = 7;
+    private io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        containerResource_;
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in
+     * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+     * built in to Kubernetes, and have special scaling options on top of those
+     * available to normal per-pod metrics using the "pods" source.
+     * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+     * </code>
+     */
+    public boolean hasContainerResource() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in
+     * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+     * built in to Kubernetes, and have special scaling options on top of those
+     * available to normal per-pod metrics using the "pods" source.
+     * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+        getContainerResource() {
+      return containerResource_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+              .getDefaultInstance()
+          : containerResource_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in
+     * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+     * built in to Kubernetes, and have special scaling options on top of those
+     * available to normal per-pod metrics using the "pods" source.
+     * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSourceOrBuilder
+        getContainerResourceOrBuilder() {
+      return containerResource_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+              .getDefaultInstance()
+          : containerResource_;
+    }
+
     public static final int EXTERNAL_FIELD_NUMBER = 5;
     private io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource external_;
     /**
@@ -14213,7 +21010,7 @@ public final class V2beta2Autoscaling {
      * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
      */
     public boolean hasExternal() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      *
@@ -14281,8 +21078,11 @@ public final class V2beta2Autoscaling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeMessage(4, getResource());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeMessage(5, getExternal());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(7, getContainerResource());
       }
       unknownFields.writeTo(output);
     }
@@ -14305,8 +21105,11 @@ public final class V2beta2Autoscaling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getResource());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getExternal());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(7, getContainerResource());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14341,6 +21144,10 @@ public final class V2beta2Autoscaling {
       if (hasResource()) {
         result = result && getResource().equals(other.getResource());
       }
+      result = result && (hasContainerResource() == other.hasContainerResource());
+      if (hasContainerResource()) {
+        result = result && getContainerResource().equals(other.getContainerResource());
+      }
       result = result && (hasExternal() == other.hasExternal());
       if (hasExternal()) {
         result = result && getExternal().equals(other.getExternal());
@@ -14371,6 +21178,10 @@ public final class V2beta2Autoscaling {
       if (hasResource()) {
         hash = (37 * hash) + RESOURCE_FIELD_NUMBER;
         hash = (53 * hash) + getResource().hashCode();
+      }
+      if (hasContainerResource()) {
+        hash = (37 * hash) + CONTAINERRESOURCE_FIELD_NUMBER;
+        hash = (53 * hash) + getContainerResource().hashCode();
       }
       if (hasExternal()) {
         hash = (37 * hash) + EXTERNAL_FIELD_NUMBER;
@@ -14523,6 +21334,7 @@ public final class V2beta2Autoscaling {
           getObjectFieldBuilder();
           getPodsFieldBuilder();
           getResourceFieldBuilder();
+          getContainerResourceFieldBuilder();
           getExternalFieldBuilder();
         }
       }
@@ -14550,12 +21362,18 @@ public final class V2beta2Autoscaling {
           resourceBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (containerResourceBuilder_ == null) {
+          containerResource_ = null;
+        } else {
+          containerResourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (externalBuilder_ == null) {
           external_ = null;
         } else {
           externalBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -14615,6 +21433,14 @@ public final class V2beta2Autoscaling {
         }
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        if (containerResourceBuilder_ == null) {
+          result.containerResource_ = containerResource_;
+        } else {
+          result.containerResource_ = containerResourceBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         if (externalBuilder_ == null) {
           result.external_ = external_;
@@ -14688,6 +21514,9 @@ public final class V2beta2Autoscaling {
         if (other.hasResource()) {
           mergeResource(other.getResource());
         }
+        if (other.hasContainerResource()) {
+          mergeContainerResource(other.getContainerResource());
+        }
         if (other.hasExternal()) {
           mergeExternal(other.getExternal());
         }
@@ -14728,8 +21557,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It should be one of "Object",
-       * "Pods" or "Resource", each mapping to a matching field in the object.
+       * type is the type of metric source.  It should be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -14741,8 +21572,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It should be one of "Object",
-       * "Pods" or "Resource", each mapping to a matching field in the object.
+       * type is the type of metric source.  It should be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -14764,8 +21597,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It should be one of "Object",
-       * "Pods" or "Resource", each mapping to a matching field in the object.
+       * type is the type of metric source.  It should be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -14785,8 +21620,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It should be one of "Object",
-       * "Pods" or "Resource", each mapping to a matching field in the object.
+       * type is the type of metric source.  It should be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -14804,8 +21641,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It should be one of "Object",
-       * "Pods" or "Resource", each mapping to a matching field in the object.
+       * type is the type of metric source.  It should be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -14820,8 +21659,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It should be one of "Object",
-       * "Pods" or "Resource", each mapping to a matching field in the object.
+       * type is the type of metric source.  It should be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each mapping to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -15279,8 +22120,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       public boolean hasResource() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
@@ -15297,8 +22137,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricSource getResource() {
         if (resourceBuilder_ == null) {
@@ -15322,8 +22161,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       public Builder setResource(
           io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricSource value) {
@@ -15351,8 +22189,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       public Builder setResource(
           io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricSource.Builder
@@ -15378,8 +22215,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       public Builder mergeResource(
           io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricSource value) {
@@ -15416,8 +22252,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       public Builder clearResource() {
         if (resourceBuilder_ == null) {
@@ -15441,8 +22276,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricSource.Builder
           getResourceBuilder() {
@@ -15462,8 +22296,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricSourceOrBuilder
           getResourceOrBuilder() {
@@ -15488,8 +22321,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricSource resource = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricSource,
@@ -15506,6 +22338,275 @@ public final class V2beta2Autoscaling {
           resource_ = null;
         }
         return resourceBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+          containerResource_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSourceOrBuilder>
+          containerResourceBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      public boolean hasContainerResource() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+          getContainerResource() {
+        if (containerResourceBuilder_ == null) {
+          return containerResource_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+                  .getDefaultInstance()
+              : containerResource_;
+        } else {
+          return containerResourceBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      public Builder setContainerResource(
+          io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource value) {
+        if (containerResourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          containerResource_ = value;
+          onChanged();
+        } else {
+          containerResourceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      public Builder setContainerResource(
+          io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.Builder
+              builderForValue) {
+        if (containerResourceBuilder_ == null) {
+          containerResource_ = builderForValue.build();
+          onChanged();
+        } else {
+          containerResourceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      public Builder mergeContainerResource(
+          io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource value) {
+        if (containerResourceBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)
+              && containerResource_ != null
+              && containerResource_
+                  != io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+                      .getDefaultInstance()) {
+            containerResource_ =
+                io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+                    .newBuilder(containerResource_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            containerResource_ = value;
+          }
+          onChanged();
+        } else {
+          containerResourceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      public Builder clearContainerResource() {
+        if (containerResourceBuilder_ == null) {
+          containerResource_ = null;
+          onChanged();
+        } else {
+          containerResourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.Builder
+          getContainerResourceBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getContainerResourceFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSourceOrBuilder
+          getContainerResourceOrBuilder() {
+        if (containerResourceBuilder_ != null) {
+          return containerResourceBuilder_.getMessageOrBuilder();
+        } else {
+          return containerResource_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+                  .getDefaultInstance()
+              : containerResource_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in
+       * each pod of the current scale target (e.g. CPU or memory). Such metrics are
+       * built in to Kubernetes, and have special scaling options on top of those
+       * available to normal per-pod metrics using the "pods" source.
+       * This is an alpha feature and can be enabled by the HPAContainerMetrics feature flag.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricSource containerResource = 7;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSourceOrBuilder>
+          getContainerResourceFieldBuilder() {
+        if (containerResourceBuilder_ == null) {
+          containerResourceBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricSource
+                      .Builder,
+                  io.kubernetes.client.proto.V2beta2Autoscaling
+                      .ContainerResourceMetricSourceOrBuilder>(
+                  getContainerResource(), getParentForChildren(), isClean());
+          containerResource_ = null;
+        }
+        return containerResourceBuilder_;
       }
 
       private io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource external_ = null;
@@ -15526,11 +22627,10 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       public boolean hasExternal() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        *
@@ -15544,8 +22644,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource getExternal() {
         if (externalBuilder_ == null) {
@@ -15569,8 +22668,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       public Builder setExternal(
           io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource value) {
@@ -15583,7 +22681,7 @@ public final class V2beta2Autoscaling {
         } else {
           externalBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -15598,8 +22696,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       public Builder setExternal(
           io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource.Builder
@@ -15610,7 +22707,7 @@ public final class V2beta2Autoscaling {
         } else {
           externalBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -15625,13 +22722,12 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       public Builder mergeExternal(
           io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource value) {
         if (externalBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)
+          if (((bitField0_ & 0x00000020) == 0x00000020)
               && external_ != null
               && external_
                   != io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource
@@ -15648,7 +22744,7 @@ public final class V2beta2Autoscaling {
         } else {
           externalBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -15663,8 +22759,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       public Builder clearExternal() {
         if (externalBuilder_ == null) {
@@ -15673,7 +22768,7 @@ public final class V2beta2Autoscaling {
         } else {
           externalBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       /**
@@ -15688,12 +22783,11 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource.Builder
           getExternalBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return getExternalFieldBuilder().getBuilder();
       }
@@ -15709,8 +22803,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSourceOrBuilder
           getExternalOrBuilder() {
@@ -15735,8 +22828,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricSource external = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricSource,
@@ -15817,8 +22909,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It will be one of "Object",
-     * "Pods" or "Resource", each corresponds to a matching field in the object.
+     * type is the type of metric source.  It will be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -15828,8 +22922,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It will be one of "Object",
-     * "Pods" or "Resource", each corresponds to a matching field in the object.
+     * type is the type of metric source.  It will be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -15839,8 +22935,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It will be one of "Object",
-     * "Pods" or "Resource", each corresponds to a matching field in the object.
+     * type is the type of metric source.  It will be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -15970,6 +23068,60 @@ public final class V2beta2Autoscaling {
      */
     io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricStatusOrBuilder
         getResourceOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in each pod in the
+     * current scale target (e.g. CPU or memory). Such metrics are built in to
+     * Kubernetes, and have special scaling options on top of those available
+     * to normal per-pod metrics using the "pods" source.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+     * </code>
+     */
+    boolean hasContainerResource();
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in each pod in the
+     * current scale target (e.g. CPU or memory). Such metrics are built in to
+     * Kubernetes, and have special scaling options on top of those available
+     * to normal per-pod metrics using the "pods" source.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+     * </code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        getContainerResource();
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in each pod in the
+     * current scale target (e.g. CPU or memory). Such metrics are built in to
+     * Kubernetes, and have special scaling options on top of those available
+     * to normal per-pod metrics using the "pods" source.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+     * </code>
+     */
+    io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatusOrBuilder
+        getContainerResourceOrBuilder();
 
     /**
      *
@@ -16130,7 +23282,7 @@ public final class V2beta2Autoscaling {
               {
                 io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus.Builder
                     subBuilder = null;
-                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
                   subBuilder = external_.toBuilder();
                 }
                 external_ =
@@ -16140,6 +23292,25 @@ public final class V2beta2Autoscaling {
                 if (subBuilder != null) {
                   subBuilder.mergeFrom(external_);
                   external_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000020;
+                break;
+              }
+            case 58:
+              {
+                io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.Builder
+                    subBuilder = null;
+                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                  subBuilder = containerResource_.toBuilder();
+                }
+                containerResource_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+                            .PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(containerResource_);
+                  containerResource_ = subBuilder.buildPartial();
                 }
                 bitField0_ |= 0x00000010;
                 break;
@@ -16185,8 +23356,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It will be one of "Object",
-     * "Pods" or "Resource", each corresponds to a matching field in the object.
+     * type is the type of metric source.  It will be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -16198,8 +23371,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It will be one of "Object",
-     * "Pods" or "Resource", each corresponds to a matching field in the object.
+     * type is the type of metric source.  It will be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -16221,8 +23396,10 @@ public final class V2beta2Autoscaling {
      *
      *
      * <pre>
-     * type is the type of metric source.  It will be one of "Object",
-     * "Pods" or "Resource", each corresponds to a matching field in the object.
+     * type is the type of metric source.  It will be one of "ContainerResource", "External",
+     * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+     * Note: "ContainerResource" type is available on when the feature-gate
+     * HPAContainerMetrics is enabled
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -16401,6 +23578,75 @@ public final class V2beta2Autoscaling {
           : resource_;
     }
 
+    public static final int CONTAINERRESOURCE_FIELD_NUMBER = 7;
+    private io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        containerResource_;
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in each pod in the
+     * current scale target (e.g. CPU or memory). Such metrics are built in to
+     * Kubernetes, and have special scaling options on top of those available
+     * to normal per-pod metrics using the "pods" source.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+     * </code>
+     */
+    public boolean hasContainerResource() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in each pod in the
+     * current scale target (e.g. CPU or memory). Such metrics are built in to
+     * Kubernetes, and have special scaling options on top of those available
+     * to normal per-pod metrics using the "pods" source.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+        getContainerResource() {
+      return containerResource_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+              .getDefaultInstance()
+          : containerResource_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * container resource refers to a resource metric (such as those specified in
+     * requests and limits) known to Kubernetes describing a single container in each pod in the
+     * current scale target (e.g. CPU or memory). Such metrics are built in to
+     * Kubernetes, and have special scaling options on top of those available
+     * to normal per-pod metrics using the "pods" source.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+     * </code>
+     */
+    public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatusOrBuilder
+        getContainerResourceOrBuilder() {
+      return containerResource_ == null
+          ? io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+              .getDefaultInstance()
+          : containerResource_;
+    }
+
     public static final int EXTERNAL_FIELD_NUMBER = 5;
     private io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus external_;
     /**
@@ -16418,7 +23664,7 @@ public final class V2beta2Autoscaling {
      * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
      */
     public boolean hasExternal() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      *
@@ -16486,8 +23732,11 @@ public final class V2beta2Autoscaling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeMessage(4, getResource());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeMessage(5, getExternal());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(7, getContainerResource());
       }
       unknownFields.writeTo(output);
     }
@@ -16510,8 +23759,11 @@ public final class V2beta2Autoscaling {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getResource());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getExternal());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(7, getContainerResource());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -16546,6 +23798,10 @@ public final class V2beta2Autoscaling {
       if (hasResource()) {
         result = result && getResource().equals(other.getResource());
       }
+      result = result && (hasContainerResource() == other.hasContainerResource());
+      if (hasContainerResource()) {
+        result = result && getContainerResource().equals(other.getContainerResource());
+      }
       result = result && (hasExternal() == other.hasExternal());
       if (hasExternal()) {
         result = result && getExternal().equals(other.getExternal());
@@ -16576,6 +23832,10 @@ public final class V2beta2Autoscaling {
       if (hasResource()) {
         hash = (37 * hash) + RESOURCE_FIELD_NUMBER;
         hash = (53 * hash) + getResource().hashCode();
+      }
+      if (hasContainerResource()) {
+        hash = (37 * hash) + CONTAINERRESOURCE_FIELD_NUMBER;
+        hash = (53 * hash) + getContainerResource().hashCode();
       }
       if (hasExternal()) {
         hash = (37 * hash) + EXTERNAL_FIELD_NUMBER;
@@ -16712,8 +23972,7 @@ public final class V2beta2Autoscaling {
                 io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V2beta2Autoscaling.MetricStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -16728,6 +23987,7 @@ public final class V2beta2Autoscaling {
           getObjectFieldBuilder();
           getPodsFieldBuilder();
           getResourceFieldBuilder();
+          getContainerResourceFieldBuilder();
           getExternalFieldBuilder();
         }
       }
@@ -16755,12 +24015,18 @@ public final class V2beta2Autoscaling {
           resourceBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (containerResourceBuilder_ == null) {
+          containerResource_ = null;
+        } else {
+          containerResourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (externalBuilder_ == null) {
           external_ = null;
         } else {
           externalBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -16821,6 +24087,14 @@ public final class V2beta2Autoscaling {
         }
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
+        }
+        if (containerResourceBuilder_ == null) {
+          result.containerResource_ = containerResource_;
+        } else {
+          result.containerResource_ = containerResourceBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
         }
         if (externalBuilder_ == null) {
           result.external_ = external_;
@@ -16895,6 +24169,9 @@ public final class V2beta2Autoscaling {
         if (other.hasResource()) {
           mergeResource(other.getResource());
         }
+        if (other.hasContainerResource()) {
+          mergeContainerResource(other.getContainerResource());
+        }
         if (other.hasExternal()) {
           mergeExternal(other.getExternal());
         }
@@ -16935,8 +24212,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It will be one of "Object",
-       * "Pods" or "Resource", each corresponds to a matching field in the object.
+       * type is the type of metric source.  It will be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -16948,8 +24227,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It will be one of "Object",
-       * "Pods" or "Resource", each corresponds to a matching field in the object.
+       * type is the type of metric source.  It will be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -16971,8 +24252,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It will be one of "Object",
-       * "Pods" or "Resource", each corresponds to a matching field in the object.
+       * type is the type of metric source.  It will be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -16992,8 +24275,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It will be one of "Object",
-       * "Pods" or "Resource", each corresponds to a matching field in the object.
+       * type is the type of metric source.  It will be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -17011,8 +24296,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It will be one of "Object",
-       * "Pods" or "Resource", each corresponds to a matching field in the object.
+       * type is the type of metric source.  It will be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -17027,8 +24314,10 @@ public final class V2beta2Autoscaling {
        *
        *
        * <pre>
-       * type is the type of metric source.  It will be one of "Object",
-       * "Pods" or "Resource", each corresponds to a matching field in the object.
+       * type is the type of metric source.  It will be one of "ContainerResource", "External",
+       * "Object", "Pods" or "Resource", each corresponds to a matching field in the object.
+       * Note: "ContainerResource" type is available on when the feature-gate
+       * HPAContainerMetrics is enabled
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -17486,8 +24775,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       public boolean hasResource() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
@@ -17504,8 +24792,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricStatus getResource() {
         if (resourceBuilder_ == null) {
@@ -17529,8 +24816,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       public Builder setResource(
           io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricStatus value) {
@@ -17558,8 +24844,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       public Builder setResource(
           io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricStatus.Builder
@@ -17585,8 +24870,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       public Builder mergeResource(
           io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricStatus value) {
@@ -17623,8 +24907,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       public Builder clearResource() {
         if (resourceBuilder_ == null) {
@@ -17648,8 +24931,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricStatus.Builder
           getResourceBuilder() {
@@ -17669,8 +24951,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricStatusOrBuilder
           getResourceOrBuilder() {
@@ -17695,8 +24976,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ResourceMetricStatus resource = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V2beta2Autoscaling.ResourceMetricStatus,
@@ -17713,6 +24993,266 @@ public final class V2beta2Autoscaling {
           resource_ = null;
         }
         return resourceBuilder_;
+      }
+
+      private io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+          containerResource_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatusOrBuilder>
+          containerResourceBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      public boolean hasContainerResource() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+          getContainerResource() {
+        if (containerResourceBuilder_ == null) {
+          return containerResource_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+                  .getDefaultInstance()
+              : containerResource_;
+        } else {
+          return containerResourceBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      public Builder setContainerResource(
+          io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus value) {
+        if (containerResourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          containerResource_ = value;
+          onChanged();
+        } else {
+          containerResourceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      public Builder setContainerResource(
+          io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.Builder
+              builderForValue) {
+        if (containerResourceBuilder_ == null) {
+          containerResource_ = builderForValue.build();
+          onChanged();
+        } else {
+          containerResourceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      public Builder mergeContainerResource(
+          io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus value) {
+        if (containerResourceBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)
+              && containerResource_ != null
+              && containerResource_
+                  != io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+                      .getDefaultInstance()) {
+            containerResource_ =
+                io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+                    .newBuilder(containerResource_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            containerResource_ = value;
+          }
+          onChanged();
+        } else {
+          containerResourceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      public Builder clearContainerResource() {
+        if (containerResourceBuilder_ == null) {
+          containerResource_ = null;
+          onChanged();
+        } else {
+          containerResourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.Builder
+          getContainerResourceBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getContainerResourceFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      public io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatusOrBuilder
+          getContainerResourceOrBuilder() {
+        if (containerResourceBuilder_ != null) {
+          return containerResourceBuilder_.getMessageOrBuilder();
+        } else {
+          return containerResource_ == null
+              ? io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+                  .getDefaultInstance()
+              : containerResource_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * container resource refers to a resource metric (such as those specified in
+       * requests and limits) known to Kubernetes describing a single container in each pod in the
+       * current scale target (e.g. CPU or memory). Such metrics are built in to
+       * Kubernetes, and have special scaling options on top of those available
+       * to normal per-pod metrics using the "pods" source.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.api.autoscaling.v2beta2.ContainerResourceMetricStatus containerResource = 7;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus.Builder,
+              io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatusOrBuilder>
+          getContainerResourceFieldBuilder() {
+        if (containerResourceBuilder_ == null) {
+          containerResourceBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus,
+                  io.kubernetes.client.proto.V2beta2Autoscaling.ContainerResourceMetricStatus
+                      .Builder,
+                  io.kubernetes.client.proto.V2beta2Autoscaling
+                      .ContainerResourceMetricStatusOrBuilder>(
+                  getContainerResource(), getParentForChildren(), isClean());
+          containerResource_ = null;
+        }
+        return containerResourceBuilder_;
       }
 
       private io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus external_ = null;
@@ -17733,11 +25273,10 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       public boolean hasExternal() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        *
@@ -17751,8 +25290,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus getExternal() {
         if (externalBuilder_ == null) {
@@ -17776,8 +25314,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       public Builder setExternal(
           io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus value) {
@@ -17790,7 +25327,7 @@ public final class V2beta2Autoscaling {
         } else {
           externalBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -17805,8 +25342,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       public Builder setExternal(
           io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus.Builder
@@ -17817,7 +25353,7 @@ public final class V2beta2Autoscaling {
         } else {
           externalBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -17832,13 +25368,12 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       public Builder mergeExternal(
           io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus value) {
         if (externalBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)
+          if (((bitField0_ & 0x00000020) == 0x00000020)
               && external_ != null
               && external_
                   != io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus
@@ -17855,7 +25390,7 @@ public final class V2beta2Autoscaling {
         } else {
           externalBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -17870,8 +25405,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       public Builder clearExternal() {
         if (externalBuilder_ == null) {
@@ -17880,7 +25414,7 @@ public final class V2beta2Autoscaling {
         } else {
           externalBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       /**
@@ -17895,12 +25429,11 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus.Builder
           getExternalBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return getExternalFieldBuilder().getBuilder();
       }
@@ -17916,8 +25449,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       public io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatusOrBuilder
           getExternalOrBuilder() {
@@ -17942,8 +25474,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;
-       * </code>
+       * <code>optional .k8s.io.api.autoscaling.v2beta2.ExternalMetricStatus external = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V2beta2Autoscaling.ExternalMetricStatus,
@@ -18705,8 +26236,7 @@ public final class V2beta2Autoscaling {
                 io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.newBuilder()
+      // Construct using io.kubernetes.client.proto.V2beta2Autoscaling.MetricTarget.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -19210,8 +26740,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       public boolean hasAverageValue() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -19225,8 +26754,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       public io.kubernetes.client.proto.Resource.Quantity getAverageValue() {
         if (averageValueBuilder_ == null) {
@@ -19246,8 +26774,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       public Builder setAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
         if (averageValueBuilder_ == null) {
@@ -19271,8 +26798,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       public Builder setAverageValue(
           io.kubernetes.client.proto.Resource.Quantity.Builder builderForValue) {
@@ -19294,8 +26820,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       public Builder mergeAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
         if (averageValueBuilder_ == null) {
@@ -19326,8 +26851,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       public Builder clearAverageValue() {
         if (averageValueBuilder_ == null) {
@@ -19348,8 +26872,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       public io.kubernetes.client.proto.Resource.Quantity.Builder getAverageValueBuilder() {
         bitField0_ |= 0x00000004;
@@ -19365,8 +26888,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       public io.kubernetes.client.proto.Resource.QuantityOrBuilder getAverageValueOrBuilder() {
         if (averageValueBuilder_ != null) {
@@ -19386,8 +26908,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Resource.Quantity,
@@ -20497,8 +28018,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       public boolean hasAverageValue() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -20512,8 +28032,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       public io.kubernetes.client.proto.Resource.Quantity getAverageValue() {
         if (averageValueBuilder_ == null) {
@@ -20533,8 +28052,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       public Builder setAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
         if (averageValueBuilder_ == null) {
@@ -20558,8 +28076,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       public Builder setAverageValue(
           io.kubernetes.client.proto.Resource.Quantity.Builder builderForValue) {
@@ -20581,8 +28098,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       public Builder mergeAverageValue(io.kubernetes.client.proto.Resource.Quantity value) {
         if (averageValueBuilder_ == null) {
@@ -20613,8 +28129,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       public Builder clearAverageValue() {
         if (averageValueBuilder_ == null) {
@@ -20635,8 +28150,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       public io.kubernetes.client.proto.Resource.Quantity.Builder getAverageValueBuilder() {
         bitField0_ |= 0x00000002;
@@ -20652,8 +28166,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       public io.kubernetes.client.proto.Resource.QuantityOrBuilder getAverageValueOrBuilder() {
         if (averageValueBuilder_ != null) {
@@ -20673,8 +28186,7 @@ public final class V2beta2Autoscaling {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.api.resource.Quantity averageValue = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Resource.Quantity,
@@ -24021,8 +31533,7 @@ public final class V2beta2Autoscaling {
                 io.kubernetes.client.proto.V2beta2Autoscaling.PodsMetricSource.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V2beta2Autoscaling.PodsMetricSource.newBuilder()
+      // Construct using io.kubernetes.client.proto.V2beta2Autoscaling.PodsMetricSource.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -25108,8 +32619,7 @@ public final class V2beta2Autoscaling {
                 io.kubernetes.client.proto.V2beta2Autoscaling.PodsMetricStatus.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V2beta2Autoscaling.PodsMetricStatus.newBuilder()
+      // Construct using io.kubernetes.client.proto.V2beta2Autoscaling.PodsMetricStatus.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -27745,6 +35255,14 @@ public final class V2beta2Autoscaling {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_autoscaling_v2beta2_CrossVersionObjectReference_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_autoscaling_v2beta2_CrossVersionObjectReference_fieldAccessorTable;
@@ -27757,9 +35275,21 @@ public final class V2beta2Autoscaling {
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_autoscaling_v2beta2_ExternalMetricStatus_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscaler_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscaler_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerCondition_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -27837,99 +35367,122 @@ public final class V2beta2Autoscaling {
           + "/meta/v1/generated.proto\032/k8s.io/apimach"
           + "inery/pkg/runtime/generated.proto\0326k8s.i"
           + "o/apimachinery/pkg/runtime/schema/genera"
-          + "ted.proto\"M\n\033CrossVersionObjectReference"
-          + "\022\014\n\004kind\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\022\n\napiVersi"
-          + "on\030\003 \001(\t\"\226\001\n\024ExternalMetricSource\022@\n\006met"
-          + "ric\030\001 \001(\01320.k8s.io.api.autoscaling.v2bet"
-          + "a2.MetricIdentifier\022<\n\006target\030\002 \001(\0132,.k8"
-          + "s.io.api.autoscaling.v2beta2.MetricTarge"
-          + "t\"\234\001\n\024ExternalMetricStatus\022@\n\006metric\030\001 \001"
-          + "(\01320.k8s.io.api.autoscaling.v2beta2.Metr"
-          + "icIdentifier\022B\n\007current\030\002 \001(\01321.k8s.io.a"
-          + "pi.autoscaling.v2beta2.MetricValueStatus"
-          + "\"\367\001\n\027HorizontalPodAutoscaler\022B\n\010metadata"
-          + "\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis.me"
-          + "ta.v1.ObjectMeta\022I\n\004spec\030\002 \001(\0132;.k8s.io."
-          + "api.autoscaling.v2beta2.HorizontalPodAut"
-          + "oscalerSpec\022M\n\006status\030\003 \001(\0132=.k8s.io.api"
-          + ".autoscaling.v2beta2.HorizontalPodAutosc"
-          + "alerStatus\"\251\001\n HorizontalPodAutoscalerCo"
-          + "ndition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022F\n"
-          + "\022lastTransitionTime\030\003 \001(\0132*.k8s.io.apima"
-          + "chinery.pkg.apis.meta.v1.Time\022\016\n\006reason\030"
-          + "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\247\001\n\033HorizontalPod"
-          + "AutoscalerList\022@\n\010metadata\030\001 \001(\0132..k8s.i"
-          + "o.apimachinery.pkg.apis.meta.v1.ListMeta"
-          + "\022F\n\005items\030\002 \003(\01327.k8s.io.api.autoscaling"
-          + ".v2beta2.HorizontalPodAutoscaler\"\331\001\n\033Hor"
-          + "izontalPodAutoscalerSpec\022S\n\016scaleTargetR"
-          + "ef\030\001 \001(\0132;.k8s.io.api.autoscaling.v2beta"
-          + "2.CrossVersionObjectReference\022\023\n\013minRepl"
-          + "icas\030\002 \001(\005\022\023\n\013maxReplicas\030\003 \001(\005\022;\n\007metri"
-          + "cs\030\004 \003(\0132*.k8s.io.api.autoscaling.v2beta"
-          + "2.MetricSpec\"\314\002\n\035HorizontalPodAutoscaler"
-          + "Status\022\032\n\022observedGeneration\030\001 \001(\003\022A\n\rla"
-          + "stScaleTime\030\002 \001(\0132*.k8s.io.apimachinery."
-          + "pkg.apis.meta.v1.Time\022\027\n\017currentReplicas"
-          + "\030\003 \001(\005\022\027\n\017desiredReplicas\030\004 \001(\005\022D\n\016curre"
-          + "ntMetrics\030\005 \003(\0132,.k8s.io.api.autoscaling"
-          + ".v2beta2.MetricStatus\022T\n\nconditions\030\006 \003("
-          + "\0132@.k8s.io.api.autoscaling.v2beta2.Horiz"
-          + "ontalPodAutoscalerCondition\"g\n\020MetricIde"
-          + "ntifier\022\014\n\004name\030\001 \001(\t\022E\n\010selector\030\002 \001(\0132"
-          + "3.k8s.io.apimachinery.pkg.apis.meta.v1.L"
-          + "abelSelector\"\256\002\n\nMetricSpec\022\014\n\004type\030\001 \001("
-          + "\t\022B\n\006object\030\002 \001(\01322.k8s.io.api.autoscali"
-          + "ng.v2beta2.ObjectMetricSource\022>\n\004pods\030\003 "
-          + "\001(\01320.k8s.io.api.autoscaling.v2beta2.Pod"
-          + "sMetricSource\022F\n\010resource\030\004 \001(\01324.k8s.io"
-          + ".api.autoscaling.v2beta2.ResourceMetricS"
-          + "ource\022F\n\010external\030\005 \001(\01324.k8s.io.api.aut"
-          + "oscaling.v2beta2.ExternalMetricSource\"\260\002"
-          + "\n\014MetricStatus\022\014\n\004type\030\001 \001(\t\022B\n\006object\030\002"
-          + " \001(\01322.k8s.io.api.autoscaling.v2beta2.Ob"
-          + "jectMetricStatus\022>\n\004pods\030\003 \001(\01320.k8s.io."
-          + "api.autoscaling.v2beta2.PodsMetricStatus"
-          + "\022F\n\010resource\030\004 \001(\01324.k8s.io.api.autoscal"
-          + "ing.v2beta2.ResourceMetricStatus\022F\n\010exte"
-          + "rnal\030\005 \001(\01324.k8s.io.api.autoscaling.v2be"
-          + "ta2.ExternalMetricStatus\"\275\001\n\014MetricTarge"
-          + "t\022\014\n\004type\030\001 \001(\t\022=\n\005value\030\002 \001(\0132..k8s.io."
-          + "apimachinery.pkg.api.resource.Quantity\022D"
-          + "\n\014averageValue\030\003 \001(\0132..k8s.io.apimachine"
-          + "ry.pkg.api.resource.Quantity\022\032\n\022averageU"
-          + "tilization\030\004 \001(\005\"\264\001\n\021MetricValueStatus\022="
-          + "\n\005value\030\001 \001(\0132..k8s.io.apimachinery.pkg."
-          + "api.resource.Quantity\022D\n\014averageValue\030\002 "
-          + "\001(\0132..k8s.io.apimachinery.pkg.api.resour"
-          + "ce.Quantity\022\032\n\022averageUtilization\030\003 \001(\005\""
-          + "\352\001\n\022ObjectMetricSource\022T\n\017describedObjec"
-          + "t\030\001 \001(\0132;.k8s.io.api.autoscaling.v2beta2"
-          + ".CrossVersionObjectReference\022<\n\006target\030\002"
-          + " \001(\0132,.k8s.io.api.autoscaling.v2beta2.Me"
-          + "tricTarget\022@\n\006metric\030\003 \001(\01320.k8s.io.api."
-          + "autoscaling.v2beta2.MetricIdentifier\"\360\001\n"
-          + "\022ObjectMetricStatus\022@\n\006metric\030\001 \001(\01320.k8"
-          + "s.io.api.autoscaling.v2beta2.MetricIdent"
-          + "ifier\022B\n\007current\030\002 \001(\01321.k8s.io.api.auto"
-          + "scaling.v2beta2.MetricValueStatus\022T\n\017des"
-          + "cribedObject\030\003 \001(\0132;.k8s.io.api.autoscal"
-          + "ing.v2beta2.CrossVersionObjectReference\""
-          + "\222\001\n\020PodsMetricSource\022@\n\006metric\030\001 \001(\01320.k"
-          + "8s.io.api.autoscaling.v2beta2.MetricIden"
-          + "tifier\022<\n\006target\030\002 \001(\0132,.k8s.io.api.auto"
-          + "scaling.v2beta2.MetricTarget\"\230\001\n\020PodsMet"
+          + "ted.proto\"~\n\035ContainerResourceMetricSour"
+          + "ce\022\014\n\004name\030\001 \001(\t\022<\n\006target\030\002 \001(\0132,.k8s.i"
+          + "o.api.autoscaling.v2beta2.MetricTarget\022\021"
+          + "\n\tcontainer\030\003 \001(\t\"\204\001\n\035ContainerResourceM"
+          + "etricStatus\022\014\n\004name\030\001 \001(\t\022B\n\007current\030\002 \001"
+          + "(\01321.k8s.io.api.autoscaling.v2beta2.Metr"
+          + "icValueStatus\022\021\n\tcontainer\030\003 \001(\t\"M\n\033Cros"
+          + "sVersionObjectReference\022\014\n\004kind\030\001 \001(\t\022\014\n"
+          + "\004name\030\002 \001(\t\022\022\n\napiVersion\030\003 \001(\t\"\226\001\n\024Exte"
+          + "rnalMetricSource\022@\n\006metric\030\001 \001(\01320.k8s.i"
+          + "o.api.autoscaling.v2beta2.MetricIdentifi"
+          + "er\022<\n\006target\030\002 \001(\0132,.k8s.io.api.autoscal"
+          + "ing.v2beta2.MetricTarget\"\234\001\n\024ExternalMet"
           + "ricStatus\022@\n\006metric\030\001 \001(\01320.k8s.io.api.a"
           + "utoscaling.v2beta2.MetricIdentifier\022B\n\007c"
           + "urrent\030\002 \001(\01321.k8s.io.api.autoscaling.v2"
-          + "beta2.MetricValueStatus\"b\n\024ResourceMetri"
-          + "cSource\022\014\n\004name\030\001 \001(\t\022<\n\006target\030\002 \001(\0132,."
-          + "k8s.io.api.autoscaling.v2beta2.MetricTar"
-          + "get\"h\n\024ResourceMetricStatus\022\014\n\004name\030\001 \001("
-          + "\t\022B\n\007current\030\002 \001(\01321.k8s.io.api.autoscal"
-          + "ing.v2beta2.MetricValueStatusB9\n\032io.kube"
-          + "rnetes.client.protoB\022V2beta2AutoscalingZ"
-          + "\007v2beta2"
+          + "beta2.MetricValueStatus\"F\n\020HPAScalingPol"
+          + "icy\022\014\n\004type\030\001 \001(\t\022\r\n\005value\030\002 \001(\005\022\025\n\rperi"
+          + "odSeconds\030\003 \001(\005\"\217\001\n\017HPAScalingRules\022\"\n\032s"
+          + "tabilizationWindowSeconds\030\003 \001(\005\022\024\n\014selec"
+          + "tPolicy\030\001 \001(\t\022B\n\010policies\030\002 \003(\01320.k8s.io"
+          + ".api.autoscaling.v2beta2.HPAScalingPolic"
+          + "y\"\367\001\n\027HorizontalPodAutoscaler\022B\n\010metadat"
+          + "a\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis.m"
+          + "eta.v1.ObjectMeta\022I\n\004spec\030\002 \001(\0132;.k8s.io"
+          + ".api.autoscaling.v2beta2.HorizontalPodAu"
+          + "toscalerSpec\022M\n\006status\030\003 \001(\0132=.k8s.io.ap"
+          + "i.autoscaling.v2beta2.HorizontalPodAutos"
+          + "calerStatus\"\247\001\n\037HorizontalPodAutoscalerB"
+          + "ehavior\022@\n\007scaleUp\030\001 \001(\0132/.k8s.io.api.au"
+          + "toscaling.v2beta2.HPAScalingRules\022B\n\tsca"
+          + "leDown\030\002 \001(\0132/.k8s.io.api.autoscaling.v2"
+          + "beta2.HPAScalingRules\"\251\001\n HorizontalPodA"
+          + "utoscalerCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006stat"
+          + "us\030\002 \001(\t\022F\n\022lastTransitionTime\030\003 \001(\0132*.k"
+          + "8s.io.apimachinery.pkg.apis.meta.v1.Time"
+          + "\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\247\001\n\033Ho"
+          + "rizontalPodAutoscalerList\022@\n\010metadata\030\001 "
+          + "\001(\0132..k8s.io.apimachinery.pkg.apis.meta."
+          + "v1.ListMeta\022F\n\005items\030\002 \003(\01327.k8s.io.api."
+          + "autoscaling.v2beta2.HorizontalPodAutosca"
+          + "ler\"\254\002\n\033HorizontalPodAutoscalerSpec\022S\n\016s"
+          + "caleTargetRef\030\001 \001(\0132;.k8s.io.api.autosca"
+          + "ling.v2beta2.CrossVersionObjectReference"
+          + "\022\023\n\013minReplicas\030\002 \001(\005\022\023\n\013maxReplicas\030\003 \001"
+          + "(\005\022;\n\007metrics\030\004 \003(\0132*.k8s.io.api.autosca"
+          + "ling.v2beta2.MetricSpec\022Q\n\010behavior\030\005 \001("
+          + "\0132?.k8s.io.api.autoscaling.v2beta2.Horiz"
+          + "ontalPodAutoscalerBehavior\"\314\002\n\035Horizonta"
+          + "lPodAutoscalerStatus\022\032\n\022observedGenerati"
+          + "on\030\001 \001(\003\022A\n\rlastScaleTime\030\002 \001(\0132*.k8s.io"
+          + ".apimachinery.pkg.apis.meta.v1.Time\022\027\n\017c"
+          + "urrentReplicas\030\003 \001(\005\022\027\n\017desiredReplicas\030"
+          + "\004 \001(\005\022D\n\016currentMetrics\030\005 \003(\0132,.k8s.io.a"
+          + "pi.autoscaling.v2beta2.MetricStatus\022T\n\nc"
+          + "onditions\030\006 \003(\0132@.k8s.io.api.autoscaling"
+          + ".v2beta2.HorizontalPodAutoscalerConditio"
+          + "n\"g\n\020MetricIdentifier\022\014\n\004name\030\001 \001(\t\022E\n\010s"
+          + "elector\030\002 \001(\01323.k8s.io.apimachinery.pkg."
+          + "apis.meta.v1.LabelSelector\"\210\003\n\nMetricSpe"
+          + "c\022\014\n\004type\030\001 \001(\t\022B\n\006object\030\002 \001(\01322.k8s.io"
+          + ".api.autoscaling.v2beta2.ObjectMetricSou"
+          + "rce\022>\n\004pods\030\003 \001(\01320.k8s.io.api.autoscali"
+          + "ng.v2beta2.PodsMetricSource\022F\n\010resource\030"
+          + "\004 \001(\01324.k8s.io.api.autoscaling.v2beta2.R"
+          + "esourceMetricSource\022X\n\021containerResource"
+          + "\030\007 \001(\0132=.k8s.io.api.autoscaling.v2beta2."
+          + "ContainerResourceMetricSource\022F\n\010externa"
+          + "l\030\005 \001(\01324.k8s.io.api.autoscaling.v2beta2"
+          + ".ExternalMetricSource\"\212\003\n\014MetricStatus\022\014"
+          + "\n\004type\030\001 \001(\t\022B\n\006object\030\002 \001(\01322.k8s.io.ap"
+          + "i.autoscaling.v2beta2.ObjectMetricStatus"
+          + "\022>\n\004pods\030\003 \001(\01320.k8s.io.api.autoscaling."
+          + "v2beta2.PodsMetricStatus\022F\n\010resource\030\004 \001"
+          + "(\01324.k8s.io.api.autoscaling.v2beta2.Reso"
+          + "urceMetricStatus\022X\n\021containerResource\030\007 "
+          + "\001(\0132=.k8s.io.api.autoscaling.v2beta2.Con"
+          + "tainerResourceMetricStatus\022F\n\010external\030\005"
+          + " \001(\01324.k8s.io.api.autoscaling.v2beta2.Ex"
+          + "ternalMetricStatus\"\275\001\n\014MetricTarget\022\014\n\004t"
+          + "ype\030\001 \001(\t\022=\n\005value\030\002 \001(\0132..k8s.io.apimac"
+          + "hinery.pkg.api.resource.Quantity\022D\n\014aver"
+          + "ageValue\030\003 \001(\0132..k8s.io.apimachinery.pkg"
+          + ".api.resource.Quantity\022\032\n\022averageUtiliza"
+          + "tion\030\004 \001(\005\"\264\001\n\021MetricValueStatus\022=\n\005valu"
+          + "e\030\001 \001(\0132..k8s.io.apimachinery.pkg.api.re"
+          + "source.Quantity\022D\n\014averageValue\030\002 \001(\0132.."
+          + "k8s.io.apimachinery.pkg.api.resource.Qua"
+          + "ntity\022\032\n\022averageUtilization\030\003 \001(\005\"\352\001\n\022Ob"
+          + "jectMetricSource\022T\n\017describedObject\030\001 \001("
+          + "\0132;.k8s.io.api.autoscaling.v2beta2.Cross"
+          + "VersionObjectReference\022<\n\006target\030\002 \001(\0132,"
+          + ".k8s.io.api.autoscaling.v2beta2.MetricTa"
+          + "rget\022@\n\006metric\030\003 \001(\01320.k8s.io.api.autosc"
+          + "aling.v2beta2.MetricIdentifier\"\360\001\n\022Objec"
+          + "tMetricStatus\022@\n\006metric\030\001 \001(\01320.k8s.io.a"
+          + "pi.autoscaling.v2beta2.MetricIdentifier\022"
+          + "B\n\007current\030\002 \001(\01321.k8s.io.api.autoscalin"
+          + "g.v2beta2.MetricValueStatus\022T\n\017described"
+          + "Object\030\003 \001(\0132;.k8s.io.api.autoscaling.v2"
+          + "beta2.CrossVersionObjectReference\"\222\001\n\020Po"
+          + "dsMetricSource\022@\n\006metric\030\001 \001(\01320.k8s.io."
+          + "api.autoscaling.v2beta2.MetricIdentifier"
+          + "\022<\n\006target\030\002 \001(\0132,.k8s.io.api.autoscalin"
+          + "g.v2beta2.MetricTarget\"\230\001\n\020PodsMetricSta"
+          + "tus\022@\n\006metric\030\001 \001(\01320.k8s.io.api.autosca"
+          + "ling.v2beta2.MetricIdentifier\022B\n\007current"
+          + "\030\002 \001(\01321.k8s.io.api.autoscaling.v2beta2."
+          + "MetricValueStatus\"b\n\024ResourceMetricSourc"
+          + "e\022\014\n\004name\030\001 \001(\t\022<\n\006target\030\002 \001(\0132,.k8s.io"
+          + ".api.autoscaling.v2beta2.MetricTarget\"h\n"
+          + "\024ResourceMetricStatus\022\014\n\004name\030\001 \001(\t\022B\n\007c"
+          + "urrent\030\002 \001(\01321.k8s.io.api.autoscaling.v2"
+          + "beta2.MetricValueStatusB9\n\032io.kubernetes"
+          + ".client.protoB\022V2beta2AutoscalingZ\007v2bet"
+          + "a2"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -27949,8 +35502,24 @@ public final class V2beta2Autoscaling {
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
         },
         assigner);
-    internal_static_k8s_io_api_autoscaling_v2beta2_CrossVersionObjectReference_descriptor =
+    internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_descriptor =
         getDescriptor().getMessageTypes().get(0);
+    internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricSource_descriptor,
+            new java.lang.String[] {
+              "Name", "Target", "Container",
+            });
+    internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_descriptor =
+        getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_autoscaling_v2beta2_ContainerResourceMetricStatus_descriptor,
+            new java.lang.String[] {
+              "Name", "Current", "Container",
+            });
+    internal_static_k8s_io_api_autoscaling_v2beta2_CrossVersionObjectReference_descriptor =
+        getDescriptor().getMessageTypes().get(2);
     internal_static_k8s_io_api_autoscaling_v2beta2_CrossVersionObjectReference_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_CrossVersionObjectReference_descriptor,
@@ -27958,7 +35527,7 @@ public final class V2beta2Autoscaling {
               "Kind", "Name", "ApiVersion",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_ExternalMetricSource_descriptor =
-        getDescriptor().getMessageTypes().get(1);
+        getDescriptor().getMessageTypes().get(3);
     internal_static_k8s_io_api_autoscaling_v2beta2_ExternalMetricSource_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_ExternalMetricSource_descriptor,
@@ -27966,23 +35535,47 @@ public final class V2beta2Autoscaling {
               "Metric", "Target",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_ExternalMetricStatus_descriptor =
-        getDescriptor().getMessageTypes().get(2);
+        getDescriptor().getMessageTypes().get(4);
     internal_static_k8s_io_api_autoscaling_v2beta2_ExternalMetricStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_ExternalMetricStatus_descriptor,
             new java.lang.String[] {
               "Metric", "Current",
             });
+    internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_descriptor =
+        getDescriptor().getMessageTypes().get(5);
+    internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingPolicy_descriptor,
+            new java.lang.String[] {
+              "Type", "Value", "PeriodSeconds",
+            });
+    internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_descriptor =
+        getDescriptor().getMessageTypes().get(6);
+    internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_autoscaling_v2beta2_HPAScalingRules_descriptor,
+            new java.lang.String[] {
+              "StabilizationWindowSeconds", "SelectPolicy", "Policies",
+            });
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscaler_descriptor =
-        getDescriptor().getMessageTypes().get(3);
+        getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscaler_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscaler_descriptor,
             new java.lang.String[] {
               "Metadata", "Spec", "Status",
             });
+    internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_descriptor =
+        getDescriptor().getMessageTypes().get(8);
+    internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerBehavior_descriptor,
+            new java.lang.String[] {
+              "ScaleUp", "ScaleDown",
+            });
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerCondition_descriptor =
-        getDescriptor().getMessageTypes().get(4);
+        getDescriptor().getMessageTypes().get(9);
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerCondition_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerCondition_descriptor,
@@ -27990,7 +35583,7 @@ public final class V2beta2Autoscaling {
               "Type", "Status", "LastTransitionTime", "Reason", "Message",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerList_descriptor =
-        getDescriptor().getMessageTypes().get(5);
+        getDescriptor().getMessageTypes().get(10);
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerList_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerList_descriptor,
@@ -27998,15 +35591,15 @@ public final class V2beta2Autoscaling {
               "Metadata", "Items",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerSpec_descriptor =
-        getDescriptor().getMessageTypes().get(6);
+        getDescriptor().getMessageTypes().get(11);
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerSpec_descriptor,
             new java.lang.String[] {
-              "ScaleTargetRef", "MinReplicas", "MaxReplicas", "Metrics",
+              "ScaleTargetRef", "MinReplicas", "MaxReplicas", "Metrics", "Behavior",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerStatus_descriptor =
-        getDescriptor().getMessageTypes().get(7);
+        getDescriptor().getMessageTypes().get(12);
     internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_HorizontalPodAutoscalerStatus_descriptor,
@@ -28019,7 +35612,7 @@ public final class V2beta2Autoscaling {
               "Conditions",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricIdentifier_descriptor =
-        getDescriptor().getMessageTypes().get(8);
+        getDescriptor().getMessageTypes().get(13);
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricIdentifier_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_MetricIdentifier_descriptor,
@@ -28027,23 +35620,23 @@ public final class V2beta2Autoscaling {
               "Name", "Selector",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricSpec_descriptor =
-        getDescriptor().getMessageTypes().get(9);
+        getDescriptor().getMessageTypes().get(14);
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricSpec_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_MetricSpec_descriptor,
             new java.lang.String[] {
-              "Type", "Object", "Pods", "Resource", "External",
+              "Type", "Object", "Pods", "Resource", "ContainerResource", "External",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricStatus_descriptor =
-        getDescriptor().getMessageTypes().get(10);
+        getDescriptor().getMessageTypes().get(15);
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_MetricStatus_descriptor,
             new java.lang.String[] {
-              "Type", "Object", "Pods", "Resource", "External",
+              "Type", "Object", "Pods", "Resource", "ContainerResource", "External",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricTarget_descriptor =
-        getDescriptor().getMessageTypes().get(11);
+        getDescriptor().getMessageTypes().get(16);
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricTarget_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_MetricTarget_descriptor,
@@ -28051,7 +35644,7 @@ public final class V2beta2Autoscaling {
               "Type", "Value", "AverageValue", "AverageUtilization",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricValueStatus_descriptor =
-        getDescriptor().getMessageTypes().get(12);
+        getDescriptor().getMessageTypes().get(17);
     internal_static_k8s_io_api_autoscaling_v2beta2_MetricValueStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_MetricValueStatus_descriptor,
@@ -28059,7 +35652,7 @@ public final class V2beta2Autoscaling {
               "Value", "AverageValue", "AverageUtilization",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_ObjectMetricSource_descriptor =
-        getDescriptor().getMessageTypes().get(13);
+        getDescriptor().getMessageTypes().get(18);
     internal_static_k8s_io_api_autoscaling_v2beta2_ObjectMetricSource_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_ObjectMetricSource_descriptor,
@@ -28067,7 +35660,7 @@ public final class V2beta2Autoscaling {
               "DescribedObject", "Target", "Metric",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_ObjectMetricStatus_descriptor =
-        getDescriptor().getMessageTypes().get(14);
+        getDescriptor().getMessageTypes().get(19);
     internal_static_k8s_io_api_autoscaling_v2beta2_ObjectMetricStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_ObjectMetricStatus_descriptor,
@@ -28075,7 +35668,7 @@ public final class V2beta2Autoscaling {
               "Metric", "Current", "DescribedObject",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_PodsMetricSource_descriptor =
-        getDescriptor().getMessageTypes().get(15);
+        getDescriptor().getMessageTypes().get(20);
     internal_static_k8s_io_api_autoscaling_v2beta2_PodsMetricSource_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_PodsMetricSource_descriptor,
@@ -28083,7 +35676,7 @@ public final class V2beta2Autoscaling {
               "Metric", "Target",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_PodsMetricStatus_descriptor =
-        getDescriptor().getMessageTypes().get(16);
+        getDescriptor().getMessageTypes().get(21);
     internal_static_k8s_io_api_autoscaling_v2beta2_PodsMetricStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_PodsMetricStatus_descriptor,
@@ -28091,7 +35684,7 @@ public final class V2beta2Autoscaling {
               "Metric", "Current",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_ResourceMetricSource_descriptor =
-        getDescriptor().getMessageTypes().get(17);
+        getDescriptor().getMessageTypes().get(22);
     internal_static_k8s_io_api_autoscaling_v2beta2_ResourceMetricSource_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_ResourceMetricSource_descriptor,
@@ -28099,7 +35692,7 @@ public final class V2beta2Autoscaling {
               "Name", "Target",
             });
     internal_static_k8s_io_api_autoscaling_v2beta2_ResourceMetricStatus_descriptor =
-        getDescriptor().getMessageTypes().get(18);
+        getDescriptor().getMessageTypes().get(23);
     internal_static_k8s_io_api_autoscaling_v2beta2_ResourceMetricStatus_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_autoscaling_v2beta2_ResourceMetricStatus_descriptor,

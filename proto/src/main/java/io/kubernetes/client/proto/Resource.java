@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -39,7 +39,7 @@ public final class Resource {
    * <pre>
    * Quantity is a fixed-point representation of a number.
    * It provides convenient marshaling/unmarshaling in JSON and YAML,
-   * in addition to String() and Int64() accessors.
+   * in addition to String() and AsInt64() accessors.
    * The serialization format is:
    * &lt;quantity&gt;        ::= &lt;signedNumber&gt;&lt;suffix&gt;
    *   (Note that &lt;suffix&gt; may be empty, from the "" case in &lt;decimalSI&gt;.)
@@ -374,7 +374,7 @@ public final class Resource {
      * <pre>
      * Quantity is a fixed-point representation of a number.
      * It provides convenient marshaling/unmarshaling in JSON and YAML,
-     * in addition to String() and Int64() accessors.
+     * in addition to String() and AsInt64() accessors.
      * The serialization format is:
      * &lt;quantity&gt;        ::= &lt;signedNumber&gt;&lt;suffix&gt;
      *   (Note that &lt;suffix&gt; may be empty, from the "" case in &lt;decimalSI&gt;.)
@@ -696,10 +696,609 @@ public final class Resource {
     }
   }
 
+  public interface QuantityValueOrBuilder
+      extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apimachinery.pkg.api.resource.QuantityValue)
+      com.google.protobuf.MessageOrBuilder {
+
+    /** <code>optional string string = 1;</code> */
+    boolean hasString();
+    /** <code>optional string string = 1;</code> */
+    java.lang.String getString();
+    /** <code>optional string string = 1;</code> */
+    com.google.protobuf.ByteString getStringBytes();
+  }
+  /**
+   *
+   *
+   * <pre>
+   * QuantityValue makes it possible to use a Quantity as value for a command
+   * line parameter.
+   * +protobuf=true
+   * +protobuf.embed=string
+   * +protobuf.options.marshal=false
+   * +protobuf.options.(gogoproto.goproto_stringer)=false
+   * +k8s:deepcopy-gen=true
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apimachinery.pkg.api.resource.QuantityValue}
+   */
+  public static final class QuantityValue extends com.google.protobuf.GeneratedMessageV3
+      implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apimachinery.pkg.api.resource.QuantityValue)
+      QuantityValueOrBuilder {
+    private static final long serialVersionUID = 0L;
+    // Use QuantityValue.newBuilder() to construct.
+    private QuantityValue(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private QuantityValue() {
+      string_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private QuantityValue(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                string_ = bs;
+                break;
+              }
+            default:
+              {
+                if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+      return io.kubernetes.client.proto.Resource
+          .internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.Resource
+          .internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.Resource.QuantityValue.class,
+              io.kubernetes.client.proto.Resource.QuantityValue.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int STRING_FIELD_NUMBER = 1;
+    private volatile java.lang.Object string_;
+    /** <code>optional string string = 1;</code> */
+    public boolean hasString() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /** <code>optional string string = 1;</code> */
+    public java.lang.String getString() {
+      java.lang.Object ref = string_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          string_ = s;
+        }
+        return s;
+      }
+    }
+    /** <code>optional string string = 1;</code> */
+    public com.google.protobuf.ByteString getStringBytes() {
+      java.lang.Object ref = string_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        string_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, string_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, string_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.Resource.QuantityValue)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.Resource.QuantityValue other =
+          (io.kubernetes.client.proto.Resource.QuantityValue) obj;
+
+      boolean result = true;
+      result = result && (hasString() == other.hasString());
+      if (hasString()) {
+        result = result && getString().equals(other.getString());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasString()) {
+        hash = (37 * hash) + STRING_FIELD_NUMBER;
+        hash = (53 * hash) + getString().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseDelimitedFrom(
+        java.io.InputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseDelimitedFrom(
+        java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3.parseWithIOException(
+          PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(io.kubernetes.client.proto.Resource.QuantityValue prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * QuantityValue makes it possible to use a Quantity as value for a command
+     * line parameter.
+     * +protobuf=true
+     * +protobuf.embed=string
+     * +protobuf.options.marshal=false
+     * +protobuf.options.(gogoproto.goproto_stringer)=false
+     * +k8s:deepcopy-gen=true
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apimachinery.pkg.api.resource.QuantityValue}
+     */
+    public static final class Builder
+        extends com.google.protobuf.GeneratedMessageV3.Builder<Builder>
+        implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apimachinery.pkg.api.resource.QuantityValue)
+        io.kubernetes.client.proto.Resource.QuantityValueOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+        return io.kubernetes.client.proto.Resource
+            .internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.Resource
+            .internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.Resource.QuantityValue.class,
+                io.kubernetes.client.proto.Resource.QuantityValue.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.Resource.QuantityValue.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {}
+      }
+
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        string_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+        return io.kubernetes.client.proto.Resource
+            .internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.Resource.QuantityValue getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.Resource.QuantityValue.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.Resource.QuantityValue build() {
+        io.kubernetes.client.proto.Resource.QuantityValue result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.Resource.QuantityValue buildPartial() {
+        io.kubernetes.client.proto.Resource.QuantityValue result =
+            new io.kubernetes.client.proto.Resource.QuantityValue(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.string_ = string_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder clearField(com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      @java.lang.Override
+      public Builder clearOneof(com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index,
+          java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field, java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.Resource.QuantityValue) {
+          return mergeFrom((io.kubernetes.client.proto.Resource.QuantityValue) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.Resource.QuantityValue other) {
+        if (other == io.kubernetes.client.proto.Resource.QuantityValue.getDefaultInstance())
+          return this;
+        if (other.hasString()) {
+          bitField0_ |= 0x00000001;
+          string_ = other.string_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.Resource.QuantityValue parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage =
+              (io.kubernetes.client.proto.Resource.QuantityValue) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private java.lang.Object string_ = "";
+      /** <code>optional string string = 1;</code> */
+      public boolean hasString() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /** <code>optional string string = 1;</code> */
+      public java.lang.String getString() {
+        java.lang.Object ref = string_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            string_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /** <code>optional string string = 1;</code> */
+      public com.google.protobuf.ByteString getStringBytes() {
+        java.lang.Object ref = string_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          string_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /** <code>optional string string = 1;</code> */
+      public Builder setString(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        string_ = value;
+        onChanged();
+        return this;
+      }
+      /** <code>optional string string = 1;</code> */
+      public Builder clearString() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        string_ = getDefaultInstance().getString();
+        onChanged();
+        return this;
+      }
+      /** <code>optional string string = 1;</code> */
+      public Builder setStringBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        string_ = value;
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apimachinery.pkg.api.resource.QuantityValue)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apimachinery.pkg.api.resource.QuantityValue)
+    private static final io.kubernetes.client.proto.Resource.QuantityValue DEFAULT_INSTANCE;
+
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.Resource.QuantityValue();
+    }
+
+    public static io.kubernetes.client.proto.Resource.QuantityValue getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<QuantityValue> PARSER =
+        new com.google.protobuf.AbstractParser<QuantityValue>() {
+          @java.lang.Override
+          public QuantityValue parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new QuantityValue(input, extensionRegistry);
+          }
+        };
+
+    public static com.google.protobuf.Parser<QuantityValue> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<QuantityValue> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.Resource.QuantityValue getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
       internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor;
   private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+      internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_descriptor;
+  private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
     return descriptor;
@@ -712,8 +1311,9 @@ public final class Resource {
       "\n4k8s.io/apimachinery/pkg/api/resource/g"
           + "enerated.proto\022$k8s.io.apimachinery.pkg."
           + "api.resource\"\032\n\010Quantity\022\016\n\006string\030\001 \001(\t"
-          + "B0\n\032io.kubernetes.client.protoB\010Resource"
-          + "Z\010resource"
+          + "\"\037\n\rQuantityValue\022\016\n\006string\030\001 \001(\tB0\n\032io."
+          + "kubernetes.client.protoB\010ResourceZ\010resou"
+          + "rce"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -730,6 +1330,14 @@ public final class Resource {
     internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_fieldAccessorTable =
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_apimachinery_pkg_api_resource_Quantity_descriptor,
+            new java.lang.String[] {
+              "String",
+            });
+    internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_descriptor =
+        getDescriptor().getMessageTypes().get(1);
+    internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_fieldAccessorTable =
+        new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_k8s_io_apimachinery_pkg_api_resource_QuantityValue_descriptor,
             new java.lang.String[] {
               "String",
             });

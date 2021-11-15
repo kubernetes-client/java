@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -70,7 +70,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Kind is the type of object being manipulated.  For example: Pod
+     * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -80,7 +80,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Kind is the type of object being manipulated.  For example: Pod
+     * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -90,7 +90,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Kind is the type of object being manipulated.  For example: Pod
+     * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -101,7 +101,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+     * Resource is the fully-qualified resource being requested (for example, v1.pods)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
@@ -112,7 +112,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+     * Resource is the fully-qualified resource being requested (for example, v1.pods)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
@@ -123,7 +123,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+     * Resource is the fully-qualified resource being requested (for example, v1.pods)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
@@ -135,11 +135,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-     * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-     * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-     * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-     * "binding", and kind "Binding".
+     * SubResource is the subresource being requested, if any (for example, "status" or "scale")
      * +optional
      * </pre>
      *
@@ -150,11 +146,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-     * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-     * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-     * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-     * "binding", and kind "Binding".
+     * SubResource is the subresource being requested, if any (for example, "status" or "scale")
      * +optional
      * </pre>
      *
@@ -165,11 +157,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-     * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-     * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-     * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-     * "binding", and kind "Binding".
+     * SubResource is the subresource being requested, if any (for example, "status" or "scale")
      * +optional
      * </pre>
      *
@@ -181,8 +169,167 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
+     * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+     * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+     * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+     * </code>
+     */
+    boolean hasRequestKind();
+    /**
+     *
+     *
+     * <pre>
+     * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+     * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+     * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.GroupVersionKind getRequestKind();
+    /**
+     *
+     *
+     * <pre>
+     * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+     * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+     * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.GroupVersionKindOrBuilder getRequestKindOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+     * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+     * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+     * </code>
+     */
+    boolean hasRequestResource();
+    /**
+     *
+     *
+     * <pre>
+     * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+     * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+     * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.GroupVersionResource getRequestResource();
+    /**
+     *
+     *
+     * <pre>
+     * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+     * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+     * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+     * </code>
+     */
+    io.kubernetes.client.proto.Meta.GroupVersionResourceOrBuilder getRequestResourceOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+     * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string requestSubResource = 15;</code>
+     */
+    boolean hasRequestSubResource();
+    /**
+     *
+     *
+     * <pre>
+     * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+     * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string requestSubResource = 15;</code>
+     */
+    java.lang.String getRequestSubResource();
+    /**
+     *
+     *
+     * <pre>
+     * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+     * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string requestSubResource = 15;</code>
+     */
+    com.google.protobuf.ByteString getRequestSubResourceBytes();
+
+    /**
+     *
+     *
+     * <pre>
      * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-     * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+     * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
      * +optional
      * </pre>
      *
@@ -194,7 +341,7 @@ public final class V1beta1Admission {
      *
      * <pre>
      * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-     * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+     * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
      * +optional
      * </pre>
      *
@@ -206,7 +353,7 @@ public final class V1beta1Admission {
      *
      * <pre>
      * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-     * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+     * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
      * +optional
      * </pre>
      *
@@ -252,7 +399,8 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Operation is the operation being performed
+     * Operation is the operation being performed. This may be different than the operation
+     * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -262,7 +410,8 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Operation is the operation being performed
+     * Operation is the operation being performed. This may be different than the operation
+     * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -272,7 +421,8 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Operation is the operation being performed
+     * Operation is the operation being performed. This may be different than the operation
+     * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -314,7 +464,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Object is the object from the incoming request prior to default values being applied
+     * Object is the object from the incoming request.
      * +optional
      * </pre>
      *
@@ -325,7 +475,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Object is the object from the incoming request prior to default values being applied
+     * Object is the object from the incoming request.
      * +optional
      * </pre>
      *
@@ -336,7 +486,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Object is the object from the incoming request prior to default values being applied
+     * Object is the object from the incoming request.
      * +optional
      * </pre>
      *
@@ -348,7 +498,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * OldObject is the existing object. Only populated for UPDATE requests.
+     * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
      * +optional
      * </pre>
      *
@@ -359,7 +509,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * OldObject is the existing object. Only populated for UPDATE requests.
+     * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
      * +optional
      * </pre>
      *
@@ -370,7 +520,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * OldObject is the existing object. Only populated for UPDATE requests.
+     * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
      * +optional
      * </pre>
      *
@@ -402,6 +552,52 @@ public final class V1beta1Admission {
      * <code>optional bool dryRun = 11;</code>
      */
     boolean getDryRun();
+
+    /**
+     *
+     *
+     * <pre>
+     * Options is the operation option structure of the operation being performed.
+     * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+     * different than the options the caller provided. e.g. for a patch request the performed
+     * Operation might be a CREATE, in which case the Options will a
+     * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+     */
+    boolean hasOptions();
+    /**
+     *
+     *
+     * <pre>
+     * Options is the operation option structure of the operation being performed.
+     * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+     * different than the options the caller provided. e.g. for a patch request the performed
+     * Operation might be a CREATE, in which case the Options will a
+     * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+     */
+    io.kubernetes.client.proto.Runtime.RawExtension getOptions();
+    /**
+     *
+     *
+     * <pre>
+     * Options is the operation option structure of the operation being performed.
+     * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+     * different than the options the caller provided. e.g. for a patch request the performed
+     * Operation might be a CREATE, in which case the Options will a
+     * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+     */
+    io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getOptionsOrBuilder();
   }
   /**
    *
@@ -425,6 +621,7 @@ public final class V1beta1Admission {
     private AdmissionRequest() {
       uid_ = "";
       subResource_ = "";
+      requestSubResource_ = "";
       name_ = "";
       namespace_ = "";
       operation_ = "";
@@ -505,28 +702,28 @@ public final class V1beta1Admission {
             case 42:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000080;
                 name_ = bs;
                 break;
               }
             case 50:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000020;
+                bitField0_ |= 0x00000100;
                 namespace_ = bs;
                 break;
               }
             case 58:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000040;
+                bitField0_ |= 0x00000200;
                 operation_ = bs;
                 break;
               }
             case 66:
               {
                 io.kubernetes.client.proto.V1Authentication.UserInfo.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                if (((bitField0_ & 0x00000400) == 0x00000400)) {
                   subBuilder = userInfo_.toBuilder();
                 }
                 userInfo_ =
@@ -537,13 +734,13 @@ public final class V1beta1Admission {
                   subBuilder.mergeFrom(userInfo_);
                   userInfo_ = subBuilder.buildPartial();
                 }
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000400;
                 break;
               }
             case 74:
               {
                 io.kubernetes.client.proto.Runtime.RawExtension.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000100) == 0x00000100)) {
+                if (((bitField0_ & 0x00000800) == 0x00000800)) {
                   subBuilder = object_.toBuilder();
                 }
                 object_ =
@@ -553,13 +750,13 @@ public final class V1beta1Admission {
                   subBuilder.mergeFrom(object_);
                   object_ = subBuilder.buildPartial();
                 }
-                bitField0_ |= 0x00000100;
+                bitField0_ |= 0x00000800;
                 break;
               }
             case 82:
               {
                 io.kubernetes.client.proto.Runtime.RawExtension.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000200) == 0x00000200)) {
+                if (((bitField0_ & 0x00001000) == 0x00001000)) {
                   subBuilder = oldObject_.toBuilder();
                 }
                 oldObject_ =
@@ -569,13 +766,69 @@ public final class V1beta1Admission {
                   subBuilder.mergeFrom(oldObject_);
                   oldObject_ = subBuilder.buildPartial();
                 }
-                bitField0_ |= 0x00000200;
+                bitField0_ |= 0x00001000;
                 break;
               }
             case 88:
               {
-                bitField0_ |= 0x00000400;
+                bitField0_ |= 0x00002000;
                 dryRun_ = input.readBool();
+                break;
+              }
+            case 98:
+              {
+                io.kubernetes.client.proto.Runtime.RawExtension.Builder subBuilder = null;
+                if (((bitField0_ & 0x00004000) == 0x00004000)) {
+                  subBuilder = options_.toBuilder();
+                }
+                options_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Runtime.RawExtension.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(options_);
+                  options_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00004000;
+                break;
+              }
+            case 106:
+              {
+                io.kubernetes.client.proto.Meta.GroupVersionKind.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                  subBuilder = requestKind_.toBuilder();
+                }
+                requestKind_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.GroupVersionKind.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(requestKind_);
+                  requestKind_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000010;
+                break;
+              }
+            case 114:
+              {
+                io.kubernetes.client.proto.Meta.GroupVersionResource.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                  subBuilder = requestResource_.toBuilder();
+                }
+                requestResource_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.GroupVersionResource.PARSER,
+                        extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(requestResource_);
+                  requestResource_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000020;
+                break;
+              }
+            case 122:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000040;
+                requestSubResource_ = bs;
                 break;
               }
             default:
@@ -685,7 +938,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Kind is the type of object being manipulated.  For example: Pod
+     * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -697,7 +950,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Kind is the type of object being manipulated.  For example: Pod
+     * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -711,7 +964,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Kind is the type of object being manipulated.  For example: Pod
+     * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -728,7 +981,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+     * Resource is the fully-qualified resource being requested (for example, v1.pods)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
@@ -741,7 +994,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+     * Resource is the fully-qualified resource being requested (for example, v1.pods)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
@@ -756,7 +1009,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+     * Resource is the fully-qualified resource being requested (for example, v1.pods)
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
@@ -774,11 +1027,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-     * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-     * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-     * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-     * "binding", and kind "Binding".
+     * SubResource is the subresource being requested, if any (for example, "status" or "scale")
      * +optional
      * </pre>
      *
@@ -791,11 +1040,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-     * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-     * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-     * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-     * "binding", and kind "Binding".
+     * SubResource is the subresource being requested, if any (for example, "status" or "scale")
      * +optional
      * </pre>
      *
@@ -818,11 +1063,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-     * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-     * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-     * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-     * "binding", and kind "Binding".
+     * SubResource is the subresource being requested, if any (for example, "status" or "scale")
      * +optional
      * </pre>
      *
@@ -840,6 +1081,216 @@ public final class V1beta1Admission {
       }
     }
 
+    public static final int REQUESTKIND_FIELD_NUMBER = 13;
+    private io.kubernetes.client.proto.Meta.GroupVersionKind requestKind_;
+    /**
+     *
+     *
+     * <pre>
+     * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+     * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+     * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+     * </code>
+     */
+    public boolean hasRequestKind() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+     * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+     * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.GroupVersionKind getRequestKind() {
+      return requestKind_ == null
+          ? io.kubernetes.client.proto.Meta.GroupVersionKind.getDefaultInstance()
+          : requestKind_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+     * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+     * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.GroupVersionKindOrBuilder getRequestKindOrBuilder() {
+      return requestKind_ == null
+          ? io.kubernetes.client.proto.Meta.GroupVersionKind.getDefaultInstance()
+          : requestKind_;
+    }
+
+    public static final int REQUESTRESOURCE_FIELD_NUMBER = 14;
+    private io.kubernetes.client.proto.Meta.GroupVersionResource requestResource_;
+    /**
+     *
+     *
+     * <pre>
+     * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+     * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+     * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+     * </code>
+     */
+    public boolean hasRequestResource() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+     * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+     * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.GroupVersionResource getRequestResource() {
+      return requestResource_ == null
+          ? io.kubernetes.client.proto.Meta.GroupVersionResource.getDefaultInstance()
+          : requestResource_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+     * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+     * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+     * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+     * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+     * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+     * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>
+     * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+     * </code>
+     */
+    public io.kubernetes.client.proto.Meta.GroupVersionResourceOrBuilder
+        getRequestResourceOrBuilder() {
+      return requestResource_ == null
+          ? io.kubernetes.client.proto.Meta.GroupVersionResource.getDefaultInstance()
+          : requestResource_;
+    }
+
+    public static final int REQUESTSUBRESOURCE_FIELD_NUMBER = 15;
+    private volatile java.lang.Object requestSubResource_;
+    /**
+     *
+     *
+     * <pre>
+     * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+     * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string requestSubResource = 15;</code>
+     */
+    public boolean hasRequestSubResource() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+     * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string requestSubResource = 15;</code>
+     */
+    public java.lang.String getRequestSubResource() {
+      java.lang.Object ref = requestSubResource_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          requestSubResource_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+     * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+     * See documentation for the "matchPolicy" field in the webhook configuration type.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string requestSubResource = 15;</code>
+     */
+    public com.google.protobuf.ByteString getRequestSubResourceBytes() {
+      java.lang.Object ref = requestSubResource_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        requestSubResource_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int NAME_FIELD_NUMBER = 5;
     private volatile java.lang.Object name_;
     /**
@@ -847,21 +1298,21 @@ public final class V1beta1Admission {
      *
      * <pre>
      * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-     * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+     * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
      * +optional
      * </pre>
      *
      * <code>optional string name = 5;</code>
      */
     public boolean hasName() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
      *
      *
      * <pre>
      * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-     * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+     * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
      * +optional
      * </pre>
      *
@@ -885,7 +1336,7 @@ public final class V1beta1Admission {
      *
      * <pre>
      * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-     * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+     * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
      * +optional
      * </pre>
      *
@@ -916,7 +1367,7 @@ public final class V1beta1Admission {
      * <code>optional string namespace = 6;</code>
      */
     public boolean hasNamespace() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
      *
@@ -969,19 +1420,21 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Operation is the operation being performed
+     * Operation is the operation being performed. This may be different than the operation
+     * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
      * </pre>
      *
      * <code>optional string operation = 7;</code>
      */
     public boolean hasOperation() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
      *
      *
      * <pre>
-     * Operation is the operation being performed
+     * Operation is the operation being performed. This may be different than the operation
+     * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -1003,7 +1456,8 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Operation is the operation being performed
+     * Operation is the operation being performed. This may be different than the operation
+     * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -1032,7 +1486,7 @@ public final class V1beta1Admission {
      * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
      */
     public boolean hasUserInfo() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
      *
@@ -1069,20 +1523,20 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Object is the object from the incoming request prior to default values being applied
+     * Object is the object from the incoming request.
      * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension object = 9;</code>
      */
     public boolean hasObject() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
      *
      *
      * <pre>
-     * Object is the object from the incoming request prior to default values being applied
+     * Object is the object from the incoming request.
      * +optional
      * </pre>
      *
@@ -1097,7 +1551,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * Object is the object from the incoming request prior to default values being applied
+     * Object is the object from the incoming request.
      * +optional
      * </pre>
      *
@@ -1115,20 +1569,20 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * OldObject is the existing object. Only populated for UPDATE requests.
+     * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
      * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension oldObject = 10;</code>
      */
     public boolean hasOldObject() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
      *
      *
      * <pre>
-     * OldObject is the existing object. Only populated for UPDATE requests.
+     * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
      * +optional
      * </pre>
      *
@@ -1143,7 +1597,7 @@ public final class V1beta1Admission {
      *
      *
      * <pre>
-     * OldObject is the existing object. Only populated for UPDATE requests.
+     * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
      * +optional
      * </pre>
      *
@@ -1169,7 +1623,7 @@ public final class V1beta1Admission {
      * <code>optional bool dryRun = 11;</code>
      */
     public boolean hasDryRun() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00002000) == 0x00002000);
     }
     /**
      *
@@ -1184,6 +1638,64 @@ public final class V1beta1Admission {
      */
     public boolean getDryRun() {
       return dryRun_;
+    }
+
+    public static final int OPTIONS_FIELD_NUMBER = 12;
+    private io.kubernetes.client.proto.Runtime.RawExtension options_;
+    /**
+     *
+     *
+     * <pre>
+     * Options is the operation option structure of the operation being performed.
+     * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+     * different than the options the caller provided. e.g. for a patch request the performed
+     * Operation might be a CREATE, in which case the Options will a
+     * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+     */
+    public boolean hasOptions() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Options is the operation option structure of the operation being performed.
+     * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+     * different than the options the caller provided. e.g. for a patch request the performed
+     * Operation might be a CREATE, in which case the Options will a
+     * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+     */
+    public io.kubernetes.client.proto.Runtime.RawExtension getOptions() {
+      return options_ == null
+          ? io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance()
+          : options_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Options is the operation option structure of the operation being performed.
+     * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+     * different than the options the caller provided. e.g. for a patch request the performed
+     * Operation might be a CREATE, in which case the Options will a
+     * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+     */
+    public io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getOptionsOrBuilder() {
+      return options_ == null
+          ? io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance()
+          : options_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1212,26 +1724,38 @@ public final class V1beta1Admission {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, subResource_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, name_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, namespace_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, operation_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
         output.writeMessage(8, getUserInfo());
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
         output.writeMessage(9, getObject());
       }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
         output.writeMessage(10, getOldObject());
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
         output.writeBool(11, dryRun_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeMessage(12, getOptions());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(13, getRequestKind());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(14, getRequestResource());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, requestSubResource_);
       }
       unknownFields.writeTo(output);
     }
@@ -1254,26 +1778,38 @@ public final class V1beta1Admission {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, subResource_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, name_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, namespace_);
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, operation_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(8, getUserInfo());
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(9, getObject());
       }
-      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(10, getOldObject());
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
         size += com.google.protobuf.CodedOutputStream.computeBoolSize(11, dryRun_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(12, getOptions());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(13, getRequestKind());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(14, getRequestResource());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, requestSubResource_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1308,6 +1844,18 @@ public final class V1beta1Admission {
       if (hasSubResource()) {
         result = result && getSubResource().equals(other.getSubResource());
       }
+      result = result && (hasRequestKind() == other.hasRequestKind());
+      if (hasRequestKind()) {
+        result = result && getRequestKind().equals(other.getRequestKind());
+      }
+      result = result && (hasRequestResource() == other.hasRequestResource());
+      if (hasRequestResource()) {
+        result = result && getRequestResource().equals(other.getRequestResource());
+      }
+      result = result && (hasRequestSubResource() == other.hasRequestSubResource());
+      if (hasRequestSubResource()) {
+        result = result && getRequestSubResource().equals(other.getRequestSubResource());
+      }
       result = result && (hasName() == other.hasName());
       if (hasName()) {
         result = result && getName().equals(other.getName());
@@ -1336,6 +1884,10 @@ public final class V1beta1Admission {
       if (hasDryRun()) {
         result = result && (getDryRun() == other.getDryRun());
       }
+      result = result && (hasOptions() == other.hasOptions());
+      if (hasOptions()) {
+        result = result && getOptions().equals(other.getOptions());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1362,6 +1914,18 @@ public final class V1beta1Admission {
       if (hasSubResource()) {
         hash = (37 * hash) + SUBRESOURCE_FIELD_NUMBER;
         hash = (53 * hash) + getSubResource().hashCode();
+      }
+      if (hasRequestKind()) {
+        hash = (37 * hash) + REQUESTKIND_FIELD_NUMBER;
+        hash = (53 * hash) + getRequestKind().hashCode();
+      }
+      if (hasRequestResource()) {
+        hash = (37 * hash) + REQUESTRESOURCE_FIELD_NUMBER;
+        hash = (53 * hash) + getRequestResource().hashCode();
+      }
+      if (hasRequestSubResource()) {
+        hash = (37 * hash) + REQUESTSUBRESOURCE_FIELD_NUMBER;
+        hash = (53 * hash) + getRequestSubResource().hashCode();
       }
       if (hasName()) {
         hash = (37 * hash) + NAME_FIELD_NUMBER;
@@ -1390,6 +1954,10 @@ public final class V1beta1Admission {
       if (hasDryRun()) {
         hash = (37 * hash) + DRYRUN_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getDryRun());
+      }
+      if (hasOptions()) {
+        hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getOptions().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1522,8 +2090,7 @@ public final class V1beta1Admission {
                 io.kubernetes.client.proto.V1beta1Admission.AdmissionRequest.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Admission.AdmissionRequest.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Admission.AdmissionRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1537,9 +2104,12 @@ public final class V1beta1Admission {
         if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getKindFieldBuilder();
           getResourceFieldBuilder();
+          getRequestKindFieldBuilder();
+          getRequestResourceFieldBuilder();
           getUserInfoFieldBuilder();
           getObjectFieldBuilder();
           getOldObjectFieldBuilder();
+          getOptionsFieldBuilder();
         }
       }
 
@@ -1562,32 +2132,52 @@ public final class V1beta1Admission {
         bitField0_ = (bitField0_ & ~0x00000004);
         subResource_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        name_ = "";
+        if (requestKindBuilder_ == null) {
+          requestKind_ = null;
+        } else {
+          requestKindBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000010);
-        namespace_ = "";
+        if (requestResourceBuilder_ == null) {
+          requestResource_ = null;
+        } else {
+          requestResourceBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000020);
-        operation_ = "";
+        requestSubResource_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        namespace_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
+        operation_ = "";
+        bitField0_ = (bitField0_ & ~0x00000200);
         if (userInfoBuilder_ == null) {
           userInfo_ = null;
         } else {
           userInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000400);
         if (objectBuilder_ == null) {
           object_ = null;
         } else {
           objectBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000800);
         if (oldObjectBuilder_ == null) {
           oldObject_ = null;
         } else {
           oldObjectBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00001000);
         dryRun_ = false;
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00002000);
+        if (optionsBuilder_ == null) {
+          options_ = null;
+        } else {
+          optionsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00004000);
         return this;
       }
 
@@ -1645,43 +2235,71 @@ public final class V1beta1Admission {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.name_ = name_;
+        if (requestKindBuilder_ == null) {
+          result.requestKind_ = requestKind_;
+        } else {
+          result.requestKind_ = requestKindBuilder_.build();
+        }
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.namespace_ = namespace_;
+        if (requestResourceBuilder_ == null) {
+          result.requestResource_ = requestResource_;
+        } else {
+          result.requestResource_ = requestResourceBuilder_.build();
+        }
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.operation_ = operation_;
+        result.requestSubResource_ = requestSubResource_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.namespace_ = namespace_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.operation_ = operation_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
         }
         if (userInfoBuilder_ == null) {
           result.userInfo_ = userInfo_;
         } else {
           result.userInfo_ = userInfoBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-          to_bitField0_ |= 0x00000100;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
         }
         if (objectBuilder_ == null) {
           result.object_ = object_;
         } else {
           result.object_ = objectBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-          to_bitField0_ |= 0x00000200;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00001000;
         }
         if (oldObjectBuilder_ == null) {
           result.oldObject_ = oldObject_;
         } else {
           result.oldObject_ = oldObjectBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
-          to_bitField0_ |= 0x00000400;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+          to_bitField0_ |= 0x00002000;
         }
         result.dryRun_ = dryRun_;
+        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        if (optionsBuilder_ == null) {
+          result.options_ = options_;
+        } else {
+          result.options_ = optionsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1752,18 +2370,29 @@ public final class V1beta1Admission {
           subResource_ = other.subResource_;
           onChanged();
         }
+        if (other.hasRequestKind()) {
+          mergeRequestKind(other.getRequestKind());
+        }
+        if (other.hasRequestResource()) {
+          mergeRequestResource(other.getRequestResource());
+        }
+        if (other.hasRequestSubResource()) {
+          bitField0_ |= 0x00000040;
+          requestSubResource_ = other.requestSubResource_;
+          onChanged();
+        }
         if (other.hasName()) {
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000080;
           name_ = other.name_;
           onChanged();
         }
         if (other.hasNamespace()) {
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000100;
           namespace_ = other.namespace_;
           onChanged();
         }
         if (other.hasOperation()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000200;
           operation_ = other.operation_;
           onChanged();
         }
@@ -1778,6 +2407,9 @@ public final class V1beta1Admission {
         }
         if (other.hasDryRun()) {
           setDryRun(other.getDryRun());
+        }
+        if (other.hasOptions()) {
+          mergeOptions(other.getOptions());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1947,11 +2579,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       public boolean hasKind() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -1960,11 +2591,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.GroupVersionKind getKind() {
         if (kindBuilder_ == null) {
@@ -1979,11 +2609,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       public Builder setKind(io.kubernetes.client.proto.Meta.GroupVersionKind value) {
         if (kindBuilder_ == null) {
@@ -2002,11 +2631,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       public Builder setKind(
           io.kubernetes.client.proto.Meta.GroupVersionKind.Builder builderForValue) {
@@ -2023,11 +2651,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       public Builder mergeKind(io.kubernetes.client.proto.Meta.GroupVersionKind value) {
         if (kindBuilder_ == null) {
@@ -2052,11 +2679,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       public Builder clearKind() {
         if (kindBuilder_ == null) {
@@ -2072,11 +2698,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.GroupVersionKind.Builder getKindBuilder() {
         bitField0_ |= 0x00000002;
@@ -2087,11 +2712,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.GroupVersionKindOrBuilder getKindOrBuilder() {
         if (kindBuilder_ != null) {
@@ -2106,11 +2730,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Kind is the type of object being manipulated.  For example: Pod
+       * Kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.GroupVersionKind,
@@ -2139,11 +2762,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       public boolean hasResource() {
@@ -2153,11 +2775,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       public io.kubernetes.client.proto.Meta.GroupVersionResource getResource() {
@@ -2173,11 +2794,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       public Builder setResource(io.kubernetes.client.proto.Meta.GroupVersionResource value) {
@@ -2197,11 +2817,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       public Builder setResource(
@@ -2219,11 +2838,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       public Builder mergeResource(io.kubernetes.client.proto.Meta.GroupVersionResource value) {
@@ -2250,11 +2868,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       public Builder clearResource() {
@@ -2271,11 +2888,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       public io.kubernetes.client.proto.Meta.GroupVersionResource.Builder getResourceBuilder() {
@@ -2287,11 +2903,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       public io.kubernetes.client.proto.Meta.GroupVersionResourceOrBuilder getResourceOrBuilder() {
@@ -2307,11 +2922,10 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Resource is the name of the resource being requested.  This is not the kind.  For example: pods
+       * Resource is the fully-qualified resource being requested (for example, v1.pods)
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2336,11 +2950,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-       * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-       * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-       * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-       * "binding", and kind "Binding".
+       * SubResource is the subresource being requested, if any (for example, "status" or "scale")
        * +optional
        * </pre>
        *
@@ -2353,11 +2963,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-       * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-       * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-       * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-       * "binding", and kind "Binding".
+       * SubResource is the subresource being requested, if any (for example, "status" or "scale")
        * +optional
        * </pre>
        *
@@ -2380,11 +2986,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-       * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-       * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-       * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-       * "binding", and kind "Binding".
+       * SubResource is the subresource being requested, if any (for example, "status" or "scale")
        * +optional
        * </pre>
        *
@@ -2405,11 +3007,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-       * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-       * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-       * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-       * "binding", and kind "Binding".
+       * SubResource is the subresource being requested, if any (for example, "status" or "scale")
        * +optional
        * </pre>
        *
@@ -2428,11 +3026,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-       * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-       * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-       * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-       * "binding", and kind "Binding".
+       * SubResource is the subresource being requested, if any (for example, "status" or "scale")
        * +optional
        * </pre>
        *
@@ -2448,11 +3042,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * SubResource is the name of the subresource being requested.  This is a different resource, scoped to the parent
-       * resource, but it may have a different kind. For instance, /pods has the resource "pods" and the kind "Pod", while
-       * /pods/foo/status has the resource "pods", the sub resource "status", and the kind "Pod" (because status operates on
-       * pods). The binding resource for a pod though may be /pods/foo/binding, which has resource "pods", subresource
-       * "binding", and kind "Binding".
+       * SubResource is the subresource being requested, if any (for example, "status" or "scale")
        * +optional
        * </pre>
        *
@@ -2468,27 +3058,695 @@ public final class V1beta1Admission {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private io.kubernetes.client.proto.Meta.GroupVersionKind requestKind_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.GroupVersionKind,
+              io.kubernetes.client.proto.Meta.GroupVersionKind.Builder,
+              io.kubernetes.client.proto.Meta.GroupVersionKindOrBuilder>
+          requestKindBuilder_;
       /**
        *
        *
        * <pre>
-       * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-       * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
        * +optional
        * </pre>
        *
-       * <code>optional string name = 5;</code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
        */
-      public boolean hasName() {
+      public boolean hasRequestKind() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        *
        *
        * <pre>
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.GroupVersionKind getRequestKind() {
+        if (requestKindBuilder_ == null) {
+          return requestKind_ == null
+              ? io.kubernetes.client.proto.Meta.GroupVersionKind.getDefaultInstance()
+              : requestKind_;
+        } else {
+          return requestKindBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
+       */
+      public Builder setRequestKind(io.kubernetes.client.proto.Meta.GroupVersionKind value) {
+        if (requestKindBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          requestKind_ = value;
+          onChanged();
+        } else {
+          requestKindBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
+       */
+      public Builder setRequestKind(
+          io.kubernetes.client.proto.Meta.GroupVersionKind.Builder builderForValue) {
+        if (requestKindBuilder_ == null) {
+          requestKind_ = builderForValue.build();
+          onChanged();
+        } else {
+          requestKindBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
+       */
+      public Builder mergeRequestKind(io.kubernetes.client.proto.Meta.GroupVersionKind value) {
+        if (requestKindBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)
+              && requestKind_ != null
+              && requestKind_
+                  != io.kubernetes.client.proto.Meta.GroupVersionKind.getDefaultInstance()) {
+            requestKind_ =
+                io.kubernetes.client.proto.Meta.GroupVersionKind.newBuilder(requestKind_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            requestKind_ = value;
+          }
+          onChanged();
+        } else {
+          requestKindBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
+       */
+      public Builder clearRequestKind() {
+        if (requestKindBuilder_ == null) {
+          requestKind_ = null;
+          onChanged();
+        } else {
+          requestKindBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.GroupVersionKind.Builder getRequestKindBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getRequestKindFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.GroupVersionKindOrBuilder getRequestKindOrBuilder() {
+        if (requestKindBuilder_ != null) {
+          return requestKindBuilder_.getMessageOrBuilder();
+        } else {
+          return requestKind_ == null
+              ? io.kubernetes.client.proto.Meta.GroupVersionKind.getDefaultInstance()
+              : requestKind_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestKind is the fully-qualified type of the original API request (for example, v1.Pod or autoscaling.v1.Scale).
+       * If this is specified and differs from the value in "kind", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `kind: {group:"apps", version:"v1", kind:"Deployment"}` (matching the rule the webhook registered for),
+       * and `requestKind: {group:"apps", version:"v1beta1", kind:"Deployment"}` (indicating the kind of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type for more details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind requestKind = 13;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.GroupVersionKind,
+              io.kubernetes.client.proto.Meta.GroupVersionKind.Builder,
+              io.kubernetes.client.proto.Meta.GroupVersionKindOrBuilder>
+          getRequestKindFieldBuilder() {
+        if (requestKindBuilder_ == null) {
+          requestKindBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.GroupVersionKind,
+                  io.kubernetes.client.proto.Meta.GroupVersionKind.Builder,
+                  io.kubernetes.client.proto.Meta.GroupVersionKindOrBuilder>(
+                  getRequestKind(), getParentForChildren(), isClean());
+          requestKind_ = null;
+        }
+        return requestKindBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Meta.GroupVersionResource requestResource_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.GroupVersionResource,
+              io.kubernetes.client.proto.Meta.GroupVersionResource.Builder,
+              io.kubernetes.client.proto.Meta.GroupVersionResourceOrBuilder>
+          requestResourceBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      public boolean hasRequestResource() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.GroupVersionResource getRequestResource() {
+        if (requestResourceBuilder_ == null) {
+          return requestResource_ == null
+              ? io.kubernetes.client.proto.Meta.GroupVersionResource.getDefaultInstance()
+              : requestResource_;
+        } else {
+          return requestResourceBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      public Builder setRequestResource(
+          io.kubernetes.client.proto.Meta.GroupVersionResource value) {
+        if (requestResourceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          requestResource_ = value;
+          onChanged();
+        } else {
+          requestResourceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      public Builder setRequestResource(
+          io.kubernetes.client.proto.Meta.GroupVersionResource.Builder builderForValue) {
+        if (requestResourceBuilder_ == null) {
+          requestResource_ = builderForValue.build();
+          onChanged();
+        } else {
+          requestResourceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      public Builder mergeRequestResource(
+          io.kubernetes.client.proto.Meta.GroupVersionResource value) {
+        if (requestResourceBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)
+              && requestResource_ != null
+              && requestResource_
+                  != io.kubernetes.client.proto.Meta.GroupVersionResource.getDefaultInstance()) {
+            requestResource_ =
+                io.kubernetes.client.proto.Meta.GroupVersionResource.newBuilder(requestResource_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            requestResource_ = value;
+          }
+          onChanged();
+        } else {
+          requestResourceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      public Builder clearRequestResource() {
+        if (requestResourceBuilder_ == null) {
+          requestResource_ = null;
+          onChanged();
+        } else {
+          requestResourceBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.GroupVersionResource.Builder
+          getRequestResourceBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getRequestResourceFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      public io.kubernetes.client.proto.Meta.GroupVersionResourceOrBuilder
+          getRequestResourceOrBuilder() {
+        if (requestResourceBuilder_ != null) {
+          return requestResourceBuilder_.getMessageOrBuilder();
+        } else {
+          return requestResource_ == null
+              ? io.kubernetes.client.proto.Meta.GroupVersionResource.getDefaultInstance()
+              : requestResource_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestResource is the fully-qualified resource of the original API request (for example, v1.pods).
+       * If this is specified and differs from the value in "resource", an equivalent match and conversion was performed.
+       * For example, if deployments can be modified via apps/v1 and apps/v1beta1, and a webhook registered a rule of
+       * `apiGroups:["apps"], apiVersions:["v1"], resources: ["deployments"]` and `matchPolicy: Equivalent`,
+       * an API request to apps/v1beta1 deployments would be converted and sent to the webhook
+       * with `resource: {group:"apps", version:"v1", resource:"deployments"}` (matching the resource the webhook registered for),
+       * and `requestResource: {group:"apps", version:"v1beta1", resource:"deployments"}` (indicating the resource of the original API request).
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>
+       * optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource requestResource = 14;
+       * </code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.GroupVersionResource,
+              io.kubernetes.client.proto.Meta.GroupVersionResource.Builder,
+              io.kubernetes.client.proto.Meta.GroupVersionResourceOrBuilder>
+          getRequestResourceFieldBuilder() {
+        if (requestResourceBuilder_ == null) {
+          requestResourceBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.GroupVersionResource,
+                  io.kubernetes.client.proto.Meta.GroupVersionResource.Builder,
+                  io.kubernetes.client.proto.Meta.GroupVersionResourceOrBuilder>(
+                  getRequestResource(), getParentForChildren(), isClean());
+          requestResource_ = null;
+        }
+        return requestResourceBuilder_;
+      }
+
+      private java.lang.Object requestSubResource_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+       * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string requestSubResource = 15;</code>
+       */
+      public boolean hasRequestSubResource() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+       * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string requestSubResource = 15;</code>
+       */
+      public java.lang.String getRequestSubResource() {
+        java.lang.Object ref = requestSubResource_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            requestSubResource_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+       * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string requestSubResource = 15;</code>
+       */
+      public com.google.protobuf.ByteString getRequestSubResourceBytes() {
+        java.lang.Object ref = requestSubResource_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          requestSubResource_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+       * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string requestSubResource = 15;</code>
+       */
+      public Builder setRequestSubResource(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000040;
+        requestSubResource_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+       * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string requestSubResource = 15;</code>
+       */
+      public Builder clearRequestSubResource() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        requestSubResource_ = getDefaultInstance().getRequestSubResource();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * RequestSubResource is the name of the subresource of the original API request, if any (for example, "status" or "scale")
+       * If this is specified and differs from the value in "subResource", an equivalent match and conversion was performed.
+       * See documentation for the "matchPolicy" field in the webhook configuration type.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string requestSubResource = 15;</code>
+       */
+      public Builder setRequestSubResourceBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000040;
+        requestSubResource_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       *
+       *
+       * <pre>
        * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-       * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+       * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string name = 5;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
+       * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
        * +optional
        * </pre>
        *
@@ -2512,7 +3770,7 @@ public final class V1beta1Admission {
        *
        * <pre>
        * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-       * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+       * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
        * +optional
        * </pre>
        *
@@ -2534,7 +3792,7 @@ public final class V1beta1Admission {
        *
        * <pre>
        * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-       * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+       * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
        * +optional
        * </pre>
        *
@@ -2544,7 +3802,7 @@ public final class V1beta1Admission {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000080;
         name_ = value;
         onChanged();
         return this;
@@ -2554,14 +3812,14 @@ public final class V1beta1Admission {
        *
        * <pre>
        * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-       * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+       * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
        * +optional
        * </pre>
        *
        * <code>optional string name = 5;</code>
        */
       public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000080);
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
@@ -2571,7 +3829,7 @@ public final class V1beta1Admission {
        *
        * <pre>
        * Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and
-       * rely on the server to generate the name.  If that is the case, this method will return the empty string.
+       * rely on the server to generate the name.  If that is the case, this field will contain an empty string.
        * +optional
        * </pre>
        *
@@ -2581,7 +3839,7 @@ public final class V1beta1Admission {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000080;
         name_ = value;
         onChanged();
         return this;
@@ -2599,7 +3857,7 @@ public final class V1beta1Admission {
        * <code>optional string namespace = 6;</code>
        */
       public boolean hasNamespace() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
        *
@@ -2659,7 +3917,7 @@ public final class V1beta1Admission {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000100;
         namespace_ = value;
         onChanged();
         return this;
@@ -2675,7 +3933,7 @@ public final class V1beta1Admission {
        * <code>optional string namespace = 6;</code>
        */
       public Builder clearNamespace() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000100);
         namespace_ = getDefaultInstance().getNamespace();
         onChanged();
         return this;
@@ -2694,7 +3952,7 @@ public final class V1beta1Admission {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000100;
         namespace_ = value;
         onChanged();
         return this;
@@ -2705,19 +3963,21 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Operation is the operation being performed
+       * Operation is the operation being performed. This may be different than the operation
+       * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
        * </pre>
        *
        * <code>optional string operation = 7;</code>
        */
       public boolean hasOperation() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
        *
        *
        * <pre>
-       * Operation is the operation being performed
+       * Operation is the operation being performed. This may be different than the operation
+       * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -2739,7 +3999,8 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Operation is the operation being performed
+       * Operation is the operation being performed. This may be different than the operation
+       * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -2759,7 +4020,8 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Operation is the operation being performed
+       * Operation is the operation being performed. This may be different than the operation
+       * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -2768,7 +4030,7 @@ public final class V1beta1Admission {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000200;
         operation_ = value;
         onChanged();
         return this;
@@ -2777,13 +4039,14 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Operation is the operation being performed
+       * Operation is the operation being performed. This may be different than the operation
+       * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
        * </pre>
        *
        * <code>optional string operation = 7;</code>
        */
       public Builder clearOperation() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000200);
         operation_ = getDefaultInstance().getOperation();
         onChanged();
         return this;
@@ -2792,7 +4055,8 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Operation is the operation being performed
+       * Operation is the operation being performed. This may be different than the operation
+       * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -2801,7 +4065,7 @@ public final class V1beta1Admission {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000200;
         operation_ = value;
         onChanged();
         return this;
@@ -2823,7 +4087,7 @@ public final class V1beta1Admission {
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
        */
       public boolean hasUserInfo() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
        *
@@ -2862,7 +4126,7 @@ public final class V1beta1Admission {
         } else {
           userInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
@@ -2882,7 +4146,7 @@ public final class V1beta1Admission {
         } else {
           userInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
@@ -2896,7 +4160,7 @@ public final class V1beta1Admission {
        */
       public Builder mergeUserInfo(io.kubernetes.client.proto.V1Authentication.UserInfo value) {
         if (userInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) == 0x00000080)
+          if (((bitField0_ & 0x00000400) == 0x00000400)
               && userInfo_ != null
               && userInfo_
                   != io.kubernetes.client.proto.V1Authentication.UserInfo.getDefaultInstance()) {
@@ -2911,7 +4175,7 @@ public final class V1beta1Admission {
         } else {
           userInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
@@ -2930,7 +4194,7 @@ public final class V1beta1Admission {
         } else {
           userInfoBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
       /**
@@ -2943,7 +4207,7 @@ public final class V1beta1Admission {
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
        */
       public io.kubernetes.client.proto.V1Authentication.UserInfo.Builder getUserInfoBuilder() {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000400;
         onChanged();
         return getUserInfoFieldBuilder().getBuilder();
       }
@@ -3001,20 +4265,20 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension object = 9;</code>
        */
       public boolean hasObject() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
@@ -3033,7 +4297,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
@@ -3049,14 +4313,14 @@ public final class V1beta1Admission {
         } else {
           objectBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
@@ -3070,14 +4334,14 @@ public final class V1beta1Admission {
         } else {
           objectBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
@@ -3085,7 +4349,7 @@ public final class V1beta1Admission {
        */
       public Builder mergeObject(io.kubernetes.client.proto.Runtime.RawExtension value) {
         if (objectBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) == 0x00000100)
+          if (((bitField0_ & 0x00000800) == 0x00000800)
               && object_ != null
               && object_ != io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance()) {
             object_ =
@@ -3099,14 +4363,14 @@ public final class V1beta1Admission {
         } else {
           objectBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
@@ -3119,21 +4383,21 @@ public final class V1beta1Admission {
         } else {
           objectBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension object = 9;</code>
        */
       public io.kubernetes.client.proto.Runtime.RawExtension.Builder getObjectBuilder() {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000800;
         onChanged();
         return getObjectFieldBuilder().getBuilder();
       }
@@ -3141,7 +4405,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
@@ -3160,7 +4424,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * Object is the object from the incoming request prior to default values being applied
+       * Object is the object from the incoming request.
        * +optional
        * </pre>
        *
@@ -3193,20 +4457,20 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension oldObject = 10;</code>
        */
       public boolean hasOldObject() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
@@ -3225,7 +4489,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
@@ -3241,14 +4505,14 @@ public final class V1beta1Admission {
         } else {
           oldObjectBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
@@ -3262,14 +4526,14 @@ public final class V1beta1Admission {
         } else {
           oldObjectBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
@@ -3277,7 +4541,7 @@ public final class V1beta1Admission {
        */
       public Builder mergeOldObject(io.kubernetes.client.proto.Runtime.RawExtension value) {
         if (oldObjectBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) == 0x00000200)
+          if (((bitField0_ & 0x00001000) == 0x00001000)
               && oldObject_ != null
               && oldObject_
                   != io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance()) {
@@ -3292,14 +4556,14 @@ public final class V1beta1Admission {
         } else {
           oldObjectBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
@@ -3312,21 +4576,21 @@ public final class V1beta1Admission {
         } else {
           oldObjectBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00001000);
         return this;
       }
       /**
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension oldObject = 10;</code>
        */
       public io.kubernetes.client.proto.Runtime.RawExtension.Builder getOldObjectBuilder() {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00001000;
         onChanged();
         return getOldObjectFieldBuilder().getBuilder();
       }
@@ -3334,7 +4598,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
@@ -3353,7 +4617,7 @@ public final class V1beta1Admission {
        *
        *
        * <pre>
-       * OldObject is the existing object. Only populated for UPDATE requests.
+       * OldObject is the existing object. Only populated for DELETE and UPDATE requests.
        * +optional
        * </pre>
        *
@@ -3389,7 +4653,7 @@ public final class V1beta1Admission {
        * <code>optional bool dryRun = 11;</code>
        */
       public boolean hasDryRun() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
        *
@@ -3417,7 +4681,7 @@ public final class V1beta1Admission {
        * <code>optional bool dryRun = 11;</code>
        */
       public Builder setDryRun(boolean value) {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00002000;
         dryRun_ = value;
         onChanged();
         return this;
@@ -3434,10 +4698,238 @@ public final class V1beta1Admission {
        * <code>optional bool dryRun = 11;</code>
        */
       public Builder clearDryRun() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00002000);
         dryRun_ = false;
         onChanged();
         return this;
+      }
+
+      private io.kubernetes.client.proto.Runtime.RawExtension options_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Runtime.RawExtension,
+              io.kubernetes.client.proto.Runtime.RawExtension.Builder,
+              io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder>
+          optionsBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      public boolean hasOptions() {
+        return ((bitField0_ & 0x00004000) == 0x00004000);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension getOptions() {
+        if (optionsBuilder_ == null) {
+          return options_ == null
+              ? io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance()
+              : options_;
+        } else {
+          return optionsBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      public Builder setOptions(io.kubernetes.client.proto.Runtime.RawExtension value) {
+        if (optionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00004000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      public Builder setOptions(
+          io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
+        if (optionsBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00004000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      public Builder mergeOptions(io.kubernetes.client.proto.Runtime.RawExtension value) {
+        if (optionsBuilder_ == null) {
+          if (((bitField0_ & 0x00004000) == 0x00004000)
+              && options_ != null
+              && options_ != io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance()) {
+            options_ =
+                io.kubernetes.client.proto.Runtime.RawExtension.newBuilder(options_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          optionsBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00004000;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      public Builder clearOptions() {
+        if (optionsBuilder_ == null) {
+          options_ = null;
+          onChanged();
+        } else {
+          optionsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00004000);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtension.Builder getOptionsBuilder() {
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return getOptionsFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      public io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getOptionsOrBuilder() {
+        if (optionsBuilder_ != null) {
+          return optionsBuilder_.getMessageOrBuilder();
+        } else {
+          return options_ == null
+              ? io.kubernetes.client.proto.Runtime.RawExtension.getDefaultInstance()
+              : options_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Options is the operation option structure of the operation being performed.
+       * e.g. `meta.k8s.io/v1.DeleteOptions` or `meta.k8s.io/v1.CreateOptions`. This may be
+       * different than the options the caller provided. e.g. for a patch request the performed
+       * Operation might be a CREATE, in which case the Options will a
+       * `meta.k8s.io/v1.CreateOptions` even though the caller provided `meta.k8s.io/v1.PatchOptions`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension options = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Runtime.RawExtension,
+              io.kubernetes.client.proto.Runtime.RawExtension.Builder,
+              io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder>
+          getOptionsFieldBuilder() {
+        if (optionsBuilder_ == null) {
+          optionsBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Runtime.RawExtension,
+                  io.kubernetes.client.proto.Runtime.RawExtension.Builder,
+                  io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder>(
+                  getOptions(), getParentForChildren(), isClean());
+          options_ = null;
+        }
+        return optionsBuilder_;
       }
 
       @java.lang.Override
@@ -3724,6 +5216,63 @@ public final class V1beta1Admission {
      * <code>map&lt;string, string&gt; auditAnnotations = 6;</code>
      */
     java.lang.String getAuditAnnotationsOrThrow(java.lang.String key);
+
+    /**
+     *
+     *
+     * <pre>
+     * warnings is a list of warning messages to return to the requesting API client.
+     * Warning messages describe a problem the client making the API request should correct or be aware of.
+     * Limit warnings to 120 characters if possible.
+     * Warnings over 256 characters and large numbers of warnings may be truncated.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string warnings = 7;</code>
+     */
+    java.util.List<java.lang.String> getWarningsList();
+    /**
+     *
+     *
+     * <pre>
+     * warnings is a list of warning messages to return to the requesting API client.
+     * Warning messages describe a problem the client making the API request should correct or be aware of.
+     * Limit warnings to 120 characters if possible.
+     * Warnings over 256 characters and large numbers of warnings may be truncated.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string warnings = 7;</code>
+     */
+    int getWarningsCount();
+    /**
+     *
+     *
+     * <pre>
+     * warnings is a list of warning messages to return to the requesting API client.
+     * Warning messages describe a problem the client making the API request should correct or be aware of.
+     * Limit warnings to 120 characters if possible.
+     * Warnings over 256 characters and large numbers of warnings may be truncated.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string warnings = 7;</code>
+     */
+    java.lang.String getWarnings(int index);
+    /**
+     *
+     *
+     * <pre>
+     * warnings is a list of warning messages to return to the requesting API client.
+     * Warning messages describe a problem the client making the API request should correct or be aware of.
+     * Limit warnings to 120 characters if possible.
+     * Warnings over 256 characters and large numbers of warnings may be truncated.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string warnings = 7;</code>
+     */
+    com.google.protobuf.ByteString getWarningsBytes(int index);
   }
   /**
    *
@@ -3749,6 +5298,7 @@ public final class V1beta1Admission {
       allowed_ = false;
       patch_ = com.google.protobuf.ByteString.EMPTY;
       patchType_ = "";
+      warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -3835,6 +5385,16 @@ public final class V1beta1Admission {
                     .put(auditAnnotations__.getKey(), auditAnnotations__.getValue());
                 break;
               }
+            case 58:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                  warnings_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000040;
+                }
+                warnings_.add(bs);
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -3849,6 +5409,9 @@ public final class V1beta1Admission {
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          warnings_ = warnings_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -4220,6 +5783,73 @@ public final class V1beta1Admission {
       return map.get(key);
     }
 
+    public static final int WARNINGS_FIELD_NUMBER = 7;
+    private com.google.protobuf.LazyStringList warnings_;
+    /**
+     *
+     *
+     * <pre>
+     * warnings is a list of warning messages to return to the requesting API client.
+     * Warning messages describe a problem the client making the API request should correct or be aware of.
+     * Limit warnings to 120 characters if possible.
+     * Warnings over 256 characters and large numbers of warnings may be truncated.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string warnings = 7;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getWarningsList() {
+      return warnings_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * warnings is a list of warning messages to return to the requesting API client.
+     * Warning messages describe a problem the client making the API request should correct or be aware of.
+     * Limit warnings to 120 characters if possible.
+     * Warnings over 256 characters and large numbers of warnings may be truncated.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string warnings = 7;</code>
+     */
+    public int getWarningsCount() {
+      return warnings_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * warnings is a list of warning messages to return to the requesting API client.
+     * Warning messages describe a problem the client making the API request should correct or be aware of.
+     * Limit warnings to 120 characters if possible.
+     * Warnings over 256 characters and large numbers of warnings may be truncated.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string warnings = 7;</code>
+     */
+    public java.lang.String getWarnings(int index) {
+      return warnings_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * warnings is a list of warning messages to return to the requesting API client.
+     * Warning messages describe a problem the client making the API request should correct or be aware of.
+     * Limit warnings to 120 characters if possible.
+     * Warnings over 256 characters and large numbers of warnings may be truncated.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string warnings = 7;</code>
+     */
+    public com.google.protobuf.ByteString getWarningsBytes(int index) {
+      return warnings_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -4254,6 +5884,9 @@ public final class V1beta1Admission {
           internalGetAuditAnnotations(),
           AuditAnnotationsDefaultEntryHolder.defaultEntry,
           6);
+      for (int i = 0; i < warnings_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, warnings_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4287,6 +5920,14 @@ public final class V1beta1Admission {
                 .setValue(entry.getValue())
                 .build();
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(6, auditAnnotations__);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < warnings_.size(); i++) {
+          dataSize += computeStringSizeNoTag(warnings_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getWarningsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4326,6 +5967,7 @@ public final class V1beta1Admission {
         result = result && getPatchType().equals(other.getPatchType());
       }
       result = result && internalGetAuditAnnotations().equals(other.internalGetAuditAnnotations());
+      result = result && getWarningsList().equals(other.getWarningsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4360,6 +6002,10 @@ public final class V1beta1Admission {
       if (!internalGetAuditAnnotations().getMap().isEmpty()) {
         hash = (37 * hash) + AUDITANNOTATIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetAuditAnnotations().hashCode();
+      }
+      if (getWarningsCount() > 0) {
+        hash = (37 * hash) + WARNINGS_FIELD_NUMBER;
+        hash = (53 * hash) + getWarningsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4512,8 +6158,7 @@ public final class V1beta1Admission {
                 io.kubernetes.client.proto.V1beta1Admission.AdmissionResponse.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Admission.AdmissionResponse.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Admission.AdmissionResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4547,6 +6192,8 @@ public final class V1beta1Admission {
         patchType_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
         internalGetMutableAuditAnnotations().clear();
+        warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -4603,6 +6250,11 @@ public final class V1beta1Admission {
         result.patchType_ = patchType_;
         result.auditAnnotations_ = internalGetAuditAnnotations();
         result.auditAnnotations_.makeImmutable();
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          warnings_ = warnings_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        }
+        result.warnings_ = warnings_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4678,6 +6330,16 @@ public final class V1beta1Admission {
           onChanged();
         }
         internalGetMutableAuditAnnotations().mergeFrom(other.internalGetAuditAnnotations());
+        if (!other.warnings_.isEmpty()) {
+          if (warnings_.isEmpty()) {
+            warnings_ = other.warnings_;
+            bitField0_ = (bitField0_ & ~0x00000040);
+          } else {
+            ensureWarningsIsMutable();
+            warnings_.addAll(other.warnings_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5443,6 +7105,184 @@ public final class V1beta1Admission {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList warnings_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureWarningsIsMutable() {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+          warnings_ = new com.google.protobuf.LazyStringArrayList(warnings_);
+          bitField0_ |= 0x00000040;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getWarningsList() {
+        return warnings_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public int getWarningsCount() {
+        return warnings_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public java.lang.String getWarnings(int index) {
+        return warnings_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public com.google.protobuf.ByteString getWarningsBytes(int index) {
+        return warnings_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public Builder setWarnings(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureWarningsIsMutable();
+        warnings_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public Builder addWarnings(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureWarningsIsMutable();
+        warnings_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public Builder addAllWarnings(java.lang.Iterable<java.lang.String> values) {
+        ensureWarningsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, warnings_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public Builder clearWarnings() {
+        warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * warnings is a list of warning messages to return to the requesting API client.
+       * Warning messages describe a problem the client making the API request should correct or be aware of.
+       * Limit warnings to 120 characters if possible.
+       * Warnings over 256 characters and large numbers of warnings may be truncated.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string warnings = 7;</code>
+       */
+      public Builder addWarningsBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureWarningsIsMutable();
+        warnings_.add(value);
+        onChanged();
+        return this;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5992,8 +7832,7 @@ public final class V1beta1Admission {
                 io.kubernetes.client.proto.V1beta1Admission.AdmissionReview.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Admission.AdmissionReview.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Admission.AdmissionReview.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -6646,31 +8485,38 @@ public final class V1beta1Admission {
           + "/generated.proto\032/k8s.io/apimachinery/pk"
           + "g/runtime/generated.proto\0326k8s.io/apimac"
           + "hinery/pkg/runtime/schema/generated.prot"
-          + "o\"\307\003\n\020AdmissionRequest\022\013\n\003uid\030\001 \001(\t\022D\n\004k"
+          + "o\"\305\005\n\020AdmissionRequest\022\013\n\003uid\030\001 \001(\t\022D\n\004k"
           + "ind\030\002 \001(\01326.k8s.io.apimachinery.pkg.apis"
           + ".meta.v1.GroupVersionKind\022L\n\010resource\030\003 "
           + "\001(\0132:.k8s.io.apimachinery.pkg.apis.meta."
           + "v1.GroupVersionResource\022\023\n\013subResource\030\004"
-          + " \001(\t\022\014\n\004name\030\005 \001(\t\022\021\n\tnamespace\030\006 \001(\t\022\021\n"
-          + "\toperation\030\007 \001(\t\0228\n\010userInfo\030\010 \001(\0132&.k8s"
-          + ".io.api.authentication.v1.UserInfo\022=\n\006ob"
-          + "ject\030\t \001(\0132-.k8s.io.apimachinery.pkg.run"
-          + "time.RawExtension\022@\n\toldObject\030\n \001(\0132-.k"
-          + "8s.io.apimachinery.pkg.runtime.RawExtens"
-          + "ion\022\016\n\006dryRun\030\013 \001(\010\"\253\002\n\021AdmissionRespons"
-          + "e\022\013\n\003uid\030\001 \001(\t\022\017\n\007allowed\030\002 \001(\010\022<\n\006statu"
-          + "s\030\003 \001(\0132,.k8s.io.apimachinery.pkg.apis.m"
-          + "eta.v1.Status\022\r\n\005patch\030\004 \001(\014\022\021\n\tpatchTyp"
-          + "e\030\005 \001(\t\022_\n\020auditAnnotations\030\006 \003(\0132E.k8s."
-          + "io.api.admission.v1beta1.AdmissionRespon"
-          + "se.AuditAnnotationsEntry\0327\n\025AuditAnnotat"
-          + "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028"
-          + "\001\"\225\001\n\017AdmissionReview\022?\n\007request\030\001 \001(\0132."
-          + ".k8s.io.api.admission.v1beta1.AdmissionR"
-          + "equest\022A\n\010response\030\002 \001(\0132/.k8s.io.api.ad"
-          + "mission.v1beta1.AdmissionResponseB7\n\032io."
-          + "kubernetes.client.protoB\020V1beta1Admissio"
-          + "nZ\007v1beta1"
+          + " \001(\t\022K\n\013requestKind\030\r \001(\01326.k8s.io.apima"
+          + "chinery.pkg.apis.meta.v1.GroupVersionKin"
+          + "d\022S\n\017requestResource\030\016 \001(\0132:.k8s.io.apim"
+          + "achinery.pkg.apis.meta.v1.GroupVersionRe"
+          + "source\022\032\n\022requestSubResource\030\017 \001(\t\022\014\n\004na"
+          + "me\030\005 \001(\t\022\021\n\tnamespace\030\006 \001(\t\022\021\n\toperation"
+          + "\030\007 \001(\t\0228\n\010userInfo\030\010 \001(\0132&.k8s.io.api.au"
+          + "thentication.v1.UserInfo\022=\n\006object\030\t \001(\013"
+          + "2-.k8s.io.apimachinery.pkg.runtime.RawEx"
+          + "tension\022@\n\toldObject\030\n \001(\0132-.k8s.io.apim"
+          + "achinery.pkg.runtime.RawExtension\022\016\n\006dry"
+          + "Run\030\013 \001(\010\022>\n\007options\030\014 \001(\0132-.k8s.io.apim"
+          + "achinery.pkg.runtime.RawExtension\"\275\002\n\021Ad"
+          + "missionResponse\022\013\n\003uid\030\001 \001(\t\022\017\n\007allowed\030"
+          + "\002 \001(\010\022<\n\006status\030\003 \001(\0132,.k8s.io.apimachin"
+          + "ery.pkg.apis.meta.v1.Status\022\r\n\005patch\030\004 \001"
+          + "(\014\022\021\n\tpatchType\030\005 \001(\t\022_\n\020auditAnnotation"
+          + "s\030\006 \003(\0132E.k8s.io.api.admission.v1beta1.A"
+          + "dmissionResponse.AuditAnnotationsEntry\022\020"
+          + "\n\010warnings\030\007 \003(\t\0327\n\025AuditAnnotationsEntr"
+          + "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\225\001\n\017Ad"
+          + "missionReview\022?\n\007request\030\001 \001(\0132..k8s.io."
+          + "api.admission.v1beta1.AdmissionRequest\022A"
+          + "\n\010response\030\002 \001(\0132/.k8s.io.api.admission."
+          + "v1beta1.AdmissionResponseB7\n\032io.kubernet"
+          + "es.client.protoB\020V1beta1AdmissionZ\007v1bet"
+          + "a1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -6699,6 +8545,9 @@ public final class V1beta1Admission {
               "Kind",
               "Resource",
               "SubResource",
+              "RequestKind",
+              "RequestResource",
+              "RequestSubResource",
               "Name",
               "Namespace",
               "Operation",
@@ -6706,6 +8555,7 @@ public final class V1beta1Admission {
               "Object",
               "OldObject",
               "DryRun",
+              "Options",
             });
     internal_static_k8s_io_api_admission_v1beta1_AdmissionResponse_descriptor =
         getDescriptor().getMessageTypes().get(1);
@@ -6713,7 +8563,7 @@ public final class V1beta1Admission {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_admission_v1beta1_AdmissionResponse_descriptor,
             new java.lang.String[] {
-              "Uid", "Allowed", "Status", "Patch", "PatchType", "AuditAnnotations",
+              "Uid", "Allowed", "Status", "Patch", "PatchType", "AuditAnnotations", "Warnings",
             });
     internal_static_k8s_io_api_admission_v1beta1_AdmissionResponse_AuditAnnotationsEntry_descriptor =
         internal_static_k8s_io_api_admission_v1beta1_AdmissionResponse_descriptor

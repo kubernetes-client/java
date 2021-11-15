@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,6 +30,8 @@ public final class V1alpha1Imagepolicy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -40,6 +42,8 @@ public final class V1alpha1Imagepolicy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -50,6 +54,8 @@ public final class V1alpha1Imagepolicy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -260,6 +266,8 @@ public final class V1alpha1Imagepolicy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -272,6 +280,8 @@ public final class V1alpha1Imagepolicy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -286,6 +296,8 @@ public final class V1alpha1Imagepolicy {
      *
      *
      * <pre>
+     * Standard object's metadata.
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -612,8 +624,7 @@ public final class V1alpha1Imagepolicy {
                 io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReview.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -811,6 +822,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -823,6 +836,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -841,6 +856,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -863,6 +880,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -883,6 +902,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -911,6 +932,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -930,6 +953,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -944,6 +969,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -962,6 +989,8 @@ public final class V1alpha1Imagepolicy {
        *
        *
        * <pre>
+       * Standard object's metadata.
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2940,8 +2969,7 @@ public final class V1alpha1Imagepolicy {
                 io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewSpec.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3163,8 +3191,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public java.util.List<io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec>
@@ -3183,8 +3210,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public int getContainersCount() {
@@ -3202,8 +3228,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec getContainers(
@@ -3222,8 +3247,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder setContainers(
@@ -3249,8 +3273,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder setContainers(
@@ -3274,8 +3297,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder addContainers(
@@ -3300,8 +3322,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder addContainers(
@@ -3327,8 +3348,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder addContainers(
@@ -3351,8 +3371,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder addContainers(
@@ -3376,8 +3395,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder addAllContainers(
@@ -3401,8 +3419,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder clearContainers() {
@@ -3423,8 +3440,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public Builder removeContainers(int index) {
@@ -3445,8 +3461,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec.Builder
@@ -3461,8 +3476,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpecOrBuilder
@@ -3481,8 +3495,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public java.util.List<
@@ -3503,8 +3516,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec.Builder
@@ -3522,8 +3534,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public io.kubernetes.client.proto.V1alpha1Imagepolicy.ImageReviewContainerSpec.Builder
@@ -3542,8 +3553,7 @@ public final class V1alpha1Imagepolicy {
        * +optional
        * </pre>
        *
-       * <code>
-       * repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
+       * <code>repeated .k8s.io.api.imagepolicy.v1alpha1.ImageReviewContainerSpec containers = 1;
        * </code>
        */
       public java.util.List<

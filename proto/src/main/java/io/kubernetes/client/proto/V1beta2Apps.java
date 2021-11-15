@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -31,7 +31,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -43,7 +43,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -55,7 +55,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -252,7 +252,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -266,7 +266,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -282,7 +282,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -598,8 +598,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.ControllerRevision.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.ControllerRevision.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.ControllerRevision.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -787,7 +786,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -801,7 +800,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -821,7 +820,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -845,7 +844,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -867,7 +866,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -897,7 +896,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -918,7 +917,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -934,7 +933,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -954,7 +953,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -1278,7 +1277,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1289,7 +1288,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1300,7 +1299,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1481,7 +1480,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1494,7 +1493,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1509,7 +1508,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -1795,8 +1794,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.ControllerRevisionList.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.ControllerRevisionList.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.ControllerRevisionList.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2003,7 +2001,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2016,7 +2014,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2035,7 +2033,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2058,7 +2056,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2078,7 +2076,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2107,7 +2105,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2127,7 +2125,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2142,7 +2140,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2161,7 +2159,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -2618,7 +2616,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2630,7 +2628,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2642,7 +2640,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2655,7 +2653,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2667,7 +2665,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2679,7 +2677,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2695,7 +2693,7 @@ public final class V1beta2Apps {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2710,7 +2708,7 @@ public final class V1beta2Apps {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2725,7 +2723,7 @@ public final class V1beta2Apps {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2872,7 +2870,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2886,7 +2884,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2902,7 +2900,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard object's metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -2921,7 +2919,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2935,7 +2933,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2951,7 +2949,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * The desired behavior of this daemon set.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2973,7 +2971,7 @@ public final class V1beta2Apps {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -2990,7 +2988,7 @@ public final class V1beta2Apps {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -3009,7 +3007,7 @@ public final class V1beta2Apps {
      * out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -3443,7 +3441,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3457,7 +3455,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3477,7 +3475,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3501,7 +3499,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3523,7 +3521,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3553,7 +3551,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3574,7 +3572,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3590,7 +3588,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3610,7 +3608,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard object's metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -3644,7 +3642,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3658,7 +3656,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3678,7 +3676,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3702,7 +3700,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3724,7 +3722,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3755,7 +3753,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3776,7 +3774,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3792,7 +3790,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3812,7 +3810,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * The desired behavior of this daemon set.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3849,7 +3847,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3866,7 +3864,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3889,7 +3887,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3916,7 +3914,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3941,7 +3939,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3975,7 +3973,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -3999,7 +3997,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -4018,7 +4016,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -4041,7 +4039,7 @@ public final class V1beta2Apps {
        * out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -4948,8 +4946,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.DaemonSetCondition.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.DaemonSetCondition.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.DaemonSetCondition.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5371,8 +5368,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -5385,8 +5381,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -5405,8 +5400,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -5429,8 +5423,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -5451,8 +5444,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -5481,8 +5473,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -5502,8 +5493,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000004;
@@ -5518,8 +5508,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -5538,8 +5527,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -5847,7 +5835,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5859,7 +5847,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -5871,7 +5859,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6052,7 +6040,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6066,7 +6054,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6082,7 +6070,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6569,7 +6557,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6583,7 +6571,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6603,7 +6591,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6627,7 +6615,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6648,7 +6636,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6678,7 +6666,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6699,7 +6687,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6715,7 +6703,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -6735,7 +6723,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7263,8 +7251,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
      */
     boolean hasUpdateStrategy();
     /**
@@ -7275,8 +7262,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
      */
     io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy getUpdateStrategy();
     /**
@@ -7287,8 +7273,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
      */
     io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategyOrBuilder
         getUpdateStrategyOrBuilder();
@@ -7611,8 +7596,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
      */
     public boolean hasUpdateStrategy() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -7625,8 +7609,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy getUpdateStrategy() {
       return updateStrategy_ == null
@@ -7641,8 +7624,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
      */
     public io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategyOrBuilder
         getUpdateStrategyOrBuilder() {
@@ -8191,8 +8173,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -8207,8 +8188,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -8229,8 +8209,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -8255,8 +8234,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -8279,8 +8257,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -8311,8 +8288,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -8334,8 +8310,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000001;
@@ -8352,8 +8327,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -8374,8 +8348,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -8627,8 +8600,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       public boolean hasUpdateStrategy() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -8641,8 +8613,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy getUpdateStrategy() {
         if (updateStrategyBuilder_ == null) {
@@ -8661,8 +8632,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       public Builder setUpdateStrategy(
           io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy value) {
@@ -8686,8 +8656,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       public Builder setUpdateStrategy(
           io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy.Builder builderForValue) {
@@ -8708,8 +8677,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       public Builder mergeUpdateStrategy(
           io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy value) {
@@ -8742,8 +8710,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       public Builder clearUpdateStrategy() {
         if (updateStrategyBuilder_ == null) {
@@ -8763,8 +8730,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy.Builder
           getUpdateStrategyBuilder() {
@@ -8780,8 +8746,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategyOrBuilder
           getUpdateStrategyOrBuilder() {
@@ -8801,8 +8766,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.DaemonSetUpdateStrategy updateStrategy = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy,
@@ -9098,8 +9062,8 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * The number of nodes that should be running the daemon pod and have one
-     * or more of the daemon pod running and ready.
+     * Total number of nodes that should be running the daemon pod and have one
+     * or more of the daemon pod running with a Ready Condition by passing the readinessProbe.
      * </pre>
      *
      * <code>optional int32 numberReady = 4;</code>
@@ -9109,8 +9073,8 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * The number of nodes that should be running the daemon pod and have one
-     * or more of the daemon pod running and ready.
+     * Total number of nodes that should be running the daemon pod and have one
+     * or more of the daemon pod running with a Ready Condition by passing the readinessProbe.
      * </pre>
      *
      * <code>optional int32 numberReady = 4;</code>
@@ -9573,8 +9537,8 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * The number of nodes that should be running the daemon pod and have one
-     * or more of the daemon pod running and ready.
+     * Total number of nodes that should be running the daemon pod and have one
+     * or more of the daemon pod running with a Ready Condition by passing the readinessProbe.
      * </pre>
      *
      * <code>optional int32 numberReady = 4;</code>
@@ -9586,8 +9550,8 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * The number of nodes that should be running the daemon pod and have one
-     * or more of the daemon pod running and ready.
+     * Total number of nodes that should be running the daemon pod and have one
+     * or more of the daemon pod running with a Ready Condition by passing the readinessProbe.
      * </pre>
      *
      * <code>optional int32 numberReady = 4;</code>
@@ -10607,8 +10571,8 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * The number of nodes that should be running the daemon pod and have one
-       * or more of the daemon pod running and ready.
+       * Total number of nodes that should be running the daemon pod and have one
+       * or more of the daemon pod running with a Ready Condition by passing the readinessProbe.
        * </pre>
        *
        * <code>optional int32 numberReady = 4;</code>
@@ -10620,8 +10584,8 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * The number of nodes that should be running the daemon pod and have one
-       * or more of the daemon pod running and ready.
+       * Total number of nodes that should be running the daemon pod and have one
+       * or more of the daemon pod running with a Ready Condition by passing the readinessProbe.
        * </pre>
        *
        * <code>optional int32 numberReady = 4;</code>
@@ -10633,8 +10597,8 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * The number of nodes that should be running the daemon pod and have one
-       * or more of the daemon pod running and ready.
+       * Total number of nodes that should be running the daemon pod and have one
+       * or more of the daemon pod running with a Ready Condition by passing the readinessProbe.
        * </pre>
        *
        * <code>optional int32 numberReady = 4;</code>
@@ -10649,8 +10613,8 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * The number of nodes that should be running the daemon pod and have one
-       * or more of the daemon pod running and ready.
+       * Total number of nodes that should be running the daemon pod and have one
+       * or more of the daemon pod running with a Ready Condition by passing the readinessProbe.
        * </pre>
        *
        * <code>optional int32 numberReady = 4;</code>
@@ -11985,8 +11949,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.DaemonSetUpdateStrategy.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12282,8 +12245,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       public boolean hasRollingUpdate() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -12300,8 +12262,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet getRollingUpdate() {
         if (rollingUpdateBuilder_ == null) {
@@ -12324,8 +12285,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       public Builder setRollingUpdate(
           io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet value) {
@@ -12353,8 +12313,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       public Builder setRollingUpdate(
           io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet.Builder builderForValue) {
@@ -12379,8 +12338,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       public Builder mergeRollingUpdate(
           io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet value) {
@@ -12417,8 +12375,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       public Builder clearRollingUpdate() {
         if (rollingUpdateBuilder_ == null) {
@@ -12442,8 +12399,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet.Builder
           getRollingUpdateBuilder() {
@@ -12463,8 +12419,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSetOrBuilder
           getRollingUpdateOrBuilder() {
@@ -12488,8 +12443,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDaemonSet rollingUpdate = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet,
@@ -14900,8 +14854,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.DeploymentCondition.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.DeploymentCondition.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.DeploymentCondition.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -15525,8 +15478,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
@@ -15538,8 +15490,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -15557,8 +15508,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -15580,8 +15530,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -15601,8 +15550,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -15630,8 +15578,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -15650,8 +15597,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000008;
@@ -15665,8 +15611,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -15684,8 +15629,7 @@ public final class V1beta2Apps {
        * Last time the condition transitioned from one status to another.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -18600,8 +18544,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -18615,8 +18558,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -18636,8 +18578,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -18661,8 +18602,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -18684,8 +18624,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -18715,8 +18654,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -18737,8 +18675,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000002;
@@ -18754,8 +18691,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -18775,8 +18711,7 @@ public final class V1beta2Apps {
        * It must match the pod template's labels.
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -19583,7 +19518,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Total number of ready pods targeted by this deployment.
+     * readyReplicas is the number of pods targeted by this Deployment controller with a Ready Condition.
      * +optional
      * </pre>
      *
@@ -19594,7 +19529,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Total number of ready pods targeted by this deployment.
+     * readyReplicas is the number of pods targeted by this Deployment controller with a Ready Condition.
      * +optional
      * </pre>
      *
@@ -19983,7 +19918,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Total number of ready pods targeted by this deployment.
+     * readyReplicas is the number of pods targeted by this Deployment controller with a Ready Condition.
      * +optional
      * </pre>
      *
@@ -19996,7 +19931,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Total number of ready pods targeted by this deployment.
+     * readyReplicas is the number of pods targeted by this Deployment controller with a Ready Condition.
      * +optional
      * </pre>
      *
@@ -20892,7 +20827,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Total number of ready pods targeted by this deployment.
+       * readyReplicas is the number of pods targeted by this Deployment controller with a Ready Condition.
        * +optional
        * </pre>
        *
@@ -20905,7 +20840,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Total number of ready pods targeted by this deployment.
+       * readyReplicas is the number of pods targeted by this Deployment controller with a Ready Condition.
        * +optional
        * </pre>
        *
@@ -20918,7 +20853,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Total number of ready pods targeted by this deployment.
+       * readyReplicas is the number of pods targeted by this Deployment controller with a Ready Condition.
        * +optional
        * </pre>
        *
@@ -20934,7 +20869,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Total number of ready pods targeted by this deployment.
+       * readyReplicas is the number of pods targeted by this Deployment controller with a Ready Condition.
        * +optional
        * </pre>
        *
@@ -22124,8 +22059,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.DeploymentStrategy.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.DeploymentStrategy.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.DeploymentStrategy.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -22417,8 +22351,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       public boolean hasRollingUpdate() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -22435,8 +22368,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment getRollingUpdate() {
         if (rollingUpdateBuilder_ == null) {
@@ -22459,8 +22391,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       public Builder setRollingUpdate(
           io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment value) {
@@ -22488,8 +22419,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       public Builder setRollingUpdate(
           io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment.Builder builderForValue) {
@@ -22514,8 +22444,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       public Builder mergeRollingUpdate(
           io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment value) {
@@ -22552,8 +22481,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       public Builder clearRollingUpdate() {
         if (rollingUpdateBuilder_ == null) {
@@ -22577,8 +22505,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment.Builder
           getRollingUpdateBuilder() {
@@ -22598,8 +22525,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeploymentOrBuilder
           getRollingUpdateOrBuilder() {
@@ -22623,8 +22549,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;
-       * </code>
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateDeployment rollingUpdate = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment,
@@ -22707,7 +22632,7 @@ public final class V1beta2Apps {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -22720,7 +22645,7 @@ public final class V1beta2Apps {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -22733,7 +22658,7 @@ public final class V1beta2Apps {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -22746,7 +22671,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -22758,7 +22683,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -22770,7 +22695,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -22786,7 +22711,7 @@ public final class V1beta2Apps {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -22801,7 +22726,7 @@ public final class V1beta2Apps {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -22816,7 +22741,7 @@ public final class V1beta2Apps {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -22964,7 +22889,7 @@ public final class V1beta2Apps {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -22979,7 +22904,7 @@ public final class V1beta2Apps {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -22996,7 +22921,7 @@ public final class V1beta2Apps {
      * <pre>
      * If the Labels of a ReplicaSet are empty, they are defaulted to
      * be the same as the Pod(s) that the ReplicaSet manages.
-     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+     * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -23015,7 +22940,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -23029,7 +22954,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -23045,7 +22970,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -23067,7 +22992,7 @@ public final class V1beta2Apps {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -23084,7 +23009,7 @@ public final class V1beta2Apps {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -23103,7 +23028,7 @@ public final class V1beta2Apps {
      * This data may be out of date by some window of time.
      * Populated by the system.
      * Read-only.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
      * +optional
      * </pre>
      *
@@ -23538,7 +23463,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23553,7 +23478,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23574,7 +23499,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23599,7 +23524,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23622,7 +23547,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23653,7 +23578,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23675,7 +23600,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23692,7 +23617,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23713,7 +23638,7 @@ public final class V1beta2Apps {
        * <pre>
        * If the Labels of a ReplicaSet are empty, they are defaulted to
        * be the same as the Pod(s) that the ReplicaSet manages.
-       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
+       * Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -23747,7 +23672,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23761,7 +23686,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23781,7 +23706,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23805,7 +23730,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23827,7 +23752,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23858,7 +23783,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23879,7 +23804,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23895,7 +23820,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23915,7 +23840,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23952,7 +23877,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23969,7 +23894,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -23992,7 +23917,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -24019,7 +23944,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -24044,7 +23969,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -24078,7 +24003,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -24102,7 +24027,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -24121,7 +24046,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -24144,7 +24069,7 @@ public final class V1beta2Apps {
        * This data may be out of date by some window of time.
        * Populated by the system.
        * Read-only.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
        * +optional
        * </pre>
        *
@@ -25051,8 +24976,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.ReplicaSetCondition.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.ReplicaSetCondition.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.ReplicaSetCondition.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -25476,8 +25400,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -25490,8 +25413,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -25510,8 +25432,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -25534,8 +25455,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -25556,8 +25476,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -25586,8 +25505,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -25607,8 +25525,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000004;
@@ -25623,8 +25540,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -25643,8 +25559,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -25953,7 +25868,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -25965,7 +25880,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -25977,7 +25892,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -26163,7 +26078,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -26177,7 +26092,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -26193,7 +26108,7 @@ public final class V1beta2Apps {
      *
      * <pre>
      * Standard list metadata.
-     * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
      * +optional
      * </pre>
      *
@@ -26685,7 +26600,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -26699,7 +26614,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -26719,7 +26634,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -26743,7 +26658,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -26764,7 +26679,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -26794,7 +26709,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -26815,7 +26730,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -26831,7 +26746,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -26851,7 +26766,7 @@ public final class V1beta2Apps {
        *
        * <pre>
        * Standard list metadata.
-       * More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
        * +optional
        * </pre>
        *
@@ -28321,8 +28236,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -28337,8 +28251,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -28359,8 +28272,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -28385,8 +28297,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -28409,8 +28320,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -28441,8 +28351,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -28464,8 +28373,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000004;
@@ -28482,8 +28390,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -28504,8 +28411,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -28842,7 +28748,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * The number of ready replicas for this replica set.
+     * readyReplicas is the number of pods targeted by this ReplicaSet controller with a Ready Condition.
      * +optional
      * </pre>
      *
@@ -28853,7 +28759,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * The number of ready replicas for this replica set.
+     * readyReplicas is the number of pods targeted by this ReplicaSet controller with a Ready Condition.
      * +optional
      * </pre>
      *
@@ -29173,7 +29079,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * The number of ready replicas for this replica set.
+     * readyReplicas is the number of pods targeted by this ReplicaSet controller with a Ready Condition.
      * +optional
      * </pre>
      *
@@ -29186,7 +29092,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * The number of ready replicas for this replica set.
+     * readyReplicas is the number of pods targeted by this ReplicaSet controller with a Ready Condition.
      * +optional
      * </pre>
      *
@@ -29944,7 +29850,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * The number of ready replicas for this replica set.
+       * readyReplicas is the number of pods targeted by this ReplicaSet controller with a Ready Condition.
        * +optional
        * </pre>
        *
@@ -29957,7 +29863,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * The number of ready replicas for this replica set.
+       * readyReplicas is the number of pods targeted by this ReplicaSet controller with a Ready Condition.
        * +optional
        * </pre>
        *
@@ -29970,7 +29876,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * The number of ready replicas for this replica set.
+       * readyReplicas is the number of pods targeted by this ReplicaSet controller with a Ready Condition.
        * +optional
        * </pre>
        *
@@ -29986,7 +29892,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * The number of ready replicas for this replica set.
+       * readyReplicas is the number of pods targeted by this ReplicaSet controller with a Ready Condition.
        * +optional
        * </pre>
        *
@@ -30609,21 +30515,20 @@ public final class V1beta2Apps {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     boolean hasMaxUnavailable();
     /**
@@ -30634,21 +30539,20 @@ public final class V1beta2Apps {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable();
     /**
@@ -30659,23 +30563,110 @@ public final class V1beta2Apps {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    boolean hasMaxSurge();
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    io.kubernetes.client.proto.IntStr.IntOrString getMaxSurge();
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxSurgeOrBuilder();
   }
   /**
    *
@@ -30738,6 +30729,22 @@ public final class V1beta2Apps {
                 bitField0_ |= 0x00000001;
                 break;
               }
+            case 18:
+              {
+                io.kubernetes.client.proto.IntStr.IntOrString.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = maxSurge_.toBuilder();
+                }
+                maxSurge_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.IntStr.IntOrString.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(maxSurge_);
+                  maxSurge_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -30783,21 +30790,20 @@ public final class V1beta2Apps {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public boolean hasMaxUnavailable() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -30810,21 +30816,20 @@ public final class V1beta2Apps {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
       return maxUnavailable_ == null
@@ -30839,26 +30844,125 @@ public final class V1beta2Apps {
      * update. Value can be an absolute number (ex: 5) or a percentage of total
      * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
      * number is calculated from percentage by rounding up.
-     * This cannot be 0.
+     * This cannot be 0 if MaxSurge is 0
      * Default value is 1.
      * Example: when this is set to 30%, at most 30% of the total number of nodes
      * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-     * can have their pods stopped for an update at any given
-     * time. The update starts by stopping at most 30% of those DaemonSet pods
-     * and then brings up new DaemonSet pods in their place. Once the new pods
-     * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-     * that at least 70% of original number of DaemonSet pods are available at
-     * all times during the update.
+     * can have their pods stopped for an update at any given time. The update
+     * starts by stopping at most 30% of those DaemonSet pods and then brings
+     * up new DaemonSet pods in their place. Once the new pods are available,
+     * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+     * 70% of original number of DaemonSet pods are available at all times during
+     * the update.
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
       return maxUnavailable_ == null
           ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
           : maxUnavailable_;
+    }
+
+    public static final int MAXSURGE_FIELD_NUMBER = 2;
+    private io.kubernetes.client.proto.IntStr.IntOrString maxSurge_;
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    public boolean hasMaxSurge() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    public io.kubernetes.client.proto.IntStr.IntOrString getMaxSurge() {
+      return maxSurge_ == null
+          ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+          : maxSurge_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * The maximum number of nodes with an existing available DaemonSet pod that
+     * can have an updated DaemonSet pod during during an update.
+     * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+     * This can not be 0 if MaxUnavailable is 0.
+     * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+     * Default value is 0.
+     * Example: when this is set to 30%, at most 30% of the total number of nodes
+     * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+     * can have their a new pod created before the old pod is marked as deleted.
+     * The update starts by launching new pods on 30% of nodes. Once an updated
+     * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+     * on that node is marked deleted. If the old pod becomes unavailable for any
+     * reason (Ready transitions to false, is evicted, or is drained) an updated
+     * pod is immediatedly created on that node without considering surge limits.
+     * Allowing surge implies the possibility that the resources consumed by the
+     * daemonset on any given node can double if the readiness check fails, and
+     * so resource intensive daemonsets should take into account that they may
+     * cause evictions during disruption.
+     * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+     */
+    public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxSurgeOrBuilder() {
+      return maxSurge_ == null
+          ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+          : maxSurge_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -30878,6 +30982,9 @@ public final class V1beta2Apps {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, getMaxUnavailable());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getMaxSurge());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -30889,6 +30996,9 @@ public final class V1beta2Apps {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(1, getMaxUnavailable());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream.computeMessageSize(2, getMaxSurge());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -30911,6 +31021,10 @@ public final class V1beta2Apps {
       if (hasMaxUnavailable()) {
         result = result && getMaxUnavailable().equals(other.getMaxUnavailable());
       }
+      result = result && (hasMaxSurge() == other.hasMaxSurge());
+      if (hasMaxSurge()) {
+        result = result && getMaxSurge().equals(other.getMaxSurge());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -30925,6 +31039,10 @@ public final class V1beta2Apps {
       if (hasMaxUnavailable()) {
         hash = (37 * hash) + MAXUNAVAILABLE_FIELD_NUMBER;
         hash = (53 * hash) + getMaxUnavailable().hashCode();
+      }
+      if (hasMaxSurge()) {
+        hash = (37 * hash) + MAXSURGE_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxSurge().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -31057,8 +31175,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDaemonSet.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -31071,6 +31188,7 @@ public final class V1beta2Apps {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getMaxUnavailableFieldBuilder();
+          getMaxSurgeFieldBuilder();
         }
       }
 
@@ -31083,6 +31201,12 @@ public final class V1beta2Apps {
           maxUnavailableBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
+        if (maxSurgeBuilder_ == null) {
+          maxSurge_ = null;
+        } else {
+          maxSurgeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -31120,6 +31244,14 @@ public final class V1beta2Apps {
           result.maxUnavailable_ = maxUnavailable_;
         } else {
           result.maxUnavailable_ = maxUnavailableBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (maxSurgeBuilder_ == null) {
+          result.maxSurge_ = maxSurge_;
+        } else {
+          result.maxSurge_ = maxSurgeBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -31179,6 +31311,9 @@ public final class V1beta2Apps {
         if (other.hasMaxUnavailable()) {
           mergeMaxUnavailable(other.getMaxUnavailable());
         }
+        if (other.hasMaxSurge()) {
+          mergeMaxSurge(other.getMaxSurge());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -31226,21 +31361,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public boolean hasMaxUnavailable() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -31253,21 +31387,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -31286,21 +31419,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder setMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -31323,21 +31455,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder setMaxUnavailable(
           io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
@@ -31358,21 +31489,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder mergeMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -31402,21 +31532,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder clearMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -31436,21 +31565,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString.Builder getMaxUnavailableBuilder() {
         bitField0_ |= 0x00000001;
@@ -31465,21 +31593,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
         if (maxUnavailableBuilder_ != null) {
@@ -31498,21 +31625,20 @@ public final class V1beta2Apps {
        * update. Value can be an absolute number (ex: 5) or a percentage of total
        * number of DaemonSet pods at the start of the update (ex: 10%). Absolute
        * number is calculated from percentage by rounding up.
-       * This cannot be 0.
+       * This cannot be 0 if MaxSurge is 0
        * Default value is 1.
        * Example: when this is set to 30%, at most 30% of the total number of nodes
        * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
-       * can have their pods stopped for an update at any given
-       * time. The update starts by stopping at most 30% of those DaemonSet pods
-       * and then brings up new DaemonSet pods in their place. Once the new pods
-       * are available, it then proceeds onto other DaemonSet pods, thus ensuring
-       * that at least 70% of original number of DaemonSet pods are available at
-       * all times during the update.
+       * can have their pods stopped for an update at any given time. The update
+       * starts by stopping at most 30% of those DaemonSet pods and then brings
+       * up new DaemonSet pods in their place. Once the new pods are available,
+       * it then proceeds onto other DaemonSet pods, thus ensuring that at least
+       * 70% of original number of DaemonSet pods are available at all times during
+       * the update.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.IntStr.IntOrString,
@@ -31529,6 +31655,360 @@ public final class V1beta2Apps {
           maxUnavailable_ = null;
         }
         return maxUnavailableBuilder_;
+      }
+
+      private io.kubernetes.client.proto.IntStr.IntOrString maxSurge_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.IntStr.IntOrString,
+              io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+              io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>
+          maxSurgeBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public boolean hasMaxSurge() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public io.kubernetes.client.proto.IntStr.IntOrString getMaxSurge() {
+        if (maxSurgeBuilder_ == null) {
+          return maxSurge_ == null
+              ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+              : maxSurge_;
+        } else {
+          return maxSurgeBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public Builder setMaxSurge(io.kubernetes.client.proto.IntStr.IntOrString value) {
+        if (maxSurgeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          maxSurge_ = value;
+          onChanged();
+        } else {
+          maxSurgeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public Builder setMaxSurge(
+          io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
+        if (maxSurgeBuilder_ == null) {
+          maxSurge_ = builderForValue.build();
+          onChanged();
+        } else {
+          maxSurgeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public Builder mergeMaxSurge(io.kubernetes.client.proto.IntStr.IntOrString value) {
+        if (maxSurgeBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)
+              && maxSurge_ != null
+              && maxSurge_ != io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()) {
+            maxSurge_ =
+                io.kubernetes.client.proto.IntStr.IntOrString.newBuilder(maxSurge_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            maxSurge_ = value;
+          }
+          onChanged();
+        } else {
+          maxSurgeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public Builder clearMaxSurge() {
+        if (maxSurgeBuilder_ == null) {
+          maxSurge_ = null;
+          onChanged();
+        } else {
+          maxSurgeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public io.kubernetes.client.proto.IntStr.IntOrString.Builder getMaxSurgeBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getMaxSurgeFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxSurgeOrBuilder() {
+        if (maxSurgeBuilder_ != null) {
+          return maxSurgeBuilder_.getMessageOrBuilder();
+        } else {
+          return maxSurge_ == null
+              ? io.kubernetes.client.proto.IntStr.IntOrString.getDefaultInstance()
+              : maxSurge_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * The maximum number of nodes with an existing available DaemonSet pod that
+       * can have an updated DaemonSet pod during during an update.
+       * Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%).
+       * This can not be 0 if MaxUnavailable is 0.
+       * Absolute number is calculated from percentage by rounding up to a minimum of 1.
+       * Default value is 0.
+       * Example: when this is set to 30%, at most 30% of the total number of nodes
+       * that should be running the daemon pod (i.e. status.desiredNumberScheduled)
+       * can have their a new pod created before the old pod is marked as deleted.
+       * The update starts by launching new pods on 30% of nodes. Once an updated
+       * pod is available (Ready for at least minReadySeconds) the old DaemonSet pod
+       * on that node is marked deleted. If the old pod becomes unavailable for any
+       * reason (Ready transitions to false, is evicted, or is drained) an updated
+       * pod is immediatedly created on that node without considering surge limits.
+       * Allowing surge implies the possibility that the resources consumed by the
+       * daemonset on any given node can double if the readiness check fails, and
+       * so resource intensive daemonsets should take into account that they may
+       * cause evictions during disruption.
+       * This is beta field and enabled/disabled by DaemonSetUpdateSurge feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxSurge = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.IntStr.IntOrString,
+              io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+              io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>
+          getMaxSurgeFieldBuilder() {
+        if (maxSurgeBuilder_ == null) {
+          maxSurgeBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.IntStr.IntOrString,
+                  io.kubernetes.client.proto.IntStr.IntOrString.Builder,
+                  io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder>(
+                  getMaxSurge(), getParentForChildren(), isClean());
+          maxSurge_ = null;
+        }
+        return maxSurgeBuilder_;
       }
 
       @java.lang.Override
@@ -31609,8 +32089,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     boolean hasMaxUnavailable();
     /**
@@ -31630,8 +32109,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable();
     /**
@@ -31651,8 +32129,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder();
 
@@ -31670,7 +32147,7 @@ public final class V1beta2Apps {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -31691,7 +32168,7 @@ public final class V1beta2Apps {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -31712,7 +32189,7 @@ public final class V1beta2Apps {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -31851,8 +32328,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public boolean hasMaxUnavailable() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -31874,8 +32350,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
       return maxUnavailable_ == null
@@ -31899,8 +32374,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-     * </code>
+     * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
      */
     public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
       return maxUnavailable_ == null
@@ -31924,7 +32398,7 @@ public final class V1beta2Apps {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -31947,7 +32421,7 @@ public final class V1beta2Apps {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -31972,7 +32446,7 @@ public final class V1beta2Apps {
      * the rolling update starts, such that the total number of old and new pods do not exceed
      * 130% of desired pods. Once old pods have been killed,
      * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-     * at any time during the update is atmost 130% of desired pods.
+     * at any time during the update is at most 130% of desired pods.
      * +optional
      * </pre>
      *
@@ -32194,8 +32668,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.RollingUpdateDeployment.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -32390,8 +32863,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public boolean hasMaxUnavailable() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -32413,8 +32885,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString getMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -32442,8 +32913,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder setMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -32475,8 +32945,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder setMaxUnavailable(
           io.kubernetes.client.proto.IntStr.IntOrString.Builder builderForValue) {
@@ -32506,8 +32975,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder mergeMaxUnavailable(io.kubernetes.client.proto.IntStr.IntOrString value) {
         if (maxUnavailableBuilder_ == null) {
@@ -32546,8 +33014,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public Builder clearMaxUnavailable() {
         if (maxUnavailableBuilder_ == null) {
@@ -32576,8 +33043,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrString.Builder getMaxUnavailableBuilder() {
         bitField0_ |= 0x00000001;
@@ -32601,8 +33067,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       public io.kubernetes.client.proto.IntStr.IntOrStringOrBuilder getMaxUnavailableOrBuilder() {
         if (maxUnavailableBuilder_ != null) {
@@ -32630,8 +33095,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.util.intstr.IntOrString maxUnavailable = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.IntStr.IntOrString,
@@ -32670,7 +33134,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -32693,7 +33157,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -32722,7 +33186,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -32755,7 +33219,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -32786,7 +33250,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -32825,7 +33289,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -32855,7 +33319,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -32880,7 +33344,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -32909,7 +33373,7 @@ public final class V1beta2Apps {
        * the rolling update starts, such that the total number of old and new pods do not exceed
        * 130% of desired pods. Once old pods have been killed,
        * new ReplicaSet can be scaled up further, ensuring that total number of pods running
-       * at any time during the update is atmost 130% of desired pods.
+       * at any time during the update is at most 130% of desired pods.
        * +optional
        * </pre>
        *
@@ -33628,7 +34092,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -33639,7 +34103,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -33650,7 +34114,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -33662,7 +34126,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -33673,7 +34137,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -33684,7 +34148,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -33696,7 +34160,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -33707,7 +34171,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -33718,7 +34182,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -33861,7 +34325,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -33874,7 +34338,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -33889,7 +34353,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -33907,7 +34371,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -33920,7 +34384,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -33935,7 +34399,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+     * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
      * +optional
      * </pre>
      *
@@ -33953,7 +34417,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -33966,7 +34430,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -33981,7 +34445,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+     * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
      * +optional
      * </pre>
      *
@@ -34410,7 +34874,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34423,7 +34887,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34442,7 +34906,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34465,7 +34929,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34486,7 +34950,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34515,7 +34979,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34535,7 +34999,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34550,7 +35014,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34569,7 +35033,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata.
+       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -34602,7 +35066,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34615,7 +35079,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34634,7 +35098,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34657,7 +35121,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34678,7 +35142,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34707,7 +35171,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34727,7 +35191,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34742,7 +35206,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34761,7 +35225,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status.
+       * defines the behavior of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
        * +optional
        * </pre>
        *
@@ -34794,7 +35258,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -34807,7 +35271,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -34826,7 +35290,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -34849,7 +35313,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -34870,7 +35334,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -34900,7 +35364,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -34920,7 +35384,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -34935,7 +35399,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -34954,7 +35418,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status. Read-only.
+       * current status of the scale. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status. Read-only.
        * +optional
        * </pre>
        *
@@ -35655,6 +36119,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -35666,6 +36131,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -35680,6 +36146,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -35691,6 +36158,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -35702,6 +36170,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -35937,6 +36406,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -35958,6 +36428,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -35971,6 +36442,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -35989,6 +36461,7 @@ public final class V1beta2Apps {
      * <pre>
      * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
+     * +mapType=atomic
      * </pre>
      *
      * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -36570,6 +37043,7 @@ public final class V1beta2Apps {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -36591,6 +37065,7 @@ public final class V1beta2Apps {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -36604,6 +37079,7 @@ public final class V1beta2Apps {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -36622,6 +37098,7 @@ public final class V1beta2Apps {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -36647,6 +37124,7 @@ public final class V1beta2Apps {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -36669,6 +37147,7 @@ public final class V1beta2Apps {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -36689,6 +37168,7 @@ public final class V1beta2Apps {
        * <pre>
        * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
+       * +mapType=atomic
        * </pre>
        *
        * <code>map&lt;string, string&gt; selector = 2;</code>
@@ -39156,8 +39636,7 @@ public final class V1beta2Apps {
                 io.kubernetes.client.proto.V1beta2Apps.StatefulSetCondition.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta2Apps.StatefulSetCondition.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta2Apps.StatefulSetCondition.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -39582,8 +40061,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -39596,8 +40074,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -39616,8 +40093,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -39640,8 +40116,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -39662,8 +40137,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -39692,8 +40166,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -39713,8 +40186,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000004;
@@ -39729,8 +40201,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -39749,8 +40220,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -41435,8 +41905,7 @@ public final class V1beta2Apps {
      * Template.
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;</code>
      */
     boolean hasUpdateStrategy();
     /**
@@ -41448,8 +41917,7 @@ public final class V1beta2Apps {
      * Template.
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;</code>
      */
     io.kubernetes.client.proto.V1beta2Apps.StatefulSetUpdateStrategy getUpdateStrategy();
     /**
@@ -41461,8 +41929,7 @@ public final class V1beta2Apps {
      * Template.
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;</code>
      */
     io.kubernetes.client.proto.V1beta2Apps.StatefulSetUpdateStrategyOrBuilder
         getUpdateStrategyOrBuilder();
@@ -41493,6 +41960,35 @@ public final class V1beta2Apps {
      * <code>optional int32 revisionHistoryLimit = 8;</code>
      */
     int getRevisionHistoryLimit();
+
+    /**
+     *
+     *
+     * <pre>
+     * Minimum number of seconds for which a newly created pod should be ready
+     * without any of its container crashing for it to be considered available.
+     * Defaults to 0 (pod will be considered available as soon as it is ready)
+     * This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 minReadySeconds = 9;</code>
+     */
+    boolean hasMinReadySeconds();
+    /**
+     *
+     *
+     * <pre>
+     * Minimum number of seconds for which a newly created pod should be ready
+     * without any of its container crashing for it to be considered available.
+     * Defaults to 0 (pod will be considered available as soon as it is ready)
+     * This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 minReadySeconds = 9;</code>
+     */
+    int getMinReadySeconds();
   }
   /**
    *
@@ -41519,6 +42015,7 @@ public final class V1beta2Apps {
       serviceName_ = "";
       podManagementPolicy_ = "";
       revisionHistoryLimit_ = 0;
+      minReadySeconds_ = 0;
     }
 
     @java.lang.Override
@@ -41633,6 +42130,12 @@ public final class V1beta2Apps {
               {
                 bitField0_ |= 0x00000040;
                 revisionHistoryLimit_ = input.readInt32();
+                break;
+              }
+            case 72:
+              {
+                bitField0_ |= 0x00000080;
+                minReadySeconds_ = input.readInt32();
                 break;
               }
             default:
@@ -42074,8 +42577,7 @@ public final class V1beta2Apps {
      * Template.
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;</code>
      */
     public boolean hasUpdateStrategy() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
@@ -42089,8 +42591,7 @@ public final class V1beta2Apps {
      * Template.
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;</code>
      */
     public io.kubernetes.client.proto.V1beta2Apps.StatefulSetUpdateStrategy getUpdateStrategy() {
       return updateStrategy_ == null
@@ -42106,8 +42607,7 @@ public final class V1beta2Apps {
      * Template.
      * </pre>
      *
-     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;
-     * </code>
+     * <code>optional .k8s.io.api.apps.v1beta2.StatefulSetUpdateStrategy updateStrategy = 7;</code>
      */
     public io.kubernetes.client.proto.V1beta2Apps.StatefulSetUpdateStrategyOrBuilder
         getUpdateStrategyOrBuilder() {
@@ -42149,6 +42649,41 @@ public final class V1beta2Apps {
       return revisionHistoryLimit_;
     }
 
+    public static final int MINREADYSECONDS_FIELD_NUMBER = 9;
+    private int minReadySeconds_;
+    /**
+     *
+     *
+     * <pre>
+     * Minimum number of seconds for which a newly created pod should be ready
+     * without any of its container crashing for it to be considered available.
+     * Defaults to 0 (pod will be considered available as soon as it is ready)
+     * This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 minReadySeconds = 9;</code>
+     */
+    public boolean hasMinReadySeconds() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Minimum number of seconds for which a newly created pod should be ready
+     * without any of its container crashing for it to be considered available.
+     * Defaults to 0 (pod will be considered available as soon as it is ready)
+     * This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 minReadySeconds = 9;</code>
+     */
+    public int getMinReadySeconds() {
+      return minReadySeconds_;
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -42187,6 +42722,9 @@ public final class V1beta2Apps {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeInt32(8, revisionHistoryLimit_);
       }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(9, minReadySeconds_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -42221,6 +42759,9 @@ public final class V1beta2Apps {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream.computeInt32Size(8, revisionHistoryLimit_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(9, minReadySeconds_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -42268,6 +42809,10 @@ public final class V1beta2Apps {
       if (hasRevisionHistoryLimit()) {
         result = result && (getRevisionHistoryLimit() == other.getRevisionHistoryLimit());
       }
+      result = result && (hasMinReadySeconds() == other.hasMinReadySeconds());
+      if (hasMinReadySeconds()) {
+        result = result && (getMinReadySeconds() == other.getMinReadySeconds());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -42310,6 +42855,10 @@ public final class V1beta2Apps {
       if (hasRevisionHistoryLimit()) {
         hash = (37 * hash) + REVISIONHISTORYLIMIT_FIELD_NUMBER;
         hash = (53 * hash) + getRevisionHistoryLimit();
+      }
+      if (hasMinReadySeconds()) {
+        hash = (37 * hash) + MINREADYSECONDS_FIELD_NUMBER;
+        hash = (53 * hash) + getMinReadySeconds();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -42496,6 +43045,8 @@ public final class V1beta2Apps {
         bitField0_ = (bitField0_ & ~0x00000040);
         revisionHistoryLimit_ = 0;
         bitField0_ = (bitField0_ & ~0x00000080);
+        minReadySeconds_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -42574,6 +43125,10 @@ public final class V1beta2Apps {
           to_bitField0_ |= 0x00000040;
         }
         result.revisionHistoryLimit_ = revisionHistoryLimit_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.minReadySeconds_ = minReadySeconds_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -42678,6 +43233,9 @@ public final class V1beta2Apps {
         }
         if (other.hasRevisionHistoryLimit()) {
           setRevisionHistoryLimit(other.getRevisionHistoryLimit());
+        }
+        if (other.hasMinReadySeconds()) {
+          setMinReadySeconds(other.getMinReadySeconds());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -42802,8 +43360,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public boolean hasSelector() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -42817,8 +43374,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector getSelector() {
         if (selectorBuilder_ == null) {
@@ -42838,8 +43394,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -42863,8 +43418,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder setSelector(
           io.kubernetes.client.proto.Meta.LabelSelector.Builder builderForValue) {
@@ -42886,8 +43440,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder mergeSelector(io.kubernetes.client.proto.Meta.LabelSelector value) {
         if (selectorBuilder_ == null) {
@@ -42917,8 +43470,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public Builder clearSelector() {
         if (selectorBuilder_ == null) {
@@ -42939,8 +43491,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelector.Builder getSelectorBuilder() {
         bitField0_ |= 0x00000002;
@@ -42956,8 +43507,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       public io.kubernetes.client.proto.Meta.LabelSelectorOrBuilder getSelectorOrBuilder() {
         if (selectorBuilder_ != null) {
@@ -42977,8 +43527,7 @@ public final class V1beta2Apps {
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.LabelSelector,
@@ -43239,8 +43788,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1.PersistentVolumeClaim>
           getVolumeClaimTemplatesList() {
@@ -43264,8 +43812,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public int getVolumeClaimTemplatesCount() {
         if (volumeClaimTemplatesBuilder_ == null) {
@@ -43288,8 +43835,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public io.kubernetes.client.proto.V1.PersistentVolumeClaim getVolumeClaimTemplates(
           int index) {
@@ -43313,8 +43859,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder setVolumeClaimTemplates(
           int index, io.kubernetes.client.proto.V1.PersistentVolumeClaim value) {
@@ -43344,8 +43889,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder setVolumeClaimTemplates(
           int index, io.kubernetes.client.proto.V1.PersistentVolumeClaim.Builder builderForValue) {
@@ -43372,8 +43916,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder addVolumeClaimTemplates(
           io.kubernetes.client.proto.V1.PersistentVolumeClaim value) {
@@ -43403,8 +43946,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder addVolumeClaimTemplates(
           int index, io.kubernetes.client.proto.V1.PersistentVolumeClaim value) {
@@ -43434,8 +43976,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder addVolumeClaimTemplates(
           io.kubernetes.client.proto.V1.PersistentVolumeClaim.Builder builderForValue) {
@@ -43462,8 +44003,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder addVolumeClaimTemplates(
           int index, io.kubernetes.client.proto.V1.PersistentVolumeClaim.Builder builderForValue) {
@@ -43490,8 +44030,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder addAllVolumeClaimTemplates(
           java.lang.Iterable<? extends io.kubernetes.client.proto.V1.PersistentVolumeClaim>
@@ -43519,8 +44058,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder clearVolumeClaimTemplates() {
         if (volumeClaimTemplatesBuilder_ == null) {
@@ -43546,8 +44084,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public Builder removeVolumeClaimTemplates(int index) {
         if (volumeClaimTemplatesBuilder_ == null) {
@@ -43573,8 +44110,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public io.kubernetes.client.proto.V1.PersistentVolumeClaim.Builder
           getVolumeClaimTemplatesBuilder(int index) {
@@ -43594,8 +44130,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public io.kubernetes.client.proto.V1.PersistentVolumeClaimOrBuilder
           getVolumeClaimTemplatesOrBuilder(int index) {
@@ -43619,8 +44154,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public java.util.List<? extends io.kubernetes.client.proto.V1.PersistentVolumeClaimOrBuilder>
           getVolumeClaimTemplatesOrBuilderList() {
@@ -43644,8 +44178,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public io.kubernetes.client.proto.V1.PersistentVolumeClaim.Builder
           addVolumeClaimTemplatesBuilder() {
@@ -43666,8 +44199,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public io.kubernetes.client.proto.V1.PersistentVolumeClaim.Builder
           addVolumeClaimTemplatesBuilder(int index) {
@@ -43689,8 +44221,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;
-       * </code>
+       * <code>repeated .k8s.io.api.core.v1.PersistentVolumeClaim volumeClaimTemplates = 4;</code>
        */
       public java.util.List<io.kubernetes.client.proto.V1.PersistentVolumeClaim.Builder>
           getVolumeClaimTemplatesBuilderList() {
@@ -44292,6 +44823,78 @@ public final class V1beta2Apps {
         return this;
       }
 
+      private int minReadySeconds_;
+      /**
+       *
+       *
+       * <pre>
+       * Minimum number of seconds for which a newly created pod should be ready
+       * without any of its container crashing for it to be considered available.
+       * Defaults to 0 (pod will be considered available as soon as it is ready)
+       * This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 minReadySeconds = 9;</code>
+       */
+      public boolean hasMinReadySeconds() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Minimum number of seconds for which a newly created pod should be ready
+       * without any of its container crashing for it to be considered available.
+       * Defaults to 0 (pod will be considered available as soon as it is ready)
+       * This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 minReadySeconds = 9;</code>
+       */
+      public int getMinReadySeconds() {
+        return minReadySeconds_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Minimum number of seconds for which a newly created pod should be ready
+       * without any of its container crashing for it to be considered available.
+       * Defaults to 0 (pod will be considered available as soon as it is ready)
+       * This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 minReadySeconds = 9;</code>
+       */
+      public Builder setMinReadySeconds(int value) {
+        bitField0_ |= 0x00000100;
+        minReadySeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Minimum number of seconds for which a newly created pod should be ready
+       * without any of its container crashing for it to be considered available.
+       * Defaults to 0 (pod will be considered available as soon as it is ready)
+       * This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 minReadySeconds = 9;</code>
+       */
+      public Builder clearMinReadySeconds() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        minReadySeconds_ = 0;
+        onChanged();
+        return this;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -44400,7 +45003,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
+     * readyReplicas is the number of pods created by this StatefulSet controller with a Ready Condition.
      * </pre>
      *
      * <code>optional int32 readyReplicas = 3;</code>
@@ -44410,7 +45013,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
+     * readyReplicas is the number of pods created by this StatefulSet controller with a Ready Condition.
      * </pre>
      *
      * <code>optional int32 readyReplicas = 3;</code>
@@ -44625,6 +45228,29 @@ public final class V1beta2Apps {
      */
     io.kubernetes.client.proto.V1beta2Apps.StatefulSetConditionOrBuilder getConditionsOrBuilder(
         int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * Total number of available pods (ready for at least minReadySeconds) targeted by this StatefulSet.
+     * This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+     * </pre>
+     *
+     * <code>optional int32 availableReplicas = 11;</code>
+     */
+    boolean hasAvailableReplicas();
+    /**
+     *
+     *
+     * <pre>
+     * Total number of available pods (ready for at least minReadySeconds) targeted by this StatefulSet.
+     * This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+     * </pre>
+     *
+     * <code>optional int32 availableReplicas = 11;</code>
+     */
+    int getAvailableReplicas();
   }
   /**
    *
@@ -44655,6 +45281,7 @@ public final class V1beta2Apps {
       updateRevision_ = "";
       collisionCount_ = 0;
       conditions_ = java.util.Collections.emptyList();
+      availableReplicas_ = 0;
     }
 
     @java.lang.Override
@@ -44743,6 +45370,12 @@ public final class V1beta2Apps {
                     input.readMessage(
                         io.kubernetes.client.proto.V1beta2Apps.StatefulSetCondition.PARSER,
                         extensionRegistry));
+                break;
+              }
+            case 88:
+              {
+                bitField0_ |= 0x00000100;
+                availableReplicas_ = input.readInt32();
                 break;
               }
             default:
@@ -44847,7 +45480,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
+     * readyReplicas is the number of pods created by this StatefulSet controller with a Ready Condition.
      * </pre>
      *
      * <code>optional int32 readyReplicas = 3;</code>
@@ -44859,7 +45492,7 @@ public final class V1beta2Apps {
      *
      *
      * <pre>
-     * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
+     * readyReplicas is the number of pods created by this StatefulSet controller with a Ready Condition.
      * </pre>
      *
      * <code>optional int32 readyReplicas = 3;</code>
@@ -45161,6 +45794,35 @@ public final class V1beta2Apps {
       return conditions_.get(index);
     }
 
+    public static final int AVAILABLEREPLICAS_FIELD_NUMBER = 11;
+    private int availableReplicas_;
+    /**
+     *
+     *
+     * <pre>
+     * Total number of available pods (ready for at least minReadySeconds) targeted by this StatefulSet.
+     * This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+     * </pre>
+     *
+     * <code>optional int32 availableReplicas = 11;</code>
+     */
+    public boolean hasAvailableReplicas() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Total number of available pods (ready for at least minReadySeconds) targeted by this StatefulSet.
+     * This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+     * </pre>
+     *
+     * <code>optional int32 availableReplicas = 11;</code>
+     */
+    public int getAvailableReplicas() {
+      return availableReplicas_;
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -45202,6 +45864,9 @@ public final class V1beta2Apps {
       for (int i = 0; i < conditions_.size(); i++) {
         output.writeMessage(10, conditions_.get(i));
       }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeInt32(11, availableReplicas_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -45237,6 +45902,9 @@ public final class V1beta2Apps {
       }
       for (int i = 0; i < conditions_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(10, conditions_.get(i));
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(11, availableReplicas_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -45288,6 +45956,10 @@ public final class V1beta2Apps {
         result = result && (getCollisionCount() == other.getCollisionCount());
       }
       result = result && getConditionsList().equals(other.getConditionsList());
+      result = result && (hasAvailableReplicas() == other.hasAvailableReplicas());
+      if (hasAvailableReplicas()) {
+        result = result && (getAvailableReplicas() == other.getAvailableReplicas());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -45334,6 +46006,10 @@ public final class V1beta2Apps {
       if (getConditionsCount() > 0) {
         hash = (37 * hash) + CONDITIONS_FIELD_NUMBER;
         hash = (53 * hash) + getConditionsList().hashCode();
+      }
+      if (hasAvailableReplicas()) {
+        hash = (37 * hash) + AVAILABLEREPLICAS_FIELD_NUMBER;
+        hash = (53 * hash) + getAvailableReplicas();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -45507,6 +46183,8 @@ public final class V1beta2Apps {
         } else {
           conditionsBuilder_.clear();
         }
+        availableReplicas_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -45577,6 +46255,10 @@ public final class V1beta2Apps {
         } else {
           result.conditions_ = conditionsBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.availableReplicas_ = availableReplicas_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -45684,6 +46366,9 @@ public final class V1beta2Apps {
               conditionsBuilder_.addAllMessages(other.conditions_);
             }
           }
+        }
+        if (other.hasAvailableReplicas()) {
+          setAvailableReplicas(other.getAvailableReplicas());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -45842,7 +46527,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
+       * readyReplicas is the number of pods created by this StatefulSet controller with a Ready Condition.
        * </pre>
        *
        * <code>optional int32 readyReplicas = 3;</code>
@@ -45854,7 +46539,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
+       * readyReplicas is the number of pods created by this StatefulSet controller with a Ready Condition.
        * </pre>
        *
        * <code>optional int32 readyReplicas = 3;</code>
@@ -45866,7 +46551,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
+       * readyReplicas is the number of pods created by this StatefulSet controller with a Ready Condition.
        * </pre>
        *
        * <code>optional int32 readyReplicas = 3;</code>
@@ -45881,7 +46566,7 @@ public final class V1beta2Apps {
        *
        *
        * <pre>
-       * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.
+       * readyReplicas is the number of pods created by this StatefulSet controller with a Ready Condition.
        * </pre>
        *
        * <code>optional int32 readyReplicas = 3;</code>
@@ -46731,6 +47416,66 @@ public final class V1beta2Apps {
         return conditionsBuilder_;
       }
 
+      private int availableReplicas_;
+      /**
+       *
+       *
+       * <pre>
+       * Total number of available pods (ready for at least minReadySeconds) targeted by this StatefulSet.
+       * This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+       * </pre>
+       *
+       * <code>optional int32 availableReplicas = 11;</code>
+       */
+      public boolean hasAvailableReplicas() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Total number of available pods (ready for at least minReadySeconds) targeted by this StatefulSet.
+       * This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+       * </pre>
+       *
+       * <code>optional int32 availableReplicas = 11;</code>
+       */
+      public int getAvailableReplicas() {
+        return availableReplicas_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Total number of available pods (ready for at least minReadySeconds) targeted by this StatefulSet.
+       * This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+       * </pre>
+       *
+       * <code>optional int32 availableReplicas = 11;</code>
+       */
+      public Builder setAvailableReplicas(int value) {
+        bitField0_ |= 0x00000200;
+        availableReplicas_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Total number of available pods (ready for at least minReadySeconds) targeted by this StatefulSet.
+       * This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.
+       * </pre>
+       *
+       * <code>optional int32 availableReplicas = 11;</code>
+       */
+      public Builder clearAvailableReplicas() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        availableReplicas_ = 0;
+        onChanged();
+        return this;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -46834,8 +47579,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+     * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
      * </code>
      */
     boolean hasRollingUpdate();
@@ -46847,8 +47591,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+     * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
      * </code>
      */
     io.kubernetes.client.proto.V1beta2Apps.RollingUpdateStatefulSetStrategy getRollingUpdate();
@@ -46860,8 +47603,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+     * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
      * </code>
      */
     io.kubernetes.client.proto.V1beta2Apps.RollingUpdateStatefulSetStrategyOrBuilder
@@ -47050,8 +47792,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+     * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
      * </code>
      */
     public boolean hasRollingUpdate() {
@@ -47065,8 +47806,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+     * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateStatefulSetStrategy
@@ -47084,8 +47824,7 @@ public final class V1beta2Apps {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+     * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateStatefulSetStrategyOrBuilder
@@ -47611,8 +48350,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       public boolean hasRollingUpdate() {
@@ -47626,8 +48364,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateStatefulSetStrategy
@@ -47649,8 +48386,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       public Builder setRollingUpdate(
@@ -47675,8 +48411,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       public Builder setRollingUpdate(
@@ -47699,8 +48434,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       public Builder mergeRollingUpdate(
@@ -47734,8 +48468,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       public Builder clearRollingUpdate() {
@@ -47756,8 +48489,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateStatefulSetStrategy.Builder
@@ -47774,8 +48506,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta2Apps.RollingUpdateStatefulSetStrategyOrBuilder
@@ -47797,8 +48528,7 @@ public final class V1beta2Apps {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
+       * <code>optional .k8s.io.api.apps.v1beta2.RollingUpdateStatefulSetStrategy rollingUpdate = 2;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -48111,58 +48841,61 @@ public final class V1beta2Apps {
           + "\n\021availableReplicas\030\005 \001(\005\022\032\n\022observedGen"
           + "eration\030\003 \001(\003\022@\n\nconditions\030\006 \003(\0132,.k8s."
           + "io.api.apps.v1beta2.ReplicaSetCondition\""
-          + "b\n\026RollingUpdateDaemonSet\022H\n\016maxUnavaila"
-          + "ble\030\001 \001(\01320.k8s.io.apimachinery.pkg.util"
-          + ".intstr.IntOrString\"\247\001\n\027RollingUpdateDep"
-          + "loyment\022H\n\016maxUnavailable\030\001 \001(\01320.k8s.io"
-          + ".apimachinery.pkg.util.intstr.IntOrStrin"
-          + "g\022B\n\010maxSurge\030\002 \001(\01320.k8s.io.apimachiner"
-          + "y.pkg.util.intstr.IntOrString\"5\n Rolling"
-          + "UpdateStatefulSetStrategy\022\021\n\tpartition\030\001"
-          + " \001(\005\"\263\001\n\005Scale\022B\n\010metadata\030\001 \001(\01320.k8s.i"
-          + "o.apimachinery.pkg.apis.meta.v1.ObjectMe"
-          + "ta\0220\n\004spec\030\002 \001(\0132\".k8s.io.api.apps.v1bet"
-          + "a2.ScaleSpec\0224\n\006status\030\003 \001(\0132$.k8s.io.ap"
-          + "i.apps.v1beta2.ScaleStatus\"\035\n\tScaleSpec\022"
-          + "\020\n\010replicas\030\001 \001(\005\"\256\001\n\013ScaleStatus\022\020\n\010rep"
-          + "licas\030\001 \001(\005\022D\n\010selector\030\002 \003(\01322.k8s.io.a"
-          + "pi.apps.v1beta2.ScaleStatus.SelectorEntr"
-          + "y\022\026\n\016targetSelector\030\003 \001(\t\032/\n\rSelectorEnt"
-          + "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\305\001\n\013S"
-          + "tatefulSet\022B\n\010metadata\030\001 \001(\01320.k8s.io.ap"
-          + "imachinery.pkg.apis.meta.v1.ObjectMeta\0226"
-          + "\n\004spec\030\002 \001(\0132(.k8s.io.api.apps.v1beta2.S"
-          + "tatefulSetSpec\022:\n\006status\030\003 \001(\0132*.k8s.io."
-          + "api.apps.v1beta2.StatefulSetStatus\"\235\001\n\024S"
-          + "tatefulSetCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006sta"
-          + "tus\030\002 \001(\t\022F\n\022lastTransitionTime\030\003 \001(\0132*."
-          + "k8s.io.apimachinery.pkg.apis.meta.v1.Tim"
-          + "e\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\210\001\n\017S"
-          + "tatefulSetList\022@\n\010metadata\030\001 \001(\0132..k8s.i"
-          + "o.apimachinery.pkg.apis.meta.v1.ListMeta"
-          + "\0223\n\005items\030\002 \003(\0132$.k8s.io.api.apps.v1beta"
-          + "2.StatefulSet\"\206\003\n\017StatefulSetSpec\022\020\n\010rep"
-          + "licas\030\001 \001(\005\022E\n\010selector\030\002 \001(\01323.k8s.io.a"
-          + "pimachinery.pkg.apis.meta.v1.LabelSelect"
-          + "or\0225\n\010template\030\003 \001(\0132#.k8s.io.api.core.v"
-          + "1.PodTemplateSpec\022G\n\024volumeClaimTemplate"
-          + "s\030\004 \003(\0132).k8s.io.api.core.v1.PersistentV"
-          + "olumeClaim\022\023\n\013serviceName\030\005 \001(\t\022\033\n\023podMa"
-          + "nagementPolicy\030\006 \001(\t\022J\n\016updateStrategy\030\007"
-          + " \001(\01322.k8s.io.api.apps.v1beta2.StatefulS"
-          + "etUpdateStrategy\022\034\n\024revisionHistoryLimit"
-          + "\030\010 \001(\005\"\226\002\n\021StatefulSetStatus\022\032\n\022observed"
-          + "Generation\030\001 \001(\003\022\020\n\010replicas\030\002 \001(\005\022\025\n\rre"
-          + "adyReplicas\030\003 \001(\005\022\027\n\017currentReplicas\030\004 \001"
-          + "(\005\022\027\n\017updatedReplicas\030\005 \001(\005\022\027\n\017currentRe"
-          + "vision\030\006 \001(\t\022\026\n\016updateRevision\030\007 \001(\t\022\026\n\016"
-          + "collisionCount\030\t \001(\005\022A\n\nconditions\030\n \003(\013"
-          + "2-.k8s.io.api.apps.v1beta2.StatefulSetCo"
-          + "ndition\"{\n\031StatefulSetUpdateStrategy\022\014\n\004"
-          + "type\030\001 \001(\t\022P\n\rrollingUpdate\030\002 \001(\01329.k8s."
-          + "io.api.apps.v1beta2.RollingUpdateStatefu"
-          + "lSetStrategyB2\n\032io.kubernetes.client.pro"
-          + "toB\013V1beta2AppsZ\007v1beta2"
+          + "\246\001\n\026RollingUpdateDaemonSet\022H\n\016maxUnavail"
+          + "able\030\001 \001(\01320.k8s.io.apimachinery.pkg.uti"
+          + "l.intstr.IntOrString\022B\n\010maxSurge\030\002 \001(\01320"
+          + ".k8s.io.apimachinery.pkg.util.intstr.Int"
+          + "OrString\"\247\001\n\027RollingUpdateDeployment\022H\n\016"
+          + "maxUnavailable\030\001 \001(\01320.k8s.io.apimachine"
+          + "ry.pkg.util.intstr.IntOrString\022B\n\010maxSur"
+          + "ge\030\002 \001(\01320.k8s.io.apimachinery.pkg.util."
+          + "intstr.IntOrString\"5\n RollingUpdateState"
+          + "fulSetStrategy\022\021\n\tpartition\030\001 \001(\005\"\263\001\n\005Sc"
+          + "ale\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachin"
+          + "ery.pkg.apis.meta.v1.ObjectMeta\0220\n\004spec\030"
+          + "\002 \001(\0132\".k8s.io.api.apps.v1beta2.ScaleSpe"
+          + "c\0224\n\006status\030\003 \001(\0132$.k8s.io.api.apps.v1be"
+          + "ta2.ScaleStatus\"\035\n\tScaleSpec\022\020\n\010replicas"
+          + "\030\001 \001(\005\"\256\001\n\013ScaleStatus\022\020\n\010replicas\030\001 \001(\005"
+          + "\022D\n\010selector\030\002 \003(\01322.k8s.io.api.apps.v1b"
+          + "eta2.ScaleStatus.SelectorEntry\022\026\n\016target"
+          + "Selector\030\003 \001(\t\032/\n\rSelectorEntry\022\013\n\003key\030\001"
+          + " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\305\001\n\013StatefulSet\022"
+          + "B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery."
+          + "pkg.apis.meta.v1.ObjectMeta\0226\n\004spec\030\002 \001("
+          + "\0132(.k8s.io.api.apps.v1beta2.StatefulSetS"
+          + "pec\022:\n\006status\030\003 \001(\0132*.k8s.io.api.apps.v1"
+          + "beta2.StatefulSetStatus\"\235\001\n\024StatefulSetC"
+          + "ondition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022F"
+          + "\n\022lastTransitionTime\030\003 \001(\0132*.k8s.io.apim"
+          + "achinery.pkg.apis.meta.v1.Time\022\016\n\006reason"
+          + "\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\210\001\n\017StatefulSetL"
+          + "ist\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachin"
+          + "ery.pkg.apis.meta.v1.ListMeta\0223\n\005items\030\002"
+          + " \003(\0132$.k8s.io.api.apps.v1beta2.StatefulS"
+          + "et\"\237\003\n\017StatefulSetSpec\022\020\n\010replicas\030\001 \001(\005"
+          + "\022E\n\010selector\030\002 \001(\01323.k8s.io.apimachinery"
+          + ".pkg.apis.meta.v1.LabelSelector\0225\n\010templ"
+          + "ate\030\003 \001(\0132#.k8s.io.api.core.v1.PodTempla"
+          + "teSpec\022G\n\024volumeClaimTemplates\030\004 \003(\0132).k"
+          + "8s.io.api.core.v1.PersistentVolumeClaim\022"
+          + "\023\n\013serviceName\030\005 \001(\t\022\033\n\023podManagementPol"
+          + "icy\030\006 \001(\t\022J\n\016updateStrategy\030\007 \001(\01322.k8s."
+          + "io.api.apps.v1beta2.StatefulSetUpdateStr"
+          + "ategy\022\034\n\024revisionHistoryLimit\030\010 \001(\005\022\027\n\017m"
+          + "inReadySeconds\030\t \001(\005\"\261\002\n\021StatefulSetStat"
+          + "us\022\032\n\022observedGeneration\030\001 \001(\003\022\020\n\010replic"
+          + "as\030\002 \001(\005\022\025\n\rreadyReplicas\030\003 \001(\005\022\027\n\017curre"
+          + "ntReplicas\030\004 \001(\005\022\027\n\017updatedReplicas\030\005 \001("
+          + "\005\022\027\n\017currentRevision\030\006 \001(\t\022\026\n\016updateRevi"
+          + "sion\030\007 \001(\t\022\026\n\016collisionCount\030\t \001(\005\022A\n\nco"
+          + "nditions\030\n \003(\0132-.k8s.io.api.apps.v1beta2"
+          + ".StatefulSetCondition\022\031\n\021availableReplic"
+          + "as\030\013 \001(\005\"{\n\031StatefulSetUpdateStrategy\022\014\n"
+          + "\004type\030\001 \001(\t\022P\n\rrollingUpdate\030\002 \001(\01329.k8s"
+          + ".io.api.apps.v1beta2.RollingUpdateStatef"
+          + "ulSetStrategyB2\n\032io.kubernetes.client.pr"
+          + "otoB\013V1beta2AppsZ\007v1beta2"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -48368,7 +49101,7 @@ public final class V1beta2Apps {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_apps_v1beta2_RollingUpdateDaemonSet_descriptor,
             new java.lang.String[] {
-              "MaxUnavailable",
+              "MaxUnavailable", "MaxSurge",
             });
     internal_static_k8s_io_api_apps_v1beta2_RollingUpdateDeployment_descriptor =
         getDescriptor().getMessageTypes().get(20);
@@ -48456,6 +49189,7 @@ public final class V1beta2Apps {
               "PodManagementPolicy",
               "UpdateStrategy",
               "RevisionHistoryLimit",
+              "MinReadySeconds",
             });
     internal_static_k8s_io_api_apps_v1beta2_StatefulSetStatus_descriptor =
         getDescriptor().getMessageTypes().get(29);
@@ -48472,6 +49206,7 @@ public final class V1beta2Apps {
               "UpdateRevision",
               "CollisionCount",
               "Conditions",
+              "AvailableReplicas",
             });
     internal_static_k8s_io_api_apps_v1beta2_StatefulSetUpdateStrategy_descriptor =
         getDescriptor().getMessageTypes().get(30);

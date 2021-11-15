@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -61,8 +61,9 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * The certificate request itself and any additional information.
-     * +optional
+     * spec contains the certificate request, and is immutable after creation.
+     * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+     * Other fields are derived by Kubernetes and cannot be modified by users.
      * </pre>
      *
      * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
@@ -73,8 +74,9 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * The certificate request itself and any additional information.
-     * +optional
+     * spec contains the certificate request, and is immutable after creation.
+     * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+     * Other fields are derived by Kubernetes and cannot be modified by users.
      * </pre>
      *
      * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
@@ -85,8 +87,9 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * The certificate request itself and any additional information.
-     * +optional
+     * spec contains the certificate request, and is immutable after creation.
+     * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+     * Other fields are derived by Kubernetes and cannot be modified by users.
      * </pre>
      *
      * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
@@ -103,8 +106,7 @@ public final class V1beta1Certificates {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+     * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
      * </code>
      */
     boolean hasStatus();
@@ -116,8 +118,7 @@ public final class V1beta1Certificates {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+     * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestStatus getStatus();
@@ -129,8 +130,7 @@ public final class V1beta1Certificates {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+     * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestStatusOrBuilder
@@ -321,8 +321,9 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * The certificate request itself and any additional information.
-     * +optional
+     * spec contains the certificate request, and is immutable after creation.
+     * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+     * Other fields are derived by Kubernetes and cannot be modified by users.
      * </pre>
      *
      * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
@@ -335,8 +336,9 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * The certificate request itself and any additional information.
-     * +optional
+     * spec contains the certificate request, and is immutable after creation.
+     * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+     * Other fields are derived by Kubernetes and cannot be modified by users.
      * </pre>
      *
      * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
@@ -352,8 +354,9 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * The certificate request itself and any additional information.
-     * +optional
+     * spec contains the certificate request, and is immutable after creation.
+     * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+     * Other fields are derived by Kubernetes and cannot be modified by users.
      * </pre>
      *
      * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
@@ -377,8 +380,7 @@ public final class V1beta1Certificates {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+     * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
      * </code>
      */
     public boolean hasStatus() {
@@ -392,8 +394,7 @@ public final class V1beta1Certificates {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+     * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestStatus
@@ -411,8 +412,7 @@ public final class V1beta1Certificates {
      * +optional
      * </pre>
      *
-     * <code>
-     * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+     * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestStatusOrBuilder
@@ -1046,12 +1046,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       public boolean hasSpec() {
@@ -1061,12 +1061,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestSpec
@@ -1084,12 +1084,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       public Builder setSpec(
@@ -1110,12 +1110,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       public Builder setSpec(
@@ -1134,12 +1134,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       public Builder mergeSpec(
@@ -1169,12 +1169,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       public Builder clearSpec() {
@@ -1191,12 +1191,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestSpec.Builder
@@ -1209,12 +1209,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestSpecOrBuilder
@@ -1232,12 +1232,12 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * The certificate request itself and any additional information.
-       * +optional
+       * spec contains the certificate request, and is immutable after creation.
+       * Only the request, signerName, expirationSeconds, and usages fields can be set on creation.
+       * Other fields are derived by Kubernetes and cannot be modified by users.
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec spec = 2;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1276,8 +1276,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       public boolean hasStatus() {
@@ -1291,8 +1290,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestStatus
@@ -1314,8 +1312,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -1340,8 +1337,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       public Builder setStatus(
@@ -1364,8 +1360,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       public Builder mergeStatus(
@@ -1399,8 +1394,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       public Builder clearStatus() {
@@ -1421,8 +1415,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestStatus.Builder
@@ -1439,8 +1432,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestStatusOrBuilder
@@ -1462,8 +1454,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>
-       * optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
+       * <code>optional .k8s.io.api.certificates.v1beta1.CertificateSigningRequestStatus status = 3;
        * </code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1553,7 +1544,7 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * request approval state, currently Approved or Denied.
+     * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -1563,7 +1554,7 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * request approval state, currently Approved or Denied.
+     * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -1573,12 +1564,55 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * request approval state, currently Approved or Denied.
+     * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
      * </pre>
      *
      * <code>optional string type = 1;</code>
      */
     com.google.protobuf.ByteString getTypeBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+     * Defaults to "True".
+     * If unset, should be treated as "True".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string status = 6;</code>
+     */
+    boolean hasStatus();
+    /**
+     *
+     *
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+     * Defaults to "True".
+     * If unset, should be treated as "True".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string status = 6;</code>
+     */
+    java.lang.String getStatus();
+    /**
+     *
+     *
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+     * Defaults to "True".
+     * If unset, should be treated as "True".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string status = 6;</code>
+     */
+    com.google.protobuf.ByteString getStatusBytes();
 
     /**
      *
@@ -1681,6 +1715,46 @@ public final class V1beta1Certificates {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 4;</code>
      */
     io.kubernetes.client.proto.Meta.TimeOrBuilder getLastUpdateTimeOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * lastTransitionTime is the time the condition last transitioned from one status to another.
+     * If unset, when a new condition type is added or an existing condition's status is changed,
+     * the server defaults this to the current time.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+     */
+    boolean hasLastTransitionTime();
+    /**
+     *
+     *
+     * <pre>
+     * lastTransitionTime is the time the condition last transitioned from one status to another.
+     * If unset, when a new condition type is added or an existing condition's status is changed,
+     * the server defaults this to the current time.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+     */
+    io.kubernetes.client.proto.Meta.Time getLastTransitionTime();
+    /**
+     *
+     *
+     * <pre>
+     * lastTransitionTime is the time the condition last transitioned from one status to another.
+     * If unset, when a new condition type is added or an existing condition's status is changed,
+     * the server defaults this to the current time.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+     */
+    io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder();
   }
   /** Protobuf type {@code k8s.io.api.certificates.v1beta1.CertificateSigningRequestCondition} */
   public static final class CertificateSigningRequestCondition
@@ -1697,6 +1771,7 @@ public final class V1beta1Certificates {
 
     private CertificateSigningRequestCondition() {
       type_ = "";
+      status_ = "";
       reason_ = "";
       message_ = "";
     }
@@ -1735,21 +1810,21 @@ public final class V1beta1Certificates {
             case 18:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
                 reason_ = bs;
                 break;
               }
             case 26:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000008;
                 message_ = bs;
                 break;
               }
             case 34:
               {
                 io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                if (((bitField0_ & 0x00000010) == 0x00000010)) {
                   subBuilder = lastUpdateTime_.toBuilder();
                 }
                 lastUpdateTime_ =
@@ -1759,7 +1834,30 @@ public final class V1beta1Certificates {
                   subBuilder.mergeFrom(lastUpdateTime_);
                   lastUpdateTime_ = subBuilder.buildPartial();
                 }
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000010;
+                break;
+              }
+            case 42:
+              {
+                io.kubernetes.client.proto.Meta.Time.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                  subBuilder = lastTransitionTime_.toBuilder();
+                }
+                lastTransitionTime_ =
+                    input.readMessage(
+                        io.kubernetes.client.proto.Meta.Time.PARSER, extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(lastTransitionTime_);
+                  lastTransitionTime_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000020;
+                break;
+              }
+            case 50:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000002;
+                status_ = bs;
                 break;
               }
             default:
@@ -1805,7 +1903,7 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * request approval state, currently Approved or Denied.
+     * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -1817,7 +1915,7 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * request approval state, currently Approved or Denied.
+     * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -1839,7 +1937,7 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * request approval state, currently Approved or Denied.
+     * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -1850,6 +1948,75 @@ public final class V1beta1Certificates {
         com.google.protobuf.ByteString b =
             com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
         type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 6;
+    private volatile java.lang.Object status_;
+    /**
+     *
+     *
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+     * Defaults to "True".
+     * If unset, should be treated as "True".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string status = 6;</code>
+     */
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+     * Defaults to "True".
+     * If unset, should be treated as "True".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string status = 6;</code>
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          status_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Status of the condition, one of True, False, Unknown.
+     * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+     * Defaults to "True".
+     * If unset, should be treated as "True".
+     * +optional
+     * </pre>
+     *
+     * <code>optional string status = 6;</code>
+     */
+    public com.google.protobuf.ByteString getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        status_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1869,7 +2036,7 @@ public final class V1beta1Certificates {
      * <code>optional string reason = 2;</code>
      */
     public boolean hasReason() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      *
@@ -1929,7 +2096,7 @@ public final class V1beta1Certificates {
      * <code>optional string message = 3;</code>
      */
     public boolean hasMessage() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      *
@@ -1989,7 +2156,7 @@ public final class V1beta1Certificates {
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 4;</code>
      */
     public boolean hasLastUpdateTime() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      *
@@ -2022,6 +2189,58 @@ public final class V1beta1Certificates {
           : lastUpdateTime_;
     }
 
+    public static final int LASTTRANSITIONTIME_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.Meta.Time lastTransitionTime_;
+    /**
+     *
+     *
+     * <pre>
+     * lastTransitionTime is the time the condition last transitioned from one status to another.
+     * If unset, when a new condition type is added or an existing condition's status is changed,
+     * the server defaults this to the current time.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+     */
+    public boolean hasLastTransitionTime() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * lastTransitionTime is the time the condition last transitioned from one status to another.
+     * If unset, when a new condition type is added or an existing condition's status is changed,
+     * the server defaults this to the current time.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+     */
+    public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
+      return lastTransitionTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : lastTransitionTime_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * lastTransitionTime is the time the condition last transitioned from one status to another.
+     * If unset, when a new condition type is added or an existing condition's status is changed,
+     * the server defaults this to the current time.
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+     */
+    public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
+      return lastTransitionTime_ == null
+          ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+          : lastTransitionTime_;
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -2039,14 +2258,20 @@ public final class V1beta1Certificates {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, reason_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(4, getLastUpdateTime());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeMessage(5, getLastTransitionTime());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, status_);
       }
       unknownFields.writeTo(output);
     }
@@ -2060,14 +2285,21 @@ public final class V1beta1Certificates {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, reason_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getLastUpdateTime());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size +=
+            com.google.protobuf.CodedOutputStream.computeMessageSize(5, getLastTransitionTime());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, status_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2092,6 +2324,10 @@ public final class V1beta1Certificates {
       if (hasType()) {
         result = result && getType().equals(other.getType());
       }
+      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus()) {
+        result = result && getStatus().equals(other.getStatus());
+      }
       result = result && (hasReason() == other.hasReason());
       if (hasReason()) {
         result = result && getReason().equals(other.getReason());
@@ -2103,6 +2339,10 @@ public final class V1beta1Certificates {
       result = result && (hasLastUpdateTime() == other.hasLastUpdateTime());
       if (hasLastUpdateTime()) {
         result = result && getLastUpdateTime().equals(other.getLastUpdateTime());
+      }
+      result = result && (hasLastTransitionTime() == other.hasLastTransitionTime());
+      if (hasLastTransitionTime()) {
+        result = result && getLastTransitionTime().equals(other.getLastTransitionTime());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -2119,6 +2359,10 @@ public final class V1beta1Certificates {
         hash = (37 * hash) + TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getType().hashCode();
       }
+      if (hasStatus()) {
+        hash = (37 * hash) + STATUS_FIELD_NUMBER;
+        hash = (53 * hash) + getStatus().hashCode();
+      }
       if (hasReason()) {
         hash = (37 * hash) + REASON_FIELD_NUMBER;
         hash = (53 * hash) + getReason().hashCode();
@@ -2130,6 +2374,10 @@ public final class V1beta1Certificates {
       if (hasLastUpdateTime()) {
         hash = (37 * hash) + LASTUPDATETIME_FIELD_NUMBER;
         hash = (53 * hash) + getLastUpdateTime().hashCode();
+      }
+      if (hasLastTransitionTime()) {
+        hash = (37 * hash) + LASTTRANSITIONTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getLastTransitionTime().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2277,6 +2525,7 @@ public final class V1beta1Certificates {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
           getLastUpdateTimeFieldBuilder();
+          getLastTransitionTimeFieldBuilder();
         }
       }
 
@@ -2285,16 +2534,24 @@ public final class V1beta1Certificates {
         super.clear();
         type_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        reason_ = "";
+        status_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        message_ = "";
+        reason_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        message_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (lastUpdateTimeBuilder_ == null) {
           lastUpdateTime_ = null;
         } else {
           lastUpdateTimeBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
+        if (lastTransitionTimeBuilder_ == null) {
+          lastTransitionTime_ = null;
+        } else {
+          lastTransitionTimeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -2337,18 +2594,30 @@ public final class V1beta1Certificates {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.reason_ = reason_;
+        result.status_ = status_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.message_ = message_;
+        result.reason_ = reason_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
+        }
+        result.message_ = message_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
         if (lastUpdateTimeBuilder_ == null) {
           result.lastUpdateTime_ = lastUpdateTime_;
         } else {
           result.lastUpdateTime_ = lastUpdateTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        if (lastTransitionTimeBuilder_ == null) {
+          result.lastTransitionTime_ = lastTransitionTime_;
+        } else {
+          result.lastTransitionTime_ = lastTransitionTimeBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -2414,18 +2683,26 @@ public final class V1beta1Certificates {
           type_ = other.type_;
           onChanged();
         }
-        if (other.hasReason()) {
+        if (other.hasStatus()) {
           bitField0_ |= 0x00000002;
+          status_ = other.status_;
+          onChanged();
+        }
+        if (other.hasReason()) {
+          bitField0_ |= 0x00000004;
           reason_ = other.reason_;
           onChanged();
         }
         if (other.hasMessage()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
           message_ = other.message_;
           onChanged();
         }
         if (other.hasLastUpdateTime()) {
           mergeLastUpdateTime(other.getLastUpdateTime());
+        }
+        if (other.hasLastTransitionTime()) {
+          mergeLastTransitionTime(other.getLastTransitionTime());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2466,7 +2743,7 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * request approval state, currently Approved or Denied.
+       * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -2478,7 +2755,7 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * request approval state, currently Approved or Denied.
+       * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -2500,7 +2777,7 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * request approval state, currently Approved or Denied.
+       * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -2520,7 +2797,7 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * request approval state, currently Approved or Denied.
+       * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -2538,7 +2815,7 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * request approval state, currently Approved or Denied.
+       * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -2553,7 +2830,7 @@ public final class V1beta1Certificates {
        *
        *
        * <pre>
-       * request approval state, currently Approved or Denied.
+       * type of the condition. Known conditions include "Approved", "Denied", and "Failed".
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -2564,6 +2841,137 @@ public final class V1beta1Certificates {
         }
         bitField0_ |= 0x00000001;
         type_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object status_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+       * Defaults to "True".
+       * If unset, should be treated as "True".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string status = 6;</code>
+       */
+      public boolean hasStatus() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+       * Defaults to "True".
+       * If unset, should be treated as "True".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string status = 6;</code>
+       */
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            status_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+       * Defaults to "True".
+       * If unset, should be treated as "True".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string status = 6;</code>
+       */
+      public com.google.protobuf.ByteString getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+       * Defaults to "True".
+       * If unset, should be treated as "True".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string status = 6;</code>
+       */
+      public Builder setStatus(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+       * Defaults to "True".
+       * If unset, should be treated as "True".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string status = 6;</code>
+       */
+      public Builder clearStatus() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        status_ = getDefaultInstance().getStatus();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Status of the condition, one of True, False, Unknown.
+       * Approved, Denied, and Failed conditions may not be "False" or "Unknown".
+       * Defaults to "True".
+       * If unset, should be treated as "True".
+       * +optional
+       * </pre>
+       *
+       * <code>optional string status = 6;</code>
+       */
+      public Builder setStatusBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        status_ = value;
         onChanged();
         return this;
       }
@@ -2580,7 +2988,7 @@ public final class V1beta1Certificates {
        * <code>optional string reason = 2;</code>
        */
       public boolean hasReason() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        *
@@ -2640,7 +3048,7 @@ public final class V1beta1Certificates {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         reason_ = value;
         onChanged();
         return this;
@@ -2656,7 +3064,7 @@ public final class V1beta1Certificates {
        * <code>optional string reason = 2;</code>
        */
       public Builder clearReason() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         reason_ = getDefaultInstance().getReason();
         onChanged();
         return this;
@@ -2675,7 +3083,7 @@ public final class V1beta1Certificates {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         reason_ = value;
         onChanged();
         return this;
@@ -2693,7 +3101,7 @@ public final class V1beta1Certificates {
        * <code>optional string message = 3;</code>
        */
       public boolean hasMessage() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        *
@@ -2753,7 +3161,7 @@ public final class V1beta1Certificates {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         message_ = value;
         onChanged();
         return this;
@@ -2769,7 +3177,7 @@ public final class V1beta1Certificates {
        * <code>optional string message = 3;</code>
        */
       public Builder clearMessage() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         message_ = getDefaultInstance().getMessage();
         onChanged();
         return this;
@@ -2788,7 +3196,7 @@ public final class V1beta1Certificates {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         message_ = value;
         onChanged();
         return this;
@@ -2811,7 +3219,7 @@ public final class V1beta1Certificates {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 4;</code>
        */
       public boolean hasLastUpdateTime() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        *
@@ -2852,7 +3260,7 @@ public final class V1beta1Certificates {
         } else {
           lastUpdateTimeBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
@@ -2873,7 +3281,7 @@ public final class V1beta1Certificates {
         } else {
           lastUpdateTimeBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
@@ -2888,7 +3296,7 @@ public final class V1beta1Certificates {
        */
       public Builder mergeLastUpdateTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastUpdateTimeBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)
+          if (((bitField0_ & 0x00000010) == 0x00000010)
               && lastUpdateTime_ != null
               && lastUpdateTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
             lastUpdateTime_ =
@@ -2902,7 +3310,7 @@ public final class V1beta1Certificates {
         } else {
           lastUpdateTimeBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
@@ -2922,7 +3330,7 @@ public final class V1beta1Certificates {
         } else {
           lastUpdateTimeBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       /**
@@ -2936,7 +3344,7 @@ public final class V1beta1Certificates {
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 4;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastUpdateTimeBuilder() {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return getLastUpdateTimeFieldBuilder().getBuilder();
       }
@@ -2984,6 +3392,216 @@ public final class V1beta1Certificates {
           lastUpdateTime_ = null;
         }
         return lastUpdateTimeBuilder_;
+      }
+
+      private io.kubernetes.client.proto.Meta.Time lastTransitionTime_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
+          lastTransitionTimeBuilder_;
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      public boolean hasLastTransitionTime() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
+        if (lastTransitionTimeBuilder_ == null) {
+          return lastTransitionTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : lastTransitionTime_;
+        } else {
+          return lastTransitionTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
+        if (lastTransitionTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          lastTransitionTime_ = value;
+          onChanged();
+        } else {
+          lastTransitionTimeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      public Builder setLastTransitionTime(
+          io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
+        if (lastTransitionTimeBuilder_ == null) {
+          lastTransitionTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          lastTransitionTimeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
+        if (lastTransitionTimeBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)
+              && lastTransitionTime_ != null
+              && lastTransitionTime_ != io.kubernetes.client.proto.Meta.Time.getDefaultInstance()) {
+            lastTransitionTime_ =
+                io.kubernetes.client.proto.Meta.Time.newBuilder(lastTransitionTime_)
+                    .mergeFrom(value)
+                    .buildPartial();
+          } else {
+            lastTransitionTime_ = value;
+          }
+          onChanged();
+        } else {
+          lastTransitionTimeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      public Builder clearLastTransitionTime() {
+        if (lastTransitionTimeBuilder_ == null) {
+          lastTransitionTime_ = null;
+          onChanged();
+        } else {
+          lastTransitionTimeBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getLastTransitionTimeFieldBuilder().getBuilder();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
+        if (lastTransitionTimeBuilder_ != null) {
+          return lastTransitionTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return lastTransitionTime_ == null
+              ? io.kubernetes.client.proto.Meta.Time.getDefaultInstance()
+              : lastTransitionTime_;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * lastTransitionTime is the time the condition last transitioned from one status to another.
+       * If unset, when a new condition type is added or an existing condition's status is changed,
+       * the server defaults this to the current time.
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.Time,
+              io.kubernetes.client.proto.Meta.Time.Builder,
+              io.kubernetes.client.proto.Meta.TimeOrBuilder>
+          getLastTransitionTimeFieldBuilder() {
+        if (lastTransitionTimeBuilder_ == null) {
+          lastTransitionTimeBuilder_ =
+              new com.google.protobuf.SingleFieldBuilderV3<
+                  io.kubernetes.client.proto.Meta.Time,
+                  io.kubernetes.client.proto.Meta.Time.Builder,
+                  io.kubernetes.client.proto.Meta.TimeOrBuilder>(
+                  getLastTransitionTime(), getParentForChildren(), isClean());
+          lastTransitionTime_ = null;
+        }
+        return lastTransitionTimeBuilder_;
       }
 
       @java.lang.Override
@@ -3081,32 +3699,27 @@ public final class V1beta1Certificates {
     io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder();
 
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     java.util.List<io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest>
         getItemsList();
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest getItems(int index);
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     int getItemsCount();
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     java.util.List<
             ? extends
                 io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestOrBuilder>
         getItemsOrBuilderList();
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestOrBuilder
         getItemsOrBuilder(int index);
@@ -3270,16 +3883,14 @@ public final class V1beta1Certificates {
     private java.util.List<io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest>
         items_;
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     public java.util.List<io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest>
         getItemsList() {
       return items_;
     }
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     public java.util.List<
             ? extends
@@ -3288,23 +3899,20 @@ public final class V1beta1Certificates {
       return items_;
     }
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     public int getItemsCount() {
       return items_.size();
     }
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest getItems(
         int index) {
       return items_.get(index);
     }
     /**
-     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-     * </code>
+     * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
      */
     public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestOrBuilder
         getItemsOrBuilder(int index) {
@@ -3926,8 +4534,7 @@ public final class V1beta1Certificates {
           itemsBuilder_;
 
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public java.util.List<
               io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest>
@@ -3939,8 +4546,7 @@ public final class V1beta1Certificates {
         }
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public int getItemsCount() {
         if (itemsBuilder_ == null) {
@@ -3950,8 +4556,7 @@ public final class V1beta1Certificates {
         }
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest getItems(
           int index) {
@@ -3962,8 +4567,7 @@ public final class V1beta1Certificates {
         }
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder setItems(
           int index,
@@ -3981,8 +4585,7 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder setItems(
           int index,
@@ -3998,8 +4601,7 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder addItems(
           io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest value) {
@@ -4016,8 +4618,7 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder addItems(
           int index,
@@ -4035,8 +4636,7 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder addItems(
           io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest.Builder
@@ -4051,8 +4651,7 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder addItems(
           int index,
@@ -4068,8 +4667,7 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder addAllItems(
           java.lang.Iterable<
@@ -4086,8 +4684,7 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder clearItems() {
         if (itemsBuilder_ == null) {
@@ -4100,8 +4697,7 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public Builder removeItems(int index) {
         if (itemsBuilder_ == null) {
@@ -4114,16 +4710,14 @@ public final class V1beta1Certificates {
         return this;
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest.Builder
           getItemsBuilder(int index) {
         return getItemsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequestOrBuilder
           getItemsOrBuilder(int index) {
@@ -4134,8 +4728,7 @@ public final class V1beta1Certificates {
         }
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public java.util.List<
               ? extends
@@ -4148,8 +4741,7 @@ public final class V1beta1Certificates {
         }
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest.Builder
           addItemsBuilder() {
@@ -4159,8 +4751,7 @@ public final class V1beta1Certificates {
                     .getDefaultInstance());
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest.Builder
           addItemsBuilder(int index) {
@@ -4171,8 +4762,7 @@ public final class V1beta1Certificates {
                     .getDefaultInstance());
       }
       /**
-       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;
-       * </code>
+       * <code>repeated .k8s.io.api.certificates.v1beta1.CertificateSigningRequest items = 2;</code>
        */
       public java.util.List<
               io.kubernetes.client.proto.V1beta1Certificates.CertificateSigningRequest.Builder>
@@ -4269,6 +4859,7 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Base64-encoded PKCS#10 CSR data
+     * +listType=atomic
      * </pre>
      *
      * <code>optional bytes request = 1;</code>
@@ -4279,6 +4870,7 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Base64-encoded PKCS#10 CSR data
+     * +listType=atomic
      * </pre>
      *
      * <code>optional bytes request = 1;</code>
@@ -4289,10 +4881,147 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
+     * Requested signer for the request. It is a qualified name in the form:
+     * `scope-hostname.io/name`.
+     * If empty, it will be defaulted:
+     *  1. If it's a kubelet client certificate, it is assigned
+     *     "kubernetes.io/kube-apiserver-client-kubelet".
+     *  2. If it's a kubelet serving certificate, it is assigned
+     *     "kubernetes.io/kubelet-serving".
+     *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+     * Distribution of trust for signers happens out of band.
+     * You can select on this field using `spec.signerName`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string signerName = 7;</code>
+     */
+    boolean hasSignerName();
+    /**
+     *
+     *
+     * <pre>
+     * Requested signer for the request. It is a qualified name in the form:
+     * `scope-hostname.io/name`.
+     * If empty, it will be defaulted:
+     *  1. If it's a kubelet client certificate, it is assigned
+     *     "kubernetes.io/kube-apiserver-client-kubelet".
+     *  2. If it's a kubelet serving certificate, it is assigned
+     *     "kubernetes.io/kubelet-serving".
+     *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+     * Distribution of trust for signers happens out of band.
+     * You can select on this field using `spec.signerName`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string signerName = 7;</code>
+     */
+    java.lang.String getSignerName();
+    /**
+     *
+     *
+     * <pre>
+     * Requested signer for the request. It is a qualified name in the form:
+     * `scope-hostname.io/name`.
+     * If empty, it will be defaulted:
+     *  1. If it's a kubelet client certificate, it is assigned
+     *     "kubernetes.io/kube-apiserver-client-kubelet".
+     *  2. If it's a kubelet serving certificate, it is assigned
+     *     "kubernetes.io/kubelet-serving".
+     *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+     * Distribution of trust for signers happens out of band.
+     * You can select on this field using `spec.signerName`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string signerName = 7;</code>
+     */
+    com.google.protobuf.ByteString getSignerNameBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * expirationSeconds is the requested duration of validity of the issued
+     * certificate. The certificate signer may issue a certificate with a different
+     * validity duration so a client must check the delta between the notBefore and
+     * and notAfter fields in the issued certificate to determine the actual duration.
+     * The v1.22+ in-tree implementations of the well-known Kubernetes signers will
+     * honor this field as long as the requested duration is not greater than the
+     * maximum duration they will honor per the --cluster-signing-duration CLI
+     * flag to the Kubernetes controller manager.
+     * Certificate signers may not honor this field for various reasons:
+     *   1. Old signer that is unaware of the field (such as the in-tree
+     *      implementations prior to v1.22)
+     *   2. Signer whose configured maximum is shorter than the requested duration
+     *   3. Signer whose configured minimum is longer than the requested duration
+     * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
+     * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 expirationSeconds = 8;</code>
+     */
+    boolean hasExpirationSeconds();
+    /**
+     *
+     *
+     * <pre>
+     * expirationSeconds is the requested duration of validity of the issued
+     * certificate. The certificate signer may issue a certificate with a different
+     * validity duration so a client must check the delta between the notBefore and
+     * and notAfter fields in the issued certificate to determine the actual duration.
+     * The v1.22+ in-tree implementations of the well-known Kubernetes signers will
+     * honor this field as long as the requested duration is not greater than the
+     * maximum duration they will honor per the --cluster-signing-duration CLI
+     * flag to the Kubernetes controller manager.
+     * Certificate signers may not honor this field for various reasons:
+     *   1. Old signer that is unaware of the field (such as the in-tree
+     *      implementations prior to v1.22)
+     *   2. Signer whose configured maximum is shorter than the requested duration
+     *   3. Signer whose configured minimum is longer than the requested duration
+     * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
+     * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 expirationSeconds = 8;</code>
+     */
+    int getExpirationSeconds();
+
+    /**
+     *
+     *
+     * <pre>
      * allowedUsages specifies a set of usage contexts the key will be
      * valid for.
      * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
      *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+     * Valid values are:
+     *  "signing",
+     *  "digital signature",
+     *  "content commitment",
+     *  "key encipherment",
+     *  "key agreement",
+     *  "data encipherment",
+     *  "cert sign",
+     *  "crl sign",
+     *  "encipher only",
+     *  "decipher only",
+     *  "any",
+     *  "server auth",
+     *  "client auth",
+     *  "code signing",
+     *  "email protection",
+     *  "s/mime",
+     *  "ipsec end system",
+     *  "ipsec tunnel",
+     *  "ipsec user",
+     *  "timestamping",
+     *  "ocsp signing",
+     *  "microsoft sgc",
+     *  "netscape sgc"
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated string usages = 5;</code>
@@ -4306,6 +5035,31 @@ public final class V1beta1Certificates {
      * valid for.
      * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
      *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+     * Valid values are:
+     *  "signing",
+     *  "digital signature",
+     *  "content commitment",
+     *  "key encipherment",
+     *  "key agreement",
+     *  "data encipherment",
+     *  "cert sign",
+     *  "crl sign",
+     *  "encipher only",
+     *  "decipher only",
+     *  "any",
+     *  "server auth",
+     *  "client auth",
+     *  "code signing",
+     *  "email protection",
+     *  "s/mime",
+     *  "ipsec end system",
+     *  "ipsec tunnel",
+     *  "ipsec user",
+     *  "timestamping",
+     *  "ocsp signing",
+     *  "microsoft sgc",
+     *  "netscape sgc"
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated string usages = 5;</code>
@@ -4319,6 +5073,31 @@ public final class V1beta1Certificates {
      * valid for.
      * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
      *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+     * Valid values are:
+     *  "signing",
+     *  "digital signature",
+     *  "content commitment",
+     *  "key encipherment",
+     *  "key agreement",
+     *  "data encipherment",
+     *  "cert sign",
+     *  "crl sign",
+     *  "encipher only",
+     *  "decipher only",
+     *  "any",
+     *  "server auth",
+     *  "client auth",
+     *  "code signing",
+     *  "email protection",
+     *  "s/mime",
+     *  "ipsec end system",
+     *  "ipsec tunnel",
+     *  "ipsec user",
+     *  "timestamping",
+     *  "ocsp signing",
+     *  "microsoft sgc",
+     *  "netscape sgc"
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated string usages = 5;</code>
@@ -4332,6 +5111,31 @@ public final class V1beta1Certificates {
      * valid for.
      * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
      *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+     * Valid values are:
+     *  "signing",
+     *  "digital signature",
+     *  "content commitment",
+     *  "key encipherment",
+     *  "key agreement",
+     *  "data encipherment",
+     *  "cert sign",
+     *  "crl sign",
+     *  "encipher only",
+     *  "decipher only",
+     *  "any",
+     *  "server auth",
+     *  "client auth",
+     *  "code signing",
+     *  "email protection",
+     *  "s/mime",
+     *  "ipsec end system",
+     *  "ipsec tunnel",
+     *  "ipsec user",
+     *  "timestamping",
+     *  "ocsp signing",
+     *  "microsoft sgc",
+     *  "netscape sgc"
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated string usages = 5;</code>
@@ -4418,6 +5222,7 @@ public final class V1beta1Certificates {
      * <pre>
      * Group information about the requesting user.
      * See user.Info interface for details.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -4430,6 +5235,7 @@ public final class V1beta1Certificates {
      * <pre>
      * Group information about the requesting user.
      * See user.Info interface for details.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -4442,6 +5248,7 @@ public final class V1beta1Certificates {
      * <pre>
      * Group information about the requesting user.
      * See user.Info interface for details.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -4454,6 +5261,7 @@ public final class V1beta1Certificates {
      * <pre>
      * Group information about the requesting user.
      * See user.Info interface for details.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -4533,9 +5341,7 @@ public final class V1beta1Certificates {
    *
    *
    * <pre>
-   * This information is immutable after the request is created. Only the Request
-   * and Usages fields can be set on creation, other fields are derived by
-   * Kubernetes and cannot be modified by users.
+   * CertificateSigningRequestSpec contains the certificate request.
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec}
@@ -4554,6 +5360,8 @@ public final class V1beta1Certificates {
 
     private CertificateSigningRequestSpec() {
       request_ = com.google.protobuf.ByteString.EMPTY;
+      signerName_ = "";
+      expirationSeconds_ = 0;
       usages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       username_ = "";
       uid_ = "";
@@ -4593,23 +5401,23 @@ public final class V1beta1Certificates {
             case 18:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000008;
                 username_ = bs;
                 break;
               }
             case 26:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000010;
                 uid_ = bs;
                 break;
               }
             case 34:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                   groups_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000010;
+                  mutable_bitField0_ |= 0x00000040;
                 }
                 groups_.add(bs);
                 break;
@@ -4617,20 +5425,20 @@ public final class V1beta1Certificates {
             case 42:
               {
                 com.google.protobuf.ByteString bs = input.readBytes();
-                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                   usages_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000002;
+                  mutable_bitField0_ |= 0x00000008;
                 }
                 usages_.add(bs);
                 break;
               }
             case 50:
               {
-                if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                   extra_ =
                       com.google.protobuf.MapField.newMapField(
                           ExtraDefaultEntryHolder.defaultEntry);
-                  mutable_bitField0_ |= 0x00000020;
+                  mutable_bitField0_ |= 0x00000080;
                 }
                 com.google.protobuf.MapEntry<
                         java.lang.String, io.kubernetes.client.proto.V1beta1Certificates.ExtraValue>
@@ -4639,6 +5447,19 @@ public final class V1beta1Certificates {
                             ExtraDefaultEntryHolder.defaultEntry.getParserForType(),
                             extensionRegistry);
                 extra_.getMutableMap().put(extra__.getKey(), extra__.getValue());
+                break;
+              }
+            case 58:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000002;
+                signerName_ = bs;
+                break;
+              }
+            case 64:
+              {
+                bitField0_ |= 0x00000004;
+                expirationSeconds_ = input.readInt32();
                 break;
               }
             default:
@@ -4655,10 +5476,10 @@ public final class V1beta1Certificates {
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           groups_ = groups_.getUnmodifiableView();
         }
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           usages_ = usages_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -4701,6 +5522,7 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Base64-encoded PKCS#10 CSR data
+     * +listType=atomic
      * </pre>
      *
      * <code>optional bytes request = 1;</code>
@@ -4713,12 +5535,157 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Base64-encoded PKCS#10 CSR data
+     * +listType=atomic
      * </pre>
      *
      * <code>optional bytes request = 1;</code>
      */
     public com.google.protobuf.ByteString getRequest() {
       return request_;
+    }
+
+    public static final int SIGNERNAME_FIELD_NUMBER = 7;
+    private volatile java.lang.Object signerName_;
+    /**
+     *
+     *
+     * <pre>
+     * Requested signer for the request. It is a qualified name in the form:
+     * `scope-hostname.io/name`.
+     * If empty, it will be defaulted:
+     *  1. If it's a kubelet client certificate, it is assigned
+     *     "kubernetes.io/kube-apiserver-client-kubelet".
+     *  2. If it's a kubelet serving certificate, it is assigned
+     *     "kubernetes.io/kubelet-serving".
+     *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+     * Distribution of trust for signers happens out of band.
+     * You can select on this field using `spec.signerName`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string signerName = 7;</code>
+     */
+    public boolean hasSignerName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Requested signer for the request. It is a qualified name in the form:
+     * `scope-hostname.io/name`.
+     * If empty, it will be defaulted:
+     *  1. If it's a kubelet client certificate, it is assigned
+     *     "kubernetes.io/kube-apiserver-client-kubelet".
+     *  2. If it's a kubelet serving certificate, it is assigned
+     *     "kubernetes.io/kubelet-serving".
+     *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+     * Distribution of trust for signers happens out of band.
+     * You can select on this field using `spec.signerName`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string signerName = 7;</code>
+     */
+    public java.lang.String getSignerName() {
+      java.lang.Object ref = signerName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          signerName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * Requested signer for the request. It is a qualified name in the form:
+     * `scope-hostname.io/name`.
+     * If empty, it will be defaulted:
+     *  1. If it's a kubelet client certificate, it is assigned
+     *     "kubernetes.io/kube-apiserver-client-kubelet".
+     *  2. If it's a kubelet serving certificate, it is assigned
+     *     "kubernetes.io/kubelet-serving".
+     *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+     * Distribution of trust for signers happens out of band.
+     * You can select on this field using `spec.signerName`.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string signerName = 7;</code>
+     */
+    public com.google.protobuf.ByteString getSignerNameBytes() {
+      java.lang.Object ref = signerName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        signerName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXPIRATIONSECONDS_FIELD_NUMBER = 8;
+    private int expirationSeconds_;
+    /**
+     *
+     *
+     * <pre>
+     * expirationSeconds is the requested duration of validity of the issued
+     * certificate. The certificate signer may issue a certificate with a different
+     * validity duration so a client must check the delta between the notBefore and
+     * and notAfter fields in the issued certificate to determine the actual duration.
+     * The v1.22+ in-tree implementations of the well-known Kubernetes signers will
+     * honor this field as long as the requested duration is not greater than the
+     * maximum duration they will honor per the --cluster-signing-duration CLI
+     * flag to the Kubernetes controller manager.
+     * Certificate signers may not honor this field for various reasons:
+     *   1. Old signer that is unaware of the field (such as the in-tree
+     *      implementations prior to v1.22)
+     *   2. Signer whose configured maximum is shorter than the requested duration
+     *   3. Signer whose configured minimum is longer than the requested duration
+     * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
+     * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 expirationSeconds = 8;</code>
+     */
+    public boolean hasExpirationSeconds() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * expirationSeconds is the requested duration of validity of the issued
+     * certificate. The certificate signer may issue a certificate with a different
+     * validity duration so a client must check the delta between the notBefore and
+     * and notAfter fields in the issued certificate to determine the actual duration.
+     * The v1.22+ in-tree implementations of the well-known Kubernetes signers will
+     * honor this field as long as the requested duration is not greater than the
+     * maximum duration they will honor per the --cluster-signing-duration CLI
+     * flag to the Kubernetes controller manager.
+     * Certificate signers may not honor this field for various reasons:
+     *   1. Old signer that is unaware of the field (such as the in-tree
+     *      implementations prior to v1.22)
+     *   2. Signer whose configured maximum is shorter than the requested duration
+     *   3. Signer whose configured minimum is longer than the requested duration
+     * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
+     * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 expirationSeconds = 8;</code>
+     */
+    public int getExpirationSeconds() {
+      return expirationSeconds_;
     }
 
     public static final int USAGES_FIELD_NUMBER = 5;
@@ -4731,6 +5698,31 @@ public final class V1beta1Certificates {
      * valid for.
      * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
      *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+     * Valid values are:
+     *  "signing",
+     *  "digital signature",
+     *  "content commitment",
+     *  "key encipherment",
+     *  "key agreement",
+     *  "data encipherment",
+     *  "cert sign",
+     *  "crl sign",
+     *  "encipher only",
+     *  "decipher only",
+     *  "any",
+     *  "server auth",
+     *  "client auth",
+     *  "code signing",
+     *  "email protection",
+     *  "s/mime",
+     *  "ipsec end system",
+     *  "ipsec tunnel",
+     *  "ipsec user",
+     *  "timestamping",
+     *  "ocsp signing",
+     *  "microsoft sgc",
+     *  "netscape sgc"
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated string usages = 5;</code>
@@ -4746,6 +5738,31 @@ public final class V1beta1Certificates {
      * valid for.
      * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
      *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+     * Valid values are:
+     *  "signing",
+     *  "digital signature",
+     *  "content commitment",
+     *  "key encipherment",
+     *  "key agreement",
+     *  "data encipherment",
+     *  "cert sign",
+     *  "crl sign",
+     *  "encipher only",
+     *  "decipher only",
+     *  "any",
+     *  "server auth",
+     *  "client auth",
+     *  "code signing",
+     *  "email protection",
+     *  "s/mime",
+     *  "ipsec end system",
+     *  "ipsec tunnel",
+     *  "ipsec user",
+     *  "timestamping",
+     *  "ocsp signing",
+     *  "microsoft sgc",
+     *  "netscape sgc"
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated string usages = 5;</code>
@@ -4761,6 +5778,31 @@ public final class V1beta1Certificates {
      * valid for.
      * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
      *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+     * Valid values are:
+     *  "signing",
+     *  "digital signature",
+     *  "content commitment",
+     *  "key encipherment",
+     *  "key agreement",
+     *  "data encipherment",
+     *  "cert sign",
+     *  "crl sign",
+     *  "encipher only",
+     *  "decipher only",
+     *  "any",
+     *  "server auth",
+     *  "client auth",
+     *  "code signing",
+     *  "email protection",
+     *  "s/mime",
+     *  "ipsec end system",
+     *  "ipsec tunnel",
+     *  "ipsec user",
+     *  "timestamping",
+     *  "ocsp signing",
+     *  "microsoft sgc",
+     *  "netscape sgc"
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated string usages = 5;</code>
@@ -4776,6 +5818,31 @@ public final class V1beta1Certificates {
      * valid for.
      * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
      *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+     * Valid values are:
+     *  "signing",
+     *  "digital signature",
+     *  "content commitment",
+     *  "key encipherment",
+     *  "key agreement",
+     *  "data encipherment",
+     *  "cert sign",
+     *  "crl sign",
+     *  "encipher only",
+     *  "decipher only",
+     *  "any",
+     *  "server auth",
+     *  "client auth",
+     *  "code signing",
+     *  "email protection",
+     *  "s/mime",
+     *  "ipsec end system",
+     *  "ipsec tunnel",
+     *  "ipsec user",
+     *  "timestamping",
+     *  "ocsp signing",
+     *  "microsoft sgc",
+     *  "netscape sgc"
+     * +listType=atomic
      * </pre>
      *
      * <code>repeated string usages = 5;</code>
@@ -4798,7 +5865,7 @@ public final class V1beta1Certificates {
      * <code>optional string username = 2;</code>
      */
     public boolean hasUsername() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      *
@@ -4861,7 +5928,7 @@ public final class V1beta1Certificates {
      * <code>optional string uid = 3;</code>
      */
     public boolean hasUid() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      *
@@ -4918,6 +5985,7 @@ public final class V1beta1Certificates {
      * <pre>
      * Group information about the requesting user.
      * See user.Info interface for details.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -4932,6 +6000,7 @@ public final class V1beta1Certificates {
      * <pre>
      * Group information about the requesting user.
      * See user.Info interface for details.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -4946,6 +6015,7 @@ public final class V1beta1Certificates {
      * <pre>
      * Group information about the requesting user.
      * See user.Info interface for details.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -4960,6 +6030,7 @@ public final class V1beta1Certificates {
      * <pre>
      * Group information about the requesting user.
      * See user.Info interface for details.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -5105,10 +6176,10 @@ public final class V1beta1Certificates {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, request_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, username_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, uid_);
       }
       for (int i = 0; i < groups_.size(); i++) {
@@ -5119,6 +6190,12 @@ public final class V1beta1Certificates {
       }
       com.google.protobuf.GeneratedMessageV3.serializeStringMapTo(
           output, internalGetExtra(), ExtraDefaultEntryHolder.defaultEntry, 6);
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, signerName_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(8, expirationSeconds_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5131,10 +6208,10 @@ public final class V1beta1Certificates {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream.computeBytesSize(1, request_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, username_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, uid_);
       }
       {
@@ -5166,6 +6243,12 @@ public final class V1beta1Certificates {
                     .build();
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(6, extra__);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, signerName_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(8, expirationSeconds_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5188,6 +6271,14 @@ public final class V1beta1Certificates {
       result = result && (hasRequest() == other.hasRequest());
       if (hasRequest()) {
         result = result && getRequest().equals(other.getRequest());
+      }
+      result = result && (hasSignerName() == other.hasSignerName());
+      if (hasSignerName()) {
+        result = result && getSignerName().equals(other.getSignerName());
+      }
+      result = result && (hasExpirationSeconds() == other.hasExpirationSeconds());
+      if (hasExpirationSeconds()) {
+        result = result && (getExpirationSeconds() == other.getExpirationSeconds());
       }
       result = result && getUsagesList().equals(other.getUsagesList());
       result = result && (hasUsername() == other.hasUsername());
@@ -5214,6 +6305,14 @@ public final class V1beta1Certificates {
       if (hasRequest()) {
         hash = (37 * hash) + REQUEST_FIELD_NUMBER;
         hash = (53 * hash) + getRequest().hashCode();
+      }
+      if (hasSignerName()) {
+        hash = (37 * hash) + SIGNERNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getSignerName().hashCode();
+      }
+      if (hasExpirationSeconds()) {
+        hash = (37 * hash) + EXPIRATIONSECONDS_FIELD_NUMBER;
+        hash = (53 * hash) + getExpirationSeconds();
       }
       if (getUsagesCount() > 0) {
         hash = (37 * hash) + USAGES_FIELD_NUMBER;
@@ -5347,9 +6446,7 @@ public final class V1beta1Certificates {
      *
      *
      * <pre>
-     * This information is immutable after the request is created. Only the Request
-     * and Usages fields can be set on creation, other fields are derived by
-     * Kubernetes and cannot be modified by users.
+     * CertificateSigningRequestSpec contains the certificate request.
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.certificates.v1beta1.CertificateSigningRequestSpec}
@@ -5415,14 +6512,18 @@ public final class V1beta1Certificates {
         super.clear();
         request_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
-        usages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        signerName_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        username_ = "";
+        expirationSeconds_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        uid_ = "";
+        usages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000008);
-        groups_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        username_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        uid_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        groups_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
         internalGetMutableExtra().clear();
         return this;
       }
@@ -5461,22 +6562,30 @@ public final class V1beta1Certificates {
           to_bitField0_ |= 0x00000001;
         }
         result.request_ = request_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          usages_ = usages_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.usages_ = usages_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.username_ = username_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        result.signerName_ = signerName_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
+        result.expirationSeconds_ = expirationSeconds_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          usages_ = usages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.usages_ = usages_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.username_ = username_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.uid_ = uid_;
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
           groups_ = groups_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.groups_ = groups_;
         result.extra_ = internalGetExtra();
@@ -5542,10 +6651,18 @@ public final class V1beta1Certificates {
         if (other.hasRequest()) {
           setRequest(other.getRequest());
         }
+        if (other.hasSignerName()) {
+          bitField0_ |= 0x00000002;
+          signerName_ = other.signerName_;
+          onChanged();
+        }
+        if (other.hasExpirationSeconds()) {
+          setExpirationSeconds(other.getExpirationSeconds());
+        }
         if (!other.usages_.isEmpty()) {
           if (usages_.isEmpty()) {
             usages_ = other.usages_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureUsagesIsMutable();
             usages_.addAll(other.usages_);
@@ -5553,19 +6670,19 @@ public final class V1beta1Certificates {
           onChanged();
         }
         if (other.hasUsername()) {
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000010;
           username_ = other.username_;
           onChanged();
         }
         if (other.hasUid()) {
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000020;
           uid_ = other.uid_;
           onChanged();
         }
         if (!other.groups_.isEmpty()) {
           if (groups_.isEmpty()) {
             groups_ = other.groups_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureGroupsIsMutable();
             groups_.addAll(other.groups_);
@@ -5613,6 +6730,7 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Base64-encoded PKCS#10 CSR data
+       * +listType=atomic
        * </pre>
        *
        * <code>optional bytes request = 1;</code>
@@ -5625,6 +6743,7 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Base64-encoded PKCS#10 CSR data
+       * +listType=atomic
        * </pre>
        *
        * <code>optional bytes request = 1;</code>
@@ -5637,6 +6756,7 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Base64-encoded PKCS#10 CSR data
+       * +listType=atomic
        * </pre>
        *
        * <code>optional bytes request = 1;</code>
@@ -5655,6 +6775,7 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Base64-encoded PKCS#10 CSR data
+       * +listType=atomic
        * </pre>
        *
        * <code>optional bytes request = 1;</code>
@@ -5666,13 +6787,296 @@ public final class V1beta1Certificates {
         return this;
       }
 
+      private java.lang.Object signerName_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * Requested signer for the request. It is a qualified name in the form:
+       * `scope-hostname.io/name`.
+       * If empty, it will be defaulted:
+       *  1. If it's a kubelet client certificate, it is assigned
+       *     "kubernetes.io/kube-apiserver-client-kubelet".
+       *  2. If it's a kubelet serving certificate, it is assigned
+       *     "kubernetes.io/kubelet-serving".
+       *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+       * Distribution of trust for signers happens out of band.
+       * You can select on this field using `spec.signerName`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string signerName = 7;</code>
+       */
+      public boolean hasSignerName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Requested signer for the request. It is a qualified name in the form:
+       * `scope-hostname.io/name`.
+       * If empty, it will be defaulted:
+       *  1. If it's a kubelet client certificate, it is assigned
+       *     "kubernetes.io/kube-apiserver-client-kubelet".
+       *  2. If it's a kubelet serving certificate, it is assigned
+       *     "kubernetes.io/kubelet-serving".
+       *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+       * Distribution of trust for signers happens out of band.
+       * You can select on this field using `spec.signerName`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string signerName = 7;</code>
+       */
+      public java.lang.String getSignerName() {
+        java.lang.Object ref = signerName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            signerName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Requested signer for the request. It is a qualified name in the form:
+       * `scope-hostname.io/name`.
+       * If empty, it will be defaulted:
+       *  1. If it's a kubelet client certificate, it is assigned
+       *     "kubernetes.io/kube-apiserver-client-kubelet".
+       *  2. If it's a kubelet serving certificate, it is assigned
+       *     "kubernetes.io/kubelet-serving".
+       *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+       * Distribution of trust for signers happens out of band.
+       * You can select on this field using `spec.signerName`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string signerName = 7;</code>
+       */
+      public com.google.protobuf.ByteString getSignerNameBytes() {
+        java.lang.Object ref = signerName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          signerName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Requested signer for the request. It is a qualified name in the form:
+       * `scope-hostname.io/name`.
+       * If empty, it will be defaulted:
+       *  1. If it's a kubelet client certificate, it is assigned
+       *     "kubernetes.io/kube-apiserver-client-kubelet".
+       *  2. If it's a kubelet serving certificate, it is assigned
+       *     "kubernetes.io/kubelet-serving".
+       *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+       * Distribution of trust for signers happens out of band.
+       * You can select on this field using `spec.signerName`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string signerName = 7;</code>
+       */
+      public Builder setSignerName(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        signerName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Requested signer for the request. It is a qualified name in the form:
+       * `scope-hostname.io/name`.
+       * If empty, it will be defaulted:
+       *  1. If it's a kubelet client certificate, it is assigned
+       *     "kubernetes.io/kube-apiserver-client-kubelet".
+       *  2. If it's a kubelet serving certificate, it is assigned
+       *     "kubernetes.io/kubelet-serving".
+       *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+       * Distribution of trust for signers happens out of band.
+       * You can select on this field using `spec.signerName`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string signerName = 7;</code>
+       */
+      public Builder clearSignerName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        signerName_ = getDefaultInstance().getSignerName();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * Requested signer for the request. It is a qualified name in the form:
+       * `scope-hostname.io/name`.
+       * If empty, it will be defaulted:
+       *  1. If it's a kubelet client certificate, it is assigned
+       *     "kubernetes.io/kube-apiserver-client-kubelet".
+       *  2. If it's a kubelet serving certificate, it is assigned
+       *     "kubernetes.io/kubelet-serving".
+       *  3. Otherwise, it is assigned "kubernetes.io/legacy-unknown".
+       * Distribution of trust for signers happens out of band.
+       * You can select on this field using `spec.signerName`.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string signerName = 7;</code>
+       */
+      public Builder setSignerNameBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        signerName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int expirationSeconds_;
+      /**
+       *
+       *
+       * <pre>
+       * expirationSeconds is the requested duration of validity of the issued
+       * certificate. The certificate signer may issue a certificate with a different
+       * validity duration so a client must check the delta between the notBefore and
+       * and notAfter fields in the issued certificate to determine the actual duration.
+       * The v1.22+ in-tree implementations of the well-known Kubernetes signers will
+       * honor this field as long as the requested duration is not greater than the
+       * maximum duration they will honor per the --cluster-signing-duration CLI
+       * flag to the Kubernetes controller manager.
+       * Certificate signers may not honor this field for various reasons:
+       *   1. Old signer that is unaware of the field (such as the in-tree
+       *      implementations prior to v1.22)
+       *   2. Signer whose configured maximum is shorter than the requested duration
+       *   3. Signer whose configured minimum is longer than the requested duration
+       * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
+       * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 expirationSeconds = 8;</code>
+       */
+      public boolean hasExpirationSeconds() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * expirationSeconds is the requested duration of validity of the issued
+       * certificate. The certificate signer may issue a certificate with a different
+       * validity duration so a client must check the delta between the notBefore and
+       * and notAfter fields in the issued certificate to determine the actual duration.
+       * The v1.22+ in-tree implementations of the well-known Kubernetes signers will
+       * honor this field as long as the requested duration is not greater than the
+       * maximum duration they will honor per the --cluster-signing-duration CLI
+       * flag to the Kubernetes controller manager.
+       * Certificate signers may not honor this field for various reasons:
+       *   1. Old signer that is unaware of the field (such as the in-tree
+       *      implementations prior to v1.22)
+       *   2. Signer whose configured maximum is shorter than the requested duration
+       *   3. Signer whose configured minimum is longer than the requested duration
+       * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
+       * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 expirationSeconds = 8;</code>
+       */
+      public int getExpirationSeconds() {
+        return expirationSeconds_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * expirationSeconds is the requested duration of validity of the issued
+       * certificate. The certificate signer may issue a certificate with a different
+       * validity duration so a client must check the delta between the notBefore and
+       * and notAfter fields in the issued certificate to determine the actual duration.
+       * The v1.22+ in-tree implementations of the well-known Kubernetes signers will
+       * honor this field as long as the requested duration is not greater than the
+       * maximum duration they will honor per the --cluster-signing-duration CLI
+       * flag to the Kubernetes controller manager.
+       * Certificate signers may not honor this field for various reasons:
+       *   1. Old signer that is unaware of the field (such as the in-tree
+       *      implementations prior to v1.22)
+       *   2. Signer whose configured maximum is shorter than the requested duration
+       *   3. Signer whose configured minimum is longer than the requested duration
+       * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
+       * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 expirationSeconds = 8;</code>
+       */
+      public Builder setExpirationSeconds(int value) {
+        bitField0_ |= 0x00000004;
+        expirationSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * expirationSeconds is the requested duration of validity of the issued
+       * certificate. The certificate signer may issue a certificate with a different
+       * validity duration so a client must check the delta between the notBefore and
+       * and notAfter fields in the issued certificate to determine the actual duration.
+       * The v1.22+ in-tree implementations of the well-known Kubernetes signers will
+       * honor this field as long as the requested duration is not greater than the
+       * maximum duration they will honor per the --cluster-signing-duration CLI
+       * flag to the Kubernetes controller manager.
+       * Certificate signers may not honor this field for various reasons:
+       *   1. Old signer that is unaware of the field (such as the in-tree
+       *      implementations prior to v1.22)
+       *   2. Signer whose configured maximum is shorter than the requested duration
+       *   3. Signer whose configured minimum is longer than the requested duration
+       * The minimum valid value for expirationSeconds is 600, i.e. 10 minutes.
+       * As of v1.22, this field is beta and is controlled via the CSRDuration feature gate.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 expirationSeconds = 8;</code>
+       */
+      public Builder clearExpirationSeconds() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        expirationSeconds_ = 0;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.LazyStringList usages_ =
           com.google.protobuf.LazyStringArrayList.EMPTY;
 
       private void ensureUsagesIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           usages_ = new com.google.protobuf.LazyStringArrayList(usages_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
         }
       }
       /**
@@ -5683,6 +7087,31 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
@@ -5698,6 +7127,31 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
@@ -5713,6 +7167,31 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
@@ -5728,6 +7207,31 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
@@ -5743,6 +7247,31 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
@@ -5764,6 +7293,31 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
@@ -5785,6 +7339,31 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
@@ -5803,13 +7382,38 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
        */
       public Builder clearUsages() {
         usages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -5821,6 +7425,31 @@ public final class V1beta1Certificates {
        * valid for.
        * See: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
        *      https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+       * Valid values are:
+       *  "signing",
+       *  "digital signature",
+       *  "content commitment",
+       *  "key encipherment",
+       *  "key agreement",
+       *  "data encipherment",
+       *  "cert sign",
+       *  "crl sign",
+       *  "encipher only",
+       *  "decipher only",
+       *  "any",
+       *  "server auth",
+       *  "client auth",
+       *  "code signing",
+       *  "email protection",
+       *  "s/mime",
+       *  "ipsec end system",
+       *  "ipsec tunnel",
+       *  "ipsec user",
+       *  "timestamping",
+       *  "ocsp signing",
+       *  "microsoft sgc",
+       *  "netscape sgc"
+       * +listType=atomic
        * </pre>
        *
        * <code>repeated string usages = 5;</code>
@@ -5848,7 +7477,7 @@ public final class V1beta1Certificates {
        * <code>optional string username = 2;</code>
        */
       public boolean hasUsername() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        *
@@ -5911,7 +7540,7 @@ public final class V1beta1Certificates {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
         username_ = value;
         onChanged();
         return this;
@@ -5928,7 +7557,7 @@ public final class V1beta1Certificates {
        * <code>optional string username = 2;</code>
        */
       public Builder clearUsername() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         username_ = getDefaultInstance().getUsername();
         onChanged();
         return this;
@@ -5948,7 +7577,7 @@ public final class V1beta1Certificates {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
         username_ = value;
         onChanged();
         return this;
@@ -5967,7 +7596,7 @@ public final class V1beta1Certificates {
        * <code>optional string uid = 3;</code>
        */
       public boolean hasUid() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        *
@@ -6030,7 +7659,7 @@ public final class V1beta1Certificates {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
         uid_ = value;
         onChanged();
         return this;
@@ -6047,7 +7676,7 @@ public final class V1beta1Certificates {
        * <code>optional string uid = 3;</code>
        */
       public Builder clearUid() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
         uid_ = getDefaultInstance().getUid();
         onChanged();
         return this;
@@ -6067,7 +7696,7 @@ public final class V1beta1Certificates {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
         uid_ = value;
         onChanged();
         return this;
@@ -6077,9 +7706,9 @@ public final class V1beta1Certificates {
           com.google.protobuf.LazyStringArrayList.EMPTY;
 
       private void ensureGroupsIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
           groups_ = new com.google.protobuf.LazyStringArrayList(groups_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000040;
         }
       }
       /**
@@ -6088,6 +7717,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6102,6 +7732,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6116,6 +7747,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6130,6 +7762,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6144,6 +7777,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6164,6 +7798,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6184,6 +7819,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6201,6 +7837,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6208,7 +7845,7 @@ public final class V1beta1Certificates {
        */
       public Builder clearGroups() {
         groups_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -6218,6 +7855,7 @@ public final class V1beta1Certificates {
        * <pre>
        * Group information about the requesting user.
        * See user.Info interface for details.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -6272,8 +7910,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;</code>
        */
       public boolean containsExtra(java.lang.String key) {
         if (key == null) {
@@ -6297,8 +7934,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;</code>
        */
       public java.util.Map<
               java.lang.String, io.kubernetes.client.proto.V1beta1Certificates.ExtraValue>
@@ -6314,8 +7950,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.ExtraValue getExtraOrDefault(
           java.lang.String key,
@@ -6336,8 +7971,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;</code>
        */
       public io.kubernetes.client.proto.V1beta1Certificates.ExtraValue getExtraOrThrow(
           java.lang.String key) {
@@ -6365,8 +7999,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;</code>
        */
       public Builder removeExtra(java.lang.String key) {
         if (key == null) {
@@ -6391,8 +8024,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;</code>
        */
       public Builder putExtra(
           java.lang.String key, io.kubernetes.client.proto.V1beta1Certificates.ExtraValue value) {
@@ -6414,8 +8046,7 @@ public final class V1beta1Certificates {
        * +optional
        * </pre>
        *
-       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;
-       * </code>
+       * <code>map&lt;string, .k8s.io.api.certificates.v1beta1.ExtraValue&gt; extra = 6;</code>
        */
       public Builder putAllExtra(
           java.util.Map<java.lang.String, io.kubernetes.client.proto.V1beta1Certificates.ExtraValue>
@@ -6492,6 +8123,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6507,6 +8140,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6521,6 +8156,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6534,6 +8171,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6551,6 +8190,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6566,6 +8207,7 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * If request was approved, the controller will place the issued certificate here.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -6577,6 +8219,7 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * If request was approved, the controller will place the issued certificate here.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -6696,6 +8339,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6713,6 +8358,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6732,6 +8379,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6747,6 +8396,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6763,6 +8414,8 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * Conditions applied to the request, such as approval or denial.
+     * +listType=map
+     * +listMapKey=type
      * +optional
      * </pre>
      *
@@ -6783,6 +8436,7 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * If request was approved, the controller will place the issued certificate here.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -6796,6 +8450,7 @@ public final class V1beta1Certificates {
      *
      * <pre>
      * If request was approved, the controller will place the issued certificate here.
+     * +listType=atomic
      * +optional
      * </pre>
      *
@@ -7240,6 +8895,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7261,6 +8918,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7280,6 +8939,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7300,6 +8961,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7327,6 +8990,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7352,6 +9017,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7378,6 +9045,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7405,6 +9074,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7429,6 +9100,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7454,6 +9127,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7481,6 +9156,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7503,6 +9180,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7525,6 +9204,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7542,6 +9223,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7563,6 +9246,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7586,6 +9271,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7606,6 +9293,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7627,6 +9316,8 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * Conditions applied to the request, such as approval or denial.
+       * +listType=map
+       * +listMapKey=type
        * +optional
        * </pre>
        *
@@ -7671,6 +9362,7 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * If request was approved, the controller will place the issued certificate here.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -7684,6 +9376,7 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * If request was approved, the controller will place the issued certificate here.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -7697,6 +9390,7 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * If request was approved, the controller will place the issued certificate here.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -7716,6 +9410,7 @@ public final class V1beta1Certificates {
        *
        * <pre>
        * If request was approved, the controller will place the issued certificate here.
+       * +listType=atomic
        * +optional
        * </pre>
        *
@@ -8115,8 +9810,7 @@ public final class V1beta1Certificates {
                 io.kubernetes.client.proto.V1beta1Certificates.ExtraValue.Builder.class);
       }
 
-      // Construct using
-      // io.kubernetes.client.proto.V1beta1Certificates.ExtraValue.newBuilder()
+      // Construct using io.kubernetes.client.proto.V1beta1Certificates.ExtraValue.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8424,38 +10118,43 @@ public final class V1beta1Certificates {
     java.lang.String[] descriptorData = {
       "\n/k8s.io/api/certificates/v1beta1/genera"
           + "ted.proto\022\037k8s.io.api.certificates.v1bet"
-          + "a1\0324k8s.io/apimachinery/pkg/apis/meta/v1"
-          + "/generated.proto\032/k8s.io/apimachinery/pk"
-          + "g/runtime/generated.proto\0326k8s.io/apimac"
-          + "hinery/pkg/runtime/schema/generated.prot"
-          + "o\"\377\001\n\031CertificateSigningRequest\022B\n\010metad"
-          + "ata\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis"
-          + ".meta.v1.ObjectMeta\022L\n\004spec\030\002 \001(\0132>.k8s."
-          + "io.api.certificates.v1beta1.CertificateS"
-          + "igningRequestSpec\022P\n\006status\030\003 \001(\0132@.k8s."
-          + "io.api.certificates.v1beta1.CertificateS"
-          + "igningRequestStatus\"\227\001\n\"CertificateSigni"
-          + "ngRequestCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006reas"
-          + "on\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\022B\n\016lastUpdateT"
-          + "ime\030\004 \001(\0132*.k8s.io.apimachinery.pkg.apis"
-          + ".meta.v1.Time\"\254\001\n\035CertificateSigningRequ"
-          + "estList\022@\n\010metadata\030\001 \001(\0132..k8s.io.apima"
-          + "chinery.pkg.apis.meta.v1.ListMeta\022I\n\005ite"
-          + "ms\030\002 \003(\0132:.k8s.io.api.certificates.v1bet"
-          + "a1.CertificateSigningRequest\"\244\002\n\035Certifi"
-          + "cateSigningRequestSpec\022\017\n\007request\030\001 \001(\014\022"
-          + "\016\n\006usages\030\005 \003(\t\022\020\n\010username\030\002 \001(\t\022\013\n\003uid"
-          + "\030\003 \001(\t\022\016\n\006groups\030\004 \003(\t\022X\n\005extra\030\006 \003(\0132I."
-          + "k8s.io.api.certificates.v1beta1.Certific"
-          + "ateSigningRequestSpec.ExtraEntry\032Y\n\nExtr"
-          + "aEntry\022\013\n\003key\030\001 \001(\t\022:\n\005value\030\002 \001(\0132+.k8s"
-          + ".io.api.certificates.v1beta1.ExtraValue:"
-          + "\0028\001\"\217\001\n\037CertificateSigningRequestStatus\022"
-          + "W\n\nconditions\030\001 \003(\0132C.k8s.io.api.certifi"
-          + "cates.v1beta1.CertificateSigningRequestC"
-          + "ondition\022\023\n\013certificate\030\002 \001(\014\"\033\n\nExtraVa"
-          + "lue\022\r\n\005items\030\001 \003(\tB:\n\032io.kubernetes.clie"
-          + "nt.protoB\023V1beta1CertificatesZ\007v1beta1"
+          + "a1\032\"k8s.io/api/core/v1/generated.proto\0324"
+          + "k8s.io/apimachinery/pkg/apis/meta/v1/gen"
+          + "erated.proto\032/k8s.io/apimachinery/pkg/ru"
+          + "ntime/generated.proto\0326k8s.io/apimachine"
+          + "ry/pkg/runtime/schema/generated.proto\"\377\001"
+          + "\n\031CertificateSigningRequest\022B\n\010metadata\030"
+          + "\001 \001(\01320.k8s.io.apimachinery.pkg.apis.met"
+          + "a.v1.ObjectMeta\022L\n\004spec\030\002 \001(\0132>.k8s.io.a"
+          + "pi.certificates.v1beta1.CertificateSigni"
+          + "ngRequestSpec\022P\n\006status\030\003 \001(\0132@.k8s.io.a"
+          + "pi.certificates.v1beta1.CertificateSigni"
+          + "ngRequestStatus\"\357\001\n\"CertificateSigningRe"
+          + "questCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\006"
+          + " \001(\t\022\016\n\006reason\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\022B\n"
+          + "\016lastUpdateTime\030\004 \001(\0132*.k8s.io.apimachin"
+          + "ery.pkg.apis.meta.v1.Time\022F\n\022lastTransit"
+          + "ionTime\030\005 \001(\0132*.k8s.io.apimachinery.pkg."
+          + "apis.meta.v1.Time\"\254\001\n\035CertificateSigning"
+          + "RequestList\022@\n\010metadata\030\001 \001(\0132..k8s.io.a"
+          + "pimachinery.pkg.apis.meta.v1.ListMeta\022I\n"
+          + "\005items\030\002 \003(\0132:.k8s.io.api.certificates.v"
+          + "1beta1.CertificateSigningRequest\"\323\002\n\035Cer"
+          + "tificateSigningRequestSpec\022\017\n\007request\030\001 "
+          + "\001(\014\022\022\n\nsignerName\030\007 \001(\t\022\031\n\021expirationSec"
+          + "onds\030\010 \001(\005\022\016\n\006usages\030\005 \003(\t\022\020\n\010username\030\002"
+          + " \001(\t\022\013\n\003uid\030\003 \001(\t\022\016\n\006groups\030\004 \003(\t\022X\n\005ext"
+          + "ra\030\006 \003(\0132I.k8s.io.api.certificates.v1bet"
+          + "a1.CertificateSigningRequestSpec.ExtraEn"
+          + "try\032Y\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022:\n\005value\030"
+          + "\002 \001(\0132+.k8s.io.api.certificates.v1beta1."
+          + "ExtraValue:\0028\001\"\217\001\n\037CertificateSigningReq"
+          + "uestStatus\022W\n\nconditions\030\001 \003(\0132C.k8s.io."
+          + "api.certificates.v1beta1.CertificateSign"
+          + "ingRequestCondition\022\023\n\013certificate\030\002 \001(\014"
+          + "\"\033\n\nExtraValue\022\r\n\005items\030\001 \003(\tB:\n\032io.kube"
+          + "rnetes.client.protoB\023V1beta1Certificates"
+          + "Z\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -8468,6 +10167,7 @@ public final class V1beta1Certificates {
     com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
         descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          io.kubernetes.client.proto.V1.getDescriptor(),
           io.kubernetes.client.proto.Meta.getDescriptor(),
           io.kubernetes.client.proto.Runtime.getDescriptor(),
           io.kubernetes.client.proto.RuntimeSchema.getDescriptor(),
@@ -8487,7 +10187,7 @@ public final class V1beta1Certificates {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_certificates_v1beta1_CertificateSigningRequestCondition_descriptor,
             new java.lang.String[] {
-              "Type", "Reason", "Message", "LastUpdateTime",
+              "Type", "Status", "Reason", "Message", "LastUpdateTime", "LastTransitionTime",
             });
     internal_static_k8s_io_api_certificates_v1beta1_CertificateSigningRequestList_descriptor =
         getDescriptor().getMessageTypes().get(2);
@@ -8503,7 +10203,14 @@ public final class V1beta1Certificates {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_api_certificates_v1beta1_CertificateSigningRequestSpec_descriptor,
             new java.lang.String[] {
-              "Request", "Usages", "Username", "Uid", "Groups", "Extra",
+              "Request",
+              "SignerName",
+              "ExpirationSeconds",
+              "Usages",
+              "Username",
+              "Uid",
+              "Groups",
+              "Extra",
             });
     internal_static_k8s_io_api_certificates_v1beta1_CertificateSigningRequestSpec_ExtraEntry_descriptor =
         internal_static_k8s_io_api_certificates_v1beta1_CertificateSigningRequestSpec_descriptor
@@ -8531,6 +10238,7 @@ public final class V1beta1Certificates {
             new java.lang.String[] {
               "Items",
             });
+    io.kubernetes.client.proto.V1.getDescriptor();
     io.kubernetes.client.proto.Meta.getDescriptor();
     io.kubernetes.client.proto.Runtime.getDescriptor();
     io.kubernetes.client.proto.RuntimeSchema.getDescriptor();

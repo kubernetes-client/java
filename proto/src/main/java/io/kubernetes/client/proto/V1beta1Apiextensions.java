@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2021 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -30,9 +30,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+     * otherwise identical (parallel requests, etc).
+     * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
      * </pre>
      *
@@ -43,9 +43,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+     * otherwise identical (parallel requests, etc).
+     * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
      * </pre>
      *
@@ -56,9 +56,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+     * otherwise identical (parallel requests, etc).
+     * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
      * </pre>
      *
@@ -70,7 +70,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
      * </pre>
      *
      * <code>optional string desiredAPIVersion = 2;</code>
@@ -80,7 +80,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
      * </pre>
      *
      * <code>optional string desiredAPIVersion = 2;</code>
@@ -90,7 +90,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
      * </pre>
      *
      * <code>optional string desiredAPIVersion = 2;</code>
@@ -101,7 +101,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -111,7 +111,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -121,7 +121,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -131,7 +131,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -142,7 +142,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -269,9 +269,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+     * otherwise identical (parallel requests, etc).
+     * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
      * </pre>
      *
@@ -284,9 +284,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+     * otherwise identical (parallel requests, etc).
+     * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
      * </pre>
      *
@@ -309,9 +309,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-     * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-     * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+     * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+     * otherwise identical (parallel requests, etc).
+     * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
      * </pre>
      *
@@ -335,7 +335,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
      * </pre>
      *
      * <code>optional string desiredAPIVersion = 2;</code>
@@ -347,7 +347,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
      * </pre>
      *
      * <code>optional string desiredAPIVersion = 2;</code>
@@ -369,7 +369,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+     * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
      * </pre>
      *
      * <code>optional string desiredAPIVersion = 2;</code>
@@ -392,7 +392,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -404,7 +404,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -417,7 +417,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -429,7 +429,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -441,7 +441,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `objects` is the list of CR objects to be converted.
+     * objects is the list of custom resource objects to be converted.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -882,9 +882,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+       * otherwise identical (parallel requests, etc).
+       * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
        * </pre>
        *
@@ -897,9 +897,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+       * otherwise identical (parallel requests, etc).
+       * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
        * </pre>
        *
@@ -922,9 +922,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+       * otherwise identical (parallel requests, etc).
+       * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
        * </pre>
        *
@@ -945,9 +945,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+       * otherwise identical (parallel requests, etc).
+       * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
        * </pre>
        *
@@ -966,9 +966,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+       * otherwise identical (parallel requests, etc).
+       * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
        * </pre>
        *
@@ -984,9 +984,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response. It allows us to distinguish instances of requests which are
-       * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
-       * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
+       * uid is an identifier for the individual request/response. It allows distinguishing instances of requests which are
+       * otherwise identical (parallel requests, etc).
+       * The UID is meant to track the round trip (request/response) between the Kubernetes API server and the webhook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
        * </pre>
        *
@@ -1007,7 +1007,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
        * </pre>
        *
        * <code>optional string desiredAPIVersion = 2;</code>
@@ -1019,7 +1019,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
        * </pre>
        *
        * <code>optional string desiredAPIVersion = 2;</code>
@@ -1041,7 +1041,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
        * </pre>
        *
        * <code>optional string desiredAPIVersion = 2;</code>
@@ -1061,7 +1061,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
        * </pre>
        *
        * <code>optional string desiredAPIVersion = 2;</code>
@@ -1079,7 +1079,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
        * </pre>
        *
        * <code>optional string desiredAPIVersion = 2;</code>
@@ -1094,7 +1094,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `desiredAPIVersion` is the version to convert given objects to. e.g. "myapi.example.com/v1"
+       * desiredAPIVersion is the version to convert given objects to. e.g. "myapi.example.com/v1"
        * </pre>
        *
        * <code>optional string desiredAPIVersion = 2;</code>
@@ -1130,7 +1130,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1146,7 +1146,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1162,7 +1162,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1178,7 +1178,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1200,7 +1200,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1220,7 +1220,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1242,7 +1242,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1264,7 +1264,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1284,7 +1284,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1304,7 +1304,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1324,7 +1324,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1343,7 +1343,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1362,7 +1362,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1374,7 +1374,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1391,7 +1391,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1408,7 +1408,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1421,7 +1421,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1435,7 +1435,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `objects` is the list of CR objects to be converted.
+       * objects is the list of custom resource objects to be converted.
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension objects = 3;</code>
@@ -1530,8 +1530,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response.
-     * This should be copied over from the corresponding AdmissionRequest.
+     * uid is an identifier for the individual request/response.
+     * This should be copied over from the corresponding `request.uid`.
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -1541,8 +1541,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response.
-     * This should be copied over from the corresponding AdmissionRequest.
+     * uid is an identifier for the individual request/response.
+     * This should be copied over from the corresponding `request.uid`.
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -1552,8 +1552,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response.
-     * This should be copied over from the corresponding AdmissionRequest.
+     * uid is an identifier for the individual request/response.
+     * This should be copied over from the corresponding `request.uid`.
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -1564,9 +1564,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1576,9 +1577,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1588,9 +1590,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1600,9 +1603,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1613,9 +1617,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1627,8 +1632,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
      * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
      * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
      * will be used to construct an error message for the end user.
@@ -1641,8 +1646,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
      * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
      * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
      * will be used to construct an error message for the end user.
@@ -1655,8 +1660,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
      * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
      * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
      * will be used to construct an error message for the end user.
@@ -1794,8 +1799,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response.
-     * This should be copied over from the corresponding AdmissionRequest.
+     * uid is an identifier for the individual request/response.
+     * This should be copied over from the corresponding `request.uid`.
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -1807,8 +1812,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response.
-     * This should be copied over from the corresponding AdmissionRequest.
+     * uid is an identifier for the individual request/response.
+     * This should be copied over from the corresponding `request.uid`.
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -1830,8 +1835,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `uid` is an identifier for the individual request/response.
-     * This should be copied over from the corresponding AdmissionRequest.
+     * uid is an identifier for the individual request/response.
+     * This should be copied over from the corresponding `request.uid`.
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -1854,9 +1859,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1869,9 +1875,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1884,9 +1891,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1898,9 +1906,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1912,9 +1921,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-     * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-     * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+     * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+     * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+     * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+     * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
@@ -1930,8 +1940,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
      * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
      * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
      * will be used to construct an error message for the end user.
@@ -1946,8 +1956,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
      * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
      * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
      * will be used to construct an error message for the end user.
@@ -1964,8 +1974,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-     * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+     * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+     * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
      * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
      * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
      * will be used to construct an error message for the end user.
@@ -2419,8 +2429,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response.
-       * This should be copied over from the corresponding AdmissionRequest.
+       * uid is an identifier for the individual request/response.
+       * This should be copied over from the corresponding `request.uid`.
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2432,8 +2442,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response.
-       * This should be copied over from the corresponding AdmissionRequest.
+       * uid is an identifier for the individual request/response.
+       * This should be copied over from the corresponding `request.uid`.
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2455,8 +2465,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response.
-       * This should be copied over from the corresponding AdmissionRequest.
+       * uid is an identifier for the individual request/response.
+       * This should be copied over from the corresponding `request.uid`.
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2476,8 +2486,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response.
-       * This should be copied over from the corresponding AdmissionRequest.
+       * uid is an identifier for the individual request/response.
+       * This should be copied over from the corresponding `request.uid`.
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2495,8 +2505,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response.
-       * This should be copied over from the corresponding AdmissionRequest.
+       * uid is an identifier for the individual request/response.
+       * This should be copied over from the corresponding `request.uid`.
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2511,8 +2521,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `uid` is an identifier for the individual request/response.
-       * This should be copied over from the corresponding AdmissionRequest.
+       * uid is an identifier for the individual request/response.
+       * This should be copied over from the corresponding `request.uid`.
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2549,13 +2559,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public java.util.List<io.kubernetes.client.proto.Runtime.RawExtension>
           getConvertedObjectsList() {
@@ -2569,13 +2579,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public int getConvertedObjectsCount() {
         if (convertedObjectsBuilder_ == null) {
@@ -2588,13 +2598,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public io.kubernetes.client.proto.Runtime.RawExtension getConvertedObjects(int index) {
         if (convertedObjectsBuilder_ == null) {
@@ -2607,13 +2617,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder setConvertedObjects(
           int index, io.kubernetes.client.proto.Runtime.RawExtension value) {
@@ -2633,13 +2643,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder setConvertedObjects(
           int index, io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
@@ -2656,13 +2666,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder addConvertedObjects(io.kubernetes.client.proto.Runtime.RawExtension value) {
         if (convertedObjectsBuilder_ == null) {
@@ -2681,13 +2691,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder addConvertedObjects(
           int index, io.kubernetes.client.proto.Runtime.RawExtension value) {
@@ -2707,13 +2717,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder addConvertedObjects(
           io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
@@ -2730,13 +2740,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder addConvertedObjects(
           int index, io.kubernetes.client.proto.Runtime.RawExtension.Builder builderForValue) {
@@ -2753,13 +2763,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder addAllConvertedObjects(
           java.lang.Iterable<? extends io.kubernetes.client.proto.Runtime.RawExtension> values) {
@@ -2776,13 +2786,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder clearConvertedObjects() {
         if (convertedObjectsBuilder_ == null) {
@@ -2798,13 +2808,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public Builder removeConvertedObjects(int index) {
         if (convertedObjectsBuilder_ == null) {
@@ -2820,13 +2830,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public io.kubernetes.client.proto.Runtime.RawExtension.Builder getConvertedObjectsBuilder(
           int index) {
@@ -2836,13 +2846,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder getConvertedObjectsOrBuilder(
           int index) {
@@ -2856,13 +2866,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public java.util.List<? extends io.kubernetes.client.proto.Runtime.RawExtensionOrBuilder>
           getConvertedObjectsOrBuilderList() {
@@ -2876,13 +2886,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public io.kubernetes.client.proto.Runtime.RawExtension.Builder addConvertedObjectsBuilder() {
         return getConvertedObjectsFieldBuilder()
@@ -2892,13 +2902,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public io.kubernetes.client.proto.Runtime.RawExtension.Builder addConvertedObjectsBuilder(
           int index) {
@@ -2910,13 +2920,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `convertedObjects` is the list of converted version of `request.objects` if the `result` is successful otherwise empty.
-       * The webhook is expected to set apiVersion of these objects to the ConversionRequest.desiredAPIVersion. The list
-       * must also has the same size as input list with the same objects in the same order(i.e. equal UIDs and object meta)
+       * convertedObjects is the list of converted version of `request.objects` if the `result` is successful, otherwise empty.
+       * The webhook is expected to set `apiVersion` of these objects to the `request.desiredAPIVersion`. The list
+       * must also have the same size as the input list with the same objects in the same order (equal kind, metadata.uid, metadata.name and metadata.namespace).
+       * The webhook is allowed to mutate labels and annotations. Any other change to the metadata is silently ignored.
        * </pre>
        *
-       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;
-       * </code>
+       * <code>repeated .k8s.io.apimachinery.pkg.runtime.RawExtension convertedObjects = 2;</code>
        */
       public java.util.List<io.kubernetes.client.proto.Runtime.RawExtension.Builder>
           getConvertedObjectsBuilderList() {
@@ -2953,8 +2963,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -2969,8 +2979,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -2991,8 +3001,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -3017,8 +3027,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -3040,8 +3050,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -3072,8 +3082,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -3095,8 +3105,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -3113,8 +3123,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -3135,8 +3145,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `result` contains the result of conversion with extra details if the conversion failed. `result.status` determines if
-       * the conversion failed or succeeded. The `result.status` field is required and represent the success or failure of the
+       * result contains the result of conversion with extra details if the conversion failed. `result.status` determines if
+       * the conversion failed or succeeded. The `result.status` field is required and represents the success or failure of the
        * conversion. A successful conversion must set `result.status` to `Success`. A failed conversion must set
        * `result.status` to `Failure` and provide more details in `result.message` and return http status 200. The `result.message`
        * will be used to construct an error message for the end user.
@@ -3226,7 +3236,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `request` describes the attributes for the conversion request.
+     * request describes the attributes for the conversion request.
      * +optional
      * </pre>
      *
@@ -3239,7 +3249,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `request` describes the attributes for the conversion request.
+     * request describes the attributes for the conversion request.
      * +optional
      * </pre>
      *
@@ -3252,7 +3262,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `request` describes the attributes for the conversion request.
+     * request describes the attributes for the conversion request.
      * +optional
      * </pre>
      *
@@ -3267,7 +3277,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `response` describes the attributes for the conversion response.
+     * response describes the attributes for the conversion response.
      * +optional
      * </pre>
      *
@@ -3280,7 +3290,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `response` describes the attributes for the conversion response.
+     * response describes the attributes for the conversion response.
      * +optional
      * </pre>
      *
@@ -3293,7 +3303,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `response` describes the attributes for the conversion response.
+     * response describes the attributes for the conversion response.
      * +optional
      * </pre>
      *
@@ -3427,7 +3437,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `request` describes the attributes for the conversion request.
+     * request describes the attributes for the conversion request.
      * +optional
      * </pre>
      *
@@ -3442,7 +3452,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `request` describes the attributes for the conversion request.
+     * request describes the attributes for the conversion request.
      * +optional
      * </pre>
      *
@@ -3459,7 +3469,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `request` describes the attributes for the conversion request.
+     * request describes the attributes for the conversion request.
      * +optional
      * </pre>
      *
@@ -3480,7 +3490,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `response` describes the attributes for the conversion response.
+     * response describes the attributes for the conversion response.
      * +optional
      * </pre>
      *
@@ -3495,7 +3505,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `response` describes the attributes for the conversion response.
+     * response describes the attributes for the conversion response.
      * +optional
      * </pre>
      *
@@ -3512,7 +3522,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `response` describes the attributes for the conversion response.
+     * response describes the attributes for the conversion response.
      * +optional
      * </pre>
      *
@@ -3924,7 +3934,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -3939,7 +3949,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -3961,7 +3971,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -3987,7 +3997,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -4011,7 +4021,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -4046,7 +4056,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -4068,7 +4078,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -4086,7 +4096,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -4109,7 +4119,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `request` describes the attributes for the conversion request.
+       * request describes the attributes for the conversion request.
        * +optional
        * </pre>
        *
@@ -4144,7 +4154,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4159,7 +4169,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4181,7 +4191,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4207,7 +4217,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4231,7 +4241,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4266,7 +4276,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4288,7 +4298,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4306,7 +4316,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4329,7 +4339,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `response` describes the attributes for the conversion response.
+       * response describes the attributes for the conversion response.
        * +optional
        * </pre>
        *
@@ -4451,7 +4461,7 @@ public final class V1beta1Apiextensions {
      *
      * <pre>
      * type is an OpenAPI type definition for this column.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * </pre>
      *
      * <code>optional string type = 2;</code>
@@ -4462,7 +4472,7 @@ public final class V1beta1Apiextensions {
      *
      * <pre>
      * type is an OpenAPI type definition for this column.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * </pre>
      *
      * <code>optional string type = 2;</code>
@@ -4473,7 +4483,7 @@ public final class V1beta1Apiextensions {
      *
      * <pre>
      * type is an OpenAPI type definition for this column.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * </pre>
      *
      * <code>optional string type = 2;</code>
@@ -4486,7 +4496,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * format is an optional OpenAPI type definition for this column. The 'name' format is applied
      * to the primary identifier column to assist in clients identifying column is the resource name.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * +optional
      * </pre>
      *
@@ -4499,7 +4509,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * format is an optional OpenAPI type definition for this column. The 'name' format is applied
      * to the primary identifier column to assist in clients identifying column is the resource name.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * +optional
      * </pre>
      *
@@ -4512,7 +4522,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * format is an optional OpenAPI type definition for this column. The 'name' format is applied
      * to the primary identifier column to assist in clients identifying column is the resource name.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * +optional
      * </pre>
      *
@@ -4560,7 +4570,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * priority is an integer defining the relative importance of this column compared to others. Lower
      * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
-     * should be given a higher priority.
+     * should be given a priority greater than 0.
      * +optional
      * </pre>
      *
@@ -4573,7 +4583,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * priority is an integer defining the relative importance of this column compared to others. Lower
      * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
-     * should be given a higher priority.
+     * should be given a priority greater than 0.
      * +optional
      * </pre>
      *
@@ -4585,7 +4595,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * JSONPath is a simple JSON path, i.e. with array notation.
+     * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+     * each custom resource to produce the value for this column.
      * </pre>
      *
      * <code>optional string JSONPath = 6;</code>
@@ -4595,7 +4606,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * JSONPath is a simple JSON path, i.e. with array notation.
+     * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+     * each custom resource to produce the value for this column.
      * </pre>
      *
      * <code>optional string JSONPath = 6;</code>
@@ -4605,7 +4617,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * JSONPath is a simple JSON path, i.e. with array notation.
+     * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+     * each custom resource to produce the value for this column.
      * </pre>
      *
      * <code>optional string JSONPath = 6;</code>
@@ -4808,7 +4821,7 @@ public final class V1beta1Apiextensions {
      *
      * <pre>
      * type is an OpenAPI type definition for this column.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * </pre>
      *
      * <code>optional string type = 2;</code>
@@ -4821,7 +4834,7 @@ public final class V1beta1Apiextensions {
      *
      * <pre>
      * type is an OpenAPI type definition for this column.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * </pre>
      *
      * <code>optional string type = 2;</code>
@@ -4844,7 +4857,7 @@ public final class V1beta1Apiextensions {
      *
      * <pre>
      * type is an OpenAPI type definition for this column.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * </pre>
      *
      * <code>optional string type = 2;</code>
@@ -4869,7 +4882,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * format is an optional OpenAPI type definition for this column. The 'name' format is applied
      * to the primary identifier column to assist in clients identifying column is the resource name.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * +optional
      * </pre>
      *
@@ -4884,7 +4897,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * format is an optional OpenAPI type definition for this column. The 'name' format is applied
      * to the primary identifier column to assist in clients identifying column is the resource name.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * +optional
      * </pre>
      *
@@ -4909,7 +4922,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * format is an optional OpenAPI type definition for this column. The 'name' format is applied
      * to the primary identifier column to assist in clients identifying column is the resource name.
-     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+     * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
      * +optional
      * </pre>
      *
@@ -4995,7 +5008,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * priority is an integer defining the relative importance of this column compared to others. Lower
      * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
-     * should be given a higher priority.
+     * should be given a priority greater than 0.
      * +optional
      * </pre>
      *
@@ -5010,7 +5023,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * priority is an integer defining the relative importance of this column compared to others. Lower
      * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
-     * should be given a higher priority.
+     * should be given a priority greater than 0.
      * +optional
      * </pre>
      *
@@ -5026,7 +5039,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * JSONPath is a simple JSON path, i.e. with array notation.
+     * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+     * each custom resource to produce the value for this column.
      * </pre>
      *
      * <code>optional string JSONPath = 6;</code>
@@ -5038,7 +5052,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * JSONPath is a simple JSON path, i.e. with array notation.
+     * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+     * each custom resource to produce the value for this column.
      * </pre>
      *
      * <code>optional string JSONPath = 6;</code>
@@ -5060,7 +5075,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * JSONPath is a simple JSON path, i.e. with array notation.
+     * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+     * each custom resource to produce the value for this column.
      * </pre>
      *
      * <code>optional string JSONPath = 6;</code>
@@ -5677,7 +5693,7 @@ public final class V1beta1Apiextensions {
        *
        * <pre>
        * type is an OpenAPI type definition for this column.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * </pre>
        *
        * <code>optional string type = 2;</code>
@@ -5690,7 +5706,7 @@ public final class V1beta1Apiextensions {
        *
        * <pre>
        * type is an OpenAPI type definition for this column.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * </pre>
        *
        * <code>optional string type = 2;</code>
@@ -5713,7 +5729,7 @@ public final class V1beta1Apiextensions {
        *
        * <pre>
        * type is an OpenAPI type definition for this column.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * </pre>
        *
        * <code>optional string type = 2;</code>
@@ -5734,7 +5750,7 @@ public final class V1beta1Apiextensions {
        *
        * <pre>
        * type is an OpenAPI type definition for this column.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * </pre>
        *
        * <code>optional string type = 2;</code>
@@ -5753,7 +5769,7 @@ public final class V1beta1Apiextensions {
        *
        * <pre>
        * type is an OpenAPI type definition for this column.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * </pre>
        *
        * <code>optional string type = 2;</code>
@@ -5769,7 +5785,7 @@ public final class V1beta1Apiextensions {
        *
        * <pre>
        * type is an OpenAPI type definition for this column.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * </pre>
        *
        * <code>optional string type = 2;</code>
@@ -5791,7 +5807,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * format is an optional OpenAPI type definition for this column. The 'name' format is applied
        * to the primary identifier column to assist in clients identifying column is the resource name.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * +optional
        * </pre>
        *
@@ -5806,7 +5822,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * format is an optional OpenAPI type definition for this column. The 'name' format is applied
        * to the primary identifier column to assist in clients identifying column is the resource name.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * +optional
        * </pre>
        *
@@ -5831,7 +5847,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * format is an optional OpenAPI type definition for this column. The 'name' format is applied
        * to the primary identifier column to assist in clients identifying column is the resource name.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * +optional
        * </pre>
        *
@@ -5854,7 +5870,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * format is an optional OpenAPI type definition for this column. The 'name' format is applied
        * to the primary identifier column to assist in clients identifying column is the resource name.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * +optional
        * </pre>
        *
@@ -5875,7 +5891,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * format is an optional OpenAPI type definition for this column. The 'name' format is applied
        * to the primary identifier column to assist in clients identifying column is the resource name.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * +optional
        * </pre>
        *
@@ -5893,7 +5909,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * format is an optional OpenAPI type definition for this column. The 'name' format is applied
        * to the primary identifier column to assist in clients identifying column is the resource name.
-       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more.
+       * See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.
        * +optional
        * </pre>
        *
@@ -6029,7 +6045,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * priority is an integer defining the relative importance of this column compared to others. Lower
        * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
-       * should be given a higher priority.
+       * should be given a priority greater than 0.
        * +optional
        * </pre>
        *
@@ -6044,7 +6060,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * priority is an integer defining the relative importance of this column compared to others. Lower
        * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
-       * should be given a higher priority.
+       * should be given a priority greater than 0.
        * +optional
        * </pre>
        *
@@ -6059,7 +6075,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * priority is an integer defining the relative importance of this column compared to others. Lower
        * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
-       * should be given a higher priority.
+       * should be given a priority greater than 0.
        * +optional
        * </pre>
        *
@@ -6077,7 +6093,7 @@ public final class V1beta1Apiextensions {
        * <pre>
        * priority is an integer defining the relative importance of this column compared to others. Lower
        * numbers are considered higher priority. Columns that may be omitted in limited space scenarios
-       * should be given a higher priority.
+       * should be given a priority greater than 0.
        * +optional
        * </pre>
        *
@@ -6095,7 +6111,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * JSONPath is a simple JSON path, i.e. with array notation.
+       * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+       * each custom resource to produce the value for this column.
        * </pre>
        *
        * <code>optional string JSONPath = 6;</code>
@@ -6107,7 +6124,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * JSONPath is a simple JSON path, i.e. with array notation.
+       * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+       * each custom resource to produce the value for this column.
        * </pre>
        *
        * <code>optional string JSONPath = 6;</code>
@@ -6129,7 +6147,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * JSONPath is a simple JSON path, i.e. with array notation.
+       * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+       * each custom resource to produce the value for this column.
        * </pre>
        *
        * <code>optional string JSONPath = 6;</code>
@@ -6149,7 +6168,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * JSONPath is a simple JSON path, i.e. with array notation.
+       * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+       * each custom resource to produce the value for this column.
        * </pre>
        *
        * <code>optional string JSONPath = 6;</code>
@@ -6167,7 +6187,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * JSONPath is a simple JSON path, i.e. with array notation.
+       * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+       * each custom resource to produce the value for this column.
        * </pre>
        *
        * <code>optional string JSONPath = 6;</code>
@@ -6182,7 +6203,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * JSONPath is a simple JSON path, i.e. with array notation.
+       * JSONPath is a simple JSON path (i.e. with array notation) which is evaluated against
+       * each custom resource to produce the value for this column.
        * </pre>
        *
        * <code>optional string JSONPath = 6;</code>
@@ -6264,9 +6286,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `strategy` specifies the conversion strategy. Allowed values are:
-     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * strategy specifies how custom resources are converted between versions. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+     *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
      * </pre>
      *
      * <code>optional string strategy = 1;</code>
@@ -6276,9 +6299,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `strategy` specifies the conversion strategy. Allowed values are:
-     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * strategy specifies how custom resources are converted between versions. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+     *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
      * </pre>
      *
      * <code>optional string strategy = 1;</code>
@@ -6288,9 +6312,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `strategy` specifies the conversion strategy. Allowed values are:
-     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * strategy specifies how custom resources are converted between versions. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+     *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
      * </pre>
      *
      * <code>optional string strategy = 1;</code>
@@ -6301,8 +6326,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+     * Required when `strategy` is set to `Webhook`.
      * +optional
      * </pre>
      *
@@ -6315,8 +6340,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+     * Required when `strategy` is set to `Webhook`.
      * +optional
      * </pre>
      *
@@ -6329,8 +6354,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+     * Required when `strategy` is set to `Webhook`.
      * +optional
      * </pre>
      *
@@ -6340,6 +6365,75 @@ public final class V1beta1Apiextensions {
      */
     io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfigOrBuilder
         getWebhookClientConfigOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+     * versions the Webhook expects. The API server will use the first version in
+     * the list which it supports. If none of the versions specified in this list
+     * are supported by API server, conversion will fail for the custom resource.
+     * If a persisted Webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail.
+     * Defaults to `["v1beta1"]`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string conversionReviewVersions = 3;</code>
+     */
+    java.util.List<java.lang.String> getConversionReviewVersionsList();
+    /**
+     *
+     *
+     * <pre>
+     * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+     * versions the Webhook expects. The API server will use the first version in
+     * the list which it supports. If none of the versions specified in this list
+     * are supported by API server, conversion will fail for the custom resource.
+     * If a persisted Webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail.
+     * Defaults to `["v1beta1"]`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string conversionReviewVersions = 3;</code>
+     */
+    int getConversionReviewVersionsCount();
+    /**
+     *
+     *
+     * <pre>
+     * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+     * versions the Webhook expects. The API server will use the first version in
+     * the list which it supports. If none of the versions specified in this list
+     * are supported by API server, conversion will fail for the custom resource.
+     * If a persisted Webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail.
+     * Defaults to `["v1beta1"]`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string conversionReviewVersions = 3;</code>
+     */
+    java.lang.String getConversionReviewVersions(int index);
+    /**
+     *
+     *
+     * <pre>
+     * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+     * versions the Webhook expects. The API server will use the first version in
+     * the list which it supports. If none of the versions specified in this list
+     * are supported by API server, conversion will fail for the custom resource.
+     * If a persisted Webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail.
+     * Defaults to `["v1beta1"]`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string conversionReviewVersions = 3;</code>
+     */
+    com.google.protobuf.ByteString getConversionReviewVersionsBytes(int index);
   }
   /**
    *
@@ -6363,6 +6457,7 @@ public final class V1beta1Apiextensions {
 
     private CustomResourceConversion() {
       strategy_ = "";
+      conversionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -6414,6 +6509,16 @@ public final class V1beta1Apiextensions {
                 bitField0_ |= 0x00000002;
                 break;
               }
+            case 26:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  conversionReviewVersions_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                conversionReviewVersions_.add(bs);
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -6428,6 +6533,9 @@ public final class V1beta1Apiextensions {
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          conversionReviewVersions_ = conversionReviewVersions_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -6456,9 +6564,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `strategy` specifies the conversion strategy. Allowed values are:
-     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * strategy specifies how custom resources are converted between versions. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+     *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
      * </pre>
      *
      * <code>optional string strategy = 1;</code>
@@ -6470,9 +6579,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `strategy` specifies the conversion strategy. Allowed values are:
-     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * strategy specifies how custom resources are converted between versions. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+     *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
      * </pre>
      *
      * <code>optional string strategy = 1;</code>
@@ -6494,9 +6604,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `strategy` specifies the conversion strategy. Allowed values are:
-     * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+     * strategy specifies how custom resources are converted between versions. Allowed values are:
+     * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+     * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+     *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
      * </pre>
      *
      * <code>optional string strategy = 1;</code>
@@ -6520,8 +6631,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+     * Required when `strategy` is set to `Webhook`.
      * +optional
      * </pre>
      *
@@ -6536,8 +6647,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+     * Required when `strategy` is set to `Webhook`.
      * +optional
      * </pre>
      *
@@ -6555,8 +6666,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-     * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+     * Required when `strategy` is set to `Webhook`.
      * +optional
      * </pre>
      *
@@ -6569,6 +6680,85 @@ public final class V1beta1Apiextensions {
       return webhookClientConfig_ == null
           ? io.kubernetes.client.proto.V1beta1Apiextensions.WebhookClientConfig.getDefaultInstance()
           : webhookClientConfig_;
+    }
+
+    public static final int CONVERSIONREVIEWVERSIONS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList conversionReviewVersions_;
+    /**
+     *
+     *
+     * <pre>
+     * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+     * versions the Webhook expects. The API server will use the first version in
+     * the list which it supports. If none of the versions specified in this list
+     * are supported by API server, conversion will fail for the custom resource.
+     * If a persisted Webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail.
+     * Defaults to `["v1beta1"]`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string conversionReviewVersions = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getConversionReviewVersionsList() {
+      return conversionReviewVersions_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+     * versions the Webhook expects. The API server will use the first version in
+     * the list which it supports. If none of the versions specified in this list
+     * are supported by API server, conversion will fail for the custom resource.
+     * If a persisted Webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail.
+     * Defaults to `["v1beta1"]`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string conversionReviewVersions = 3;</code>
+     */
+    public int getConversionReviewVersionsCount() {
+      return conversionReviewVersions_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+     * versions the Webhook expects. The API server will use the first version in
+     * the list which it supports. If none of the versions specified in this list
+     * are supported by API server, conversion will fail for the custom resource.
+     * If a persisted Webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail.
+     * Defaults to `["v1beta1"]`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string conversionReviewVersions = 3;</code>
+     */
+    public java.lang.String getConversionReviewVersions(int index) {
+      return conversionReviewVersions_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+     * versions the Webhook expects. The API server will use the first version in
+     * the list which it supports. If none of the versions specified in this list
+     * are supported by API server, conversion will fail for the custom resource.
+     * If a persisted Webhook configuration specifies allowed versions and does not
+     * include any versions known to the API Server, calls to the webhook will fail.
+     * Defaults to `["v1beta1"]`.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string conversionReviewVersions = 3;</code>
+     */
+    public com.google.protobuf.ByteString getConversionReviewVersionsBytes(int index) {
+      return conversionReviewVersions_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6591,6 +6781,10 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, getWebhookClientConfig());
       }
+      for (int i = 0; i < conversionReviewVersions_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(
+            output, 3, conversionReviewVersions_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6606,6 +6800,14 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size +=
             com.google.protobuf.CodedOutputStream.computeMessageSize(2, getWebhookClientConfig());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < conversionReviewVersions_.size(); i++) {
+          dataSize += computeStringSizeNoTag(conversionReviewVersions_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getConversionReviewVersionsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6633,6 +6835,9 @@ public final class V1beta1Apiextensions {
       if (hasWebhookClientConfig()) {
         result = result && getWebhookClientConfig().equals(other.getWebhookClientConfig());
       }
+      result =
+          result
+              && getConversionReviewVersionsList().equals(other.getConversionReviewVersionsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6651,6 +6856,10 @@ public final class V1beta1Apiextensions {
       if (hasWebhookClientConfig()) {
         hash = (37 * hash) + WEBHOOKCLIENTCONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getWebhookClientConfig().hashCode();
+      }
+      if (getConversionReviewVersionsCount() > 0) {
+        hash = (37 * hash) + CONVERSIONREVIEWVERSIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getConversionReviewVersionsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6819,6 +7028,8 @@ public final class V1beta1Apiextensions {
           webhookClientConfigBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        conversionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -6864,6 +7075,11 @@ public final class V1beta1Apiextensions {
         } else {
           result.webhookClientConfig_ = webhookClientConfigBuilder_.build();
         }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          conversionReviewVersions_ = conversionReviewVersions_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.conversionReviewVersions_ = conversionReviewVersions_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6929,6 +7145,16 @@ public final class V1beta1Apiextensions {
         if (other.hasWebhookClientConfig()) {
           mergeWebhookClientConfig(other.getWebhookClientConfig());
         }
+        if (!other.conversionReviewVersions_.isEmpty()) {
+          if (conversionReviewVersions_.isEmpty()) {
+            conversionReviewVersions_ = other.conversionReviewVersions_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureConversionReviewVersionsIsMutable();
+            conversionReviewVersions_.addAll(other.conversionReviewVersions_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6968,9 +7194,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `strategy` specifies the conversion strategy. Allowed values are:
-       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * strategy specifies how custom resources are converted between versions. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+       *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
        * </pre>
        *
        * <code>optional string strategy = 1;</code>
@@ -6982,9 +7209,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `strategy` specifies the conversion strategy. Allowed values are:
-       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * strategy specifies how custom resources are converted between versions. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+       *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
        * </pre>
        *
        * <code>optional string strategy = 1;</code>
@@ -7006,9 +7234,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `strategy` specifies the conversion strategy. Allowed values are:
-       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * strategy specifies how custom resources are converted between versions. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+       *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
        * </pre>
        *
        * <code>optional string strategy = 1;</code>
@@ -7028,9 +7257,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `strategy` specifies the conversion strategy. Allowed values are:
-       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * strategy specifies how custom resources are converted between versions. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+       *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
        * </pre>
        *
        * <code>optional string strategy = 1;</code>
@@ -7048,9 +7278,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `strategy` specifies the conversion strategy. Allowed values are:
-       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * strategy specifies how custom resources are converted between versions. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+       *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
        * </pre>
        *
        * <code>optional string strategy = 1;</code>
@@ -7065,9 +7296,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `strategy` specifies the conversion strategy. Allowed values are:
-       * - `None`: The converter only change the apiVersion and would not touch any other field in the CR.
-       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information is needed for this option.
+       * strategy specifies how custom resources are converted between versions. Allowed values are:
+       * - `None`: The converter only change the apiVersion and would not touch any other field in the custom resource.
+       * - `Webhook`: API Server will call to an external webhook to do the conversion. Additional information
+       *   is needed for this option. This requires spec.preserveUnknownFields to be false, and spec.conversion.webhookClientConfig to be set.
        * </pre>
        *
        * <code>optional string strategy = 1;</code>
@@ -7093,8 +7325,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7109,8 +7341,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7133,8 +7365,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7160,8 +7392,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7185,8 +7417,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7221,8 +7453,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7244,8 +7476,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7263,8 +7495,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7287,8 +7519,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `webhookClientConfig` is the instructions for how to call the webhook if strategy is `Webhook`. This field is
-       * alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * webhookClientConfig is the instructions for how to call the webhook if strategy is `Webhook`.
+       * Required when `strategy` is set to `Webhook`.
        * +optional
        * </pre>
        *
@@ -7311,6 +7543,212 @@ public final class V1beta1Apiextensions {
           webhookClientConfig_ = null;
         }
         return webhookClientConfigBuilder_;
+      }
+
+      private com.google.protobuf.LazyStringList conversionReviewVersions_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureConversionReviewVersionsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          conversionReviewVersions_ =
+              new com.google.protobuf.LazyStringArrayList(conversionReviewVersions_);
+          bitField0_ |= 0x00000004;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getConversionReviewVersionsList() {
+        return conversionReviewVersions_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public int getConversionReviewVersionsCount() {
+        return conversionReviewVersions_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public java.lang.String getConversionReviewVersions(int index) {
+        return conversionReviewVersions_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public com.google.protobuf.ByteString getConversionReviewVersionsBytes(int index) {
+        return conversionReviewVersions_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public Builder setConversionReviewVersions(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureConversionReviewVersionsIsMutable();
+        conversionReviewVersions_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public Builder addConversionReviewVersions(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureConversionReviewVersionsIsMutable();
+        conversionReviewVersions_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public Builder addAllConversionReviewVersions(java.lang.Iterable<java.lang.String> values) {
+        ensureConversionReviewVersionsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, conversionReviewVersions_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public Builder clearConversionReviewVersions() {
+        conversionReviewVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * conversionReviewVersions is an ordered list of preferred `ConversionReview`
+       * versions the Webhook expects. The API server will use the first version in
+       * the list which it supports. If none of the versions specified in this list
+       * are supported by API server, conversion will fail for the custom resource.
+       * If a persisted Webhook configuration specifies allowed versions and does not
+       * include any versions known to the API Server, calls to the webhook will fail.
+       * Defaults to `["v1beta1"]`.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string conversionReviewVersions = 3;</code>
+       */
+      public Builder addConversionReviewVersionsBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureConversionReviewVersionsIsMutable();
+        conversionReviewVersions_.add(value);
+        onChanged();
+        return this;
       }
 
       @java.lang.Override
@@ -7375,18 +7813,48 @@ public final class V1beta1Apiextensions {
       // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinition)
       com.google.protobuf.MessageOrBuilder {
 
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
     boolean hasMetadata();
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
     io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder();
 
     /**
      *
      *
      * <pre>
-     * Spec describes how the user wants the resources to appear
+     * spec describes how the user wants the resources to appear
      * </pre>
      *
      * <code>
@@ -7398,7 +7866,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Spec describes how the user wants the resources to appear
+     * spec describes how the user wants the resources to appear
      * </pre>
      *
      * <code>
@@ -7410,7 +7878,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Spec describes how the user wants the resources to appear
+     * spec describes how the user wants the resources to appear
      * </pre>
      *
      * <code>
@@ -7424,7 +7892,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status indicates the actual state of the CustomResourceDefinition
+     * status indicates the actual state of the CustomResourceDefinition
      * +optional
      * </pre>
      *
@@ -7437,7 +7905,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status indicates the actual state of the CustomResourceDefinition
+     * status indicates the actual state of the CustomResourceDefinition
      * +optional
      * </pre>
      *
@@ -7450,7 +7918,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status indicates the actual state of the CustomResourceDefinition
+     * status indicates the actual state of the CustomResourceDefinition
      * +optional
      * </pre>
      *
@@ -7467,6 +7935,7 @@ public final class V1beta1Apiextensions {
    * <pre>
    * CustomResourceDefinition represents a resource that should be exposed on the API server.  Its name MUST be in the format
    * &lt;.spec.name&gt;.&lt;.spec.group&gt;.
+   * Deprecated in v1.16, planned for removal in v1.22. Use apiextensions.k8s.io/v1 CustomResourceDefinition instead.
    * </pre>
    *
    * Protobuf type {@code
@@ -7601,17 +8070,47 @@ public final class V1beta1Apiextensions {
     private int bitField0_;
     public static final int METADATA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
     public boolean hasMetadata() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
     public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
       return metadata_ == null
           ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
           : metadata_;
     }
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+     */
     public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
       return metadata_ == null
           ? io.kubernetes.client.proto.Meta.ObjectMeta.getDefaultInstance()
@@ -7624,7 +8123,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Spec describes how the user wants the resources to appear
+     * spec describes how the user wants the resources to appear
      * </pre>
      *
      * <code>
@@ -7638,7 +8137,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Spec describes how the user wants the resources to appear
+     * spec describes how the user wants the resources to appear
      * </pre>
      *
      * <code>
@@ -7655,7 +8154,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Spec describes how the user wants the resources to appear
+     * spec describes how the user wants the resources to appear
      * </pre>
      *
      * <code>
@@ -7676,7 +8175,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status indicates the actual state of the CustomResourceDefinition
+     * status indicates the actual state of the CustomResourceDefinition
      * +optional
      * </pre>
      *
@@ -7691,7 +8190,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status indicates the actual state of the CustomResourceDefinition
+     * status indicates the actual state of the CustomResourceDefinition
      * +optional
      * </pre>
      *
@@ -7710,7 +8209,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status indicates the actual state of the CustomResourceDefinition
+     * status indicates the actual state of the CustomResourceDefinition
      * +optional
      * </pre>
      *
@@ -7934,6 +8433,7 @@ public final class V1beta1Apiextensions {
      * <pre>
      * CustomResourceDefinition represents a resource that should be exposed on the API server.  Its name MUST be in the format
      * &lt;.spec.name&gt;.&lt;.spec.group&gt;.
+     * Deprecated in v1.16, planned for removal in v1.22. Use apiextensions.k8s.io/v1 CustomResourceDefinition instead.
      * </pre>
      *
      * Protobuf type {@code
@@ -8163,11 +8663,31 @@ public final class V1beta1Apiextensions {
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
               io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder>
           metadataBuilder_;
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       public boolean hasMetadata() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       public io.kubernetes.client.proto.Meta.ObjectMeta getMetadata() {
         if (metadataBuilder_ == null) {
           return metadata_ == null
@@ -8177,7 +8697,17 @@ public final class V1beta1Apiextensions {
           return metadataBuilder_.getMessage();
         }
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       public Builder setMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
         if (metadataBuilder_ == null) {
           if (value == null) {
@@ -8191,7 +8721,17 @@ public final class V1beta1Apiextensions {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       public Builder setMetadata(
           io.kubernetes.client.proto.Meta.ObjectMeta.Builder builderForValue) {
         if (metadataBuilder_ == null) {
@@ -8203,7 +8743,17 @@ public final class V1beta1Apiextensions {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ObjectMeta value) {
         if (metadataBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)
@@ -8223,7 +8773,17 @@ public final class V1beta1Apiextensions {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       public Builder clearMetadata() {
         if (metadataBuilder_ == null) {
           metadata_ = null;
@@ -8234,13 +8794,33 @@ public final class V1beta1Apiextensions {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       public io.kubernetes.client.proto.Meta.ObjectMeta.Builder getMetadataBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getMetadataFieldBuilder().getBuilder();
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       public io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder getMetadataOrBuilder() {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
@@ -8250,7 +8830,17 @@ public final class V1beta1Apiextensions {
               : metadata_;
         }
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta metadata = 1;</code>
+       */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.ObjectMeta,
               io.kubernetes.client.proto.Meta.ObjectMeta.Builder,
@@ -8279,7 +8869,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8293,7 +8883,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8315,7 +8905,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8340,7 +8930,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8363,7 +8953,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8397,7 +8987,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8418,7 +9008,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8435,7 +9025,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8457,7 +9047,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Spec describes how the user wants the resources to appear
+       * spec describes how the user wants the resources to appear
        * </pre>
        *
        * <code>
@@ -8496,7 +9086,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8511,7 +9101,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8534,7 +9124,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8560,7 +9150,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8584,7 +9174,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8619,7 +9209,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8641,7 +9231,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8659,7 +9249,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8682,7 +9272,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status indicates the actual state of the CustomResourceDefinition
+       * status indicates the actual state of the CustomResourceDefinition
        * +optional
        * </pre>
        *
@@ -8777,7 +9367,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Type is the type of the condition.
+     * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -8787,7 +9377,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Type is the type of the condition.
+     * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -8797,7 +9387,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Type is the type of the condition.
+     * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -8808,7 +9398,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status is the status of the condition.
+     * status is the status of the condition.
      * Can be True, False, Unknown.
      * </pre>
      *
@@ -8819,7 +9409,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status is the status of the condition.
+     * status is the status of the condition.
      * Can be True, False, Unknown.
      * </pre>
      *
@@ -8830,7 +9420,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status is the status of the condition.
+     * status is the status of the condition.
      * Can be True, False, Unknown.
      * </pre>
      *
@@ -8842,7 +9432,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Last time the condition transitioned from one status to another.
+     * lastTransitionTime last time the condition transitioned from one status to another.
      * +optional
      * </pre>
      *
@@ -8853,7 +9443,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Last time the condition transitioned from one status to another.
+     * lastTransitionTime last time the condition transitioned from one status to another.
      * +optional
      * </pre>
      *
@@ -8864,7 +9454,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Last time the condition transitioned from one status to another.
+     * lastTransitionTime last time the condition transitioned from one status to another.
      * +optional
      * </pre>
      *
@@ -8876,7 +9466,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Unique, one-word, CamelCase reason for the condition's last transition.
+     * reason is a unique, one-word, CamelCase reason for the condition's last transition.
      * +optional
      * </pre>
      *
@@ -8887,7 +9477,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Unique, one-word, CamelCase reason for the condition's last transition.
+     * reason is a unique, one-word, CamelCase reason for the condition's last transition.
      * +optional
      * </pre>
      *
@@ -8898,7 +9488,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Unique, one-word, CamelCase reason for the condition's last transition.
+     * reason is a unique, one-word, CamelCase reason for the condition's last transition.
      * +optional
      * </pre>
      *
@@ -8910,7 +9500,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Human-readable message indicating details about last transition.
+     * message is a human-readable message indicating details about last transition.
      * +optional
      * </pre>
      *
@@ -8921,7 +9511,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Human-readable message indicating details about last transition.
+     * message is a human-readable message indicating details about last transition.
      * +optional
      * </pre>
      *
@@ -8932,7 +9522,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Human-readable message indicating details about last transition.
+     * message is a human-readable message indicating details about last transition.
      * +optional
      * </pre>
      *
@@ -9080,7 +9670,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Type is the type of the condition.
+     * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9092,7 +9682,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Type is the type of the condition.
+     * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9114,7 +9704,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Type is the type of the condition.
+     * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9137,7 +9727,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status is the status of the condition.
+     * status is the status of the condition.
      * Can be True, False, Unknown.
      * </pre>
      *
@@ -9150,7 +9740,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status is the status of the condition.
+     * status is the status of the condition.
      * Can be True, False, Unknown.
      * </pre>
      *
@@ -9173,7 +9763,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status is the status of the condition.
+     * status is the status of the condition.
      * Can be True, False, Unknown.
      * </pre>
      *
@@ -9197,7 +9787,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Last time the condition transitioned from one status to another.
+     * lastTransitionTime last time the condition transitioned from one status to another.
      * +optional
      * </pre>
      *
@@ -9210,7 +9800,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Last time the condition transitioned from one status to another.
+     * lastTransitionTime last time the condition transitioned from one status to another.
      * +optional
      * </pre>
      *
@@ -9225,7 +9815,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Last time the condition transitioned from one status to another.
+     * lastTransitionTime last time the condition transitioned from one status to another.
      * +optional
      * </pre>
      *
@@ -9243,7 +9833,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Unique, one-word, CamelCase reason for the condition's last transition.
+     * reason is a unique, one-word, CamelCase reason for the condition's last transition.
      * +optional
      * </pre>
      *
@@ -9256,7 +9846,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Unique, one-word, CamelCase reason for the condition's last transition.
+     * reason is a unique, one-word, CamelCase reason for the condition's last transition.
      * +optional
      * </pre>
      *
@@ -9279,7 +9869,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Unique, one-word, CamelCase reason for the condition's last transition.
+     * reason is a unique, one-word, CamelCase reason for the condition's last transition.
      * +optional
      * </pre>
      *
@@ -9303,7 +9893,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Human-readable message indicating details about last transition.
+     * message is a human-readable message indicating details about last transition.
      * +optional
      * </pre>
      *
@@ -9316,7 +9906,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Human-readable message indicating details about last transition.
+     * message is a human-readable message indicating details about last transition.
      * +optional
      * </pre>
      *
@@ -9339,7 +9929,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Human-readable message indicating details about last transition.
+     * message is a human-readable message indicating details about last transition.
      * +optional
      * </pre>
      *
@@ -9836,7 +10426,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Type is the type of the condition.
+       * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9848,7 +10438,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Type is the type of the condition.
+       * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9870,7 +10460,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Type is the type of the condition.
+       * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9890,7 +10480,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Type is the type of the condition.
+       * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9908,7 +10498,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Type is the type of the condition.
+       * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9923,7 +10513,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Type is the type of the condition.
+       * type is the type of the condition. Types include Established, NamesAccepted and Terminating.
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -9943,7 +10533,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status is the status of the condition.
+       * status is the status of the condition.
        * Can be True, False, Unknown.
        * </pre>
        *
@@ -9956,7 +10546,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status is the status of the condition.
+       * status is the status of the condition.
        * Can be True, False, Unknown.
        * </pre>
        *
@@ -9979,7 +10569,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status is the status of the condition.
+       * status is the status of the condition.
        * Can be True, False, Unknown.
        * </pre>
        *
@@ -10000,7 +10590,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status is the status of the condition.
+       * status is the status of the condition.
        * Can be True, False, Unknown.
        * </pre>
        *
@@ -10019,7 +10609,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status is the status of the condition.
+       * status is the status of the condition.
        * Can be True, False, Unknown.
        * </pre>
        *
@@ -10035,7 +10625,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status is the status of the condition.
+       * status is the status of the condition.
        * Can be True, False, Unknown.
        * </pre>
        *
@@ -10061,12 +10651,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public boolean hasLastTransitionTime() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -10075,12 +10664,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time getLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -10095,12 +10683,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -10119,12 +10706,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder setLastTransitionTime(
           io.kubernetes.client.proto.Meta.Time.Builder builderForValue) {
@@ -10141,12 +10727,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder mergeLastTransitionTime(io.kubernetes.client.proto.Meta.Time value) {
         if (lastTransitionTimeBuilder_ == null) {
@@ -10171,12 +10756,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public Builder clearLastTransitionTime() {
         if (lastTransitionTimeBuilder_ == null) {
@@ -10192,12 +10776,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.Time.Builder getLastTransitionTimeBuilder() {
         bitField0_ |= 0x00000004;
@@ -10208,12 +10791,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       public io.kubernetes.client.proto.Meta.TimeOrBuilder getLastTransitionTimeOrBuilder() {
         if (lastTransitionTimeBuilder_ != null) {
@@ -10228,12 +10810,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Last time the condition transitioned from one status to another.
+       * lastTransitionTime last time the condition transitioned from one status to another.
        * +optional
        * </pre>
        *
-       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;
-       * </code>
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.Time,
@@ -10257,7 +10838,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Unique, one-word, CamelCase reason for the condition's last transition.
+       * reason is a unique, one-word, CamelCase reason for the condition's last transition.
        * +optional
        * </pre>
        *
@@ -10270,7 +10851,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Unique, one-word, CamelCase reason for the condition's last transition.
+       * reason is a unique, one-word, CamelCase reason for the condition's last transition.
        * +optional
        * </pre>
        *
@@ -10293,7 +10874,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Unique, one-word, CamelCase reason for the condition's last transition.
+       * reason is a unique, one-word, CamelCase reason for the condition's last transition.
        * +optional
        * </pre>
        *
@@ -10314,7 +10895,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Unique, one-word, CamelCase reason for the condition's last transition.
+       * reason is a unique, one-word, CamelCase reason for the condition's last transition.
        * +optional
        * </pre>
        *
@@ -10333,7 +10914,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Unique, one-word, CamelCase reason for the condition's last transition.
+       * reason is a unique, one-word, CamelCase reason for the condition's last transition.
        * +optional
        * </pre>
        *
@@ -10349,7 +10930,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Unique, one-word, CamelCase reason for the condition's last transition.
+       * reason is a unique, one-word, CamelCase reason for the condition's last transition.
        * +optional
        * </pre>
        *
@@ -10370,7 +10951,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Human-readable message indicating details about last transition.
+       * message is a human-readable message indicating details about last transition.
        * +optional
        * </pre>
        *
@@ -10383,7 +10964,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Human-readable message indicating details about last transition.
+       * message is a human-readable message indicating details about last transition.
        * +optional
        * </pre>
        *
@@ -10406,7 +10987,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Human-readable message indicating details about last transition.
+       * message is a human-readable message indicating details about last transition.
        * +optional
        * </pre>
        *
@@ -10427,7 +11008,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Human-readable message indicating details about last transition.
+       * message is a human-readable message indicating details about last transition.
        * +optional
        * </pre>
        *
@@ -10446,7 +11027,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Human-readable message indicating details about last transition.
+       * message is a human-readable message indicating details about last transition.
        * +optional
        * </pre>
        *
@@ -10462,7 +11043,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Human-readable message indicating details about last transition.
+       * message is a human-readable message indicating details about last transition.
        * +optional
        * </pre>
        *
@@ -10541,18 +11122,48 @@ public final class V1beta1Apiextensions {
       // @@protoc_insertion_point(interface_extends:k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.CustomResourceDefinitionList)
       com.google.protobuf.MessageOrBuilder {
 
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
     boolean hasMetadata();
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
     io.kubernetes.client.proto.Meta.ListMeta getMetadata();
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
     io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder();
 
     /**
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10565,7 +11176,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10577,7 +11188,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10589,7 +11200,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10604,7 +11215,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10737,17 +11348,47 @@ public final class V1beta1Apiextensions {
     private int bitField0_;
     public static final int METADATA_FIELD_NUMBER = 1;
     private io.kubernetes.client.proto.Meta.ListMeta metadata_;
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
     public boolean hasMetadata() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
     public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
       return metadata_ == null
           ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
           : metadata_;
     }
-    /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * Standard object's metadata
+     * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+     */
     public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
       return metadata_ == null
           ? io.kubernetes.client.proto.Meta.ListMeta.getDefaultInstance()
@@ -10761,7 +11402,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10776,7 +11417,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10793,7 +11434,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10807,7 +11448,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -10822,7 +11463,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Items individual CustomResourceDefinitions
+     * items list individual CustomResourceDefinition objects
      * </pre>
      *
      * <code>
@@ -11262,11 +11903,31 @@ public final class V1beta1Apiextensions {
               io.kubernetes.client.proto.Meta.ListMeta.Builder,
               io.kubernetes.client.proto.Meta.ListMetaOrBuilder>
           metadataBuilder_;
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       public boolean hasMetadata() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       public io.kubernetes.client.proto.Meta.ListMeta getMetadata() {
         if (metadataBuilder_ == null) {
           return metadata_ == null
@@ -11276,7 +11937,17 @@ public final class V1beta1Apiextensions {
           return metadataBuilder_.getMessage();
         }
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
         if (metadataBuilder_ == null) {
           if (value == null) {
@@ -11290,7 +11961,17 @@ public final class V1beta1Apiextensions {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       public Builder setMetadata(io.kubernetes.client.proto.Meta.ListMeta.Builder builderForValue) {
         if (metadataBuilder_ == null) {
           metadata_ = builderForValue.build();
@@ -11301,7 +11982,17 @@ public final class V1beta1Apiextensions {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       public Builder mergeMetadata(io.kubernetes.client.proto.Meta.ListMeta value) {
         if (metadataBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)
@@ -11321,7 +12012,17 @@ public final class V1beta1Apiextensions {
         bitField0_ |= 0x00000001;
         return this;
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       public Builder clearMetadata() {
         if (metadataBuilder_ == null) {
           metadata_ = null;
@@ -11332,13 +12033,33 @@ public final class V1beta1Apiextensions {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       public io.kubernetes.client.proto.Meta.ListMeta.Builder getMetadataBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getMetadataFieldBuilder().getBuilder();
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       public io.kubernetes.client.proto.Meta.ListMetaOrBuilder getMetadataOrBuilder() {
         if (metadataBuilder_ != null) {
           return metadataBuilder_.getMessageOrBuilder();
@@ -11348,7 +12069,17 @@ public final class V1beta1Apiextensions {
               : metadata_;
         }
       }
-      /** <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * Standard object's metadata
+       * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta metadata = 1;</code>
+       */
       private com.google.protobuf.SingleFieldBuilderV3<
               io.kubernetes.client.proto.Meta.ListMeta,
               io.kubernetes.client.proto.Meta.ListMeta.Builder,
@@ -11389,7 +12120,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11409,7 +12140,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11427,7 +12158,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11446,7 +12177,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11472,7 +12203,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11496,7 +12227,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11521,7 +12252,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11547,7 +12278,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11570,7 +12301,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11594,7 +12325,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11619,7 +12350,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11640,7 +12371,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11661,7 +12392,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11676,7 +12407,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11695,7 +12426,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11716,7 +12447,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11734,7 +12465,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11753,7 +12484,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Items individual CustomResourceDefinitions
+       * items list individual CustomResourceDefinition objects
        * </pre>
        *
        * <code>
@@ -11854,8 +12585,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-     * too: plural.group and it must be all lowercase.
+     * plural is the plural name of the resource to serve.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+     * Must be all lowercase.
      * </pre>
      *
      * <code>optional string plural = 1;</code>
@@ -11865,8 +12598,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-     * too: plural.group and it must be all lowercase.
+     * plural is the plural name of the resource to serve.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+     * Must be all lowercase.
      * </pre>
      *
      * <code>optional string plural = 1;</code>
@@ -11876,8 +12611,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-     * too: plural.group and it must be all lowercase.
+     * plural is the plural name of the resource to serve.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+     * Must be all lowercase.
      * </pre>
      *
      * <code>optional string plural = 1;</code>
@@ -11888,7 +12625,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
      * +optional
      * </pre>
      *
@@ -11899,7 +12636,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
      * +optional
      * </pre>
      *
@@ -11910,7 +12647,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
      * +optional
      * </pre>
      *
@@ -11922,7 +12659,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ShortNames are short names for the resource.  It must be all lowercase.
+     * shortNames are short names for the resource, exposed in API discovery documents,
+     * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+     * It must be all lowercase.
      * +optional
      * </pre>
      *
@@ -11933,7 +12672,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ShortNames are short names for the resource.  It must be all lowercase.
+     * shortNames are short names for the resource, exposed in API discovery documents,
+     * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+     * It must be all lowercase.
      * +optional
      * </pre>
      *
@@ -11944,7 +12685,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ShortNames are short names for the resource.  It must be all lowercase.
+     * shortNames are short names for the resource, exposed in API discovery documents,
+     * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+     * It must be all lowercase.
      * +optional
      * </pre>
      *
@@ -11955,7 +12698,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ShortNames are short names for the resource.  It must be all lowercase.
+     * shortNames are short names for the resource, exposed in API discovery documents,
+     * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+     * It must be all lowercase.
      * +optional
      * </pre>
      *
@@ -11967,7 +12712,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+     * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+     * Custom resource instances will use this value as the `kind` attribute in API calls.
      * </pre>
      *
      * <code>optional string kind = 4;</code>
@@ -11977,7 +12723,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+     * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+     * Custom resource instances will use this value as the `kind` attribute in API calls.
      * </pre>
      *
      * <code>optional string kind = 4;</code>
@@ -11987,7 +12734,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+     * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+     * Custom resource instances will use this value as the `kind` attribute in API calls.
      * </pre>
      *
      * <code>optional string kind = 4;</code>
@@ -11998,7 +12746,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
      * +optional
      * </pre>
      *
@@ -12009,7 +12757,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
      * +optional
      * </pre>
      *
@@ -12020,7 +12768,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
      * +optional
      * </pre>
      *
@@ -12032,7 +12780,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+     * This is published in API discovery documents, and used by clients to support invocations like
+     * `kubectl get all`.
      * +optional
      * </pre>
      *
@@ -12043,7 +12793,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+     * This is published in API discovery documents, and used by clients to support invocations like
+     * `kubectl get all`.
      * +optional
      * </pre>
      *
@@ -12054,7 +12806,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+     * This is published in API discovery documents, and used by clients to support invocations like
+     * `kubectl get all`.
      * +optional
      * </pre>
      *
@@ -12065,7 +12819,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+     * This is published in API discovery documents, and used by clients to support invocations like
+     * `kubectl get all`.
      * +optional
      * </pre>
      *
@@ -12224,8 +12980,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-     * too: plural.group and it must be all lowercase.
+     * plural is the plural name of the resource to serve.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+     * Must be all lowercase.
      * </pre>
      *
      * <code>optional string plural = 1;</code>
@@ -12237,8 +12995,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-     * too: plural.group and it must be all lowercase.
+     * plural is the plural name of the resource to serve.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+     * Must be all lowercase.
      * </pre>
      *
      * <code>optional string plural = 1;</code>
@@ -12260,8 +13020,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-     * too: plural.group and it must be all lowercase.
+     * plural is the plural name of the resource to serve.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+     * Must be all lowercase.
      * </pre>
      *
      * <code>optional string plural = 1;</code>
@@ -12284,7 +13046,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
      * +optional
      * </pre>
      *
@@ -12297,7 +13059,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
      * +optional
      * </pre>
      *
@@ -12320,7 +13082,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+     * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
      * +optional
      * </pre>
      *
@@ -12344,7 +13106,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ShortNames are short names for the resource.  It must be all lowercase.
+     * shortNames are short names for the resource, exposed in API discovery documents,
+     * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+     * It must be all lowercase.
      * +optional
      * </pre>
      *
@@ -12357,7 +13121,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ShortNames are short names for the resource.  It must be all lowercase.
+     * shortNames are short names for the resource, exposed in API discovery documents,
+     * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+     * It must be all lowercase.
      * +optional
      * </pre>
      *
@@ -12370,7 +13136,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ShortNames are short names for the resource.  It must be all lowercase.
+     * shortNames are short names for the resource, exposed in API discovery documents,
+     * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+     * It must be all lowercase.
      * +optional
      * </pre>
      *
@@ -12383,7 +13151,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ShortNames are short names for the resource.  It must be all lowercase.
+     * shortNames are short names for the resource, exposed in API discovery documents,
+     * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+     * It must be all lowercase.
      * +optional
      * </pre>
      *
@@ -12399,7 +13169,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+     * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+     * Custom resource instances will use this value as the `kind` attribute in API calls.
      * </pre>
      *
      * <code>optional string kind = 4;</code>
@@ -12411,7 +13182,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+     * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+     * Custom resource instances will use this value as the `kind` attribute in API calls.
      * </pre>
      *
      * <code>optional string kind = 4;</code>
@@ -12433,7 +13205,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+     * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+     * Custom resource instances will use this value as the `kind` attribute in API calls.
      * </pre>
      *
      * <code>optional string kind = 4;</code>
@@ -12456,7 +13229,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
      * +optional
      * </pre>
      *
@@ -12469,7 +13242,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
      * +optional
      * </pre>
      *
@@ -12492,7 +13265,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+     * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
      * +optional
      * </pre>
      *
@@ -12516,7 +13289,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+     * This is published in API discovery documents, and used by clients to support invocations like
+     * `kubectl get all`.
      * +optional
      * </pre>
      *
@@ -12529,7 +13304,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+     * This is published in API discovery documents, and used by clients to support invocations like
+     * `kubectl get all`.
      * +optional
      * </pre>
      *
@@ -12542,7 +13319,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+     * This is published in API discovery documents, and used by clients to support invocations like
+     * `kubectl get all`.
      * +optional
      * </pre>
      *
@@ -12555,7 +13334,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+     * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+     * This is published in API discovery documents, and used by clients to support invocations like
+     * `kubectl get all`.
      * +optional
      * </pre>
      *
@@ -13072,8 +13853,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-       * too: plural.group and it must be all lowercase.
+       * plural is the plural name of the resource to serve.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+       * Must be all lowercase.
        * </pre>
        *
        * <code>optional string plural = 1;</code>
@@ -13085,8 +13868,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-       * too: plural.group and it must be all lowercase.
+       * plural is the plural name of the resource to serve.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+       * Must be all lowercase.
        * </pre>
        *
        * <code>optional string plural = 1;</code>
@@ -13108,8 +13893,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-       * too: plural.group and it must be all lowercase.
+       * plural is the plural name of the resource to serve.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+       * Must be all lowercase.
        * </pre>
        *
        * <code>optional string plural = 1;</code>
@@ -13129,8 +13916,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-       * too: plural.group and it must be all lowercase.
+       * plural is the plural name of the resource to serve.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+       * Must be all lowercase.
        * </pre>
        *
        * <code>optional string plural = 1;</code>
@@ -13148,8 +13937,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-       * too: plural.group and it must be all lowercase.
+       * plural is the plural name of the resource to serve.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+       * Must be all lowercase.
        * </pre>
        *
        * <code>optional string plural = 1;</code>
@@ -13164,8 +13955,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Plural is the plural name of the resource to serve.  It must match the name of the CustomResourceDefinition-registration
-       * too: plural.group and it must be all lowercase.
+       * plural is the plural name of the resource to serve.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/.../&lt;plural&gt;`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
+       * Must be all lowercase.
        * </pre>
        *
        * <code>optional string plural = 1;</code>
@@ -13185,7 +13978,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
        * +optional
        * </pre>
        *
@@ -13198,7 +13991,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
        * +optional
        * </pre>
        *
@@ -13221,7 +14014,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
        * +optional
        * </pre>
        *
@@ -13242,7 +14035,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
        * +optional
        * </pre>
        *
@@ -13261,7 +14054,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
        * +optional
        * </pre>
        *
@@ -13277,7 +14070,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Singular is the singular name of the resource.  It must be all lowercase  Defaults to lowercased &lt;kind&gt;
+       * singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.
        * +optional
        * </pre>
        *
@@ -13306,7 +14099,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13319,7 +14114,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13332,7 +14129,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13345,7 +14144,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13358,7 +14159,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13377,7 +14180,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13396,7 +14201,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13412,7 +14219,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13428,7 +14237,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ShortNames are short names for the resource.  It must be all lowercase.
+       * shortNames are short names for the resource, exposed in API discovery documents,
+       * and used by clients to support invocations like `kubectl get &lt;shortname&gt;`.
+       * It must be all lowercase.
        * +optional
        * </pre>
        *
@@ -13449,7 +14260,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+       * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+       * Custom resource instances will use this value as the `kind` attribute in API calls.
        * </pre>
        *
        * <code>optional string kind = 4;</code>
@@ -13461,7 +14273,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+       * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+       * Custom resource instances will use this value as the `kind` attribute in API calls.
        * </pre>
        *
        * <code>optional string kind = 4;</code>
@@ -13483,7 +14296,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+       * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+       * Custom resource instances will use this value as the `kind` attribute in API calls.
        * </pre>
        *
        * <code>optional string kind = 4;</code>
@@ -13503,7 +14317,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+       * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+       * Custom resource instances will use this value as the `kind` attribute in API calls.
        * </pre>
        *
        * <code>optional string kind = 4;</code>
@@ -13521,7 +14336,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+       * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+       * Custom resource instances will use this value as the `kind` attribute in API calls.
        * </pre>
        *
        * <code>optional string kind = 4;</code>
@@ -13536,7 +14352,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Kind is the serialized kind of the resource.  It is normally CamelCase and singular.
+       * kind is the serialized kind of the resource. It is normally CamelCase and singular.
+       * Custom resource instances will use this value as the `kind` attribute in API calls.
        * </pre>
        *
        * <code>optional string kind = 4;</code>
@@ -13556,7 +14373,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
        * +optional
        * </pre>
        *
@@ -13569,7 +14386,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
        * +optional
        * </pre>
        *
@@ -13592,7 +14409,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
        * +optional
        * </pre>
        *
@@ -13613,7 +14430,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
        * +optional
        * </pre>
        *
@@ -13632,7 +14449,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
        * +optional
        * </pre>
        *
@@ -13648,7 +14465,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * ListKind is the serialized kind of the list for this resource.  Defaults to &lt;kind&gt;List.
+       * listKind is the serialized kind of the list for this resource. Defaults to "`kind`List".
        * +optional
        * </pre>
        *
@@ -13677,7 +14494,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13690,7 +14509,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13703,7 +14524,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13716,7 +14539,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13729,7 +14554,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13748,7 +14575,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13767,7 +14596,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13783,7 +14614,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13799,7 +14632,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Categories is a list of grouped resources custom resources belong to (e.g. 'all')
+       * categories is a list of grouped resources this custom resource belongs to (e.g. 'all').
+       * This is published in API discovery documents, and used by clients to support invocations like
+       * `kubectl get all`.
        * +optional
        * </pre>
        *
@@ -13882,7 +14717,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Group is the group this resource belongs in
+     * group is the API group of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/...`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
      * </pre>
      *
      * <code>optional string group = 1;</code>
@@ -13892,7 +14729,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Group is the group this resource belongs in
+     * group is the API group of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/...`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
      * </pre>
      *
      * <code>optional string group = 1;</code>
@@ -13902,7 +14741,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Group is the group this resource belongs in
+     * group is the API group of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/...`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
      * </pre>
      *
      * <code>optional string group = 1;</code>
@@ -13913,10 +14754,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Version is the version this resource belongs in
-     * Should be always first item in Versions field if provided.
-     * Optional, but at least one of Version or Versions must be set.
-     * Deprecated: Please use `Versions`.
+     * version is the API version of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+     * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+     * Optional if `versions` is specified.
+     * Deprecated: use `versions` instead.
      * +optional
      * </pre>
      *
@@ -13927,10 +14769,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Version is the version this resource belongs in
-     * Should be always first item in Versions field if provided.
-     * Optional, but at least one of Version or Versions must be set.
-     * Deprecated: Please use `Versions`.
+     * version is the API version of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+     * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+     * Optional if `versions` is specified.
+     * Deprecated: use `versions` instead.
      * +optional
      * </pre>
      *
@@ -13941,10 +14784,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Version is the version this resource belongs in
-     * Should be always first item in Versions field if provided.
-     * Optional, but at least one of Version or Versions must be set.
-     * Deprecated: Please use `Versions`.
+     * version is the API version of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+     * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+     * Optional if `versions` is specified.
+     * Deprecated: use `versions` instead.
      * +optional
      * </pre>
      *
@@ -13956,7 +14800,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Names are the names used to describe this custom resource
+     * names specify the resource and kind names for the custom resource.
      * </pre>
      *
      * <code>
@@ -13968,7 +14812,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Names are the names used to describe this custom resource
+     * names specify the resource and kind names for the custom resource.
      * </pre>
      *
      * <code>
@@ -13980,7 +14824,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Names are the names used to describe this custom resource
+     * names specify the resource and kind names for the custom resource.
      * </pre>
      *
      * <code>
@@ -13994,7 +14838,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+     * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+     * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
      * </pre>
      *
      * <code>optional string scope = 4;</code>
@@ -14004,7 +14849,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+     * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+     * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
      * </pre>
      *
      * <code>optional string scope = 4;</code>
@@ -14014,7 +14860,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+     * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+     * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
      * </pre>
      *
      * <code>optional string scope = 4;</code>
@@ -14025,8 +14872,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Validation describes the validation methods for CustomResources
-     * Optional, the global validation schema for all versions.
+     * validation describes the schema used for validation and pruning of the custom resource.
+     * If present, this validation schema is used to validate all versions.
      * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
@@ -14040,8 +14887,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Validation describes the validation methods for CustomResources
-     * Optional, the global validation schema for all versions.
+     * validation describes the schema used for validation and pruning of the custom resource.
+     * If present, this validation schema is used to validate all versions.
      * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
@@ -14055,8 +14902,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Validation describes the validation methods for CustomResources
-     * Optional, the global validation schema for all versions.
+     * validation describes the schema used for validation and pruning of the custom resource.
+     * If present, this validation schema is used to validate all versions.
      * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
@@ -14072,8 +14919,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
-     * Optional, the global subresources for all versions.
+     * subresources specify what subresources the defined custom resource has.
+     * If present, this field configures subresources for all versions.
      * Top-level and per-version subresources are mutually exclusive.
      * +optional
      * </pre>
@@ -14087,8 +14934,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
-     * Optional, the global subresources for all versions.
+     * subresources specify what subresources the defined custom resource has.
+     * If present, this field configures subresources for all versions.
      * Top-level and per-version subresources are mutually exclusive.
      * +optional
      * </pre>
@@ -14102,8 +14949,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
-     * Optional, the global subresources for all versions.
+     * subresources specify what subresources the defined custom resource has.
+     * If present, this field configures subresources for all versions.
      * Top-level and per-version subresources are mutually exclusive.
      * +optional
      * </pre>
@@ -14119,11 +14966,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -14143,11 +14989,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -14167,11 +15012,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -14190,11 +15034,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -14217,11 +15060,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -14242,9 +15084,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -14258,9 +15102,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -14274,9 +15120,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -14289,9 +15137,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -14308,9 +15158,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -14325,7 +15177,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `conversion` defines conversion settings for the CRD.
+     * conversion defines conversion settings for the CRD.
      * +optional
      * </pre>
      *
@@ -14338,7 +15190,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `conversion` defines conversion settings for the CRD.
+     * conversion defines conversion settings for the CRD.
      * +optional
      * </pre>
      *
@@ -14351,7 +15203,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `conversion` defines conversion settings for the CRD.
+     * conversion defines conversion settings for the CRD.
      * +optional
      * </pre>
      *
@@ -14361,6 +15213,43 @@ public final class V1beta1Apiextensions {
      */
     io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversionOrBuilder
         getConversionOrBuilder();
+
+    /**
+     *
+     *
+     * <pre>
+     * preserveUnknownFields indicates that object fields which are not specified
+     * in the OpenAPI schema should be preserved when persisting to storage.
+     * apiVersion, kind, metadata and known fields inside metadata are always preserved.
+     * If false, schemas must be defined for all versions.
+     * Defaults to true in v1beta for backwards compatibility.
+     * Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified
+     * in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension.
+     * See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool preserveUnknownFields = 10;</code>
+     */
+    boolean hasPreserveUnknownFields();
+    /**
+     *
+     *
+     * <pre>
+     * preserveUnknownFields indicates that object fields which are not specified
+     * in the OpenAPI schema should be preserved when persisting to storage.
+     * apiVersion, kind, metadata and known fields inside metadata are always preserved.
+     * If false, schemas must be defined for all versions.
+     * Defaults to true in v1beta for backwards compatibility.
+     * Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified
+     * in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension.
+     * See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool preserveUnknownFields = 10;</code>
+     */
+    boolean getPreserveUnknownFields();
   }
   /**
    *
@@ -14390,6 +15279,7 @@ public final class V1beta1Apiextensions {
       scope_ = "";
       versions_ = java.util.Collections.emptyList();
       additionalPrinterColumns_ = java.util.Collections.emptyList();
+      preserveUnknownFields_ = false;
     }
 
     @java.lang.Override
@@ -14546,6 +15436,12 @@ public final class V1beta1Apiextensions {
                 bitField0_ |= 0x00000040;
                 break;
               }
+            case 80:
+              {
+                bitField0_ |= 0x00000080;
+                preserveUnknownFields_ = input.readBool();
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -14595,7 +15491,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Group is the group this resource belongs in
+     * group is the API group of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/...`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
      * </pre>
      *
      * <code>optional string group = 1;</code>
@@ -14607,7 +15505,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Group is the group this resource belongs in
+     * group is the API group of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/...`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
      * </pre>
      *
      * <code>optional string group = 1;</code>
@@ -14629,7 +15529,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Group is the group this resource belongs in
+     * group is the API group of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/...`.
+     * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
      * </pre>
      *
      * <code>optional string group = 1;</code>
@@ -14652,10 +15554,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Version is the version this resource belongs in
-     * Should be always first item in Versions field if provided.
-     * Optional, but at least one of Version or Versions must be set.
-     * Deprecated: Please use `Versions`.
+     * version is the API version of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+     * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+     * Optional if `versions` is specified.
+     * Deprecated: use `versions` instead.
      * +optional
      * </pre>
      *
@@ -14668,10 +15571,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Version is the version this resource belongs in
-     * Should be always first item in Versions field if provided.
-     * Optional, but at least one of Version or Versions must be set.
-     * Deprecated: Please use `Versions`.
+     * version is the API version of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+     * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+     * Optional if `versions` is specified.
+     * Deprecated: use `versions` instead.
      * +optional
      * </pre>
      *
@@ -14694,10 +15598,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Version is the version this resource belongs in
-     * Should be always first item in Versions field if provided.
-     * Optional, but at least one of Version or Versions must be set.
-     * Deprecated: Please use `Versions`.
+     * version is the API version of the defined custom resource.
+     * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+     * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+     * Optional if `versions` is specified.
+     * Deprecated: use `versions` instead.
      * +optional
      * </pre>
      *
@@ -14721,7 +15626,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Names are the names used to describe this custom resource
+     * names specify the resource and kind names for the custom resource.
      * </pre>
      *
      * <code>
@@ -14735,7 +15640,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Names are the names used to describe this custom resource
+     * names specify the resource and kind names for the custom resource.
      * </pre>
      *
      * <code>
@@ -14753,7 +15658,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Names are the names used to describe this custom resource
+     * names specify the resource and kind names for the custom resource.
      * </pre>
      *
      * <code>
@@ -14774,7 +15679,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+     * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+     * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
      * </pre>
      *
      * <code>optional string scope = 4;</code>
@@ -14786,7 +15692,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+     * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+     * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
      * </pre>
      *
      * <code>optional string scope = 4;</code>
@@ -14808,7 +15715,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+     * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+     * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
      * </pre>
      *
      * <code>optional string scope = 4;</code>
@@ -14831,8 +15739,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Validation describes the validation methods for CustomResources
-     * Optional, the global validation schema for all versions.
+     * validation describes the schema used for validation and pruning of the custom resource.
+     * If present, this validation schema is used to validate all versions.
      * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
@@ -14848,8 +15756,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Validation describes the validation methods for CustomResources
-     * Optional, the global validation schema for all versions.
+     * validation describes the schema used for validation and pruning of the custom resource.
+     * If present, this validation schema is used to validate all versions.
      * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
@@ -14869,8 +15777,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Validation describes the validation methods for CustomResources
-     * Optional, the global validation schema for all versions.
+     * validation describes the schema used for validation and pruning of the custom resource.
+     * If present, this validation schema is used to validate all versions.
      * Top-level and per-version schemas are mutually exclusive.
      * +optional
      * </pre>
@@ -14894,8 +15802,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
-     * Optional, the global subresources for all versions.
+     * subresources specify what subresources the defined custom resource has.
+     * If present, this field configures subresources for all versions.
      * Top-level and per-version subresources are mutually exclusive.
      * +optional
      * </pre>
@@ -14911,8 +15819,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
-     * Optional, the global subresources for all versions.
+     * subresources specify what subresources the defined custom resource has.
+     * If present, this field configures subresources for all versions.
      * Top-level and per-version subresources are mutually exclusive.
      * +optional
      * </pre>
@@ -14932,8 +15840,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
-     * Optional, the global subresources for all versions.
+     * subresources specify what subresources the defined custom resource has.
+     * If present, this field configures subresources for all versions.
      * Top-level and per-version subresources are mutually exclusive.
      * +optional
      * </pre>
@@ -14958,11 +15866,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -14985,11 +15892,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -15014,11 +15920,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -15039,11 +15944,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -15065,11 +15969,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Versions is the list of all supported versions for this resource.
-     * If Version field is provided, this field is optional.
-     * Validation: All versions must use the same validation schema for now. i.e., top
-     * level Validation field is applied to all of these versions.
-     * Order: The version name will be used to compute the order.
+     * versions is the list of all API versions of the defined custom resource.
+     * Optional if `version` is specified.
+     * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+     * Version names are used to compute the order in which served versions are listed in API discovery.
      * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
      * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
      * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -15096,9 +15999,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -15115,9 +16020,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -15136,9 +16043,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -15153,9 +16062,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -15171,9 +16082,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-     * Optional, the global columns for all versions.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+     * If present, this field configures columns for all versions.
      * Top-level and per-version columns are mutually exclusive.
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -15192,7 +16105,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `conversion` defines conversion settings for the CRD.
+     * conversion defines conversion settings for the CRD.
      * +optional
      * </pre>
      *
@@ -15207,7 +16120,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `conversion` defines conversion settings for the CRD.
+     * conversion defines conversion settings for the CRD.
      * +optional
      * </pre>
      *
@@ -15226,7 +16139,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `conversion` defines conversion settings for the CRD.
+     * conversion defines conversion settings for the CRD.
      * +optional
      * </pre>
      *
@@ -15240,6 +16153,49 @@ public final class V1beta1Apiextensions {
           ? io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceConversion
               .getDefaultInstance()
           : conversion_;
+    }
+
+    public static final int PRESERVEUNKNOWNFIELDS_FIELD_NUMBER = 10;
+    private boolean preserveUnknownFields_;
+    /**
+     *
+     *
+     * <pre>
+     * preserveUnknownFields indicates that object fields which are not specified
+     * in the OpenAPI schema should be preserved when persisting to storage.
+     * apiVersion, kind, metadata and known fields inside metadata are always preserved.
+     * If false, schemas must be defined for all versions.
+     * Defaults to true in v1beta for backwards compatibility.
+     * Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified
+     * in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension.
+     * See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool preserveUnknownFields = 10;</code>
+     */
+    public boolean hasPreserveUnknownFields() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * preserveUnknownFields indicates that object fields which are not specified
+     * in the OpenAPI schema should be preserved when persisting to storage.
+     * apiVersion, kind, metadata and known fields inside metadata are always preserved.
+     * If false, schemas must be defined for all versions.
+     * Defaults to true in v1beta for backwards compatibility.
+     * Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified
+     * in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension.
+     * See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool preserveUnknownFields = 10;</code>
+     */
+    public boolean getPreserveUnknownFields() {
+      return preserveUnknownFields_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -15283,6 +16239,9 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeMessage(9, getConversion());
       }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBool(10, preserveUnknownFields_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -15320,6 +16279,9 @@ public final class V1beta1Apiextensions {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(9, getConversion());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(10, preserveUnknownFields_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -15372,6 +16334,10 @@ public final class V1beta1Apiextensions {
       if (hasConversion()) {
         result = result && getConversion().equals(other.getConversion());
       }
+      result = result && (hasPreserveUnknownFields() == other.hasPreserveUnknownFields());
+      if (hasPreserveUnknownFields()) {
+        result = result && (getPreserveUnknownFields() == other.getPreserveUnknownFields());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -15418,6 +16384,10 @@ public final class V1beta1Apiextensions {
       if (hasConversion()) {
         hash = (37 * hash) + CONVERSION_FIELD_NUMBER;
         hash = (53 * hash) + getConversion().hashCode();
+      }
+      if (hasPreserveUnknownFields()) {
+        hash = (37 * hash) + PRESERVEUNKNOWNFIELDS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getPreserveUnknownFields());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -15625,6 +16595,8 @@ public final class V1beta1Apiextensions {
           conversionBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000100);
+        preserveUnknownFields_ = false;
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -15721,6 +16693,10 @@ public final class V1beta1Apiextensions {
         } else {
           result.conversion_ = conversionBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.preserveUnknownFields_ = preserveUnknownFields_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -15860,6 +16836,9 @@ public final class V1beta1Apiextensions {
         if (other.hasConversion()) {
           mergeConversion(other.getConversion());
         }
+        if (other.hasPreserveUnknownFields()) {
+          setPreserveUnknownFields(other.getPreserveUnknownFields());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -15899,7 +16878,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Group is the group this resource belongs in
+       * group is the API group of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/...`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
        * </pre>
        *
        * <code>optional string group = 1;</code>
@@ -15911,7 +16892,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Group is the group this resource belongs in
+       * group is the API group of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/...`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
        * </pre>
        *
        * <code>optional string group = 1;</code>
@@ -15933,7 +16916,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Group is the group this resource belongs in
+       * group is the API group of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/...`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
        * </pre>
        *
        * <code>optional string group = 1;</code>
@@ -15953,7 +16938,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Group is the group this resource belongs in
+       * group is the API group of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/...`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
        * </pre>
        *
        * <code>optional string group = 1;</code>
@@ -15971,7 +16958,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Group is the group this resource belongs in
+       * group is the API group of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/...`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
        * </pre>
        *
        * <code>optional string group = 1;</code>
@@ -15986,7 +16975,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Group is the group this resource belongs in
+       * group is the API group of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/...`.
+       * Must match the name of the CustomResourceDefinition (in the form `&lt;names.plural&gt;.&lt;group&gt;`).
        * </pre>
        *
        * <code>optional string group = 1;</code>
@@ -16006,10 +16997,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Version is the version this resource belongs in
-       * Should be always first item in Versions field if provided.
-       * Optional, but at least one of Version or Versions must be set.
-       * Deprecated: Please use `Versions`.
+       * version is the API version of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+       * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+       * Optional if `versions` is specified.
+       * Deprecated: use `versions` instead.
        * +optional
        * </pre>
        *
@@ -16022,10 +17014,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Version is the version this resource belongs in
-       * Should be always first item in Versions field if provided.
-       * Optional, but at least one of Version or Versions must be set.
-       * Deprecated: Please use `Versions`.
+       * version is the API version of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+       * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+       * Optional if `versions` is specified.
+       * Deprecated: use `versions` instead.
        * +optional
        * </pre>
        *
@@ -16048,10 +17041,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Version is the version this resource belongs in
-       * Should be always first item in Versions field if provided.
-       * Optional, but at least one of Version or Versions must be set.
-       * Deprecated: Please use `Versions`.
+       * version is the API version of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+       * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+       * Optional if `versions` is specified.
+       * Deprecated: use `versions` instead.
        * +optional
        * </pre>
        *
@@ -16072,10 +17066,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Version is the version this resource belongs in
-       * Should be always first item in Versions field if provided.
-       * Optional, but at least one of Version or Versions must be set.
-       * Deprecated: Please use `Versions`.
+       * version is the API version of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+       * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+       * Optional if `versions` is specified.
+       * Deprecated: use `versions` instead.
        * +optional
        * </pre>
        *
@@ -16094,10 +17089,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Version is the version this resource belongs in
-       * Should be always first item in Versions field if provided.
-       * Optional, but at least one of Version or Versions must be set.
-       * Deprecated: Please use `Versions`.
+       * version is the API version of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+       * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+       * Optional if `versions` is specified.
+       * Deprecated: use `versions` instead.
        * +optional
        * </pre>
        *
@@ -16113,10 +17109,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Version is the version this resource belongs in
-       * Should be always first item in Versions field if provided.
-       * Optional, but at least one of Version or Versions must be set.
-       * Deprecated: Please use `Versions`.
+       * version is the API version of the defined custom resource.
+       * The custom resources are served under `/apis/&lt;group&gt;/&lt;version&gt;/...`.
+       * Must match the name of the first item in the `versions` list if `version` and `versions` are both specified.
+       * Optional if `versions` is specified.
+       * Deprecated: use `versions` instead.
        * +optional
        * </pre>
        *
@@ -16144,7 +17141,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16158,7 +17155,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16180,7 +17177,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16205,7 +17202,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16228,7 +17225,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16262,7 +17259,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16283,7 +17280,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16300,7 +17297,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16322,7 +17319,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Names are the names used to describe this custom resource
+       * names specify the resource and kind names for the custom resource.
        * </pre>
        *
        * <code>
@@ -16354,7 +17351,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+       * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+       * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
        * </pre>
        *
        * <code>optional string scope = 4;</code>
@@ -16366,7 +17364,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+       * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+       * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
        * </pre>
        *
        * <code>optional string scope = 4;</code>
@@ -16388,7 +17387,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+       * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+       * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
        * </pre>
        *
        * <code>optional string scope = 4;</code>
@@ -16408,7 +17408,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+       * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+       * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
        * </pre>
        *
        * <code>optional string scope = 4;</code>
@@ -16426,7 +17427,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+       * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+       * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
        * </pre>
        *
        * <code>optional string scope = 4;</code>
@@ -16441,7 +17443,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scope indicates whether this resource is cluster or namespace scoped.  Default is namespaced
+       * scope indicates whether the defined custom resource is cluster- or namespace-scoped.
+       * Allowed values are `Cluster` and `Namespaced`. Default is `Namespaced`.
        * </pre>
        *
        * <code>optional string scope = 4;</code>
@@ -16467,8 +17470,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16484,8 +17487,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16509,8 +17512,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16537,8 +17540,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16563,8 +17566,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16600,8 +17603,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16624,8 +17627,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16644,8 +17647,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16669,8 +17672,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Validation describes the validation methods for CustomResources
-       * Optional, the global validation schema for all versions.
+       * validation describes the schema used for validation and pruning of the custom resource.
+       * If present, this validation schema is used to validate all versions.
        * Top-level and per-version schemas are mutually exclusive.
        * +optional
        * </pre>
@@ -16708,8 +17711,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16725,8 +17728,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16750,8 +17753,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16778,8 +17781,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16804,8 +17807,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16841,8 +17844,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16865,8 +17868,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16885,8 +17888,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16910,8 +17913,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
-       * Optional, the global subresources for all versions.
+       * subresources specify what subresources the defined custom resource has.
+       * If present, this field configures subresources for all versions.
        * Top-level and per-version subresources are mutually exclusive.
        * +optional
        * </pre>
@@ -16965,11 +17968,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -16996,11 +17998,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17025,11 +18026,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17055,11 +18055,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17092,11 +18091,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17127,11 +18125,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17163,11 +18160,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17200,11 +18196,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17234,11 +18229,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17269,11 +18263,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17306,11 +18299,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17338,11 +18330,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17370,11 +18361,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17396,11 +18386,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17427,11 +18416,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17460,11 +18448,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17489,11 +18476,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17519,11 +18505,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Versions is the list of all supported versions for this resource.
-       * If Version field is provided, this field is optional.
-       * Validation: All versions must use the same validation schema for now. i.e., top
-       * level Validation field is applied to all of these versions.
-       * Order: The version name will be used to compute the order.
+       * versions is the list of all API versions of the defined custom resource.
+       * Optional if `version` is specified.
+       * The name of the first item in the `versions` list must match the `version` field if `version` and `versions` are both specified.
+       * Version names are used to compute the order in which served versions are listed in API discovery.
        * If the version string is "kube-like", it will sort above non "kube-like" version strings, which are ordered
        * lexicographically. "Kube-like" versions start with a "v", then are followed by a number (the major version),
        * then optionally the string "alpha" or "beta" and another number (the minor version). These are sorted first
@@ -17594,9 +18579,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17617,9 +18604,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17638,9 +18627,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17660,9 +18651,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17689,9 +18682,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17716,9 +18711,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17744,9 +18741,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17773,9 +18772,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17799,9 +18800,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17826,9 +18829,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17855,9 +18860,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17879,9 +18886,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17903,9 +18912,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17921,9 +18932,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17943,9 +18956,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17968,9 +18983,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -17989,9 +19006,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -18011,9 +19030,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
-       * Optional, the global columns for all versions.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
+       * If present, this field configures columns for all versions.
        * Top-level and per-version columns are mutually exclusive.
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -18063,7 +19084,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18078,7 +19099,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18101,7 +19122,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18127,7 +19148,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18151,7 +19172,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18186,7 +19207,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18208,7 +19229,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18226,7 +19247,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18249,7 +19270,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `conversion` defines conversion settings for the CRD.
+       * conversion defines conversion settings for the CRD.
        * +optional
        * </pre>
        *
@@ -18273,6 +19294,94 @@ public final class V1beta1Apiextensions {
           conversion_ = null;
         }
         return conversionBuilder_;
+      }
+
+      private boolean preserveUnknownFields_;
+      /**
+       *
+       *
+       * <pre>
+       * preserveUnknownFields indicates that object fields which are not specified
+       * in the OpenAPI schema should be preserved when persisting to storage.
+       * apiVersion, kind, metadata and known fields inside metadata are always preserved.
+       * If false, schemas must be defined for all versions.
+       * Defaults to true in v1beta for backwards compatibility.
+       * Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified
+       * in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension.
+       * See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool preserveUnknownFields = 10;</code>
+       */
+      public boolean hasPreserveUnknownFields() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * preserveUnknownFields indicates that object fields which are not specified
+       * in the OpenAPI schema should be preserved when persisting to storage.
+       * apiVersion, kind, metadata and known fields inside metadata are always preserved.
+       * If false, schemas must be defined for all versions.
+       * Defaults to true in v1beta for backwards compatibility.
+       * Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified
+       * in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension.
+       * See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool preserveUnknownFields = 10;</code>
+       */
+      public boolean getPreserveUnknownFields() {
+        return preserveUnknownFields_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * preserveUnknownFields indicates that object fields which are not specified
+       * in the OpenAPI schema should be preserved when persisting to storage.
+       * apiVersion, kind, metadata and known fields inside metadata are always preserved.
+       * If false, schemas must be defined for all versions.
+       * Defaults to true in v1beta for backwards compatibility.
+       * Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified
+       * in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension.
+       * See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool preserveUnknownFields = 10;</code>
+       */
+      public Builder setPreserveUnknownFields(boolean value) {
+        bitField0_ |= 0x00000200;
+        preserveUnknownFields_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * preserveUnknownFields indicates that object fields which are not specified
+       * in the OpenAPI schema should be preserved when persisting to storage.
+       * apiVersion, kind, metadata and known fields inside metadata are always preserved.
+       * If false, schemas must be defined for all versions.
+       * Defaults to true in v1beta for backwards compatibility.
+       * Deprecated: will be required to be false in v1. Preservation of unknown fields can be specified
+       * in the validation schema using the `x-kubernetes-preserve-unknown-fields: true` extension.
+       * See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool preserveUnknownFields = 10;</code>
+       */
+      public Builder clearPreserveUnknownFields() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        preserveUnknownFields_ = false;
+        onChanged();
+        return this;
       }
 
       @java.lang.Override
@@ -18342,7 +19451,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18356,7 +19468,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18369,7 +19484,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18381,7 +19499,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18397,7 +19518,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18411,8 +19535,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AcceptedNames are the names that are actually being used to serve discovery
+     * acceptedNames are the names that are actually being used to serve discovery.
      * They may be different than the names in spec.
+     * +optional
      * </pre>
      *
      * <code>
@@ -18424,8 +19549,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AcceptedNames are the names that are actually being used to serve discovery
+     * acceptedNames are the names that are actually being used to serve discovery.
      * They may be different than the names in spec.
+     * +optional
      * </pre>
      *
      * <code>
@@ -18438,8 +19564,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AcceptedNames are the names that are actually being used to serve discovery
+     * acceptedNames are the names that are actually being used to serve discovery.
      * They may be different than the names in spec.
+     * +optional
      * </pre>
      *
      * <code>
@@ -18453,12 +19580,13 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
      * versions allows a migration path for stored versions in etcd. The field is mutable
-     * so the migration controller can first finish a migration to another version (i.e.
-     * that no old objects are left in the storage), and then remove the rest of the
+     * so a migration controller can finish a migration to another version (ensuring
+     * no old objects are left in storage), and then remove the rest of the
      * versions from this list.
-     * None of the versions in this list can be removed from the spec.Versions field.
+     * Versions may not be removed from `spec.versions` while they exist in this list.
+     * +optional
      * </pre>
      *
      * <code>repeated string storedVersions = 3;</code>
@@ -18468,12 +19596,13 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
      * versions allows a migration path for stored versions in etcd. The field is mutable
-     * so the migration controller can first finish a migration to another version (i.e.
-     * that no old objects are left in the storage), and then remove the rest of the
+     * so a migration controller can finish a migration to another version (ensuring
+     * no old objects are left in storage), and then remove the rest of the
      * versions from this list.
-     * None of the versions in this list can be removed from the spec.Versions field.
+     * Versions may not be removed from `spec.versions` while they exist in this list.
+     * +optional
      * </pre>
      *
      * <code>repeated string storedVersions = 3;</code>
@@ -18483,12 +19612,13 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
      * versions allows a migration path for stored versions in etcd. The field is mutable
-     * so the migration controller can first finish a migration to another version (i.e.
-     * that no old objects are left in the storage), and then remove the rest of the
+     * so a migration controller can finish a migration to another version (ensuring
+     * no old objects are left in storage), and then remove the rest of the
      * versions from this list.
-     * None of the versions in this list can be removed from the spec.Versions field.
+     * Versions may not be removed from `spec.versions` while they exist in this list.
+     * +optional
      * </pre>
      *
      * <code>repeated string storedVersions = 3;</code>
@@ -18498,12 +19628,13 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
      * versions allows a migration path for stored versions in etcd. The field is mutable
-     * so the migration controller can first finish a migration to another version (i.e.
-     * that no old objects are left in the storage), and then remove the rest of the
+     * so a migration controller can finish a migration to another version (ensuring
+     * no old objects are left in storage), and then remove the rest of the
      * versions from this list.
-     * None of the versions in this list can be removed from the spec.Versions field.
+     * Versions may not be removed from `spec.versions` while they exist in this list.
+     * +optional
      * </pre>
      *
      * <code>repeated string storedVersions = 3;</code>
@@ -18657,7 +19788,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18673,7 +19807,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18691,7 +19828,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18705,7 +19845,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18720,7 +19863,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Conditions indicate state for particular aspects of a CustomResourceDefinition
+     * conditions indicate state for particular aspects of a CustomResourceDefinition
+     * +optional
+     * +listType=map
+     * +listMapKey=type
      * </pre>
      *
      * <code>
@@ -18740,8 +19886,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AcceptedNames are the names that are actually being used to serve discovery
+     * acceptedNames are the names that are actually being used to serve discovery.
      * They may be different than the names in spec.
+     * +optional
      * </pre>
      *
      * <code>
@@ -18755,8 +19902,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AcceptedNames are the names that are actually being used to serve discovery
+     * acceptedNames are the names that are actually being used to serve discovery.
      * They may be different than the names in spec.
+     * +optional
      * </pre>
      *
      * <code>
@@ -18774,8 +19922,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AcceptedNames are the names that are actually being used to serve discovery
+     * acceptedNames are the names that are actually being used to serve discovery.
      * They may be different than the names in spec.
+     * +optional
      * </pre>
      *
      * <code>
@@ -18796,12 +19945,13 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
      * versions allows a migration path for stored versions in etcd. The field is mutable
-     * so the migration controller can first finish a migration to another version (i.e.
-     * that no old objects are left in the storage), and then remove the rest of the
+     * so a migration controller can finish a migration to another version (ensuring
+     * no old objects are left in storage), and then remove the rest of the
      * versions from this list.
-     * None of the versions in this list can be removed from the spec.Versions field.
+     * Versions may not be removed from `spec.versions` while they exist in this list.
+     * +optional
      * </pre>
      *
      * <code>repeated string storedVersions = 3;</code>
@@ -18813,12 +19963,13 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
      * versions allows a migration path for stored versions in etcd. The field is mutable
-     * so the migration controller can first finish a migration to another version (i.e.
-     * that no old objects are left in the storage), and then remove the rest of the
+     * so a migration controller can finish a migration to another version (ensuring
+     * no old objects are left in storage), and then remove the rest of the
      * versions from this list.
-     * None of the versions in this list can be removed from the spec.Versions field.
+     * Versions may not be removed from `spec.versions` while they exist in this list.
+     * +optional
      * </pre>
      *
      * <code>repeated string storedVersions = 3;</code>
@@ -18830,12 +19981,13 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
      * versions allows a migration path for stored versions in etcd. The field is mutable
-     * so the migration controller can first finish a migration to another version (i.e.
-     * that no old objects are left in the storage), and then remove the rest of the
+     * so a migration controller can finish a migration to another version (ensuring
+     * no old objects are left in storage), and then remove the rest of the
      * versions from this list.
-     * None of the versions in this list can be removed from the spec.Versions field.
+     * Versions may not be removed from `spec.versions` while they exist in this list.
+     * +optional
      * </pre>
      *
      * <code>repeated string storedVersions = 3;</code>
@@ -18847,12 +19999,13 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+     * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
      * versions allows a migration path for stored versions in etcd. The field is mutable
-     * so the migration controller can first finish a migration to another version (i.e.
-     * that no old objects are left in the storage), and then remove the rest of the
+     * so a migration controller can finish a migration to another version (ensuring
+     * no old objects are left in storage), and then remove the rest of the
      * versions from this list.
-     * None of the versions in this list can be removed from the spec.Versions field.
+     * Versions may not be removed from `spec.versions` while they exist in this list.
+     * +optional
      * </pre>
      *
      * <code>repeated string storedVersions = 3;</code>
@@ -19346,7 +20499,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19366,7 +20522,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19384,7 +20543,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19403,7 +20565,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19429,7 +20594,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19453,7 +20621,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19478,7 +20649,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19504,7 +20678,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19527,7 +20704,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19551,7 +20731,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19577,7 +20760,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19598,7 +20784,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19619,7 +20808,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19635,7 +20827,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19655,7 +20850,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19677,7 +20875,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19696,7 +20897,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19716,7 +20920,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Conditions indicate state for particular aspects of a CustomResourceDefinition
+       * conditions indicate state for particular aspects of a CustomResourceDefinition
+       * +optional
+       * +listType=map
+       * +listMapKey=type
        * </pre>
        *
        * <code>
@@ -19766,8 +20973,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19781,8 +20989,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19804,8 +21013,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19830,8 +21040,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19854,8 +21065,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19889,8 +21101,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19911,8 +21124,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19929,8 +21143,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19952,8 +21167,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AcceptedNames are the names that are actually being used to serve discovery
+       * acceptedNames are the names that are actually being used to serve discovery.
        * They may be different than the names in spec.
+       * +optional
        * </pre>
        *
        * <code>
@@ -19993,12 +21209,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20010,12 +21227,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20027,12 +21245,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20044,12 +21263,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20061,12 +21281,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20084,12 +21305,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20107,12 +21329,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20127,12 +21350,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20147,12 +21371,13 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StoredVersions are all versions of CustomResources that were ever persisted. Tracking these
+       * storedVersions lists all versions of CustomResources that were ever persisted. Tracking these
        * versions allows a migration path for stored versions in etcd. The field is mutable
-       * so the migration controller can first finish a migration to another version (i.e.
-       * that no old objects are left in the storage), and then remove the rest of the
+       * so a migration controller can finish a migration to another version (ensuring
+       * no old objects are left in storage), and then remove the rest of the
        * versions from this list.
-       * None of the versions in this list can be removed from the spec.Versions field.
+       * Versions may not be removed from `spec.versions` while they exist in this list.
+       * +optional
        * </pre>
        *
        * <code>repeated string storedVersions = 3;</code>
@@ -20234,7 +21459,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -20244,7 +21470,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -20254,7 +21481,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -20265,7 +21493,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Served is a flag enabling/disabling this version from being served via REST APIs
+     * served is a flag enabling/disabling this version from being served via REST APIs
      * </pre>
      *
      * <code>optional bool served = 2;</code>
@@ -20275,7 +21503,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Served is a flag enabling/disabling this version from being served via REST APIs
+     * served is a flag enabling/disabling this version from being served via REST APIs
      * </pre>
      *
      * <code>optional bool served = 2;</code>
@@ -20286,8 +21514,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Storage flags the version as storage version. There must be exactly one
-     * flagged as storage version.
+     * storage indicates this version should be used when persisting custom resources to storage.
+     * There must be exactly one version with storage=true.
      * </pre>
      *
      * <code>optional bool storage = 3;</code>
@@ -20297,8 +21525,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Storage flags the version as storage version. There must be exactly one
-     * flagged as storage version.
+     * storage indicates this version should be used when persisting custom resources to storage.
+     * There must be exactly one version with storage=true.
      * </pre>
      *
      * <code>optional bool storage = 3;</code>
@@ -20309,10 +21537,79 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * deprecated indicates this version of the custom resource API is deprecated.
+     * When set to true, API requests to this version receive a warning header in the server response.
+     * Defaults to false.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool deprecated = 7;</code>
+     */
+    boolean hasDeprecated();
+    /**
+     *
+     *
+     * <pre>
+     * deprecated indicates this version of the custom resource API is deprecated.
+     * When set to true, API requests to this version receive a warning header in the server response.
+     * Defaults to false.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool deprecated = 7;</code>
+     */
+    boolean getDeprecated();
+
+    /**
+     *
+     *
+     * <pre>
+     * deprecationWarning overrides the default warning returned to API clients.
+     * May only be set when `deprecated` is true.
+     * The default warning indicates this version is deprecated and recommends use
+     * of the newest served version of equal or greater stability, if one exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string deprecationWarning = 8;</code>
+     */
+    boolean hasDeprecationWarning();
+    /**
+     *
+     *
+     * <pre>
+     * deprecationWarning overrides the default warning returned to API clients.
+     * May only be set when `deprecated` is true.
+     * The default warning indicates this version is deprecated and recommends use
+     * of the newest served version of equal or greater stability, if one exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string deprecationWarning = 8;</code>
+     */
+    java.lang.String getDeprecationWarning();
+    /**
+     *
+     *
+     * <pre>
+     * deprecationWarning overrides the default warning returned to API clients.
+     * May only be set when `deprecated` is true.
+     * The default warning indicates this version is deprecated and recommends use
+     * of the newest served version of equal or greater stability, if one exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string deprecationWarning = 8;</code>
+     */
+    com.google.protobuf.ByteString getDeprecationWarningBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * schema describes the schema used for validation and pruning of this version of the custom resource.
      * Top-level and per-version schemas are mutually exclusive.
-     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
      * +optional
      * </pre>
      *
@@ -20325,10 +21622,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * schema describes the schema used for validation and pruning of this version of the custom resource.
      * Top-level and per-version schemas are mutually exclusive.
-     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
      * +optional
      * </pre>
      *
@@ -20341,10 +21637,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * schema describes the schema used for validation and pruning of this version of the custom resource.
      * Top-level and per-version schemas are mutually exclusive.
-     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
      * +optional
      * </pre>
      *
@@ -20359,10 +21654,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
+     * subresources specify what subresources this version of the defined custom resource have.
      * Top-level and per-version subresources are mutually exclusive.
-     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
      * +optional
      * </pre>
      *
@@ -20375,10 +21669,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
+     * subresources specify what subresources this version of the defined custom resource have.
      * Top-level and per-version subresources are mutually exclusive.
-     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
      * +optional
      * </pre>
      *
@@ -20391,10 +21684,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
+     * subresources specify what subresources this version of the defined custom resource have.
      * Top-level and per-version subresources are mutually exclusive.
-     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
      * +optional
      * </pre>
      *
@@ -20409,13 +21701,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -20429,13 +21719,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -20449,13 +21737,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -20468,13 +21754,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -20491,13 +21775,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -20534,6 +21816,8 @@ public final class V1beta1Apiextensions {
       name_ = "";
       served_ = false;
       storage_ = false;
+      deprecated_ = false;
+      deprecationWarning_ = "";
       additionalPrinterColumns_ = java.util.Collections.emptyList();
     }
 
@@ -20584,7 +21868,7 @@ public final class V1beta1Apiextensions {
               {
                 io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.Builder
                     subBuilder = null;
-                if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
                   subBuilder = schema_.toBuilder();
                 }
                 schema_ =
@@ -20596,14 +21880,14 @@ public final class V1beta1Apiextensions {
                   subBuilder.mergeFrom(schema_);
                   schema_ = subBuilder.buildPartial();
                 }
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000020;
                 break;
               }
             case 42:
               {
                 io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder
                     subBuilder = null;
-                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                if (((bitField0_ & 0x00000040) == 0x00000040)) {
                   subBuilder = subresources_.toBuilder();
                 }
                 subresources_ =
@@ -20615,23 +21899,36 @@ public final class V1beta1Apiextensions {
                   subBuilder.mergeFrom(subresources_);
                   subresources_ = subBuilder.buildPartial();
                 }
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000040;
                 break;
               }
             case 50:
               {
-                if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
                   additionalPrinterColumns_ =
                       new java.util.ArrayList<
                           io.kubernetes.client.proto.V1beta1Apiextensions
                               .CustomResourceColumnDefinition>();
-                  mutable_bitField0_ |= 0x00000020;
+                  mutable_bitField0_ |= 0x00000080;
                 }
                 additionalPrinterColumns_.add(
                     input.readMessage(
                         io.kubernetes.client.proto.V1beta1Apiextensions
                             .CustomResourceColumnDefinition.PARSER,
                         extensionRegistry));
+                break;
+              }
+            case 56:
+              {
+                bitField0_ |= 0x00000008;
+                deprecated_ = input.readBool();
+                break;
+              }
+            case 66:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000010;
+                deprecationWarning_ = bs;
                 break;
               }
             default:
@@ -20648,7 +21945,7 @@ public final class V1beta1Apiextensions {
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
           additionalPrinterColumns_ =
               java.util.Collections.unmodifiableList(additionalPrinterColumns_);
         }
@@ -20680,7 +21977,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -20692,7 +21990,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -20714,7 +22013,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * name is the version name, e.g. “v1”, “v2beta1”, etc.
+     * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -20737,7 +22037,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Served is a flag enabling/disabling this version from being served via REST APIs
+     * served is a flag enabling/disabling this version from being served via REST APIs
      * </pre>
      *
      * <code>optional bool served = 2;</code>
@@ -20749,7 +22049,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Served is a flag enabling/disabling this version from being served via REST APIs
+     * served is a flag enabling/disabling this version from being served via REST APIs
      * </pre>
      *
      * <code>optional bool served = 2;</code>
@@ -20764,8 +22064,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Storage flags the version as storage version. There must be exactly one
-     * flagged as storage version.
+     * storage indicates this version should be used when persisting custom resources to storage.
+     * There must be exactly one version with storage=true.
      * </pre>
      *
      * <code>optional bool storage = 3;</code>
@@ -20777,8 +22077,8 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Storage flags the version as storage version. There must be exactly one
-     * flagged as storage version.
+     * storage indicates this version should be used when persisting custom resources to storage.
+     * There must be exactly one version with storage=true.
      * </pre>
      *
      * <code>optional bool storage = 3;</code>
@@ -20787,16 +22087,117 @@ public final class V1beta1Apiextensions {
       return storage_;
     }
 
+    public static final int DEPRECATED_FIELD_NUMBER = 7;
+    private boolean deprecated_;
+    /**
+     *
+     *
+     * <pre>
+     * deprecated indicates this version of the custom resource API is deprecated.
+     * When set to true, API requests to this version receive a warning header in the server response.
+     * Defaults to false.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool deprecated = 7;</code>
+     */
+    public boolean hasDeprecated() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * deprecated indicates this version of the custom resource API is deprecated.
+     * When set to true, API requests to this version receive a warning header in the server response.
+     * Defaults to false.
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool deprecated = 7;</code>
+     */
+    public boolean getDeprecated() {
+      return deprecated_;
+    }
+
+    public static final int DEPRECATIONWARNING_FIELD_NUMBER = 8;
+    private volatile java.lang.Object deprecationWarning_;
+    /**
+     *
+     *
+     * <pre>
+     * deprecationWarning overrides the default warning returned to API clients.
+     * May only be set when `deprecated` is true.
+     * The default warning indicates this version is deprecated and recommends use
+     * of the newest served version of equal or greater stability, if one exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string deprecationWarning = 8;</code>
+     */
+    public boolean hasDeprecationWarning() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * deprecationWarning overrides the default warning returned to API clients.
+     * May only be set when `deprecated` is true.
+     * The default warning indicates this version is deprecated and recommends use
+     * of the newest served version of equal or greater stability, if one exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string deprecationWarning = 8;</code>
+     */
+    public java.lang.String getDeprecationWarning() {
+      java.lang.Object ref = deprecationWarning_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          deprecationWarning_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * deprecationWarning overrides the default warning returned to API clients.
+     * May only be set when `deprecated` is true.
+     * The default warning indicates this version is deprecated and recommends use
+     * of the newest served version of equal or greater stability, if one exists.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string deprecationWarning = 8;</code>
+     */
+    public com.google.protobuf.ByteString getDeprecationWarningBytes() {
+      java.lang.Object ref = deprecationWarning_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        deprecationWarning_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int SCHEMA_FIELD_NUMBER = 4;
     private io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation schema_;
     /**
      *
      *
      * <pre>
-     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * schema describes the schema used for validation and pruning of this version of the custom resource.
      * Top-level and per-version schemas are mutually exclusive.
-     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
      * +optional
      * </pre>
      *
@@ -20805,16 +22206,15 @@ public final class V1beta1Apiextensions {
      * </code>
      */
     public boolean hasSchema() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      *
      *
      * <pre>
-     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * schema describes the schema used for validation and pruning of this version of the custom resource.
      * Top-level and per-version schemas are mutually exclusive.
-     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
      * +optional
      * </pre>
      *
@@ -20832,10 +22232,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+     * schema describes the schema used for validation and pruning of this version of the custom resource.
      * Top-level and per-version schemas are mutually exclusive.
-     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
      * +optional
      * </pre>
      *
@@ -20858,10 +22257,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
+     * subresources specify what subresources this version of the defined custom resource have.
      * Top-level and per-version subresources are mutually exclusive.
-     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
      * +optional
      * </pre>
      *
@@ -20870,16 +22268,15 @@ public final class V1beta1Apiextensions {
      * </code>
      */
     public boolean hasSubresources() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
+     * subresources specify what subresources this version of the defined custom resource have.
      * Top-level and per-version subresources are mutually exclusive.
-     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
      * +optional
      * </pre>
      *
@@ -20898,10 +22295,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Subresources describes the subresources for CustomResource
+     * subresources specify what subresources this version of the defined custom resource have.
      * Top-level and per-version subresources are mutually exclusive.
-     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+     * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
      * +optional
      * </pre>
      *
@@ -20925,13 +22321,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -20948,13 +22342,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -20973,13 +22365,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -20994,13 +22384,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -21016,13 +22404,11 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+     * additionalPrinterColumns specifies additional columns returned in Table output.
+     * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
      * Top-level and per-version columns are mutually exclusive.
-     * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-     * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-     * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-     * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-     * be explicitly set to null
+     * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+     * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
      * +optional
      * </pre>
      *
@@ -21058,14 +22444,20 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBool(3, storage_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeMessage(4, getSchema());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeMessage(5, getSubresources());
       }
       for (int i = 0; i < additionalPrinterColumns_.size(); i++) {
         output.writeMessage(6, additionalPrinterColumns_.get(i));
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(7, deprecated_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, deprecationWarning_);
       }
       unknownFields.writeTo(output);
     }
@@ -21085,16 +22477,22 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream.computeBoolSize(3, storage_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(4, getSchema());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(5, getSubresources());
       }
       for (int i = 0; i < additionalPrinterColumns_.size(); i++) {
         size +=
             com.google.protobuf.CodedOutputStream.computeMessageSize(
                 6, additionalPrinterColumns_.get(i));
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(7, deprecated_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, deprecationWarning_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -21126,6 +22524,14 @@ public final class V1beta1Apiextensions {
       result = result && (hasStorage() == other.hasStorage());
       if (hasStorage()) {
         result = result && (getStorage() == other.getStorage());
+      }
+      result = result && (hasDeprecated() == other.hasDeprecated());
+      if (hasDeprecated()) {
+        result = result && (getDeprecated() == other.getDeprecated());
+      }
+      result = result && (hasDeprecationWarning() == other.hasDeprecationWarning());
+      if (hasDeprecationWarning()) {
+        result = result && getDeprecationWarning().equals(other.getDeprecationWarning());
       }
       result = result && (hasSchema() == other.hasSchema());
       if (hasSchema()) {
@@ -21160,6 +22566,14 @@ public final class V1beta1Apiextensions {
       if (hasStorage()) {
         hash = (37 * hash) + STORAGE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getStorage());
+      }
+      if (hasDeprecated()) {
+        hash = (37 * hash) + DEPRECATED_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getDeprecated());
+      }
+      if (hasDeprecationWarning()) {
+        hash = (37 * hash) + DEPRECATIONWARNING_FIELD_NUMBER;
+        hash = (53 * hash) + getDeprecationWarning().hashCode();
       }
       if (hasSchema()) {
         hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
@@ -21341,21 +22755,25 @@ public final class V1beta1Apiextensions {
         bitField0_ = (bitField0_ & ~0x00000002);
         storage_ = false;
         bitField0_ = (bitField0_ & ~0x00000004);
+        deprecated_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        deprecationWarning_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (schemaBuilder_ == null) {
           schema_ = null;
         } else {
           schemaBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
         if (subresourcesBuilder_ == null) {
           subresources_ = null;
         } else {
           subresourcesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000040);
         if (additionalPrinterColumnsBuilder_ == null) {
           additionalPrinterColumns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           additionalPrinterColumnsBuilder_.clear();
         }
@@ -21409,13 +22827,21 @@ public final class V1beta1Apiextensions {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
+        result.deprecated_ = deprecated_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.deprecationWarning_ = deprecationWarning_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
         if (schemaBuilder_ == null) {
           result.schema_ = schema_;
         } else {
           result.schema_ = schemaBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
         }
         if (subresourcesBuilder_ == null) {
           result.subresources_ = subresources_;
@@ -21423,10 +22849,10 @@ public final class V1beta1Apiextensions {
           result.subresources_ = subresourcesBuilder_.build();
         }
         if (additionalPrinterColumnsBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          if (((bitField0_ & 0x00000080) == 0x00000080)) {
             additionalPrinterColumns_ =
                 java.util.Collections.unmodifiableList(additionalPrinterColumns_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000080);
           }
           result.additionalPrinterColumns_ = additionalPrinterColumns_;
         } else {
@@ -21502,6 +22928,14 @@ public final class V1beta1Apiextensions {
         if (other.hasStorage()) {
           setStorage(other.getStorage());
         }
+        if (other.hasDeprecated()) {
+          setDeprecated(other.getDeprecated());
+        }
+        if (other.hasDeprecationWarning()) {
+          bitField0_ |= 0x00000010;
+          deprecationWarning_ = other.deprecationWarning_;
+          onChanged();
+        }
         if (other.hasSchema()) {
           mergeSchema(other.getSchema());
         }
@@ -21512,7 +22946,7 @@ public final class V1beta1Apiextensions {
           if (!other.additionalPrinterColumns_.isEmpty()) {
             if (additionalPrinterColumns_.isEmpty()) {
               additionalPrinterColumns_ = other.additionalPrinterColumns_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000080);
             } else {
               ensureAdditionalPrinterColumnsIsMutable();
               additionalPrinterColumns_.addAll(other.additionalPrinterColumns_);
@@ -21525,7 +22959,7 @@ public final class V1beta1Apiextensions {
               additionalPrinterColumnsBuilder_.dispose();
               additionalPrinterColumnsBuilder_ = null;
               additionalPrinterColumns_ = other.additionalPrinterColumns_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000080);
               additionalPrinterColumnsBuilder_ =
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
                       ? getAdditionalPrinterColumnsFieldBuilder()
@@ -21574,7 +23008,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -21586,7 +23021,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -21608,7 +23044,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -21628,7 +23065,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -21646,7 +23084,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -21661,7 +23100,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * name is the version name, e.g. “v1”, “v2beta1”, etc.
+       * The custom resources are served under this version at `/apis/&lt;group&gt;/&lt;version&gt;/...` if `served` is true.
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -21681,7 +23121,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Served is a flag enabling/disabling this version from being served via REST APIs
+       * served is a flag enabling/disabling this version from being served via REST APIs
        * </pre>
        *
        * <code>optional bool served = 2;</code>
@@ -21693,7 +23133,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Served is a flag enabling/disabling this version from being served via REST APIs
+       * served is a flag enabling/disabling this version from being served via REST APIs
        * </pre>
        *
        * <code>optional bool served = 2;</code>
@@ -21705,7 +23145,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Served is a flag enabling/disabling this version from being served via REST APIs
+       * served is a flag enabling/disabling this version from being served via REST APIs
        * </pre>
        *
        * <code>optional bool served = 2;</code>
@@ -21720,7 +23160,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Served is a flag enabling/disabling this version from being served via REST APIs
+       * served is a flag enabling/disabling this version from being served via REST APIs
        * </pre>
        *
        * <code>optional bool served = 2;</code>
@@ -21737,8 +23177,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Storage flags the version as storage version. There must be exactly one
-       * flagged as storage version.
+       * storage indicates this version should be used when persisting custom resources to storage.
+       * There must be exactly one version with storage=true.
        * </pre>
        *
        * <code>optional bool storage = 3;</code>
@@ -21750,8 +23190,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Storage flags the version as storage version. There must be exactly one
-       * flagged as storage version.
+       * storage indicates this version should be used when persisting custom resources to storage.
+       * There must be exactly one version with storage=true.
        * </pre>
        *
        * <code>optional bool storage = 3;</code>
@@ -21763,8 +23203,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Storage flags the version as storage version. There must be exactly one
-       * flagged as storage version.
+       * storage indicates this version should be used when persisting custom resources to storage.
+       * There must be exactly one version with storage=true.
        * </pre>
        *
        * <code>optional bool storage = 3;</code>
@@ -21779,8 +23219,8 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Storage flags the version as storage version. There must be exactly one
-       * flagged as storage version.
+       * storage indicates this version should be used when persisting custom resources to storage.
+       * There must be exactly one version with storage=true.
        * </pre>
        *
        * <code>optional bool storage = 3;</code>
@@ -21788,6 +23228,205 @@ public final class V1beta1Apiextensions {
       public Builder clearStorage() {
         bitField0_ = (bitField0_ & ~0x00000004);
         storage_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean deprecated_;
+      /**
+       *
+       *
+       * <pre>
+       * deprecated indicates this version of the custom resource API is deprecated.
+       * When set to true, API requests to this version receive a warning header in the server response.
+       * Defaults to false.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool deprecated = 7;</code>
+       */
+      public boolean hasDeprecated() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * deprecated indicates this version of the custom resource API is deprecated.
+       * When set to true, API requests to this version receive a warning header in the server response.
+       * Defaults to false.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool deprecated = 7;</code>
+       */
+      public boolean getDeprecated() {
+        return deprecated_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * deprecated indicates this version of the custom resource API is deprecated.
+       * When set to true, API requests to this version receive a warning header in the server response.
+       * Defaults to false.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool deprecated = 7;</code>
+       */
+      public Builder setDeprecated(boolean value) {
+        bitField0_ |= 0x00000008;
+        deprecated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * deprecated indicates this version of the custom resource API is deprecated.
+       * When set to true, API requests to this version receive a warning header in the server response.
+       * Defaults to false.
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool deprecated = 7;</code>
+       */
+      public Builder clearDeprecated() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        deprecated_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object deprecationWarning_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * deprecationWarning overrides the default warning returned to API clients.
+       * May only be set when `deprecated` is true.
+       * The default warning indicates this version is deprecated and recommends use
+       * of the newest served version of equal or greater stability, if one exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string deprecationWarning = 8;</code>
+       */
+      public boolean hasDeprecationWarning() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * deprecationWarning overrides the default warning returned to API clients.
+       * May only be set when `deprecated` is true.
+       * The default warning indicates this version is deprecated and recommends use
+       * of the newest served version of equal or greater stability, if one exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string deprecationWarning = 8;</code>
+       */
+      public java.lang.String getDeprecationWarning() {
+        java.lang.Object ref = deprecationWarning_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            deprecationWarning_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * deprecationWarning overrides the default warning returned to API clients.
+       * May only be set when `deprecated` is true.
+       * The default warning indicates this version is deprecated and recommends use
+       * of the newest served version of equal or greater stability, if one exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string deprecationWarning = 8;</code>
+       */
+      public com.google.protobuf.ByteString getDeprecationWarningBytes() {
+        java.lang.Object ref = deprecationWarning_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          deprecationWarning_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * deprecationWarning overrides the default warning returned to API clients.
+       * May only be set when `deprecated` is true.
+       * The default warning indicates this version is deprecated and recommends use
+       * of the newest served version of equal or greater stability, if one exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string deprecationWarning = 8;</code>
+       */
+      public Builder setDeprecationWarning(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        deprecationWarning_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * deprecationWarning overrides the default warning returned to API clients.
+       * May only be set when `deprecated` is true.
+       * The default warning indicates this version is deprecated and recommends use
+       * of the newest served version of equal or greater stability, if one exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string deprecationWarning = 8;</code>
+       */
+      public Builder clearDeprecationWarning() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        deprecationWarning_ = getDefaultInstance().getDeprecationWarning();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * deprecationWarning overrides the default warning returned to API clients.
+       * May only be set when `deprecated` is true.
+       * The default warning indicates this version is deprecated and recommends use
+       * of the newest served version of equal or greater stability, if one exists.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string deprecationWarning = 8;</code>
+       */
+      public Builder setDeprecationWarningBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        deprecationWarning_ = value;
         onChanged();
         return this;
       }
@@ -21803,10 +23442,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -21815,16 +23453,15 @@ public final class V1beta1Apiextensions {
        * </code>
        */
       public boolean hasSchema() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -21846,10 +23483,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -21868,17 +23504,16 @@ public final class V1beta1Apiextensions {
         } else {
           schemaBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -21895,17 +23530,16 @@ public final class V1beta1Apiextensions {
         } else {
           schemaBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -21916,7 +23550,7 @@ public final class V1beta1Apiextensions {
       public Builder mergeSchema(
           io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation value) {
         if (schemaBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)
+          if (((bitField0_ & 0x00000020) == 0x00000020)
               && schema_ != null
               && schema_
                   != io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation
@@ -21933,17 +23567,16 @@ public final class V1beta1Apiextensions {
         } else {
           schemaBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -21958,17 +23591,16 @@ public final class V1beta1Apiextensions {
         } else {
           schemaBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -21978,7 +23610,7 @@ public final class V1beta1Apiextensions {
        */
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceValidation.Builder
           getSchemaBuilder() {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
         onChanged();
         return getSchemaFieldBuilder().getBuilder();
       }
@@ -21986,10 +23618,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -22012,10 +23643,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Schema describes the schema for CustomResource used in validation, pruning, and defaulting.
+       * schema describes the schema used for validation and pruning of this version of the custom resource.
        * Top-level and per-version schemas are mutually exclusive.
-       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version schemas must not all be set to identical values (top-level validation schema should be used instead).
        * +optional
        * </pre>
        *
@@ -22052,10 +23682,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22064,16 +23693,15 @@ public final class V1beta1Apiextensions {
        * </code>
        */
       public boolean hasSubresources() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22096,10 +23724,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22118,17 +23745,16 @@ public final class V1beta1Apiextensions {
         } else {
           subresourcesBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22145,17 +23771,16 @@ public final class V1beta1Apiextensions {
         } else {
           subresourcesBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22166,7 +23791,7 @@ public final class V1beta1Apiextensions {
       public Builder mergeSubresources(
           io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources value) {
         if (subresourcesBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)
+          if (((bitField0_ & 0x00000040) == 0x00000040)
               && subresources_ != null
               && subresources_
                   != io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources
@@ -22183,17 +23808,16 @@ public final class V1beta1Apiextensions {
         } else {
           subresourcesBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22208,17 +23832,16 @@ public final class V1beta1Apiextensions {
         } else {
           subresourcesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
       /**
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22228,7 +23851,7 @@ public final class V1beta1Apiextensions {
        */
       public io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceSubresources.Builder
           getSubresourcesBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
         onChanged();
         return getSubresourcesFieldBuilder().getBuilder();
       }
@@ -22236,10 +23859,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22262,10 +23884,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Subresources describes the subresources for CustomResource
+       * subresources specify what subresources this version of the defined custom resource have.
        * Top-level and per-version subresources are mutually exclusive.
-       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
+       * Per-version subresources must not all be set to identical values (top-level subresources should be used instead).
        * +optional
        * </pre>
        *
@@ -22297,12 +23918,12 @@ public final class V1beta1Apiextensions {
           additionalPrinterColumns_ = java.util.Collections.emptyList();
 
       private void ensureAdditionalPrinterColumnsIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
           additionalPrinterColumns_ =
               new java.util.ArrayList<
                   io.kubernetes.client.proto.V1beta1Apiextensions.CustomResourceColumnDefinition>(
                   additionalPrinterColumns_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000080;
         }
       }
 
@@ -22318,13 +23939,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22345,13 +23964,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22370,13 +23987,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22396,13 +24011,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22429,13 +24042,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22460,13 +24071,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22492,13 +24101,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22525,13 +24132,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22555,13 +24160,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22586,13 +24189,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22619,13 +24220,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22636,7 +24235,7 @@ public final class V1beta1Apiextensions {
       public Builder clearAdditionalPrinterColumns() {
         if (additionalPrinterColumnsBuilder_ == null) {
           additionalPrinterColumns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000080);
           onChanged();
         } else {
           additionalPrinterColumnsBuilder_.clear();
@@ -22647,13 +24246,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22675,13 +24272,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22697,13 +24292,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22723,13 +24316,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22752,13 +24343,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22777,13 +24366,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22803,13 +24390,11 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * AdditionalPrinterColumns are additional columns shown e.g. in kubectl next to the name. Defaults to a created-at column.
+       * additionalPrinterColumns specifies additional columns returned in Table output.
+       * See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details.
        * Top-level and per-version columns are mutually exclusive.
-       * Per-version columns must not all be set to identical values (top-level columns should be used instead)
-       * This field is alpha-level and is only honored by servers that enable the CustomResourceWebhookConversion feature.
-       * NOTE: CRDs created prior to 1.13 populated the top-level additionalPrinterColumns field by default. To apply an
-       * update that changes to per-version additionalPrinterColumns, the top-level additionalPrinterColumns field must
-       * be explicitly set to null
+       * Per-version columns must not all be set to identical values (top-level columns should be used instead).
+       * If no top-level or per-version columns are specified, a single column displaying the age of the custom resource is used.
        * +optional
        * </pre>
        *
@@ -22840,7 +24425,7 @@ public final class V1beta1Apiextensions {
                   io.kubernetes.client.proto.V1beta1Apiextensions
                       .CustomResourceColumnDefinitionOrBuilder>(
                   additionalPrinterColumns_,
-                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  ((bitField0_ & 0x00000080) == 0x00000080),
                   getParentForChildren(),
                   isClean());
           additionalPrinterColumns_ = null;
@@ -22915,10 +24500,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .spec.
-     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * Must be a JSON Path under `.spec`.
+     * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
      * </pre>
      *
      * <code>optional string specReplicasPath = 1;</code>
@@ -22928,10 +24513,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .spec.
-     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * Must be a JSON Path under `.spec`.
+     * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
      * </pre>
      *
      * <code>optional string specReplicasPath = 1;</code>
@@ -22941,10 +24526,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .spec.
-     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * Must be a JSON Path under `.spec`.
+     * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
      * </pre>
      *
      * <code>optional string specReplicasPath = 1;</code>
@@ -22955,10 +24540,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * Must be a JSON Path under `.status`.
+     * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
      * will default to 0.
      * </pre>
      *
@@ -22969,10 +24554,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * Must be a JSON Path under `.status`.
+     * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
      * will default to 0.
      * </pre>
      *
@@ -22983,10 +24568,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * Must be a JSON Path under `.status`.
+     * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
      * will default to 0.
      * </pre>
      *
@@ -22998,11 +24583,14 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * Must be set to work with HPA.
-     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * Must be a JSON Path under `.status` or `.spec`.
+     * Must be set to work with HorizontalPodAutoscaler.
+     * The field pointed by this JSON path must be a string field (not a complex selector struct)
+     * which contains a serialized label selector in string form.
+     * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+     * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
      * subresource will default to the empty string.
      * +optional
      * </pre>
@@ -23014,11 +24602,14 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * Must be set to work with HPA.
-     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * Must be a JSON Path under `.status` or `.spec`.
+     * Must be set to work with HorizontalPodAutoscaler.
+     * The field pointed by this JSON path must be a string field (not a complex selector struct)
+     * which contains a serialized label selector in string form.
+     * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+     * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
      * subresource will default to the empty string.
      * +optional
      * </pre>
@@ -23030,11 +24621,14 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * Must be set to work with HPA.
-     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * Must be a JSON Path under `.status` or `.spec`.
+     * Must be set to work with HorizontalPodAutoscaler.
+     * The field pointed by this JSON path must be a string field (not a complex selector struct)
+     * which contains a serialized label selector in string form.
+     * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+     * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
      * subresource will default to the empty string.
      * +optional
      * </pre>
@@ -23158,10 +24752,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .spec.
-     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * Must be a JSON Path under `.spec`.
+     * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
      * </pre>
      *
      * <code>optional string specReplicasPath = 1;</code>
@@ -23173,10 +24767,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .spec.
-     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * Must be a JSON Path under `.spec`.
+     * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
      * </pre>
      *
      * <code>optional string specReplicasPath = 1;</code>
@@ -23198,10 +24792,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+     * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .spec.
-     * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+     * Must be a JSON Path under `.spec`.
+     * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
      * </pre>
      *
      * <code>optional string specReplicasPath = 1;</code>
@@ -23224,10 +24818,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * Must be a JSON Path under `.status`.
+     * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
      * will default to 0.
      * </pre>
      *
@@ -23240,10 +24834,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * Must be a JSON Path under `.status`.
+     * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
      * will default to 0.
      * </pre>
      *
@@ -23266,10 +24860,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+     * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+     * Must be a JSON Path under `.status`.
+     * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
      * will default to 0.
      * </pre>
      *
@@ -23293,11 +24887,14 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * Must be set to work with HPA.
-     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * Must be a JSON Path under `.status` or `.spec`.
+     * Must be set to work with HorizontalPodAutoscaler.
+     * The field pointed by this JSON path must be a string field (not a complex selector struct)
+     * which contains a serialized label selector in string form.
+     * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+     * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
      * subresource will default to the empty string.
      * +optional
      * </pre>
@@ -23311,11 +24908,14 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * Must be set to work with HPA.
-     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * Must be a JSON Path under `.status` or `.spec`.
+     * Must be set to work with HorizontalPodAutoscaler.
+     * The field pointed by this JSON path must be a string field (not a complex selector struct)
+     * which contains a serialized label selector in string form.
+     * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+     * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
      * subresource will default to the empty string.
      * +optional
      * </pre>
@@ -23339,11 +24939,14 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+     * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
      * Only JSON paths without the array notation are allowed.
-     * Must be a JSON Path under .status.
-     * Must be set to work with HPA.
-     * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+     * Must be a JSON Path under `.status` or `.spec`.
+     * Must be set to work with HorizontalPodAutoscaler.
+     * The field pointed by this JSON path must be a string field (not a complex selector struct)
+     * which contains a serialized label selector in string form.
+     * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+     * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
      * subresource will default to the empty string.
      * +optional
      * </pre>
@@ -23781,10 +25384,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .spec.
-       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * Must be a JSON Path under `.spec`.
+       * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
        * </pre>
        *
        * <code>optional string specReplicasPath = 1;</code>
@@ -23796,10 +25399,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .spec.
-       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * Must be a JSON Path under `.spec`.
+       * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
        * </pre>
        *
        * <code>optional string specReplicasPath = 1;</code>
@@ -23821,10 +25424,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .spec.
-       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * Must be a JSON Path under `.spec`.
+       * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
        * </pre>
        *
        * <code>optional string specReplicasPath = 1;</code>
@@ -23844,10 +25447,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .spec.
-       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * Must be a JSON Path under `.spec`.
+       * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
        * </pre>
        *
        * <code>optional string specReplicasPath = 1;</code>
@@ -23865,10 +25468,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .spec.
-       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * Must be a JSON Path under `.spec`.
+       * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
        * </pre>
        *
        * <code>optional string specReplicasPath = 1;</code>
@@ -23883,10 +25486,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * SpecReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Spec.Replicas.
+       * specReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `spec.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .spec.
-       * If there is no value under the given path in the CustomResource, the /scale subresource will return an error on GET.
+       * Must be a JSON Path under `.spec`.
+       * If there is no value under the given path in the custom resource, the `/scale` subresource will return an error on GET.
        * </pre>
        *
        * <code>optional string specReplicasPath = 1;</code>
@@ -23906,10 +25509,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * Must be a JSON Path under `.status`.
+       * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
        * will default to 0.
        * </pre>
        *
@@ -23922,10 +25525,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * Must be a JSON Path under `.status`.
+       * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
        * will default to 0.
        * </pre>
        *
@@ -23948,10 +25551,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * Must be a JSON Path under `.status`.
+       * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
        * will default to 0.
        * </pre>
        *
@@ -23972,10 +25575,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * Must be a JSON Path under `.status`.
+       * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
        * will default to 0.
        * </pre>
        *
@@ -23994,10 +25597,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * Must be a JSON Path under `.status`.
+       * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
        * will default to 0.
        * </pre>
        *
@@ -24013,10 +25616,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * StatusReplicasPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Replicas.
+       * statusReplicasPath defines the JSON path inside of a custom resource that corresponds to Scale `status.replicas`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * If there is no value under the given path in the CustomResource, the status replica value in the /scale subresource
+       * Must be a JSON Path under `.status`.
+       * If there is no value under the given path in the custom resource, the `status.replicas` value in the `/scale` subresource
        * will default to 0.
        * </pre>
        *
@@ -24037,11 +25640,14 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * Must be set to work with HPA.
-       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * Must be a JSON Path under `.status` or `.spec`.
+       * Must be set to work with HorizontalPodAutoscaler.
+       * The field pointed by this JSON path must be a string field (not a complex selector struct)
+       * which contains a serialized label selector in string form.
+       * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+       * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
        * subresource will default to the empty string.
        * +optional
        * </pre>
@@ -24055,11 +25661,14 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * Must be set to work with HPA.
-       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * Must be a JSON Path under `.status` or `.spec`.
+       * Must be set to work with HorizontalPodAutoscaler.
+       * The field pointed by this JSON path must be a string field (not a complex selector struct)
+       * which contains a serialized label selector in string form.
+       * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+       * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
        * subresource will default to the empty string.
        * +optional
        * </pre>
@@ -24083,11 +25692,14 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * Must be set to work with HPA.
-       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * Must be a JSON Path under `.status` or `.spec`.
+       * Must be set to work with HorizontalPodAutoscaler.
+       * The field pointed by this JSON path must be a string field (not a complex selector struct)
+       * which contains a serialized label selector in string form.
+       * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+       * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
        * subresource will default to the empty string.
        * +optional
        * </pre>
@@ -24109,11 +25721,14 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * Must be set to work with HPA.
-       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * Must be a JSON Path under `.status` or `.spec`.
+       * Must be set to work with HorizontalPodAutoscaler.
+       * The field pointed by this JSON path must be a string field (not a complex selector struct)
+       * which contains a serialized label selector in string form.
+       * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+       * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
        * subresource will default to the empty string.
        * +optional
        * </pre>
@@ -24133,11 +25748,14 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * Must be set to work with HPA.
-       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * Must be a JSON Path under `.status` or `.spec`.
+       * Must be set to work with HorizontalPodAutoscaler.
+       * The field pointed by this JSON path must be a string field (not a complex selector struct)
+       * which contains a serialized label selector in string form.
+       * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+       * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
        * subresource will default to the empty string.
        * +optional
        * </pre>
@@ -24154,11 +25772,14 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * LabelSelectorPath defines the JSON path inside of a CustomResource that corresponds to Scale.Status.Selector.
+       * labelSelectorPath defines the JSON path inside of a custom resource that corresponds to Scale `status.selector`.
        * Only JSON paths without the array notation are allowed.
-       * Must be a JSON Path under .status.
-       * Must be set to work with HPA.
-       * If there is no value under the given path in the CustomResource, the status label selector value in the /scale
+       * Must be a JSON Path under `.status` or `.spec`.
+       * Must be set to work with HorizontalPodAutoscaler.
+       * The field pointed by this JSON path must be a string field (not a complex selector struct)
+       * which contains a serialized label selector in string form.
+       * More info: https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions#scale-subresource
+       * If there is no value under the given path in the custom resource, the `status.selector` value in the `/scale`
        * subresource will default to the empty string.
        * +optional
        * </pre>
@@ -24728,7 +26349,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status denotes the status subresource for CustomResources
+     * status indicates the custom resource should serve a `/status` subresource.
+     * When enabled:
+     * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+     * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
      * +optional
      * </pre>
      *
@@ -24741,7 +26365,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status denotes the status subresource for CustomResources
+     * status indicates the custom resource should serve a `/status` subresource.
+     * When enabled:
+     * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+     * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
      * +optional
      * </pre>
      *
@@ -24754,7 +26381,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status denotes the status subresource for CustomResources
+     * status indicates the custom resource should serve a `/status` subresource.
+     * When enabled:
+     * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+     * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
      * +optional
      * </pre>
      *
@@ -24769,7 +26399,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scale denotes the scale subresource for CustomResources
+     * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
      * +optional
      * </pre>
      *
@@ -24782,7 +26412,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scale denotes the scale subresource for CustomResources
+     * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
      * +optional
      * </pre>
      *
@@ -24795,7 +26425,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scale denotes the scale subresource for CustomResources
+     * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
      * +optional
      * </pre>
      *
@@ -24935,7 +26565,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status denotes the status subresource for CustomResources
+     * status indicates the custom resource should serve a `/status` subresource.
+     * When enabled:
+     * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+     * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
      * +optional
      * </pre>
      *
@@ -24950,7 +26583,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status denotes the status subresource for CustomResources
+     * status indicates the custom resource should serve a `/status` subresource.
+     * When enabled:
+     * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+     * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
      * +optional
      * </pre>
      *
@@ -24969,7 +26605,10 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Status denotes the status subresource for CustomResources
+     * status indicates the custom resource should serve a `/status` subresource.
+     * When enabled:
+     * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+     * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
      * +optional
      * </pre>
      *
@@ -24991,7 +26630,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scale denotes the scale subresource for CustomResources
+     * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
      * +optional
      * </pre>
      *
@@ -25006,7 +26645,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scale denotes the scale subresource for CustomResources
+     * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
      * +optional
      * </pre>
      *
@@ -25025,7 +26664,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * Scale denotes the scale subresource for CustomResources
+     * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
      * +optional
      * </pre>
      *
@@ -25452,7 +27091,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25467,7 +27109,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25490,7 +27135,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25516,7 +27164,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25540,7 +27191,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25575,7 +27229,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25597,7 +27254,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25615,7 +27275,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25639,7 +27302,10 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Status denotes the status subresource for CustomResources
+       * status indicates the custom resource should serve a `/status` subresource.
+       * When enabled:
+       * 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object.
+       * 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.
        * +optional
        * </pre>
        *
@@ -25681,7 +27347,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25696,7 +27362,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25719,7 +27385,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25745,7 +27411,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25769,7 +27435,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25804,7 +27470,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25826,7 +27492,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25844,7 +27510,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25867,7 +27533,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * Scale denotes the scale subresource for CustomResources
+       * scale indicates the custom resource should serve a `/scale` subresource that returns an `autoscaling/v1` Scale object.
        * +optional
        * </pre>
        *
@@ -25962,7 +27628,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
      * +optional
      * </pre>
      *
@@ -25975,7 +27641,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
      * +optional
      * </pre>
      *
@@ -25988,7 +27654,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
      * +optional
      * </pre>
      *
@@ -26105,7 +27771,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
      * +optional
      * </pre>
      *
@@ -26120,7 +27786,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
      * +optional
      * </pre>
      *
@@ -26137,7 +27803,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+     * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
      * +optional
      * </pre>
      *
@@ -26529,7 +28195,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -26544,7 +28210,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -26565,7 +28231,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -26591,7 +28257,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -26614,7 +28280,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -26649,7 +28315,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -26671,7 +28337,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -26689,7 +28355,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -26711,7 +28377,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.
+       * openAPIV3Schema is the OpenAPI v3 schema to use for validation and pruning.
        * +optional
        * </pre>
        *
@@ -28093,11 +29759,107 @@ public final class V1beta1Apiextensions {
     /** <code>optional string type = 5;</code> */
     com.google.protobuf.ByteString getTypeBytes();
 
-    /** <code>optional string format = 6;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+     * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+     * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+     * - email: an email address as parsed by Golang net/mail.ParseAddress
+     * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+     * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+     * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+     * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+     * - mac: a MAC address as parsed by Golang net.ParseMAC
+     * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+     * - isbn10: an ISBN10 number string like "0321751043"
+     * - isbn13: an ISBN13 number string like "978-0321751041"
+     * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+     * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+     * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+     * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+     * - byte: base64 encoded binary data
+     * - password: any kind of string
+     * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+     * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+     * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+     * </pre>
+     *
+     * <code>optional string format = 6;</code>
+     */
     boolean hasFormat();
-    /** <code>optional string format = 6;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+     * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+     * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+     * - email: an email address as parsed by Golang net/mail.ParseAddress
+     * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+     * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+     * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+     * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+     * - mac: a MAC address as parsed by Golang net.ParseMAC
+     * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+     * - isbn10: an ISBN10 number string like "0321751043"
+     * - isbn13: an ISBN13 number string like "978-0321751041"
+     * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+     * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+     * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+     * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+     * - byte: base64 encoded binary data
+     * - password: any kind of string
+     * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+     * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+     * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+     * </pre>
+     *
+     * <code>optional string format = 6;</code>
+     */
     java.lang.String getFormat();
-    /** <code>optional string format = 6;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+     * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+     * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+     * - email: an email address as parsed by Golang net/mail.ParseAddress
+     * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+     * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+     * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+     * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+     * - mac: a MAC address as parsed by Golang net.ParseMAC
+     * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+     * - isbn10: an ISBN10 number string like "0321751043"
+     * - isbn13: an ISBN13 number string like "978-0321751041"
+     * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+     * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+     * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+     * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+     * - byte: base64 encoded binary data
+     * - password: any kind of string
+     * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+     * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+     * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+     * </pre>
+     *
+     * <code>optional string format = 6;</code>
+     */
     com.google.protobuf.ByteString getFormatBytes();
 
     /** <code>optional string title = 7;</code> */
@@ -28108,18 +29870,42 @@ public final class V1beta1Apiextensions {
     com.google.protobuf.ByteString getTitleBytes();
 
     /**
+     *
+     *
+     * <pre>
+     * default is a default value for undefined object fields.
+     * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+     * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+     * </pre>
+     *
      * <code>
      * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
      * </code>
      */
     boolean hasDefault();
     /**
+     *
+     *
+     * <pre>
+     * default is a default value for undefined object fields.
+     * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+     * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+     * </pre>
+     *
      * <code>
      * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Apiextensions.JSON getDefault();
     /**
+     *
+     *
+     * <pre>
+     * default is a default value for undefined object fields.
+     * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+     * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+     * </pre>
+     *
      * <code>
      * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
      * </code>
@@ -28184,33 +29970,28 @@ public final class V1beta1Apiextensions {
     double getMultipleOf();
 
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.JSON> getEnumList();
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Apiextensions.JSON getEnum(int index);
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     int getEnumCount();
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.JSONOrBuilder>
         getEnumOrBuilderList();
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Apiextensions.JSONOrBuilder getEnumOrBuilder(int index);
@@ -28615,6 +30396,315 @@ public final class V1beta1Apiextensions {
      * </code>
      */
     io.kubernetes.client.proto.V1beta1Apiextensions.JSONOrBuilder getExampleOrBuilder();
+
+    /** <code>optional bool nullable = 37;</code> */
+    boolean hasNullable();
+    /** <code>optional bool nullable = 37;</code> */
+    boolean getNullable();
+
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-preserve-unknown-fields stops the API server
+     * decoding step from pruning fields which are not specified
+     * in the validation schema. This affects fields recursively,
+     * but switches back to normal pruning behaviour if nested
+     * properties or additionalProperties are specified in the schema.
+     * This can either be true or undefined. False is forbidden.
+     * </pre>
+     *
+     * <code>optional bool xKubernetesPreserveUnknownFields = 38;</code>
+     */
+    boolean hasXKubernetesPreserveUnknownFields();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-preserve-unknown-fields stops the API server
+     * decoding step from pruning fields which are not specified
+     * in the validation schema. This affects fields recursively,
+     * but switches back to normal pruning behaviour if nested
+     * properties or additionalProperties are specified in the schema.
+     * This can either be true or undefined. False is forbidden.
+     * </pre>
+     *
+     * <code>optional bool xKubernetesPreserveUnknownFields = 38;</code>
+     */
+    boolean getXKubernetesPreserveUnknownFields();
+
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-embedded-resource defines that the value is an
+     * embedded Kubernetes runtime.Object, with TypeMeta and
+     * ObjectMeta. The type must be object. It is allowed to further
+     * restrict the embedded object. kind, apiVersion and metadata
+     * are validated automatically. x-kubernetes-preserve-unknown-fields
+     * is allowed to be true, but does not have to be if the object
+     * is fully specified (up to kind, apiVersion, metadata).
+     * </pre>
+     *
+     * <code>optional bool xKubernetesEmbeddedResource = 39;</code>
+     */
+    boolean hasXKubernetesEmbeddedResource();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-embedded-resource defines that the value is an
+     * embedded Kubernetes runtime.Object, with TypeMeta and
+     * ObjectMeta. The type must be object. It is allowed to further
+     * restrict the embedded object. kind, apiVersion and metadata
+     * are validated automatically. x-kubernetes-preserve-unknown-fields
+     * is allowed to be true, but does not have to be if the object
+     * is fully specified (up to kind, apiVersion, metadata).
+     * </pre>
+     *
+     * <code>optional bool xKubernetesEmbeddedResource = 39;</code>
+     */
+    boolean getXKubernetesEmbeddedResource();
+
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-int-or-string specifies that this value is
+     * either an integer or a string. If this is true, an empty
+     * type is allowed and type as child of anyOf is permitted
+     * if following one of the following patterns:
+     * 1) anyOf:
+     *    - type: integer
+     *    - type: string
+     * 2) allOf:
+     *    - anyOf:
+     *      - type: integer
+     *      - type: string
+     *    - ... zero or more
+     * </pre>
+     *
+     * <code>optional bool xKubernetesIntOrString = 40;</code>
+     */
+    boolean hasXKubernetesIntOrString();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-int-or-string specifies that this value is
+     * either an integer or a string. If this is true, an empty
+     * type is allowed and type as child of anyOf is permitted
+     * if following one of the following patterns:
+     * 1) anyOf:
+     *    - type: integer
+     *    - type: string
+     * 2) allOf:
+     *    - anyOf:
+     *      - type: integer
+     *      - type: string
+     *    - ... zero or more
+     * </pre>
+     *
+     * <code>optional bool xKubernetesIntOrString = 40;</code>
+     */
+    boolean getXKubernetesIntOrString();
+
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+     * as the index of the map.
+     * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+     * extension set to "map". Also, the values specified for this attribute must
+     * be a scalar typed field of the child structure (no nesting is supported).
+     * The properties specified must either be required or have a default value,
+     * to ensure those properties are present for all list items.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string xKubernetesListMapKeys = 41;</code>
+     */
+    java.util.List<java.lang.String> getXKubernetesListMapKeysList();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+     * as the index of the map.
+     * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+     * extension set to "map". Also, the values specified for this attribute must
+     * be a scalar typed field of the child structure (no nesting is supported).
+     * The properties specified must either be required or have a default value,
+     * to ensure those properties are present for all list items.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string xKubernetesListMapKeys = 41;</code>
+     */
+    int getXKubernetesListMapKeysCount();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+     * as the index of the map.
+     * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+     * extension set to "map". Also, the values specified for this attribute must
+     * be a scalar typed field of the child structure (no nesting is supported).
+     * The properties specified must either be required or have a default value,
+     * to ensure those properties are present for all list items.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string xKubernetesListMapKeys = 41;</code>
+     */
+    java.lang.String getXKubernetesListMapKeys(int index);
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+     * as the index of the map.
+     * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+     * extension set to "map". Also, the values specified for this attribute must
+     * be a scalar typed field of the child structure (no nesting is supported).
+     * The properties specified must either be required or have a default value,
+     * to ensure those properties are present for all list items.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string xKubernetesListMapKeys = 41;</code>
+     */
+    com.google.protobuf.ByteString getXKubernetesListMapKeysBytes(int index);
+
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-type annotates an array to further describe its topology.
+     * This extension must only be used on lists and may have 3 possible values:
+     * 1) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic lists will be entirely replaced when updated. This extension
+     *      may be used on any type of list (struct, scalar, ...).
+     * 2) `set`:
+     *      Sets are lists that must not have multiple items with the same value. Each
+     *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+     *      array with x-kubernetes-list-type `atomic`.
+     * 3) `map`:
+     *      These lists are like maps in that their elements have a non-index key
+     *      used to identify them. Order is preserved upon merge. The map tag
+     *      must only be used on a list with elements of type object.
+     * Defaults to atomic for arrays.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesListType = 42;</code>
+     */
+    boolean hasXKubernetesListType();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-type annotates an array to further describe its topology.
+     * This extension must only be used on lists and may have 3 possible values:
+     * 1) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic lists will be entirely replaced when updated. This extension
+     *      may be used on any type of list (struct, scalar, ...).
+     * 2) `set`:
+     *      Sets are lists that must not have multiple items with the same value. Each
+     *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+     *      array with x-kubernetes-list-type `atomic`.
+     * 3) `map`:
+     *      These lists are like maps in that their elements have a non-index key
+     *      used to identify them. Order is preserved upon merge. The map tag
+     *      must only be used on a list with elements of type object.
+     * Defaults to atomic for arrays.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesListType = 42;</code>
+     */
+    java.lang.String getXKubernetesListType();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-type annotates an array to further describe its topology.
+     * This extension must only be used on lists and may have 3 possible values:
+     * 1) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic lists will be entirely replaced when updated. This extension
+     *      may be used on any type of list (struct, scalar, ...).
+     * 2) `set`:
+     *      Sets are lists that must not have multiple items with the same value. Each
+     *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+     *      array with x-kubernetes-list-type `atomic`.
+     * 3) `map`:
+     *      These lists are like maps in that their elements have a non-index key
+     *      used to identify them. Order is preserved upon merge. The map tag
+     *      must only be used on a list with elements of type object.
+     * Defaults to atomic for arrays.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesListType = 42;</code>
+     */
+    com.google.protobuf.ByteString getXKubernetesListTypeBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-map-type annotates an object to further describe its topology.
+     * This extension must only be used when type is object and may have 2 possible values:
+     * 1) `granular`:
+     *      These maps are actual maps (key-value pairs) and each fields are independent
+     *      from each other (they can each be manipulated by separate actors). This is
+     *      the default behaviour for all maps.
+     * 2) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic maps will be entirely replaced when updated.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesMapType = 43;</code>
+     */
+    boolean hasXKubernetesMapType();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-map-type annotates an object to further describe its topology.
+     * This extension must only be used when type is object and may have 2 possible values:
+     * 1) `granular`:
+     *      These maps are actual maps (key-value pairs) and each fields are independent
+     *      from each other (they can each be manipulated by separate actors). This is
+     *      the default behaviour for all maps.
+     * 2) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic maps will be entirely replaced when updated.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesMapType = 43;</code>
+     */
+    java.lang.String getXKubernetesMapType();
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-map-type annotates an object to further describe its topology.
+     * This extension must only be used when type is object and may have 2 possible values:
+     * 1) `granular`:
+     *      These maps are actual maps (key-value pairs) and each fields are independent
+     *      from each other (they can each be manipulated by separate actors). This is
+     *      the default behaviour for all maps.
+     * 2) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic maps will be entirely replaced when updated.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesMapType = 43;</code>
+     */
+    com.google.protobuf.ByteString getXKubernetesMapTypeBytes();
   }
   /**
    *
@@ -28662,6 +30752,13 @@ public final class V1beta1Apiextensions {
       allOf_ = java.util.Collections.emptyList();
       oneOf_ = java.util.Collections.emptyList();
       anyOf_ = java.util.Collections.emptyList();
+      nullable_ = false;
+      xKubernetesPreserveUnknownFields_ = false;
+      xKubernetesEmbeddedResource_ = false;
+      xKubernetesIntOrString_ = false;
+      xKubernetesListMapKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      xKubernetesListType_ = "";
+      xKubernetesMapType_ = "";
     }
 
     @java.lang.Override
@@ -29088,6 +31185,54 @@ public final class V1beta1Apiextensions {
                 bitField0_ |= 0x04000000;
                 break;
               }
+            case 296:
+              {
+                bitField0_ |= 0x08000000;
+                nullable_ = input.readBool();
+                break;
+              }
+            case 304:
+              {
+                bitField0_ |= 0x10000000;
+                xKubernetesPreserveUnknownFields_ = input.readBool();
+                break;
+              }
+            case 312:
+              {
+                bitField0_ |= 0x20000000;
+                xKubernetesEmbeddedResource_ = input.readBool();
+                break;
+              }
+            case 320:
+              {
+                bitField0_ |= 0x40000000;
+                xKubernetesIntOrString_ = input.readBool();
+                break;
+              }
+            case 330:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                if (!((mutable_bitField1_ & 0x00000100) == 0x00000100)) {
+                  xKubernetesListMapKeys_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField1_ |= 0x00000100;
+                }
+                xKubernetesListMapKeys_.add(bs);
+                break;
+              }
+            case 338:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x80000000;
+                xKubernetesListType_ = bs;
+                break;
+              }
+            case 346:
+              {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField1_ |= 0x00000001;
+                xKubernetesMapType_ = bs;
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -29116,6 +31261,9 @@ public final class V1beta1Apiextensions {
         }
         if (((mutable_bitField0_ & 0x04000000) == 0x04000000)) {
           anyOf_ = java.util.Collections.unmodifiableList(anyOf_);
+        }
+        if (((mutable_bitField1_ & 0x00000100) == 0x00000100)) {
+          xKubernetesListMapKeys_ = xKubernetesListMapKeys_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -29155,6 +31303,7 @@ public final class V1beta1Apiextensions {
     }
 
     private int bitField0_;
+    private int bitField1_;
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /** <code>optional string id = 1;</code> */
@@ -29322,11 +31471,75 @@ public final class V1beta1Apiextensions {
 
     public static final int FORMAT_FIELD_NUMBER = 6;
     private volatile java.lang.Object format_;
-    /** <code>optional string format = 6;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+     * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+     * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+     * - email: an email address as parsed by Golang net/mail.ParseAddress
+     * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+     * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+     * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+     * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+     * - mac: a MAC address as parsed by Golang net.ParseMAC
+     * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+     * - isbn10: an ISBN10 number string like "0321751043"
+     * - isbn13: an ISBN13 number string like "978-0321751041"
+     * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+     * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+     * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+     * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+     * - byte: base64 encoded binary data
+     * - password: any kind of string
+     * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+     * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+     * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+     * </pre>
+     *
+     * <code>optional string format = 6;</code>
+     */
     public boolean hasFormat() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
-    /** <code>optional string format = 6;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+     * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+     * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+     * - email: an email address as parsed by Golang net/mail.ParseAddress
+     * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+     * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+     * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+     * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+     * - mac: a MAC address as parsed by Golang net.ParseMAC
+     * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+     * - isbn10: an ISBN10 number string like "0321751043"
+     * - isbn13: an ISBN13 number string like "978-0321751041"
+     * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+     * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+     * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+     * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+     * - byte: base64 encoded binary data
+     * - password: any kind of string
+     * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+     * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+     * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+     * </pre>
+     *
+     * <code>optional string format = 6;</code>
+     */
     public java.lang.String getFormat() {
       java.lang.Object ref = format_;
       if (ref instanceof java.lang.String) {
@@ -29340,7 +31553,39 @@ public final class V1beta1Apiextensions {
         return s;
       }
     }
-    /** <code>optional string format = 6;</code> */
+    /**
+     *
+     *
+     * <pre>
+     * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+     * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+     * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+     * - email: an email address as parsed by Golang net/mail.ParseAddress
+     * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+     * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+     * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+     * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+     * - mac: a MAC address as parsed by Golang net.ParseMAC
+     * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+     * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+     * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+     * - isbn10: an ISBN10 number string like "0321751043"
+     * - isbn13: an ISBN13 number string like "978-0321751041"
+     * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+     * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+     * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+     * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+     * - byte: base64 encoded binary data
+     * - password: any kind of string
+     * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+     * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+     * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+     * </pre>
+     *
+     * <code>optional string format = 6;</code>
+     */
     public com.google.protobuf.ByteString getFormatBytes() {
       java.lang.Object ref = format_;
       if (ref instanceof java.lang.String) {
@@ -29389,6 +31634,14 @@ public final class V1beta1Apiextensions {
     public static final int DEFAULT_FIELD_NUMBER = 8;
     private io.kubernetes.client.proto.V1beta1Apiextensions.JSON default_;
     /**
+     *
+     *
+     * <pre>
+     * default is a default value for undefined object fields.
+     * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+     * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+     * </pre>
+     *
      * <code>
      * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
      * </code>
@@ -29397,6 +31650,14 @@ public final class V1beta1Apiextensions {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
+     *
+     *
+     * <pre>
+     * default is a default value for undefined object fields.
+     * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+     * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+     * </pre>
+     *
      * <code>
      * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
      * </code>
@@ -29407,6 +31668,14 @@ public final class V1beta1Apiextensions {
           : default_;
     }
     /**
+     *
+     *
+     * <pre>
+     * default is a default value for undefined object fields.
+     * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+     * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+     * </pre>
+     *
      * <code>
      * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
      * </code>
@@ -29563,16 +31832,14 @@ public final class V1beta1Apiextensions {
     public static final int ENUM_FIELD_NUMBER = 20;
     private java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.JSON> enum_;
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     public java.util.List<io.kubernetes.client.proto.V1beta1Apiextensions.JSON> getEnumList() {
       return enum_;
     }
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     public java.util.List<? extends io.kubernetes.client.proto.V1beta1Apiextensions.JSONOrBuilder>
@@ -29580,24 +31847,21 @@ public final class V1beta1Apiextensions {
       return enum_;
     }
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     public int getEnumCount() {
       return enum_.size();
     }
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta1Apiextensions.JSON getEnum(int index) {
       return enum_.get(index);
     }
     /**
-     * <code>
-     * repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
+     * <code>repeated .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON enum = 20;
      * </code>
      */
     public io.kubernetes.client.proto.V1beta1Apiextensions.JSONOrBuilder getEnumOrBuilder(
@@ -30395,6 +32659,401 @@ public final class V1beta1Apiextensions {
           : example_;
     }
 
+    public static final int NULLABLE_FIELD_NUMBER = 37;
+    private boolean nullable_;
+    /** <code>optional bool nullable = 37;</code> */
+    public boolean hasNullable() {
+      return ((bitField0_ & 0x08000000) == 0x08000000);
+    }
+    /** <code>optional bool nullable = 37;</code> */
+    public boolean getNullable() {
+      return nullable_;
+    }
+
+    public static final int XKUBERNETESPRESERVEUNKNOWNFIELDS_FIELD_NUMBER = 38;
+    private boolean xKubernetesPreserveUnknownFields_;
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-preserve-unknown-fields stops the API server
+     * decoding step from pruning fields which are not specified
+     * in the validation schema. This affects fields recursively,
+     * but switches back to normal pruning behaviour if nested
+     * properties or additionalProperties are specified in the schema.
+     * This can either be true or undefined. False is forbidden.
+     * </pre>
+     *
+     * <code>optional bool xKubernetesPreserveUnknownFields = 38;</code>
+     */
+    public boolean hasXKubernetesPreserveUnknownFields() {
+      return ((bitField0_ & 0x10000000) == 0x10000000);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-preserve-unknown-fields stops the API server
+     * decoding step from pruning fields which are not specified
+     * in the validation schema. This affects fields recursively,
+     * but switches back to normal pruning behaviour if nested
+     * properties or additionalProperties are specified in the schema.
+     * This can either be true or undefined. False is forbidden.
+     * </pre>
+     *
+     * <code>optional bool xKubernetesPreserveUnknownFields = 38;</code>
+     */
+    public boolean getXKubernetesPreserveUnknownFields() {
+      return xKubernetesPreserveUnknownFields_;
+    }
+
+    public static final int XKUBERNETESEMBEDDEDRESOURCE_FIELD_NUMBER = 39;
+    private boolean xKubernetesEmbeddedResource_;
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-embedded-resource defines that the value is an
+     * embedded Kubernetes runtime.Object, with TypeMeta and
+     * ObjectMeta. The type must be object. It is allowed to further
+     * restrict the embedded object. kind, apiVersion and metadata
+     * are validated automatically. x-kubernetes-preserve-unknown-fields
+     * is allowed to be true, but does not have to be if the object
+     * is fully specified (up to kind, apiVersion, metadata).
+     * </pre>
+     *
+     * <code>optional bool xKubernetesEmbeddedResource = 39;</code>
+     */
+    public boolean hasXKubernetesEmbeddedResource() {
+      return ((bitField0_ & 0x20000000) == 0x20000000);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-embedded-resource defines that the value is an
+     * embedded Kubernetes runtime.Object, with TypeMeta and
+     * ObjectMeta. The type must be object. It is allowed to further
+     * restrict the embedded object. kind, apiVersion and metadata
+     * are validated automatically. x-kubernetes-preserve-unknown-fields
+     * is allowed to be true, but does not have to be if the object
+     * is fully specified (up to kind, apiVersion, metadata).
+     * </pre>
+     *
+     * <code>optional bool xKubernetesEmbeddedResource = 39;</code>
+     */
+    public boolean getXKubernetesEmbeddedResource() {
+      return xKubernetesEmbeddedResource_;
+    }
+
+    public static final int XKUBERNETESINTORSTRING_FIELD_NUMBER = 40;
+    private boolean xKubernetesIntOrString_;
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-int-or-string specifies that this value is
+     * either an integer or a string. If this is true, an empty
+     * type is allowed and type as child of anyOf is permitted
+     * if following one of the following patterns:
+     * 1) anyOf:
+     *    - type: integer
+     *    - type: string
+     * 2) allOf:
+     *    - anyOf:
+     *      - type: integer
+     *      - type: string
+     *    - ... zero or more
+     * </pre>
+     *
+     * <code>optional bool xKubernetesIntOrString = 40;</code>
+     */
+    public boolean hasXKubernetesIntOrString() {
+      return ((bitField0_ & 0x40000000) == 0x40000000);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-int-or-string specifies that this value is
+     * either an integer or a string. If this is true, an empty
+     * type is allowed and type as child of anyOf is permitted
+     * if following one of the following patterns:
+     * 1) anyOf:
+     *    - type: integer
+     *    - type: string
+     * 2) allOf:
+     *    - anyOf:
+     *      - type: integer
+     *      - type: string
+     *    - ... zero or more
+     * </pre>
+     *
+     * <code>optional bool xKubernetesIntOrString = 40;</code>
+     */
+    public boolean getXKubernetesIntOrString() {
+      return xKubernetesIntOrString_;
+    }
+
+    public static final int XKUBERNETESLISTMAPKEYS_FIELD_NUMBER = 41;
+    private com.google.protobuf.LazyStringList xKubernetesListMapKeys_;
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+     * as the index of the map.
+     * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+     * extension set to "map". Also, the values specified for this attribute must
+     * be a scalar typed field of the child structure (no nesting is supported).
+     * The properties specified must either be required or have a default value,
+     * to ensure those properties are present for all list items.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string xKubernetesListMapKeys = 41;</code>
+     */
+    public com.google.protobuf.ProtocolStringList getXKubernetesListMapKeysList() {
+      return xKubernetesListMapKeys_;
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+     * as the index of the map.
+     * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+     * extension set to "map". Also, the values specified for this attribute must
+     * be a scalar typed field of the child structure (no nesting is supported).
+     * The properties specified must either be required or have a default value,
+     * to ensure those properties are present for all list items.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string xKubernetesListMapKeys = 41;</code>
+     */
+    public int getXKubernetesListMapKeysCount() {
+      return xKubernetesListMapKeys_.size();
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+     * as the index of the map.
+     * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+     * extension set to "map". Also, the values specified for this attribute must
+     * be a scalar typed field of the child structure (no nesting is supported).
+     * The properties specified must either be required or have a default value,
+     * to ensure those properties are present for all list items.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string xKubernetesListMapKeys = 41;</code>
+     */
+    public java.lang.String getXKubernetesListMapKeys(int index) {
+      return xKubernetesListMapKeys_.get(index);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+     * as the index of the map.
+     * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+     * extension set to "map". Also, the values specified for this attribute must
+     * be a scalar typed field of the child structure (no nesting is supported).
+     * The properties specified must either be required or have a default value,
+     * to ensure those properties are present for all list items.
+     * +optional
+     * </pre>
+     *
+     * <code>repeated string xKubernetesListMapKeys = 41;</code>
+     */
+    public com.google.protobuf.ByteString getXKubernetesListMapKeysBytes(int index) {
+      return xKubernetesListMapKeys_.getByteString(index);
+    }
+
+    public static final int XKUBERNETESLISTTYPE_FIELD_NUMBER = 42;
+    private volatile java.lang.Object xKubernetesListType_;
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-type annotates an array to further describe its topology.
+     * This extension must only be used on lists and may have 3 possible values:
+     * 1) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic lists will be entirely replaced when updated. This extension
+     *      may be used on any type of list (struct, scalar, ...).
+     * 2) `set`:
+     *      Sets are lists that must not have multiple items with the same value. Each
+     *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+     *      array with x-kubernetes-list-type `atomic`.
+     * 3) `map`:
+     *      These lists are like maps in that their elements have a non-index key
+     *      used to identify them. Order is preserved upon merge. The map tag
+     *      must only be used on a list with elements of type object.
+     * Defaults to atomic for arrays.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesListType = 42;</code>
+     */
+    public boolean hasXKubernetesListType() {
+      return ((bitField0_ & 0x80000000) == 0x80000000);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-type annotates an array to further describe its topology.
+     * This extension must only be used on lists and may have 3 possible values:
+     * 1) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic lists will be entirely replaced when updated. This extension
+     *      may be used on any type of list (struct, scalar, ...).
+     * 2) `set`:
+     *      Sets are lists that must not have multiple items with the same value. Each
+     *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+     *      array with x-kubernetes-list-type `atomic`.
+     * 3) `map`:
+     *      These lists are like maps in that their elements have a non-index key
+     *      used to identify them. Order is preserved upon merge. The map tag
+     *      must only be used on a list with elements of type object.
+     * Defaults to atomic for arrays.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesListType = 42;</code>
+     */
+    public java.lang.String getXKubernetesListType() {
+      java.lang.Object ref = xKubernetesListType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          xKubernetesListType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-list-type annotates an array to further describe its topology.
+     * This extension must only be used on lists and may have 3 possible values:
+     * 1) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic lists will be entirely replaced when updated. This extension
+     *      may be used on any type of list (struct, scalar, ...).
+     * 2) `set`:
+     *      Sets are lists that must not have multiple items with the same value. Each
+     *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+     *      array with x-kubernetes-list-type `atomic`.
+     * 3) `map`:
+     *      These lists are like maps in that their elements have a non-index key
+     *      used to identify them. Order is preserved upon merge. The map tag
+     *      must only be used on a list with elements of type object.
+     * Defaults to atomic for arrays.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesListType = 42;</code>
+     */
+    public com.google.protobuf.ByteString getXKubernetesListTypeBytes() {
+      java.lang.Object ref = xKubernetesListType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        xKubernetesListType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int XKUBERNETESMAPTYPE_FIELD_NUMBER = 43;
+    private volatile java.lang.Object xKubernetesMapType_;
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-map-type annotates an object to further describe its topology.
+     * This extension must only be used when type is object and may have 2 possible values:
+     * 1) `granular`:
+     *      These maps are actual maps (key-value pairs) and each fields are independent
+     *      from each other (they can each be manipulated by separate actors). This is
+     *      the default behaviour for all maps.
+     * 2) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic maps will be entirely replaced when updated.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesMapType = 43;</code>
+     */
+    public boolean hasXKubernetesMapType() {
+      return ((bitField1_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-map-type annotates an object to further describe its topology.
+     * This extension must only be used when type is object and may have 2 possible values:
+     * 1) `granular`:
+     *      These maps are actual maps (key-value pairs) and each fields are independent
+     *      from each other (they can each be manipulated by separate actors). This is
+     *      the default behaviour for all maps.
+     * 2) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic maps will be entirely replaced when updated.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesMapType = 43;</code>
+     */
+    public java.lang.String getXKubernetesMapType() {
+      java.lang.Object ref = xKubernetesMapType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          xKubernetesMapType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     *
+     *
+     * <pre>
+     * x-kubernetes-map-type annotates an object to further describe its topology.
+     * This extension must only be used when type is object and may have 2 possible values:
+     * 1) `granular`:
+     *      These maps are actual maps (key-value pairs) and each fields are independent
+     *      from each other (they can each be manipulated by separate actors). This is
+     *      the default behaviour for all maps.
+     * 2) `atomic`: the list is treated as a single entity, like a scalar.
+     *      Atomic maps will be entirely replaced when updated.
+     * +optional
+     * </pre>
+     *
+     * <code>optional string xKubernetesMapType = 43;</code>
+     */
+    public com.google.protobuf.ByteString getXKubernetesMapTypeBytes() {
+      java.lang.Object ref = xKubernetesMapType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+        xKubernetesMapType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -30515,6 +33174,28 @@ public final class V1beta1Apiextensions {
       }
       if (((bitField0_ & 0x04000000) == 0x04000000)) {
         output.writeMessage(36, getExample());
+      }
+      if (((bitField0_ & 0x08000000) == 0x08000000)) {
+        output.writeBool(37, nullable_);
+      }
+      if (((bitField0_ & 0x10000000) == 0x10000000)) {
+        output.writeBool(38, xKubernetesPreserveUnknownFields_);
+      }
+      if (((bitField0_ & 0x20000000) == 0x20000000)) {
+        output.writeBool(39, xKubernetesEmbeddedResource_);
+      }
+      if (((bitField0_ & 0x40000000) == 0x40000000)) {
+        output.writeBool(40, xKubernetesIntOrString_);
+      }
+      for (int i = 0; i < xKubernetesListMapKeys_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(
+            output, 41, xKubernetesListMapKeys_.getRaw(i));
+      }
+      if (((bitField0_ & 0x80000000) == 0x80000000)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 42, xKubernetesListType_);
+      }
+      if (((bitField1_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 43, xKubernetesMapType_);
       }
       unknownFields.writeTo(output);
     }
@@ -30681,6 +33362,35 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x04000000) == 0x04000000)) {
         size += com.google.protobuf.CodedOutputStream.computeMessageSize(36, getExample());
       }
+      if (((bitField0_ & 0x08000000) == 0x08000000)) {
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(37, nullable_);
+      }
+      if (((bitField0_ & 0x10000000) == 0x10000000)) {
+        size +=
+            com.google.protobuf.CodedOutputStream.computeBoolSize(
+                38, xKubernetesPreserveUnknownFields_);
+      }
+      if (((bitField0_ & 0x20000000) == 0x20000000)) {
+        size +=
+            com.google.protobuf.CodedOutputStream.computeBoolSize(39, xKubernetesEmbeddedResource_);
+      }
+      if (((bitField0_ & 0x40000000) == 0x40000000)) {
+        size += com.google.protobuf.CodedOutputStream.computeBoolSize(40, xKubernetesIntOrString_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < xKubernetesListMapKeys_.size(); i++) {
+          dataSize += computeStringSizeNoTag(xKubernetesListMapKeys_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getXKubernetesListMapKeysList().size();
+      }
+      if (((bitField0_ & 0x80000000) == 0x80000000)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(42, xKubernetesListType_);
+      }
+      if (((bitField1_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(43, xKubernetesMapType_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -30824,6 +33534,40 @@ public final class V1beta1Apiextensions {
       result = result && (hasExample() == other.hasExample());
       if (hasExample()) {
         result = result && getExample().equals(other.getExample());
+      }
+      result = result && (hasNullable() == other.hasNullable());
+      if (hasNullable()) {
+        result = result && (getNullable() == other.getNullable());
+      }
+      result =
+          result
+              && (hasXKubernetesPreserveUnknownFields()
+                  == other.hasXKubernetesPreserveUnknownFields());
+      if (hasXKubernetesPreserveUnknownFields()) {
+        result =
+            result
+                && (getXKubernetesPreserveUnknownFields()
+                    == other.getXKubernetesPreserveUnknownFields());
+      }
+      result =
+          result && (hasXKubernetesEmbeddedResource() == other.hasXKubernetesEmbeddedResource());
+      if (hasXKubernetesEmbeddedResource()) {
+        result =
+            result && (getXKubernetesEmbeddedResource() == other.getXKubernetesEmbeddedResource());
+      }
+      result = result && (hasXKubernetesIntOrString() == other.hasXKubernetesIntOrString());
+      if (hasXKubernetesIntOrString()) {
+        result = result && (getXKubernetesIntOrString() == other.getXKubernetesIntOrString());
+      }
+      result =
+          result && getXKubernetesListMapKeysList().equals(other.getXKubernetesListMapKeysList());
+      result = result && (hasXKubernetesListType() == other.hasXKubernetesListType());
+      if (hasXKubernetesListType()) {
+        result = result && getXKubernetesListType().equals(other.getXKubernetesListType());
+      }
+      result = result && (hasXKubernetesMapType() == other.hasXKubernetesMapType());
+      if (hasXKubernetesMapType()) {
+        result = result && getXKubernetesMapType().equals(other.getXKubernetesMapType());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -30988,6 +33732,38 @@ public final class V1beta1Apiextensions {
       if (hasExample()) {
         hash = (37 * hash) + EXAMPLE_FIELD_NUMBER;
         hash = (53 * hash) + getExample().hashCode();
+      }
+      if (hasNullable()) {
+        hash = (37 * hash) + NULLABLE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getNullable());
+      }
+      if (hasXKubernetesPreserveUnknownFields()) {
+        hash = (37 * hash) + XKUBERNETESPRESERVEUNKNOWNFIELDS_FIELD_NUMBER;
+        hash =
+            (53 * hash)
+                + com.google.protobuf.Internal.hashBoolean(getXKubernetesPreserveUnknownFields());
+      }
+      if (hasXKubernetesEmbeddedResource()) {
+        hash = (37 * hash) + XKUBERNETESEMBEDDEDRESOURCE_FIELD_NUMBER;
+        hash =
+            (53 * hash)
+                + com.google.protobuf.Internal.hashBoolean(getXKubernetesEmbeddedResource());
+      }
+      if (hasXKubernetesIntOrString()) {
+        hash = (37 * hash) + XKUBERNETESINTORSTRING_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(getXKubernetesIntOrString());
+      }
+      if (getXKubernetesListMapKeysCount() > 0) {
+        hash = (37 * hash) + XKUBERNETESLISTMAPKEYS_FIELD_NUMBER;
+        hash = (53 * hash) + getXKubernetesListMapKeysList().hashCode();
+      }
+      if (hasXKubernetesListType()) {
+        hash = (37 * hash) + XKUBERNETESLISTTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getXKubernetesListType().hashCode();
+      }
+      if (hasXKubernetesMapType()) {
+        hash = (37 * hash) + XKUBERNETESMAPTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getXKubernetesMapType().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -31296,6 +34072,20 @@ public final class V1beta1Apiextensions {
           exampleBuilder_.clear();
         }
         bitField1_ = (bitField1_ & ~0x00000008);
+        nullable_ = false;
+        bitField1_ = (bitField1_ & ~0x00000010);
+        xKubernetesPreserveUnknownFields_ = false;
+        bitField1_ = (bitField1_ & ~0x00000020);
+        xKubernetesEmbeddedResource_ = false;
+        bitField1_ = (bitField1_ & ~0x00000040);
+        xKubernetesIntOrString_ = false;
+        bitField1_ = (bitField1_ & ~0x00000080);
+        xKubernetesListMapKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField1_ = (bitField1_ & ~0x00000100);
+        xKubernetesListType_ = "";
+        bitField1_ = (bitField1_ & ~0x00000200);
+        xKubernetesMapType_ = "";
+        bitField1_ = (bitField1_ & ~0x00000400);
         return this;
       }
 
@@ -31327,6 +34117,7 @@ public final class V1beta1Apiextensions {
         int from_bitField0_ = bitField0_;
         int from_bitField1_ = bitField1_;
         int to_bitField0_ = 0;
+        int to_bitField1_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
@@ -31512,7 +34303,37 @@ public final class V1beta1Apiextensions {
         } else {
           result.example_ = exampleBuilder_.build();
         }
+        if (((from_bitField1_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x08000000;
+        }
+        result.nullable_ = nullable_;
+        if (((from_bitField1_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x10000000;
+        }
+        result.xKubernetesPreserveUnknownFields_ = xKubernetesPreserveUnknownFields_;
+        if (((from_bitField1_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x20000000;
+        }
+        result.xKubernetesEmbeddedResource_ = xKubernetesEmbeddedResource_;
+        if (((from_bitField1_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x40000000;
+        }
+        result.xKubernetesIntOrString_ = xKubernetesIntOrString_;
+        if (((bitField1_ & 0x00000100) == 0x00000100)) {
+          xKubernetesListMapKeys_ = xKubernetesListMapKeys_.getUnmodifiableView();
+          bitField1_ = (bitField1_ & ~0x00000100);
+        }
+        result.xKubernetesListMapKeys_ = xKubernetesListMapKeys_;
+        if (((from_bitField1_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x80000000;
+        }
+        result.xKubernetesListType_ = xKubernetesListType_;
+        if (((from_bitField1_ & 0x00000400) == 0x00000400)) {
+          to_bitField1_ |= 0x00000001;
+        }
+        result.xKubernetesMapType_ = xKubernetesMapType_;
         result.bitField0_ = to_bitField0_;
+        result.bitField1_ = to_bitField1_;
         onBuilt();
         return result;
       }
@@ -31785,6 +34606,38 @@ public final class V1beta1Apiextensions {
         }
         if (other.hasExample()) {
           mergeExample(other.getExample());
+        }
+        if (other.hasNullable()) {
+          setNullable(other.getNullable());
+        }
+        if (other.hasXKubernetesPreserveUnknownFields()) {
+          setXKubernetesPreserveUnknownFields(other.getXKubernetesPreserveUnknownFields());
+        }
+        if (other.hasXKubernetesEmbeddedResource()) {
+          setXKubernetesEmbeddedResource(other.getXKubernetesEmbeddedResource());
+        }
+        if (other.hasXKubernetesIntOrString()) {
+          setXKubernetesIntOrString(other.getXKubernetesIntOrString());
+        }
+        if (!other.xKubernetesListMapKeys_.isEmpty()) {
+          if (xKubernetesListMapKeys_.isEmpty()) {
+            xKubernetesListMapKeys_ = other.xKubernetesListMapKeys_;
+            bitField1_ = (bitField1_ & ~0x00000100);
+          } else {
+            ensureXKubernetesListMapKeysIsMutable();
+            xKubernetesListMapKeys_.addAll(other.xKubernetesListMapKeys_);
+          }
+          onChanged();
+        }
+        if (other.hasXKubernetesListType()) {
+          bitField1_ |= 0x00000200;
+          xKubernetesListType_ = other.xKubernetesListType_;
+          onChanged();
+        }
+        if (other.hasXKubernetesMapType()) {
+          bitField1_ |= 0x00000400;
+          xKubernetesMapType_ = other.xKubernetesMapType_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -32116,11 +34969,75 @@ public final class V1beta1Apiextensions {
       }
 
       private java.lang.Object format_ = "";
-      /** <code>optional string format = 6;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+       * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+       * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+       * - email: an email address as parsed by Golang net/mail.ParseAddress
+       * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+       * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+       * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+       * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+       * - mac: a MAC address as parsed by Golang net.ParseMAC
+       * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+       * - isbn10: an ISBN10 number string like "0321751043"
+       * - isbn13: an ISBN13 number string like "978-0321751041"
+       * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+       * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+       * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+       * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+       * - byte: base64 encoded binary data
+       * - password: any kind of string
+       * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+       * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+       * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+       * </pre>
+       *
+       * <code>optional string format = 6;</code>
+       */
       public boolean hasFormat() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
-      /** <code>optional string format = 6;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+       * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+       * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+       * - email: an email address as parsed by Golang net/mail.ParseAddress
+       * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+       * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+       * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+       * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+       * - mac: a MAC address as parsed by Golang net.ParseMAC
+       * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+       * - isbn10: an ISBN10 number string like "0321751043"
+       * - isbn13: an ISBN13 number string like "978-0321751041"
+       * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+       * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+       * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+       * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+       * - byte: base64 encoded binary data
+       * - password: any kind of string
+       * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+       * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+       * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+       * </pre>
+       *
+       * <code>optional string format = 6;</code>
+       */
       public java.lang.String getFormat() {
         java.lang.Object ref = format_;
         if (!(ref instanceof java.lang.String)) {
@@ -32134,7 +35051,39 @@ public final class V1beta1Apiextensions {
           return (java.lang.String) ref;
         }
       }
-      /** <code>optional string format = 6;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+       * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+       * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+       * - email: an email address as parsed by Golang net/mail.ParseAddress
+       * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+       * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+       * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+       * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+       * - mac: a MAC address as parsed by Golang net.ParseMAC
+       * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+       * - isbn10: an ISBN10 number string like "0321751043"
+       * - isbn13: an ISBN13 number string like "978-0321751041"
+       * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+       * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+       * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+       * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+       * - byte: base64 encoded binary data
+       * - password: any kind of string
+       * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+       * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+       * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+       * </pre>
+       *
+       * <code>optional string format = 6;</code>
+       */
       public com.google.protobuf.ByteString getFormatBytes() {
         java.lang.Object ref = format_;
         if (ref instanceof String) {
@@ -32146,7 +35095,39 @@ public final class V1beta1Apiextensions {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-      /** <code>optional string format = 6;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+       * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+       * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+       * - email: an email address as parsed by Golang net/mail.ParseAddress
+       * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+       * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+       * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+       * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+       * - mac: a MAC address as parsed by Golang net.ParseMAC
+       * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+       * - isbn10: an ISBN10 number string like "0321751043"
+       * - isbn13: an ISBN13 number string like "978-0321751041"
+       * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+       * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+       * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+       * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+       * - byte: base64 encoded binary data
+       * - password: any kind of string
+       * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+       * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+       * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+       * </pre>
+       *
+       * <code>optional string format = 6;</code>
+       */
       public Builder setFormat(java.lang.String value) {
         if (value == null) {
           throw new NullPointerException();
@@ -32156,14 +35137,78 @@ public final class V1beta1Apiextensions {
         onChanged();
         return this;
       }
-      /** <code>optional string format = 6;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+       * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+       * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+       * - email: an email address as parsed by Golang net/mail.ParseAddress
+       * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+       * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+       * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+       * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+       * - mac: a MAC address as parsed by Golang net.ParseMAC
+       * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+       * - isbn10: an ISBN10 number string like "0321751043"
+       * - isbn13: an ISBN13 number string like "978-0321751041"
+       * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+       * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+       * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+       * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+       * - byte: base64 encoded binary data
+       * - password: any kind of string
+       * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+       * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+       * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+       * </pre>
+       *
+       * <code>optional string format = 6;</code>
+       */
       public Builder clearFormat() {
         bitField0_ = (bitField0_ & ~0x00000020);
         format_ = getDefaultInstance().getFormat();
         onChanged();
         return this;
       }
-      /** <code>optional string format = 6;</code> */
+      /**
+       *
+       *
+       * <pre>
+       * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:
+       * - bsonobjectid: a bson object ID, i.e. a 24 characters hex string
+       * - uri: an URI as parsed by Golang net/url.ParseRequestURI
+       * - email: an email address as parsed by Golang net/mail.ParseAddress
+       * - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034].
+       * - ipv4: an IPv4 IP as parsed by Golang net.ParseIP
+       * - ipv6: an IPv6 IP as parsed by Golang net.ParseIP
+       * - cidr: a CIDR as parsed by Golang net.ParseCIDR
+       * - mac: a MAC address as parsed by Golang net.ParseMAC
+       * - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$
+       * - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$
+       * - isbn: an ISBN10 or ISBN13 number string like "0321751043" or "978-0321751041"
+       * - isbn10: an ISBN10 number string like "0321751043"
+       * - isbn13: an ISBN13 number string like "978-0321751041"
+       * - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35&#92;&#92;d{3})&#92;&#92;d{11})$ with any non digit characters mixed in
+       * - ssn: a U.S. social security number following the regex ^&#92;&#92;d{3}[- ]?&#92;&#92;d{2}[- ]?&#92;&#92;d{4}$
+       * - hexcolor: an hexadecimal color code like "#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$
+       * - rgbcolor: an RGB color code like rgb like "rgb(255,255,2559"
+       * - byte: base64 encoded binary data
+       * - password: any kind of string
+       * - date: a date string like "2006-01-02" as defined by full-date in RFC3339
+       * - duration: a duration string like "22 ns" as parsed by Golang time.ParseDuration or compatible with Scala duration format
+       * - datetime: a date time string like "2014-12-15T19:30:20.000Z" as defined by date-time in RFC3339.
+       * </pre>
+       *
+       * <code>optional string format = 6;</code>
+       */
       public Builder setFormatBytes(com.google.protobuf.ByteString value) {
         if (value == null) {
           throw new NullPointerException();
@@ -32240,6 +35285,14 @@ public final class V1beta1Apiextensions {
               io.kubernetes.client.proto.V1beta1Apiextensions.JSONOrBuilder>
           defaultBuilder_;
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -32248,6 +35301,14 @@ public final class V1beta1Apiextensions {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -32262,6 +35323,14 @@ public final class V1beta1Apiextensions {
         }
       }
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -32280,6 +35349,14 @@ public final class V1beta1Apiextensions {
         return this;
       }
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -32296,6 +35373,14 @@ public final class V1beta1Apiextensions {
         return this;
       }
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -32322,6 +35407,14 @@ public final class V1beta1Apiextensions {
         return this;
       }
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -32337,6 +35430,14 @@ public final class V1beta1Apiextensions {
         return this;
       }
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -32347,6 +35448,14 @@ public final class V1beta1Apiextensions {
         return getDefaultFieldBuilder().getBuilder();
       }
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -32361,6 +35470,14 @@ public final class V1beta1Apiextensions {
         }
       }
       /**
+       *
+       *
+       * <pre>
+       * default is a default value for undefined object fields.
+       * Defaulting is a beta feature under the CustomResourceDefaulting feature gate.
+       * CustomResourceDefinitions with defaults must be created using the v1 (or newer) CustomResourceDefinition API.
+       * </pre>
+       *
        * <code>
        * optional .k8s.io.apiextensions_apiserver.pkg.apis.apiextensions.v1beta1.JSON default = 8;
        * </code>
@@ -35532,6 +38649,838 @@ public final class V1beta1Apiextensions {
         return exampleBuilder_;
       }
 
+      private boolean nullable_;
+      /** <code>optional bool nullable = 37;</code> */
+      public boolean hasNullable() {
+        return ((bitField1_ & 0x00000010) == 0x00000010);
+      }
+      /** <code>optional bool nullable = 37;</code> */
+      public boolean getNullable() {
+        return nullable_;
+      }
+      /** <code>optional bool nullable = 37;</code> */
+      public Builder setNullable(boolean value) {
+        bitField1_ |= 0x00000010;
+        nullable_ = value;
+        onChanged();
+        return this;
+      }
+      /** <code>optional bool nullable = 37;</code> */
+      public Builder clearNullable() {
+        bitField1_ = (bitField1_ & ~0x00000010);
+        nullable_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean xKubernetesPreserveUnknownFields_;
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-preserve-unknown-fields stops the API server
+       * decoding step from pruning fields which are not specified
+       * in the validation schema. This affects fields recursively,
+       * but switches back to normal pruning behaviour if nested
+       * properties or additionalProperties are specified in the schema.
+       * This can either be true or undefined. False is forbidden.
+       * </pre>
+       *
+       * <code>optional bool xKubernetesPreserveUnknownFields = 38;</code>
+       */
+      public boolean hasXKubernetesPreserveUnknownFields() {
+        return ((bitField1_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-preserve-unknown-fields stops the API server
+       * decoding step from pruning fields which are not specified
+       * in the validation schema. This affects fields recursively,
+       * but switches back to normal pruning behaviour if nested
+       * properties or additionalProperties are specified in the schema.
+       * This can either be true or undefined. False is forbidden.
+       * </pre>
+       *
+       * <code>optional bool xKubernetesPreserveUnknownFields = 38;</code>
+       */
+      public boolean getXKubernetesPreserveUnknownFields() {
+        return xKubernetesPreserveUnknownFields_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-preserve-unknown-fields stops the API server
+       * decoding step from pruning fields which are not specified
+       * in the validation schema. This affects fields recursively,
+       * but switches back to normal pruning behaviour if nested
+       * properties or additionalProperties are specified in the schema.
+       * This can either be true or undefined. False is forbidden.
+       * </pre>
+       *
+       * <code>optional bool xKubernetesPreserveUnknownFields = 38;</code>
+       */
+      public Builder setXKubernetesPreserveUnknownFields(boolean value) {
+        bitField1_ |= 0x00000020;
+        xKubernetesPreserveUnknownFields_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-preserve-unknown-fields stops the API server
+       * decoding step from pruning fields which are not specified
+       * in the validation schema. This affects fields recursively,
+       * but switches back to normal pruning behaviour if nested
+       * properties or additionalProperties are specified in the schema.
+       * This can either be true or undefined. False is forbidden.
+       * </pre>
+       *
+       * <code>optional bool xKubernetesPreserveUnknownFields = 38;</code>
+       */
+      public Builder clearXKubernetesPreserveUnknownFields() {
+        bitField1_ = (bitField1_ & ~0x00000020);
+        xKubernetesPreserveUnknownFields_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean xKubernetesEmbeddedResource_;
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-embedded-resource defines that the value is an
+       * embedded Kubernetes runtime.Object, with TypeMeta and
+       * ObjectMeta. The type must be object. It is allowed to further
+       * restrict the embedded object. kind, apiVersion and metadata
+       * are validated automatically. x-kubernetes-preserve-unknown-fields
+       * is allowed to be true, but does not have to be if the object
+       * is fully specified (up to kind, apiVersion, metadata).
+       * </pre>
+       *
+       * <code>optional bool xKubernetesEmbeddedResource = 39;</code>
+       */
+      public boolean hasXKubernetesEmbeddedResource() {
+        return ((bitField1_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-embedded-resource defines that the value is an
+       * embedded Kubernetes runtime.Object, with TypeMeta and
+       * ObjectMeta. The type must be object. It is allowed to further
+       * restrict the embedded object. kind, apiVersion and metadata
+       * are validated automatically. x-kubernetes-preserve-unknown-fields
+       * is allowed to be true, but does not have to be if the object
+       * is fully specified (up to kind, apiVersion, metadata).
+       * </pre>
+       *
+       * <code>optional bool xKubernetesEmbeddedResource = 39;</code>
+       */
+      public boolean getXKubernetesEmbeddedResource() {
+        return xKubernetesEmbeddedResource_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-embedded-resource defines that the value is an
+       * embedded Kubernetes runtime.Object, with TypeMeta and
+       * ObjectMeta. The type must be object. It is allowed to further
+       * restrict the embedded object. kind, apiVersion and metadata
+       * are validated automatically. x-kubernetes-preserve-unknown-fields
+       * is allowed to be true, but does not have to be if the object
+       * is fully specified (up to kind, apiVersion, metadata).
+       * </pre>
+       *
+       * <code>optional bool xKubernetesEmbeddedResource = 39;</code>
+       */
+      public Builder setXKubernetesEmbeddedResource(boolean value) {
+        bitField1_ |= 0x00000040;
+        xKubernetesEmbeddedResource_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-embedded-resource defines that the value is an
+       * embedded Kubernetes runtime.Object, with TypeMeta and
+       * ObjectMeta. The type must be object. It is allowed to further
+       * restrict the embedded object. kind, apiVersion and metadata
+       * are validated automatically. x-kubernetes-preserve-unknown-fields
+       * is allowed to be true, but does not have to be if the object
+       * is fully specified (up to kind, apiVersion, metadata).
+       * </pre>
+       *
+       * <code>optional bool xKubernetesEmbeddedResource = 39;</code>
+       */
+      public Builder clearXKubernetesEmbeddedResource() {
+        bitField1_ = (bitField1_ & ~0x00000040);
+        xKubernetesEmbeddedResource_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean xKubernetesIntOrString_;
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-int-or-string specifies that this value is
+       * either an integer or a string. If this is true, an empty
+       * type is allowed and type as child of anyOf is permitted
+       * if following one of the following patterns:
+       * 1) anyOf:
+       *    - type: integer
+       *    - type: string
+       * 2) allOf:
+       *    - anyOf:
+       *      - type: integer
+       *      - type: string
+       *    - ... zero or more
+       * </pre>
+       *
+       * <code>optional bool xKubernetesIntOrString = 40;</code>
+       */
+      public boolean hasXKubernetesIntOrString() {
+        return ((bitField1_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-int-or-string specifies that this value is
+       * either an integer or a string. If this is true, an empty
+       * type is allowed and type as child of anyOf is permitted
+       * if following one of the following patterns:
+       * 1) anyOf:
+       *    - type: integer
+       *    - type: string
+       * 2) allOf:
+       *    - anyOf:
+       *      - type: integer
+       *      - type: string
+       *    - ... zero or more
+       * </pre>
+       *
+       * <code>optional bool xKubernetesIntOrString = 40;</code>
+       */
+      public boolean getXKubernetesIntOrString() {
+        return xKubernetesIntOrString_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-int-or-string specifies that this value is
+       * either an integer or a string. If this is true, an empty
+       * type is allowed and type as child of anyOf is permitted
+       * if following one of the following patterns:
+       * 1) anyOf:
+       *    - type: integer
+       *    - type: string
+       * 2) allOf:
+       *    - anyOf:
+       *      - type: integer
+       *      - type: string
+       *    - ... zero or more
+       * </pre>
+       *
+       * <code>optional bool xKubernetesIntOrString = 40;</code>
+       */
+      public Builder setXKubernetesIntOrString(boolean value) {
+        bitField1_ |= 0x00000080;
+        xKubernetesIntOrString_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-int-or-string specifies that this value is
+       * either an integer or a string. If this is true, an empty
+       * type is allowed and type as child of anyOf is permitted
+       * if following one of the following patterns:
+       * 1) anyOf:
+       *    - type: integer
+       *    - type: string
+       * 2) allOf:
+       *    - anyOf:
+       *      - type: integer
+       *      - type: string
+       *    - ... zero or more
+       * </pre>
+       *
+       * <code>optional bool xKubernetesIntOrString = 40;</code>
+       */
+      public Builder clearXKubernetesIntOrString() {
+        bitField1_ = (bitField1_ & ~0x00000080);
+        xKubernetesIntOrString_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList xKubernetesListMapKeys_ =
+          com.google.protobuf.LazyStringArrayList.EMPTY;
+
+      private void ensureXKubernetesListMapKeysIsMutable() {
+        if (!((bitField1_ & 0x00000100) == 0x00000100)) {
+          xKubernetesListMapKeys_ =
+              new com.google.protobuf.LazyStringArrayList(xKubernetesListMapKeys_);
+          bitField1_ |= 0x00000100;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public com.google.protobuf.ProtocolStringList getXKubernetesListMapKeysList() {
+        return xKubernetesListMapKeys_.getUnmodifiableView();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public int getXKubernetesListMapKeysCount() {
+        return xKubernetesListMapKeys_.size();
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public java.lang.String getXKubernetesListMapKeys(int index) {
+        return xKubernetesListMapKeys_.get(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public com.google.protobuf.ByteString getXKubernetesListMapKeysBytes(int index) {
+        return xKubernetesListMapKeys_.getByteString(index);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public Builder setXKubernetesListMapKeys(int index, java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureXKubernetesListMapKeysIsMutable();
+        xKubernetesListMapKeys_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public Builder addXKubernetesListMapKeys(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureXKubernetesListMapKeysIsMutable();
+        xKubernetesListMapKeys_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public Builder addAllXKubernetesListMapKeys(java.lang.Iterable<java.lang.String> values) {
+        ensureXKubernetesListMapKeysIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(values, xKubernetesListMapKeys_);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public Builder clearXKubernetesListMapKeys() {
+        xKubernetesListMapKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField1_ = (bitField1_ & ~0x00000100);
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used
+       * as the index of the map.
+       * This tag MUST only be used on lists that have the "x-kubernetes-list-type"
+       * extension set to "map". Also, the values specified for this attribute must
+       * be a scalar typed field of the child structure (no nesting is supported).
+       * The properties specified must either be required or have a default value,
+       * to ensure those properties are present for all list items.
+       * +optional
+       * </pre>
+       *
+       * <code>repeated string xKubernetesListMapKeys = 41;</code>
+       */
+      public Builder addXKubernetesListMapKeysBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureXKubernetesListMapKeysIsMutable();
+        xKubernetesListMapKeys_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object xKubernetesListType_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-type annotates an array to further describe its topology.
+       * This extension must only be used on lists and may have 3 possible values:
+       * 1) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic lists will be entirely replaced when updated. This extension
+       *      may be used on any type of list (struct, scalar, ...).
+       * 2) `set`:
+       *      Sets are lists that must not have multiple items with the same value. Each
+       *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+       *      array with x-kubernetes-list-type `atomic`.
+       * 3) `map`:
+       *      These lists are like maps in that their elements have a non-index key
+       *      used to identify them. Order is preserved upon merge. The map tag
+       *      must only be used on a list with elements of type object.
+       * Defaults to atomic for arrays.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesListType = 42;</code>
+       */
+      public boolean hasXKubernetesListType() {
+        return ((bitField1_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-type annotates an array to further describe its topology.
+       * This extension must only be used on lists and may have 3 possible values:
+       * 1) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic lists will be entirely replaced when updated. This extension
+       *      may be used on any type of list (struct, scalar, ...).
+       * 2) `set`:
+       *      Sets are lists that must not have multiple items with the same value. Each
+       *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+       *      array with x-kubernetes-list-type `atomic`.
+       * 3) `map`:
+       *      These lists are like maps in that their elements have a non-index key
+       *      used to identify them. Order is preserved upon merge. The map tag
+       *      must only be used on a list with elements of type object.
+       * Defaults to atomic for arrays.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesListType = 42;</code>
+       */
+      public java.lang.String getXKubernetesListType() {
+        java.lang.Object ref = xKubernetesListType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            xKubernetesListType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-type annotates an array to further describe its topology.
+       * This extension must only be used on lists and may have 3 possible values:
+       * 1) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic lists will be entirely replaced when updated. This extension
+       *      may be used on any type of list (struct, scalar, ...).
+       * 2) `set`:
+       *      Sets are lists that must not have multiple items with the same value. Each
+       *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+       *      array with x-kubernetes-list-type `atomic`.
+       * 3) `map`:
+       *      These lists are like maps in that their elements have a non-index key
+       *      used to identify them. Order is preserved upon merge. The map tag
+       *      must only be used on a list with elements of type object.
+       * Defaults to atomic for arrays.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesListType = 42;</code>
+       */
+      public com.google.protobuf.ByteString getXKubernetesListTypeBytes() {
+        java.lang.Object ref = xKubernetesListType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          xKubernetesListType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-type annotates an array to further describe its topology.
+       * This extension must only be used on lists and may have 3 possible values:
+       * 1) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic lists will be entirely replaced when updated. This extension
+       *      may be used on any type of list (struct, scalar, ...).
+       * 2) `set`:
+       *      Sets are lists that must not have multiple items with the same value. Each
+       *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+       *      array with x-kubernetes-list-type `atomic`.
+       * 3) `map`:
+       *      These lists are like maps in that their elements have a non-index key
+       *      used to identify them. Order is preserved upon merge. The map tag
+       *      must only be used on a list with elements of type object.
+       * Defaults to atomic for arrays.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesListType = 42;</code>
+       */
+      public Builder setXKubernetesListType(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField1_ |= 0x00000200;
+        xKubernetesListType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-type annotates an array to further describe its topology.
+       * This extension must only be used on lists and may have 3 possible values:
+       * 1) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic lists will be entirely replaced when updated. This extension
+       *      may be used on any type of list (struct, scalar, ...).
+       * 2) `set`:
+       *      Sets are lists that must not have multiple items with the same value. Each
+       *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+       *      array with x-kubernetes-list-type `atomic`.
+       * 3) `map`:
+       *      These lists are like maps in that their elements have a non-index key
+       *      used to identify them. Order is preserved upon merge. The map tag
+       *      must only be used on a list with elements of type object.
+       * Defaults to atomic for arrays.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesListType = 42;</code>
+       */
+      public Builder clearXKubernetesListType() {
+        bitField1_ = (bitField1_ & ~0x00000200);
+        xKubernetesListType_ = getDefaultInstance().getXKubernetesListType();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-list-type annotates an array to further describe its topology.
+       * This extension must only be used on lists and may have 3 possible values:
+       * 1) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic lists will be entirely replaced when updated. This extension
+       *      may be used on any type of list (struct, scalar, ...).
+       * 2) `set`:
+       *      Sets are lists that must not have multiple items with the same value. Each
+       *      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an
+       *      array with x-kubernetes-list-type `atomic`.
+       * 3) `map`:
+       *      These lists are like maps in that their elements have a non-index key
+       *      used to identify them. Order is preserved upon merge. The map tag
+       *      must only be used on a list with elements of type object.
+       * Defaults to atomic for arrays.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesListType = 42;</code>
+       */
+      public Builder setXKubernetesListTypeBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField1_ |= 0x00000200;
+        xKubernetesListType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object xKubernetesMapType_ = "";
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-map-type annotates an object to further describe its topology.
+       * This extension must only be used when type is object and may have 2 possible values:
+       * 1) `granular`:
+       *      These maps are actual maps (key-value pairs) and each fields are independent
+       *      from each other (they can each be manipulated by separate actors). This is
+       *      the default behaviour for all maps.
+       * 2) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic maps will be entirely replaced when updated.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesMapType = 43;</code>
+       */
+      public boolean hasXKubernetesMapType() {
+        return ((bitField1_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-map-type annotates an object to further describe its topology.
+       * This extension must only be used when type is object and may have 2 possible values:
+       * 1) `granular`:
+       *      These maps are actual maps (key-value pairs) and each fields are independent
+       *      from each other (they can each be manipulated by separate actors). This is
+       *      the default behaviour for all maps.
+       * 2) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic maps will be entirely replaced when updated.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesMapType = 43;</code>
+       */
+      public java.lang.String getXKubernetesMapType() {
+        java.lang.Object ref = xKubernetesMapType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            xKubernetesMapType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-map-type annotates an object to further describe its topology.
+       * This extension must only be used when type is object and may have 2 possible values:
+       * 1) `granular`:
+       *      These maps are actual maps (key-value pairs) and each fields are independent
+       *      from each other (they can each be manipulated by separate actors). This is
+       *      the default behaviour for all maps.
+       * 2) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic maps will be entirely replaced when updated.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesMapType = 43;</code>
+       */
+      public com.google.protobuf.ByteString getXKubernetesMapTypeBytes() {
+        java.lang.Object ref = xKubernetesMapType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+              com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+          xKubernetesMapType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-map-type annotates an object to further describe its topology.
+       * This extension must only be used when type is object and may have 2 possible values:
+       * 1) `granular`:
+       *      These maps are actual maps (key-value pairs) and each fields are independent
+       *      from each other (they can each be manipulated by separate actors). This is
+       *      the default behaviour for all maps.
+       * 2) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic maps will be entirely replaced when updated.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesMapType = 43;</code>
+       */
+      public Builder setXKubernetesMapType(java.lang.String value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField1_ |= 0x00000400;
+        xKubernetesMapType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-map-type annotates an object to further describe its topology.
+       * This extension must only be used when type is object and may have 2 possible values:
+       * 1) `granular`:
+       *      These maps are actual maps (key-value pairs) and each fields are independent
+       *      from each other (they can each be manipulated by separate actors). This is
+       *      the default behaviour for all maps.
+       * 2) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic maps will be entirely replaced when updated.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesMapType = 43;</code>
+       */
+      public Builder clearXKubernetesMapType() {
+        bitField1_ = (bitField1_ & ~0x00000400);
+        xKubernetesMapType_ = getDefaultInstance().getXKubernetesMapType();
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * x-kubernetes-map-type annotates an object to further describe its topology.
+       * This extension must only be used when type is object and may have 2 possible values:
+       * 1) `granular`:
+       *      These maps are actual maps (key-value pairs) and each fields are independent
+       *      from each other (they can each be manipulated by separate actors). This is
+       *      the default behaviour for all maps.
+       * 2) `atomic`: the list is treated as a single entity, like a scalar.
+       *      Atomic maps will be entirely replaced when updated.
+       * +optional
+       * </pre>
+       *
+       * <code>optional string xKubernetesMapType = 43;</code>
+       */
+      public Builder setXKubernetesMapTypeBytes(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField1_ |= 0x00000400;
+        xKubernetesMapType_ = value;
+        onChanged();
+        return this;
+      }
+
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -38461,7 +42410,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `namespace` is the namespace of the service.
+     * namespace is the namespace of the service.
      * Required
      * </pre>
      *
@@ -38472,7 +42421,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `namespace` is the namespace of the service.
+     * namespace is the namespace of the service.
      * Required
      * </pre>
      *
@@ -38483,7 +42432,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `namespace` is the namespace of the service.
+     * namespace is the namespace of the service.
      * Required
      * </pre>
      *
@@ -38495,7 +42444,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `name` is the name of the service.
+     * name is the name of the service.
      * Required
      * </pre>
      *
@@ -38506,7 +42455,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `name` is the name of the service.
+     * name is the name of the service.
      * Required
      * </pre>
      *
@@ -38517,7 +42466,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `name` is the name of the service.
+     * name is the name of the service.
      * Required
      * </pre>
      *
@@ -38529,8 +42478,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `path` is an optional URL path which will be sent in any request to
-     * this service.
+     * path is an optional URL path at which the webhook will be contacted.
      * +optional
      * </pre>
      *
@@ -38541,8 +42489,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `path` is an optional URL path which will be sent in any request to
-     * this service.
+     * path is an optional URL path at which the webhook will be contacted.
      * +optional
      * </pre>
      *
@@ -38553,14 +42500,40 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `path` is an optional URL path which will be sent in any request to
-     * this service.
+     * path is an optional URL path at which the webhook will be contacted.
      * +optional
      * </pre>
      *
      * <code>optional string path = 3;</code>
      */
     com.google.protobuf.ByteString getPathBytes();
+
+    /**
+     *
+     *
+     * <pre>
+     * port is an optional service port at which the webhook will be contacted.
+     * `port` should be a valid port number (1-65535, inclusive).
+     * Defaults to 443 for backward compatibility.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 port = 4;</code>
+     */
+    boolean hasPort();
+    /**
+     *
+     *
+     * <pre>
+     * port is an optional service port at which the webhook will be contacted.
+     * `port` should be a valid port number (1-65535, inclusive).
+     * Defaults to 443 for backward compatibility.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 port = 4;</code>
+     */
+    int getPort();
   }
   /**
    *
@@ -38586,6 +42559,7 @@ public final class V1beta1Apiextensions {
       namespace_ = "";
       name_ = "";
       path_ = "";
+      port_ = 0;
     }
 
     @java.lang.Override
@@ -38633,6 +42607,12 @@ public final class V1beta1Apiextensions {
                 path_ = bs;
                 break;
               }
+            case 32:
+              {
+                bitField0_ |= 0x00000008;
+                port_ = input.readInt32();
+                break;
+              }
             default:
               {
                 if (!parseUnknownField(input, unknownFields, extensionRegistry, tag)) {
@@ -38674,7 +42654,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `namespace` is the namespace of the service.
+     * namespace is the namespace of the service.
      * Required
      * </pre>
      *
@@ -38687,7 +42667,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `namespace` is the namespace of the service.
+     * namespace is the namespace of the service.
      * Required
      * </pre>
      *
@@ -38710,7 +42690,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `namespace` is the namespace of the service.
+     * namespace is the namespace of the service.
      * Required
      * </pre>
      *
@@ -38734,7 +42714,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `name` is the name of the service.
+     * name is the name of the service.
      * Required
      * </pre>
      *
@@ -38747,7 +42727,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `name` is the name of the service.
+     * name is the name of the service.
      * Required
      * </pre>
      *
@@ -38770,7 +42750,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `name` is the name of the service.
+     * name is the name of the service.
      * Required
      * </pre>
      *
@@ -38794,8 +42774,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `path` is an optional URL path which will be sent in any request to
-     * this service.
+     * path is an optional URL path at which the webhook will be contacted.
      * +optional
      * </pre>
      *
@@ -38808,8 +42787,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `path` is an optional URL path which will be sent in any request to
-     * this service.
+     * path is an optional URL path at which the webhook will be contacted.
      * +optional
      * </pre>
      *
@@ -38832,8 +42810,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `path` is an optional URL path which will be sent in any request to
-     * this service.
+     * path is an optional URL path at which the webhook will be contacted.
      * +optional
      * </pre>
      *
@@ -38849,6 +42826,39 @@ public final class V1beta1Apiextensions {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int PORT_FIELD_NUMBER = 4;
+    private int port_;
+    /**
+     *
+     *
+     * <pre>
+     * port is an optional service port at which the webhook will be contacted.
+     * `port` should be a valid port number (1-65535, inclusive).
+     * Defaults to 443 for backward compatibility.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 port = 4;</code>
+     */
+    public boolean hasPort() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     *
+     *
+     * <pre>
+     * port is an optional service port at which the webhook will be contacted.
+     * `port` should be a valid port number (1-65535, inclusive).
+     * Defaults to 443 for backward compatibility.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int32 port = 4;</code>
+     */
+    public int getPort() {
+      return port_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -38874,6 +42884,9 @@ public final class V1beta1Apiextensions {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, path_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, port_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -38891,6 +42904,9 @@ public final class V1beta1Apiextensions {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, path_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream.computeInt32Size(4, port_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -38921,6 +42937,10 @@ public final class V1beta1Apiextensions {
       if (hasPath()) {
         result = result && getPath().equals(other.getPath());
       }
+      result = result && (hasPort() == other.hasPort());
+      if (hasPort()) {
+        result = result && (getPort() == other.getPort());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -38943,6 +42963,10 @@ public final class V1beta1Apiextensions {
       if (hasPath()) {
         hash = (37 * hash) + PATH_FIELD_NUMBER;
         hash = (53 * hash) + getPath().hashCode();
+      }
+      if (hasPort()) {
+        hash = (37 * hash) + PORT_FIELD_NUMBER;
+        hash = (53 * hash) + getPort();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -39101,6 +43125,8 @@ public final class V1beta1Apiextensions {
         bitField0_ = (bitField0_ & ~0x00000002);
         path_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        port_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -39144,6 +43170,10 @@ public final class V1beta1Apiextensions {
           to_bitField0_ |= 0x00000004;
         }
         result.path_ = path_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.port_ = port_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -39215,6 +43245,9 @@ public final class V1beta1Apiextensions {
           path_ = other.path_;
           onChanged();
         }
+        if (other.hasPort()) {
+          setPort(other.getPort());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -39253,7 +43286,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `namespace` is the namespace of the service.
+       * namespace is the namespace of the service.
        * Required
        * </pre>
        *
@@ -39266,7 +43299,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `namespace` is the namespace of the service.
+       * namespace is the namespace of the service.
        * Required
        * </pre>
        *
@@ -39289,7 +43322,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `namespace` is the namespace of the service.
+       * namespace is the namespace of the service.
        * Required
        * </pre>
        *
@@ -39310,7 +43343,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `namespace` is the namespace of the service.
+       * namespace is the namespace of the service.
        * Required
        * </pre>
        *
@@ -39329,7 +43362,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `namespace` is the namespace of the service.
+       * namespace is the namespace of the service.
        * Required
        * </pre>
        *
@@ -39345,7 +43378,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `namespace` is the namespace of the service.
+       * namespace is the namespace of the service.
        * Required
        * </pre>
        *
@@ -39366,7 +43399,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `name` is the name of the service.
+       * name is the name of the service.
        * Required
        * </pre>
        *
@@ -39379,7 +43412,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `name` is the name of the service.
+       * name is the name of the service.
        * Required
        * </pre>
        *
@@ -39402,7 +43435,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `name` is the name of the service.
+       * name is the name of the service.
        * Required
        * </pre>
        *
@@ -39423,7 +43456,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `name` is the name of the service.
+       * name is the name of the service.
        * Required
        * </pre>
        *
@@ -39442,7 +43475,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `name` is the name of the service.
+       * name is the name of the service.
        * Required
        * </pre>
        *
@@ -39458,7 +43491,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `name` is the name of the service.
+       * name is the name of the service.
        * Required
        * </pre>
        *
@@ -39479,8 +43512,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `path` is an optional URL path which will be sent in any request to
-       * this service.
+       * path is an optional URL path at which the webhook will be contacted.
        * +optional
        * </pre>
        *
@@ -39493,8 +43525,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `path` is an optional URL path which will be sent in any request to
-       * this service.
+       * path is an optional URL path at which the webhook will be contacted.
        * +optional
        * </pre>
        *
@@ -39517,8 +43548,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `path` is an optional URL path which will be sent in any request to
-       * this service.
+       * path is an optional URL path at which the webhook will be contacted.
        * +optional
        * </pre>
        *
@@ -39539,8 +43569,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `path` is an optional URL path which will be sent in any request to
-       * this service.
+       * path is an optional URL path at which the webhook will be contacted.
        * +optional
        * </pre>
        *
@@ -39559,8 +43588,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `path` is an optional URL path which will be sent in any request to
-       * this service.
+       * path is an optional URL path at which the webhook will be contacted.
        * +optional
        * </pre>
        *
@@ -39576,8 +43604,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `path` is an optional URL path which will be sent in any request to
-       * this service.
+       * path is an optional URL path at which the webhook will be contacted.
        * +optional
        * </pre>
        *
@@ -39589,6 +43616,74 @@ public final class V1beta1Apiextensions {
         }
         bitField0_ |= 0x00000004;
         path_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int port_;
+      /**
+       *
+       *
+       * <pre>
+       * port is an optional service port at which the webhook will be contacted.
+       * `port` should be a valid port number (1-65535, inclusive).
+       * Defaults to 443 for backward compatibility.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 port = 4;</code>
+       */
+      public boolean hasPort() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       *
+       *
+       * <pre>
+       * port is an optional service port at which the webhook will be contacted.
+       * `port` should be a valid port number (1-65535, inclusive).
+       * Defaults to 443 for backward compatibility.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 port = 4;</code>
+       */
+      public int getPort() {
+        return port_;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * port is an optional service port at which the webhook will be contacted.
+       * `port` should be a valid port number (1-65535, inclusive).
+       * Defaults to 443 for backward compatibility.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 port = 4;</code>
+       */
+      public Builder setPort(int value) {
+        bitField0_ |= 0x00000008;
+        port_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       *
+       *
+       * <pre>
+       * port is an optional service port at which the webhook will be contacted.
+       * `port` should be a valid port number (1-65535, inclusive).
+       * Defaults to 443 for backward compatibility.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int32 port = 4;</code>
+       */
+      public Builder clearPort() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        port_ = 0;
         onChanged();
         return this;
       }
@@ -39658,7 +43753,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `url` gives the location of the webhook, in standard URL form
+     * url gives the location of the webhook, in standard URL form
      * (`scheme://host:port/path`). Exactly one of `url` or `service`
      * must be specified.
      * The `host` should not refer to a service running in the cluster; use
@@ -39688,7 +43783,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `url` gives the location of the webhook, in standard URL form
+     * url gives the location of the webhook, in standard URL form
      * (`scheme://host:port/path`). Exactly one of `url` or `service`
      * must be specified.
      * The `host` should not refer to a service running in the cluster; use
@@ -39718,7 +43813,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `url` gives the location of the webhook, in standard URL form
+     * url gives the location of the webhook, in standard URL form
      * (`scheme://host:port/path`). Exactly one of `url` or `service`
      * must be specified.
      * The `host` should not refer to a service running in the cluster; use
@@ -39749,10 +43844,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `service` is a reference to the service for this webhook. Either
-     * `service` or `url` must be specified.
+     * service is a reference to the service for this webhook. Either
+     * service or url must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
@@ -39765,10 +43859,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `service` is a reference to the service for this webhook. Either
-     * `service` or `url` must be specified.
+     * service is a reference to the service for this webhook. Either
+     * service or url must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
@@ -39781,10 +43874,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `service` is a reference to the service for this webhook. Either
-     * `service` or `url` must be specified.
+     * service is a reference to the service for this webhook. Either
+     * service or url must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
@@ -39798,7 +43890,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+     * caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
      * If unspecified, system trust roots on the apiserver are used.
      * +optional
      * </pre>
@@ -39810,7 +43902,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+     * caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
      * If unspecified, system trust roots on the apiserver are used.
      * +optional
      * </pre>
@@ -39823,8 +43915,7 @@ public final class V1beta1Apiextensions {
    *
    *
    * <pre>
-   * WebhookClientConfig contains the information to make a TLS
-   * connection with the webhook. It has the same field as admissionregistration.v1beta1.WebhookClientConfig.
+   * WebhookClientConfig contains the information to make a TLS connection with the webhook.
    * </pre>
    *
    * Protobuf type {@code
@@ -39941,7 +44032,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `url` gives the location of the webhook, in standard URL form
+     * url gives the location of the webhook, in standard URL form
      * (`scheme://host:port/path`). Exactly one of `url` or `service`
      * must be specified.
      * The `host` should not refer to a service running in the cluster; use
@@ -39973,7 +44064,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `url` gives the location of the webhook, in standard URL form
+     * url gives the location of the webhook, in standard URL form
      * (`scheme://host:port/path`). Exactly one of `url` or `service`
      * must be specified.
      * The `host` should not refer to a service running in the cluster; use
@@ -40015,7 +44106,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `url` gives the location of the webhook, in standard URL form
+     * url gives the location of the webhook, in standard URL form
      * (`scheme://host:port/path`). Exactly one of `url` or `service`
      * must be specified.
      * The `host` should not refer to a service running in the cluster; use
@@ -40058,10 +44149,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `service` is a reference to the service for this webhook. Either
-     * `service` or `url` must be specified.
+     * service is a reference to the service for this webhook. Either
+     * service or url must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
@@ -40076,10 +44166,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `service` is a reference to the service for this webhook. Either
-     * `service` or `url` must be specified.
+     * service is a reference to the service for this webhook. Either
+     * service or url must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
@@ -40096,10 +44185,9 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `service` is a reference to the service for this webhook. Either
-     * `service` or `url` must be specified.
+     * service is a reference to the service for this webhook. Either
+     * service or url must be specified.
      * If the webhook is running within the cluster, then you should use `service`.
-     * Port 443 will be used if it is open, otherwise it is an error.
      * +optional
      * </pre>
      *
@@ -40120,7 +44208,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+     * caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
      * If unspecified, system trust roots on the apiserver are used.
      * +optional
      * </pre>
@@ -40134,7 +44222,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+     * caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
      * If unspecified, system trust roots on the apiserver are used.
      * +optional
      * </pre>
@@ -40345,8 +44433,7 @@ public final class V1beta1Apiextensions {
      *
      *
      * <pre>
-     * WebhookClientConfig contains the information to make a TLS
-     * connection with the webhook. It has the same field as admissionregistration.v1beta1.WebhookClientConfig.
+     * WebhookClientConfig contains the information to make a TLS connection with the webhook.
      * </pre>
      *
      * Protobuf type {@code
@@ -40554,7 +44641,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `url` gives the location of the webhook, in standard URL form
+       * url gives the location of the webhook, in standard URL form
        * (`scheme://host:port/path`). Exactly one of `url` or `service`
        * must be specified.
        * The `host` should not refer to a service running in the cluster; use
@@ -40586,7 +44673,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `url` gives the location of the webhook, in standard URL form
+       * url gives the location of the webhook, in standard URL form
        * (`scheme://host:port/path`). Exactly one of `url` or `service`
        * must be specified.
        * The `host` should not refer to a service running in the cluster; use
@@ -40628,7 +44715,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `url` gives the location of the webhook, in standard URL form
+       * url gives the location of the webhook, in standard URL form
        * (`scheme://host:port/path`). Exactly one of `url` or `service`
        * must be specified.
        * The `host` should not refer to a service running in the cluster; use
@@ -40668,7 +44755,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `url` gives the location of the webhook, in standard URL form
+       * url gives the location of the webhook, in standard URL form
        * (`scheme://host:port/path`). Exactly one of `url` or `service`
        * must be specified.
        * The `host` should not refer to a service running in the cluster; use
@@ -40706,7 +44793,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `url` gives the location of the webhook, in standard URL form
+       * url gives the location of the webhook, in standard URL form
        * (`scheme://host:port/path`). Exactly one of `url` or `service`
        * must be specified.
        * The `host` should not refer to a service running in the cluster; use
@@ -40741,7 +44828,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `url` gives the location of the webhook, in standard URL form
+       * url gives the location of the webhook, in standard URL form
        * (`scheme://host:port/path`). Exactly one of `url` or `service`
        * must be specified.
        * The `host` should not refer to a service running in the cluster; use
@@ -40786,10 +44873,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -40804,10 +44890,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -40829,10 +44914,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -40858,10 +44942,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -40885,10 +44968,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -40923,10 +45005,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -40948,10 +45029,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -40969,10 +45049,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -40995,10 +45074,9 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `service` is a reference to the service for this webhook. Either
-       * `service` or `url` must be specified.
+       * service is a reference to the service for this webhook. Either
+       * service or url must be specified.
        * If the webhook is running within the cluster, then you should use `service`.
-       * Port 443 will be used if it is open, otherwise it is an error.
        * +optional
        * </pre>
        *
@@ -41028,7 +45106,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+       * caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
        * If unspecified, system trust roots on the apiserver are used.
        * +optional
        * </pre>
@@ -41042,7 +45120,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+       * caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
        * If unspecified, system trust roots on the apiserver are used.
        * +optional
        * </pre>
@@ -41056,7 +45134,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+       * caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
        * If unspecified, system trust roots on the apiserver are used.
        * +optional
        * </pre>
@@ -41076,7 +45154,7 @@ public final class V1beta1Apiextensions {
        *
        *
        * <pre>
-       * `caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+       * caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate.
        * If unspecified, system trust roots on the apiserver are used.
        * +optional
        * </pre>
@@ -41290,167 +45368,176 @@ public final class V1beta1Apiextensions {
           + "ConversionResponse\"\205\001\n\036CustomResourceCol"
           + "umnDefinition\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001("
           + "\t\022\016\n\006format\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\020"
-          + "\n\010priority\030\005 \001(\005\022\020\n\010JSONPath\030\006 \001(\t\"\235\001\n\030C"
+          + "\n\010priority\030\005 \001(\005\022\020\n\010JSONPath\030\006 \001(\t\"\277\001\n\030C"
           + "ustomResourceConversion\022\020\n\010strategy\030\001 \001("
           + "\t\022o\n\023webhookClientConfig\030\002 \001(\0132R.k8s.io."
           + "apiextensions_apiserver.pkg.apis.apiexte"
-          + "nsions.v1beta1.WebhookClientConfig\"\270\002\n\030C"
-          + "ustomResourceDefinition\022B\n\010metadata\030\001 \001("
-          + "\01320.k8s.io.apimachinery.pkg.apis.meta.v1"
-          + ".ObjectMeta\022i\n\004spec\030\002 \001(\0132[.k8s.io.apiex"
-          + "tensions_apiserver.pkg.apis.apiextension"
-          + "s.v1beta1.CustomResourceDefinitionSpec\022m"
-          + "\n\006status\030\003 \001(\0132].k8s.io.apiextensions_ap"
-          + "iserver.pkg.apis.apiextensions.v1beta1.C"
-          + "ustomResourceDefinitionStatus\"\252\001\n!Custom"
-          + "ResourceDefinitionCondition\022\014\n\004type\030\001 \001("
-          + "\t\022\016\n\006status\030\002 \001(\t\022F\n\022lastTransitionTime\030"
-          + "\003 \001(\0132*.k8s.io.apimachinery.pkg.apis.met"
-          + "a.v1.Time\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001"
-          + "(\t\"\310\001\n\034CustomResourceDefinitionList\022@\n\010m"
-          + "etadata\030\001 \001(\0132..k8s.io.apimachinery.pkg."
-          + "apis.meta.v1.ListMeta\022f\n\005items\030\002 \003(\0132W.k"
-          + "8s.io.apiextensions_apiserver.pkg.apis.a"
-          + "piextensions.v1beta1.CustomResourceDefin"
-          + "ition\"\211\001\n\035CustomResourceDefinitionNames\022"
-          + "\016\n\006plural\030\001 \001(\t\022\020\n\010singular\030\002 \001(\t\022\022\n\nsho"
-          + "rtNames\030\003 \003(\t\022\014\n\004kind\030\004 \001(\t\022\020\n\010listKind\030"
-          + "\005 \001(\t\022\022\n\ncategories\030\006 \003(\t\"\370\005\n\034CustomReso"
-          + "urceDefinitionSpec\022\r\n\005group\030\001 \001(\t\022\017\n\007ver"
-          + "sion\030\002 \001(\t\022k\n\005names\030\003 \001(\0132\\.k8s.io.apiex"
-          + "tensions_apiserver.pkg.apis.apiextension"
-          + "s.v1beta1.CustomResourceDefinitionNames\022"
-          + "\r\n\005scope\030\004 \001(\t\022k\n\nvalidation\030\005 \001(\0132W.k8s"
-          + ".io.apiextensions_apiserver.pkg.apis.api"
-          + "extensions.v1beta1.CustomResourceValidat"
-          + "ion\022o\n\014subresources\030\006 \001(\0132Y.k8s.io.apiex"
-          + "tensions_apiserver.pkg.apis.apiextension"
-          + "s.v1beta1.CustomResourceSubresources\022p\n\010"
-          + "versions\030\007 \003(\0132^.k8s.io.apiextensions_ap"
-          + "iserver.pkg.apis.apiextensions.v1beta1.C"
-          + "ustomResourceDefinitionVersion\022\177\n\030additi"
-          + "onalPrinterColumns\030\010 \003(\0132].k8s.io.apiext"
-          + "ensions_apiserver.pkg.apis.apiextensions"
-          + ".v1beta1.CustomResourceColumnDefinition\022"
-          + "k\n\nconversion\030\t \001(\0132W.k8s.io.apiextensio"
+          + "nsions.v1beta1.WebhookClientConfig\022 \n\030co"
+          + "nversionReviewVersions\030\003 \003(\t\"\270\002\n\030CustomR"
+          + "esourceDefinition\022B\n\010metadata\030\001 \001(\01320.k8"
+          + "s.io.apimachinery.pkg.apis.meta.v1.Objec"
+          + "tMeta\022i\n\004spec\030\002 \001(\0132[.k8s.io.apiextensio"
           + "ns_apiserver.pkg.apis.apiextensions.v1be"
-          + "ta1.CustomResourceConversion\"\243\002\n\036CustomR"
-          + "esourceDefinitionStatus\022t\n\nconditions\030\001 "
-          + "\003(\0132`.k8s.io.apiextensions_apiserver.pkg"
-          + ".apis.apiextensions.v1beta1.CustomResour"
-          + "ceDefinitionCondition\022s\n\racceptedNames\030\002"
-          + " \001(\0132\\.k8s.io.apiextensions_apiserver.pk"
-          + "g.apis.apiextensions.v1beta1.CustomResou"
-          + "rceDefinitionNames\022\026\n\016storedVersions\030\003 \003"
-          + "(\t\"\253\003\n\037CustomResourceDefinitionVersion\022\014"
-          + "\n\004name\030\001 \001(\t\022\016\n\006served\030\002 \001(\010\022\017\n\007storage\030"
-          + "\003 \001(\010\022g\n\006schema\030\004 \001(\0132W.k8s.io.apiextens"
-          + "ions_apiserver.pkg.apis.apiextensions.v1"
-          + "beta1.CustomResourceValidation\022o\n\014subres"
-          + "ources\030\005 \001(\0132Y.k8s.io.apiextensions_apis"
-          + "erver.pkg.apis.apiextensions.v1beta1.Cus"
-          + "tomResourceSubresources\022\177\n\030additionalPri"
-          + "nterColumns\030\006 \003(\0132].k8s.io.apiextensions"
-          + "_apiserver.pkg.apis.apiextensions.v1beta"
-          + "1.CustomResourceColumnDefinition\"q\n\036Cust"
-          + "omResourceSubresourceScale\022\030\n\020specReplic"
-          + "asPath\030\001 \001(\t\022\032\n\022statusReplicasPath\030\002 \001(\t"
-          + "\022\031\n\021labelSelectorPath\030\003 \001(\t\"!\n\037CustomRes"
-          + "ourceSubresourceStatus\"\372\001\n\032CustomResourc"
-          + "eSubresources\022n\n\006status\030\001 \001(\0132^.k8s.io.a"
-          + "piextensions_apiserver.pkg.apis.apiexten"
-          + "sions.v1beta1.CustomResourceSubresourceS"
-          + "tatus\022l\n\005scale\030\002 \001(\0132].k8s.io.apiextensi"
-          + "ons_apiserver.pkg.apis.apiextensions.v1b"
-          + "eta1.CustomResourceSubresourceScale\"\203\001\n\030"
-          + "CustomResourceValidation\022g\n\017openAPIV3Sch"
-          + "ema\030\001 \001(\0132N.k8s.io.apiextensions_apiserv"
-          + "er.pkg.apis.apiextensions.v1beta1.JSONSc"
-          + "hemaProps\"9\n\025ExternalDocumentation\022\023\n\013de"
-          + "scription\030\001 \001(\t\022\013\n\003url\030\002 \001(\t\"\023\n\004JSON\022\013\n\003"
-          + "raw\030\001 \001(\014\"\320\023\n\017JSONSchemaProps\022\n\n\002id\030\001 \001("
-          + "\t\022\016\n\006schema\030\002 \001(\t\022\013\n\003ref\030\003 \001(\t\022\023\n\013descri"
-          + "ption\030\004 \001(\t\022\014\n\004type\030\005 \001(\t\022\016\n\006format\030\006 \001("
-          + "\t\022\r\n\005title\030\007 \001(\t\022T\n\007default\030\010 \001(\0132C.k8s."
-          + "io.apiextensions_apiserver.pkg.apis.apie"
-          + "xtensions.v1beta1.JSON\022\017\n\007maximum\030\t \001(\001\022"
-          + "\030\n\020exclusiveMaximum\030\n \001(\010\022\017\n\007minimum\030\013 \001"
-          + "(\001\022\030\n\020exclusiveMinimum\030\014 \001(\010\022\021\n\tmaxLengt"
-          + "h\030\r \001(\003\022\021\n\tminLength\030\016 \001(\003\022\017\n\007pattern\030\017 "
-          + "\001(\t\022\020\n\010maxItems\030\020 \001(\003\022\020\n\010minItems\030\021 \001(\003\022"
-          + "\023\n\013uniqueItems\030\022 \001(\010\022\022\n\nmultipleOf\030\023 \001(\001"
-          + "\022Q\n\004enum\030\024 \003(\0132C.k8s.io.apiextensions_ap"
-          + "iserver.pkg.apis.apiextensions.v1beta1.J"
-          + "SON\022\025\n\rmaxProperties\030\025 \001(\003\022\025\n\rminPropert"
-          + "ies\030\026 \001(\003\022\020\n\010required\030\027 \003(\t\022d\n\005items\030\030 \001"
-          + "(\0132U.k8s.io.apiextensions_apiserver.pkg."
-          + "apis.apiextensions.v1beta1.JSONSchemaPro"
-          + "psOrArray\022]\n\005allOf\030\031 \003(\0132N.k8s.io.apiext"
-          + "ensions_apiserver.pkg.apis.apiextensions"
-          + ".v1beta1.JSONSchemaProps\022]\n\005oneOf\030\032 \003(\0132"
-          + "N.k8s.io.apiextensions_apiserver.pkg.api"
-          + "s.apiextensions.v1beta1.JSONSchemaProps\022"
-          + "]\n\005anyOf\030\033 \003(\0132N.k8s.io.apiextensions_ap"
-          + "iserver.pkg.apis.apiextensions.v1beta1.J"
-          + "SONSchemaProps\022[\n\003not\030\034 \001(\0132N.k8s.io.api"
-          + "extensions_apiserver.pkg.apis.apiextensi"
-          + "ons.v1beta1.JSONSchemaProps\022r\n\npropertie"
-          + "s\030\035 \003(\0132^.k8s.io.apiextensions_apiserver"
-          + ".pkg.apis.apiextensions.v1beta1.JSONSche"
-          + "maProps.PropertiesEntry\022r\n\024additionalPro"
-          + "perties\030\036 \001(\0132T.k8s.io.apiextensions_api"
-          + "server.pkg.apis.apiextensions.v1beta1.JS"
-          + "ONSchemaPropsOrBool\022\200\001\n\021patternPropertie"
-          + "s\030\037 \003(\0132e.k8s.io.apiextensions_apiserver"
-          + ".pkg.apis.apiextensions.v1beta1.JSONSche"
-          + "maProps.PatternPropertiesEntry\022v\n\014depend"
-          + "encies\030  \003(\0132`.k8s.io.apiextensions_apis"
-          + "erver.pkg.apis.apiextensions.v1beta1.JSO"
-          + "NSchemaProps.DependenciesEntry\022m\n\017additi"
-          + "onalItems\030! \001(\0132T.k8s.io.apiextensions_a"
-          + "piserver.pkg.apis.apiextensions.v1beta1."
-          + "JSONSchemaPropsOrBool\022t\n\013definitions\030\" \003"
-          + "(\0132_.k8s.io.apiextensions_apiserver.pkg."
-          + "apis.apiextensions.v1beta1.JSONSchemaPro"
-          + "ps.DefinitionsEntry\022j\n\014externalDocs\030# \001("
-          + "\0132T.k8s.io.apiextensions_apiserver.pkg.a"
-          + "pis.apiextensions.v1beta1.ExternalDocume"
-          + "ntation\022T\n\007example\030$ \001(\0132C.k8s.io.apiext"
-          + "ensions_apiserver.pkg.apis.apiextensions"
-          + ".v1beta1.JSON\032\201\001\n\017PropertiesEntry\022\013\n\003key"
-          + "\030\001 \001(\t\022]\n\005value\030\002 \001(\0132N.k8s.io.apiextens"
-          + "ions_apiserver.pkg.apis.apiextensions.v1"
-          + "beta1.JSONSchemaProps:\0028\001\032\210\001\n\026PatternPro"
-          + "pertiesEntry\022\013\n\003key\030\001 \001(\t\022]\n\005value\030\002 \001(\013"
-          + "2N.k8s.io.apiextensions_apiserver.pkg.ap"
-          + "is.apiextensions.v1beta1.JSONSchemaProps"
-          + ":\0028\001\032\220\001\n\021DependenciesEntry\022\013\n\003key\030\001 \001(\t\022"
-          + "j\n\005value\030\002 \001(\0132[.k8s.io.apiextensions_ap"
-          + "iserver.pkg.apis.apiextensions.v1beta1.J"
-          + "SONSchemaPropsOrStringArray:\0028\001\032\202\001\n\020Defi"
-          + "nitionsEntry\022\013\n\003key\030\001 \001(\t\022]\n\005value\030\002 \001(\013"
-          + "2N.k8s.io.apiextensions_apiserver.pkg.ap"
-          + "is.apiextensions.v1beta1.JSONSchemaProps"
-          + ":\0028\001\"\335\001\n\026JSONSchemaPropsOrArray\022^\n\006schem"
-          + "a\030\001 \001(\0132N.k8s.io.apiextensions_apiserver"
-          + ".pkg.apis.apiextensions.v1beta1.JSONSche"
-          + "maProps\022c\n\013jSONSchemas\030\002 \003(\0132N.k8s.io.ap"
+          + "ta1.CustomResourceDefinitionSpec\022m\n\006stat"
+          + "us\030\003 \001(\0132].k8s.io.apiextensions_apiserve"
+          + "r.pkg.apis.apiextensions.v1beta1.CustomR"
+          + "esourceDefinitionStatus\"\252\001\n!CustomResour"
+          + "ceDefinitionCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006s"
+          + "tatus\030\002 \001(\t\022F\n\022lastTransitionTime\030\003 \001(\0132"
+          + "*.k8s.io.apimachinery.pkg.apis.meta.v1.T"
+          + "ime\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\310\001\n"
+          + "\034CustomResourceDefinitionList\022@\n\010metadat"
+          + "a\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis.m"
+          + "eta.v1.ListMeta\022f\n\005items\030\002 \003(\0132W.k8s.io."
+          + "apiextensions_apiserver.pkg.apis.apiexte"
+          + "nsions.v1beta1.CustomResourceDefinition\""
+          + "\211\001\n\035CustomResourceDefinitionNames\022\016\n\006plu"
+          + "ral\030\001 \001(\t\022\020\n\010singular\030\002 \001(\t\022\022\n\nshortName"
+          + "s\030\003 \003(\t\022\014\n\004kind\030\004 \001(\t\022\020\n\010listKind\030\005 \001(\t\022"
+          + "\022\n\ncategories\030\006 \003(\t\"\227\006\n\034CustomResourceDe"
+          + "finitionSpec\022\r\n\005group\030\001 \001(\t\022\017\n\007version\030\002"
+          + " \001(\t\022k\n\005names\030\003 \001(\0132\\.k8s.io.apiextensio"
+          + "ns_apiserver.pkg.apis.apiextensions.v1be"
+          + "ta1.CustomResourceDefinitionNames\022\r\n\005sco"
+          + "pe\030\004 \001(\t\022k\n\nvalidation\030\005 \001(\0132W.k8s.io.ap"
           + "iextensions_apiserver.pkg.apis.apiextens"
-          + "ions.v1beta1.JSONSchemaProps\"\207\001\n\025JSONSch"
-          + "emaPropsOrBool\022\016\n\006allows\030\001 \001(\010\022^\n\006schema"
-          + "\030\002 \001(\0132N.k8s.io.apiextensions_apiserver."
+          + "ions.v1beta1.CustomResourceValidation\022o\n"
+          + "\014subresources\030\006 \001(\0132Y.k8s.io.apiextensio"
+          + "ns_apiserver.pkg.apis.apiextensions.v1be"
+          + "ta1.CustomResourceSubresources\022p\n\010versio"
+          + "ns\030\007 \003(\0132^.k8s.io.apiextensions_apiserve"
+          + "r.pkg.apis.apiextensions.v1beta1.CustomR"
+          + "esourceDefinitionVersion\022\177\n\030additionalPr"
+          + "interColumns\030\010 \003(\0132].k8s.io.apiextension"
+          + "s_apiserver.pkg.apis.apiextensions.v1bet"
+          + "a1.CustomResourceColumnDefinition\022k\n\ncon"
+          + "version\030\t \001(\0132W.k8s.io.apiextensions_api"
+          + "server.pkg.apis.apiextensions.v1beta1.Cu"
+          + "stomResourceConversion\022\035\n\025preserveUnknow"
+          + "nFields\030\n \001(\010\"\243\002\n\036CustomResourceDefiniti"
+          + "onStatus\022t\n\nconditions\030\001 \003(\0132`.k8s.io.ap"
+          + "iextensions_apiserver.pkg.apis.apiextens"
+          + "ions.v1beta1.CustomResourceDefinitionCon"
+          + "dition\022s\n\racceptedNames\030\002 \001(\0132\\.k8s.io.a"
+          + "piextensions_apiserver.pkg.apis.apiexten"
+          + "sions.v1beta1.CustomResourceDefinitionNa"
+          + "mes\022\026\n\016storedVersions\030\003 \003(\t\"\333\003\n\037CustomRe"
+          + "sourceDefinitionVersion\022\014\n\004name\030\001 \001(\t\022\016\n"
+          + "\006served\030\002 \001(\010\022\017\n\007storage\030\003 \001(\010\022\022\n\ndeprec"
+          + "ated\030\007 \001(\010\022\032\n\022deprecationWarning\030\010 \001(\t\022g"
+          + "\n\006schema\030\004 \001(\0132W.k8s.io.apiextensions_ap"
+          + "iserver.pkg.apis.apiextensions.v1beta1.C"
+          + "ustomResourceValidation\022o\n\014subresources\030"
+          + "\005 \001(\0132Y.k8s.io.apiextensions_apiserver.p"
+          + "kg.apis.apiextensions.v1beta1.CustomReso"
+          + "urceSubresources\022\177\n\030additionalPrinterCol"
+          + "umns\030\006 \003(\0132].k8s.io.apiextensions_apiser"
+          + "ver.pkg.apis.apiextensions.v1beta1.Custo"
+          + "mResourceColumnDefinition\"q\n\036CustomResou"
+          + "rceSubresourceScale\022\030\n\020specReplicasPath\030"
+          + "\001 \001(\t\022\032\n\022statusReplicasPath\030\002 \001(\t\022\031\n\021lab"
+          + "elSelectorPath\030\003 \001(\t\"!\n\037CustomResourceSu"
+          + "bresourceStatus\"\372\001\n\032CustomResourceSubres"
+          + "ources\022n\n\006status\030\001 \001(\0132^.k8s.io.apiexten"
+          + "sions_apiserver.pkg.apis.apiextensions.v"
+          + "1beta1.CustomResourceSubresourceStatus\022l"
+          + "\n\005scale\030\002 \001(\0132].k8s.io.apiextensions_api"
+          + "server.pkg.apis.apiextensions.v1beta1.Cu"
+          + "stomResourceSubresourceScale\"\203\001\n\030CustomR"
+          + "esourceValidation\022g\n\017openAPIV3Schema\030\001 \001"
+          + "(\0132N.k8s.io.apiextensions_apiserver.pkg."
+          + "apis.apiextensions.v1beta1.JSONSchemaPro"
+          + "ps\"9\n\025ExternalDocumentation\022\023\n\013descripti"
+          + "on\030\001 \001(\t\022\013\n\003url\030\002 \001(\t\"\023\n\004JSON\022\013\n\003raw\030\001 \001"
+          + "(\014\"\252\025\n\017JSONSchemaProps\022\n\n\002id\030\001 \001(\t\022\016\n\006sc"
+          + "hema\030\002 \001(\t\022\013\n\003ref\030\003 \001(\t\022\023\n\013description\030\004"
+          + " \001(\t\022\014\n\004type\030\005 \001(\t\022\016\n\006format\030\006 \001(\t\022\r\n\005ti"
+          + "tle\030\007 \001(\t\022T\n\007default\030\010 \001(\0132C.k8s.io.apie"
+          + "xtensions_apiserver.pkg.apis.apiextensio"
+          + "ns.v1beta1.JSON\022\017\n\007maximum\030\t \001(\001\022\030\n\020excl"
+          + "usiveMaximum\030\n \001(\010\022\017\n\007minimum\030\013 \001(\001\022\030\n\020e"
+          + "xclusiveMinimum\030\014 \001(\010\022\021\n\tmaxLength\030\r \001(\003"
+          + "\022\021\n\tminLength\030\016 \001(\003\022\017\n\007pattern\030\017 \001(\t\022\020\n\010"
+          + "maxItems\030\020 \001(\003\022\020\n\010minItems\030\021 \001(\003\022\023\n\013uniq"
+          + "ueItems\030\022 \001(\010\022\022\n\nmultipleOf\030\023 \001(\001\022Q\n\004enu"
+          + "m\030\024 \003(\0132C.k8s.io.apiextensions_apiserver"
+          + ".pkg.apis.apiextensions.v1beta1.JSON\022\025\n\r"
+          + "maxProperties\030\025 \001(\003\022\025\n\rminProperties\030\026 \001"
+          + "(\003\022\020\n\010required\030\027 \003(\t\022d\n\005items\030\030 \001(\0132U.k8"
+          + "s.io.apiextensions_apiserver.pkg.apis.ap"
+          + "iextensions.v1beta1.JSONSchemaPropsOrArr"
+          + "ay\022]\n\005allOf\030\031 \003(\0132N.k8s.io.apiextensions"
+          + "_apiserver.pkg.apis.apiextensions.v1beta"
+          + "1.JSONSchemaProps\022]\n\005oneOf\030\032 \003(\0132N.k8s.i"
+          + "o.apiextensions_apiserver.pkg.apis.apiex"
+          + "tensions.v1beta1.JSONSchemaProps\022]\n\005anyO"
+          + "f\030\033 \003(\0132N.k8s.io.apiextensions_apiserver"
+          + ".pkg.apis.apiextensions.v1beta1.JSONSche"
+          + "maProps\022[\n\003not\030\034 \001(\0132N.k8s.io.apiextensi"
+          + "ons_apiserver.pkg.apis.apiextensions.v1b"
+          + "eta1.JSONSchemaProps\022r\n\nproperties\030\035 \003(\013"
+          + "2^.k8s.io.apiextensions_apiserver.pkg.ap"
+          + "is.apiextensions.v1beta1.JSONSchemaProps"
+          + ".PropertiesEntry\022r\n\024additionalProperties"
+          + "\030\036 \001(\0132T.k8s.io.apiextensions_apiserver."
           + "pkg.apis.apiextensions.v1beta1.JSONSchem"
-          + "aProps\"\220\001\n\034JSONSchemaPropsOrStringArray\022"
-          + "^\n\006schema\030\001 \001(\0132N.k8s.io.apiextensions_a"
-          + "piserver.pkg.apis.apiextensions.v1beta1."
-          + "JSONSchemaProps\022\020\n\010property\030\002 \003(\t\"A\n\020Ser"
-          + "viceReference\022\021\n\tnamespace\030\001 \001(\t\022\014\n\004name"
-          + "\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\226\001\n\023WebhookClientCo"
-          + "nfig\022\013\n\003url\030\003 \001(\t\022`\n\007service\030\001 \001(\0132O.k8s"
+          + "aPropsOrBool\022\200\001\n\021patternProperties\030\037 \003(\013"
+          + "2e.k8s.io.apiextensions_apiserver.pkg.ap"
+          + "is.apiextensions.v1beta1.JSONSchemaProps"
+          + ".PatternPropertiesEntry\022v\n\014dependencies\030"
+          + "  \003(\0132`.k8s.io.apiextensions_apiserver.p"
+          + "kg.apis.apiextensions.v1beta1.JSONSchema"
+          + "Props.DependenciesEntry\022m\n\017additionalIte"
+          + "ms\030! \001(\0132T.k8s.io.apiextensions_apiserve"
+          + "r.pkg.apis.apiextensions.v1beta1.JSONSch"
+          + "emaPropsOrBool\022t\n\013definitions\030\" \003(\0132_.k8"
+          + "s.io.apiextensions_apiserver.pkg.apis.ap"
+          + "iextensions.v1beta1.JSONSchemaProps.Defi"
+          + "nitionsEntry\022j\n\014externalDocs\030# \001(\0132T.k8s"
           + ".io.apiextensions_apiserver.pkg.apis.api"
-          + "extensions.v1beta1.ServiceReference\022\020\n\010c"
-          + "aBundle\030\002 \001(\014B;\n\032io.kubernetes.client.pr"
-          + "otoB\024V1beta1ApiextensionsZ\007v1beta1"
+          + "extensions.v1beta1.ExternalDocumentation"
+          + "\022T\n\007example\030$ \001(\0132C.k8s.io.apiextensions"
+          + "_apiserver.pkg.apis.apiextensions.v1beta"
+          + "1.JSON\022\020\n\010nullable\030% \001(\010\022(\n xKubernetesP"
+          + "reserveUnknownFields\030& \001(\010\022#\n\033xKubernete"
+          + "sEmbeddedResource\030\' \001(\010\022\036\n\026xKubernetesIn"
+          + "tOrString\030( \001(\010\022\036\n\026xKubernetesListMapKey"
+          + "s\030) \003(\t\022\033\n\023xKubernetesListType\030* \001(\t\022\032\n\022"
+          + "xKubernetesMapType\030+ \001(\t\032\201\001\n\017PropertiesE"
+          + "ntry\022\013\n\003key\030\001 \001(\t\022]\n\005value\030\002 \001(\0132N.k8s.i"
+          + "o.apiextensions_apiserver.pkg.apis.apiex"
+          + "tensions.v1beta1.JSONSchemaProps:\0028\001\032\210\001\n"
+          + "\026PatternPropertiesEntry\022\013\n\003key\030\001 \001(\t\022]\n\005"
+          + "value\030\002 \001(\0132N.k8s.io.apiextensions_apise"
+          + "rver.pkg.apis.apiextensions.v1beta1.JSON"
+          + "SchemaProps:\0028\001\032\220\001\n\021DependenciesEntry\022\013\n"
+          + "\003key\030\001 \001(\t\022j\n\005value\030\002 \001(\0132[.k8s.io.apiex"
+          + "tensions_apiserver.pkg.apis.apiextension"
+          + "s.v1beta1.JSONSchemaPropsOrStringArray:\002"
+          + "8\001\032\202\001\n\020DefinitionsEntry\022\013\n\003key\030\001 \001(\t\022]\n\005"
+          + "value\030\002 \001(\0132N.k8s.io.apiextensions_apise"
+          + "rver.pkg.apis.apiextensions.v1beta1.JSON"
+          + "SchemaProps:\0028\001\"\335\001\n\026JSONSchemaPropsOrArr"
+          + "ay\022^\n\006schema\030\001 \001(\0132N.k8s.io.apiextension"
+          + "s_apiserver.pkg.apis.apiextensions.v1bet"
+          + "a1.JSONSchemaProps\022c\n\013jSONSchemas\030\002 \003(\0132"
+          + "N.k8s.io.apiextensions_apiserver.pkg.api"
+          + "s.apiextensions.v1beta1.JSONSchemaProps\""
+          + "\207\001\n\025JSONSchemaPropsOrBool\022\016\n\006allows\030\001 \001("
+          + "\010\022^\n\006schema\030\002 \001(\0132N.k8s.io.apiextensions"
+          + "_apiserver.pkg.apis.apiextensions.v1beta"
+          + "1.JSONSchemaProps\"\220\001\n\034JSONSchemaPropsOrS"
+          + "tringArray\022^\n\006schema\030\001 \001(\0132N.k8s.io.apie"
+          + "xtensions_apiserver.pkg.apis.apiextensio"
+          + "ns.v1beta1.JSONSchemaProps\022\020\n\010property\030\002"
+          + " \003(\t\"O\n\020ServiceReference\022\021\n\tnamespace\030\001 "
+          + "\001(\t\022\014\n\004name\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\014\n\004port\030"
+          + "\004 \001(\005\"\226\001\n\023WebhookClientConfig\022\013\n\003url\030\003 \001"
+          + "(\t\022`\n\007service\030\001 \001(\0132O.k8s.io.apiextensio"
+          + "ns_apiserver.pkg.apis.apiextensions.v1be"
+          + "ta1.ServiceReference\022\020\n\010caBundle\030\002 \001(\014B;"
+          + "\n\032io.kubernetes.client.protoB\024V1beta1Api"
+          + "extensionsZ\007v1beta1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -41506,7 +45593,7 @@ public final class V1beta1Apiextensions {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceConversion_descriptor,
             new java.lang.String[] {
-              "Strategy", "WebhookClientConfig",
+              "Strategy", "WebhookClientConfig", "ConversionReviewVersions",
             });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinition_descriptor =
         getDescriptor().getMessageTypes().get(5);
@@ -41555,6 +45642,7 @@ public final class V1beta1Apiextensions {
               "Versions",
               "AdditionalPrinterColumns",
               "Conversion",
+              "PreserveUnknownFields",
             });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionStatus_descriptor =
         getDescriptor().getMessageTypes().get(10);
@@ -41570,7 +45658,14 @@ public final class V1beta1Apiextensions {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceDefinitionVersion_descriptor,
             new java.lang.String[] {
-              "Name", "Served", "Storage", "Schema", "Subresources", "AdditionalPrinterColumns",
+              "Name",
+              "Served",
+              "Storage",
+              "Deprecated",
+              "DeprecationWarning",
+              "Schema",
+              "Subresources",
+              "AdditionalPrinterColumns",
             });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_CustomResourceSubresourceScale_descriptor =
         getDescriptor().getMessageTypes().get(12);
@@ -41660,6 +45755,13 @@ public final class V1beta1Apiextensions {
               "Definitions",
               "ExternalDocs",
               "Example",
+              "Nullable",
+              "XKubernetesPreserveUnknownFields",
+              "XKubernetesEmbeddedResource",
+              "XKubernetesIntOrString",
+              "XKubernetesListMapKeys",
+              "XKubernetesListType",
+              "XKubernetesMapType",
             });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_PropertiesEntry_descriptor =
         internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_JSONSchemaProps_descriptor
@@ -41731,7 +45833,7 @@ public final class V1beta1Apiextensions {
         new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
             internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_ServiceReference_descriptor,
             new java.lang.String[] {
-              "Namespace", "Name", "Path",
+              "Namespace", "Name", "Path", "Port",
             });
     internal_static_k8s_io_apiextensions_apiserver_pkg_apis_apiextensions_v1beta1_WebhookClientConfig_descriptor =
         getDescriptor().getMessageTypes().get(23);
