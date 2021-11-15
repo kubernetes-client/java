@@ -146,10 +146,12 @@ public class ReflectorRunnable<
             // we ended. If that's the case wait and resend watch request.
             log.info("{}#Watch get connect exception, retry watch", this.apiTypeClass);
             try {
-              Thread.sleep(1000L);
+            Semaphore semaphore = new Semaphore(5,true);
+              semaphore.acquireUninterruptibly();
             } catch (InterruptedException e) {
               // no-op
             }
+            semaphore.release();
             continue;
           }
           if ((t instanceof RuntimeException)
