@@ -29,6 +29,7 @@ import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiConsumer;
 import org.slf4j.Logger;
@@ -144,9 +145,10 @@ public class ReflectorRunnable<
             // apiserver is not responsive. It doesn't make sense to re-list all
             // objects because most likely we will be able to restart watch where
             // we ended. If that's the case wait and resend watch request.
+               Semaphore semaphore = new Semaphore(5,true);
             log.info("{}#Watch get connect exception, retry watch", this.apiTypeClass);
-            try {
-              Thread.sleep(1000L);
+            semaphore.acquireUninterruptibly();
+            semaphore.release();
             } catch (InterruptedException e) {
               // no-op
             }
