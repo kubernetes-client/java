@@ -1,15 +1,15 @@
 #Kubectl Equivalence in Java
 
-__TL;DR__: Used to kubectl? Now our kubernetes Java client library has released a set of 
-helpful client utilities which has the similar input argument interface as the kubectl binary.
+__TL;DR__: Used to kubectl? Now our Kubernetes Java client library has released a set of 
+helpful client utilities which has a similar input argument interface as the kubectl binary.
 Especially the developers who're already familiar with kubectl commands, after reading this 
 document, you will know how to build programs that interact with Kubernetes as easily as kubectl.
 
 
 ### What is Java Kubectl
 
-The Java Kubectl is not only a more user-friendly wrapper for our direct HTTP kubernetes client,
-but also contains implementation of commonly-used kubectl advanced commands. All these kubectl 
+The Java Kubectl is not only a more user-friendly wrapper for our direct HTTP Kubernetes client,
+but also contains the implementation of commonly-used kubectl advanced commands. All these kubectl 
 equivalences are accessible as a group of static helper functions under `io.kubernetes.client.extended.kubectl.Kubectl` 
 class. You can import them by adding the following dependency to your project:
 
@@ -27,7 +27,7 @@ your project.
 #### (Optional) Setting a Global Client-Config
 
 Kubectl static helpers don't know its client-config (or kubeconfig if the name makes more sense to 
-you) unless you set it when your application starts. You can either specifies the client-config upon 
+you) unless you set it when your application starts. You can either specify the client-config upon 
 invoking kubectl helpers or simply set a global config at the start of your application:
 
 ```java
@@ -42,7 +42,7 @@ This will create a client on either a client, or a container in Kubernetes.
 #### Kubectl get
 
 You can either query a single resource or list multiple resources using the `Kubectl#get` helper depending
-on whether you're passing `name()` in the flow. Here is a few illustrative examples for querying pod 
+on whether you're passing `name()` in the flow. Here are few illustrative examples for querying pod 
 resources:
 
 ```java
