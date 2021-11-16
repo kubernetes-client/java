@@ -32,7 +32,7 @@ public class V1beta1FlowSchemaSpecFluentImpl<A extends io.kubernetes.client.open
   private io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodBuilder distinguisherMethod;
   private java.lang.Integer matchingPrecedence;
   private io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReferenceBuilder priorityLevelConfiguration;
-  private java.util.List<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder> rules;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder> rules;
   
   /**
    * This method has been deprecated, please use method buildDistinguisherMethod instead.
@@ -40,10 +40,10 @@ public class V1beta1FlowSchemaSpecFluentImpl<A extends io.kubernetes.client.open
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod getDistinguisherMethod() {
-    return this.distinguisherMethod!=null?this.distinguisherMethod.build():null;
+    return this.distinguisherMethod!=null ?this.distinguisherMethod.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod buildDistinguisherMethod() {
-    return this.distinguisherMethod!=null?this.distinguisherMethod.build():null;
+    return this.distinguisherMethod!=null ?this.distinguisherMethod.build():null;
   }
   public A withDistinguisherMethod(io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod distinguisherMethod) {
     _visitables.get("distinguisherMethod").remove(this.distinguisherMethod);
@@ -83,10 +83,10 @@ public class V1beta1FlowSchemaSpecFluentImpl<A extends io.kubernetes.client.open
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference getPriorityLevelConfiguration() {
-    return this.priorityLevelConfiguration!=null?this.priorityLevelConfiguration.build():null;
+    return this.priorityLevelConfiguration!=null ?this.priorityLevelConfiguration.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference buildPriorityLevelConfiguration() {
-    return this.priorityLevelConfiguration!=null?this.priorityLevelConfiguration.build():null;
+    return this.priorityLevelConfiguration!=null ?this.priorityLevelConfiguration.build():null;
   }
   public A withPriorityLevelConfiguration(io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference priorityLevelConfiguration) {
     _visitables.get("priorityLevelConfiguration").remove(this.priorityLevelConfiguration);
@@ -155,10 +155,10 @@ public class V1beta1FlowSchemaSpecFluentImpl<A extends io.kubernetes.client.open
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects> getRules() {
-    return build(rules);
+    return rules != null ? build(rules) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects> buildRules() {
-    return build(rules);
+    return rules != null ? build(rules) : null;
   }
   public io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects buildRule(java.lang.Integer index) {
     return this.rules.get(index).build();

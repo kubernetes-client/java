@@ -34,10 +34,10 @@ public class V1NodeConfigStatusFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeConfigSource getActive() {
-    return this.active!=null?this.active.build():null;
+    return this.active!=null ?this.active.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeConfigSource buildActive() {
-    return this.active!=null?this.active.build():null;
+    return this.active!=null ?this.active.build():null;
   }
   public A withActive(io.kubernetes.client.openapi.models.V1NodeConfigSource active) {
     _visitables.get("active").remove(this.active);
@@ -68,10 +68,10 @@ public class V1NodeConfigStatusFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeConfigSource getAssigned() {
-    return this.assigned!=null?this.assigned.build():null;
+    return this.assigned!=null ?this.assigned.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeConfigSource buildAssigned() {
-    return this.assigned!=null?this.assigned.build():null;
+    return this.assigned!=null ?this.assigned.build():null;
   }
   public A withAssigned(io.kubernetes.client.openapi.models.V1NodeConfigSource assigned) {
     _visitables.get("assigned").remove(this.assigned);
@@ -109,8 +109,8 @@ public class V1NodeConfigStatusFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String original) {
-    return (A)withError(new String(original));
+  public A withNewError(java.lang.String arg0) {
+    return (A)withError(new String(arg0));
   }
   
   /**
@@ -119,10 +119,10 @@ public class V1NodeConfigStatusFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeConfigSource getLastKnownGood() {
-    return this.lastKnownGood!=null?this.lastKnownGood.build():null;
+    return this.lastKnownGood!=null ?this.lastKnownGood.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeConfigSource buildLastKnownGood() {
-    return this.lastKnownGood!=null?this.lastKnownGood.build():null;
+    return this.lastKnownGood!=null ?this.lastKnownGood.build():null;
   }
   public A withLastKnownGood(io.kubernetes.client.openapi.models.V1NodeConfigSource lastKnownGood) {
     _visitables.get("lastKnownGood").remove(this.lastKnownGood);

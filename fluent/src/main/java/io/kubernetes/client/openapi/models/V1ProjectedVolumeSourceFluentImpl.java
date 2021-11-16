@@ -26,7 +26,7 @@ public class V1ProjectedVolumeSourceFluentImpl<A extends io.kubernetes.client.op
 
   }
   private java.lang.Integer defaultMode;
-  private java.util.List<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder> sources;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder> sources;
   public java.lang.Integer getDefaultMode() {
     return this.defaultMode;
   }
@@ -81,10 +81,10 @@ public class V1ProjectedVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1VolumeProjection> getSources() {
-    return build(sources);
+    return sources != null ? build(sources) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1VolumeProjection> buildSources() {
-    return build(sources);
+    return sources != null ? build(sources) : null;
   }
   public io.kubernetes.client.openapi.models.V1VolumeProjection buildSource(java.lang.Integer index) {
     return this.sources.get(index).build();

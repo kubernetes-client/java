@@ -18,7 +18,7 @@ public interface V1PhotonPersistentDiskVolumeSourceFluent<A extends io.kubernete
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
+  public A withNewFsType(java.lang.String arg0);
   public java.lang.String getPdID();
   public A withPdID(java.lang.String pdID);
   public java.lang.Boolean hasPdID();
@@ -27,6 +27,6 @@ public interface V1PhotonPersistentDiskVolumeSourceFluent<A extends io.kubernete
    * Method is deprecated. use withPdID instead.
    */
   @java.lang.Deprecated
-  public A withNewPdID(java.lang.String original);
+  public A withNewPdID(java.lang.String arg0);
   
 }

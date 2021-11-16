@@ -67,10 +67,10 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
   private java.lang.String generateName;
   private java.lang.Long generation;
   private java.util.Map<java.lang.String,java.lang.String> labels;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ManagedFieldsEntryBuilder> managedFields;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ManagedFieldsEntryBuilder> managedFields;
   private java.lang.String name;
   private java.lang.String namespace;
-  private java.util.List<io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder> ownerReferences;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder> ownerReferences;
   private java.lang.String resourceVersion;
   private java.lang.String selfLink;
   private java.lang.String uid;
@@ -113,8 +113,8 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withClusterName instead.
    */
   @java.lang.Deprecated
-  public A withNewClusterName(java.lang.String original) {
-    return (A)withClusterName(new String(original));
+  public A withNewClusterName(java.lang.String arg0) {
+    return (A)withClusterName(new String(arg0));
   }
   public java.time.OffsetDateTime getCreationTimestamp() {
     return this.creationTimestamp;
@@ -194,8 +194,8 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasFinalizers() {
     return finalizers != null && !finalizers.isEmpty();
   }
-  public A addNewFinalizer(java.lang.String original) {
-    return (A)addToFinalizers(new String(original));
+  public A addNewFinalizer(java.lang.String arg0) {
+    return (A)addToFinalizers(new String(arg0));
   }
   public java.lang.String getGenerateName() {
     return this.generateName;
@@ -211,8 +211,8 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withGenerateName instead.
    */
   @java.lang.Deprecated
-  public A withNewGenerateName(java.lang.String original) {
-    return (A)withGenerateName(new String(original));
+  public A withNewGenerateName(java.lang.String arg0) {
+    return (A)withGenerateName(new String(arg0));
   }
   public java.lang.Long getGeneration() {
     return this.generation;
@@ -293,10 +293,10 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ManagedFieldsEntry> getManagedFields() {
-    return build(managedFields);
+    return managedFields != null ? build(managedFields) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ManagedFieldsEntry> buildManagedFields() {
-    return build(managedFields);
+    return managedFields != null ? build(managedFields) : null;
   }
   public io.kubernetes.client.openapi.models.V1ManagedFieldsEntry buildManagedField(java.lang.Integer index) {
     return this.managedFields.get(index).build();
@@ -368,8 +368,8 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.String getNamespace() {
     return this.namespace;
@@ -385,8 +385,8 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A)withNamespace(new String(original));
+  public A withNewNamespace(java.lang.String arg0) {
+    return (A)withNamespace(new String(arg0));
   }
   public A addToOwnerReferences(java.lang.Integer index,io.kubernetes.client.openapi.models.V1OwnerReference item) {
     if (this.ownerReferences == null) {this.ownerReferences = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder>();}
@@ -433,10 +433,10 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1OwnerReference> getOwnerReferences() {
-    return build(ownerReferences);
+    return ownerReferences != null ? build(ownerReferences) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1OwnerReference> buildOwnerReferences() {
-    return build(ownerReferences);
+    return ownerReferences != null ? build(ownerReferences) : null;
   }
   public io.kubernetes.client.openapi.models.V1OwnerReference buildOwnerReference(java.lang.Integer index) {
     return this.ownerReferences.get(index).build();
@@ -508,8 +508,8 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withResourceVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original) {
-    return (A)withResourceVersion(new String(original));
+  public A withNewResourceVersion(java.lang.String arg0) {
+    return (A)withResourceVersion(new String(arg0));
   }
   public java.lang.String getSelfLink() {
     return this.selfLink;
@@ -525,8 +525,8 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withSelfLink instead.
    */
   @java.lang.Deprecated
-  public A withNewSelfLink(java.lang.String original) {
-    return (A)withSelfLink(new String(original));
+  public A withNewSelfLink(java.lang.String arg0) {
+    return (A)withSelfLink(new String(arg0));
   }
   public java.lang.String getUid() {
     return this.uid;
@@ -542,8 +542,8 @@ public class V1ObjectMetaFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A)withUid(new String(original));
+  public A withNewUid(java.lang.String arg0) {
+    return (A)withUid(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

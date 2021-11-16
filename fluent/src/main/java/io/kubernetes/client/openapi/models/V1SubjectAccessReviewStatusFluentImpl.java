@@ -58,8 +58,8 @@ public class V1SubjectAccessReviewStatusFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withEvaluationError instead.
    */
   @java.lang.Deprecated
-  public A withNewEvaluationError(java.lang.String original) {
-    return (A)withEvaluationError(new String(original));
+  public A withNewEvaluationError(java.lang.String arg0) {
+    return (A)withEvaluationError(new String(arg0));
   }
   public java.lang.String getReason() {
     return this.reason;
@@ -75,8 +75,8 @@ public class V1SubjectAccessReviewStatusFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A)withReason(new String(original));
+  public A withNewReason(java.lang.String arg0) {
+    return (A)withReason(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

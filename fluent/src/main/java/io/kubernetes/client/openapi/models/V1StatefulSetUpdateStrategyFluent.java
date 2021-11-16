@@ -34,7 +34,7 @@ public interface V1StatefulSetUpdateStrategyFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   public interface RollingUpdateNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<N>>{
     public N and();
     public N endRollingUpdate();

@@ -26,7 +26,7 @@ public interface V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public java.lang.Boolean getAutomountServiceAccountToken();
   public A withAutomountServiceAccountToken(java.lang.Boolean automountServiceAccountToken);
   public java.lang.Boolean hasAutomountServiceAccountToken();
@@ -68,7 +68,7 @@ public interface V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

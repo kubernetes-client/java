@@ -28,10 +28,10 @@ public class V1beta1PriorityLevelConfigurationSpecFluentImpl<A extends io.kubern
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration getLimited() {
-    return this.limited!=null?this.limited.build():null;
+    return this.limited!=null ?this.limited.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration buildLimited() {
-    return this.limited!=null?this.limited.build():null;
+    return this.limited!=null ?this.limited.build():null;
   }
   public A withLimited(io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration limited) {
     _visitables.get("limited").remove(this.limited);
@@ -69,8 +69,8 @@ public class V1beta1PriorityLevelConfigurationSpecFluentImpl<A extends io.kubern
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -32,8 +32,8 @@ public class V1IngressSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
   }
   private io.kubernetes.client.openapi.models.V1IngressBackendBuilder defaultBackend;
   private java.lang.String ingressClassName;
-  private java.util.List<io.kubernetes.client.openapi.models.V1IngressRuleBuilder> rules;
-  private java.util.List<io.kubernetes.client.openapi.models.V1IngressTLSBuilder> tls;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressRuleBuilder> rules;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressTLSBuilder> tls;
   
   /**
    * This method has been deprecated, please use method buildDefaultBackend instead.
@@ -41,10 +41,10 @@ public class V1IngressSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1IngressBackend getDefaultBackend() {
-    return this.defaultBackend!=null?this.defaultBackend.build():null;
+    return this.defaultBackend!=null ?this.defaultBackend.build():null;
   }
   public io.kubernetes.client.openapi.models.V1IngressBackend buildDefaultBackend() {
-    return this.defaultBackend!=null?this.defaultBackend.build():null;
+    return this.defaultBackend!=null ?this.defaultBackend.build():null;
   }
   public A withDefaultBackend(io.kubernetes.client.openapi.models.V1IngressBackend defaultBackend) {
     _visitables.get("defaultBackend").remove(this.defaultBackend);
@@ -82,8 +82,8 @@ public class V1IngressSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withIngressClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewIngressClassName(java.lang.String original) {
-    return (A)withIngressClassName(new String(original));
+  public A withNewIngressClassName(java.lang.String arg0) {
+    return (A)withIngressClassName(new String(arg0));
   }
   public A addToRules(java.lang.Integer index,io.kubernetes.client.openapi.models.V1IngressRule item) {
     if (this.rules == null) {this.rules = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>();}
@@ -130,10 +130,10 @@ public class V1IngressSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1IngressRule> getRules() {
-    return build(rules);
+    return rules != null ? build(rules) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1IngressRule> buildRules() {
-    return build(rules);
+    return rules != null ? build(rules) : null;
   }
   public io.kubernetes.client.openapi.models.V1IngressRule buildRule(java.lang.Integer index) {
     return this.rules.get(index).build();
@@ -236,10 +236,10 @@ public class V1IngressSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1IngressTLS> getTls() {
-    return build(tls);
+    return tls != null ? build(tls) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1IngressTLS> buildTls() {
-    return build(tls);
+    return tls != null ? build(tls) : null;
   }
   public io.kubernetes.client.openapi.models.V1IngressTLS buildTl(java.lang.Integer index) {
     return this.tls.get(index).build();

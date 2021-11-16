@@ -29,7 +29,7 @@ public class V1alpha1SchedulingFluentImpl<A extends io.kubernetes.client.openapi
 
   }
   private java.util.Map<java.lang.String,java.lang.String> nodeSelector;
-  private java.util.List<io.kubernetes.client.openapi.models.V1TolerationBuilder> tolerations;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1TolerationBuilder> tolerations;
   public A addToNodeSelector(java.lang.String key,java.lang.String value) {
     if(this.nodeSelector == null && key != null && value != null) { this.nodeSelector = new java.util.LinkedHashMap(); }
     if(key != null && value != null) {this.nodeSelector.put(key, value);} return (A)this;
@@ -100,10 +100,10 @@ public class V1alpha1SchedulingFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1Toleration> getTolerations() {
-    return build(tolerations);
+    return tolerations != null ? build(tolerations) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1Toleration> buildTolerations() {
-    return build(tolerations);
+    return tolerations != null ? build(tolerations) : null;
   }
   public io.kubernetes.client.openapi.models.V1Toleration buildToleration(java.lang.Integer index) {
     return this.tolerations.get(index).build();

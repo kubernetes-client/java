@@ -27,10 +27,10 @@ public class V1SelfSubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.cli
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NonResourceAttributes getNonResourceAttributes() {
-    return this.nonResourceAttributes!=null?this.nonResourceAttributes.build():null;
+    return this.nonResourceAttributes!=null ?this.nonResourceAttributes.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NonResourceAttributes buildNonResourceAttributes() {
-    return this.nonResourceAttributes!=null?this.nonResourceAttributes.build():null;
+    return this.nonResourceAttributes!=null ?this.nonResourceAttributes.build():null;
   }
   public A withNonResourceAttributes(io.kubernetes.client.openapi.models.V1NonResourceAttributes nonResourceAttributes) {
     _visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
@@ -61,10 +61,10 @@ public class V1SelfSubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.cli
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ResourceAttributes getResourceAttributes() {
-    return this.resourceAttributes!=null?this.resourceAttributes.build():null;
+    return this.resourceAttributes!=null ?this.resourceAttributes.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ResourceAttributes buildResourceAttributes() {
-    return this.resourceAttributes!=null?this.resourceAttributes.build():null;
+    return this.resourceAttributes!=null ?this.resourceAttributes.build():null;
   }
   public A withResourceAttributes(io.kubernetes.client.openapi.models.V1ResourceAttributes resourceAttributes) {
     _visitables.get("resourceAttributes").remove(this.resourceAttributes);

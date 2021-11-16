@@ -27,10 +27,10 @@ public class V1PodTemplateSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -61,10 +61,10 @@ public class V1PodTemplateSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PodSpec getSpec() {
-    return this.spec!=null?this.spec.build():null;
+    return this.spec!=null ?this.spec.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PodSpec buildSpec() {
-    return this.spec!=null?this.spec.build():null;
+    return this.spec!=null ?this.spec.build():null;
   }
   public A withSpec(io.kubernetes.client.openapi.models.V1PodSpec spec) {
     _visitables.get("spec").remove(this.spec);

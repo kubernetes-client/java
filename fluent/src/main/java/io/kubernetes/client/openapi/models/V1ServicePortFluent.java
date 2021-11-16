@@ -20,7 +20,7 @@ public interface V1ServicePortFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withAppProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String original);
+  public A withNewAppProtocol(java.lang.String arg0);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -29,7 +29,7 @@ public interface V1ServicePortFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   public java.lang.Integer getNodePort();
   public A withNodePort(java.lang.Integer nodePort);
   public java.lang.Boolean hasNodePort();
@@ -44,7 +44,7 @@ public interface V1ServicePortFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String original);
+  public A withNewProtocol(java.lang.String arg0);
   public io.kubernetes.client.custom.IntOrString getTargetPort();
   public A withTargetPort(io.kubernetes.client.custom.IntOrString targetPort);
   public java.lang.Boolean hasTargetPort();

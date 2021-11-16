@@ -178,7 +178,7 @@ public interface V1NodeStatusFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original);
+  public A withNewPhase(java.lang.String arg0);
   public A addToVolumesAttached(java.lang.Integer index,io.kubernetes.client.openapi.models.V1AttachedVolume item);
   public A setToVolumesAttached(java.lang.Integer index,io.kubernetes.client.openapi.models.V1AttachedVolume item);
   public A addToVolumesAttached(io.kubernetes.client.openapi.models.V1AttachedVolume... items);
@@ -224,7 +224,7 @@ public interface V1NodeStatusFluent<A extends io.kubernetes.client.openapi.model
   public A withVolumesInUse(java.util.List<java.lang.String> volumesInUse);
   public A withVolumesInUse(java.lang.String... volumesInUse);
   public java.lang.Boolean hasVolumesInUse();
-  public A addNewVolumesInUse(java.lang.String original);
+  public A addNewVolumesInUse(java.lang.String arg0);
   public interface AddressesNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1NodeAddressFluent<io.kubernetes.client.openapi.models.V1NodeStatusFluent.AddressesNested<N>>{
     public N and();
     public N endAddress();

@@ -34,7 +34,7 @@ public interface V1EnvFromSourceFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPrefix instead.
    */
   @java.lang.Deprecated
-  public A withNewPrefix(java.lang.String original);
+  public A withNewPrefix(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildSecretRef instead.

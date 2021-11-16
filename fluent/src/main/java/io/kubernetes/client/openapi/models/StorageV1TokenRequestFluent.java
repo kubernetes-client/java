@@ -19,7 +19,7 @@ public interface StorageV1TokenRequestFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withAudience instead.
    */
   @java.lang.Deprecated
-  public A withNewAudience(java.lang.String original);
+  public A withNewAudience(java.lang.String arg0);
   public java.lang.Long getExpirationSeconds();
   public A withExpirationSeconds(java.lang.Long expirationSeconds);
   public java.lang.Boolean hasExpirationSeconds();

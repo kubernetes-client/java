@@ -18,6 +18,6 @@ public interface V1beta1FlowDistinguisherMethodFluent<A extends io.kubernetes.cl
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   
 }

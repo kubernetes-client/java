@@ -34,10 +34,10 @@ public class V1beta1SubjectFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1GroupSubject getGroup() {
-    return this.group!=null?this.group.build():null;
+    return this.group!=null ?this.group.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1GroupSubject buildGroup() {
-    return this.group!=null?this.group.build():null;
+    return this.group!=null ?this.group.build():null;
   }
   public A withGroup(io.kubernetes.client.openapi.models.V1beta1GroupSubject group) {
     _visitables.get("group").remove(this.group);
@@ -75,8 +75,8 @@ public class V1beta1SubjectFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -85,10 +85,10 @@ public class V1beta1SubjectFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject getServiceAccount() {
-    return this.serviceAccount!=null?this.serviceAccount.build():null;
+    return this.serviceAccount!=null ?this.serviceAccount.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject buildServiceAccount() {
-    return this.serviceAccount!=null?this.serviceAccount.build():null;
+    return this.serviceAccount!=null ?this.serviceAccount.build():null;
   }
   public A withServiceAccount(io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject serviceAccount) {
     _visitables.get("serviceAccount").remove(this.serviceAccount);
@@ -119,10 +119,10 @@ public class V1beta1SubjectFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1UserSubject getUser() {
-    return this.user!=null?this.user.build():null;
+    return this.user!=null ?this.user.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1UserSubject buildUser() {
-    return this.user!=null?this.user.build():null;
+    return this.user!=null ?this.user.build():null;
   }
   public A withUser(io.kubernetes.client.openapi.models.V1beta1UserSubject user) {
     _visitables.get("user").remove(this.user);

@@ -51,10 +51,10 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecretReference getControllerExpandSecretRef() {
-    return this.controllerExpandSecretRef!=null?this.controllerExpandSecretRef.build():null;
+    return this.controllerExpandSecretRef!=null ?this.controllerExpandSecretRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecretReference buildControllerExpandSecretRef() {
-    return this.controllerExpandSecretRef!=null?this.controllerExpandSecretRef.build():null;
+    return this.controllerExpandSecretRef!=null ?this.controllerExpandSecretRef.build():null;
   }
   public A withControllerExpandSecretRef(io.kubernetes.client.openapi.models.V1SecretReference controllerExpandSecretRef) {
     _visitables.get("controllerExpandSecretRef").remove(this.controllerExpandSecretRef);
@@ -85,10 +85,10 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecretReference getControllerPublishSecretRef() {
-    return this.controllerPublishSecretRef!=null?this.controllerPublishSecretRef.build():null;
+    return this.controllerPublishSecretRef!=null ?this.controllerPublishSecretRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecretReference buildControllerPublishSecretRef() {
-    return this.controllerPublishSecretRef!=null?this.controllerPublishSecretRef.build():null;
+    return this.controllerPublishSecretRef!=null ?this.controllerPublishSecretRef.build():null;
   }
   public A withControllerPublishSecretRef(io.kubernetes.client.openapi.models.V1SecretReference controllerPublishSecretRef) {
     _visitables.get("controllerPublishSecretRef").remove(this.controllerPublishSecretRef);
@@ -126,8 +126,8 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original) {
-    return (A)withDriver(new String(original));
+  public A withNewDriver(java.lang.String arg0) {
+    return (A)withDriver(new String(arg0));
   }
   public java.lang.String getFsType() {
     return this.fsType;
@@ -143,8 +143,8 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A)withFsType(new String(original));
+  public A withNewFsType(java.lang.String arg0) {
+    return (A)withFsType(new String(arg0));
   }
   
   /**
@@ -153,10 +153,10 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecretReference getNodePublishSecretRef() {
-    return this.nodePublishSecretRef!=null?this.nodePublishSecretRef.build():null;
+    return this.nodePublishSecretRef!=null ?this.nodePublishSecretRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecretReference buildNodePublishSecretRef() {
-    return this.nodePublishSecretRef!=null?this.nodePublishSecretRef.build():null;
+    return this.nodePublishSecretRef!=null ?this.nodePublishSecretRef.build():null;
   }
   public A withNodePublishSecretRef(io.kubernetes.client.openapi.models.V1SecretReference nodePublishSecretRef) {
     _visitables.get("nodePublishSecretRef").remove(this.nodePublishSecretRef);
@@ -187,10 +187,10 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecretReference getNodeStageSecretRef() {
-    return this.nodeStageSecretRef!=null?this.nodeStageSecretRef.build():null;
+    return this.nodeStageSecretRef!=null ?this.nodeStageSecretRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecretReference buildNodeStageSecretRef() {
-    return this.nodeStageSecretRef!=null?this.nodeStageSecretRef.build():null;
+    return this.nodeStageSecretRef!=null ?this.nodeStageSecretRef.build():null;
   }
   public A withNodeStageSecretRef(io.kubernetes.client.openapi.models.V1SecretReference nodeStageSecretRef) {
     _visitables.get("nodeStageSecretRef").remove(this.nodeStageSecretRef);
@@ -262,8 +262,8 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeHandle instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeHandle(java.lang.String original) {
-    return (A)withVolumeHandle(new String(original));
+  public A withNewVolumeHandle(java.lang.String arg0) {
+    return (A)withVolumeHandle(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

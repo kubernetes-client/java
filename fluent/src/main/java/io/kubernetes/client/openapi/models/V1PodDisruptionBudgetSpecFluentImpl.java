@@ -62,10 +62,10 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);

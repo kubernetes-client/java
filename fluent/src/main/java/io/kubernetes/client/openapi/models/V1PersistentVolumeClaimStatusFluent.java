@@ -36,7 +36,7 @@ public interface V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.cli
   public A withAccessModes(java.util.List<java.lang.String> accessModes);
   public A withAccessModes(java.lang.String... accessModes);
   public java.lang.Boolean hasAccessModes();
-  public A addNewAccessMode(java.lang.String original);
+  public A addNewAccessMode(java.lang.String arg0);
   public A addToCapacity(java.lang.String key,io.kubernetes.client.custom.Quantity value);
   public A addToCapacity(java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> map);
   public A removeFromCapacity(java.lang.String key);
@@ -82,7 +82,7 @@ public interface V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.cli
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original);
+  public A withNewPhase(java.lang.String arg0);
   public interface ConditionsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionFluent<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<N>>{
     public N and();
     public N endCondition();

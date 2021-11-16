@@ -32,7 +32,7 @@ public class V1APIVersionsFluentImpl<A extends io.kubernetes.client.openapi.mode
   }
   private java.lang.String apiVersion;
   private java.lang.String kind;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder> serverAddressByClientCIDRs;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder> serverAddressByClientCIDRs;
   private java.util.List<java.lang.String> versions;
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -48,8 +48,8 @@ public class V1APIVersionsFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -65,8 +65,8 @@ public class V1APIVersionsFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   public A addToServerAddressByClientCIDRs(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>();}
@@ -113,10 +113,10 @@ public class V1APIVersionsFluentImpl<A extends io.kubernetes.client.openapi.mode
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> getServerAddressByClientCIDRs() {
-    return build(serverAddressByClientCIDRs);
+    return serverAddressByClientCIDRs != null ? build(serverAddressByClientCIDRs) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> buildServerAddressByClientCIDRs() {
-    return build(serverAddressByClientCIDRs);
+    return serverAddressByClientCIDRs != null ? build(serverAddressByClientCIDRs) : null;
   }
   public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR buildServerAddressByClientCIDR(java.lang.Integer index) {
     return this.serverAddressByClientCIDRs.get(index).build();
@@ -225,8 +225,8 @@ public class V1APIVersionsFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasVersions() {
     return versions != null && !versions.isEmpty();
   }
-  public A addNewVersion(java.lang.String original) {
-    return (A)addToVersions(new String(original));
+  public A addNewVersion(java.lang.String arg0) {
+    return (A)addToVersions(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

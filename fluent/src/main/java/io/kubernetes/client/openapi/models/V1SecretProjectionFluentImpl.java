@@ -28,7 +28,7 @@ public class V1SecretProjectionFluentImpl<A extends io.kubernetes.client.openapi
     this.withOptional(instance.getOptional());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1KeyToPathBuilder> items;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1KeyToPathBuilder> items;
   private java.lang.String name;
   private java.lang.Boolean optional;
   public A addToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1KeyToPath item) {
@@ -76,10 +76,10 @@ public class V1SecretProjectionFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1KeyToPath> getItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1KeyToPath> buildItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public io.kubernetes.client.openapi.models.V1KeyToPath buildItem(java.lang.Integer index) {
     return this.items.get(index).build();
@@ -151,8 +151,8 @@ public class V1SecretProjectionFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.Boolean getOptional() {
     return this.optional;

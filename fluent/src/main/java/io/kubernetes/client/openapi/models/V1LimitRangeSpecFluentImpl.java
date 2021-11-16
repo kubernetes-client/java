@@ -23,7 +23,7 @@ public class V1LimitRangeSpecFluentImpl<A extends io.kubernetes.client.openapi.m
     this.withLimits(instance.getLimits());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1LimitRangeItemBuilder> limits;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1LimitRangeItemBuilder> limits;
   public A addToLimits(java.lang.Integer index,io.kubernetes.client.openapi.models.V1LimitRangeItem item) {
     if (this.limits == null) {this.limits = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1LimitRangeItemBuilder>();}
     io.kubernetes.client.openapi.models.V1LimitRangeItemBuilder builder = new io.kubernetes.client.openapi.models.V1LimitRangeItemBuilder(item);_visitables.get("limits").add(index >= 0 ? index : _visitables.get("limits").size(), builder);this.limits.add(index >= 0 ? index : limits.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1LimitRangeSpecFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1LimitRangeItem> getLimits() {
-    return build(limits);
+    return limits != null ? build(limits) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1LimitRangeItem> buildLimits() {
-    return build(limits);
+    return limits != null ? build(limits) : null;
   }
   public io.kubernetes.client.openapi.models.V1LimitRangeItem buildLimit(java.lang.Integer index) {
     return this.limits.get(index).build();

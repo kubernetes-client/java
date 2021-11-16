@@ -34,8 +34,8 @@ public class V1PreconditionsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withResourceVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original) {
-    return (A)withResourceVersion(new String(original));
+  public A withNewResourceVersion(java.lang.String arg0) {
+    return (A)withResourceVersion(new String(arg0));
   }
   public java.lang.String getUid() {
     return this.uid;
@@ -51,8 +51,8 @@ public class V1PreconditionsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A)withUid(new String(original));
+  public A withNewUid(java.lang.String arg0) {
+    return (A)withUid(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

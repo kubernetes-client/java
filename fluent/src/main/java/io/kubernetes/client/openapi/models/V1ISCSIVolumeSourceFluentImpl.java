@@ -85,8 +85,8 @@ public class V1ISCSIVolumeSourceFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A)withFsType(new String(original));
+  public A withNewFsType(java.lang.String arg0) {
+    return (A)withFsType(new String(arg0));
   }
   public java.lang.String getInitiatorName() {
     return this.initiatorName;
@@ -102,8 +102,8 @@ public class V1ISCSIVolumeSourceFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withInitiatorName instead.
    */
   @java.lang.Deprecated
-  public A withNewInitiatorName(java.lang.String original) {
-    return (A)withInitiatorName(new String(original));
+  public A withNewInitiatorName(java.lang.String arg0) {
+    return (A)withInitiatorName(new String(arg0));
   }
   public java.lang.String getIqn() {
     return this.iqn;
@@ -119,8 +119,8 @@ public class V1ISCSIVolumeSourceFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withIqn instead.
    */
   @java.lang.Deprecated
-  public A withNewIqn(java.lang.String original) {
-    return (A)withIqn(new String(original));
+  public A withNewIqn(java.lang.String arg0) {
+    return (A)withIqn(new String(arg0));
   }
   public java.lang.String getIscsiInterface() {
     return this.iscsiInterface;
@@ -136,8 +136,8 @@ public class V1ISCSIVolumeSourceFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withIscsiInterface instead.
    */
   @java.lang.Deprecated
-  public A withNewIscsiInterface(java.lang.String original) {
-    return (A)withIscsiInterface(new String(original));
+  public A withNewIscsiInterface(java.lang.String arg0) {
+    return (A)withIscsiInterface(new String(arg0));
   }
   public java.lang.Integer getLun() {
     return this.lun;
@@ -199,8 +199,8 @@ public class V1ISCSIVolumeSourceFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasPortals() {
     return portals != null && !portals.isEmpty();
   }
-  public A addNewPortal(java.lang.String original) {
-    return (A)addToPortals(new String(original));
+  public A addNewPortal(java.lang.String arg0) {
+    return (A)addToPortals(new String(arg0));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -218,10 +218,10 @@ public class V1ISCSIVolumeSourceFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef() {
-    return this.secretRef!=null?this.secretRef.build():null;
+    return this.secretRef!=null ?this.secretRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef() {
-    return this.secretRef!=null?this.secretRef.build():null;
+    return this.secretRef!=null ?this.secretRef.build():null;
   }
   public A withSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);
@@ -259,8 +259,8 @@ public class V1ISCSIVolumeSourceFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withTargetPortal instead.
    */
   @java.lang.Deprecated
-  public A withNewTargetPortal(java.lang.String original) {
-    return (A)withTargetPortal(new String(original));
+  public A withNewTargetPortal(java.lang.String arg0) {
+    return (A)withTargetPortal(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -42,8 +42,8 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends io.kubernetes.clie
    * Method is deprecated. use withApiServerID instead.
    */
   @java.lang.Deprecated
-  public A withNewApiServerID(java.lang.String original) {
-    return (A)withApiServerID(new String(original));
+  public A withNewApiServerID(java.lang.String arg0) {
+    return (A)withApiServerID(new String(arg0));
   }
   public A addToDecodableVersions(java.lang.Integer index,java.lang.String item) {
     if (this.decodableVersions == null) {this.decodableVersions = new java.util.ArrayList<java.lang.String>();}
@@ -96,8 +96,8 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends io.kubernetes.clie
   public java.lang.Boolean hasDecodableVersions() {
     return decodableVersions != null && !decodableVersions.isEmpty();
   }
-  public A addNewDecodableVersion(java.lang.String original) {
-    return (A)addToDecodableVersions(new String(original));
+  public A addNewDecodableVersion(java.lang.String arg0) {
+    return (A)addToDecodableVersions(new String(arg0));
   }
   public java.lang.String getEncodingVersion() {
     return this.encodingVersion;
@@ -113,8 +113,8 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends io.kubernetes.clie
    * Method is deprecated. use withEncodingVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewEncodingVersion(java.lang.String original) {
-    return (A)withEncodingVersion(new String(original));
+  public A withNewEncodingVersion(java.lang.String arg0) {
+    return (A)withEncodingVersion(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

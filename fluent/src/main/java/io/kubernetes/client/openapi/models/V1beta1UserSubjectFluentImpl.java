@@ -31,8 +31,8 @@ public class V1beta1UserSubjectFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

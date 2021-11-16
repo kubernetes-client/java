@@ -31,10 +31,10 @@ public class V1EnvFromSourceFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ConfigMapEnvSource getConfigMapRef() {
-    return this.configMapRef!=null?this.configMapRef.build():null;
+    return this.configMapRef!=null ?this.configMapRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ConfigMapEnvSource buildConfigMapRef() {
-    return this.configMapRef!=null?this.configMapRef.build():null;
+    return this.configMapRef!=null ?this.configMapRef.build():null;
   }
   public A withConfigMapRef(io.kubernetes.client.openapi.models.V1ConfigMapEnvSource configMapRef) {
     _visitables.get("configMapRef").remove(this.configMapRef);
@@ -72,8 +72,8 @@ public class V1EnvFromSourceFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPrefix instead.
    */
   @java.lang.Deprecated
-  public A withNewPrefix(java.lang.String original) {
-    return (A)withPrefix(new String(original));
+  public A withNewPrefix(java.lang.String arg0) {
+    return (A)withPrefix(new String(arg0));
   }
   
   /**
@@ -82,10 +82,10 @@ public class V1EnvFromSourceFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecretEnvSource getSecretRef() {
-    return this.secretRef!=null?this.secretRef.build():null;
+    return this.secretRef!=null ?this.secretRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecretEnvSource buildSecretRef() {
-    return this.secretRef!=null?this.secretRef.build():null;
+    return this.secretRef!=null ?this.secretRef.build():null;
   }
   public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretEnvSource secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);

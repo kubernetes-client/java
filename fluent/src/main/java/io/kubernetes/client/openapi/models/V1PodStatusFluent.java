@@ -117,7 +117,7 @@ public interface V1PodStatusFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withHostIP instead.
    */
   @java.lang.Deprecated
-  public A withNewHostIP(java.lang.String original);
+  public A withNewHostIP(java.lang.String arg0);
   public A addToInitContainerStatuses(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ContainerStatus item);
   public A setToInitContainerStatuses(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ContainerStatus item);
   public A addToInitContainerStatuses(io.kubernetes.client.openapi.models.V1ContainerStatus... items);
@@ -156,7 +156,7 @@ public interface V1PodStatusFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
+  public A withNewMessage(java.lang.String arg0);
   public java.lang.String getNominatedNodeName();
   public A withNominatedNodeName(java.lang.String nominatedNodeName);
   public java.lang.Boolean hasNominatedNodeName();
@@ -165,7 +165,7 @@ public interface V1PodStatusFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withNominatedNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNominatedNodeName(java.lang.String original);
+  public A withNewNominatedNodeName(java.lang.String arg0);
   public java.lang.String getPhase();
   public A withPhase(java.lang.String phase);
   public java.lang.Boolean hasPhase();
@@ -174,7 +174,7 @@ public interface V1PodStatusFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original);
+  public A withNewPhase(java.lang.String arg0);
   public java.lang.String getPodIP();
   public A withPodIP(java.lang.String podIP);
   public java.lang.Boolean hasPodIP();
@@ -183,7 +183,7 @@ public interface V1PodStatusFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withPodIP instead.
    */
   @java.lang.Deprecated
-  public A withNewPodIP(java.lang.String original);
+  public A withNewPodIP(java.lang.String arg0);
   public A addToPodIPs(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodIP item);
   public A setToPodIPs(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodIP item);
   public A addToPodIPs(io.kubernetes.client.openapi.models.V1PodIP... items);
@@ -222,7 +222,7 @@ public interface V1PodStatusFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withQosClass instead.
    */
   @java.lang.Deprecated
-  public A withNewQosClass(java.lang.String original);
+  public A withNewQosClass(java.lang.String arg0);
   public java.lang.String getReason();
   public A withReason(java.lang.String reason);
   public java.lang.Boolean hasReason();
@@ -231,7 +231,7 @@ public interface V1PodStatusFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
+  public A withNewReason(java.lang.String arg0);
   public java.time.OffsetDateTime getStartTime();
   public A withStartTime(java.time.OffsetDateTime startTime);
   public java.lang.Boolean hasStartTime();

@@ -35,8 +35,8 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<A extends io.kubernetes.cli
    * Method is deprecated. use withRule instead.
    */
   @java.lang.Deprecated
-  public A withNewRule(java.lang.String original) {
-    return (A)withRule(new String(original));
+  public A withNewRule(java.lang.String arg0) {
+    return (A)withRule(new String(arg0));
   }
   
   /**
@@ -45,10 +45,10 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<A extends io.kubernetes.cli
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SELinuxOptions getSeLinuxOptions() {
-    return this.seLinuxOptions!=null?this.seLinuxOptions.build():null;
+    return this.seLinuxOptions!=null ?this.seLinuxOptions.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SELinuxOptions buildSeLinuxOptions() {
-    return this.seLinuxOptions!=null?this.seLinuxOptions.build():null;
+    return this.seLinuxOptions!=null ?this.seLinuxOptions.build():null;
   }
   public A withSeLinuxOptions(io.kubernetes.client.openapi.models.V1SELinuxOptions seLinuxOptions) {
     _visitables.get("seLinuxOptions").remove(this.seLinuxOptions);

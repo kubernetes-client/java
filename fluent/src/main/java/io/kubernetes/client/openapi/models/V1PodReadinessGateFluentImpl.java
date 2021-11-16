@@ -31,8 +31,8 @@ public class V1PodReadinessGateFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withConditionType instead.
    */
   @java.lang.Deprecated
-  public A withNewConditionType(java.lang.String original) {
-    return (A)withConditionType(new String(original));
+  public A withNewConditionType(java.lang.String arg0) {
+    return (A)withConditionType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -41,7 +41,7 @@ public interface V1IngressSpecFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withIngressClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewIngressClassName(java.lang.String original);
+  public A withNewIngressClassName(java.lang.String arg0);
   public A addToRules(java.lang.Integer index,io.kubernetes.client.openapi.models.V1IngressRule item);
   public A setToRules(java.lang.Integer index,io.kubernetes.client.openapi.models.V1IngressRule item);
   public A addToRules(io.kubernetes.client.openapi.models.V1IngressRule... items);

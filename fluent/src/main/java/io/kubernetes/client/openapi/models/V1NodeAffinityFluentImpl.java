@@ -25,7 +25,7 @@ public class V1NodeAffinityFluentImpl<A extends io.kubernetes.client.openapi.mod
     this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1PreferredSchedulingTermBuilder> preferredDuringSchedulingIgnoredDuringExecution;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PreferredSchedulingTermBuilder> preferredDuringSchedulingIgnoredDuringExecution;
   private io.kubernetes.client.openapi.models.V1NodeSelectorBuilder requiredDuringSchedulingIgnoredDuringExecution;
   public A addToPreferredDuringSchedulingIgnoredDuringExecution(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {this.preferredDuringSchedulingIgnoredDuringExecution = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PreferredSchedulingTermBuilder>();}
@@ -72,10 +72,10 @@ public class V1NodeAffinityFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm> getPreferredDuringSchedulingIgnoredDuringExecution() {
-    return build(preferredDuringSchedulingIgnoredDuringExecution);
+    return preferredDuringSchedulingIgnoredDuringExecution != null ? build(preferredDuringSchedulingIgnoredDuringExecution) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm> buildPreferredDuringSchedulingIgnoredDuringExecution() {
-    return build(preferredDuringSchedulingIgnoredDuringExecution);
+    return preferredDuringSchedulingIgnoredDuringExecution != null ? build(preferredDuringSchedulingIgnoredDuringExecution) : null;
   }
   public io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm buildPreferredDuringSchedulingIgnoredDuringExecution(java.lang.Integer index) {
     return this.preferredDuringSchedulingIgnoredDuringExecution.get(index).build();
@@ -140,10 +140,10 @@ public class V1NodeAffinityFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeSelector getRequiredDuringSchedulingIgnoredDuringExecution() {
-    return this.requiredDuringSchedulingIgnoredDuringExecution!=null?this.requiredDuringSchedulingIgnoredDuringExecution.build():null;
+    return this.requiredDuringSchedulingIgnoredDuringExecution!=null ?this.requiredDuringSchedulingIgnoredDuringExecution.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeSelector buildRequiredDuringSchedulingIgnoredDuringExecution() {
-    return this.requiredDuringSchedulingIgnoredDuringExecution!=null?this.requiredDuringSchedulingIgnoredDuringExecution.build():null;
+    return this.requiredDuringSchedulingIgnoredDuringExecution!=null ?this.requiredDuringSchedulingIgnoredDuringExecution.build():null;
   }
   public A withRequiredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1NodeSelector requiredDuringSchedulingIgnoredDuringExecution) {
     _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").remove(this.requiredDuringSchedulingIgnoredDuringExecution);

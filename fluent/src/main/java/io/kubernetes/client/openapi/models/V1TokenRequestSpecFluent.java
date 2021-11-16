@@ -32,7 +32,7 @@ public interface V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi
   public A withAudiences(java.util.List<java.lang.String> audiences);
   public A withAudiences(java.lang.String... audiences);
   public java.lang.Boolean hasAudiences();
-  public A addNewAudience(java.lang.String original);
+  public A addNewAudience(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildBoundObjectRef instead.

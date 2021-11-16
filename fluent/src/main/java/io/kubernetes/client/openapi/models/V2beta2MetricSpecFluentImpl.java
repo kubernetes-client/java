@@ -40,10 +40,10 @@ public class V2beta2MetricSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2ContainerResourceMetricSource getContainerResource() {
-    return this.containerResource!=null?this.containerResource.build():null;
+    return this.containerResource!=null ?this.containerResource.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2ContainerResourceMetricSource buildContainerResource() {
-    return this.containerResource!=null?this.containerResource.build():null;
+    return this.containerResource!=null ?this.containerResource.build():null;
   }
   public A withContainerResource(io.kubernetes.client.openapi.models.V2beta2ContainerResourceMetricSource containerResource) {
     _visitables.get("containerResource").remove(this.containerResource);
@@ -74,10 +74,10 @@ public class V2beta2MetricSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSource getExternal() {
-    return this.external!=null?this.external.build():null;
+    return this.external!=null ?this.external.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSource buildExternal() {
-    return this.external!=null?this.external.build():null;
+    return this.external!=null ?this.external.build():null;
   }
   public A withExternal(io.kubernetes.client.openapi.models.V2beta2ExternalMetricSource external) {
     _visitables.get("external").remove(this.external);
@@ -108,10 +108,10 @@ public class V2beta2MetricSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2ObjectMetricSource getObject() {
-    return this._object!=null?this._object.build():null;
+    return this._object!=null ?this._object.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2ObjectMetricSource buildObject() {
-    return this._object!=null?this._object.build():null;
+    return this._object!=null ?this._object.build():null;
   }
   public A withObject(io.kubernetes.client.openapi.models.V2beta2ObjectMetricSource _object) {
     _visitables.get("_object").remove(this._object);
@@ -142,10 +142,10 @@ public class V2beta2MetricSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2PodsMetricSource getPods() {
-    return this.pods!=null?this.pods.build():null;
+    return this.pods!=null ?this.pods.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2PodsMetricSource buildPods() {
-    return this.pods!=null?this.pods.build():null;
+    return this.pods!=null ?this.pods.build():null;
   }
   public A withPods(io.kubernetes.client.openapi.models.V2beta2PodsMetricSource pods) {
     _visitables.get("pods").remove(this.pods);
@@ -176,10 +176,10 @@ public class V2beta2MetricSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2ResourceMetricSource getResource() {
-    return this.resource!=null?this.resource.build():null;
+    return this.resource!=null ?this.resource.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2ResourceMetricSource buildResource() {
-    return this.resource!=null?this.resource.build():null;
+    return this.resource!=null ?this.resource.build():null;
   }
   public A withResource(io.kubernetes.client.openapi.models.V2beta2ResourceMetricSource resource) {
     _visitables.get("resource").remove(this.resource);
@@ -217,8 +217,8 @@ public class V2beta2MetricSpecFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -34,8 +34,8 @@ public class V1beta1AllowedHostPathFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withPathPrefix instead.
    */
   @java.lang.Deprecated
-  public A withNewPathPrefix(java.lang.String original) {
-    return (A)withPathPrefix(new String(original));
+  public A withNewPathPrefix(java.lang.String arg0) {
+    return (A)withPathPrefix(new String(arg0));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;

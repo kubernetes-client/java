@@ -35,8 +35,8 @@ public class V1IngressRuleFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withHost instead.
    */
   @java.lang.Deprecated
-  public A withNewHost(java.lang.String original) {
-    return (A)withHost(new String(original));
+  public A withNewHost(java.lang.String arg0) {
+    return (A)withHost(new String(arg0));
   }
   
   /**
@@ -45,10 +45,10 @@ public class V1IngressRuleFluentImpl<A extends io.kubernetes.client.openapi.mode
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValue getHttp() {
-    return this.http!=null?this.http.build():null;
+    return this.http!=null ?this.http.build():null;
   }
   public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValue buildHttp() {
-    return this.http!=null?this.http.build():null;
+    return this.http!=null ?this.http.build():null;
   }
   public A withHttp(io.kubernetes.client.openapi.models.V1HTTPIngressRuleValue http) {
     _visitables.get("http").remove(this.http);

@@ -28,7 +28,7 @@ public class V1LabelSelectorFluentImpl<A extends io.kubernetes.client.openapi.mo
     this.withMatchLabels(instance.getMatchLabels());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder> matchExpressions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder> matchExpressions;
   private java.util.Map<java.lang.String,java.lang.String> matchLabels;
   public A addToMatchExpressions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1LabelSelectorRequirement item) {
     if (this.matchExpressions == null) {this.matchExpressions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder>();}
@@ -75,10 +75,10 @@ public class V1LabelSelectorFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> getMatchExpressions() {
-    return build(matchExpressions);
+    return matchExpressions != null ? build(matchExpressions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> buildMatchExpressions() {
-    return build(matchExpressions);
+    return matchExpressions != null ? build(matchExpressions) : null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelectorRequirement buildMatchExpression(java.lang.Integer index) {
     return this.matchExpressions.get(index).build();

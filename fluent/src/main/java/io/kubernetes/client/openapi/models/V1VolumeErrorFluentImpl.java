@@ -35,8 +35,8 @@ public class V1VolumeErrorFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A)withMessage(new String(original));
+  public A withNewMessage(java.lang.String arg0) {
+    return (A)withMessage(new String(arg0));
   }
   public java.time.OffsetDateTime getTime() {
     return this.time;

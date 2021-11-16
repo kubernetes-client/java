@@ -33,7 +33,7 @@ public interface V1ValidatingWebhookFluent<A extends io.kubernetes.client.openap
   public A withAdmissionReviewVersions(java.util.List<java.lang.String> admissionReviewVersions);
   public A withAdmissionReviewVersions(java.lang.String... admissionReviewVersions);
   public java.lang.Boolean hasAdmissionReviewVersions();
-  public A addNewAdmissionReviewVersion(java.lang.String original);
+  public A addNewAdmissionReviewVersion(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildClientConfig instead.
@@ -57,7 +57,7 @@ public interface V1ValidatingWebhookFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withFailurePolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewFailurePolicy(java.lang.String original);
+  public A withNewFailurePolicy(java.lang.String arg0);
   public java.lang.String getMatchPolicy();
   public A withMatchPolicy(java.lang.String matchPolicy);
   public java.lang.Boolean hasMatchPolicy();
@@ -66,7 +66,7 @@ public interface V1ValidatingWebhookFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withMatchPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewMatchPolicy(java.lang.String original);
+  public A withNewMatchPolicy(java.lang.String arg0);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -75,7 +75,7 @@ public interface V1ValidatingWebhookFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildNamespaceSelector instead.
@@ -144,7 +144,7 @@ public interface V1ValidatingWebhookFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withSideEffects instead.
    */
   @java.lang.Deprecated
-  public A withNewSideEffects(java.lang.String original);
+  public A withNewSideEffects(java.lang.String arg0);
   public java.lang.Integer getTimeoutSeconds();
   public A withTimeoutSeconds(java.lang.Integer timeoutSeconds);
   public java.lang.Boolean hasTimeoutSeconds();

@@ -75,8 +75,8 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends io.kubernetes.client.
   public java.lang.Boolean hasFailed() {
     return failed != null && !failed.isEmpty();
   }
-  public A addNewFailed(java.lang.String original) {
-    return (A)addToFailed(new String(original));
+  public A addNewFailed(java.lang.String arg0) {
+    return (A)addToFailed(new String(arg0));
   }
   public A addToSucceeded(java.lang.Integer index,java.lang.String item) {
     if (this.succeeded == null) {this.succeeded = new java.util.ArrayList<java.lang.String>();}
@@ -129,8 +129,8 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends io.kubernetes.client.
   public java.lang.Boolean hasSucceeded() {
     return succeeded != null && !succeeded.isEmpty();
   }
-  public A addNewSucceeded(java.lang.String original) {
-    return (A)addToSucceeded(new String(original));
+  public A addNewSucceeded(java.lang.String arg0) {
+    return (A)addToSucceeded(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

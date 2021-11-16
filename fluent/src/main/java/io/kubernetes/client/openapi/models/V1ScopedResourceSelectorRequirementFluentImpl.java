@@ -42,8 +42,8 @@ public class V1ScopedResourceSelectorRequirementFluentImpl<A extends io.kubernet
    * Method is deprecated. use withOperator instead.
    */
   @java.lang.Deprecated
-  public A withNewOperator(java.lang.String original) {
-    return (A)withOperator(new String(original));
+  public A withNewOperator(java.lang.String arg0) {
+    return (A)withOperator(new String(arg0));
   }
   public java.lang.String getScopeName() {
     return this.scopeName;
@@ -59,8 +59,8 @@ public class V1ScopedResourceSelectorRequirementFluentImpl<A extends io.kubernet
    * Method is deprecated. use withScopeName instead.
    */
   @java.lang.Deprecated
-  public A withNewScopeName(java.lang.String original) {
-    return (A)withScopeName(new String(original));
+  public A withNewScopeName(java.lang.String arg0) {
+    return (A)withScopeName(new String(arg0));
   }
   public A addToValues(java.lang.Integer index,java.lang.String item) {
     if (this.values == null) {this.values = new java.util.ArrayList<java.lang.String>();}
@@ -113,8 +113,8 @@ public class V1ScopedResourceSelectorRequirementFluentImpl<A extends io.kubernet
   public java.lang.Boolean hasValues() {
     return values != null && !values.isEmpty();
   }
-  public A addNewValue(java.lang.String original) {
-    return (A)addToValues(new String(original));
+  public A addNewValue(java.lang.String arg0) {
+    return (A)addToValues(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

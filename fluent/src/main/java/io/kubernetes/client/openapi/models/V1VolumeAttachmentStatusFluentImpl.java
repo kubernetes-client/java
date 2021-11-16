@@ -36,10 +36,10 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends io.kubernetes.client.o
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1VolumeError getAttachError() {
-    return this.attachError!=null?this.attachError.build():null;
+    return this.attachError!=null ?this.attachError.build():null;
   }
   public io.kubernetes.client.openapi.models.V1VolumeError buildAttachError() {
-    return this.attachError!=null?this.attachError.build():null;
+    return this.attachError!=null ?this.attachError.build():null;
   }
   public A withAttachError(io.kubernetes.client.openapi.models.V1VolumeError attachError) {
     _visitables.get("attachError").remove(this.attachError);
@@ -104,10 +104,10 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends io.kubernetes.client.o
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1VolumeError getDetachError() {
-    return this.detachError!=null?this.detachError.build():null;
+    return this.detachError!=null ?this.detachError.build():null;
   }
   public io.kubernetes.client.openapi.models.V1VolumeError buildDetachError() {
-    return this.detachError!=null?this.detachError.build():null;
+    return this.detachError!=null ?this.detachError.build():null;
   }
   public A withDetachError(io.kubernetes.client.openapi.models.V1VolumeError detachError) {
     _visitables.get("detachError").remove(this.detachError);

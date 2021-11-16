@@ -27,10 +27,10 @@ public class V1IngressBackendFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference getResource() {
-    return this.resource!=null?this.resource.build():null;
+    return this.resource!=null ?this.resource.build():null;
   }
   public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference buildResource() {
-    return this.resource!=null?this.resource.build():null;
+    return this.resource!=null ?this.resource.build():null;
   }
   public A withResource(io.kubernetes.client.openapi.models.V1TypedLocalObjectReference resource) {
     _visitables.get("resource").remove(this.resource);
@@ -61,10 +61,10 @@ public class V1IngressBackendFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1IngressServiceBackend getService() {
-    return this.service!=null?this.service.build():null;
+    return this.service!=null ?this.service.build():null;
   }
   public io.kubernetes.client.openapi.models.V1IngressServiceBackend buildService() {
-    return this.service!=null?this.service.build():null;
+    return this.service!=null ?this.service.build():null;
   }
   public A withService(io.kubernetes.client.openapi.models.V1IngressServiceBackend service) {
     _visitables.get("service").remove(this.service);

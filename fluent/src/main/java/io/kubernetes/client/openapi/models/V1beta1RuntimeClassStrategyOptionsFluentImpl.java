@@ -76,8 +76,8 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<A extends io.kubernete
   public java.lang.Boolean hasAllowedRuntimeClassNames() {
     return allowedRuntimeClassNames != null && !allowedRuntimeClassNames.isEmpty();
   }
-  public A addNewAllowedRuntimeClassName(java.lang.String original) {
-    return (A)addToAllowedRuntimeClassNames(new String(original));
+  public A addNewAllowedRuntimeClassName(java.lang.String arg0) {
+    return (A)addToAllowedRuntimeClassNames(new String(arg0));
   }
   public java.lang.String getDefaultRuntimeClassName() {
     return this.defaultRuntimeClassName;
@@ -93,8 +93,8 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<A extends io.kubernete
    * Method is deprecated. use withDefaultRuntimeClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewDefaultRuntimeClassName(java.lang.String original) {
-    return (A)withDefaultRuntimeClassName(new String(original));
+  public A withNewDefaultRuntimeClassName(java.lang.String arg0) {
+    return (A)withDefaultRuntimeClassName(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

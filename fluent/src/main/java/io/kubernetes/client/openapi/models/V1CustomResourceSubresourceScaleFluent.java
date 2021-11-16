@@ -18,7 +18,7 @@ public interface V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.
    * Method is deprecated. use withLabelSelectorPath instead.
    */
   @java.lang.Deprecated
-  public A withNewLabelSelectorPath(java.lang.String original);
+  public A withNewLabelSelectorPath(java.lang.String arg0);
   public java.lang.String getSpecReplicasPath();
   public A withSpecReplicasPath(java.lang.String specReplicasPath);
   public java.lang.Boolean hasSpecReplicasPath();
@@ -27,7 +27,7 @@ public interface V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.
    * Method is deprecated. use withSpecReplicasPath instead.
    */
   @java.lang.Deprecated
-  public A withNewSpecReplicasPath(java.lang.String original);
+  public A withNewSpecReplicasPath(java.lang.String arg0);
   public java.lang.String getStatusReplicasPath();
   public A withStatusReplicasPath(java.lang.String statusReplicasPath);
   public java.lang.Boolean hasStatusReplicasPath();
@@ -36,6 +36,6 @@ public interface V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.
    * Method is deprecated. use withStatusReplicasPath instead.
    */
   @java.lang.Deprecated
-  public A withNewStatusReplicasPath(java.lang.String original);
+  public A withNewStatusReplicasPath(java.lang.String arg0);
   
 }

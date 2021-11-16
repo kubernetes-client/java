@@ -29,7 +29,7 @@ public class V1APIGroupListFluentImpl<A extends io.kubernetes.client.openapi.mod
 
   }
   private java.lang.String apiVersion;
-  private java.util.List<io.kubernetes.client.openapi.models.V1APIGroupBuilder> groups;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1APIGroupBuilder> groups;
   private java.lang.String kind;
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -45,8 +45,8 @@ public class V1APIGroupListFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public A addToGroups(java.lang.Integer index,io.kubernetes.client.openapi.models.V1APIGroup item) {
     if (this.groups == null) {this.groups = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1APIGroupBuilder>();}
@@ -93,10 +93,10 @@ public class V1APIGroupListFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1APIGroup> getGroups() {
-    return build(groups);
+    return groups != null ? build(groups) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1APIGroup> buildGroups() {
-    return build(groups);
+    return groups != null ? build(groups) : null;
   }
   public io.kubernetes.client.openapi.models.V1APIGroup buildGroup(java.lang.Integer index) {
     return this.groups.get(index).build();
@@ -168,8 +168,8 @@ public class V1APIGroupListFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

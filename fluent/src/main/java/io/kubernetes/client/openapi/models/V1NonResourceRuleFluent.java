@@ -29,7 +29,7 @@ public interface V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.
   public A withNonResourceURLs(java.util.List<java.lang.String> nonResourceURLs);
   public A withNonResourceURLs(java.lang.String... nonResourceURLs);
   public java.lang.Boolean hasNonResourceURLs();
-  public A addNewNonResourceURL(java.lang.String original);
+  public A addNewNonResourceURL(java.lang.String arg0);
   public A addToVerbs(java.lang.Integer index,java.lang.String item);
   public A setToVerbs(java.lang.Integer index,java.lang.String item);
   public A addToVerbs(java.lang.String... items);
@@ -45,6 +45,6 @@ public interface V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.
   public A withVerbs(java.util.List<java.lang.String> verbs);
   public A withVerbs(java.lang.String... verbs);
   public java.lang.Boolean hasVerbs();
-  public A addNewVerb(java.lang.String original);
+  public A addNewVerb(java.lang.String arg0);
   
 }

@@ -18,7 +18,7 @@ public interface V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public java.lang.String getFieldPath();
   public A withFieldPath(java.lang.String fieldPath);
   public java.lang.Boolean hasFieldPath();
@@ -27,7 +27,7 @@ public interface V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withFieldPath instead.
    */
   @java.lang.Deprecated
-  public A withNewFieldPath(java.lang.String original);
+  public A withNewFieldPath(java.lang.String arg0);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -36,7 +36,7 @@ public interface V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -45,7 +45,7 @@ public interface V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   public java.lang.String getNamespace();
   public A withNamespace(java.lang.String namespace);
   public java.lang.Boolean hasNamespace();
@@ -54,7 +54,7 @@ public interface V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original);
+  public A withNewNamespace(java.lang.String arg0);
   public java.lang.String getResourceVersion();
   public A withResourceVersion(java.lang.String resourceVersion);
   public java.lang.Boolean hasResourceVersion();
@@ -63,7 +63,7 @@ public interface V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withResourceVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original);
+  public A withNewResourceVersion(java.lang.String arg0);
   public java.lang.String getUid();
   public A withUid(java.lang.String uid);
   public java.lang.Boolean hasUid();
@@ -72,6 +72,6 @@ public interface V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original);
+  public A withNewUid(java.lang.String arg0);
   
 }

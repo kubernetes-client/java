@@ -164,8 +164,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
   public java.lang.Boolean hasAccessModes() {
     return accessModes != null && !accessModes.isEmpty();
   }
-  public A addNewAccessMode(java.lang.String original) {
-    return (A)addToAccessModes(new String(original));
+  public A addNewAccessMode(java.lang.String arg0) {
+    return (A)addToAccessModes(new String(arg0));
   }
   
   /**
@@ -174,10 +174,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource getAwsElasticBlockStore() {
-    return this.awsElasticBlockStore!=null?this.awsElasticBlockStore.build():null;
+    return this.awsElasticBlockStore!=null ?this.awsElasticBlockStore.build():null;
   }
   public io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource buildAwsElasticBlockStore() {
-    return this.awsElasticBlockStore!=null?this.awsElasticBlockStore.build():null;
+    return this.awsElasticBlockStore!=null ?this.awsElasticBlockStore.build():null;
   }
   public A withAwsElasticBlockStore(io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource awsElasticBlockStore) {
     _visitables.get("awsElasticBlockStore").remove(this.awsElasticBlockStore);
@@ -208,10 +208,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource getAzureDisk() {
-    return this.azureDisk!=null?this.azureDisk.build():null;
+    return this.azureDisk!=null ?this.azureDisk.build():null;
   }
   public io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource buildAzureDisk() {
-    return this.azureDisk!=null?this.azureDisk.build():null;
+    return this.azureDisk!=null ?this.azureDisk.build():null;
   }
   public A withAzureDisk(io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource azureDisk) {
     _visitables.get("azureDisk").remove(this.azureDisk);
@@ -242,10 +242,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource getAzureFile() {
-    return this.azureFile!=null?this.azureFile.build():null;
+    return this.azureFile!=null ?this.azureFile.build():null;
   }
   public io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource buildAzureFile() {
-    return this.azureFile!=null?this.azureFile.build():null;
+    return this.azureFile!=null ?this.azureFile.build():null;
   }
   public A withAzureFile(io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource azureFile) {
     _visitables.get("azureFile").remove(this.azureFile);
@@ -301,10 +301,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource getCephfs() {
-    return this.cephfs!=null?this.cephfs.build():null;
+    return this.cephfs!=null ?this.cephfs.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource buildCephfs() {
-    return this.cephfs!=null?this.cephfs.build():null;
+    return this.cephfs!=null ?this.cephfs.build():null;
   }
   public A withCephfs(io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource cephfs) {
     _visitables.get("cephfs").remove(this.cephfs);
@@ -335,10 +335,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource getCinder() {
-    return this.cinder!=null?this.cinder.build():null;
+    return this.cinder!=null ?this.cinder.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource buildCinder() {
-    return this.cinder!=null?this.cinder.build():null;
+    return this.cinder!=null ?this.cinder.build():null;
   }
   public A withCinder(io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource cinder) {
     _visitables.get("cinder").remove(this.cinder);
@@ -369,10 +369,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectReference getClaimRef() {
-    return this.claimRef!=null?this.claimRef.build():null;
+    return this.claimRef!=null ?this.claimRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectReference buildClaimRef() {
-    return this.claimRef!=null?this.claimRef.build():null;
+    return this.claimRef!=null ?this.claimRef.build():null;
   }
   public A withClaimRef(io.kubernetes.client.openapi.models.V1ObjectReference claimRef) {
     _visitables.get("claimRef").remove(this.claimRef);
@@ -403,10 +403,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource getCsi() {
-    return this.csi!=null?this.csi.build():null;
+    return this.csi!=null ?this.csi.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource buildCsi() {
-    return this.csi!=null?this.csi.build():null;
+    return this.csi!=null ?this.csi.build():null;
   }
   public A withCsi(io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource csi) {
     _visitables.get("csi").remove(this.csi);
@@ -437,10 +437,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1FCVolumeSource getFc() {
-    return this.fc!=null?this.fc.build():null;
+    return this.fc!=null ?this.fc.build():null;
   }
   public io.kubernetes.client.openapi.models.V1FCVolumeSource buildFc() {
-    return this.fc!=null?this.fc.build():null;
+    return this.fc!=null ?this.fc.build():null;
   }
   public A withFc(io.kubernetes.client.openapi.models.V1FCVolumeSource fc) {
     _visitables.get("fc").remove(this.fc);
@@ -471,10 +471,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource getFlexVolume() {
-    return this.flexVolume!=null?this.flexVolume.build():null;
+    return this.flexVolume!=null ?this.flexVolume.build():null;
   }
   public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource buildFlexVolume() {
-    return this.flexVolume!=null?this.flexVolume.build():null;
+    return this.flexVolume!=null ?this.flexVolume.build():null;
   }
   public A withFlexVolume(io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource flexVolume) {
     _visitables.get("flexVolume").remove(this.flexVolume);
@@ -505,10 +505,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1FlockerVolumeSource getFlocker() {
-    return this.flocker!=null?this.flocker.build():null;
+    return this.flocker!=null ?this.flocker.build():null;
   }
   public io.kubernetes.client.openapi.models.V1FlockerVolumeSource buildFlocker() {
-    return this.flocker!=null?this.flocker.build():null;
+    return this.flocker!=null ?this.flocker.build():null;
   }
   public A withFlocker(io.kubernetes.client.openapi.models.V1FlockerVolumeSource flocker) {
     _visitables.get("flocker").remove(this.flocker);
@@ -539,10 +539,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource getGcePersistentDisk() {
-    return this.gcePersistentDisk!=null?this.gcePersistentDisk.build():null;
+    return this.gcePersistentDisk!=null ?this.gcePersistentDisk.build():null;
   }
   public io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource buildGcePersistentDisk() {
-    return this.gcePersistentDisk!=null?this.gcePersistentDisk.build():null;
+    return this.gcePersistentDisk!=null ?this.gcePersistentDisk.build():null;
   }
   public A withGcePersistentDisk(io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource gcePersistentDisk) {
     _visitables.get("gcePersistentDisk").remove(this.gcePersistentDisk);
@@ -573,10 +573,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource getGlusterfs() {
-    return this.glusterfs!=null?this.glusterfs.build():null;
+    return this.glusterfs!=null ?this.glusterfs.build():null;
   }
   public io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource buildGlusterfs() {
-    return this.glusterfs!=null?this.glusterfs.build():null;
+    return this.glusterfs!=null ?this.glusterfs.build():null;
   }
   public A withGlusterfs(io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource glusterfs) {
     _visitables.get("glusterfs").remove(this.glusterfs);
@@ -607,10 +607,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1HostPathVolumeSource getHostPath() {
-    return this.hostPath!=null?this.hostPath.build():null;
+    return this.hostPath!=null ?this.hostPath.build():null;
   }
   public io.kubernetes.client.openapi.models.V1HostPathVolumeSource buildHostPath() {
-    return this.hostPath!=null?this.hostPath.build():null;
+    return this.hostPath!=null ?this.hostPath.build():null;
   }
   public A withHostPath(io.kubernetes.client.openapi.models.V1HostPathVolumeSource hostPath) {
     _visitables.get("hostPath").remove(this.hostPath);
@@ -641,10 +641,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource getIscsi() {
-    return this.iscsi!=null?this.iscsi.build():null;
+    return this.iscsi!=null ?this.iscsi.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource buildIscsi() {
-    return this.iscsi!=null?this.iscsi.build():null;
+    return this.iscsi!=null ?this.iscsi.build():null;
   }
   public A withIscsi(io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource iscsi) {
     _visitables.get("iscsi").remove(this.iscsi);
@@ -675,10 +675,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LocalVolumeSource getLocal() {
-    return this.local!=null?this.local.build():null;
+    return this.local!=null ?this.local.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LocalVolumeSource buildLocal() {
-    return this.local!=null?this.local.build():null;
+    return this.local!=null ?this.local.build():null;
   }
   public A withLocal(io.kubernetes.client.openapi.models.V1LocalVolumeSource local) {
     _visitables.get("local").remove(this.local);
@@ -753,8 +753,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
   public java.lang.Boolean hasMountOptions() {
     return mountOptions != null && !mountOptions.isEmpty();
   }
-  public A addNewMountOption(java.lang.String original) {
-    return (A)addToMountOptions(new String(original));
+  public A addNewMountOption(java.lang.String arg0) {
+    return (A)addToMountOptions(new String(arg0));
   }
   
   /**
@@ -763,10 +763,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NFSVolumeSource getNfs() {
-    return this.nfs!=null?this.nfs.build():null;
+    return this.nfs!=null ?this.nfs.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NFSVolumeSource buildNfs() {
-    return this.nfs!=null?this.nfs.build():null;
+    return this.nfs!=null ?this.nfs.build():null;
   }
   public A withNfs(io.kubernetes.client.openapi.models.V1NFSVolumeSource nfs) {
     _visitables.get("nfs").remove(this.nfs);
@@ -797,10 +797,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1VolumeNodeAffinity getNodeAffinity() {
-    return this.nodeAffinity!=null?this.nodeAffinity.build():null;
+    return this.nodeAffinity!=null ?this.nodeAffinity.build():null;
   }
   public io.kubernetes.client.openapi.models.V1VolumeNodeAffinity buildNodeAffinity() {
-    return this.nodeAffinity!=null?this.nodeAffinity.build():null;
+    return this.nodeAffinity!=null ?this.nodeAffinity.build():null;
   }
   public A withNodeAffinity(io.kubernetes.client.openapi.models.V1VolumeNodeAffinity nodeAffinity) {
     _visitables.get("nodeAffinity").remove(this.nodeAffinity);
@@ -838,8 +838,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withPersistentVolumeReclaimPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPersistentVolumeReclaimPolicy(java.lang.String original) {
-    return (A)withPersistentVolumeReclaimPolicy(new String(original));
+  public A withNewPersistentVolumeReclaimPolicy(java.lang.String arg0) {
+    return (A)withPersistentVolumeReclaimPolicy(new String(arg0));
   }
   
   /**
@@ -848,10 +848,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource getPhotonPersistentDisk() {
-    return this.photonPersistentDisk!=null?this.photonPersistentDisk.build():null;
+    return this.photonPersistentDisk!=null ?this.photonPersistentDisk.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource buildPhotonPersistentDisk() {
-    return this.photonPersistentDisk!=null?this.photonPersistentDisk.build():null;
+    return this.photonPersistentDisk!=null ?this.photonPersistentDisk.build():null;
   }
   public A withPhotonPersistentDisk(io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource photonPersistentDisk) {
     _visitables.get("photonPersistentDisk").remove(this.photonPersistentDisk);
@@ -882,10 +882,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PortworxVolumeSource getPortworxVolume() {
-    return this.portworxVolume!=null?this.portworxVolume.build():null;
+    return this.portworxVolume!=null ?this.portworxVolume.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PortworxVolumeSource buildPortworxVolume() {
-    return this.portworxVolume!=null?this.portworxVolume.build():null;
+    return this.portworxVolume!=null ?this.portworxVolume.build():null;
   }
   public A withPortworxVolume(io.kubernetes.client.openapi.models.V1PortworxVolumeSource portworxVolume) {
     _visitables.get("portworxVolume").remove(this.portworxVolume);
@@ -916,10 +916,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1QuobyteVolumeSource getQuobyte() {
-    return this.quobyte!=null?this.quobyte.build():null;
+    return this.quobyte!=null ?this.quobyte.build():null;
   }
   public io.kubernetes.client.openapi.models.V1QuobyteVolumeSource buildQuobyte() {
-    return this.quobyte!=null?this.quobyte.build():null;
+    return this.quobyte!=null ?this.quobyte.build():null;
   }
   public A withQuobyte(io.kubernetes.client.openapi.models.V1QuobyteVolumeSource quobyte) {
     _visitables.get("quobyte").remove(this.quobyte);
@@ -950,10 +950,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSource getRbd() {
-    return this.rbd!=null?this.rbd.build():null;
+    return this.rbd!=null ?this.rbd.build():null;
   }
   public io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSource buildRbd() {
-    return this.rbd!=null?this.rbd.build():null;
+    return this.rbd!=null ?this.rbd.build():null;
   }
   public A withRbd(io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSource rbd) {
     _visitables.get("rbd").remove(this.rbd);
@@ -984,10 +984,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource getScaleIO() {
-    return this.scaleIO!=null?this.scaleIO.build():null;
+    return this.scaleIO!=null ?this.scaleIO.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource buildScaleIO() {
-    return this.scaleIO!=null?this.scaleIO.build():null;
+    return this.scaleIO!=null ?this.scaleIO.build():null;
   }
   public A withScaleIO(io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource scaleIO) {
     _visitables.get("scaleIO").remove(this.scaleIO);
@@ -1025,8 +1025,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original) {
-    return (A)withStorageClassName(new String(original));
+  public A withNewStorageClassName(java.lang.String arg0) {
+    return (A)withStorageClassName(new String(arg0));
   }
   
   /**
@@ -1035,10 +1035,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSource getStorageos() {
-    return this.storageos!=null?this.storageos.build():null;
+    return this.storageos!=null ?this.storageos.build():null;
   }
   public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSource buildStorageos() {
-    return this.storageos!=null?this.storageos.build():null;
+    return this.storageos!=null ?this.storageos.build():null;
   }
   public A withStorageos(io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSource storageos) {
     _visitables.get("storageos").remove(this.storageos);
@@ -1076,8 +1076,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withVolumeMode instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String original) {
-    return (A)withVolumeMode(new String(original));
+  public A withNewVolumeMode(java.lang.String arg0) {
+    return (A)withVolumeMode(new String(arg0));
   }
   
   /**
@@ -1086,10 +1086,10 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource getVsphereVolume() {
-    return this.vsphereVolume!=null?this.vsphereVolume.build():null;
+    return this.vsphereVolume!=null ?this.vsphereVolume.build():null;
   }
   public io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource buildVsphereVolume() {
-    return this.vsphereVolume!=null?this.vsphereVolume.build():null;
+    return this.vsphereVolume!=null ?this.vsphereVolume.build():null;
   }
   public A withVsphereVolume(io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource vsphereVolume) {
     _visitables.get("vsphereVolume").remove(this.vsphereVolume);

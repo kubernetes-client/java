@@ -21,7 +21,7 @@ public interface V1ControllerRevisionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public java.lang.Object getData();
   public A withData(java.lang.Object data);
   public java.lang.Boolean hasData();
@@ -33,7 +33,7 @@ public interface V1ControllerRevisionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

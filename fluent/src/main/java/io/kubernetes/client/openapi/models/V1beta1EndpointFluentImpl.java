@@ -94,8 +94,8 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
   public java.lang.Boolean hasAddresses() {
     return addresses != null && !addresses.isEmpty();
   }
-  public A addNewAddress(java.lang.String original) {
-    return (A)addToAddresses(new String(original));
+  public A addNewAddress(java.lang.String arg0) {
+    return (A)addToAddresses(new String(arg0));
   }
   
   /**
@@ -104,10 +104,10 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1EndpointConditions getConditions() {
-    return this.conditions!=null?this.conditions.build():null;
+    return this.conditions!=null ?this.conditions.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1EndpointConditions buildConditions() {
-    return this.conditions!=null?this.conditions.build():null;
+    return this.conditions!=null ?this.conditions.build():null;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1beta1EndpointConditions conditions) {
     _visitables.get("conditions").remove(this.conditions);
@@ -138,10 +138,10 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1EndpointHints getHints() {
-    return this.hints!=null?this.hints.build():null;
+    return this.hints!=null ?this.hints.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1EndpointHints buildHints() {
-    return this.hints!=null?this.hints.build():null;
+    return this.hints!=null ?this.hints.build():null;
   }
   public A withHints(io.kubernetes.client.openapi.models.V1beta1EndpointHints hints) {
     _visitables.get("hints").remove(this.hints);
@@ -179,8 +179,8 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original) {
-    return (A)withHostname(new String(original));
+  public A withNewHostname(java.lang.String arg0) {
+    return (A)withHostname(new String(arg0));
   }
   public java.lang.String getNodeName() {
     return this.nodeName;
@@ -196,8 +196,8 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original) {
-    return (A)withNodeName(new String(original));
+  public A withNewNodeName(java.lang.String arg0) {
+    return (A)withNodeName(new String(arg0));
   }
   
   /**
@@ -206,10 +206,10 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectReference getTargetRef() {
-    return this.targetRef!=null?this.targetRef.build():null;
+    return this.targetRef!=null ?this.targetRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectReference buildTargetRef() {
-    return this.targetRef!=null?this.targetRef.build():null;
+    return this.targetRef!=null ?this.targetRef.build():null;
   }
   public A withTargetRef(io.kubernetes.client.openapi.models.V1ObjectReference targetRef) {
     _visitables.get("targetRef").remove(this.targetRef);

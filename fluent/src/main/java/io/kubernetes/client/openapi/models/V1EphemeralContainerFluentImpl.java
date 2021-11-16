@@ -70,14 +70,14 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
   }
   private java.util.List<java.lang.String> args;
   private java.util.List<java.lang.String> command;
-  private java.util.List<io.kubernetes.client.openapi.models.V1EnvVarBuilder> env;
-  private java.util.List<io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder> envFrom;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvVarBuilder> env;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder> envFrom;
   private java.lang.String image;
   private java.lang.String imagePullPolicy;
   private io.kubernetes.client.openapi.models.V1LifecycleBuilder lifecycle;
   private io.kubernetes.client.openapi.models.V1ProbeBuilder livenessProbe;
   private java.lang.String name;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ContainerPortBuilder> ports;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerPortBuilder> ports;
   private io.kubernetes.client.openapi.models.V1ProbeBuilder readinessProbe;
   private io.kubernetes.client.openapi.models.V1ResourceRequirementsBuilder resources;
   private io.kubernetes.client.openapi.models.V1SecurityContextBuilder securityContext;
@@ -88,8 +88,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
   private java.lang.String terminationMessagePath;
   private java.lang.String terminationMessagePolicy;
   private java.lang.Boolean tty;
-  private java.util.List<io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder> volumeDevices;
-  private java.util.List<io.kubernetes.client.openapi.models.V1VolumeMountBuilder> volumeMounts;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder> volumeDevices;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeMountBuilder> volumeMounts;
   private java.lang.String workingDir;
   public A addToArgs(java.lang.Integer index,java.lang.String item) {
     if (this.args == null) {this.args = new java.util.ArrayList<java.lang.String>();}
@@ -142,8 +142,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
   public java.lang.Boolean hasArgs() {
     return args != null && !args.isEmpty();
   }
-  public A addNewArg(java.lang.String original) {
-    return (A)addToArgs(new String(original));
+  public A addNewArg(java.lang.String arg0) {
+    return (A)addToArgs(new String(arg0));
   }
   public A addToCommand(java.lang.Integer index,java.lang.String item) {
     if (this.command == null) {this.command = new java.util.ArrayList<java.lang.String>();}
@@ -196,8 +196,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
   public java.lang.Boolean hasCommand() {
     return command != null && !command.isEmpty();
   }
-  public A addNewCommand(java.lang.String original) {
-    return (A)addToCommand(new String(original));
+  public A addNewCommand(java.lang.String arg0) {
+    return (A)addToCommand(new String(arg0));
   }
   public A addToEnv(java.lang.Integer index,io.kubernetes.client.openapi.models.V1EnvVar item) {
     if (this.env == null) {this.env = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvVarBuilder>();}
@@ -244,10 +244,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1EnvVar> getEnv() {
-    return build(env);
+    return env != null ? build(env) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1EnvVar> buildEnv() {
-    return build(env);
+    return env != null ? build(env) : null;
   }
   public io.kubernetes.client.openapi.models.V1EnvVar buildEnv(java.lang.Integer index) {
     return this.env.get(index).build();
@@ -350,10 +350,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1EnvFromSource> getEnvFrom() {
-    return build(envFrom);
+    return envFrom != null ? build(envFrom) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1EnvFromSource> buildEnvFrom() {
-    return build(envFrom);
+    return envFrom != null ? build(envFrom) : null;
   }
   public io.kubernetes.client.openapi.models.V1EnvFromSource buildEnvFrom(java.lang.Integer index) {
     return this.envFrom.get(index).build();
@@ -425,8 +425,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withImage instead.
    */
   @java.lang.Deprecated
-  public A withNewImage(java.lang.String original) {
-    return (A)withImage(new String(original));
+  public A withNewImage(java.lang.String arg0) {
+    return (A)withImage(new String(arg0));
   }
   public java.lang.String getImagePullPolicy() {
     return this.imagePullPolicy;
@@ -442,8 +442,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withImagePullPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewImagePullPolicy(java.lang.String original) {
-    return (A)withImagePullPolicy(new String(original));
+  public A withNewImagePullPolicy(java.lang.String arg0) {
+    return (A)withImagePullPolicy(new String(arg0));
   }
   
   /**
@@ -452,10 +452,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1Lifecycle getLifecycle() {
-    return this.lifecycle!=null?this.lifecycle.build():null;
+    return this.lifecycle!=null ?this.lifecycle.build():null;
   }
   public io.kubernetes.client.openapi.models.V1Lifecycle buildLifecycle() {
-    return this.lifecycle!=null?this.lifecycle.build():null;
+    return this.lifecycle!=null ?this.lifecycle.build():null;
   }
   public A withLifecycle(io.kubernetes.client.openapi.models.V1Lifecycle lifecycle) {
     _visitables.get("lifecycle").remove(this.lifecycle);
@@ -486,10 +486,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1Probe getLivenessProbe() {
-    return this.livenessProbe!=null?this.livenessProbe.build():null;
+    return this.livenessProbe!=null ?this.livenessProbe.build():null;
   }
   public io.kubernetes.client.openapi.models.V1Probe buildLivenessProbe() {
-    return this.livenessProbe!=null?this.livenessProbe.build():null;
+    return this.livenessProbe!=null ?this.livenessProbe.build():null;
   }
   public A withLivenessProbe(io.kubernetes.client.openapi.models.V1Probe livenessProbe) {
     _visitables.get("livenessProbe").remove(this.livenessProbe);
@@ -527,8 +527,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public A addToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ContainerPort item) {
     if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerPortBuilder>();}
@@ -575,10 +575,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ContainerPort> getPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ContainerPort> buildPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public io.kubernetes.client.openapi.models.V1ContainerPort buildPort(java.lang.Integer index) {
     return this.ports.get(index).build();
@@ -643,10 +643,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1Probe getReadinessProbe() {
-    return this.readinessProbe!=null?this.readinessProbe.build():null;
+    return this.readinessProbe!=null ?this.readinessProbe.build():null;
   }
   public io.kubernetes.client.openapi.models.V1Probe buildReadinessProbe() {
-    return this.readinessProbe!=null?this.readinessProbe.build():null;
+    return this.readinessProbe!=null ?this.readinessProbe.build():null;
   }
   public A withReadinessProbe(io.kubernetes.client.openapi.models.V1Probe readinessProbe) {
     _visitables.get("readinessProbe").remove(this.readinessProbe);
@@ -677,10 +677,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ResourceRequirements getResources() {
-    return this.resources!=null?this.resources.build():null;
+    return this.resources!=null ?this.resources.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ResourceRequirements buildResources() {
-    return this.resources!=null?this.resources.build():null;
+    return this.resources!=null ?this.resources.build():null;
   }
   public A withResources(io.kubernetes.client.openapi.models.V1ResourceRequirements resources) {
     _visitables.get("resources").remove(this.resources);
@@ -711,10 +711,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecurityContext getSecurityContext() {
-    return this.securityContext!=null?this.securityContext.build():null;
+    return this.securityContext!=null ?this.securityContext.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecurityContext buildSecurityContext() {
-    return this.securityContext!=null?this.securityContext.build():null;
+    return this.securityContext!=null ?this.securityContext.build():null;
   }
   public A withSecurityContext(io.kubernetes.client.openapi.models.V1SecurityContext securityContext) {
     _visitables.get("securityContext").remove(this.securityContext);
@@ -745,10 +745,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1Probe getStartupProbe() {
-    return this.startupProbe!=null?this.startupProbe.build():null;
+    return this.startupProbe!=null ?this.startupProbe.build():null;
   }
   public io.kubernetes.client.openapi.models.V1Probe buildStartupProbe() {
-    return this.startupProbe!=null?this.startupProbe.build():null;
+    return this.startupProbe!=null ?this.startupProbe.build():null;
   }
   public A withStartupProbe(io.kubernetes.client.openapi.models.V1Probe startupProbe) {
     _visitables.get("startupProbe").remove(this.startupProbe);
@@ -804,8 +804,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withTargetContainerName instead.
    */
   @java.lang.Deprecated
-  public A withNewTargetContainerName(java.lang.String original) {
-    return (A)withTargetContainerName(new String(original));
+  public A withNewTargetContainerName(java.lang.String arg0) {
+    return (A)withTargetContainerName(new String(arg0));
   }
   public java.lang.String getTerminationMessagePath() {
     return this.terminationMessagePath;
@@ -821,8 +821,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withTerminationMessagePath instead.
    */
   @java.lang.Deprecated
-  public A withNewTerminationMessagePath(java.lang.String original) {
-    return (A)withTerminationMessagePath(new String(original));
+  public A withNewTerminationMessagePath(java.lang.String arg0) {
+    return (A)withTerminationMessagePath(new String(arg0));
   }
   public java.lang.String getTerminationMessagePolicy() {
     return this.terminationMessagePolicy;
@@ -838,8 +838,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withTerminationMessagePolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewTerminationMessagePolicy(java.lang.String original) {
-    return (A)withTerminationMessagePolicy(new String(original));
+  public A withNewTerminationMessagePolicy(java.lang.String arg0) {
+    return (A)withTerminationMessagePolicy(new String(arg0));
   }
   public java.lang.Boolean getTty() {
     return this.tty;
@@ -895,10 +895,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1VolumeDevice> getVolumeDevices() {
-    return build(volumeDevices);
+    return volumeDevices != null ? build(volumeDevices) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1VolumeDevice> buildVolumeDevices() {
-    return build(volumeDevices);
+    return volumeDevices != null ? build(volumeDevices) : null;
   }
   public io.kubernetes.client.openapi.models.V1VolumeDevice buildVolumeDevice(java.lang.Integer index) {
     return this.volumeDevices.get(index).build();
@@ -1001,10 +1001,10 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1VolumeMount> getVolumeMounts() {
-    return build(volumeMounts);
+    return volumeMounts != null ? build(volumeMounts) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1VolumeMount> buildVolumeMounts() {
-    return build(volumeMounts);
+    return volumeMounts != null ? build(volumeMounts) : null;
   }
   public io.kubernetes.client.openapi.models.V1VolumeMount buildVolumeMount(java.lang.Integer index) {
     return this.volumeMounts.get(index).build();
@@ -1076,8 +1076,8 @@ public class V1EphemeralContainerFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withWorkingDir instead.
    */
   @java.lang.Deprecated
-  public A withNewWorkingDir(java.lang.String original) {
-    return (A)withWorkingDir(new String(original));
+  public A withNewWorkingDir(java.lang.String arg0) {
+    return (A)withWorkingDir(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -31,7 +31,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withRef instead.
    */
   @java.lang.Deprecated
-  public A withNewRef(java.lang.String original);
+  public A withNewRef(java.lang.String arg0);
   public java.lang.String getSchema();
   public A withSchema(java.lang.String $schema);
   public java.lang.Boolean hasSchema();
@@ -40,7 +40,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withSchema instead.
    */
   @java.lang.Deprecated
-  public A withNewSchema(java.lang.String original);
+  public A withNewSchema(java.lang.String arg0);
   public java.lang.Object getAdditionalItems();
   public A withAdditionalItems(java.lang.Object additionalItems);
   public java.lang.Boolean hasAdditionalItems();
@@ -132,7 +132,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withDescription instead.
    */
   @java.lang.Deprecated
-  public A withNewDescription(java.lang.String original);
+  public A withNewDescription(java.lang.String arg0);
   public A addToEnum(java.lang.Integer index,java.lang.Object item);
   public A setToEnum(java.lang.Integer index,java.lang.Object item);
   public A addToEnum(java.lang.Object... items);
@@ -180,7 +180,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withFormat instead.
    */
   @java.lang.Deprecated
-  public A withNewFormat(java.lang.String original);
+  public A withNewFormat(java.lang.String arg0);
   public java.lang.String getId();
   public A withId(java.lang.String id);
   public java.lang.Boolean hasId();
@@ -189,7 +189,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withId instead.
    */
   @java.lang.Deprecated
-  public A withNewId(java.lang.String original);
+  public A withNewId(java.lang.String arg0);
   public java.lang.Object getItems();
   public A withItems(java.lang.Object items);
   public java.lang.Boolean hasItems();
@@ -276,7 +276,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPattern instead.
    */
   @java.lang.Deprecated
-  public A withNewPattern(java.lang.String original);
+  public A withNewPattern(java.lang.String arg0);
   public A addToPatternProperties(java.lang.String key,io.kubernetes.client.openapi.models.V1JSONSchemaProps value);
   public A addToPatternProperties(java.util.Map<java.lang.String,io.kubernetes.client.openapi.models.V1JSONSchemaProps> map);
   public A removeFromPatternProperties(java.lang.String key);
@@ -306,7 +306,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
   public A withRequired(java.util.List<java.lang.String> required);
   public A withRequired(java.lang.String... required);
   public java.lang.Boolean hasRequired();
-  public A addNewRequired(java.lang.String original);
+  public A addNewRequired(java.lang.String arg0);
   public java.lang.String getTitle();
   public A withTitle(java.lang.String title);
   public java.lang.Boolean hasTitle();
@@ -315,7 +315,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withTitle instead.
    */
   @java.lang.Deprecated
-  public A withNewTitle(java.lang.String original);
+  public A withNewTitle(java.lang.String arg0);
   public java.lang.String getType();
   public A withType(java.lang.String type);
   public java.lang.Boolean hasType();
@@ -324,7 +324,7 @@ public interface V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   public java.lang.Boolean getUniqueItems();
   public A withUniqueItems(java.lang.Boolean uniqueItems);
   public java.lang.Boolean hasUniqueItems();

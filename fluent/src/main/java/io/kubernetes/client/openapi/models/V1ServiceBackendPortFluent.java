@@ -19,7 +19,7 @@ public interface V1ServiceBackendPortFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   public java.lang.Integer getNumber();
   public A withNumber(java.lang.Integer number);
   public java.lang.Boolean hasNumber();

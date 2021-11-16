@@ -100,8 +100,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasCategories() {
     return categories != null && !categories.isEmpty();
   }
-  public A addNewCategory(java.lang.String original) {
-    return (A)addToCategories(new String(original));
+  public A addNewCategory(java.lang.String arg0) {
+    return (A)addToCategories(new String(arg0));
   }
   public java.lang.String getGroup() {
     return this.group;
@@ -117,8 +117,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original) {
-    return (A)withGroup(new String(original));
+  public A withNewGroup(java.lang.String arg0) {
+    return (A)withGroup(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -134,8 +134,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   public java.lang.String getName() {
     return this.name;
@@ -151,8 +151,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.Boolean getNamespaced() {
     return this.namespaced;
@@ -214,8 +214,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasShortNames() {
     return shortNames != null && !shortNames.isEmpty();
   }
-  public A addNewShortName(java.lang.String original) {
-    return (A)addToShortNames(new String(original));
+  public A addNewShortName(java.lang.String arg0) {
+    return (A)addToShortNames(new String(arg0));
   }
   public java.lang.String getSingularName() {
     return this.singularName;
@@ -231,8 +231,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSingularName instead.
    */
   @java.lang.Deprecated
-  public A withNewSingularName(java.lang.String original) {
-    return (A)withSingularName(new String(original));
+  public A withNewSingularName(java.lang.String arg0) {
+    return (A)withSingularName(new String(arg0));
   }
   public java.lang.String getStorageVersionHash() {
     return this.storageVersionHash;
@@ -248,8 +248,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withStorageVersionHash instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageVersionHash(java.lang.String original) {
-    return (A)withStorageVersionHash(new String(original));
+  public A withNewStorageVersionHash(java.lang.String arg0) {
+    return (A)withStorageVersionHash(new String(arg0));
   }
   public A addToVerbs(java.lang.Integer index,java.lang.String item) {
     if (this.verbs == null) {this.verbs = new java.util.ArrayList<java.lang.String>();}
@@ -302,8 +302,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasVerbs() {
     return verbs != null && !verbs.isEmpty();
   }
-  public A addNewVerb(java.lang.String original) {
-    return (A)addToVerbs(new String(original));
+  public A addNewVerb(java.lang.String arg0) {
+    return (A)addToVerbs(new String(arg0));
   }
   public java.lang.String getVersion() {
     return this.version;
@@ -319,8 +319,8 @@ public class V1APIResourceFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original) {
-    return (A)withVersion(new String(original));
+  public A withNewVersion(java.lang.String arg0) {
+    return (A)withVersion(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

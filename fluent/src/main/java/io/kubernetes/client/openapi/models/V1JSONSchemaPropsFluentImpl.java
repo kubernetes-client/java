@@ -104,8 +104,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
   private java.lang.String $schema;
   private java.lang.Object additionalItems;
   private java.lang.Object additionalProperties;
-  private java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> allOf;
-  private java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> anyOf;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> allOf;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> anyOf;
   private java.lang.Object _default;
   private java.util.Map<java.lang.String,io.kubernetes.client.openapi.models.V1JSONSchemaProps> definitions;
   private java.util.Map<java.lang.String,java.lang.Object> dependencies;
@@ -129,7 +129,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
   private java.lang.Double multipleOf;
   private io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder not;
   private java.lang.Boolean nullable;
-  private java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> oneOf;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> oneOf;
   private java.lang.String pattern;
   private java.util.Map<java.lang.String,io.kubernetes.client.openapi.models.V1JSONSchemaProps> patternProperties;
   private java.util.Map<java.lang.String,io.kubernetes.client.openapi.models.V1JSONSchemaProps> properties;
@@ -151,8 +151,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withRef instead.
    */
   @java.lang.Deprecated
-  public A withNewRef(java.lang.String original) {
-    return (A)withRef(new String(original));
+  public A withNewRef(java.lang.String arg0) {
+    return (A)withRef(new String(arg0));
   }
   public java.lang.String getSchema() {
     return this.$schema;
@@ -168,8 +168,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withSchema instead.
    */
   @java.lang.Deprecated
-  public A withNewSchema(java.lang.String original) {
-    return (A)withSchema(new String(original));
+  public A withNewSchema(java.lang.String arg0) {
+    return (A)withSchema(new String(arg0));
   }
   public java.lang.Object getAdditionalItems() {
     return this.additionalItems;
@@ -234,10 +234,10 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getAllOf() {
-    return build(allOf);
+    return allOf != null ? build(allOf) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> buildAllOf() {
-    return build(allOf);
+    return allOf != null ? build(allOf) : null;
   }
   public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildAllOf(java.lang.Integer index) {
     return this.allOf.get(index).build();
@@ -340,10 +340,10 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getAnyOf() {
-    return build(anyOf);
+    return anyOf != null ? build(anyOf) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> buildAnyOf() {
-    return build(anyOf);
+    return anyOf != null ? build(anyOf) : null;
   }
   public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildAnyOf(java.lang.Integer index) {
     return this.anyOf.get(index).build();
@@ -474,8 +474,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withDescription instead.
    */
   @java.lang.Deprecated
-  public A withNewDescription(java.lang.String original) {
-    return (A)withDescription(new String(original));
+  public A withNewDescription(java.lang.String arg0) {
+    return (A)withDescription(new String(arg0));
   }
   public A addToEnum(java.lang.Integer index,java.lang.Object item) {
     if (this._enum == null) {this._enum = new java.util.ArrayList<java.lang.Object>();}
@@ -562,10 +562,10 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ExternalDocumentation getExternalDocs() {
-    return this.externalDocs!=null?this.externalDocs.build():null;
+    return this.externalDocs!=null ?this.externalDocs.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ExternalDocumentation buildExternalDocs() {
-    return this.externalDocs!=null?this.externalDocs.build():null;
+    return this.externalDocs!=null ?this.externalDocs.build():null;
   }
   public A withExternalDocs(io.kubernetes.client.openapi.models.V1ExternalDocumentation externalDocs) {
     _visitables.get("externalDocs").remove(this.externalDocs);
@@ -603,8 +603,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withFormat instead.
    */
   @java.lang.Deprecated
-  public A withNewFormat(java.lang.String original) {
-    return (A)withFormat(new String(original));
+  public A withNewFormat(java.lang.String arg0) {
+    return (A)withFormat(new String(arg0));
   }
   public java.lang.String getId() {
     return this.id;
@@ -620,8 +620,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withId instead.
    */
   @java.lang.Deprecated
-  public A withNewId(java.lang.String original) {
-    return (A)withId(new String(original));
+  public A withNewId(java.lang.String arg0) {
+    return (A)withId(new String(arg0));
   }
   public java.lang.Object getItems() {
     return this.items;
@@ -720,10 +720,10 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1JSONSchemaProps getNot() {
-    return this.not!=null?this.not.build():null;
+    return this.not!=null ?this.not.build():null;
   }
   public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildNot() {
-    return this.not!=null?this.not.build():null;
+    return this.not!=null ?this.not.build():null;
   }
   public A withNot(io.kubernetes.client.openapi.models.V1JSONSchemaProps not) {
     _visitables.get("not").remove(this.not);
@@ -801,10 +801,10 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getOneOf() {
-    return build(oneOf);
+    return oneOf != null ? build(oneOf) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> buildOneOf() {
-    return build(oneOf);
+    return oneOf != null ? build(oneOf) : null;
   }
   public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildOneOf(java.lang.Integer index) {
     return this.oneOf.get(index).build();
@@ -876,8 +876,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPattern instead.
    */
   @java.lang.Deprecated
-  public A withNewPattern(java.lang.String original) {
-    return (A)withPattern(new String(original));
+  public A withNewPattern(java.lang.String arg0) {
+    return (A)withPattern(new String(arg0));
   }
   public A addToPatternProperties(java.lang.String key,io.kubernetes.client.openapi.models.V1JSONSchemaProps value) {
     if(this.patternProperties == null && key != null && value != null) { this.patternProperties = new java.util.LinkedHashMap(); }
@@ -980,8 +980,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
   public java.lang.Boolean hasRequired() {
     return required != null && !required.isEmpty();
   }
-  public A addNewRequired(java.lang.String original) {
-    return (A)addToRequired(new String(original));
+  public A addNewRequired(java.lang.String arg0) {
+    return (A)addToRequired(new String(arg0));
   }
   public java.lang.String getTitle() {
     return this.title;
@@ -997,8 +997,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withTitle instead.
    */
   @java.lang.Deprecated
-  public A withNewTitle(java.lang.String original) {
-    return (A)withTitle(new String(original));
+  public A withNewTitle(java.lang.String arg0) {
+    return (A)withTitle(new String(arg0));
   }
   public java.lang.String getType() {
     return this.type;
@@ -1014,8 +1014,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public java.lang.Boolean getUniqueItems() {
     return this.uniqueItems;

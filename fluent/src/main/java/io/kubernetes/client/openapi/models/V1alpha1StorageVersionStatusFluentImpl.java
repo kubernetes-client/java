@@ -29,8 +29,8 @@ public class V1alpha1StorageVersionStatusFluentImpl<A extends io.kubernetes.clie
 
   }
   private java.lang.String commonEncodingVersion;
-  private java.util.List<io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionBuilder> conditions;
-  private java.util.List<io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionBuilder> storageVersions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionBuilder> storageVersions;
   public java.lang.String getCommonEncodingVersion() {
     return this.commonEncodingVersion;
   }
@@ -45,8 +45,8 @@ public class V1alpha1StorageVersionStatusFluentImpl<A extends io.kubernetes.clie
    * Method is deprecated. use withCommonEncodingVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewCommonEncodingVersion(java.lang.String original) {
-    return (A)withCommonEncodingVersion(new String(original));
+  public A withNewCommonEncodingVersion(java.lang.String arg0) {
+    return (A)withCommonEncodingVersion(new String(arg0));
   }
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition item) {
     if (this.conditions == null) {this.conditions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionBuilder>();}
@@ -93,10 +93,10 @@ public class V1alpha1StorageVersionStatusFluentImpl<A extends io.kubernetes.clie
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -199,10 +199,10 @@ public class V1alpha1StorageVersionStatusFluentImpl<A extends io.kubernetes.clie
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion> getStorageVersions() {
-    return build(storageVersions);
+    return storageVersions != null ? build(storageVersions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion> buildStorageVersions() {
-    return build(storageVersions);
+    return storageVersions != null ? build(storageVersions) : null;
   }
   public io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion buildStorageVersion(java.lang.Integer index) {
     return this.storageVersions.get(index).build();

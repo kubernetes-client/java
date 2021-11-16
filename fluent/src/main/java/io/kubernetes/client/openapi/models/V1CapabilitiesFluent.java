@@ -29,7 +29,7 @@ public interface V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.mod
   public A withAdd(java.util.List<java.lang.String> add);
   public A withAdd(java.lang.String... add);
   public java.lang.Boolean hasAdd();
-  public A addNewAdd(java.lang.String original);
+  public A addNewAdd(java.lang.String arg0);
   public A addToDrop(java.lang.Integer index,java.lang.String item);
   public A setToDrop(java.lang.Integer index,java.lang.String item);
   public A addToDrop(java.lang.String... items);
@@ -45,6 +45,6 @@ public interface V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.mod
   public A withDrop(java.util.List<java.lang.String> drop);
   public A withDrop(java.lang.String... drop);
   public java.lang.Boolean hasDrop();
-  public A addNewDrop(java.lang.String original);
+  public A addNewDrop(java.lang.String arg0);
   
 }

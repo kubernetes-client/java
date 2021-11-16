@@ -23,7 +23,7 @@ public class V1ScopeSelectorFluentImpl<A extends io.kubernetes.client.openapi.mo
     this.withMatchExpressions(instance.getMatchExpressions());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder> matchExpressions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder> matchExpressions;
   public A addToMatchExpressions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement item) {
     if (this.matchExpressions == null) {this.matchExpressions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>();}
     io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder builder = new io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder(item);_visitables.get("matchExpressions").add(index >= 0 ? index : _visitables.get("matchExpressions").size(), builder);this.matchExpressions.add(index >= 0 ? index : matchExpressions.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1ScopeSelectorFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement> getMatchExpressions() {
-    return build(matchExpressions);
+    return matchExpressions != null ? build(matchExpressions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement> buildMatchExpressions() {
-    return build(matchExpressions);
+    return matchExpressions != null ? build(matchExpressions) : null;
   }
   public io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement buildMatchExpression(java.lang.Integer index) {
     return this.matchExpressions.get(index).build();

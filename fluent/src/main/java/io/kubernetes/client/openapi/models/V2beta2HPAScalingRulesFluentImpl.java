@@ -28,7 +28,7 @@ public class V2beta2HPAScalingRulesFluentImpl<A extends io.kubernetes.client.ope
     this.withStabilizationWindowSeconds(instance.getStabilizationWindowSeconds());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyBuilder> policies;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyBuilder> policies;
   private java.lang.String selectPolicy;
   private java.lang.Integer stabilizationWindowSeconds;
   public A addToPolicies(java.lang.Integer index,io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy item) {
@@ -76,10 +76,10 @@ public class V2beta2HPAScalingRulesFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy> getPolicies() {
-    return build(policies);
+    return policies != null ? build(policies) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy> buildPolicies() {
-    return build(policies);
+    return policies != null ? build(policies) : null;
   }
   public io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy buildPolicy(java.lang.Integer index) {
     return this.policies.get(index).build();
@@ -151,8 +151,8 @@ public class V2beta2HPAScalingRulesFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withSelectPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewSelectPolicy(java.lang.String original) {
-    return (A)withSelectPolicy(new String(original));
+  public A withNewSelectPolicy(java.lang.String arg0) {
+    return (A)withSelectPolicy(new String(arg0));
   }
   public java.lang.Integer getStabilizationWindowSeconds() {
     return this.stabilizationWindowSeconds;

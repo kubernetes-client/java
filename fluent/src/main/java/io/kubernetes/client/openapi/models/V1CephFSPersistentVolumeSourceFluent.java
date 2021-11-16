@@ -31,7 +31,7 @@ public interface V1CephFSPersistentVolumeSourceFluent<A extends io.kubernetes.cl
   public A withMonitors(java.util.List<java.lang.String> monitors);
   public A withMonitors(java.lang.String... monitors);
   public java.lang.Boolean hasMonitors();
-  public A addNewMonitor(java.lang.String original);
+  public A addNewMonitor(java.lang.String arg0);
   public java.lang.String getPath();
   public A withPath(java.lang.String path);
   public java.lang.Boolean hasPath();
@@ -40,7 +40,7 @@ public interface V1CephFSPersistentVolumeSourceFluent<A extends io.kubernetes.cl
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String original);
+  public A withNewPath(java.lang.String arg0);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();
@@ -52,7 +52,7 @@ public interface V1CephFSPersistentVolumeSourceFluent<A extends io.kubernetes.cl
    * Method is deprecated. use withSecretFile instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretFile(java.lang.String original);
+  public A withNewSecretFile(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
@@ -76,7 +76,7 @@ public interface V1CephFSPersistentVolumeSourceFluent<A extends io.kubernetes.cl
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String original);
+  public A withNewUser(java.lang.String arg0);
   public interface SecretRefNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1SecretReferenceFluent<io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<N>>{
     public N and();
     public N endSecretRef();

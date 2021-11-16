@@ -28,10 +28,10 @@ public class V1PreferredSchedulingTermFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeSelectorTerm getPreference() {
-    return this.preference!=null?this.preference.build():null;
+    return this.preference!=null ?this.preference.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeSelectorTerm buildPreference() {
-    return this.preference!=null?this.preference.build():null;
+    return this.preference!=null ?this.preference.build():null;
   }
   public A withPreference(io.kubernetes.client.openapi.models.V1NodeSelectorTerm preference) {
     _visitables.get("preference").remove(this.preference);

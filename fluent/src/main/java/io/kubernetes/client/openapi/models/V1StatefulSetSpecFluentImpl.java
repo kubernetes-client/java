@@ -48,7 +48,7 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
   private java.lang.String serviceName;
   private io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder template;
   private io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyBuilder updateStrategy;
-  private java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder> volumeClaimTemplates;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder> volumeClaimTemplates;
   public java.lang.Integer getMinReadySeconds() {
     return this.minReadySeconds;
   }
@@ -72,8 +72,8 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPodManagementPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPodManagementPolicy(java.lang.String original) {
-    return (A)withPodManagementPolicy(new String(original));
+  public A withNewPodManagementPolicy(java.lang.String arg0) {
+    return (A)withPodManagementPolicy(new String(arg0));
   }
   public java.lang.Integer getReplicas() {
     return this.replicas;
@@ -100,10 +100,10 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
@@ -141,8 +141,8 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withServiceName instead.
    */
   @java.lang.Deprecated
-  public A withNewServiceName(java.lang.String original) {
-    return (A)withServiceName(new String(original));
+  public A withNewServiceName(java.lang.String arg0) {
+    return (A)withServiceName(new String(arg0));
   }
   
   /**
@@ -151,10 +151,10 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate() {
-    return this.template!=null?this.template.build():null;
+    return this.template!=null ?this.template.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate() {
-    return this.template!=null?this.template.build():null;
+    return this.template!=null ?this.template.build():null;
   }
   public A withTemplate(io.kubernetes.client.openapi.models.V1PodTemplateSpec template) {
     _visitables.get("template").remove(this.template);
@@ -185,10 +185,10 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy getUpdateStrategy() {
-    return this.updateStrategy!=null?this.updateStrategy.build():null;
+    return this.updateStrategy!=null ?this.updateStrategy.build():null;
   }
   public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy buildUpdateStrategy() {
-    return this.updateStrategy!=null?this.updateStrategy.build():null;
+    return this.updateStrategy!=null ?this.updateStrategy.build():null;
   }
   public A withUpdateStrategy(io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy updateStrategy) {
     _visitables.get("updateStrategy").remove(this.updateStrategy);
@@ -257,10 +257,10 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim> getVolumeClaimTemplates() {
-    return build(volumeClaimTemplates);
+    return volumeClaimTemplates != null ? build(volumeClaimTemplates) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim> buildVolumeClaimTemplates() {
-    return build(volumeClaimTemplates);
+    return volumeClaimTemplates != null ? build(volumeClaimTemplates) : null;
   }
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaim buildVolumeClaimTemplate(java.lang.Integer index) {
     return this.volumeClaimTemplates.get(index).build();

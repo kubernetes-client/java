@@ -35,10 +35,10 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends io.kubernetes.client.op
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectFieldSelector getFieldRef() {
-    return this.fieldRef!=null?this.fieldRef.build():null;
+    return this.fieldRef!=null ?this.fieldRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectFieldSelector buildFieldRef() {
-    return this.fieldRef!=null?this.fieldRef.build():null;
+    return this.fieldRef!=null ?this.fieldRef.build():null;
   }
   public A withFieldRef(io.kubernetes.client.openapi.models.V1ObjectFieldSelector fieldRef) {
     _visitables.get("fieldRef").remove(this.fieldRef);
@@ -85,8 +85,8 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A)withPath(new String(original));
+  public A withNewPath(java.lang.String arg0) {
+    return (A)withPath(new String(arg0));
   }
   
   /**
@@ -95,10 +95,10 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends io.kubernetes.client.op
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ResourceFieldSelector getResourceFieldRef() {
-    return this.resourceFieldRef!=null?this.resourceFieldRef.build():null;
+    return this.resourceFieldRef!=null ?this.resourceFieldRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ResourceFieldSelector buildResourceFieldRef() {
-    return this.resourceFieldRef!=null?this.resourceFieldRef.build():null;
+    return this.resourceFieldRef!=null ?this.resourceFieldRef.build():null;
   }
   public A withResourceFieldRef(io.kubernetes.client.openapi.models.V1ResourceFieldSelector resourceFieldRef) {
     _visitables.get("resourceFieldRef").remove(this.resourceFieldRef);

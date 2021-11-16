@@ -61,7 +61,7 @@ public interface V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.
   public A withNamespaces(java.util.List<java.lang.String> namespaces);
   public A withNamespaces(java.lang.String... namespaces);
   public java.lang.Boolean hasNamespaces();
-  public A addNewNamespace(java.lang.String original);
+  public A addNewNamespace(java.lang.String arg0);
   public java.lang.String getTopologyKey();
   public A withTopologyKey(java.lang.String topologyKey);
   public java.lang.Boolean hasTopologyKey();
@@ -70,7 +70,7 @@ public interface V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withTopologyKey instead.
    */
   @java.lang.Deprecated
-  public A withNewTopologyKey(java.lang.String original);
+  public A withNewTopologyKey(java.lang.String arg0);
   public interface LabelSelectorNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1LabelSelectorFluent<io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.LabelSelectorNested<N>>{
     public N and();
     public N endLabelSelector();

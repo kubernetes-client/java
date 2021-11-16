@@ -38,8 +38,8 @@ public class ApiregistrationV1ServiceReferenceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.String getNamespace() {
     return this.namespace;
@@ -55,8 +55,8 @@ public class ApiregistrationV1ServiceReferenceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A)withNamespace(new String(original));
+  public A withNewNamespace(java.lang.String arg0) {
+    return (A)withNamespace(new String(arg0));
   }
   public java.lang.Integer getPort() {
     return this.port;

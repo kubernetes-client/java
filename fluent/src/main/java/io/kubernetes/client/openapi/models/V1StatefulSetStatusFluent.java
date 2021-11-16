@@ -66,7 +66,7 @@ public interface V1StatefulSetStatusFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withCurrentRevision instead.
    */
   @java.lang.Deprecated
-  public A withNewCurrentRevision(java.lang.String original);
+  public A withNewCurrentRevision(java.lang.String arg0);
   public java.lang.Long getObservedGeneration();
   public A withObservedGeneration(java.lang.Long observedGeneration);
   public java.lang.Boolean hasObservedGeneration();
@@ -84,7 +84,7 @@ public interface V1StatefulSetStatusFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withUpdateRevision instead.
    */
   @java.lang.Deprecated
-  public A withNewUpdateRevision(java.lang.String original);
+  public A withNewUpdateRevision(java.lang.String arg0);
   public java.lang.Integer getUpdatedReplicas();
   public A withUpdatedReplicas(java.lang.Integer updatedReplicas);
   public java.lang.Boolean hasUpdatedReplicas();

@@ -41,7 +41,7 @@ public class V1CSIDriverSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
   private java.lang.Boolean podInfoOnMount;
   private java.lang.Boolean requiresRepublish;
   private java.lang.Boolean storageCapacity;
-  private java.util.List<io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder> tokenRequests;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder> tokenRequests;
   private java.util.List<java.lang.String> volumeLifecycleModes;
   public java.lang.Boolean getAttachRequired() {
     return this.attachRequired;
@@ -66,8 +66,8 @@ public class V1CSIDriverSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withFsGroupPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewFsGroupPolicy(java.lang.String original) {
-    return (A)withFsGroupPolicy(new String(original));
+  public A withNewFsGroupPolicy(java.lang.String arg0) {
+    return (A)withFsGroupPolicy(new String(arg0));
   }
   public java.lang.Boolean getPodInfoOnMount() {
     return this.podInfoOnMount;
@@ -141,10 +141,10 @@ public class V1CSIDriverSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.StorageV1TokenRequest> getTokenRequests() {
-    return build(tokenRequests);
+    return tokenRequests != null ? build(tokenRequests) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.StorageV1TokenRequest> buildTokenRequests() {
-    return build(tokenRequests);
+    return tokenRequests != null ? build(tokenRequests) : null;
   }
   public io.kubernetes.client.openapi.models.StorageV1TokenRequest buildTokenRequest(java.lang.Integer index) {
     return this.tokenRequests.get(index).build();
@@ -253,8 +253,8 @@ public class V1CSIDriverSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
   public java.lang.Boolean hasVolumeLifecycleModes() {
     return volumeLifecycleModes != null && !volumeLifecycleModes.isEmpty();
   }
-  public A addNewVolumeLifecycleMode(java.lang.String original) {
-    return (A)addToVolumeLifecycleModes(new String(original));
+  public A addNewVolumeLifecycleMode(java.lang.String arg0) {
+    return (A)addToVolumeLifecycleModes(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

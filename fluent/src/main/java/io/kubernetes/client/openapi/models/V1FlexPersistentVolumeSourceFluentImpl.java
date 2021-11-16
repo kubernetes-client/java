@@ -46,8 +46,8 @@ public class V1FlexPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clie
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original) {
-    return (A)withDriver(new String(original));
+  public A withNewDriver(java.lang.String arg0) {
+    return (A)withDriver(new String(arg0));
   }
   public java.lang.String getFsType() {
     return this.fsType;
@@ -63,8 +63,8 @@ public class V1FlexPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clie
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A)withFsType(new String(original));
+  public A withNewFsType(java.lang.String arg0) {
+    return (A)withFsType(new String(arg0));
   }
   public A addToOptions(java.lang.String key,java.lang.String value) {
     if(this.options == null && key != null && value != null) { this.options = new java.util.LinkedHashMap(); }
@@ -107,10 +107,10 @@ public class V1FlexPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clie
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecretReference getSecretRef() {
-    return this.secretRef!=null?this.secretRef.build():null;
+    return this.secretRef!=null ?this.secretRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecretReference buildSecretRef() {
-    return this.secretRef!=null?this.secretRef.build():null;
+    return this.secretRef!=null ?this.secretRef.build():null;
   }
   public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretReference secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);

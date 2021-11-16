@@ -19,7 +19,7 @@ public interface V2beta2MetricIdentifierFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildSelector instead.

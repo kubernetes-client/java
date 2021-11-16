@@ -46,8 +46,8 @@ public class V1AzureDiskVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withCachingMode instead.
    */
   @java.lang.Deprecated
-  public A withNewCachingMode(java.lang.String original) {
-    return (A)withCachingMode(new String(original));
+  public A withNewCachingMode(java.lang.String arg0) {
+    return (A)withCachingMode(new String(arg0));
   }
   public java.lang.String getDiskName() {
     return this.diskName;
@@ -63,8 +63,8 @@ public class V1AzureDiskVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withDiskName instead.
    */
   @java.lang.Deprecated
-  public A withNewDiskName(java.lang.String original) {
-    return (A)withDiskName(new String(original));
+  public A withNewDiskName(java.lang.String arg0) {
+    return (A)withDiskName(new String(arg0));
   }
   public java.lang.String getDiskURI() {
     return this.diskURI;
@@ -80,8 +80,8 @@ public class V1AzureDiskVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withDiskURI instead.
    */
   @java.lang.Deprecated
-  public A withNewDiskURI(java.lang.String original) {
-    return (A)withDiskURI(new String(original));
+  public A withNewDiskURI(java.lang.String arg0) {
+    return (A)withDiskURI(new String(arg0));
   }
   public java.lang.String getFsType() {
     return this.fsType;
@@ -97,8 +97,8 @@ public class V1AzureDiskVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A)withFsType(new String(original));
+  public A withNewFsType(java.lang.String arg0) {
+    return (A)withFsType(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -114,8 +114,8 @@ public class V1AzureDiskVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;

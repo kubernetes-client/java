@@ -109,8 +109,8 @@ public class V1UserInfoFluentImpl<A extends io.kubernetes.client.openapi.models.
   public java.lang.Boolean hasGroups() {
     return groups != null && !groups.isEmpty();
   }
-  public A addNewGroup(java.lang.String original) {
-    return (A)addToGroups(new String(original));
+  public A addNewGroup(java.lang.String arg0) {
+    return (A)addToGroups(new String(arg0));
   }
   public java.lang.String getUid() {
     return this.uid;
@@ -126,8 +126,8 @@ public class V1UserInfoFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A)withUid(new String(original));
+  public A withNewUid(java.lang.String arg0) {
+    return (A)withUid(new String(arg0));
   }
   public java.lang.String getUsername() {
     return this.username;
@@ -143,8 +143,8 @@ public class V1UserInfoFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withUsername instead.
    */
   @java.lang.Deprecated
-  public A withNewUsername(java.lang.String original) {
-    return (A)withUsername(new String(original));
+  public A withNewUsername(java.lang.String arg0) {
+    return (A)withUsername(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

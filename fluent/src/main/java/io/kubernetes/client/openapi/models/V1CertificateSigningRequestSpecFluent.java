@@ -43,7 +43,7 @@ public interface V1CertificateSigningRequestSpecFluent<A extends io.kubernetes.c
   public A withGroups(java.util.List<java.lang.String> groups);
   public A withGroups(java.lang.String... groups);
   public java.lang.Boolean hasGroups();
-  public A addNewGroup(java.lang.String original);
+  public A addNewGroup(java.lang.String arg0);
   public A withRequest(byte... request);
   public byte[] getRequest();
   public A addToRequest(java.lang.Integer index,java.lang.Byte item);
@@ -61,7 +61,7 @@ public interface V1CertificateSigningRequestSpecFluent<A extends io.kubernetes.c
    * Method is deprecated. use withSignerName instead.
    */
   @java.lang.Deprecated
-  public A withNewSignerName(java.lang.String original);
+  public A withNewSignerName(java.lang.String arg0);
   public java.lang.String getUid();
   public A withUid(java.lang.String uid);
   public java.lang.Boolean hasUid();
@@ -70,7 +70,7 @@ public interface V1CertificateSigningRequestSpecFluent<A extends io.kubernetes.c
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original);
+  public A withNewUid(java.lang.String arg0);
   public A addToUsages(java.lang.Integer index,java.lang.String item);
   public A setToUsages(java.lang.Integer index,java.lang.String item);
   public A addToUsages(java.lang.String... items);
@@ -86,7 +86,7 @@ public interface V1CertificateSigningRequestSpecFluent<A extends io.kubernetes.c
   public A withUsages(java.util.List<java.lang.String> usages);
   public A withUsages(java.lang.String... usages);
   public java.lang.Boolean hasUsages();
-  public A addNewUsage(java.lang.String original);
+  public A addNewUsage(java.lang.String arg0);
   public java.lang.String getUsername();
   public A withUsername(java.lang.String username);
   public java.lang.Boolean hasUsername();
@@ -95,6 +95,6 @@ public interface V1CertificateSigningRequestSpecFluent<A extends io.kubernetes.c
    * Method is deprecated. use withUsername instead.
    */
   @java.lang.Deprecated
-  public A withNewUsername(java.lang.String original);
+  public A withNewUsername(java.lang.String arg0);
   
 }

@@ -38,8 +38,8 @@ public class V1EnvVarFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.String getValue() {
     return this.value;
@@ -55,8 +55,8 @@ public class V1EnvVarFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withValue instead.
    */
   @java.lang.Deprecated
-  public A withNewValue(java.lang.String original) {
-    return (A)withValue(new String(original));
+  public A withNewValue(java.lang.String arg0) {
+    return (A)withValue(new String(arg0));
   }
   
   /**
@@ -65,10 +65,10 @@ public class V1EnvVarFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1EnvVarSource getValueFrom() {
-    return this.valueFrom!=null?this.valueFrom.build():null;
+    return this.valueFrom!=null ?this.valueFrom.build():null;
   }
   public io.kubernetes.client.openapi.models.V1EnvVarSource buildValueFrom() {
-    return this.valueFrom!=null?this.valueFrom.build():null;
+    return this.valueFrom!=null ?this.valueFrom.build():null;
   }
   public A withValueFrom(io.kubernetes.client.openapi.models.V1EnvVarSource valueFrom) {
     _visitables.get("valueFrom").remove(this.valueFrom);

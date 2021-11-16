@@ -28,10 +28,10 @@ public class V1alpha1VolumeAttachmentSourceFluentImpl<A extends io.kubernetes.cl
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec getInlineVolumeSpec() {
-    return this.inlineVolumeSpec!=null?this.inlineVolumeSpec.build():null;
+    return this.inlineVolumeSpec!=null ?this.inlineVolumeSpec.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec buildInlineVolumeSpec() {
-    return this.inlineVolumeSpec!=null?this.inlineVolumeSpec.build():null;
+    return this.inlineVolumeSpec!=null ?this.inlineVolumeSpec.build():null;
   }
   public A withInlineVolumeSpec(io.kubernetes.client.openapi.models.V1PersistentVolumeSpec inlineVolumeSpec) {
     _visitables.get("inlineVolumeSpec").remove(this.inlineVolumeSpec);
@@ -69,8 +69,8 @@ public class V1alpha1VolumeAttachmentSourceFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withPersistentVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewPersistentVolumeName(java.lang.String original) {
-    return (A)withPersistentVolumeName(new String(original));
+  public A withNewPersistentVolumeName(java.lang.String arg0) {
+    return (A)withPersistentVolumeName(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

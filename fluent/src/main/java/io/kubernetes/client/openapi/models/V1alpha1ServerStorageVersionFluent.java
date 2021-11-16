@@ -23,7 +23,7 @@ public interface V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.clie
    * Method is deprecated. use withApiServerID instead.
    */
   @java.lang.Deprecated
-  public A withNewApiServerID(java.lang.String original);
+  public A withNewApiServerID(java.lang.String arg0);
   public A addToDecodableVersions(java.lang.Integer index,java.lang.String item);
   public A setToDecodableVersions(java.lang.Integer index,java.lang.String item);
   public A addToDecodableVersions(java.lang.String... items);
@@ -39,7 +39,7 @@ public interface V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.clie
   public A withDecodableVersions(java.util.List<java.lang.String> decodableVersions);
   public A withDecodableVersions(java.lang.String... decodableVersions);
   public java.lang.Boolean hasDecodableVersions();
-  public A addNewDecodableVersion(java.lang.String original);
+  public A addNewDecodableVersion(java.lang.String arg0);
   public java.lang.String getEncodingVersion();
   public A withEncodingVersion(java.lang.String encodingVersion);
   public java.lang.Boolean hasEncodingVersion();
@@ -48,6 +48,6 @@ public interface V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.clie
    * Method is deprecated. use withEncodingVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewEncodingVersion(java.lang.String original);
+  public A withNewEncodingVersion(java.lang.String arg0);
   
 }

@@ -48,8 +48,8 @@ public class V1ServicePortFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withAppProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String original) {
-    return (A)withAppProtocol(new String(original));
+  public A withNewAppProtocol(java.lang.String arg0) {
+    return (A)withAppProtocol(new String(arg0));
   }
   public java.lang.String getName() {
     return this.name;
@@ -65,8 +65,8 @@ public class V1ServicePortFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.Integer getNodePort() {
     return this.nodePort;
@@ -100,8 +100,8 @@ public class V1ServicePortFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String original) {
-    return (A)withProtocol(new String(original));
+  public A withNewProtocol(java.lang.String arg0) {
+    return (A)withProtocol(new String(arg0));
   }
   public io.kubernetes.client.custom.IntOrString getTargetPort() {
     return this.targetPort;

@@ -23,7 +23,7 @@ public class V1AggregationRuleFluentImpl<A extends io.kubernetes.client.openapi.
     this.withClusterRoleSelectors(instance.getClusterRoleSelectors());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1LabelSelectorBuilder> clusterRoleSelectors;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1LabelSelectorBuilder> clusterRoleSelectors;
   public A addToClusterRoleSelectors(java.lang.Integer index,io.kubernetes.client.openapi.models.V1LabelSelector item) {
     if (this.clusterRoleSelectors == null) {this.clusterRoleSelectors = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1LabelSelectorBuilder>();}
     io.kubernetes.client.openapi.models.V1LabelSelectorBuilder builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(item);_visitables.get("clusterRoleSelectors").add(index >= 0 ? index : _visitables.get("clusterRoleSelectors").size(), builder);this.clusterRoleSelectors.add(index >= 0 ? index : clusterRoleSelectors.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1AggregationRuleFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1LabelSelector> getClusterRoleSelectors() {
-    return build(clusterRoleSelectors);
+    return clusterRoleSelectors != null ? build(clusterRoleSelectors) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1LabelSelector> buildClusterRoleSelectors() {
-    return build(clusterRoleSelectors);
+    return clusterRoleSelectors != null ? build(clusterRoleSelectors) : null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildClusterRoleSelector(java.lang.Integer index) {
     return this.clusterRoleSelectors.get(index).build();

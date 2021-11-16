@@ -40,7 +40,7 @@ public interface V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
   public A withGroups(java.util.List<java.lang.String> groups);
   public A withGroups(java.lang.String... groups);
   public java.lang.Boolean hasGroups();
-  public A addNewGroup(java.lang.String original);
+  public A addNewGroup(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildNonResourceAttributes instead.
@@ -79,7 +79,7 @@ public interface V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original);
+  public A withNewUid(java.lang.String arg0);
   public java.lang.String getUser();
   public A withUser(java.lang.String user);
   public java.lang.Boolean hasUser();
@@ -88,7 +88,7 @@ public interface V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String original);
+  public A withNewUser(java.lang.String arg0);
   public interface NonResourceAttributesNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1NonResourceAttributesFluent<io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<N>>{
     public N and();
     public N endNonResourceAttributes();

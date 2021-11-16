@@ -24,10 +24,10 @@ public class V1SessionAffinityConfigFluentImpl<A extends io.kubernetes.client.op
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ClientIPConfig getClientIP() {
-    return this.clientIP!=null?this.clientIP.build():null;
+    return this.clientIP!=null ?this.clientIP.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ClientIPConfig buildClientIP() {
-    return this.clientIP!=null?this.clientIP.build():null;
+    return this.clientIP!=null ?this.clientIP.build():null;
   }
   public A withClientIP(io.kubernetes.client.openapi.models.V1ClientIPConfig clientIP) {
     _visitables.get("clientIP").remove(this.clientIP);

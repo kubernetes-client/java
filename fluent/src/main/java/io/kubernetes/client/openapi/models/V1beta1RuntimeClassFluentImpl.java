@@ -47,8 +47,8 @@ public class V1beta1RuntimeClassFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.String getHandler() {
     return this.handler;
@@ -64,8 +64,8 @@ public class V1beta1RuntimeClassFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withHandler instead.
    */
   @java.lang.Deprecated
-  public A withNewHandler(java.lang.String original) {
-    return (A)withHandler(new String(original));
+  public A withNewHandler(java.lang.String arg0) {
+    return (A)withHandler(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -81,8 +81,8 @@ public class V1beta1RuntimeClassFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -91,10 +91,10 @@ public class V1beta1RuntimeClassFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -125,10 +125,10 @@ public class V1beta1RuntimeClassFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1Overhead getOverhead() {
-    return this.overhead!=null?this.overhead.build():null;
+    return this.overhead!=null ?this.overhead.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1Overhead buildOverhead() {
-    return this.overhead!=null?this.overhead.build():null;
+    return this.overhead!=null ?this.overhead.build():null;
   }
   public A withOverhead(io.kubernetes.client.openapi.models.V1beta1Overhead overhead) {
     _visitables.get("overhead").remove(this.overhead);
@@ -159,10 +159,10 @@ public class V1beta1RuntimeClassFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1Scheduling getScheduling() {
-    return this.scheduling!=null?this.scheduling.build():null;
+    return this.scheduling!=null ?this.scheduling.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1Scheduling buildScheduling() {
-    return this.scheduling!=null?this.scheduling.build():null;
+    return this.scheduling!=null ?this.scheduling.build():null;
   }
   public A withScheduling(io.kubernetes.client.openapi.models.V1beta1Scheduling scheduling) {
     _visitables.get("scheduling").remove(this.scheduling);

@@ -18,7 +18,7 @@ public interface V1ComponentConditionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String original);
+  public A withNewError(java.lang.String arg0);
   public java.lang.String getMessage();
   public A withMessage(java.lang.String message);
   public java.lang.Boolean hasMessage();
@@ -27,7 +27,7 @@ public interface V1ComponentConditionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
+  public A withNewMessage(java.lang.String arg0);
   public java.lang.String getStatus();
   public A withStatus(java.lang.String status);
   public java.lang.Boolean hasStatus();
@@ -36,7 +36,7 @@ public interface V1ComponentConditionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original);
+  public A withNewStatus(java.lang.String arg0);
   public java.lang.String getType();
   public A withType(java.lang.String type);
   public java.lang.Boolean hasType();
@@ -45,6 +45,6 @@ public interface V1ComponentConditionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   
 }

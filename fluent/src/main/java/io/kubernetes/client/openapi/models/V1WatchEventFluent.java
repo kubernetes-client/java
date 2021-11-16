@@ -22,6 +22,6 @@ public interface V1WatchEventFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   
 }

@@ -30,7 +30,7 @@ public interface V1PodSecurityContextFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withFsGroupChangePolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewFsGroupChangePolicy(java.lang.String original);
+  public A withNewFsGroupChangePolicy(java.lang.String arg0);
   public java.lang.Long getRunAsGroup();
   public A withRunAsGroup(java.lang.Long runAsGroup);
   public java.lang.Boolean hasRunAsGroup();

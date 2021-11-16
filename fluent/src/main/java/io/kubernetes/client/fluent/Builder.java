@@ -1,6 +1,8 @@
 package io.kubernetes.client.fluent;
 
-public interface Builder<T>{
+import java.lang.FunctionalInterface;
+  @java.lang.FunctionalInterface
+  public interface Builder<T>{
   T build();
   
 }

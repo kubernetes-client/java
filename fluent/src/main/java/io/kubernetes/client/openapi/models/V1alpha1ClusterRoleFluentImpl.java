@@ -36,7 +36,7 @@ public class V1alpha1ClusterRoleFluentImpl<A extends io.kubernetes.client.openap
   private java.lang.String apiVersion;
   private java.lang.String kind;
   private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private java.util.List<io.kubernetes.client.openapi.models.V1alpha1PolicyRuleBuilder> rules;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1alpha1PolicyRuleBuilder> rules;
   
   /**
    * This method has been deprecated, please use method buildAggregationRule instead.
@@ -44,10 +44,10 @@ public class V1alpha1ClusterRoleFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1alpha1AggregationRule getAggregationRule() {
-    return this.aggregationRule!=null?this.aggregationRule.build():null;
+    return this.aggregationRule!=null ?this.aggregationRule.build():null;
   }
   public io.kubernetes.client.openapi.models.V1alpha1AggregationRule buildAggregationRule() {
-    return this.aggregationRule!=null?this.aggregationRule.build():null;
+    return this.aggregationRule!=null ?this.aggregationRule.build():null;
   }
   public A withAggregationRule(io.kubernetes.client.openapi.models.V1alpha1AggregationRule aggregationRule) {
     _visitables.get("aggregationRule").remove(this.aggregationRule);
@@ -85,8 +85,8 @@ public class V1alpha1ClusterRoleFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -102,8 +102,8 @@ public class V1alpha1ClusterRoleFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -112,10 +112,10 @@ public class V1alpha1ClusterRoleFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -184,10 +184,10 @@ public class V1alpha1ClusterRoleFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1alpha1PolicyRule> getRules() {
-    return build(rules);
+    return rules != null ? build(rules) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1alpha1PolicyRule> buildRules() {
-    return build(rules);
+    return rules != null ? build(rules) : null;
   }
   public io.kubernetes.client.openapi.models.V1alpha1PolicyRule buildRule(java.lang.Integer index) {
     return this.rules.get(index).build();

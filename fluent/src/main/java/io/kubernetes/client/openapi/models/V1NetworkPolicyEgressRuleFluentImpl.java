@@ -25,8 +25,8 @@ public class V1NetworkPolicyEgressRuleFluentImpl<A extends io.kubernetes.client.
     this.withTo(instance.getTo());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder> ports;
-  private java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder> to;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder> ports;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder> to;
   public A addToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1NetworkPolicyPort item) {
     if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder>();}
     io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder builder = new io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder(item);_visitables.get("ports").add(index >= 0 ? index : _visitables.get("ports").size(), builder);this.ports.add(index >= 0 ? index : ports.size(), builder); return (A)this;
@@ -72,10 +72,10 @@ public class V1NetworkPolicyEgressRuleFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPort> getPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPort> buildPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public io.kubernetes.client.openapi.models.V1NetworkPolicyPort buildPort(java.lang.Integer index) {
     return this.ports.get(index).build();
@@ -178,10 +178,10 @@ public class V1NetworkPolicyEgressRuleFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPeer> getTo() {
-    return build(to);
+    return to != null ? build(to) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPeer> buildTo() {
-    return build(to);
+    return to != null ? build(to) : null;
   }
   public io.kubernetes.client.openapi.models.V1NetworkPolicyPeer buildTo(java.lang.Integer index) {
     return this.to.get(index).build();

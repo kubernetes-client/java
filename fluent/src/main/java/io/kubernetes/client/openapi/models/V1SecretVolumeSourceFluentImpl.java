@@ -31,7 +31,7 @@ public class V1SecretVolumeSourceFluentImpl<A extends io.kubernetes.client.opena
 
   }
   private java.lang.Integer defaultMode;
-  private java.util.List<io.kubernetes.client.openapi.models.V1KeyToPathBuilder> items;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1KeyToPathBuilder> items;
   private java.lang.Boolean optional;
   private java.lang.String secretName;
   public java.lang.Integer getDefaultMode() {
@@ -88,10 +88,10 @@ public class V1SecretVolumeSourceFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1KeyToPath> getItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1KeyToPath> buildItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public io.kubernetes.client.openapi.models.V1KeyToPath buildItem(java.lang.Integer index) {
     return this.items.get(index).build();
@@ -172,8 +172,8 @@ public class V1SecretVolumeSourceFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withSecretName instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String original) {
-    return (A)withSecretName(new String(original));
+  public A withNewSecretName(java.lang.String arg0) {
+    return (A)withSecretName(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

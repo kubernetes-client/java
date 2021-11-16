@@ -39,7 +39,7 @@ public class V1CustomResourceDefinitionSpecFluentImpl<A extends io.kubernetes.cl
   private io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder names;
   private java.lang.Boolean preserveUnknownFields;
   private java.lang.String scope;
-  private java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionBuilder> versions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionBuilder> versions;
   
   /**
    * This method has been deprecated, please use method buildConversion instead.
@@ -47,10 +47,10 @@ public class V1CustomResourceDefinitionSpecFluentImpl<A extends io.kubernetes.cl
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CustomResourceConversion getConversion() {
-    return this.conversion!=null?this.conversion.build():null;
+    return this.conversion!=null ?this.conversion.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceConversion buildConversion() {
-    return this.conversion!=null?this.conversion.build():null;
+    return this.conversion!=null ?this.conversion.build():null;
   }
   public A withConversion(io.kubernetes.client.openapi.models.V1CustomResourceConversion conversion) {
     _visitables.get("conversion").remove(this.conversion);
@@ -88,8 +88,8 @@ public class V1CustomResourceDefinitionSpecFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original) {
-    return (A)withGroup(new String(original));
+  public A withNewGroup(java.lang.String arg0) {
+    return (A)withGroup(new String(arg0));
   }
   
   /**
@@ -98,10 +98,10 @@ public class V1CustomResourceDefinitionSpecFluentImpl<A extends io.kubernetes.cl
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames getNames() {
-    return this.names!=null?this.names.build():null;
+    return this.names!=null ?this.names.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames buildNames() {
-    return this.names!=null?this.names.build():null;
+    return this.names!=null ?this.names.build():null;
   }
   public A withNames(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames names) {
     _visitables.get("names").remove(this.names);
@@ -148,8 +148,8 @@ public class V1CustomResourceDefinitionSpecFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withScope instead.
    */
   @java.lang.Deprecated
-  public A withNewScope(java.lang.String original) {
-    return (A)withScope(new String(original));
+  public A withNewScope(java.lang.String arg0) {
+    return (A)withScope(new String(arg0));
   }
   public A addToVersions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion item) {
     if (this.versions == null) {this.versions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionBuilder>();}
@@ -196,10 +196,10 @@ public class V1CustomResourceDefinitionSpecFluentImpl<A extends io.kubernetes.cl
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion> getVersions() {
-    return build(versions);
+    return versions != null ? build(versions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion> buildVersions() {
-    return build(versions);
+    return versions != null ? build(versions) : null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion buildVersion(java.lang.Integer index) {
     return this.versions.get(index).build();

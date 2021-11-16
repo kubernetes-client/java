@@ -37,7 +37,7 @@ public interface V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withClusterName instead.
    */
   @java.lang.Deprecated
-  public A withNewClusterName(java.lang.String original);
+  public A withNewClusterName(java.lang.String arg0);
   public java.time.OffsetDateTime getCreationTimestamp();
   public A withCreationTimestamp(java.time.OffsetDateTime creationTimestamp);
   public java.lang.Boolean hasCreationTimestamp();
@@ -62,7 +62,7 @@ public interface V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.model
   public A withFinalizers(java.util.List<java.lang.String> finalizers);
   public A withFinalizers(java.lang.String... finalizers);
   public java.lang.Boolean hasFinalizers();
-  public A addNewFinalizer(java.lang.String original);
+  public A addNewFinalizer(java.lang.String arg0);
   public java.lang.String getGenerateName();
   public A withGenerateName(java.lang.String generateName);
   public java.lang.Boolean hasGenerateName();
@@ -71,7 +71,7 @@ public interface V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withGenerateName instead.
    */
   @java.lang.Deprecated
-  public A withNewGenerateName(java.lang.String original);
+  public A withNewGenerateName(java.lang.String arg0);
   public java.lang.Long getGeneration();
   public A withGeneration(java.lang.Long generation);
   public java.lang.Boolean hasGeneration();
@@ -120,7 +120,7 @@ public interface V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   public java.lang.String getNamespace();
   public A withNamespace(java.lang.String namespace);
   public java.lang.Boolean hasNamespace();
@@ -129,7 +129,7 @@ public interface V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original);
+  public A withNewNamespace(java.lang.String arg0);
   public A addToOwnerReferences(java.lang.Integer index,io.kubernetes.client.openapi.models.V1OwnerReference item);
   public A setToOwnerReferences(java.lang.Integer index,io.kubernetes.client.openapi.models.V1OwnerReference item);
   public A addToOwnerReferences(io.kubernetes.client.openapi.models.V1OwnerReference... items);
@@ -168,7 +168,7 @@ public interface V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withResourceVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original);
+  public A withNewResourceVersion(java.lang.String arg0);
   public java.lang.String getSelfLink();
   public A withSelfLink(java.lang.String selfLink);
   public java.lang.Boolean hasSelfLink();
@@ -177,7 +177,7 @@ public interface V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withSelfLink instead.
    */
   @java.lang.Deprecated
-  public A withNewSelfLink(java.lang.String original);
+  public A withNewSelfLink(java.lang.String arg0);
   public java.lang.String getUid();
   public A withUid(java.lang.String uid);
   public java.lang.Boolean hasUid();
@@ -186,7 +186,7 @@ public interface V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original);
+  public A withNewUid(java.lang.String arg0);
   public interface ManagedFieldsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<N>>{
     public N and();
     public N endManagedField();

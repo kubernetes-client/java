@@ -99,8 +99,8 @@ return result;
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original) {
-    return (A)withGroup(new String(original));
+  public A withNewGroup(java.lang.String arg0) {
+    return (A)withGroup(new String(arg0));
   }
   public java.lang.Integer getGroupPriorityMinimum() {
     return this.groupPriorityMinimum;
@@ -127,10 +127,10 @@ return result;
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference getService() {
-    return this.service!=null?this.service.build():null;
+    return this.service!=null ?this.service.build():null;
   }
   public io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference buildService() {
-    return this.service!=null?this.service.build():null;
+    return this.service!=null ?this.service.build():null;
   }
   public A withService(io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference service) {
     _visitables.get("service").remove(this.service);
@@ -168,8 +168,8 @@ return result;
    * Method is deprecated. use withVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original) {
-    return (A)withVersion(new String(original));
+  public A withNewVersion(java.lang.String arg0) {
+    return (A)withVersion(new String(arg0));
   }
   public java.lang.Integer getVersionPriority() {
     return this.versionPriority;

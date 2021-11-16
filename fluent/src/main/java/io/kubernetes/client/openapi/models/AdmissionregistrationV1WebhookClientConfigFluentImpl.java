@@ -80,10 +80,10 @@ return result;
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference getService() {
-    return this.service!=null?this.service.build():null;
+    return this.service!=null ?this.service.build():null;
   }
   public io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference buildService() {
-    return this.service!=null?this.service.build():null;
+    return this.service!=null ?this.service.build():null;
   }
   public A withService(io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference service) {
     _visitables.get("service").remove(this.service);
@@ -121,8 +121,8 @@ return result;
    * Method is deprecated. use withUrl instead.
    */
   @java.lang.Deprecated
-  public A withNewUrl(java.lang.String original) {
-    return (A)withUrl(new String(original));
+  public A withNewUrl(java.lang.String arg0) {
+    return (A)withUrl(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

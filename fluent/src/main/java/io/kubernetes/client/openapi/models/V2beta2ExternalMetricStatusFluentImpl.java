@@ -27,10 +27,10 @@ public class V2beta2ExternalMetricStatusFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus getCurrent() {
-    return this.current!=null?this.current.build():null;
+    return this.current!=null ?this.current.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus buildCurrent() {
-    return this.current!=null?this.current.build():null;
+    return this.current!=null ?this.current.build():null;
   }
   public A withCurrent(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus current) {
     _visitables.get("current").remove(this.current);
@@ -61,10 +61,10 @@ public class V2beta2ExternalMetricStatusFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier getMetric() {
-    return this.metric!=null?this.metric.build():null;
+    return this.metric!=null ?this.metric.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier buildMetric() {
-    return this.metric!=null?this.metric.build():null;
+    return this.metric!=null ?this.metric.build():null;
   }
   public A withMetric(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier metric) {
     _visitables.get("metric").remove(this.metric);

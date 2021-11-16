@@ -27,7 +27,7 @@ public interface V2beta2MetricTargetFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   public io.kubernetes.client.custom.Quantity getValue();
   public A withValue(io.kubernetes.client.custom.Quantity value);
   public java.lang.Boolean hasValue();

@@ -27,10 +27,10 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier getMetric() {
-    return this.metric!=null?this.metric.build():null;
+    return this.metric!=null ?this.metric.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier buildMetric() {
-    return this.metric!=null?this.metric.build():null;
+    return this.metric!=null ?this.metric.build():null;
   }
   public A withMetric(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier metric) {
     _visitables.get("metric").remove(this.metric);
@@ -61,10 +61,10 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2MetricTarget getTarget() {
-    return this.target!=null?this.target.build():null;
+    return this.target!=null ?this.target.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2MetricTarget buildTarget() {
-    return this.target!=null?this.target.build():null;
+    return this.target!=null ?this.target.build():null;
   }
   public A withTarget(io.kubernetes.client.openapi.models.V2beta2MetricTarget target) {
     _visitables.get("target").remove(this.target);

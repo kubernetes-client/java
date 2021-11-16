@@ -37,8 +37,8 @@ public class V1SecretKeySelectorFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String original) {
-    return (A)withKey(new String(original));
+  public A withNewKey(java.lang.String arg0) {
+    return (A)withKey(new String(arg0));
   }
   public java.lang.String getName() {
     return this.name;
@@ -54,8 +54,8 @@ public class V1SecretKeySelectorFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.Boolean getOptional() {
     return this.optional;

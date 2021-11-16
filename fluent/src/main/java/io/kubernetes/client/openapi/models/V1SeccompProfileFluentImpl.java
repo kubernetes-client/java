@@ -34,8 +34,8 @@ public class V1SeccompProfileFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withLocalhostProfile instead.
    */
   @java.lang.Deprecated
-  public A withNewLocalhostProfile(java.lang.String original) {
-    return (A)withLocalhostProfile(new String(original));
+  public A withNewLocalhostProfile(java.lang.String arg0) {
+    return (A)withLocalhostProfile(new String(arg0));
   }
   public java.lang.String getType() {
     return this.type;
@@ -51,8 +51,8 @@ public class V1SeccompProfileFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

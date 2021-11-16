@@ -23,7 +23,7 @@ public class V1beta1EndpointHintsFluentImpl<A extends io.kubernetes.client.opena
     this.withForZones(instance.getForZones());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder> forZones;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder> forZones;
   public A addToForZones(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1ForZone item) {
     if (this.forZones == null) {this.forZones = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder>();}
     io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder builder = new io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder(item);_visitables.get("forZones").add(index >= 0 ? index : _visitables.get("forZones").size(), builder);this.forZones.add(index >= 0 ? index : forZones.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1beta1EndpointHintsFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1ForZone> getForZones() {
-    return build(forZones);
+    return forZones != null ? build(forZones) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1ForZone> buildForZones() {
-    return build(forZones);
+    return forZones != null ? build(forZones) : null;
   }
   public io.kubernetes.client.openapi.models.V1beta1ForZone buildForZone(java.lang.Integer index) {
     return this.forZones.get(index).build();

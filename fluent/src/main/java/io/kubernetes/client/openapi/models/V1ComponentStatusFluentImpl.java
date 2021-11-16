@@ -31,7 +31,7 @@ public class V1ComponentStatusFluentImpl<A extends io.kubernetes.client.openapi.
 
   }
   private java.lang.String apiVersion;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder> conditions;
   private java.lang.String kind;
   private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
   public java.lang.String getApiVersion() {
@@ -48,8 +48,8 @@ public class V1ComponentStatusFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ComponentCondition item) {
     if (this.conditions == null) {this.conditions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder>();}
@@ -96,10 +96,10 @@ public class V1ComponentStatusFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ComponentCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ComponentCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1ComponentCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -171,8 +171,8 @@ public class V1ComponentStatusFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -181,10 +181,10 @@ public class V1ComponentStatusFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);

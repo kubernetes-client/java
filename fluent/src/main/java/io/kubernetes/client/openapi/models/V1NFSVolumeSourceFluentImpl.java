@@ -37,8 +37,8 @@ public class V1NFSVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A)withPath(new String(original));
+  public A withNewPath(java.lang.String arg0) {
+    return (A)withPath(new String(arg0));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -63,8 +63,8 @@ public class V1NFSVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withServer instead.
    */
   @java.lang.Deprecated
-  public A withNewServer(java.lang.String original) {
-    return (A)withServer(new String(original));
+  public A withNewServer(java.lang.String arg0) {
+    return (A)withServer(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

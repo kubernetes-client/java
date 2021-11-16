@@ -47,7 +47,7 @@ public interface ApiextensionsV1WebhookClientConfigFluent<A extends io.kubernete
    * Method is deprecated. use withUrl instead.
    */
   @java.lang.Deprecated
-  public A withNewUrl(java.lang.String original);
+  public A withNewUrl(java.lang.String arg0);
   public interface ServiceNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent.ServiceNested<N>>{
     public N and();
     public N endService();

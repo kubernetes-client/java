@@ -18,7 +18,7 @@ public interface V1FlockerVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withDatasetName instead.
    */
   @java.lang.Deprecated
-  public A withNewDatasetName(java.lang.String original);
+  public A withNewDatasetName(java.lang.String arg0);
   public java.lang.String getDatasetUUID();
   public A withDatasetUUID(java.lang.String datasetUUID);
   public java.lang.Boolean hasDatasetUUID();
@@ -27,6 +27,6 @@ public interface V1FlockerVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withDatasetUUID instead.
    */
   @java.lang.Deprecated
-  public A withNewDatasetUUID(java.lang.String original);
+  public A withNewDatasetUUID(java.lang.String arg0);
   
 }

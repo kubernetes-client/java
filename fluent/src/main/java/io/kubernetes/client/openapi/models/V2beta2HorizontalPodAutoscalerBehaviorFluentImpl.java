@@ -27,10 +27,10 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<A extends io.kuber
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules getScaleDown() {
-    return this.scaleDown!=null?this.scaleDown.build():null;
+    return this.scaleDown!=null ?this.scaleDown.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules buildScaleDown() {
-    return this.scaleDown!=null?this.scaleDown.build():null;
+    return this.scaleDown!=null ?this.scaleDown.build():null;
   }
   public A withScaleDown(io.kubernetes.client.openapi.models.V2beta2HPAScalingRules scaleDown) {
     _visitables.get("scaleDown").remove(this.scaleDown);
@@ -61,10 +61,10 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<A extends io.kuber
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules getScaleUp() {
-    return this.scaleUp!=null?this.scaleUp.build():null;
+    return this.scaleUp!=null ?this.scaleUp.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules buildScaleUp() {
-    return this.scaleUp!=null?this.scaleUp.build():null;
+    return this.scaleUp!=null ?this.scaleUp.build():null;
   }
   public A withScaleUp(io.kubernetes.client.openapi.models.V2beta2HPAScalingRules scaleUp) {
     _visitables.get("scaleUp").remove(this.scaleUp);

@@ -18,7 +18,7 @@ public interface V1ObjectFieldSelectorFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public java.lang.String getFieldPath();
   public A withFieldPath(java.lang.String fieldPath);
   public java.lang.Boolean hasFieldPath();
@@ -27,6 +27,6 @@ public interface V1ObjectFieldSelectorFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withFieldPath instead.
    */
   @java.lang.Deprecated
-  public A withNewFieldPath(java.lang.String original);
+  public A withNewFieldPath(java.lang.String arg0);
   
 }

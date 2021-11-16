@@ -23,7 +23,7 @@ public interface V1LabelSelectorRequirementFluent<A extends io.kubernetes.client
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String original);
+  public A withNewKey(java.lang.String arg0);
   public java.lang.String getOperator();
   public A withOperator(java.lang.String operator);
   public java.lang.Boolean hasOperator();
@@ -32,7 +32,7 @@ public interface V1LabelSelectorRequirementFluent<A extends io.kubernetes.client
    * Method is deprecated. use withOperator instead.
    */
   @java.lang.Deprecated
-  public A withNewOperator(java.lang.String original);
+  public A withNewOperator(java.lang.String arg0);
   public A addToValues(java.lang.Integer index,java.lang.String item);
   public A setToValues(java.lang.Integer index,java.lang.String item);
   public A addToValues(java.lang.String... items);
@@ -48,6 +48,6 @@ public interface V1LabelSelectorRequirementFluent<A extends io.kubernetes.client
   public A withValues(java.util.List<java.lang.String> values);
   public A withValues(java.lang.String... values);
   public java.lang.Boolean hasValues();
-  public A addNewValue(java.lang.String original);
+  public A addNewValue(java.lang.String arg0);
   
 }

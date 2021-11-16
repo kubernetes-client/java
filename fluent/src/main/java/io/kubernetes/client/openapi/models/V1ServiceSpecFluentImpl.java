@@ -75,7 +75,7 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
   private java.lang.String loadBalancerClass;
   private java.lang.String loadBalancerIP;
   private java.util.List<java.lang.String> loadBalancerSourceRanges;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ServicePortBuilder> ports;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServicePortBuilder> ports;
   private java.lang.Boolean publishNotReadyAddresses;
   private java.util.Map<java.lang.String,java.lang.String> selector;
   private java.lang.String sessionAffinity;
@@ -104,8 +104,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withClusterIP instead.
    */
   @java.lang.Deprecated
-  public A withNewClusterIP(java.lang.String original) {
-    return (A)withClusterIP(new String(original));
+  public A withNewClusterIP(java.lang.String arg0) {
+    return (A)withClusterIP(new String(arg0));
   }
   public A addToClusterIPs(java.lang.Integer index,java.lang.String item) {
     if (this.clusterIPs == null) {this.clusterIPs = new java.util.ArrayList<java.lang.String>();}
@@ -158,8 +158,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasClusterIPs() {
     return clusterIPs != null && !clusterIPs.isEmpty();
   }
-  public A addNewClusterIP(java.lang.String original) {
-    return (A)addToClusterIPs(new String(original));
+  public A addNewClusterIP(java.lang.String arg0) {
+    return (A)addToClusterIPs(new String(arg0));
   }
   public A addToExternalIPs(java.lang.Integer index,java.lang.String item) {
     if (this.externalIPs == null) {this.externalIPs = new java.util.ArrayList<java.lang.String>();}
@@ -212,8 +212,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasExternalIPs() {
     return externalIPs != null && !externalIPs.isEmpty();
   }
-  public A addNewExternalIP(java.lang.String original) {
-    return (A)addToExternalIPs(new String(original));
+  public A addNewExternalIP(java.lang.String arg0) {
+    return (A)addToExternalIPs(new String(arg0));
   }
   public java.lang.String getExternalName() {
     return this.externalName;
@@ -229,8 +229,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withExternalName instead.
    */
   @java.lang.Deprecated
-  public A withNewExternalName(java.lang.String original) {
-    return (A)withExternalName(new String(original));
+  public A withNewExternalName(java.lang.String arg0) {
+    return (A)withExternalName(new String(arg0));
   }
   public java.lang.String getExternalTrafficPolicy() {
     return this.externalTrafficPolicy;
@@ -246,8 +246,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withExternalTrafficPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewExternalTrafficPolicy(java.lang.String original) {
-    return (A)withExternalTrafficPolicy(new String(original));
+  public A withNewExternalTrafficPolicy(java.lang.String arg0) {
+    return (A)withExternalTrafficPolicy(new String(arg0));
   }
   public java.lang.Integer getHealthCheckNodePort() {
     return this.healthCheckNodePort;
@@ -272,8 +272,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withInternalTrafficPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewInternalTrafficPolicy(java.lang.String original) {
-    return (A)withInternalTrafficPolicy(new String(original));
+  public A withNewInternalTrafficPolicy(java.lang.String arg0) {
+    return (A)withInternalTrafficPolicy(new String(arg0));
   }
   public A addToIpFamilies(java.lang.Integer index,java.lang.String item) {
     if (this.ipFamilies == null) {this.ipFamilies = new java.util.ArrayList<java.lang.String>();}
@@ -326,8 +326,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasIpFamilies() {
     return ipFamilies != null && !ipFamilies.isEmpty();
   }
-  public A addNewIpFamily(java.lang.String original) {
-    return (A)addToIpFamilies(new String(original));
+  public A addNewIpFamily(java.lang.String arg0) {
+    return (A)addToIpFamilies(new String(arg0));
   }
   public java.lang.String getIpFamilyPolicy() {
     return this.ipFamilyPolicy;
@@ -343,8 +343,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withIpFamilyPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewIpFamilyPolicy(java.lang.String original) {
-    return (A)withIpFamilyPolicy(new String(original));
+  public A withNewIpFamilyPolicy(java.lang.String arg0) {
+    return (A)withIpFamilyPolicy(new String(arg0));
   }
   public java.lang.String getLoadBalancerClass() {
     return this.loadBalancerClass;
@@ -360,8 +360,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withLoadBalancerClass instead.
    */
   @java.lang.Deprecated
-  public A withNewLoadBalancerClass(java.lang.String original) {
-    return (A)withLoadBalancerClass(new String(original));
+  public A withNewLoadBalancerClass(java.lang.String arg0) {
+    return (A)withLoadBalancerClass(new String(arg0));
   }
   public java.lang.String getLoadBalancerIP() {
     return this.loadBalancerIP;
@@ -377,8 +377,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withLoadBalancerIP instead.
    */
   @java.lang.Deprecated
-  public A withNewLoadBalancerIP(java.lang.String original) {
-    return (A)withLoadBalancerIP(new String(original));
+  public A withNewLoadBalancerIP(java.lang.String arg0) {
+    return (A)withLoadBalancerIP(new String(arg0));
   }
   public A addToLoadBalancerSourceRanges(java.lang.Integer index,java.lang.String item) {
     if (this.loadBalancerSourceRanges == null) {this.loadBalancerSourceRanges = new java.util.ArrayList<java.lang.String>();}
@@ -431,8 +431,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasLoadBalancerSourceRanges() {
     return loadBalancerSourceRanges != null && !loadBalancerSourceRanges.isEmpty();
   }
-  public A addNewLoadBalancerSourceRange(java.lang.String original) {
-    return (A)addToLoadBalancerSourceRanges(new String(original));
+  public A addNewLoadBalancerSourceRange(java.lang.String arg0) {
+    return (A)addToLoadBalancerSourceRanges(new String(arg0));
   }
   public A addToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ServicePort item) {
     if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServicePortBuilder>();}
@@ -479,10 +479,10 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> getPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> buildPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public io.kubernetes.client.openapi.models.V1ServicePort buildPort(java.lang.Integer index) {
     return this.ports.get(index).build();
@@ -588,8 +588,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSessionAffinity instead.
    */
   @java.lang.Deprecated
-  public A withNewSessionAffinity(java.lang.String original) {
-    return (A)withSessionAffinity(new String(original));
+  public A withNewSessionAffinity(java.lang.String arg0) {
+    return (A)withSessionAffinity(new String(arg0));
   }
   
   /**
@@ -598,10 +598,10 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SessionAffinityConfig getSessionAffinityConfig() {
-    return this.sessionAffinityConfig!=null?this.sessionAffinityConfig.build():null;
+    return this.sessionAffinityConfig!=null ?this.sessionAffinityConfig.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SessionAffinityConfig buildSessionAffinityConfig() {
-    return this.sessionAffinityConfig!=null?this.sessionAffinityConfig.build():null;
+    return this.sessionAffinityConfig!=null ?this.sessionAffinityConfig.build():null;
   }
   public A withSessionAffinityConfig(io.kubernetes.client.openapi.models.V1SessionAffinityConfig sessionAffinityConfig) {
     _visitables.get("sessionAffinityConfig").remove(this.sessionAffinityConfig);
@@ -639,8 +639,8 @@ public class V1ServiceSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

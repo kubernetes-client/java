@@ -32,8 +32,8 @@ public class V1SubjectRulesReviewStatusFluentImpl<A extends io.kubernetes.client
   }
   private java.lang.String evaluationError;
   private java.lang.Boolean incomplete;
-  private java.util.List<io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder> nonResourceRules;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ResourceRuleBuilder> resourceRules;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder> nonResourceRules;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ResourceRuleBuilder> resourceRules;
   public java.lang.String getEvaluationError() {
     return this.evaluationError;
   }
@@ -48,8 +48,8 @@ public class V1SubjectRulesReviewStatusFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withEvaluationError instead.
    */
   @java.lang.Deprecated
-  public A withNewEvaluationError(java.lang.String original) {
-    return (A)withEvaluationError(new String(original));
+  public A withNewEvaluationError(java.lang.String arg0) {
+    return (A)withEvaluationError(new String(arg0));
   }
   public java.lang.Boolean getIncomplete() {
     return this.incomplete;
@@ -105,10 +105,10 @@ public class V1SubjectRulesReviewStatusFluentImpl<A extends io.kubernetes.client
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NonResourceRule> getNonResourceRules() {
-    return build(nonResourceRules);
+    return nonResourceRules != null ? build(nonResourceRules) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NonResourceRule> buildNonResourceRules() {
-    return build(nonResourceRules);
+    return nonResourceRules != null ? build(nonResourceRules) : null;
   }
   public io.kubernetes.client.openapi.models.V1NonResourceRule buildNonResourceRule(java.lang.Integer index) {
     return this.nonResourceRules.get(index).build();
@@ -211,10 +211,10 @@ public class V1SubjectRulesReviewStatusFluentImpl<A extends io.kubernetes.client
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ResourceRule> getResourceRules() {
-    return build(resourceRules);
+    return resourceRules != null ? build(resourceRules) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ResourceRule> buildResourceRules() {
-    return build(resourceRules);
+    return resourceRules != null ? build(resourceRules) : null;
   }
   public io.kubernetes.client.openapi.models.V1ResourceRule buildResourceRule(java.lang.Integer index) {
     return this.resourceRules.get(index).build();

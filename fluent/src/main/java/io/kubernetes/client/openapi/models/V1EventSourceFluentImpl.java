@@ -34,8 +34,8 @@ public class V1EventSourceFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withComponent instead.
    */
   @java.lang.Deprecated
-  public A withNewComponent(java.lang.String original) {
-    return (A)withComponent(new String(original));
+  public A withNewComponent(java.lang.String arg0) {
+    return (A)withComponent(new String(arg0));
   }
   public java.lang.String getHost() {
     return this.host;
@@ -51,8 +51,8 @@ public class V1EventSourceFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withHost instead.
    */
   @java.lang.Deprecated
-  public A withNewHost(java.lang.String original) {
-    return (A)withHost(new String(original));
+  public A withNewHost(java.lang.String arg0) {
+    return (A)withHost(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -34,8 +34,8 @@ public class V1GroupVersionForDiscoveryFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withGroupVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewGroupVersion(java.lang.String original) {
-    return (A)withGroupVersion(new String(original));
+  public A withNewGroupVersion(java.lang.String arg0) {
+    return (A)withGroupVersion(new String(arg0));
   }
   public java.lang.String getVersion() {
     return this.version;
@@ -51,8 +51,8 @@ public class V1GroupVersionForDiscoveryFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original) {
-    return (A)withVersion(new String(original));
+  public A withNewVersion(java.lang.String arg0) {
+    return (A)withVersion(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

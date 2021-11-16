@@ -38,8 +38,8 @@ public class V1APIGroupFluentImpl<A extends io.kubernetes.client.openapi.models.
   private java.lang.String kind;
   private java.lang.String name;
   private io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder preferredVersion;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder> serverAddressByClientCIDRs;
-  private java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder> versions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder> serverAddressByClientCIDRs;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder> versions;
   public java.lang.String getApiVersion() {
     return this.apiVersion;
   }
@@ -54,8 +54,8 @@ public class V1APIGroupFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -71,8 +71,8 @@ public class V1APIGroupFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   public java.lang.String getName() {
     return this.name;
@@ -88,8 +88,8 @@ public class V1APIGroupFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   
   /**
@@ -98,10 +98,10 @@ public class V1APIGroupFluentImpl<A extends io.kubernetes.client.openapi.models.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery getPreferredVersion() {
-    return this.preferredVersion!=null?this.preferredVersion.build():null;
+    return this.preferredVersion!=null ?this.preferredVersion.build():null;
   }
   public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildPreferredVersion() {
-    return this.preferredVersion!=null?this.preferredVersion.build():null;
+    return this.preferredVersion!=null ?this.preferredVersion.build():null;
   }
   public A withPreferredVersion(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery preferredVersion) {
     _visitables.get("preferredVersion").remove(this.preferredVersion);
@@ -170,10 +170,10 @@ public class V1APIGroupFluentImpl<A extends io.kubernetes.client.openapi.models.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> getServerAddressByClientCIDRs() {
-    return build(serverAddressByClientCIDRs);
+    return serverAddressByClientCIDRs != null ? build(serverAddressByClientCIDRs) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> buildServerAddressByClientCIDRs() {
-    return build(serverAddressByClientCIDRs);
+    return serverAddressByClientCIDRs != null ? build(serverAddressByClientCIDRs) : null;
   }
   public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR buildServerAddressByClientCIDR(java.lang.Integer index) {
     return this.serverAddressByClientCIDRs.get(index).build();
@@ -276,10 +276,10 @@ public class V1APIGroupFluentImpl<A extends io.kubernetes.client.openapi.models.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery> getVersions() {
-    return build(versions);
+    return versions != null ? build(versions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery> buildVersions() {
-    return build(versions);
+    return versions != null ? build(versions) : null;
   }
   public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildVersion(java.lang.Integer index) {
     return this.versions.get(index).build();

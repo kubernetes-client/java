@@ -23,7 +23,7 @@ public class V1beta1FlowSchemaStatusFluentImpl<A extends io.kubernetes.client.op
     this.withConditions(instance.getConditions());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder> conditions;
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition item) {
     if (this.conditions == null) {this.conditions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder>();}
     io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder builder = new io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1beta1FlowSchemaStatusFluentImpl<A extends io.kubernetes.client.op
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();

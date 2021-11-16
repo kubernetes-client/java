@@ -51,8 +51,8 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public io.kubernetes.client.custom.Quantity getCapacity() {
     return this.capacity;
@@ -80,8 +80,8 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   public io.kubernetes.client.custom.Quantity getMaximumVolumeSize() {
     return this.maximumVolumeSize;
@@ -102,10 +102,10 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends io.kubernetes.client
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -136,10 +136,10 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends io.kubernetes.client
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getNodeTopology() {
-    return this.nodeTopology!=null?this.nodeTopology.build():null;
+    return this.nodeTopology!=null ?this.nodeTopology.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildNodeTopology() {
-    return this.nodeTopology!=null?this.nodeTopology.build():null;
+    return this.nodeTopology!=null ?this.nodeTopology.build():null;
   }
   public A withNodeTopology(io.kubernetes.client.openapi.models.V1LabelSelector nodeTopology) {
     _visitables.get("nodeTopology").remove(this.nodeTopology);
@@ -177,8 +177,8 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original) {
-    return (A)withStorageClassName(new String(original));
+  public A withNewStorageClassName(java.lang.String arg0) {
+    return (A)withStorageClassName(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

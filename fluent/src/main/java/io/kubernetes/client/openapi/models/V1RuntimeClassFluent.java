@@ -19,7 +19,7 @@ public interface V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public java.lang.String getHandler();
   public A withHandler(java.lang.String handler);
   public java.lang.Boolean hasHandler();
@@ -28,7 +28,7 @@ public interface V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withHandler instead.
    */
   @java.lang.Deprecated
-  public A withNewHandler(java.lang.String original);
+  public A withNewHandler(java.lang.String arg0);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -37,7 +37,7 @@ public interface V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

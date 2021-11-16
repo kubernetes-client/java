@@ -39,8 +39,8 @@ public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withCidr instead.
    */
   @java.lang.Deprecated
-  public A withNewCidr(java.lang.String original) {
-    return (A)withCidr(new String(original));
+  public A withNewCidr(java.lang.String arg0) {
+    return (A)withCidr(new String(arg0));
   }
   public A addToExcept(java.lang.Integer index,java.lang.String item) {
     if (this.except == null) {this.except = new java.util.ArrayList<java.lang.String>();}
@@ -93,8 +93,8 @@ public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V
   public java.lang.Boolean hasExcept() {
     return except != null && !except.isEmpty();
   }
-  public A addNewExcept(java.lang.String original) {
-    return (A)addToExcept(new String(original));
+  public A addNewExcept(java.lang.String arg0) {
+    return (A)addToExcept(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

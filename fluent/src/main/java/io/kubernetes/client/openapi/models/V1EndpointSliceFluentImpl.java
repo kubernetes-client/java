@@ -36,10 +36,10 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
   }
   private java.lang.String addressType;
   private java.lang.String apiVersion;
-  private java.util.List<io.kubernetes.client.openapi.models.V1EndpointBuilder> endpoints;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointBuilder> endpoints;
   private java.lang.String kind;
   private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private java.util.List<io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortBuilder> ports;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortBuilder> ports;
   public java.lang.String getAddressType() {
     return this.addressType;
   }
@@ -54,8 +54,8 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withAddressType instead.
    */
   @java.lang.Deprecated
-  public A withNewAddressType(java.lang.String original) {
-    return (A)withAddressType(new String(original));
+  public A withNewAddressType(java.lang.String arg0) {
+    return (A)withAddressType(new String(arg0));
   }
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -71,8 +71,8 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public A addToEndpoints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Endpoint item) {
     if (this.endpoints == null) {this.endpoints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointBuilder>();}
@@ -119,10 +119,10 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1Endpoint> getEndpoints() {
-    return build(endpoints);
+    return endpoints != null ? build(endpoints) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1Endpoint> buildEndpoints() {
-    return build(endpoints);
+    return endpoints != null ? build(endpoints) : null;
   }
   public io.kubernetes.client.openapi.models.V1Endpoint buildEndpoint(java.lang.Integer index) {
     return this.endpoints.get(index).build();
@@ -194,8 +194,8 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -204,10 +204,10 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -276,10 +276,10 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort> getPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort> buildPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort buildPort(java.lang.Integer index) {
     return this.ports.get(index).build();

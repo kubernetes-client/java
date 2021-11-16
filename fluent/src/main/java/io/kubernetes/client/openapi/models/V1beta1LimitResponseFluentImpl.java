@@ -28,10 +28,10 @@ public class V1beta1LimitResponseFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1QueuingConfiguration getQueuing() {
-    return this.queuing!=null?this.queuing.build():null;
+    return this.queuing!=null ?this.queuing.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1QueuingConfiguration buildQueuing() {
-    return this.queuing!=null?this.queuing.build():null;
+    return this.queuing!=null ?this.queuing.build():null;
   }
   public A withQueuing(io.kubernetes.client.openapi.models.V1beta1QueuingConfiguration queuing) {
     _visitables.get("queuing").remove(this.queuing);
@@ -69,8 +69,8 @@ public class V1beta1LimitResponseFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

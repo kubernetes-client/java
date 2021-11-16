@@ -95,8 +95,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
   public java.lang.Boolean hasAccessModes() {
     return accessModes != null && !accessModes.isEmpty();
   }
-  public A addNewAccessMode(java.lang.String original) {
-    return (A)addToAccessModes(new String(original));
+  public A addNewAccessMode(java.lang.String arg0) {
+    return (A)addToAccessModes(new String(arg0));
   }
   
   /**
@@ -105,10 +105,10 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference getDataSource() {
-    return this.dataSource!=null?this.dataSource.build():null;
+    return this.dataSource!=null ?this.dataSource.build():null;
   }
   public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference buildDataSource() {
-    return this.dataSource!=null?this.dataSource.build():null;
+    return this.dataSource!=null ?this.dataSource.build():null;
   }
   public A withDataSource(io.kubernetes.client.openapi.models.V1TypedLocalObjectReference dataSource) {
     _visitables.get("dataSource").remove(this.dataSource);
@@ -139,10 +139,10 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference getDataSourceRef() {
-    return this.dataSourceRef!=null?this.dataSourceRef.build():null;
+    return this.dataSourceRef!=null ?this.dataSourceRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference buildDataSourceRef() {
-    return this.dataSourceRef!=null?this.dataSourceRef.build():null;
+    return this.dataSourceRef!=null ?this.dataSourceRef.build():null;
   }
   public A withDataSourceRef(io.kubernetes.client.openapi.models.V1TypedLocalObjectReference dataSourceRef) {
     _visitables.get("dataSourceRef").remove(this.dataSourceRef);
@@ -173,10 +173,10 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ResourceRequirements getResources() {
-    return this.resources!=null?this.resources.build():null;
+    return this.resources!=null ?this.resources.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ResourceRequirements buildResources() {
-    return this.resources!=null?this.resources.build():null;
+    return this.resources!=null ?this.resources.build():null;
   }
   public A withResources(io.kubernetes.client.openapi.models.V1ResourceRequirements resources) {
     _visitables.get("resources").remove(this.resources);
@@ -207,10 +207,10 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
@@ -248,8 +248,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original) {
-    return (A)withStorageClassName(new String(original));
+  public A withNewStorageClassName(java.lang.String arg0) {
+    return (A)withStorageClassName(new String(arg0));
   }
   public java.lang.String getVolumeMode() {
     return this.volumeMode;
@@ -265,8 +265,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeMode instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String original) {
-    return (A)withVolumeMode(new String(original));
+  public A withNewVolumeMode(java.lang.String arg0) {
+    return (A)withVolumeMode(new String(arg0));
   }
   public java.lang.String getVolumeName() {
     return this.volumeName;
@@ -282,8 +282,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String original) {
-    return (A)withVolumeName(new String(original));
+  public A withNewVolumeName(java.lang.String arg0) {
+    return (A)withVolumeName(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

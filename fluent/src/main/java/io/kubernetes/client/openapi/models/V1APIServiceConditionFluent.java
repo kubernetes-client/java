@@ -22,7 +22,7 @@ public interface V1APIServiceConditionFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
+  public A withNewMessage(java.lang.String arg0);
   public java.lang.String getReason();
   public A withReason(java.lang.String reason);
   public java.lang.Boolean hasReason();
@@ -31,7 +31,7 @@ public interface V1APIServiceConditionFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
+  public A withNewReason(java.lang.String arg0);
   public java.lang.String getStatus();
   public A withStatus(java.lang.String status);
   public java.lang.Boolean hasStatus();
@@ -40,7 +40,7 @@ public interface V1APIServiceConditionFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original);
+  public A withNewStatus(java.lang.String arg0);
   public java.lang.String getType();
   public A withType(java.lang.String type);
   public java.lang.Boolean hasType();
@@ -49,6 +49,6 @@ public interface V1APIServiceConditionFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   
 }

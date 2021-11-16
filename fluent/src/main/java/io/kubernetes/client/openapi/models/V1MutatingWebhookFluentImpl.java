@@ -52,7 +52,7 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
   private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder namespaceSelector;
   private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder objectSelector;
   private java.lang.String reinvocationPolicy;
-  private java.util.List<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder> rules;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder> rules;
   private java.lang.String sideEffects;
   private java.lang.Integer timeoutSeconds;
   public A addToAdmissionReviewVersions(java.lang.Integer index,java.lang.String item) {
@@ -106,8 +106,8 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
   public java.lang.Boolean hasAdmissionReviewVersions() {
     return admissionReviewVersions != null && !admissionReviewVersions.isEmpty();
   }
-  public A addNewAdmissionReviewVersion(java.lang.String original) {
-    return (A)addToAdmissionReviewVersions(new String(original));
+  public A addNewAdmissionReviewVersion(java.lang.String arg0) {
+    return (A)addToAdmissionReviewVersions(new String(arg0));
   }
   
   /**
@@ -116,10 +116,10 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig getClientConfig() {
-    return this.clientConfig!=null?this.clientConfig.build():null;
+    return this.clientConfig!=null ?this.clientConfig.build():null;
   }
   public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig buildClientConfig() {
-    return this.clientConfig!=null?this.clientConfig.build():null;
+    return this.clientConfig!=null ?this.clientConfig.build():null;
   }
   public A withClientConfig(io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig clientConfig) {
     _visitables.get("clientConfig").remove(this.clientConfig);
@@ -157,8 +157,8 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withFailurePolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewFailurePolicy(java.lang.String original) {
-    return (A)withFailurePolicy(new String(original));
+  public A withNewFailurePolicy(java.lang.String arg0) {
+    return (A)withFailurePolicy(new String(arg0));
   }
   public java.lang.String getMatchPolicy() {
     return this.matchPolicy;
@@ -174,8 +174,8 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withMatchPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewMatchPolicy(java.lang.String original) {
-    return (A)withMatchPolicy(new String(original));
+  public A withNewMatchPolicy(java.lang.String arg0) {
+    return (A)withMatchPolicy(new String(arg0));
   }
   public java.lang.String getName() {
     return this.name;
@@ -191,8 +191,8 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   
   /**
@@ -201,10 +201,10 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getNamespaceSelector() {
-    return this.namespaceSelector!=null?this.namespaceSelector.build():null;
+    return this.namespaceSelector!=null ?this.namespaceSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildNamespaceSelector() {
-    return this.namespaceSelector!=null?this.namespaceSelector.build():null;
+    return this.namespaceSelector!=null ?this.namespaceSelector.build():null;
   }
   public A withNamespaceSelector(io.kubernetes.client.openapi.models.V1LabelSelector namespaceSelector) {
     _visitables.get("namespaceSelector").remove(this.namespaceSelector);
@@ -235,10 +235,10 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getObjectSelector() {
-    return this.objectSelector!=null?this.objectSelector.build():null;
+    return this.objectSelector!=null ?this.objectSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildObjectSelector() {
-    return this.objectSelector!=null?this.objectSelector.build():null;
+    return this.objectSelector!=null ?this.objectSelector.build():null;
   }
   public A withObjectSelector(io.kubernetes.client.openapi.models.V1LabelSelector objectSelector) {
     _visitables.get("objectSelector").remove(this.objectSelector);
@@ -276,8 +276,8 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withReinvocationPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewReinvocationPolicy(java.lang.String original) {
-    return (A)withReinvocationPolicy(new String(original));
+  public A withNewReinvocationPolicy(java.lang.String arg0) {
+    return (A)withReinvocationPolicy(new String(arg0));
   }
   public A addToRules(java.lang.Integer index,io.kubernetes.client.openapi.models.V1RuleWithOperations item) {
     if (this.rules == null) {this.rules = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>();}
@@ -324,10 +324,10 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1RuleWithOperations> getRules() {
-    return build(rules);
+    return rules != null ? build(rules) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1RuleWithOperations> buildRules() {
-    return build(rules);
+    return rules != null ? build(rules) : null;
   }
   public io.kubernetes.client.openapi.models.V1RuleWithOperations buildRule(java.lang.Integer index) {
     return this.rules.get(index).build();
@@ -399,8 +399,8 @@ public class V1MutatingWebhookFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withSideEffects instead.
    */
   @java.lang.Deprecated
-  public A withNewSideEffects(java.lang.String original) {
-    return (A)withSideEffects(new String(original));
+  public A withNewSideEffects(java.lang.String arg0) {
+    return (A)withSideEffects(new String(arg0));
   }
   public java.lang.Integer getTimeoutSeconds() {
     return this.timeoutSeconds;

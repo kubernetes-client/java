@@ -64,10 +64,10 @@ public class V1ResourceQuotaSpecFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ScopeSelector getScopeSelector() {
-    return this.scopeSelector!=null?this.scopeSelector.build():null;
+    return this.scopeSelector!=null ?this.scopeSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ScopeSelector buildScopeSelector() {
-    return this.scopeSelector!=null?this.scopeSelector.build():null;
+    return this.scopeSelector!=null ?this.scopeSelector.build():null;
   }
   public A withScopeSelector(io.kubernetes.client.openapi.models.V1ScopeSelector scopeSelector) {
     _visitables.get("scopeSelector").remove(this.scopeSelector);
@@ -142,8 +142,8 @@ public class V1ResourceQuotaSpecFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasScopes() {
     return scopes != null && !scopes.isEmpty();
   }
-  public A addNewScope(java.lang.String original) {
-    return (A)addToScopes(new String(original));
+  public A addNewScope(java.lang.String arg0) {
+    return (A)addToScopes(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

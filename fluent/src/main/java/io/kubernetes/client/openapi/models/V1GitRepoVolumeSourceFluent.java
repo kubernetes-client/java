@@ -18,7 +18,7 @@ public interface V1GitRepoVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withDirectory instead.
    */
   @java.lang.Deprecated
-  public A withNewDirectory(java.lang.String original);
+  public A withNewDirectory(java.lang.String arg0);
   public java.lang.String getRepository();
   public A withRepository(java.lang.String repository);
   public java.lang.Boolean hasRepository();
@@ -27,7 +27,7 @@ public interface V1GitRepoVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withRepository instead.
    */
   @java.lang.Deprecated
-  public A withNewRepository(java.lang.String original);
+  public A withNewRepository(java.lang.String arg0);
   public java.lang.String getRevision();
   public A withRevision(java.lang.String revision);
   public java.lang.Boolean hasRevision();
@@ -36,6 +36,6 @@ public interface V1GitRepoVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withRevision instead.
    */
   @java.lang.Deprecated
-  public A withNewRevision(java.lang.String original);
+  public A withNewRevision(java.lang.String arg0);
   
 }

@@ -19,7 +19,7 @@ public interface V1IngressRuleFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withHost instead.
    */
   @java.lang.Deprecated
-  public A withNewHost(java.lang.String original);
+  public A withNewHost(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildHttp instead.

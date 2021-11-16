@@ -30,7 +30,7 @@ public interface V1JobStatusFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withCompletedIndexes instead.
    */
   @java.lang.Deprecated
-  public A withNewCompletedIndexes(java.lang.String original);
+  public A withNewCompletedIndexes(java.lang.String arg0);
   public java.time.OffsetDateTime getCompletionTime();
   public A withCompletionTime(java.time.OffsetDateTime completionTime);
   public java.lang.Boolean hasCompletionTime();

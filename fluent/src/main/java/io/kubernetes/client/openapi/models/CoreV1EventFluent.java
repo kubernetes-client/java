@@ -21,7 +21,7 @@ public interface CoreV1EventFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withAction instead.
    */
   @java.lang.Deprecated
-  public A withNewAction(java.lang.String original);
+  public A withNewAction(java.lang.String arg0);
   public java.lang.String getApiVersion();
   public A withApiVersion(java.lang.String apiVersion);
   public java.lang.Boolean hasApiVersion();
@@ -30,7 +30,7 @@ public interface CoreV1EventFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public java.lang.Integer getCount();
   public A withCount(java.lang.Integer count);
   public java.lang.Boolean hasCount();
@@ -63,7 +63,7 @@ public interface CoreV1EventFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   public java.time.OffsetDateTime getLastTimestamp();
   public A withLastTimestamp(java.time.OffsetDateTime lastTimestamp);
   public java.lang.Boolean hasLastTimestamp();
@@ -75,7 +75,7 @@ public interface CoreV1EventFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
+  public A withNewMessage(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -99,7 +99,7 @@ public interface CoreV1EventFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
+  public A withNewReason(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildRelated instead.
@@ -123,7 +123,7 @@ public interface CoreV1EventFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withReportingComponent instead.
    */
   @java.lang.Deprecated
-  public A withNewReportingComponent(java.lang.String original);
+  public A withNewReportingComponent(java.lang.String arg0);
   public java.lang.String getReportingInstance();
   public A withReportingInstance(java.lang.String reportingInstance);
   public java.lang.Boolean hasReportingInstance();
@@ -132,7 +132,7 @@ public interface CoreV1EventFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withReportingInstance instead.
    */
   @java.lang.Deprecated
-  public A withNewReportingInstance(java.lang.String original);
+  public A withNewReportingInstance(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildSeries instead.
@@ -171,7 +171,7 @@ public interface CoreV1EventFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   public interface InvolvedObjectNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<io.kubernetes.client.openapi.models.CoreV1EventFluent.InvolvedObjectNested<N>>{
     public N and();
     public N endInvolvedObject();

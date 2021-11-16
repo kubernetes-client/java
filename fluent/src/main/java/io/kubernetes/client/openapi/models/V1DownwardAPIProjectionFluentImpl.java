@@ -23,7 +23,7 @@ public class V1DownwardAPIProjectionFluentImpl<A extends io.kubernetes.client.op
     this.withItems(instance.getItems());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder> items;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder> items;
   public A addToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile item) {
     if (this.items == null) {this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder>();}
     io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder builder = new io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder(item);_visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);this.items.add(index >= 0 ? index : items.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1DownwardAPIProjectionFluentImpl<A extends io.kubernetes.client.op
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> getItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> buildItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile buildItem(java.lang.Integer index) {
     return this.items.get(index).build();

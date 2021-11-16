@@ -35,10 +35,10 @@ public class V1TopologySpreadConstraintFluentImpl<A extends io.kubernetes.client
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getLabelSelector() {
-    return this.labelSelector!=null?this.labelSelector.build():null;
+    return this.labelSelector!=null ?this.labelSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildLabelSelector() {
-    return this.labelSelector!=null?this.labelSelector.build():null;
+    return this.labelSelector!=null ?this.labelSelector.build():null;
   }
   public A withLabelSelector(io.kubernetes.client.openapi.models.V1LabelSelector labelSelector) {
     _visitables.get("labelSelector").remove(this.labelSelector);
@@ -85,8 +85,8 @@ public class V1TopologySpreadConstraintFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withTopologyKey instead.
    */
   @java.lang.Deprecated
-  public A withNewTopologyKey(java.lang.String original) {
-    return (A)withTopologyKey(new String(original));
+  public A withNewTopologyKey(java.lang.String arg0) {
+    return (A)withTopologyKey(new String(arg0));
   }
   public java.lang.String getWhenUnsatisfiable() {
     return this.whenUnsatisfiable;
@@ -102,8 +102,8 @@ public class V1TopologySpreadConstraintFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withWhenUnsatisfiable instead.
    */
   @java.lang.Deprecated
-  public A withNewWhenUnsatisfiable(java.lang.String original) {
-    return (A)withWhenUnsatisfiable(new String(original));
+  public A withNewWhenUnsatisfiable(java.lang.String arg0) {
+    return (A)withWhenUnsatisfiable(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

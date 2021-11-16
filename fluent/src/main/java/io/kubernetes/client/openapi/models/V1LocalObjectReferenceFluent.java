@@ -18,6 +18,6 @@ public interface V1LocalObjectReferenceFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   
 }

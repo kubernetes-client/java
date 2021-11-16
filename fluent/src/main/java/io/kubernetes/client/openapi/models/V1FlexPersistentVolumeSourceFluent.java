@@ -21,7 +21,7 @@ public interface V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.clie
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original);
+  public A withNewDriver(java.lang.String arg0);
   public java.lang.String getFsType();
   public A withFsType(java.lang.String fsType);
   public java.lang.Boolean hasFsType();
@@ -30,7 +30,7 @@ public interface V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.clie
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
+  public A withNewFsType(java.lang.String arg0);
   public A addToOptions(java.lang.String key,java.lang.String value);
   public A addToOptions(java.util.Map<java.lang.String,java.lang.String> map);
   public A removeFromOptions(java.lang.String key);

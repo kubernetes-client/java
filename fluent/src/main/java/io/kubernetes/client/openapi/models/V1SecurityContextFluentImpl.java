@@ -65,10 +65,10 @@ public class V1SecurityContextFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1Capabilities getCapabilities() {
-    return this.capabilities!=null?this.capabilities.build():null;
+    return this.capabilities!=null ?this.capabilities.build():null;
   }
   public io.kubernetes.client.openapi.models.V1Capabilities buildCapabilities() {
-    return this.capabilities!=null?this.capabilities.build():null;
+    return this.capabilities!=null ?this.capabilities.build():null;
   }
   public A withCapabilities(io.kubernetes.client.openapi.models.V1Capabilities capabilities) {
     _visitables.get("capabilities").remove(this.capabilities);
@@ -115,8 +115,8 @@ public class V1SecurityContextFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withProcMount instead.
    */
   @java.lang.Deprecated
-  public A withNewProcMount(java.lang.String original) {
-    return (A)withProcMount(new String(original));
+  public A withNewProcMount(java.lang.String arg0) {
+    return (A)withProcMount(new String(arg0));
   }
   public java.lang.Boolean getReadOnlyRootFilesystem() {
     return this.readOnlyRootFilesystem;
@@ -161,10 +161,10 @@ public class V1SecurityContextFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SELinuxOptions getSeLinuxOptions() {
-    return this.seLinuxOptions!=null?this.seLinuxOptions.build():null;
+    return this.seLinuxOptions!=null ?this.seLinuxOptions.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SELinuxOptions buildSeLinuxOptions() {
-    return this.seLinuxOptions!=null?this.seLinuxOptions.build():null;
+    return this.seLinuxOptions!=null ?this.seLinuxOptions.build():null;
   }
   public A withSeLinuxOptions(io.kubernetes.client.openapi.models.V1SELinuxOptions seLinuxOptions) {
     _visitables.get("seLinuxOptions").remove(this.seLinuxOptions);
@@ -195,10 +195,10 @@ public class V1SecurityContextFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SeccompProfile getSeccompProfile() {
-    return this.seccompProfile!=null?this.seccompProfile.build():null;
+    return this.seccompProfile!=null ?this.seccompProfile.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SeccompProfile buildSeccompProfile() {
-    return this.seccompProfile!=null?this.seccompProfile.build():null;
+    return this.seccompProfile!=null ?this.seccompProfile.build():null;
   }
   public A withSeccompProfile(io.kubernetes.client.openapi.models.V1SeccompProfile seccompProfile) {
     _visitables.get("seccompProfile").remove(this.seccompProfile);
@@ -229,10 +229,10 @@ public class V1SecurityContextFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions getWindowsOptions() {
-    return this.windowsOptions!=null?this.windowsOptions.build():null;
+    return this.windowsOptions!=null ?this.windowsOptions.build():null;
   }
   public io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions buildWindowsOptions() {
-    return this.windowsOptions!=null?this.windowsOptions.build():null;
+    return this.windowsOptions!=null ?this.windowsOptions.build():null;
   }
   public A withWindowsOptions(io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions windowsOptions) {
     _visitables.get("windowsOptions").remove(this.windowsOptions);
