@@ -25,7 +25,7 @@ public class V1ServiceStatusFluentImpl<A extends io.kubernetes.client.openapi.mo
     this.withLoadBalancer(instance.getLoadBalancer());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1ConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder> conditions;
   private io.kubernetes.client.openapi.models.V1LoadBalancerStatusBuilder loadBalancer;
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Condition item) {
     if (this.conditions == null) {this.conditions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();}
@@ -72,10 +72,10 @@ public class V1ServiceStatusFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1Condition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1Condition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1Condition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -140,10 +140,10 @@ public class V1ServiceStatusFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LoadBalancerStatus getLoadBalancer() {
-    return this.loadBalancer!=null?this.loadBalancer.build():null;
+    return this.loadBalancer!=null ?this.loadBalancer.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LoadBalancerStatus buildLoadBalancer() {
-    return this.loadBalancer!=null?this.loadBalancer.build():null;
+    return this.loadBalancer!=null ?this.loadBalancer.build():null;
   }
   public A withLoadBalancer(io.kubernetes.client.openapi.models.V1LoadBalancerStatus loadBalancer) {
     _visitables.get("loadBalancer").remove(this.loadBalancer);

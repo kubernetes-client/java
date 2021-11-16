@@ -18,7 +18,7 @@ public interface V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.c
    * Method is deprecated. use withGmsaCredentialSpec instead.
    */
   @java.lang.Deprecated
-  public A withNewGmsaCredentialSpec(java.lang.String original);
+  public A withNewGmsaCredentialSpec(java.lang.String arg0);
   public java.lang.String getGmsaCredentialSpecName();
   public A withGmsaCredentialSpecName(java.lang.String gmsaCredentialSpecName);
   public java.lang.Boolean hasGmsaCredentialSpecName();
@@ -27,7 +27,7 @@ public interface V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.c
    * Method is deprecated. use withGmsaCredentialSpecName instead.
    */
   @java.lang.Deprecated
-  public A withNewGmsaCredentialSpecName(java.lang.String original);
+  public A withNewGmsaCredentialSpecName(java.lang.String arg0);
   public java.lang.Boolean getHostProcess();
   public A withHostProcess(java.lang.Boolean hostProcess);
   public java.lang.Boolean hasHostProcess();
@@ -39,6 +39,6 @@ public interface V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.c
    * Method is deprecated. use withRunAsUserName instead.
    */
   @java.lang.Deprecated
-  public A withNewRunAsUserName(java.lang.String original);
+  public A withNewRunAsUserName(java.lang.String arg0);
   
 }

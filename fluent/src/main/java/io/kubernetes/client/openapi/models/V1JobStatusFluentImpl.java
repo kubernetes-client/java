@@ -42,7 +42,7 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
   private java.lang.Integer active;
   private java.lang.String completedIndexes;
   private java.time.OffsetDateTime completionTime;
-  private java.util.List<io.kubernetes.client.openapi.models.V1JobConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JobConditionBuilder> conditions;
   private java.lang.Integer failed;
   private java.time.OffsetDateTime startTime;
   private java.lang.Integer succeeded;
@@ -70,8 +70,8 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withCompletedIndexes instead.
    */
   @java.lang.Deprecated
-  public A withNewCompletedIndexes(java.lang.String original) {
-    return (A)withCompletedIndexes(new String(original));
+  public A withNewCompletedIndexes(java.lang.String arg0) {
+    return (A)withCompletedIndexes(new String(arg0));
   }
   public java.time.OffsetDateTime getCompletionTime() {
     return this.completionTime;
@@ -127,10 +127,10 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1JobCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1JobCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1JobCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -222,10 +222,10 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1UncountedTerminatedPods getUncountedTerminatedPods() {
-    return this.uncountedTerminatedPods!=null?this.uncountedTerminatedPods.build():null;
+    return this.uncountedTerminatedPods!=null ?this.uncountedTerminatedPods.build():null;
   }
   public io.kubernetes.client.openapi.models.V1UncountedTerminatedPods buildUncountedTerminatedPods() {
-    return this.uncountedTerminatedPods!=null?this.uncountedTerminatedPods.build():null;
+    return this.uncountedTerminatedPods!=null ?this.uncountedTerminatedPods.build():null;
   }
   public A withUncountedTerminatedPods(io.kubernetes.client.openapi.models.V1UncountedTerminatedPods uncountedTerminatedPods) {
     _visitables.get("uncountedTerminatedPods").remove(this.uncountedTerminatedPods);

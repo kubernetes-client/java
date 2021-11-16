@@ -40,7 +40,7 @@ public class V1DeploymentStatusFluentImpl<A extends io.kubernetes.client.openapi
   }
   private java.lang.Integer availableReplicas;
   private java.lang.Integer collisionCount;
-  private java.util.List<io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder> conditions;
   private java.lang.Long observedGeneration;
   private java.lang.Integer readyReplicas;
   private java.lang.Integer replicas;
@@ -109,10 +109,10 @@ public class V1DeploymentStatusFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1DeploymentCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1DeploymentCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1DeploymentCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();

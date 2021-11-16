@@ -37,10 +37,10 @@ public class V1beta1LimitedPriorityLevelConfigurationFluentImpl<A extends io.kub
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1LimitResponse getLimitResponse() {
-    return this.limitResponse!=null?this.limitResponse.build():null;
+    return this.limitResponse!=null ?this.limitResponse.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1LimitResponse buildLimitResponse() {
-    return this.limitResponse!=null?this.limitResponse.build():null;
+    return this.limitResponse!=null ?this.limitResponse.build():null;
   }
   public A withLimitResponse(io.kubernetes.client.openapi.models.V1beta1LimitResponse limitResponse) {
     _visitables.get("limitResponse").remove(this.limitResponse);

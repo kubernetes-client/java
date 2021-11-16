@@ -43,8 +43,8 @@ public class V1IngressClassParametersReferenceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withApiGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewApiGroup(java.lang.String original) {
-    return (A)withApiGroup(new String(original));
+  public A withNewApiGroup(java.lang.String arg0) {
+    return (A)withApiGroup(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -60,8 +60,8 @@ public class V1IngressClassParametersReferenceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   public java.lang.String getName() {
     return this.name;
@@ -77,8 +77,8 @@ public class V1IngressClassParametersReferenceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.String getNamespace() {
     return this.namespace;
@@ -94,8 +94,8 @@ public class V1IngressClassParametersReferenceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A)withNamespace(new String(original));
+  public A withNewNamespace(java.lang.String arg0) {
+    return (A)withNamespace(new String(arg0));
   }
   public java.lang.String getScope() {
     return this.scope;
@@ -111,8 +111,8 @@ public class V1IngressClassParametersReferenceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withScope instead.
    */
   @java.lang.Deprecated
-  public A withNewScope(java.lang.String original) {
-    return (A)withScope(new String(original));
+  public A withNewScope(java.lang.String arg0) {
+    return (A)withScope(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

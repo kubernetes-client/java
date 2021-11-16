@@ -34,8 +34,8 @@ public class V1PersistentVolumeClaimVolumeSourceFluentImpl<A extends io.kubernet
    * Method is deprecated. use withClaimName instead.
    */
   @java.lang.Deprecated
-  public A withNewClaimName(java.lang.String original) {
-    return (A)withClaimName(new String(original));
+  public A withNewClaimName(java.lang.String arg0) {
+    return (A)withClaimName(new String(arg0));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;

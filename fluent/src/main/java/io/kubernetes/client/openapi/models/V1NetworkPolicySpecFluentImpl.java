@@ -30,8 +30,8 @@ public class V1NetworkPolicySpecFluentImpl<A extends io.kubernetes.client.openap
     this.withPolicyTypes(instance.getPolicyTypes());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleBuilder> egress;
-  private java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleBuilder> ingress;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleBuilder> egress;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleBuilder> ingress;
   private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder podSelector;
   private java.util.List<java.lang.String> policyTypes;
   public A addToEgress(java.lang.Integer index,io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule item) {
@@ -79,10 +79,10 @@ public class V1NetworkPolicySpecFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule> getEgress() {
-    return build(egress);
+    return egress != null ? build(egress) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule> buildEgress() {
-    return build(egress);
+    return egress != null ? build(egress) : null;
   }
   public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule buildEgress(java.lang.Integer index) {
     return this.egress.get(index).build();
@@ -185,10 +185,10 @@ public class V1NetworkPolicySpecFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule> getIngress() {
-    return build(ingress);
+    return ingress != null ? build(ingress) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule> buildIngress() {
-    return build(ingress);
+    return ingress != null ? build(ingress) : null;
   }
   public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule buildIngress(java.lang.Integer index) {
     return this.ingress.get(index).build();
@@ -253,10 +253,10 @@ public class V1NetworkPolicySpecFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getPodSelector() {
-    return this.podSelector!=null?this.podSelector.build():null;
+    return this.podSelector!=null ?this.podSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildPodSelector() {
-    return this.podSelector!=null?this.podSelector.build():null;
+    return this.podSelector!=null ?this.podSelector.build():null;
   }
   public A withPodSelector(io.kubernetes.client.openapi.models.V1LabelSelector podSelector) {
     _visitables.get("podSelector").remove(this.podSelector);
@@ -331,8 +331,8 @@ public class V1NetworkPolicySpecFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasPolicyTypes() {
     return policyTypes != null && !policyTypes.isEmpty();
   }
-  public A addNewPolicyType(java.lang.String original) {
-    return (A)addToPolicyTypes(new String(original));
+  public A addNewPolicyType(java.lang.String arg0) {
+    return (A)addToPolicyTypes(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

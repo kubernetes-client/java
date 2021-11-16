@@ -34,8 +34,8 @@ public class V1PhotonPersistentDiskVolumeSourceFluentImpl<A extends io.kubernete
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A)withFsType(new String(original));
+  public A withNewFsType(java.lang.String arg0) {
+    return (A)withFsType(new String(arg0));
   }
   public java.lang.String getPdID() {
     return this.pdID;
@@ -51,8 +51,8 @@ public class V1PhotonPersistentDiskVolumeSourceFluentImpl<A extends io.kubernete
    * Method is deprecated. use withPdID instead.
    */
   @java.lang.Deprecated
-  public A withNewPdID(java.lang.String original) {
-    return (A)withPdID(new String(original));
+  public A withNewPdID(java.lang.String arg0) {
+    return (A)withPdID(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

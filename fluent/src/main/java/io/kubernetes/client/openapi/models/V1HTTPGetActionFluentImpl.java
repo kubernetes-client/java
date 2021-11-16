@@ -34,7 +34,7 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
 
   }
   private java.lang.String host;
-  private java.util.List<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder> httpHeaders;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder> httpHeaders;
   private java.lang.String path;
   private io.kubernetes.client.custom.IntOrString port;
   private java.lang.String scheme;
@@ -52,8 +52,8 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withHost instead.
    */
   @java.lang.Deprecated
-  public A withNewHost(java.lang.String original) {
-    return (A)withHost(new String(original));
+  public A withNewHost(java.lang.String arg0) {
+    return (A)withHost(new String(arg0));
   }
   public A addToHttpHeaders(java.lang.Integer index,io.kubernetes.client.openapi.models.V1HTTPHeader item) {
     if (this.httpHeaders == null) {this.httpHeaders = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder>();}
@@ -100,10 +100,10 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1HTTPHeader> getHttpHeaders() {
-    return build(httpHeaders);
+    return httpHeaders != null ? build(httpHeaders) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1HTTPHeader> buildHttpHeaders() {
-    return build(httpHeaders);
+    return httpHeaders != null ? build(httpHeaders) : null;
   }
   public io.kubernetes.client.openapi.models.V1HTTPHeader buildHttpHeader(java.lang.Integer index) {
     return this.httpHeaders.get(index).build();
@@ -175,8 +175,8 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A)withPath(new String(original));
+  public A withNewPath(java.lang.String arg0) {
+    return (A)withPath(new String(arg0));
   }
   public io.kubernetes.client.custom.IntOrString getPort() {
     return this.port;
@@ -207,8 +207,8 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withScheme instead.
    */
   @java.lang.Deprecated
-  public A withNewScheme(java.lang.String original) {
-    return (A)withScheme(new String(original));
+  public A withNewScheme(java.lang.String arg0) {
+    return (A)withScheme(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

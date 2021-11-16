@@ -24,10 +24,10 @@ public class V1IngressStatusFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LoadBalancerStatus getLoadBalancer() {
-    return this.loadBalancer!=null?this.loadBalancer.build():null;
+    return this.loadBalancer!=null ?this.loadBalancer.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LoadBalancerStatus buildLoadBalancer() {
-    return this.loadBalancer!=null?this.loadBalancer.build():null;
+    return this.loadBalancer!=null ?this.loadBalancer.build():null;
   }
   public A withLoadBalancer(io.kubernetes.client.openapi.models.V1LoadBalancerStatus loadBalancer) {
     _visitables.get("loadBalancer").remove(this.loadBalancer);

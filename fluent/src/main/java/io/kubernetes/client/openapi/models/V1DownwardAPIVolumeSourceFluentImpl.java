@@ -26,7 +26,7 @@ public class V1DownwardAPIVolumeSourceFluentImpl<A extends io.kubernetes.client.
 
   }
   private java.lang.Integer defaultMode;
-  private java.util.List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder> items;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder> items;
   public java.lang.Integer getDefaultMode() {
     return this.defaultMode;
   }
@@ -81,10 +81,10 @@ public class V1DownwardAPIVolumeSourceFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> getItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> buildItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile buildItem(java.lang.Integer index) {
     return this.items.get(index).build();

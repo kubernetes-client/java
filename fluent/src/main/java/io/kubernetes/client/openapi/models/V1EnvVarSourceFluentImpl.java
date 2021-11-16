@@ -33,10 +33,10 @@ public class V1EnvVarSourceFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ConfigMapKeySelector getConfigMapKeyRef() {
-    return this.configMapKeyRef!=null?this.configMapKeyRef.build():null;
+    return this.configMapKeyRef!=null ?this.configMapKeyRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ConfigMapKeySelector buildConfigMapKeyRef() {
-    return this.configMapKeyRef!=null?this.configMapKeyRef.build():null;
+    return this.configMapKeyRef!=null ?this.configMapKeyRef.build():null;
   }
   public A withConfigMapKeyRef(io.kubernetes.client.openapi.models.V1ConfigMapKeySelector configMapKeyRef) {
     _visitables.get("configMapKeyRef").remove(this.configMapKeyRef);
@@ -67,10 +67,10 @@ public class V1EnvVarSourceFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectFieldSelector getFieldRef() {
-    return this.fieldRef!=null?this.fieldRef.build():null;
+    return this.fieldRef!=null ?this.fieldRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectFieldSelector buildFieldRef() {
-    return this.fieldRef!=null?this.fieldRef.build():null;
+    return this.fieldRef!=null ?this.fieldRef.build():null;
   }
   public A withFieldRef(io.kubernetes.client.openapi.models.V1ObjectFieldSelector fieldRef) {
     _visitables.get("fieldRef").remove(this.fieldRef);
@@ -101,10 +101,10 @@ public class V1EnvVarSourceFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ResourceFieldSelector getResourceFieldRef() {
-    return this.resourceFieldRef!=null?this.resourceFieldRef.build():null;
+    return this.resourceFieldRef!=null ?this.resourceFieldRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ResourceFieldSelector buildResourceFieldRef() {
-    return this.resourceFieldRef!=null?this.resourceFieldRef.build():null;
+    return this.resourceFieldRef!=null ?this.resourceFieldRef.build():null;
   }
   public A withResourceFieldRef(io.kubernetes.client.openapi.models.V1ResourceFieldSelector resourceFieldRef) {
     _visitables.get("resourceFieldRef").remove(this.resourceFieldRef);
@@ -135,10 +135,10 @@ public class V1EnvVarSourceFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecretKeySelector getSecretKeyRef() {
-    return this.secretKeyRef!=null?this.secretKeyRef.build():null;
+    return this.secretKeyRef!=null ?this.secretKeyRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecretKeySelector buildSecretKeyRef() {
-    return this.secretKeyRef!=null?this.secretKeyRef.build():null;
+    return this.secretKeyRef!=null ?this.secretKeyRef.build():null;
   }
   public A withSecretKeyRef(io.kubernetes.client.openapi.models.V1SecretKeySelector secretKeyRef) {
     _visitables.get("secretKeyRef").remove(this.secretKeyRef);

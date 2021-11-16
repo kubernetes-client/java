@@ -78,7 +78,7 @@ public interface V1CustomResourceDefinitionStatusFluent<A extends io.kubernetes.
   public A withStoredVersions(java.util.List<java.lang.String> storedVersions);
   public A withStoredVersions(java.lang.String... storedVersions);
   public java.lang.Boolean hasStoredVersions();
-  public A addNewStoredVersion(java.lang.String original);
+  public A addNewStoredVersion(java.lang.String arg0);
   public interface AcceptedNamesNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<N>>{
     public N and();
     public N endAcceptedNames();

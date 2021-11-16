@@ -35,8 +35,8 @@ public class V1IngressClassSpecFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withController instead.
    */
   @java.lang.Deprecated
-  public A withNewController(java.lang.String original) {
-    return (A)withController(new String(original));
+  public A withNewController(java.lang.String arg0) {
+    return (A)withController(new String(arg0));
   }
   
   /**
@@ -45,10 +45,10 @@ public class V1IngressClassSpecFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1IngressClassParametersReference getParameters() {
-    return this.parameters!=null?this.parameters.build():null;
+    return this.parameters!=null ?this.parameters.build():null;
   }
   public io.kubernetes.client.openapi.models.V1IngressClassParametersReference buildParameters() {
-    return this.parameters!=null?this.parameters.build():null;
+    return this.parameters!=null ?this.parameters.build():null;
   }
   public A withParameters(io.kubernetes.client.openapi.models.V1IngressClassParametersReference parameters) {
     _visitables.get("parameters").remove(this.parameters);

@@ -30,10 +30,10 @@ public class V1AffinityFluentImpl<A extends io.kubernetes.client.openapi.models.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeAffinity getNodeAffinity() {
-    return this.nodeAffinity!=null?this.nodeAffinity.build():null;
+    return this.nodeAffinity!=null ?this.nodeAffinity.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeAffinity buildNodeAffinity() {
-    return this.nodeAffinity!=null?this.nodeAffinity.build():null;
+    return this.nodeAffinity!=null ?this.nodeAffinity.build():null;
   }
   public A withNodeAffinity(io.kubernetes.client.openapi.models.V1NodeAffinity nodeAffinity) {
     _visitables.get("nodeAffinity").remove(this.nodeAffinity);
@@ -64,10 +64,10 @@ public class V1AffinityFluentImpl<A extends io.kubernetes.client.openapi.models.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PodAffinity getPodAffinity() {
-    return this.podAffinity!=null?this.podAffinity.build():null;
+    return this.podAffinity!=null ?this.podAffinity.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PodAffinity buildPodAffinity() {
-    return this.podAffinity!=null?this.podAffinity.build():null;
+    return this.podAffinity!=null ?this.podAffinity.build():null;
   }
   public A withPodAffinity(io.kubernetes.client.openapi.models.V1PodAffinity podAffinity) {
     _visitables.get("podAffinity").remove(this.podAffinity);
@@ -98,10 +98,10 @@ public class V1AffinityFluentImpl<A extends io.kubernetes.client.openapi.models.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PodAntiAffinity getPodAntiAffinity() {
-    return this.podAntiAffinity!=null?this.podAntiAffinity.build():null;
+    return this.podAntiAffinity!=null ?this.podAntiAffinity.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PodAntiAffinity buildPodAntiAffinity() {
-    return this.podAntiAffinity!=null?this.podAntiAffinity.build():null;
+    return this.podAntiAffinity!=null ?this.podAntiAffinity.build():null;
   }
   public A withPodAntiAffinity(io.kubernetes.client.openapi.models.V1PodAntiAffinity podAntiAffinity) {
     _visitables.get("podAntiAffinity").remove(this.podAntiAffinity);

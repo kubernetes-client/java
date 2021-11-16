@@ -45,7 +45,7 @@ public class V1StatefulSetStatusFluentImpl<A extends io.kubernetes.client.openap
   }
   private java.lang.Integer availableReplicas;
   private java.lang.Integer collisionCount;
-  private java.util.List<io.kubernetes.client.openapi.models.V1StatefulSetConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1StatefulSetConditionBuilder> conditions;
   private java.lang.Integer currentReplicas;
   private java.lang.String currentRevision;
   private java.lang.Long observedGeneration;
@@ -116,10 +116,10 @@ public class V1StatefulSetStatusFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1StatefulSetCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1StatefulSetCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1StatefulSetCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -200,8 +200,8 @@ public class V1StatefulSetStatusFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withCurrentRevision instead.
    */
   @java.lang.Deprecated
-  public A withNewCurrentRevision(java.lang.String original) {
-    return (A)withCurrentRevision(new String(original));
+  public A withNewCurrentRevision(java.lang.String arg0) {
+    return (A)withCurrentRevision(new String(arg0));
   }
   public java.lang.Long getObservedGeneration() {
     return this.observedGeneration;
@@ -244,8 +244,8 @@ public class V1StatefulSetStatusFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withUpdateRevision instead.
    */
   @java.lang.Deprecated
-  public A withNewUpdateRevision(java.lang.String original) {
-    return (A)withUpdateRevision(new String(original));
+  public A withNewUpdateRevision(java.lang.String arg0) {
+    return (A)withUpdateRevision(new String(arg0));
   }
   public java.lang.Integer getUpdatedReplicas() {
     return this.updatedReplicas;

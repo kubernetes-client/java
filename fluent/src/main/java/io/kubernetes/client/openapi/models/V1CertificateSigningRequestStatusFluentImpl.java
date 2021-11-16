@@ -27,7 +27,7 @@ public class V1CertificateSigningRequestStatusFluentImpl<A extends io.kubernetes
 
   }
   private java.util.List<java.lang.Byte> certificate;
-  private java.util.List<io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder> conditions;
   public A withCertificate(byte... certificate) {
     if (this.certificate != null) {this.certificate.clear();}
     if (certificate != null) {for (byte item :certificate){ this.addToCertificate(item);}} return (A) this;
@@ -117,10 +117,10 @@ return result;
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();

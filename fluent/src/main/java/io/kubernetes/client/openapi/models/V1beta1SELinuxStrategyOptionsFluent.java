@@ -19,7 +19,7 @@ public interface V1beta1SELinuxStrategyOptionsFluent<A extends io.kubernetes.cli
    * Method is deprecated. use withRule instead.
    */
   @java.lang.Deprecated
-  public A withNewRule(java.lang.String original);
+  public A withNewRule(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildSeLinuxOptions instead.

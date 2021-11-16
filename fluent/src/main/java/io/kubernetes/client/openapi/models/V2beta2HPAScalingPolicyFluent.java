@@ -22,7 +22,7 @@ public interface V2beta2HPAScalingPolicyFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   public java.lang.Integer getValue();
   public A withValue(java.lang.Integer value);
   public java.lang.Boolean hasValue();

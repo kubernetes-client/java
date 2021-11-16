@@ -24,10 +24,10 @@ public class V1EphemeralVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate getVolumeClaimTemplate() {
-    return this.volumeClaimTemplate!=null?this.volumeClaimTemplate.build():null;
+    return this.volumeClaimTemplate!=null ?this.volumeClaimTemplate.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate buildVolumeClaimTemplate() {
-    return this.volumeClaimTemplate!=null?this.volumeClaimTemplate.build():null;
+    return this.volumeClaimTemplate!=null ?this.volumeClaimTemplate.build():null;
   }
   public A withVolumeClaimTemplate(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate volumeClaimTemplate) {
     _visitables.get("volumeClaimTemplate").remove(this.volumeClaimTemplate);

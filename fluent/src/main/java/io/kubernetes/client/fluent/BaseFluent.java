@@ -28,16 +28,16 @@ try {
 } 
 
   }
-  public static <T>java.util.ArrayList<T> build(java.util.List<? extends io.kubernetes.client.fluent.Builder<? extends T>> list) {
+  public static <T>java.util.List<T> build(java.util.List<? extends io.kubernetes.client.fluent.Builder<? extends T>> list) {
     return list == null ? null : new ArrayList<T>(list.stream().map(Builder::build).collect(Collectors.toList()));
   }
-  public static <T>java.util.ArrayList<T> build(java.util.Set<? extends io.kubernetes.client.fluent.Builder<? extends T>> set) {
+  public static <T>java.util.List<T> build(java.util.Set<? extends io.kubernetes.client.fluent.Builder<? extends T>> set) {
     return set == null ? null : new ArrayList<>(set.stream().map(Builder::build).collect(Collectors.toList()));
   }
-  public static <T>java.util.ArrayList<T> aggregate(java.util.List<? extends T>... lists) {
+  public static <T>java.util.List<T> aggregate(java.util.List<? extends T>... lists) {
     return new ArrayList(Arrays.stream(lists).filter(Objects::nonNull).collect(Collectors.toList()));
   }
-  public static <T>java.util.LinkedHashSet<T> aggregate(java.util.Set<? extends T>[] sets) {
+  public static <T>java.util.Set<T> aggregate(java.util.Set<? extends T>[] sets) {
     return new LinkedHashSet(Arrays.stream(sets).filter(Objects::nonNull).collect(Collectors.toSet()));
   }
   public static <V extends io.kubernetes.client.fluent.Visitor<?>,F>java.lang.Boolean canVisit(V visitor,F fluent) {

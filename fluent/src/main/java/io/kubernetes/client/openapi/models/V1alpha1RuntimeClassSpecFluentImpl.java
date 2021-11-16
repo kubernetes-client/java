@@ -31,10 +31,10 @@ public class V1alpha1RuntimeClassSpecFluentImpl<A extends io.kubernetes.client.o
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1alpha1Overhead getOverhead() {
-    return this.overhead!=null?this.overhead.build():null;
+    return this.overhead!=null ?this.overhead.build():null;
   }
   public io.kubernetes.client.openapi.models.V1alpha1Overhead buildOverhead() {
-    return this.overhead!=null?this.overhead.build():null;
+    return this.overhead!=null ?this.overhead.build():null;
   }
   public A withOverhead(io.kubernetes.client.openapi.models.V1alpha1Overhead overhead) {
     _visitables.get("overhead").remove(this.overhead);
@@ -72,8 +72,8 @@ public class V1alpha1RuntimeClassSpecFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withRuntimeHandler instead.
    */
   @java.lang.Deprecated
-  public A withNewRuntimeHandler(java.lang.String original) {
-    return (A)withRuntimeHandler(new String(original));
+  public A withNewRuntimeHandler(java.lang.String arg0) {
+    return (A)withRuntimeHandler(new String(arg0));
   }
   
   /**
@@ -82,10 +82,10 @@ public class V1alpha1RuntimeClassSpecFluentImpl<A extends io.kubernetes.client.o
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1alpha1Scheduling getScheduling() {
-    return this.scheduling!=null?this.scheduling.build():null;
+    return this.scheduling!=null ?this.scheduling.build():null;
   }
   public io.kubernetes.client.openapi.models.V1alpha1Scheduling buildScheduling() {
-    return this.scheduling!=null?this.scheduling.build():null;
+    return this.scheduling!=null ?this.scheduling.build():null;
   }
   public A withScheduling(io.kubernetes.client.openapi.models.V1alpha1Scheduling scheduling) {
     _visitables.get("scheduling").remove(this.scheduling);

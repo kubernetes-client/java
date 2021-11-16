@@ -20,7 +20,7 @@ public interface V2beta1ContainerResourceMetricStatusFluent<A extends io.kuberne
    * Method is deprecated. use withContainer instead.
    */
   @java.lang.Deprecated
-  public A withNewContainer(java.lang.String original);
+  public A withNewContainer(java.lang.String arg0);
   public java.lang.Integer getCurrentAverageUtilization();
   public A withCurrentAverageUtilization(java.lang.Integer currentAverageUtilization);
   public java.lang.Boolean hasCurrentAverageUtilization();
@@ -36,6 +36,6 @@ public interface V2beta1ContainerResourceMetricStatusFluent<A extends io.kuberne
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   
 }

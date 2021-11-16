@@ -18,7 +18,7 @@ public interface V1PersistentVolumeStatusFluent<A extends io.kubernetes.client.o
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
+  public A withNewMessage(java.lang.String arg0);
   public java.lang.String getPhase();
   public A withPhase(java.lang.String phase);
   public java.lang.Boolean hasPhase();
@@ -27,7 +27,7 @@ public interface V1PersistentVolumeStatusFluent<A extends io.kubernetes.client.o
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original);
+  public A withNewPhase(java.lang.String arg0);
   public java.lang.String getReason();
   public A withReason(java.lang.String reason);
   public java.lang.Boolean hasReason();
@@ -36,6 +36,6 @@ public interface V1PersistentVolumeStatusFluent<A extends io.kubernetes.client.o
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
+  public A withNewReason(java.lang.String arg0);
   
 }

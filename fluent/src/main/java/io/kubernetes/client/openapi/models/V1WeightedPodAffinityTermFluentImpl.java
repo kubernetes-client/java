@@ -28,10 +28,10 @@ public class V1WeightedPodAffinityTermFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PodAffinityTerm getPodAffinityTerm() {
-    return this.podAffinityTerm!=null?this.podAffinityTerm.build():null;
+    return this.podAffinityTerm!=null ?this.podAffinityTerm.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PodAffinityTerm buildPodAffinityTerm() {
-    return this.podAffinityTerm!=null?this.podAffinityTerm.build():null;
+    return this.podAffinityTerm!=null ?this.podAffinityTerm.build():null;
   }
   public A withPodAffinityTerm(io.kubernetes.client.openapi.models.V1PodAffinityTerm podAffinityTerm) {
     _visitables.get("podAffinityTerm").remove(this.podAffinityTerm);

@@ -76,8 +76,8 @@ public class V1TokenReviewSpecFluentImpl<A extends io.kubernetes.client.openapi.
   public java.lang.Boolean hasAudiences() {
     return audiences != null && !audiences.isEmpty();
   }
-  public A addNewAudience(java.lang.String original) {
-    return (A)addToAudiences(new String(original));
+  public A addNewAudience(java.lang.String arg0) {
+    return (A)addToAudiences(new String(arg0));
   }
   public java.lang.String getToken() {
     return this.token;
@@ -93,8 +93,8 @@ public class V1TokenReviewSpecFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withToken instead.
    */
   @java.lang.Deprecated
-  public A withNewToken(java.lang.String original) {
-    return (A)withToken(new String(original));
+  public A withNewToken(java.lang.String arg0) {
+    return (A)withToken(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

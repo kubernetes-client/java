@@ -18,7 +18,7 @@ public interface V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original);
+  public A withNewGroup(java.lang.String arg0);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();
@@ -30,7 +30,7 @@ public interface V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withRegistry instead.
    */
   @java.lang.Deprecated
-  public A withNewRegistry(java.lang.String original);
+  public A withNewRegistry(java.lang.String arg0);
   public java.lang.String getTenant();
   public A withTenant(java.lang.String tenant);
   public java.lang.Boolean hasTenant();
@@ -39,7 +39,7 @@ public interface V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withTenant instead.
    */
   @java.lang.Deprecated
-  public A withNewTenant(java.lang.String original);
+  public A withNewTenant(java.lang.String arg0);
   public java.lang.String getUser();
   public A withUser(java.lang.String user);
   public java.lang.Boolean hasUser();
@@ -48,7 +48,7 @@ public interface V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String original);
+  public A withNewUser(java.lang.String arg0);
   public java.lang.String getVolume();
   public A withVolume(java.lang.String volume);
   public java.lang.Boolean hasVolume();
@@ -57,6 +57,6 @@ public interface V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withVolume instead.
    */
   @java.lang.Deprecated
-  public A withNewVolume(java.lang.String original);
+  public A withNewVolume(java.lang.String arg0);
   
 }

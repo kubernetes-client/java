@@ -29,7 +29,7 @@ public interface V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.mod
   public A withApiGroups(java.util.List<java.lang.String> apiGroups);
   public A withApiGroups(java.lang.String... apiGroups);
   public java.lang.Boolean hasApiGroups();
-  public A addNewApiGroup(java.lang.String original);
+  public A addNewApiGroup(java.lang.String arg0);
   public A addToResourceNames(java.lang.Integer index,java.lang.String item);
   public A setToResourceNames(java.lang.Integer index,java.lang.String item);
   public A addToResourceNames(java.lang.String... items);
@@ -45,7 +45,7 @@ public interface V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.mod
   public A withResourceNames(java.util.List<java.lang.String> resourceNames);
   public A withResourceNames(java.lang.String... resourceNames);
   public java.lang.Boolean hasResourceNames();
-  public A addNewResourceName(java.lang.String original);
+  public A addNewResourceName(java.lang.String arg0);
   public A addToResources(java.lang.Integer index,java.lang.String item);
   public A setToResources(java.lang.Integer index,java.lang.String item);
   public A addToResources(java.lang.String... items);
@@ -61,7 +61,7 @@ public interface V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.mod
   public A withResources(java.util.List<java.lang.String> resources);
   public A withResources(java.lang.String... resources);
   public java.lang.Boolean hasResources();
-  public A addNewResource(java.lang.String original);
+  public A addNewResource(java.lang.String arg0);
   public A addToVerbs(java.lang.Integer index,java.lang.String item);
   public A setToVerbs(java.lang.Integer index,java.lang.String item);
   public A addToVerbs(java.lang.String... items);
@@ -77,6 +77,6 @@ public interface V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.mod
   public A withVerbs(java.util.List<java.lang.String> verbs);
   public A withVerbs(java.lang.String... verbs);
   public java.lang.Boolean hasVerbs();
-  public A addNewVerb(java.lang.String original);
+  public A addNewVerb(java.lang.String arg0);
   
 }

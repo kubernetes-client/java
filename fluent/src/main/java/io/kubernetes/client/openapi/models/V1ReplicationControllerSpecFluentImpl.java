@@ -80,10 +80,10 @@ public class V1ReplicationControllerSpecFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate() {
-    return this.template!=null?this.template.build():null;
+    return this.template!=null ?this.template.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate() {
-    return this.template!=null?this.template.build():null;
+    return this.template!=null ?this.template.build():null;
   }
   public A withTemplate(io.kubernetes.client.openapi.models.V1PodTemplateSpec template) {
     _visitables.get("template").remove(this.template);

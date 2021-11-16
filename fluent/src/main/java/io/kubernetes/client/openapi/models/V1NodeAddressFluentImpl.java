@@ -34,8 +34,8 @@ public class V1NodeAddressFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withAddress instead.
    */
   @java.lang.Deprecated
-  public A withNewAddress(java.lang.String original) {
-    return (A)withAddress(new String(original));
+  public A withNewAddress(java.lang.String arg0) {
+    return (A)withAddress(new String(arg0));
   }
   public java.lang.String getType() {
     return this.type;
@@ -51,8 +51,8 @@ public class V1NodeAddressFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

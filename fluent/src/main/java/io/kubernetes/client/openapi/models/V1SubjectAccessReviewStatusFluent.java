@@ -24,7 +24,7 @@ public interface V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withEvaluationError instead.
    */
   @java.lang.Deprecated
-  public A withNewEvaluationError(java.lang.String original);
+  public A withNewEvaluationError(java.lang.String arg0);
   public java.lang.String getReason();
   public A withReason(java.lang.String reason);
   public java.lang.Boolean hasReason();
@@ -33,6 +33,6 @@ public interface V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
+  public A withNewReason(java.lang.String arg0);
   
 }

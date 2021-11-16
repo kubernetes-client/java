@@ -19,7 +19,7 @@ public interface V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   public java.lang.String getValue();
   public A withValue(java.lang.String value);
   public java.lang.Boolean hasValue();
@@ -28,7 +28,7 @@ public interface V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withValue instead.
    */
   @java.lang.Deprecated
-  public A withNewValue(java.lang.String original);
+  public A withNewValue(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildValueFrom instead.

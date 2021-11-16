@@ -24,10 +24,10 @@ public class V1VolumeNodeAffinityFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeSelector getRequired() {
-    return this.required!=null?this.required.build():null;
+    return this.required!=null ?this.required.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeSelector buildRequired() {
-    return this.required!=null?this.required.build():null;
+    return this.required!=null ?this.required.build():null;
   }
   public A withRequired(io.kubernetes.client.openapi.models.V1NodeSelector required) {
     _visitables.get("required").remove(this.required);

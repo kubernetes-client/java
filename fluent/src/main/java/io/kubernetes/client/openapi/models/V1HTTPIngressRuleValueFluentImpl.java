@@ -23,7 +23,7 @@ public class V1HTTPIngressRuleValueFluentImpl<A extends io.kubernetes.client.ope
     this.withPaths(instance.getPaths());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder> paths;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder> paths;
   public A addToPaths(java.lang.Integer index,io.kubernetes.client.openapi.models.V1HTTPIngressPath item) {
     if (this.paths == null) {this.paths = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder>();}
     io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder builder = new io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder(item);_visitables.get("paths").add(index >= 0 ? index : _visitables.get("paths").size(), builder);this.paths.add(index >= 0 ? index : paths.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1HTTPIngressRuleValueFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1HTTPIngressPath> getPaths() {
-    return build(paths);
+    return paths != null ? build(paths) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1HTTPIngressPath> buildPaths() {
-    return build(paths);
+    return paths != null ? build(paths) : null;
   }
   public io.kubernetes.client.openapi.models.V1HTTPIngressPath buildPath(java.lang.Integer index) {
     return this.paths.get(index).build();

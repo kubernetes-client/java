@@ -40,8 +40,8 @@ public class V1ComponentConditionFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String original) {
-    return (A)withError(new String(original));
+  public A withNewError(java.lang.String arg0) {
+    return (A)withError(new String(arg0));
   }
   public java.lang.String getMessage() {
     return this.message;
@@ -57,8 +57,8 @@ public class V1ComponentConditionFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A)withMessage(new String(original));
+  public A withNewMessage(java.lang.String arg0) {
+    return (A)withMessage(new String(arg0));
   }
   public java.lang.String getStatus() {
     return this.status;
@@ -74,8 +74,8 @@ public class V1ComponentConditionFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original) {
-    return (A)withStatus(new String(original));
+  public A withNewStatus(java.lang.String arg0) {
+    return (A)withStatus(new String(arg0));
   }
   public java.lang.String getType() {
     return this.type;
@@ -91,8 +91,8 @@ public class V1ComponentConditionFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

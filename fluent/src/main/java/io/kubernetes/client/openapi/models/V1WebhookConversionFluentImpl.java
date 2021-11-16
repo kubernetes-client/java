@@ -33,10 +33,10 @@ public class V1WebhookConversionFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig getClientConfig() {
-    return this.clientConfig!=null?this.clientConfig.build():null;
+    return this.clientConfig!=null ?this.clientConfig.build():null;
   }
   public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig buildClientConfig() {
-    return this.clientConfig!=null?this.clientConfig.build():null;
+    return this.clientConfig!=null ?this.clientConfig.build():null;
   }
   public A withClientConfig(io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig clientConfig) {
     _visitables.get("clientConfig").remove(this.clientConfig);
@@ -111,8 +111,8 @@ public class V1WebhookConversionFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasConversionReviewVersions() {
     return conversionReviewVersions != null && !conversionReviewVersions.isEmpty();
   }
-  public A addNewConversionReviewVersion(java.lang.String original) {
-    return (A)addToConversionReviewVersions(new String(original));
+  public A addNewConversionReviewVersion(java.lang.String arg0) {
+    return (A)addToConversionReviewVersions(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

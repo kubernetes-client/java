@@ -41,8 +41,8 @@ public class V1beta1PodSecurityPolicyFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -58,8 +58,8 @@ public class V1beta1PodSecurityPolicyFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -68,10 +68,10 @@ public class V1beta1PodSecurityPolicyFluentImpl<A extends io.kubernetes.client.o
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -102,10 +102,10 @@ public class V1beta1PodSecurityPolicyFluentImpl<A extends io.kubernetes.client.o
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpec getSpec() {
-    return this.spec!=null?this.spec.build():null;
+    return this.spec!=null ?this.spec.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpec buildSpec() {
-    return this.spec!=null?this.spec.build():null;
+    return this.spec!=null ?this.spec.build():null;
   }
   public A withSpec(io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpec spec) {
     _visitables.get("spec").remove(this.spec);

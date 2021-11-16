@@ -23,7 +23,7 @@ public class V1CSINodeSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
     this.withDrivers(instance.getDrivers());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder> drivers;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder> drivers;
   public A addToDrivers(java.lang.Integer index,io.kubernetes.client.openapi.models.V1CSINodeDriver item) {
     if (this.drivers == null) {this.drivers = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder>();}
     io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder builder = new io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder(item);_visitables.get("drivers").add(index >= 0 ? index : _visitables.get("drivers").size(), builder);this.drivers.add(index >= 0 ? index : drivers.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1CSINodeSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1CSINodeDriver> getDrivers() {
-    return build(drivers);
+    return drivers != null ? build(drivers) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1CSINodeDriver> buildDrivers() {
-    return build(drivers);
+    return drivers != null ? build(drivers) : null;
   }
   public io.kubernetes.client.openapi.models.V1CSINodeDriver buildDriver(java.lang.Integer index) {
     return this.drivers.get(index).build();

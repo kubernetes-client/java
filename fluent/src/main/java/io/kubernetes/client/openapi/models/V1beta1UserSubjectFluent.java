@@ -18,6 +18,6 @@ public interface V1beta1UserSubjectFluent<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   
 }

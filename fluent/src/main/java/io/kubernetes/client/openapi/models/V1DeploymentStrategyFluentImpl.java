@@ -28,10 +28,10 @@ public class V1DeploymentStrategyFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1RollingUpdateDeployment getRollingUpdate() {
-    return this.rollingUpdate!=null?this.rollingUpdate.build():null;
+    return this.rollingUpdate!=null ?this.rollingUpdate.build():null;
   }
   public io.kubernetes.client.openapi.models.V1RollingUpdateDeployment buildRollingUpdate() {
-    return this.rollingUpdate!=null?this.rollingUpdate.build():null;
+    return this.rollingUpdate!=null ?this.rollingUpdate.build():null;
   }
   public A withRollingUpdate(io.kubernetes.client.openapi.models.V1RollingUpdateDeployment rollingUpdate) {
     _visitables.get("rollingUpdate").remove(this.rollingUpdate);
@@ -69,8 +69,8 @@ public class V1DeploymentStrategyFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

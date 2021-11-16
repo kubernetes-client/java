@@ -38,7 +38,7 @@ public class V1CustomResourceDefinitionVersionFluentImpl<A extends io.kubernetes
     this.withSubresources(instance.getSubresources());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder> additionalPrinterColumns;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder> additionalPrinterColumns;
   private java.lang.Boolean deprecated;
   private java.lang.String deprecationWarning;
   private java.lang.String name;
@@ -91,10 +91,10 @@ public class V1CustomResourceDefinitionVersionFluentImpl<A extends io.kubernetes
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition> getAdditionalPrinterColumns() {
-    return build(additionalPrinterColumns);
+    return additionalPrinterColumns != null ? build(additionalPrinterColumns) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition> buildAdditionalPrinterColumns() {
-    return build(additionalPrinterColumns);
+    return additionalPrinterColumns != null ? build(additionalPrinterColumns) : null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition buildAdditionalPrinterColumn(java.lang.Integer index) {
     return this.additionalPrinterColumns.get(index).build();
@@ -175,8 +175,8 @@ public class V1CustomResourceDefinitionVersionFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withDeprecationWarning instead.
    */
   @java.lang.Deprecated
-  public A withNewDeprecationWarning(java.lang.String original) {
-    return (A)withDeprecationWarning(new String(original));
+  public A withNewDeprecationWarning(java.lang.String arg0) {
+    return (A)withDeprecationWarning(new String(arg0));
   }
   public java.lang.String getName() {
     return this.name;
@@ -192,8 +192,8 @@ public class V1CustomResourceDefinitionVersionFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   
   /**
@@ -202,10 +202,10 @@ public class V1CustomResourceDefinitionVersionFluentImpl<A extends io.kubernetes
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CustomResourceValidation getSchema() {
-    return this.schema!=null?this.schema.build():null;
+    return this.schema!=null ?this.schema.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceValidation buildSchema() {
-    return this.schema!=null?this.schema.build():null;
+    return this.schema!=null ?this.schema.build():null;
   }
   public A withSchema(io.kubernetes.client.openapi.models.V1CustomResourceValidation schema) {
     _visitables.get("schema").remove(this.schema);
@@ -254,10 +254,10 @@ public class V1CustomResourceDefinitionVersionFluentImpl<A extends io.kubernetes
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresources getSubresources() {
-    return this.subresources!=null?this.subresources.build():null;
+    return this.subresources!=null ?this.subresources.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresources buildSubresources() {
-    return this.subresources!=null?this.subresources.build():null;
+    return this.subresources!=null ?this.subresources.build():null;
   }
   public A withSubresources(io.kubernetes.client.openapi.models.V1CustomResourceSubresources subresources) {
     _visitables.get("subresources").remove(this.subresources);

@@ -36,10 +36,10 @@ public class V1ServiceAccountFluentImpl<A extends io.kubernetes.client.openapi.m
   }
   private java.lang.String apiVersion;
   private java.lang.Boolean automountServiceAccountToken;
-  private java.util.List<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder> imagePullSecrets;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder> imagePullSecrets;
   private java.lang.String kind;
   private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> secrets;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> secrets;
   public java.lang.String getApiVersion() {
     return this.apiVersion;
   }
@@ -54,8 +54,8 @@ public class V1ServiceAccountFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.Boolean getAutomountServiceAccountToken() {
     return this.automountServiceAccountToken;
@@ -111,10 +111,10 @@ public class V1ServiceAccountFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1LocalObjectReference> getImagePullSecrets() {
-    return build(imagePullSecrets);
+    return imagePullSecrets != null ? build(imagePullSecrets) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1LocalObjectReference> buildImagePullSecrets() {
-    return build(imagePullSecrets);
+    return imagePullSecrets != null ? build(imagePullSecrets) : null;
   }
   public io.kubernetes.client.openapi.models.V1LocalObjectReference buildImagePullSecret(java.lang.Integer index) {
     return this.imagePullSecrets.get(index).build();
@@ -186,8 +186,8 @@ public class V1ServiceAccountFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -196,10 +196,10 @@ public class V1ServiceAccountFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -268,10 +268,10 @@ public class V1ServiceAccountFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> getSecrets() {
-    return build(secrets);
+    return secrets != null ? build(secrets) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> buildSecrets() {
-    return build(secrets);
+    return secrets != null ? build(secrets) : null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectReference buildSecret(java.lang.Integer index) {
     return this.secrets.get(index).build();

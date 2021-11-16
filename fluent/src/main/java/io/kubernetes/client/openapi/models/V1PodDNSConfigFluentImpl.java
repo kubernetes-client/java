@@ -29,7 +29,7 @@ public class V1PodDNSConfigFluentImpl<A extends io.kubernetes.client.openapi.mod
 
   }
   private java.util.List<java.lang.String> nameservers;
-  private java.util.List<io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder> options;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder> options;
   private java.util.List<java.lang.String> searches;
   public A addToNameservers(java.lang.Integer index,java.lang.String item) {
     if (this.nameservers == null) {this.nameservers = new java.util.ArrayList<java.lang.String>();}
@@ -82,8 +82,8 @@ public class V1PodDNSConfigFluentImpl<A extends io.kubernetes.client.openapi.mod
   public java.lang.Boolean hasNameservers() {
     return nameservers != null && !nameservers.isEmpty();
   }
-  public A addNewNameserver(java.lang.String original) {
-    return (A)addToNameservers(new String(original));
+  public A addNewNameserver(java.lang.String arg0) {
+    return (A)addToNameservers(new String(arg0));
   }
   public A addToOptions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodDNSConfigOption item) {
     if (this.options == null) {this.options = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder>();}
@@ -130,10 +130,10 @@ public class V1PodDNSConfigFluentImpl<A extends io.kubernetes.client.openapi.mod
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> getOptions() {
-    return build(options);
+    return options != null ? build(options) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> buildOptions() {
-    return build(options);
+    return options != null ? build(options) : null;
   }
   public io.kubernetes.client.openapi.models.V1PodDNSConfigOption buildOption(java.lang.Integer index) {
     return this.options.get(index).build();
@@ -242,8 +242,8 @@ public class V1PodDNSConfigFluentImpl<A extends io.kubernetes.client.openapi.mod
   public java.lang.Boolean hasSearches() {
     return searches != null && !searches.isEmpty();
   }
-  public A addNewSearch(java.lang.String original) {
-    return (A)addToSearches(new String(original));
+  public A addNewSearch(java.lang.String arg0) {
+    return (A)addToSearches(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

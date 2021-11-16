@@ -33,10 +33,10 @@ public class V1VolumeProjectionFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ConfigMapProjection getConfigMap() {
-    return this.configMap!=null?this.configMap.build():null;
+    return this.configMap!=null ?this.configMap.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ConfigMapProjection buildConfigMap() {
-    return this.configMap!=null?this.configMap.build():null;
+    return this.configMap!=null ?this.configMap.build():null;
   }
   public A withConfigMap(io.kubernetes.client.openapi.models.V1ConfigMapProjection configMap) {
     _visitables.get("configMap").remove(this.configMap);
@@ -67,10 +67,10 @@ public class V1VolumeProjectionFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1DownwardAPIProjection getDownwardAPI() {
-    return this.downwardAPI!=null?this.downwardAPI.build():null;
+    return this.downwardAPI!=null ?this.downwardAPI.build():null;
   }
   public io.kubernetes.client.openapi.models.V1DownwardAPIProjection buildDownwardAPI() {
-    return this.downwardAPI!=null?this.downwardAPI.build():null;
+    return this.downwardAPI!=null ?this.downwardAPI.build():null;
   }
   public A withDownwardAPI(io.kubernetes.client.openapi.models.V1DownwardAPIProjection downwardAPI) {
     _visitables.get("downwardAPI").remove(this.downwardAPI);
@@ -101,10 +101,10 @@ public class V1VolumeProjectionFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SecretProjection getSecret() {
-    return this.secret!=null?this.secret.build():null;
+    return this.secret!=null ?this.secret.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SecretProjection buildSecret() {
-    return this.secret!=null?this.secret.build():null;
+    return this.secret!=null ?this.secret.build():null;
   }
   public A withSecret(io.kubernetes.client.openapi.models.V1SecretProjection secret) {
     _visitables.get("secret").remove(this.secret);
@@ -135,10 +135,10 @@ public class V1VolumeProjectionFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection getServiceAccountToken() {
-    return this.serviceAccountToken!=null?this.serviceAccountToken.build():null;
+    return this.serviceAccountToken!=null ?this.serviceAccountToken.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection buildServiceAccountToken() {
-    return this.serviceAccountToken!=null?this.serviceAccountToken.build():null;
+    return this.serviceAccountToken!=null ?this.serviceAccountToken.build():null;
   }
   public A withServiceAccountToken(io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection serviceAccountToken) {
     _visitables.get("serviceAccountToken").remove(this.serviceAccountToken);

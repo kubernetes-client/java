@@ -30,10 +30,10 @@ public class V1ContainerStateFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ContainerStateRunning getRunning() {
-    return this.running!=null?this.running.build():null;
+    return this.running!=null ?this.running.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ContainerStateRunning buildRunning() {
-    return this.running!=null?this.running.build():null;
+    return this.running!=null ?this.running.build():null;
   }
   public A withRunning(io.kubernetes.client.openapi.models.V1ContainerStateRunning running) {
     _visitables.get("running").remove(this.running);
@@ -64,10 +64,10 @@ public class V1ContainerStateFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ContainerStateTerminated getTerminated() {
-    return this.terminated!=null?this.terminated.build():null;
+    return this.terminated!=null ?this.terminated.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ContainerStateTerminated buildTerminated() {
-    return this.terminated!=null?this.terminated.build():null;
+    return this.terminated!=null ?this.terminated.build():null;
   }
   public A withTerminated(io.kubernetes.client.openapi.models.V1ContainerStateTerminated terminated) {
     _visitables.get("terminated").remove(this.terminated);
@@ -98,10 +98,10 @@ public class V1ContainerStateFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ContainerStateWaiting getWaiting() {
-    return this.waiting!=null?this.waiting.build():null;
+    return this.waiting!=null ?this.waiting.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ContainerStateWaiting buildWaiting() {
-    return this.waiting!=null?this.waiting.build():null;
+    return this.waiting!=null ?this.waiting.build():null;
   }
   public A withWaiting(io.kubernetes.client.openapi.models.V1ContainerStateWaiting waiting) {
     _visitables.get("waiting").remove(this.waiting);

@@ -33,7 +33,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
   public A withArgs(java.util.List<java.lang.String> args);
   public A withArgs(java.lang.String... args);
   public java.lang.Boolean hasArgs();
-  public A addNewArg(java.lang.String original);
+  public A addNewArg(java.lang.String arg0);
   public A addToCommand(java.lang.Integer index,java.lang.String item);
   public A setToCommand(java.lang.Integer index,java.lang.String item);
   public A addToCommand(java.lang.String... items);
@@ -49,7 +49,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
   public A withCommand(java.util.List<java.lang.String> command);
   public A withCommand(java.lang.String... command);
   public java.lang.Boolean hasCommand();
-  public A addNewCommand(java.lang.String original);
+  public A addNewCommand(java.lang.String arg0);
   public A addToEnv(java.lang.Integer index,io.kubernetes.client.openapi.models.V1EnvVar item);
   public A setToEnv(java.lang.Integer index,io.kubernetes.client.openapi.models.V1EnvVar item);
   public A addToEnv(io.kubernetes.client.openapi.models.V1EnvVar... items);
@@ -118,7 +118,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withImage instead.
    */
   @java.lang.Deprecated
-  public A withNewImage(java.lang.String original);
+  public A withNewImage(java.lang.String arg0);
   public java.lang.String getImagePullPolicy();
   public A withImagePullPolicy(java.lang.String imagePullPolicy);
   public java.lang.Boolean hasImagePullPolicy();
@@ -127,7 +127,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withImagePullPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewImagePullPolicy(java.lang.String original);
+  public A withNewImagePullPolicy(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildLifecycle instead.
@@ -166,7 +166,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   public A addToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ContainerPort item);
   public A setToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ContainerPort item);
   public A addToPorts(io.kubernetes.client.openapi.models.V1ContainerPort... items);
@@ -271,7 +271,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withTargetContainerName instead.
    */
   @java.lang.Deprecated
-  public A withNewTargetContainerName(java.lang.String original);
+  public A withNewTargetContainerName(java.lang.String arg0);
   public java.lang.String getTerminationMessagePath();
   public A withTerminationMessagePath(java.lang.String terminationMessagePath);
   public java.lang.Boolean hasTerminationMessagePath();
@@ -280,7 +280,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withTerminationMessagePath instead.
    */
   @java.lang.Deprecated
-  public A withNewTerminationMessagePath(java.lang.String original);
+  public A withNewTerminationMessagePath(java.lang.String arg0);
   public java.lang.String getTerminationMessagePolicy();
   public A withTerminationMessagePolicy(java.lang.String terminationMessagePolicy);
   public java.lang.Boolean hasTerminationMessagePolicy();
@@ -289,7 +289,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withTerminationMessagePolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewTerminationMessagePolicy(java.lang.String original);
+  public A withNewTerminationMessagePolicy(java.lang.String arg0);
   public java.lang.Boolean getTty();
   public A withTty(java.lang.Boolean tty);
   public java.lang.Boolean hasTty();
@@ -361,7 +361,7 @@ public interface V1EphemeralContainerFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withWorkingDir instead.
    */
   @java.lang.Deprecated
-  public A withNewWorkingDir(java.lang.String original);
+  public A withNewWorkingDir(java.lang.String arg0);
   public interface EnvNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1EnvVarFluent<io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<N>>{
     public N and();
     public N endEnv();

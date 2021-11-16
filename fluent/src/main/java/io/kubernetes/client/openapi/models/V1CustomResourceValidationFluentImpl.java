@@ -24,10 +24,10 @@ public class V1CustomResourceValidationFluentImpl<A extends io.kubernetes.client
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1JSONSchemaProps getOpenAPIV3Schema() {
-    return this.openAPIV3Schema!=null?this.openAPIV3Schema.build():null;
+    return this.openAPIV3Schema!=null ?this.openAPIV3Schema.build():null;
   }
   public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildOpenAPIV3Schema() {
-    return this.openAPIV3Schema!=null?this.openAPIV3Schema.build():null;
+    return this.openAPIV3Schema!=null ?this.openAPIV3Schema.build():null;
   }
   public A withOpenAPIV3Schema(io.kubernetes.client.openapi.models.V1JSONSchemaProps openAPIV3Schema) {
     _visitables.get("openAPIV3Schema").remove(this.openAPIV3Schema);

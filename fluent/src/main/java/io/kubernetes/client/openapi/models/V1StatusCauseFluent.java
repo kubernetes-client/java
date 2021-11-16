@@ -18,7 +18,7 @@ public interface V1StatusCauseFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withField instead.
    */
   @java.lang.Deprecated
-  public A withNewField(java.lang.String original);
+  public A withNewField(java.lang.String arg0);
   public java.lang.String getMessage();
   public A withMessage(java.lang.String message);
   public java.lang.Boolean hasMessage();
@@ -27,7 +27,7 @@ public interface V1StatusCauseFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
+  public A withNewMessage(java.lang.String arg0);
   public java.lang.String getReason();
   public A withReason(java.lang.String reason);
   public java.lang.Boolean hasReason();
@@ -36,6 +36,6 @@ public interface V1StatusCauseFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
+  public A withNewReason(java.lang.String arg0);
   
 }

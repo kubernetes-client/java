@@ -28,6 +28,6 @@ public interface V1NetworkPolicyPortFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String original);
+  public A withNewProtocol(java.lang.String arg0);
   
 }

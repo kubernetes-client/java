@@ -41,8 +41,8 @@ public class V1CinderVolumeSourceFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A)withFsType(new String(original));
+  public A withNewFsType(java.lang.String arg0) {
+    return (A)withFsType(new String(arg0));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -60,10 +60,10 @@ public class V1CinderVolumeSourceFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef() {
-    return this.secretRef!=null?this.secretRef.build():null;
+    return this.secretRef!=null ?this.secretRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef() {
-    return this.secretRef!=null?this.secretRef.build():null;
+    return this.secretRef!=null ?this.secretRef.build():null;
   }
   public A withSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);
@@ -101,8 +101,8 @@ public class V1CinderVolumeSourceFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withVolumeID instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeID(java.lang.String original) {
-    return (A)withVolumeID(new String(original));
+  public A withNewVolumeID(java.lang.String arg0) {
+    return (A)withVolumeID(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

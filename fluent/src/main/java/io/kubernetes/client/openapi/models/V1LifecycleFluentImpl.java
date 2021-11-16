@@ -27,10 +27,10 @@ public class V1LifecycleFluentImpl<A extends io.kubernetes.client.openapi.models
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1Handler getPostStart() {
-    return this.postStart!=null?this.postStart.build():null;
+    return this.postStart!=null ?this.postStart.build():null;
   }
   public io.kubernetes.client.openapi.models.V1Handler buildPostStart() {
-    return this.postStart!=null?this.postStart.build():null;
+    return this.postStart!=null ?this.postStart.build():null;
   }
   public A withPostStart(io.kubernetes.client.openapi.models.V1Handler postStart) {
     _visitables.get("postStart").remove(this.postStart);
@@ -61,10 +61,10 @@ public class V1LifecycleFluentImpl<A extends io.kubernetes.client.openapi.models
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1Handler getPreStop() {
-    return this.preStop!=null?this.preStop.build():null;
+    return this.preStop!=null ?this.preStop.build():null;
   }
   public io.kubernetes.client.openapi.models.V1Handler buildPreStop() {
-    return this.preStop!=null?this.preStop.build():null;
+    return this.preStop!=null ?this.preStop.build():null;
   }
   public A withPreStop(io.kubernetes.client.openapi.models.V1Handler preStop) {
     _visitables.get("preStop").remove(this.preStop);

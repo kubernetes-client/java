@@ -25,7 +25,7 @@ public interface V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public A addToDryRun(java.lang.Integer index,java.lang.String item);
   public A setToDryRun(java.lang.Integer index,java.lang.String item);
   public A addToDryRun(java.lang.String... items);
@@ -41,7 +41,7 @@ public interface V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.mo
   public A withDryRun(java.util.List<java.lang.String> dryRun);
   public A withDryRun(java.lang.String... dryRun);
   public java.lang.Boolean hasDryRun();
-  public A addNewDryRun(java.lang.String original);
+  public A addNewDryRun(java.lang.String arg0);
   public java.lang.Long getGracePeriodSeconds();
   public A withGracePeriodSeconds(java.lang.Long gracePeriodSeconds);
   public java.lang.Boolean hasGracePeriodSeconds();
@@ -53,7 +53,7 @@ public interface V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   public java.lang.Boolean getOrphanDependents();
   public A withOrphanDependents(java.lang.Boolean orphanDependents);
   public java.lang.Boolean hasOrphanDependents();
@@ -80,7 +80,7 @@ public interface V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPropagationPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPropagationPolicy(java.lang.String original);
+  public A withNewPropagationPolicy(java.lang.String arg0);
   public interface PreconditionsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1PreconditionsFluent<io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<N>>{
     public N and();
     public N endPreconditions();

@@ -57,8 +57,8 @@ public class V2beta1ObjectMetricSourceFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withMetricName instead.
    */
   @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original) {
-    return (A)withMetricName(new String(original));
+  public A withNewMetricName(java.lang.String arg0) {
+    return (A)withMetricName(new String(arg0));
   }
   
   /**
@@ -67,10 +67,10 @@ public class V2beta1ObjectMetricSourceFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
@@ -101,10 +101,10 @@ public class V2beta1ObjectMetricSourceFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference getTarget() {
-    return this.target!=null?this.target.build():null;
+    return this.target!=null ?this.target.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference buildTarget() {
-    return this.target!=null?this.target.build():null;
+    return this.target!=null ?this.target.build():null;
   }
   public A withTarget(io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference target) {
     _visitables.get("target").remove(this.target);

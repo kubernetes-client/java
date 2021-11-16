@@ -30,7 +30,7 @@ public class V1LoadBalancerIngressFluentImpl<A extends io.kubernetes.client.open
   }
   private java.lang.String hostname;
   private java.lang.String ip;
-  private java.util.List<io.kubernetes.client.openapi.models.V1PortStatusBuilder> ports;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder> ports;
   public java.lang.String getHostname() {
     return this.hostname;
   }
@@ -45,8 +45,8 @@ public class V1LoadBalancerIngressFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original) {
-    return (A)withHostname(new String(original));
+  public A withNewHostname(java.lang.String arg0) {
+    return (A)withHostname(new String(arg0));
   }
   public java.lang.String getIp() {
     return this.ip;
@@ -62,8 +62,8 @@ public class V1LoadBalancerIngressFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String original) {
-    return (A)withIp(new String(original));
+  public A withNewIp(java.lang.String arg0) {
+    return (A)withIp(new String(arg0));
   }
   public A addToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PortStatus item) {
     if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder>();}
@@ -110,10 +110,10 @@ public class V1LoadBalancerIngressFluentImpl<A extends io.kubernetes.client.open
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1PortStatus> getPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1PortStatus> buildPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public io.kubernetes.client.openapi.models.V1PortStatus buildPort(java.lang.Integer index) {
     return this.ports.get(index).build();

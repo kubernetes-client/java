@@ -35,8 +35,8 @@ public class V1IngressServiceBackendFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   
   /**
@@ -45,10 +45,10 @@ public class V1IngressServiceBackendFluentImpl<A extends io.kubernetes.client.op
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ServiceBackendPort getPort() {
-    return this.port!=null?this.port.build():null;
+    return this.port!=null ?this.port.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ServiceBackendPort buildPort() {
-    return this.port!=null?this.port.build():null;
+    return this.port!=null ?this.port.build():null;
   }
   public A withPort(io.kubernetes.client.openapi.models.V1ServiceBackendPort port) {
     _visitables.get("port").remove(this.port);

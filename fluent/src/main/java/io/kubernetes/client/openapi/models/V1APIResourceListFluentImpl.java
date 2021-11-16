@@ -33,7 +33,7 @@ public class V1APIResourceListFluentImpl<A extends io.kubernetes.client.openapi.
   private java.lang.String apiVersion;
   private java.lang.String groupVersion;
   private java.lang.String kind;
-  private java.util.List<io.kubernetes.client.openapi.models.V1APIResourceBuilder> resources;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1APIResourceBuilder> resources;
   public java.lang.String getApiVersion() {
     return this.apiVersion;
   }
@@ -48,8 +48,8 @@ public class V1APIResourceListFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.String getGroupVersion() {
     return this.groupVersion;
@@ -65,8 +65,8 @@ public class V1APIResourceListFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withGroupVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewGroupVersion(java.lang.String original) {
-    return (A)withGroupVersion(new String(original));
+  public A withNewGroupVersion(java.lang.String arg0) {
+    return (A)withGroupVersion(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -82,8 +82,8 @@ public class V1APIResourceListFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   public A addToResources(java.lang.Integer index,io.kubernetes.client.openapi.models.V1APIResource item) {
     if (this.resources == null) {this.resources = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1APIResourceBuilder>();}
@@ -130,10 +130,10 @@ public class V1APIResourceListFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1APIResource> getResources() {
-    return build(resources);
+    return resources != null ? build(resources) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1APIResource> buildResources() {
-    return build(resources);
+    return resources != null ? build(resources) : null;
   }
   public io.kubernetes.client.openapi.models.V1APIResource buildResource(java.lang.Integer index) {
     return this.resources.get(index).build();

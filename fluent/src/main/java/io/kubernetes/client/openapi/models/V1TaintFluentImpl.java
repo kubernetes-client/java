@@ -41,8 +41,8 @@ public class V1TaintFluentImpl<A extends io.kubernetes.client.openapi.models.V1T
    * Method is deprecated. use withEffect instead.
    */
   @java.lang.Deprecated
-  public A withNewEffect(java.lang.String original) {
-    return (A)withEffect(new String(original));
+  public A withNewEffect(java.lang.String arg0) {
+    return (A)withEffect(new String(arg0));
   }
   public java.lang.String getKey() {
     return this.key;
@@ -58,8 +58,8 @@ public class V1TaintFluentImpl<A extends io.kubernetes.client.openapi.models.V1T
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String original) {
-    return (A)withKey(new String(original));
+  public A withNewKey(java.lang.String arg0) {
+    return (A)withKey(new String(arg0));
   }
   public java.time.OffsetDateTime getTimeAdded() {
     return this.timeAdded;
@@ -84,8 +84,8 @@ public class V1TaintFluentImpl<A extends io.kubernetes.client.openapi.models.V1T
    * Method is deprecated. use withValue instead.
    */
   @java.lang.Deprecated
-  public A withNewValue(java.lang.String original) {
-    return (A)withValue(new String(original));
+  public A withNewValue(java.lang.String arg0) {
+    return (A)withValue(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

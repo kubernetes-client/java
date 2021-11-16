@@ -50,10 +50,10 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ExecAction getExec() {
-    return this.exec!=null?this.exec.build():null;
+    return this.exec!=null ?this.exec.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ExecAction buildExec() {
-    return this.exec!=null?this.exec.build():null;
+    return this.exec!=null ?this.exec.build():null;
   }
   public A withExec(io.kubernetes.client.openapi.models.V1ExecAction exec) {
     _visitables.get("exec").remove(this.exec);
@@ -93,10 +93,10 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1HTTPGetAction getHttpGet() {
-    return this.httpGet!=null?this.httpGet.build():null;
+    return this.httpGet!=null ?this.httpGet.build():null;
   }
   public io.kubernetes.client.openapi.models.V1HTTPGetAction buildHttpGet() {
-    return this.httpGet!=null?this.httpGet.build():null;
+    return this.httpGet!=null ?this.httpGet.build():null;
   }
   public A withHttpGet(io.kubernetes.client.openapi.models.V1HTTPGetAction httpGet) {
     _visitables.get("httpGet").remove(this.httpGet);
@@ -154,10 +154,10 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1TCPSocketAction getTcpSocket() {
-    return this.tcpSocket!=null?this.tcpSocket.build():null;
+    return this.tcpSocket!=null ?this.tcpSocket.build():null;
   }
   public io.kubernetes.client.openapi.models.V1TCPSocketAction buildTcpSocket() {
-    return this.tcpSocket!=null?this.tcpSocket.build():null;
+    return this.tcpSocket!=null ?this.tcpSocket.build():null;
   }
   public A withTcpSocket(io.kubernetes.client.openapi.models.V1TCPSocketAction tcpSocket) {
     _visitables.get("tcpSocket").remove(this.tcpSocket);

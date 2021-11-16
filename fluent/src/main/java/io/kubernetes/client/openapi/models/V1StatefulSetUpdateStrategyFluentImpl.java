@@ -28,10 +28,10 @@ public class V1StatefulSetUpdateStrategyFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy getRollingUpdate() {
-    return this.rollingUpdate!=null?this.rollingUpdate.build():null;
+    return this.rollingUpdate!=null ?this.rollingUpdate.build():null;
   }
   public io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy buildRollingUpdate() {
-    return this.rollingUpdate!=null?this.rollingUpdate.build():null;
+    return this.rollingUpdate!=null ?this.rollingUpdate.build():null;
   }
   public A withRollingUpdate(io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy rollingUpdate) {
     _visitables.get("rollingUpdate").remove(this.rollingUpdate);
@@ -69,8 +69,8 @@ public class V1StatefulSetUpdateStrategyFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

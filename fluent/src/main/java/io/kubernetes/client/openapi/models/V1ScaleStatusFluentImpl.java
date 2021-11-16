@@ -44,8 +44,8 @@ public class V1ScaleStatusFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSelector instead.
    */
   @java.lang.Deprecated
-  public A withNewSelector(java.lang.String original) {
-    return (A)withSelector(new String(original));
+  public A withNewSelector(java.lang.String arg0) {
+    return (A)withSelector(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

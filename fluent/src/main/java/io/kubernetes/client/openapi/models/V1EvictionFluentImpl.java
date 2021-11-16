@@ -41,8 +41,8 @@ public class V1EvictionFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   
   /**
@@ -51,10 +51,10 @@ public class V1EvictionFluentImpl<A extends io.kubernetes.client.openapi.models.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1DeleteOptions getDeleteOptions() {
-    return this.deleteOptions!=null?this.deleteOptions.build():null;
+    return this.deleteOptions!=null ?this.deleteOptions.build():null;
   }
   public io.kubernetes.client.openapi.models.V1DeleteOptions buildDeleteOptions() {
-    return this.deleteOptions!=null?this.deleteOptions.build():null;
+    return this.deleteOptions!=null ?this.deleteOptions.build():null;
   }
   public A withDeleteOptions(io.kubernetes.client.openapi.models.V1DeleteOptions deleteOptions) {
     _visitables.get("deleteOptions").remove(this.deleteOptions);
@@ -92,8 +92,8 @@ public class V1EvictionFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -102,10 +102,10 @@ public class V1EvictionFluentImpl<A extends io.kubernetes.client.openapi.models.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);

@@ -33,7 +33,7 @@ public interface V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.mod
   public A withNameservers(java.util.List<java.lang.String> nameservers);
   public A withNameservers(java.lang.String... nameservers);
   public java.lang.Boolean hasNameservers();
-  public A addNewNameserver(java.lang.String original);
+  public A addNewNameserver(java.lang.String arg0);
   public A addToOptions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodDNSConfigOption item);
   public A setToOptions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodDNSConfigOption item);
   public A addToOptions(io.kubernetes.client.openapi.models.V1PodDNSConfigOption... items);
@@ -79,7 +79,7 @@ public interface V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.mod
   public A withSearches(java.util.List<java.lang.String> searches);
   public A withSearches(java.lang.String... searches);
   public java.lang.Boolean hasSearches();
-  public A addNewSearch(java.lang.String original);
+  public A addNewSearch(java.lang.String arg0);
   public interface OptionsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<N>>{
     public N and();
     public N endOption();

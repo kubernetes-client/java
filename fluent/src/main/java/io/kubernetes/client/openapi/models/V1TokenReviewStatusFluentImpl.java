@@ -83,8 +83,8 @@ public class V1TokenReviewStatusFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasAudiences() {
     return audiences != null && !audiences.isEmpty();
   }
-  public A addNewAudience(java.lang.String original) {
-    return (A)addToAudiences(new String(original));
+  public A addNewAudience(java.lang.String arg0) {
+    return (A)addToAudiences(new String(arg0));
   }
   public java.lang.Boolean getAuthenticated() {
     return this.authenticated;
@@ -109,8 +109,8 @@ public class V1TokenReviewStatusFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String original) {
-    return (A)withError(new String(original));
+  public A withNewError(java.lang.String arg0) {
+    return (A)withError(new String(arg0));
   }
   
   /**
@@ -119,10 +119,10 @@ public class V1TokenReviewStatusFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1UserInfo getUser() {
-    return this.user!=null?this.user.build():null;
+    return this.user!=null ?this.user.build():null;
   }
   public io.kubernetes.client.openapi.models.V1UserInfo buildUser() {
-    return this.user!=null?this.user.build():null;
+    return this.user!=null ?this.user.build():null;
   }
   public A withUser(io.kubernetes.client.openapi.models.V1UserInfo user) {
     _visitables.get("user").remove(this.user);

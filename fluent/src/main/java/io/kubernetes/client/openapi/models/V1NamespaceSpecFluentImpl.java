@@ -72,8 +72,8 @@ public class V1NamespaceSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
   public java.lang.Boolean hasFinalizers() {
     return finalizers != null && !finalizers.isEmpty();
   }
-  public A addNewFinalizer(java.lang.String original) {
-    return (A)addToFinalizers(new String(original));
+  public A addNewFinalizer(java.lang.String arg0) {
+    return (A)addToFinalizers(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

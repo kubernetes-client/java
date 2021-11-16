@@ -46,8 +46,8 @@ public class V1QuobyteVolumeSourceFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original) {
-    return (A)withGroup(new String(original));
+  public A withNewGroup(java.lang.String arg0) {
+    return (A)withGroup(new String(arg0));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -72,8 +72,8 @@ public class V1QuobyteVolumeSourceFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withRegistry instead.
    */
   @java.lang.Deprecated
-  public A withNewRegistry(java.lang.String original) {
-    return (A)withRegistry(new String(original));
+  public A withNewRegistry(java.lang.String arg0) {
+    return (A)withRegistry(new String(arg0));
   }
   public java.lang.String getTenant() {
     return this.tenant;
@@ -89,8 +89,8 @@ public class V1QuobyteVolumeSourceFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withTenant instead.
    */
   @java.lang.Deprecated
-  public A withNewTenant(java.lang.String original) {
-    return (A)withTenant(new String(original));
+  public A withNewTenant(java.lang.String arg0) {
+    return (A)withTenant(new String(arg0));
   }
   public java.lang.String getUser() {
     return this.user;
@@ -106,8 +106,8 @@ public class V1QuobyteVolumeSourceFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String original) {
-    return (A)withUser(new String(original));
+  public A withNewUser(java.lang.String arg0) {
+    return (A)withUser(new String(arg0));
   }
   public java.lang.String getVolume() {
     return this.volume;
@@ -123,8 +123,8 @@ public class V1QuobyteVolumeSourceFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withVolume instead.
    */
   @java.lang.Deprecated
-  public A withNewVolume(java.lang.String original) {
-    return (A)withVolume(new String(original));
+  public A withNewVolume(java.lang.String arg0) {
+    return (A)withVolume(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

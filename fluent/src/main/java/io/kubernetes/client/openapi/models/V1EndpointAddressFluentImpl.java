@@ -41,8 +41,8 @@ public class V1EndpointAddressFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original) {
-    return (A)withHostname(new String(original));
+  public A withNewHostname(java.lang.String arg0) {
+    return (A)withHostname(new String(arg0));
   }
   public java.lang.String getIp() {
     return this.ip;
@@ -58,8 +58,8 @@ public class V1EndpointAddressFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String original) {
-    return (A)withIp(new String(original));
+  public A withNewIp(java.lang.String arg0) {
+    return (A)withIp(new String(arg0));
   }
   public java.lang.String getNodeName() {
     return this.nodeName;
@@ -75,8 +75,8 @@ public class V1EndpointAddressFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original) {
-    return (A)withNodeName(new String(original));
+  public A withNewNodeName(java.lang.String arg0) {
+    return (A)withNodeName(new String(arg0));
   }
   
   /**
@@ -85,10 +85,10 @@ public class V1EndpointAddressFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectReference getTargetRef() {
-    return this.targetRef!=null?this.targetRef.build():null;
+    return this.targetRef!=null ?this.targetRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectReference buildTargetRef() {
-    return this.targetRef!=null?this.targetRef.build():null;
+    return this.targetRef!=null ?this.targetRef.build():null;
   }
   public A withTargetRef(io.kubernetes.client.openapi.models.V1ObjectReference targetRef) {
     _visitables.get("targetRef").remove(this.targetRef);

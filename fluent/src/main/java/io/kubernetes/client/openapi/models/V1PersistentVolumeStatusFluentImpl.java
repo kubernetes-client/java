@@ -37,8 +37,8 @@ public class V1PersistentVolumeStatusFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A)withMessage(new String(original));
+  public A withNewMessage(java.lang.String arg0) {
+    return (A)withMessage(new String(arg0));
   }
   public java.lang.String getPhase() {
     return this.phase;
@@ -54,8 +54,8 @@ public class V1PersistentVolumeStatusFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original) {
-    return (A)withPhase(new String(original));
+  public A withNewPhase(java.lang.String arg0) {
+    return (A)withPhase(new String(arg0));
   }
   public java.lang.String getReason() {
     return this.reason;
@@ -71,8 +71,8 @@ public class V1PersistentVolumeStatusFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A)withReason(new String(original));
+  public A withNewReason(java.lang.String arg0) {
+    return (A)withReason(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

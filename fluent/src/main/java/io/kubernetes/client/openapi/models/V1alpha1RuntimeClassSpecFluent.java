@@ -34,7 +34,7 @@ public interface V1alpha1RuntimeClassSpecFluent<A extends io.kubernetes.client.o
    * Method is deprecated. use withRuntimeHandler instead.
    */
   @java.lang.Deprecated
-  public A withNewRuntimeHandler(java.lang.String original);
+  public A withNewRuntimeHandler(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildScheduling instead.

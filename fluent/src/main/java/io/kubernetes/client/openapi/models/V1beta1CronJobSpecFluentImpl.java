@@ -52,8 +52,8 @@ public class V1beta1CronJobSpecFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withConcurrencyPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewConcurrencyPolicy(java.lang.String original) {
-    return (A)withConcurrencyPolicy(new String(original));
+  public A withNewConcurrencyPolicy(java.lang.String arg0) {
+    return (A)withConcurrencyPolicy(new String(arg0));
   }
   public java.lang.Integer getFailedJobsHistoryLimit() {
     return this.failedJobsHistoryLimit;
@@ -71,10 +71,10 @@ public class V1beta1CronJobSpecFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec getJobTemplate() {
-    return this.jobTemplate!=null?this.jobTemplate.build():null;
+    return this.jobTemplate!=null ?this.jobTemplate.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec buildJobTemplate() {
-    return this.jobTemplate!=null?this.jobTemplate.build():null;
+    return this.jobTemplate!=null ?this.jobTemplate.build():null;
   }
   public A withJobTemplate(io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec jobTemplate) {
     _visitables.get("jobTemplate").remove(this.jobTemplate);
@@ -112,8 +112,8 @@ public class V1beta1CronJobSpecFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withSchedule instead.
    */
   @java.lang.Deprecated
-  public A withNewSchedule(java.lang.String original) {
-    return (A)withSchedule(new String(original));
+  public A withNewSchedule(java.lang.String arg0) {
+    return (A)withSchedule(new String(arg0));
   }
   public java.lang.Long getStartingDeadlineSeconds() {
     return this.startingDeadlineSeconds;

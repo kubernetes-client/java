@@ -131,8 +131,8 @@ public class V1CertificateSigningRequestSpecFluentImpl<A extends io.kubernetes.c
   public java.lang.Boolean hasGroups() {
     return groups != null && !groups.isEmpty();
   }
-  public A addNewGroup(java.lang.String original) {
-    return (A)addToGroups(new String(original));
+  public A addNewGroup(java.lang.String arg0) {
+    return (A)addToGroups(new String(arg0));
   }
   public A withRequest(byte... request) {
     if (this.request != null) {this.request.clear();}
@@ -192,8 +192,8 @@ return result;
    * Method is deprecated. use withSignerName instead.
    */
   @java.lang.Deprecated
-  public A withNewSignerName(java.lang.String original) {
-    return (A)withSignerName(new String(original));
+  public A withNewSignerName(java.lang.String arg0) {
+    return (A)withSignerName(new String(arg0));
   }
   public java.lang.String getUid() {
     return this.uid;
@@ -209,8 +209,8 @@ return result;
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A)withUid(new String(original));
+  public A withNewUid(java.lang.String arg0) {
+    return (A)withUid(new String(arg0));
   }
   public A addToUsages(java.lang.Integer index,java.lang.String item) {
     if (this.usages == null) {this.usages = new java.util.ArrayList<java.lang.String>();}
@@ -263,8 +263,8 @@ return result;
   public java.lang.Boolean hasUsages() {
     return usages != null && !usages.isEmpty();
   }
-  public A addNewUsage(java.lang.String original) {
-    return (A)addToUsages(new String(original));
+  public A addNewUsage(java.lang.String arg0) {
+    return (A)addToUsages(new String(arg0));
   }
   public java.lang.String getUsername() {
     return this.username;
@@ -280,8 +280,8 @@ return result;
    * Method is deprecated. use withUsername instead.
    */
   @java.lang.Deprecated
-  public A withNewUsername(java.lang.String original) {
-    return (A)withUsername(new String(original));
+  public A withNewUsername(java.lang.String arg0) {
+    return (A)withUsername(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

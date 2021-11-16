@@ -28,7 +28,7 @@ public class V1CronJobStatusFluentImpl<A extends io.kubernetes.client.openapi.mo
     this.withLastSuccessfulTime(instance.getLastSuccessfulTime());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> active;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> active;
   private java.time.OffsetDateTime lastScheduleTime;
   private java.time.OffsetDateTime lastSuccessfulTime;
   public A addToActive(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ObjectReference item) {
@@ -76,10 +76,10 @@ public class V1CronJobStatusFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> getActive() {
-    return build(active);
+    return active != null ? build(active) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> buildActive() {
-    return build(active);
+    return active != null ? build(active) : null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectReference buildActive(java.lang.Integer index) {
     return this.active.get(index).build();

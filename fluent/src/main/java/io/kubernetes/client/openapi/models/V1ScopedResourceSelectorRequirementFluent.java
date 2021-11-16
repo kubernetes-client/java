@@ -23,7 +23,7 @@ public interface V1ScopedResourceSelectorRequirementFluent<A extends io.kubernet
    * Method is deprecated. use withOperator instead.
    */
   @java.lang.Deprecated
-  public A withNewOperator(java.lang.String original);
+  public A withNewOperator(java.lang.String arg0);
   public java.lang.String getScopeName();
   public A withScopeName(java.lang.String scopeName);
   public java.lang.Boolean hasScopeName();
@@ -32,7 +32,7 @@ public interface V1ScopedResourceSelectorRequirementFluent<A extends io.kubernet
    * Method is deprecated. use withScopeName instead.
    */
   @java.lang.Deprecated
-  public A withNewScopeName(java.lang.String original);
+  public A withNewScopeName(java.lang.String arg0);
   public A addToValues(java.lang.Integer index,java.lang.String item);
   public A setToValues(java.lang.Integer index,java.lang.String item);
   public A addToValues(java.lang.String... items);
@@ -48,6 +48,6 @@ public interface V1ScopedResourceSelectorRequirementFluent<A extends io.kubernet
   public A withValues(java.util.List<java.lang.String> values);
   public A withValues(java.lang.String... values);
   public java.lang.Boolean hasValues();
-  public A addNewValue(java.lang.String original);
+  public A addNewValue(java.lang.String arg0);
   
 }

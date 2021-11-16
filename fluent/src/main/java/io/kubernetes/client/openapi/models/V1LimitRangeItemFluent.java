@@ -56,6 +56,6 @@ public interface V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   
 }

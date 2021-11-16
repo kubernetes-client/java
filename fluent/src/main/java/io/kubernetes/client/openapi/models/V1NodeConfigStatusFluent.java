@@ -49,7 +49,7 @@ public interface V1NodeConfigStatusFluent<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String original);
+  public A withNewError(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildLastKnownGood instead.

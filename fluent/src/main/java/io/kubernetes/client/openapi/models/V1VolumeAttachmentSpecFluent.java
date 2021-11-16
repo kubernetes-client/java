@@ -19,7 +19,7 @@ public interface V1VolumeAttachmentSpecFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withAttacher instead.
    */
   @java.lang.Deprecated
-  public A withNewAttacher(java.lang.String original);
+  public A withNewAttacher(java.lang.String arg0);
   public java.lang.String getNodeName();
   public A withNodeName(java.lang.String nodeName);
   public java.lang.Boolean hasNodeName();
@@ -28,7 +28,7 @@ public interface V1VolumeAttachmentSpecFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original);
+  public A withNewNodeName(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildSource instead.

@@ -20,7 +20,7 @@ public interface V1alpha1PriorityClassFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public java.lang.String getDescription();
   public A withDescription(java.lang.String description);
   public java.lang.Boolean hasDescription();
@@ -29,7 +29,7 @@ public interface V1alpha1PriorityClassFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withDescription instead.
    */
   @java.lang.Deprecated
-  public A withNewDescription(java.lang.String original);
+  public A withNewDescription(java.lang.String arg0);
   public java.lang.Boolean getGlobalDefault();
   public A withGlobalDefault(java.lang.Boolean globalDefault);
   public java.lang.Boolean hasGlobalDefault();
@@ -41,7 +41,7 @@ public interface V1alpha1PriorityClassFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -65,7 +65,7 @@ public interface V1alpha1PriorityClassFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withPreemptionPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPreemptionPolicy(java.lang.String original);
+  public A withNewPreemptionPolicy(java.lang.String arg0);
   public java.lang.Integer getValue();
   public A withValue(java.lang.Integer value);
   public java.lang.Boolean hasValue();

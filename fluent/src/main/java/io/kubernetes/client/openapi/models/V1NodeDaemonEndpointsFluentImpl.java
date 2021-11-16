@@ -24,10 +24,10 @@ public class V1NodeDaemonEndpointsFluentImpl<A extends io.kubernetes.client.open
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1DaemonEndpoint getKubeletEndpoint() {
-    return this.kubeletEndpoint!=null?this.kubeletEndpoint.build():null;
+    return this.kubeletEndpoint!=null ?this.kubeletEndpoint.build():null;
   }
   public io.kubernetes.client.openapi.models.V1DaemonEndpoint buildKubeletEndpoint() {
-    return this.kubeletEndpoint!=null?this.kubeletEndpoint.build():null;
+    return this.kubeletEndpoint!=null ?this.kubeletEndpoint.build():null;
   }
   public A withKubeletEndpoint(io.kubernetes.client.openapi.models.V1DaemonEndpoint kubeletEndpoint) {
     _visitables.get("kubeletEndpoint").remove(this.kubeletEndpoint);

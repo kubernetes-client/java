@@ -55,8 +55,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withBuildDate instead.
    */
   @java.lang.Deprecated
-  public A withNewBuildDate(java.lang.String original) {
-    return (A)withBuildDate(new String(original));
+  public A withNewBuildDate(java.lang.String arg0) {
+    return (A)withBuildDate(new String(arg0));
   }
   public java.lang.String getCompiler() {
     return this.compiler;
@@ -72,8 +72,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withCompiler instead.
    */
   @java.lang.Deprecated
-  public A withNewCompiler(java.lang.String original) {
-    return (A)withCompiler(new String(original));
+  public A withNewCompiler(java.lang.String arg0) {
+    return (A)withCompiler(new String(arg0));
   }
   public java.lang.String getGitCommit() {
     return this.gitCommit;
@@ -89,8 +89,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withGitCommit instead.
    */
   @java.lang.Deprecated
-  public A withNewGitCommit(java.lang.String original) {
-    return (A)withGitCommit(new String(original));
+  public A withNewGitCommit(java.lang.String arg0) {
+    return (A)withGitCommit(new String(arg0));
   }
   public java.lang.String getGitTreeState() {
     return this.gitTreeState;
@@ -106,8 +106,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withGitTreeState instead.
    */
   @java.lang.Deprecated
-  public A withNewGitTreeState(java.lang.String original) {
-    return (A)withGitTreeState(new String(original));
+  public A withNewGitTreeState(java.lang.String arg0) {
+    return (A)withGitTreeState(new String(arg0));
   }
   public java.lang.String getGitVersion() {
     return this.gitVersion;
@@ -123,8 +123,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withGitVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewGitVersion(java.lang.String original) {
-    return (A)withGitVersion(new String(original));
+  public A withNewGitVersion(java.lang.String arg0) {
+    return (A)withGitVersion(new String(arg0));
   }
   public java.lang.String getGoVersion() {
     return this.goVersion;
@@ -140,8 +140,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withGoVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewGoVersion(java.lang.String original) {
-    return (A)withGoVersion(new String(original));
+  public A withNewGoVersion(java.lang.String arg0) {
+    return (A)withGoVersion(new String(arg0));
   }
   public java.lang.String getMajor() {
     return this.major;
@@ -157,8 +157,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withMajor instead.
    */
   @java.lang.Deprecated
-  public A withNewMajor(java.lang.String original) {
-    return (A)withMajor(new String(original));
+  public A withNewMajor(java.lang.String arg0) {
+    return (A)withMajor(new String(arg0));
   }
   public java.lang.String getMinor() {
     return this.minor;
@@ -174,8 +174,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withMinor instead.
    */
   @java.lang.Deprecated
-  public A withNewMinor(java.lang.String original) {
-    return (A)withMinor(new String(original));
+  public A withNewMinor(java.lang.String arg0) {
+    return (A)withMinor(new String(arg0));
   }
   public java.lang.String getPlatform() {
     return this.platform;
@@ -191,8 +191,8 @@ public class VersionInfoFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withPlatform instead.
    */
   @java.lang.Deprecated
-  public A withNewPlatform(java.lang.String original) {
-    return (A)withPlatform(new String(original));
+  public A withNewPlatform(java.lang.String arg0) {
+    return (A)withPlatform(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

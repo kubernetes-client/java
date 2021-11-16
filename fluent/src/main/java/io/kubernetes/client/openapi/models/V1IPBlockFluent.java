@@ -23,7 +23,7 @@ public interface V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withCidr instead.
    */
   @java.lang.Deprecated
-  public A withNewCidr(java.lang.String original);
+  public A withNewCidr(java.lang.String arg0);
   public A addToExcept(java.lang.Integer index,java.lang.String item);
   public A setToExcept(java.lang.Integer index,java.lang.String item);
   public A addToExcept(java.lang.String... items);
@@ -39,6 +39,6 @@ public interface V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V
   public A withExcept(java.util.List<java.lang.String> except);
   public A withExcept(java.lang.String... except);
   public java.lang.Boolean hasExcept();
-  public A addNewExcept(java.lang.String original);
+  public A addNewExcept(java.lang.String arg0);
   
 }

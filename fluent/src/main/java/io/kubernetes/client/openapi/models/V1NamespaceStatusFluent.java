@@ -56,7 +56,7 @@ public interface V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original);
+  public A withNewPhase(java.lang.String arg0);
   public interface ConditionsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1NamespaceConditionFluent<io.kubernetes.client.openapi.models.V1NamespaceStatusFluent.ConditionsNested<N>>{
     public N and();
     public N endCondition();

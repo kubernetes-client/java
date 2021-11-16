@@ -34,7 +34,7 @@ public interface V1beta1LimitResponseFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   public interface QueuingNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1beta1QueuingConfigurationFluent<io.kubernetes.client.openapi.models.V1beta1LimitResponseFluent.QueuingNested<N>>{
     public N and();
     public N endQueuing();

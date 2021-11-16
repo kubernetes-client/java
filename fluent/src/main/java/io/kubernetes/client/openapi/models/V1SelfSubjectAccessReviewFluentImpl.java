@@ -44,8 +44,8 @@ public class V1SelfSubjectAccessReviewFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -61,8 +61,8 @@ public class V1SelfSubjectAccessReviewFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -71,10 +71,10 @@ public class V1SelfSubjectAccessReviewFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -105,10 +105,10 @@ public class V1SelfSubjectAccessReviewFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpec getSpec() {
-    return this.spec!=null?this.spec.build():null;
+    return this.spec!=null ?this.spec.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpec buildSpec() {
-    return this.spec!=null?this.spec.build():null;
+    return this.spec!=null ?this.spec.build():null;
   }
   public A withSpec(io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpec spec) {
     _visitables.get("spec").remove(this.spec);
@@ -139,10 +139,10 @@ public class V1SelfSubjectAccessReviewFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus getStatus() {
-    return this.status!=null?this.status.build():null;
+    return this.status!=null ?this.status.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus buildStatus() {
-    return this.status!=null?this.status.build():null;
+    return this.status!=null ?this.status.build():null;
   }
   public A withStatus(io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus status) {
     _visitables.get("status").remove(this.status);

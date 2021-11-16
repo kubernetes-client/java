@@ -19,7 +19,7 @@ public interface V1TolerationFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withEffect instead.
    */
   @java.lang.Deprecated
-  public A withNewEffect(java.lang.String original);
+  public A withNewEffect(java.lang.String arg0);
   public java.lang.String getKey();
   public A withKey(java.lang.String key);
   public java.lang.Boolean hasKey();
@@ -28,7 +28,7 @@ public interface V1TolerationFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String original);
+  public A withNewKey(java.lang.String arg0);
   public java.lang.String getOperator();
   public A withOperator(java.lang.String operator);
   public java.lang.Boolean hasOperator();
@@ -37,7 +37,7 @@ public interface V1TolerationFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withOperator instead.
    */
   @java.lang.Deprecated
-  public A withNewOperator(java.lang.String original);
+  public A withNewOperator(java.lang.String arg0);
   public java.lang.Long getTolerationSeconds();
   public A withTolerationSeconds(java.lang.Long tolerationSeconds);
   public java.lang.Boolean hasTolerationSeconds();
@@ -49,6 +49,6 @@ public interface V1TolerationFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withValue instead.
    */
   @java.lang.Deprecated
-  public A withNewValue(java.lang.String original);
+  public A withNewValue(java.lang.String arg0);
   
 }

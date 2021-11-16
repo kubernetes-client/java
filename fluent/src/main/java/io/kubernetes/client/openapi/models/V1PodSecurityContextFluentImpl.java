@@ -51,7 +51,7 @@ public class V1PodSecurityContextFluentImpl<A extends io.kubernetes.client.opena
   private io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder seLinuxOptions;
   private io.kubernetes.client.openapi.models.V1SeccompProfileBuilder seccompProfile;
   private java.util.List<java.lang.Long> supplementalGroups;
-  private java.util.List<io.kubernetes.client.openapi.models.V1SysctlBuilder> sysctls;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1SysctlBuilder> sysctls;
   private io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsBuilder windowsOptions;
   public java.lang.Long getFsGroup() {
     return this.fsGroup;
@@ -76,8 +76,8 @@ public class V1PodSecurityContextFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withFsGroupChangePolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewFsGroupChangePolicy(java.lang.String original) {
-    return (A)withFsGroupChangePolicy(new String(original));
+  public A withNewFsGroupChangePolicy(java.lang.String arg0) {
+    return (A)withFsGroupChangePolicy(new String(arg0));
   }
   public java.lang.Long getRunAsGroup() {
     return this.runAsGroup;
@@ -113,10 +113,10 @@ public class V1PodSecurityContextFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SELinuxOptions getSeLinuxOptions() {
-    return this.seLinuxOptions!=null?this.seLinuxOptions.build():null;
+    return this.seLinuxOptions!=null ?this.seLinuxOptions.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SELinuxOptions buildSeLinuxOptions() {
-    return this.seLinuxOptions!=null?this.seLinuxOptions.build():null;
+    return this.seLinuxOptions!=null ?this.seLinuxOptions.build():null;
   }
   public A withSeLinuxOptions(io.kubernetes.client.openapi.models.V1SELinuxOptions seLinuxOptions) {
     _visitables.get("seLinuxOptions").remove(this.seLinuxOptions);
@@ -147,10 +147,10 @@ public class V1PodSecurityContextFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1SeccompProfile getSeccompProfile() {
-    return this.seccompProfile!=null?this.seccompProfile.build():null;
+    return this.seccompProfile!=null ?this.seccompProfile.build():null;
   }
   public io.kubernetes.client.openapi.models.V1SeccompProfile buildSeccompProfile() {
-    return this.seccompProfile!=null?this.seccompProfile.build():null;
+    return this.seccompProfile!=null ?this.seccompProfile.build():null;
   }
   public A withSeccompProfile(io.kubernetes.client.openapi.models.V1SeccompProfile seccompProfile) {
     _visitables.get("seccompProfile").remove(this.seccompProfile);
@@ -270,10 +270,10 @@ public class V1PodSecurityContextFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1Sysctl> getSysctls() {
-    return build(sysctls);
+    return sysctls != null ? build(sysctls) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1Sysctl> buildSysctls() {
-    return build(sysctls);
+    return sysctls != null ? build(sysctls) : null;
   }
   public io.kubernetes.client.openapi.models.V1Sysctl buildSysctl(java.lang.Integer index) {
     return this.sysctls.get(index).build();
@@ -338,10 +338,10 @@ public class V1PodSecurityContextFluentImpl<A extends io.kubernetes.client.opena
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions getWindowsOptions() {
-    return this.windowsOptions!=null?this.windowsOptions.build():null;
+    return this.windowsOptions!=null ?this.windowsOptions.build():null;
   }
   public io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions buildWindowsOptions() {
-    return this.windowsOptions!=null?this.windowsOptions.build():null;
+    return this.windowsOptions!=null ?this.windowsOptions.build():null;
   }
   public A withWindowsOptions(io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions windowsOptions) {
     _visitables.get("windowsOptions").remove(this.windowsOptions);

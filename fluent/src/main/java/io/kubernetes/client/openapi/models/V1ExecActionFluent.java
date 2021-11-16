@@ -29,6 +29,6 @@ public interface V1ExecActionFluent<A extends io.kubernetes.client.openapi.model
   public A withCommand(java.util.List<java.lang.String> command);
   public A withCommand(java.lang.String... command);
   public java.lang.Boolean hasCommand();
-  public A addNewCommand(java.lang.String original);
+  public A addNewCommand(java.lang.String arg0);
   
 }

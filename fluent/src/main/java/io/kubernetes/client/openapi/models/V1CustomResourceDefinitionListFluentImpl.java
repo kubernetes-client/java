@@ -31,7 +31,7 @@ public class V1CustomResourceDefinitionListFluentImpl<A extends io.kubernetes.cl
 
   }
   private java.lang.String apiVersion;
-  private java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionBuilder> items;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionBuilder> items;
   private java.lang.String kind;
   private io.kubernetes.client.openapi.models.V1ListMetaBuilder metadata;
   public java.lang.String getApiVersion() {
@@ -48,8 +48,8 @@ public class V1CustomResourceDefinitionListFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public A addToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1CustomResourceDefinition item) {
     if (this.items == null) {this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionBuilder>();}
@@ -96,10 +96,10 @@ public class V1CustomResourceDefinitionListFluentImpl<A extends io.kubernetes.cl
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinition> getItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinition> buildItems() {
-    return build(items);
+    return items != null ? build(items) : null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinition buildItem(java.lang.Integer index) {
     return this.items.get(index).build();
@@ -171,8 +171,8 @@ public class V1CustomResourceDefinitionListFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -181,10 +181,10 @@ public class V1CustomResourceDefinitionListFluentImpl<A extends io.kubernetes.cl
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);

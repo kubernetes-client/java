@@ -19,7 +19,7 @@ public interface V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withContinue instead.
    */
   @java.lang.Deprecated
-  public A withNewContinue(java.lang.String original);
+  public A withNewContinue(java.lang.String arg0);
   public java.lang.Long getRemainingItemCount();
   public A withRemainingItemCount(java.lang.Long remainingItemCount);
   public java.lang.Boolean hasRemainingItemCount();
@@ -31,7 +31,7 @@ public interface V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withResourceVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original);
+  public A withNewResourceVersion(java.lang.String arg0);
   public java.lang.String getSelfLink();
   public A withSelfLink(java.lang.String selfLink);
   public java.lang.Boolean hasSelfLink();
@@ -40,6 +40,6 @@ public interface V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withSelfLink instead.
    */
   @java.lang.Deprecated
-  public A withNewSelfLink(java.lang.String original);
+  public A withNewSelfLink(java.lang.String arg0);
   
 }

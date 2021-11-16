@@ -18,7 +18,7 @@ public interface V1VolumeDeviceFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withDevicePath instead.
    */
   @java.lang.Deprecated
-  public A withNewDevicePath(java.lang.String original);
+  public A withNewDevicePath(java.lang.String arg0);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -27,6 +27,6 @@ public interface V1VolumeDeviceFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   
 }

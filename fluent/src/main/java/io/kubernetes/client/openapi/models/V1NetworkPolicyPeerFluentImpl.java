@@ -30,10 +30,10 @@ public class V1NetworkPolicyPeerFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1IPBlock getIpBlock() {
-    return this.ipBlock!=null?this.ipBlock.build():null;
+    return this.ipBlock!=null ?this.ipBlock.build():null;
   }
   public io.kubernetes.client.openapi.models.V1IPBlock buildIpBlock() {
-    return this.ipBlock!=null?this.ipBlock.build():null;
+    return this.ipBlock!=null ?this.ipBlock.build():null;
   }
   public A withIpBlock(io.kubernetes.client.openapi.models.V1IPBlock ipBlock) {
     _visitables.get("ipBlock").remove(this.ipBlock);
@@ -64,10 +64,10 @@ public class V1NetworkPolicyPeerFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getNamespaceSelector() {
-    return this.namespaceSelector!=null?this.namespaceSelector.build():null;
+    return this.namespaceSelector!=null ?this.namespaceSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildNamespaceSelector() {
-    return this.namespaceSelector!=null?this.namespaceSelector.build():null;
+    return this.namespaceSelector!=null ?this.namespaceSelector.build():null;
   }
   public A withNamespaceSelector(io.kubernetes.client.openapi.models.V1LabelSelector namespaceSelector) {
     _visitables.get("namespaceSelector").remove(this.namespaceSelector);
@@ -98,10 +98,10 @@ public class V1NetworkPolicyPeerFluentImpl<A extends io.kubernetes.client.openap
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getPodSelector() {
-    return this.podSelector!=null?this.podSelector.build():null;
+    return this.podSelector!=null ?this.podSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildPodSelector() {
-    return this.podSelector!=null?this.podSelector.build():null;
+    return this.podSelector!=null ?this.podSelector.build():null;
   }
   public A withPodSelector(io.kubernetes.client.openapi.models.V1LabelSelector podSelector) {
     _visitables.get("podSelector").remove(this.podSelector);

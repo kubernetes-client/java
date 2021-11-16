@@ -39,10 +39,10 @@ public class V1PodAffinityTermFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getLabelSelector() {
-    return this.labelSelector!=null?this.labelSelector.build():null;
+    return this.labelSelector!=null ?this.labelSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildLabelSelector() {
-    return this.labelSelector!=null?this.labelSelector.build():null;
+    return this.labelSelector!=null ?this.labelSelector.build():null;
   }
   public A withLabelSelector(io.kubernetes.client.openapi.models.V1LabelSelector labelSelector) {
     _visitables.get("labelSelector").remove(this.labelSelector);
@@ -73,10 +73,10 @@ public class V1PodAffinityTermFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getNamespaceSelector() {
-    return this.namespaceSelector!=null?this.namespaceSelector.build():null;
+    return this.namespaceSelector!=null ?this.namespaceSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildNamespaceSelector() {
-    return this.namespaceSelector!=null?this.namespaceSelector.build():null;
+    return this.namespaceSelector!=null ?this.namespaceSelector.build():null;
   }
   public A withNamespaceSelector(io.kubernetes.client.openapi.models.V1LabelSelector namespaceSelector) {
     _visitables.get("namespaceSelector").remove(this.namespaceSelector);
@@ -151,8 +151,8 @@ public class V1PodAffinityTermFluentImpl<A extends io.kubernetes.client.openapi.
   public java.lang.Boolean hasNamespaces() {
     return namespaces != null && !namespaces.isEmpty();
   }
-  public A addNewNamespace(java.lang.String original) {
-    return (A)addToNamespaces(new String(original));
+  public A addNewNamespace(java.lang.String arg0) {
+    return (A)addToNamespaces(new String(arg0));
   }
   public java.lang.String getTopologyKey() {
     return this.topologyKey;
@@ -168,8 +168,8 @@ public class V1PodAffinityTermFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withTopologyKey instead.
    */
   @java.lang.Deprecated
-  public A withNewTopologyKey(java.lang.String original) {
-    return (A)withTopologyKey(new String(original));
+  public A withNewTopologyKey(java.lang.String arg0) {
+    return (A)withTopologyKey(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

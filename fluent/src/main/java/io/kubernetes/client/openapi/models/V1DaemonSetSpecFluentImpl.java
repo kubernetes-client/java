@@ -55,10 +55,10 @@ public class V1DaemonSetSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector() {
-    return this.selector!=null?this.selector.build():null;
+    return this.selector!=null ?this.selector.build():null;
   }
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
@@ -89,10 +89,10 @@ public class V1DaemonSetSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate() {
-    return this.template!=null?this.template.build():null;
+    return this.template!=null ?this.template.build():null;
   }
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate() {
-    return this.template!=null?this.template.build():null;
+    return this.template!=null ?this.template.build():null;
   }
   public A withTemplate(io.kubernetes.client.openapi.models.V1PodTemplateSpec template) {
     _visitables.get("template").remove(this.template);
@@ -123,10 +123,10 @@ public class V1DaemonSetSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy getUpdateStrategy() {
-    return this.updateStrategy!=null?this.updateStrategy.build():null;
+    return this.updateStrategy!=null ?this.updateStrategy.build():null;
   }
   public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy buildUpdateStrategy() {
-    return this.updateStrategy!=null?this.updateStrategy.build():null;
+    return this.updateStrategy!=null ?this.updateStrategy.build():null;
   }
   public A withUpdateStrategy(io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy updateStrategy) {
     _visitables.get("updateStrategy").remove(this.updateStrategy);

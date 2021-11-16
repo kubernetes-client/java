@@ -29,7 +29,7 @@ public interface V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPodManagementPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPodManagementPolicy(java.lang.String original);
+  public A withNewPodManagementPolicy(java.lang.String arg0);
   public java.lang.Integer getReplicas();
   public A withReplicas(java.lang.Integer replicas);
   public java.lang.Boolean hasReplicas();
@@ -59,7 +59,7 @@ public interface V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withServiceName instead.
    */
   @java.lang.Deprecated
-  public A withNewServiceName(java.lang.String original);
+  public A withNewServiceName(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildTemplate instead.

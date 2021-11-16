@@ -24,10 +24,10 @@ public class V1NodeConfigSourceFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource getConfigMap() {
-    return this.configMap!=null?this.configMap.build():null;
+    return this.configMap!=null ?this.configMap.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource buildConfigMap() {
-    return this.configMap!=null?this.configMap.build():null;
+    return this.configMap!=null ?this.configMap.build():null;
   }
   public A withConfigMap(io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource configMap) {
     _visitables.get("configMap").remove(this.configMap);

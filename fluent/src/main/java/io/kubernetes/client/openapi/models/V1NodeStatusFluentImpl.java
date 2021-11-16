@@ -47,16 +47,16 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
     this.withVolumesInUse(instance.getVolumesInUse());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1NodeAddressBuilder> addresses;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeAddressBuilder> addresses;
   private java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> allocatable;
   private java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> capacity;
-  private java.util.List<io.kubernetes.client.openapi.models.V1NodeConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeConditionBuilder> conditions;
   private io.kubernetes.client.openapi.models.V1NodeConfigStatusBuilder config;
   private io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsBuilder daemonEndpoints;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ContainerImageBuilder> images;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerImageBuilder> images;
   private io.kubernetes.client.openapi.models.V1NodeSystemInfoBuilder nodeInfo;
   private java.lang.String phase;
-  private java.util.List<io.kubernetes.client.openapi.models.V1AttachedVolumeBuilder> volumesAttached;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1AttachedVolumeBuilder> volumesAttached;
   private java.util.List<java.lang.String> volumesInUse;
   public A addToAddresses(java.lang.Integer index,io.kubernetes.client.openapi.models.V1NodeAddress item) {
     if (this.addresses == null) {this.addresses = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeAddressBuilder>();}
@@ -103,10 +103,10 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeAddress> getAddresses() {
-    return build(addresses);
+    return addresses != null ? build(addresses) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeAddress> buildAddresses() {
-    return build(addresses);
+    return addresses != null ? build(addresses) : null;
   }
   public io.kubernetes.client.openapi.models.V1NodeAddress buildAddress(java.lang.Integer index) {
     return this.addresses.get(index).build();
@@ -259,10 +259,10 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1NodeCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -327,10 +327,10 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeConfigStatus getConfig() {
-    return this.config!=null?this.config.build():null;
+    return this.config!=null ?this.config.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeConfigStatus buildConfig() {
-    return this.config!=null?this.config.build():null;
+    return this.config!=null ?this.config.build():null;
   }
   public A withConfig(io.kubernetes.client.openapi.models.V1NodeConfigStatus config) {
     _visitables.get("config").remove(this.config);
@@ -361,10 +361,10 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints getDaemonEndpoints() {
-    return this.daemonEndpoints!=null?this.daemonEndpoints.build():null;
+    return this.daemonEndpoints!=null ?this.daemonEndpoints.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints buildDaemonEndpoints() {
-    return this.daemonEndpoints!=null?this.daemonEndpoints.build():null;
+    return this.daemonEndpoints!=null ?this.daemonEndpoints.build():null;
   }
   public A withDaemonEndpoints(io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints daemonEndpoints) {
     _visitables.get("daemonEndpoints").remove(this.daemonEndpoints);
@@ -433,10 +433,10 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ContainerImage> getImages() {
-    return build(images);
+    return images != null ? build(images) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ContainerImage> buildImages() {
-    return build(images);
+    return images != null ? build(images) : null;
   }
   public io.kubernetes.client.openapi.models.V1ContainerImage buildImage(java.lang.Integer index) {
     return this.images.get(index).build();
@@ -501,10 +501,10 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NodeSystemInfo getNodeInfo() {
-    return this.nodeInfo!=null?this.nodeInfo.build():null;
+    return this.nodeInfo!=null ?this.nodeInfo.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NodeSystemInfo buildNodeInfo() {
-    return this.nodeInfo!=null?this.nodeInfo.build():null;
+    return this.nodeInfo!=null ?this.nodeInfo.build():null;
   }
   public A withNodeInfo(io.kubernetes.client.openapi.models.V1NodeSystemInfo nodeInfo) {
     _visitables.get("nodeInfo").remove(this.nodeInfo);
@@ -542,8 +542,8 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original) {
-    return (A)withPhase(new String(original));
+  public A withNewPhase(java.lang.String arg0) {
+    return (A)withPhase(new String(arg0));
   }
   public A addToVolumesAttached(java.lang.Integer index,io.kubernetes.client.openapi.models.V1AttachedVolume item) {
     if (this.volumesAttached == null) {this.volumesAttached = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1AttachedVolumeBuilder>();}
@@ -590,10 +590,10 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1AttachedVolume> getVolumesAttached() {
-    return build(volumesAttached);
+    return volumesAttached != null ? build(volumesAttached) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1AttachedVolume> buildVolumesAttached() {
-    return build(volumesAttached);
+    return volumesAttached != null ? build(volumesAttached) : null;
   }
   public io.kubernetes.client.openapi.models.V1AttachedVolume buildVolumesAttached(java.lang.Integer index) {
     return this.volumesAttached.get(index).build();
@@ -702,8 +702,8 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasVolumesInUse() {
     return volumesInUse != null && !volumesInUse.isEmpty();
   }
-  public A addNewVolumesInUse(java.lang.String original) {
-    return (A)addToVolumesInUse(new String(original));
+  public A addNewVolumesInUse(java.lang.String arg0) {
+    return (A)addToVolumesInUse(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

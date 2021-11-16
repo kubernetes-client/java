@@ -34,7 +34,7 @@ public interface V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String original);
+  public A withNewPath(java.lang.String arg0);
   public java.lang.String getPathType();
   public A withPathType(java.lang.String pathType);
   public java.lang.Boolean hasPathType();
@@ -43,7 +43,7 @@ public interface V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPathType instead.
    */
   @java.lang.Deprecated
-  public A withNewPathType(java.lang.String original);
+  public A withNewPathType(java.lang.String arg0);
   public interface BackendNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1IngressBackendFluent<io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent.BackendNested<N>>{
     public N and();
     public N endBackend();

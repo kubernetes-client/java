@@ -26,7 +26,7 @@ public interface V1EndpointsListFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public A addToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Endpoints item);
   public A setToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Endpoints item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Endpoints... items);
@@ -65,7 +65,7 @@ public interface V1EndpointsListFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

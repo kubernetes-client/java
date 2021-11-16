@@ -18,7 +18,7 @@ public interface V1NonResourceAttributesFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String original);
+  public A withNewPath(java.lang.String arg0);
   public java.lang.String getVerb();
   public A withVerb(java.lang.String verb);
   public java.lang.Boolean hasVerb();
@@ -27,6 +27,6 @@ public interface V1NonResourceAttributesFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withVerb instead.
    */
   @java.lang.Deprecated
-  public A withNewVerb(java.lang.String original);
+  public A withNewVerb(java.lang.String arg0);
   
 }

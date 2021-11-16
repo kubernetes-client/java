@@ -42,8 +42,8 @@ public class V2beta1ExternalMetricSourceFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withMetricName instead.
    */
   @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original) {
-    return (A)withMetricName(new String(original));
+  public A withNewMetricName(java.lang.String arg0) {
+    return (A)withMetricName(new String(arg0));
   }
   
   /**
@@ -52,10 +52,10 @@ public class V2beta1ExternalMetricSourceFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getMetricSelector() {
-    return this.metricSelector!=null?this.metricSelector.build():null;
+    return this.metricSelector!=null ?this.metricSelector.build():null;
   }
   public io.kubernetes.client.openapi.models.V1LabelSelector buildMetricSelector() {
-    return this.metricSelector!=null?this.metricSelector.build():null;
+    return this.metricSelector!=null ?this.metricSelector.build():null;
   }
   public A withMetricSelector(io.kubernetes.client.openapi.models.V1LabelSelector metricSelector) {
     _visitables.get("metricSelector").remove(this.metricSelector);

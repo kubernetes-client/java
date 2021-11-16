@@ -27,9 +27,9 @@ public class V1EndpointSubsetFluentImpl<A extends io.kubernetes.client.openapi.m
     this.withPorts(instance.getPorts());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder> addresses;
-  private java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder> notReadyAddresses;
-  private java.util.List<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder> ports;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder> addresses;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder> notReadyAddresses;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder> ports;
   public A addToAddresses(java.lang.Integer index,io.kubernetes.client.openapi.models.V1EndpointAddress item) {
     if (this.addresses == null) {this.addresses = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();}
     io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder = new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);_visitables.get("addresses").add(index >= 0 ? index : _visitables.get("addresses").size(), builder);this.addresses.add(index >= 0 ? index : addresses.size(), builder); return (A)this;
@@ -75,10 +75,10 @@ public class V1EndpointSubsetFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> getAddresses() {
-    return build(addresses);
+    return addresses != null ? build(addresses) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> buildAddresses() {
-    return build(addresses);
+    return addresses != null ? build(addresses) : null;
   }
   public io.kubernetes.client.openapi.models.V1EndpointAddress buildAddress(java.lang.Integer index) {
     return this.addresses.get(index).build();
@@ -181,10 +181,10 @@ public class V1EndpointSubsetFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> getNotReadyAddresses() {
-    return build(notReadyAddresses);
+    return notReadyAddresses != null ? build(notReadyAddresses) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> buildNotReadyAddresses() {
-    return build(notReadyAddresses);
+    return notReadyAddresses != null ? build(notReadyAddresses) : null;
   }
   public io.kubernetes.client.openapi.models.V1EndpointAddress buildNotReadyAddress(java.lang.Integer index) {
     return this.notReadyAddresses.get(index).build();
@@ -287,10 +287,10 @@ public class V1EndpointSubsetFluentImpl<A extends io.kubernetes.client.openapi.m
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.CoreV1EndpointPort> getPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.CoreV1EndpointPort> buildPorts() {
-    return build(ports);
+    return ports != null ? build(ports) : null;
   }
   public io.kubernetes.client.openapi.models.CoreV1EndpointPort buildPort(java.lang.Integer index) {
     return this.ports.get(index).build();

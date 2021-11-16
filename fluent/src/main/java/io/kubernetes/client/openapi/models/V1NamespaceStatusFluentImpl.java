@@ -26,7 +26,7 @@ public class V1NamespaceStatusFluentImpl<A extends io.kubernetes.client.openapi.
     this.withPhase(instance.getPhase());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1NamespaceConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NamespaceConditionBuilder> conditions;
   private java.lang.String phase;
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1NamespaceCondition item) {
     if (this.conditions == null) {this.conditions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NamespaceConditionBuilder>();}
@@ -73,10 +73,10 @@ public class V1NamespaceStatusFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NamespaceCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NamespaceCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1NamespaceCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -148,8 +148,8 @@ public class V1NamespaceStatusFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original) {
-    return (A)withPhase(new String(original));
+  public A withNewPhase(java.lang.String arg0) {
+    return (A)withPhase(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

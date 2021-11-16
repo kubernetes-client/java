@@ -20,7 +20,7 @@ public interface V1beta1CSIStorageCapacityFluent<A extends io.kubernetes.client.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public io.kubernetes.client.custom.Quantity getCapacity();
   public A withCapacity(io.kubernetes.client.custom.Quantity capacity);
   public java.lang.Boolean hasCapacity();
@@ -33,7 +33,7 @@ public interface V1beta1CSIStorageCapacityFluent<A extends io.kubernetes.client.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   public io.kubernetes.client.custom.Quantity getMaximumVolumeSize();
   public A withMaximumVolumeSize(io.kubernetes.client.custom.Quantity maximumVolumeSize);
   public java.lang.Boolean hasMaximumVolumeSize();
@@ -76,7 +76,7 @@ public interface V1beta1CSIStorageCapacityFluent<A extends io.kubernetes.client.
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original);
+  public A withNewStorageClassName(java.lang.String arg0);
   public interface MetadataNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1ObjectMetaFluent<io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacityFluent.MetadataNested<N>>{
     public N and();
     public N endMetadata();

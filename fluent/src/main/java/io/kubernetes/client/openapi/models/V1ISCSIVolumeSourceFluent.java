@@ -30,7 +30,7 @@ public interface V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
+  public A withNewFsType(java.lang.String arg0);
   public java.lang.String getInitiatorName();
   public A withInitiatorName(java.lang.String initiatorName);
   public java.lang.Boolean hasInitiatorName();
@@ -39,7 +39,7 @@ public interface V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withInitiatorName instead.
    */
   @java.lang.Deprecated
-  public A withNewInitiatorName(java.lang.String original);
+  public A withNewInitiatorName(java.lang.String arg0);
   public java.lang.String getIqn();
   public A withIqn(java.lang.String iqn);
   public java.lang.Boolean hasIqn();
@@ -48,7 +48,7 @@ public interface V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withIqn instead.
    */
   @java.lang.Deprecated
-  public A withNewIqn(java.lang.String original);
+  public A withNewIqn(java.lang.String arg0);
   public java.lang.String getIscsiInterface();
   public A withIscsiInterface(java.lang.String iscsiInterface);
   public java.lang.Boolean hasIscsiInterface();
@@ -57,7 +57,7 @@ public interface V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withIscsiInterface instead.
    */
   @java.lang.Deprecated
-  public A withNewIscsiInterface(java.lang.String original);
+  public A withNewIscsiInterface(java.lang.String arg0);
   public java.lang.Integer getLun();
   public A withLun(java.lang.Integer lun);
   public java.lang.Boolean hasLun();
@@ -76,7 +76,7 @@ public interface V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openap
   public A withPortals(java.util.List<java.lang.String> portals);
   public A withPortals(java.lang.String... portals);
   public java.lang.Boolean hasPortals();
-  public A addNewPortal(java.lang.String original);
+  public A addNewPortal(java.lang.String arg0);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();
@@ -103,7 +103,7 @@ public interface V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withTargetPortal instead.
    */
   @java.lang.Deprecated
-  public A withNewTargetPortal(java.lang.String original);
+  public A withNewTargetPortal(java.lang.String arg0);
   public interface SecretRefNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent.SecretRefNested<N>>{
     public N and();
     public N endSecretRef();

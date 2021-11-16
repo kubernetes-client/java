@@ -35,8 +35,8 @@ public class V2beta1HorizontalPodAutoscalerStatusFluentImpl<A extends io.kuberne
     this.withObservedGeneration(instance.getObservedGeneration());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerConditionBuilder> conditions;
-  private java.util.List<io.kubernetes.client.openapi.models.V2beta1MetricStatusBuilder> currentMetrics;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V2beta1MetricStatusBuilder> currentMetrics;
   private java.lang.Integer currentReplicas;
   private java.lang.Integer desiredReplicas;
   private java.time.OffsetDateTime lastScaleTime;
@@ -86,10 +86,10 @@ public class V2beta1HorizontalPodAutoscalerStatusFluentImpl<A extends io.kuberne
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -192,10 +192,10 @@ public class V2beta1HorizontalPodAutoscalerStatusFluentImpl<A extends io.kuberne
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V2beta1MetricStatus> getCurrentMetrics() {
-    return build(currentMetrics);
+    return currentMetrics != null ? build(currentMetrics) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V2beta1MetricStatus> buildCurrentMetrics() {
-    return build(currentMetrics);
+    return currentMetrics != null ? build(currentMetrics) : null;
   }
   public io.kubernetes.client.openapi.models.V2beta1MetricStatus buildCurrentMetric(java.lang.Integer index) {
     return this.currentMetrics.get(index).build();

@@ -52,10 +52,10 @@ public class V1HorizontalPodAutoscalerSpecFluentImpl<A extends io.kubernetes.cli
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CrossVersionObjectReference getScaleTargetRef() {
-    return this.scaleTargetRef!=null?this.scaleTargetRef.build():null;
+    return this.scaleTargetRef!=null ?this.scaleTargetRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CrossVersionObjectReference buildScaleTargetRef() {
-    return this.scaleTargetRef!=null?this.scaleTargetRef.build():null;
+    return this.scaleTargetRef!=null ?this.scaleTargetRef.build():null;
   }
   public A withScaleTargetRef(io.kubernetes.client.openapi.models.V1CrossVersionObjectReference scaleTargetRef) {
     _visitables.get("scaleTargetRef").remove(this.scaleTargetRef);

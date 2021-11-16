@@ -116,8 +116,8 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.client.
   public java.lang.Boolean hasGroups() {
     return groups != null && !groups.isEmpty();
   }
-  public A addNewGroup(java.lang.String original) {
-    return (A)addToGroups(new String(original));
+  public A addNewGroup(java.lang.String arg0) {
+    return (A)addToGroups(new String(arg0));
   }
   
   /**
@@ -126,10 +126,10 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1NonResourceAttributes getNonResourceAttributes() {
-    return this.nonResourceAttributes!=null?this.nonResourceAttributes.build():null;
+    return this.nonResourceAttributes!=null ?this.nonResourceAttributes.build():null;
   }
   public io.kubernetes.client.openapi.models.V1NonResourceAttributes buildNonResourceAttributes() {
-    return this.nonResourceAttributes!=null?this.nonResourceAttributes.build():null;
+    return this.nonResourceAttributes!=null ?this.nonResourceAttributes.build():null;
   }
   public A withNonResourceAttributes(io.kubernetes.client.openapi.models.V1NonResourceAttributes nonResourceAttributes) {
     _visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
@@ -160,10 +160,10 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ResourceAttributes getResourceAttributes() {
-    return this.resourceAttributes!=null?this.resourceAttributes.build():null;
+    return this.resourceAttributes!=null ?this.resourceAttributes.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ResourceAttributes buildResourceAttributes() {
-    return this.resourceAttributes!=null?this.resourceAttributes.build():null;
+    return this.resourceAttributes!=null ?this.resourceAttributes.build():null;
   }
   public A withResourceAttributes(io.kubernetes.client.openapi.models.V1ResourceAttributes resourceAttributes) {
     _visitables.get("resourceAttributes").remove(this.resourceAttributes);
@@ -201,8 +201,8 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A)withUid(new String(original));
+  public A withNewUid(java.lang.String arg0) {
+    return (A)withUid(new String(arg0));
   }
   public java.lang.String getUser() {
     return this.user;
@@ -218,8 +218,8 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String original) {
-    return (A)withUser(new String(original));
+  public A withNewUser(java.lang.String arg0) {
+    return (A)withUser(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

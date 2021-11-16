@@ -30,7 +30,7 @@ public class V2beta1HorizontalPodAutoscalerSpecFluentImpl<A extends io.kubernete
 
   }
   private java.lang.Integer maxReplicas;
-  private java.util.List<io.kubernetes.client.openapi.models.V2beta1MetricSpecBuilder> metrics;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V2beta1MetricSpecBuilder> metrics;
   private java.lang.Integer minReplicas;
   private io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReferenceBuilder scaleTargetRef;
   public java.lang.Integer getMaxReplicas() {
@@ -87,10 +87,10 @@ public class V2beta1HorizontalPodAutoscalerSpecFluentImpl<A extends io.kubernete
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V2beta1MetricSpec> getMetrics() {
-    return build(metrics);
+    return metrics != null ? build(metrics) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V2beta1MetricSpec> buildMetrics() {
-    return build(metrics);
+    return metrics != null ? build(metrics) : null;
   }
   public io.kubernetes.client.openapi.models.V2beta1MetricSpec buildMetric(java.lang.Integer index) {
     return this.metrics.get(index).build();
@@ -164,10 +164,10 @@ public class V2beta1HorizontalPodAutoscalerSpecFluentImpl<A extends io.kubernete
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference getScaleTargetRef() {
-    return this.scaleTargetRef!=null?this.scaleTargetRef.build():null;
+    return this.scaleTargetRef!=null ?this.scaleTargetRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference buildScaleTargetRef() {
-    return this.scaleTargetRef!=null?this.scaleTargetRef.build():null;
+    return this.scaleTargetRef!=null ?this.scaleTargetRef.build():null;
   }
   public A withScaleTargetRef(io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference scaleTargetRef) {
     _visitables.get("scaleTargetRef").remove(this.scaleTargetRef);

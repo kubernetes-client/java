@@ -34,8 +34,8 @@ public class V1ServerAddressByClientCIDRFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withClientCIDR instead.
    */
   @java.lang.Deprecated
-  public A withNewClientCIDR(java.lang.String original) {
-    return (A)withClientCIDR(new String(original));
+  public A withNewClientCIDR(java.lang.String arg0) {
+    return (A)withClientCIDR(new String(arg0));
   }
   public java.lang.String getServerAddress() {
     return this.serverAddress;
@@ -51,8 +51,8 @@ public class V1ServerAddressByClientCIDRFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withServerAddress instead.
    */
   @java.lang.Deprecated
-  public A withNewServerAddress(java.lang.String original) {
-    return (A)withServerAddress(new String(original));
+  public A withNewServerAddress(java.lang.String arg0) {
+    return (A)withServerAddress(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

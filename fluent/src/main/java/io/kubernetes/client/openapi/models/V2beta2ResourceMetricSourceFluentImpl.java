@@ -35,8 +35,8 @@ public class V2beta2ResourceMetricSourceFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   
   /**
@@ -45,10 +45,10 @@ public class V2beta2ResourceMetricSourceFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2MetricTarget getTarget() {
-    return this.target!=null?this.target.build():null;
+    return this.target!=null ?this.target.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2MetricTarget buildTarget() {
-    return this.target!=null?this.target.build():null;
+    return this.target!=null ?this.target.build():null;
   }
   public A withTarget(io.kubernetes.client.openapi.models.V2beta2MetricTarget target) {
     _visitables.get("target").remove(this.target);

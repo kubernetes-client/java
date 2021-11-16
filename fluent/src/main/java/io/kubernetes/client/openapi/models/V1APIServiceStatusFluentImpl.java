@@ -23,7 +23,7 @@ public class V1APIServiceStatusFluentImpl<A extends io.kubernetes.client.openapi
     this.withConditions(instance.getConditions());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder> conditions;
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1APIServiceCondition item) {
     if (this.conditions == null) {this.conditions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder>();}
     io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder builder = new io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
@@ -69,10 +69,10 @@ public class V1APIServiceStatusFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1APIServiceCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1APIServiceCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1APIServiceCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();

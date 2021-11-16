@@ -35,7 +35,7 @@ public class V1ReplicaSetStatusFluentImpl<A extends io.kubernetes.client.openapi
 
   }
   private java.lang.Integer availableReplicas;
-  private java.util.List<io.kubernetes.client.openapi.models.V1ReplicaSetConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ReplicaSetConditionBuilder> conditions;
   private java.lang.Integer fullyLabeledReplicas;
   private java.lang.Long observedGeneration;
   private java.lang.Integer readyReplicas;
@@ -94,10 +94,10 @@ public class V1ReplicaSetStatusFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1ReplicaSetCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();

@@ -19,7 +19,7 @@ public interface V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.
    * Method is deprecated. use withDescription instead.
    */
   @java.lang.Deprecated
-  public A withNewDescription(java.lang.String original);
+  public A withNewDescription(java.lang.String arg0);
   public java.lang.String getFormat();
   public A withFormat(java.lang.String format);
   public java.lang.Boolean hasFormat();
@@ -28,7 +28,7 @@ public interface V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.
    * Method is deprecated. use withFormat instead.
    */
   @java.lang.Deprecated
-  public A withNewFormat(java.lang.String original);
+  public A withNewFormat(java.lang.String arg0);
   public java.lang.String getJsonPath();
   public A withJsonPath(java.lang.String jsonPath);
   public java.lang.Boolean hasJsonPath();
@@ -37,7 +37,7 @@ public interface V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.
    * Method is deprecated. use withJsonPath instead.
    */
   @java.lang.Deprecated
-  public A withNewJsonPath(java.lang.String original);
+  public A withNewJsonPath(java.lang.String arg0);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -46,7 +46,7 @@ public interface V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   public java.lang.Integer getPriority();
   public A withPriority(java.lang.Integer priority);
   public java.lang.Boolean hasPriority();
@@ -58,6 +58,6 @@ public interface V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   
 }

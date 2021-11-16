@@ -27,10 +27,10 @@ public class V1CustomResourceSubresourcesFluentImpl<A extends io.kubernetes.clie
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale getScale() {
-    return this.scale!=null?this.scale.build():null;
+    return this.scale!=null ?this.scale.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale buildScale() {
-    return this.scale!=null?this.scale.build():null;
+    return this.scale!=null ?this.scale.build():null;
   }
   public A withScale(io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale scale) {
     _visitables.get("scale").remove(this.scale);

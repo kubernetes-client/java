@@ -30,10 +30,10 @@ public class V2beta2ObjectMetricStatusFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus getCurrent() {
-    return this.current!=null?this.current.build():null;
+    return this.current!=null ?this.current.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus buildCurrent() {
-    return this.current!=null?this.current.build():null;
+    return this.current!=null ?this.current.build():null;
   }
   public A withCurrent(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus current) {
     _visitables.get("current").remove(this.current);
@@ -64,10 +64,10 @@ public class V2beta2ObjectMetricStatusFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference getDescribedObject() {
-    return this.describedObject!=null?this.describedObject.build():null;
+    return this.describedObject!=null ?this.describedObject.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference buildDescribedObject() {
-    return this.describedObject!=null?this.describedObject.build():null;
+    return this.describedObject!=null ?this.describedObject.build():null;
   }
   public A withDescribedObject(io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference describedObject) {
     _visitables.get("describedObject").remove(this.describedObject);
@@ -98,10 +98,10 @@ public class V2beta2ObjectMetricStatusFluentImpl<A extends io.kubernetes.client.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier getMetric() {
-    return this.metric!=null?this.metric.build():null;
+    return this.metric!=null ?this.metric.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier buildMetric() {
-    return this.metric!=null?this.metric.build():null;
+    return this.metric!=null ?this.metric.build():null;
   }
   public A withMetric(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier metric) {
     _visitables.get("metric").remove(this.metric);

@@ -21,7 +21,7 @@ public interface V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes
    * Method is deprecated. use withSecretName instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String original);
+  public A withNewSecretName(java.lang.String arg0);
   public java.lang.String getSecretNamespace();
   public A withSecretNamespace(java.lang.String secretNamespace);
   public java.lang.Boolean hasSecretNamespace();
@@ -30,7 +30,7 @@ public interface V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes
    * Method is deprecated. use withSecretNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretNamespace(java.lang.String original);
+  public A withNewSecretNamespace(java.lang.String arg0);
   public java.lang.String getShareName();
   public A withShareName(java.lang.String shareName);
   public java.lang.Boolean hasShareName();
@@ -39,6 +39,6 @@ public interface V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes
    * Method is deprecated. use withShareName instead.
    */
   @java.lang.Deprecated
-  public A withNewShareName(java.lang.String original);
+  public A withNewShareName(java.lang.String arg0);
   
 }

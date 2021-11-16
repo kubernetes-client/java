@@ -81,8 +81,8 @@ public class V1TokenRequestSpecFluentImpl<A extends io.kubernetes.client.openapi
   public java.lang.Boolean hasAudiences() {
     return audiences != null && !audiences.isEmpty();
   }
-  public A addNewAudience(java.lang.String original) {
-    return (A)addToAudiences(new String(original));
+  public A addNewAudience(java.lang.String arg0) {
+    return (A)addToAudiences(new String(arg0));
   }
   
   /**
@@ -91,10 +91,10 @@ public class V1TokenRequestSpecFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1BoundObjectReference getBoundObjectRef() {
-    return this.boundObjectRef!=null?this.boundObjectRef.build():null;
+    return this.boundObjectRef!=null ?this.boundObjectRef.build():null;
   }
   public io.kubernetes.client.openapi.models.V1BoundObjectReference buildBoundObjectRef() {
-    return this.boundObjectRef!=null?this.boundObjectRef.build():null;
+    return this.boundObjectRef!=null ?this.boundObjectRef.build():null;
   }
   public A withBoundObjectRef(io.kubernetes.client.openapi.models.V1BoundObjectReference boundObjectRef) {
     _visitables.get("boundObjectRef").remove(this.boundObjectRef);

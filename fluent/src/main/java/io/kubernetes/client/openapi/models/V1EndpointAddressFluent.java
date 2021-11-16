@@ -19,7 +19,7 @@ public interface V1EndpointAddressFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original);
+  public A withNewHostname(java.lang.String arg0);
   public java.lang.String getIp();
   public A withIp(java.lang.String ip);
   public java.lang.Boolean hasIp();
@@ -28,7 +28,7 @@ public interface V1EndpointAddressFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String original);
+  public A withNewIp(java.lang.String arg0);
   public java.lang.String getNodeName();
   public A withNodeName(java.lang.String nodeName);
   public java.lang.Boolean hasNodeName();
@@ -37,7 +37,7 @@ public interface V1EndpointAddressFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original);
+  public A withNewNodeName(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildTargetRef instead.

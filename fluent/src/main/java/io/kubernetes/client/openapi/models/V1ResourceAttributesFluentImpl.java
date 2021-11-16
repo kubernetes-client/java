@@ -49,8 +49,8 @@ public class V1ResourceAttributesFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original) {
-    return (A)withGroup(new String(original));
+  public A withNewGroup(java.lang.String arg0) {
+    return (A)withGroup(new String(arg0));
   }
   public java.lang.String getName() {
     return this.name;
@@ -66,8 +66,8 @@ public class V1ResourceAttributesFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public java.lang.String getNamespace() {
     return this.namespace;
@@ -83,8 +83,8 @@ public class V1ResourceAttributesFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A)withNamespace(new String(original));
+  public A withNewNamespace(java.lang.String arg0) {
+    return (A)withNamespace(new String(arg0));
   }
   public java.lang.String getResource() {
     return this.resource;
@@ -100,8 +100,8 @@ public class V1ResourceAttributesFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withResource instead.
    */
   @java.lang.Deprecated
-  public A withNewResource(java.lang.String original) {
-    return (A)withResource(new String(original));
+  public A withNewResource(java.lang.String arg0) {
+    return (A)withResource(new String(arg0));
   }
   public java.lang.String getSubresource() {
     return this.subresource;
@@ -117,8 +117,8 @@ public class V1ResourceAttributesFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withSubresource instead.
    */
   @java.lang.Deprecated
-  public A withNewSubresource(java.lang.String original) {
-    return (A)withSubresource(new String(original));
+  public A withNewSubresource(java.lang.String arg0) {
+    return (A)withSubresource(new String(arg0));
   }
   public java.lang.String getVerb() {
     return this.verb;
@@ -134,8 +134,8 @@ public class V1ResourceAttributesFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withVerb instead.
    */
   @java.lang.Deprecated
-  public A withNewVerb(java.lang.String original) {
-    return (A)withVerb(new String(original));
+  public A withNewVerb(java.lang.String arg0) {
+    return (A)withVerb(new String(arg0));
   }
   public java.lang.String getVersion() {
     return this.version;
@@ -151,8 +151,8 @@ public class V1ResourceAttributesFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original) {
-    return (A)withVersion(new String(original));
+  public A withNewVersion(java.lang.String arg0) {
+    return (A)withVersion(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

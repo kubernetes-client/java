@@ -40,7 +40,7 @@ public class V1beta1PodDisruptionBudgetStatusFluentImpl<A extends io.kubernetes.
     this.withObservedGeneration(instance.getObservedGeneration());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1ConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder> conditions;
   private java.lang.Integer currentHealthy;
   private java.lang.Integer desiredHealthy;
   private java.util.Map<java.lang.String,java.time.OffsetDateTime> disruptedPods;
@@ -92,10 +92,10 @@ public class V1beta1PodDisruptionBudgetStatusFluentImpl<A extends io.kubernetes.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1Condition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1Condition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1Condition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();

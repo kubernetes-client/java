@@ -82,8 +82,8 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withAction instead.
    */
   @java.lang.Deprecated
-  public A withNewAction(java.lang.String original) {
-    return (A)withAction(new String(original));
+  public A withNewAction(java.lang.String arg0) {
+    return (A)withAction(new String(arg0));
   }
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -99,8 +99,8 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A)withApiVersion(new String(original));
+  public A withNewApiVersion(java.lang.String arg0) {
+    return (A)withApiVersion(new String(arg0));
   }
   public java.lang.Integer getDeprecatedCount() {
     return this.deprecatedCount;
@@ -136,10 +136,10 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1EventSource getDeprecatedSource() {
-    return this.deprecatedSource!=null?this.deprecatedSource.build():null;
+    return this.deprecatedSource!=null ?this.deprecatedSource.build():null;
   }
   public io.kubernetes.client.openapi.models.V1EventSource buildDeprecatedSource() {
-    return this.deprecatedSource!=null?this.deprecatedSource.build():null;
+    return this.deprecatedSource!=null ?this.deprecatedSource.build():null;
   }
   public A withDeprecatedSource(io.kubernetes.client.openapi.models.V1EventSource deprecatedSource) {
     _visitables.get("deprecatedSource").remove(this.deprecatedSource);
@@ -186,8 +186,8 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A)withKind(new String(original));
+  public A withNewKind(java.lang.String arg0) {
+    return (A)withKind(new String(arg0));
   }
   
   /**
@@ -196,10 +196,10 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
-    return this.metadata!=null?this.metadata.build():null;
+    return this.metadata!=null ?this.metadata.build():null;
   }
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
@@ -237,8 +237,8 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withNote instead.
    */
   @java.lang.Deprecated
-  public A withNewNote(java.lang.String original) {
-    return (A)withNote(new String(original));
+  public A withNewNote(java.lang.String arg0) {
+    return (A)withNote(new String(arg0));
   }
   public java.lang.String getReason() {
     return this.reason;
@@ -254,8 +254,8 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A)withReason(new String(original));
+  public A withNewReason(java.lang.String arg0) {
+    return (A)withReason(new String(arg0));
   }
   
   /**
@@ -264,10 +264,10 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectReference getRegarding() {
-    return this.regarding!=null?this.regarding.build():null;
+    return this.regarding!=null ?this.regarding.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectReference buildRegarding() {
-    return this.regarding!=null?this.regarding.build():null;
+    return this.regarding!=null ?this.regarding.build():null;
   }
   public A withRegarding(io.kubernetes.client.openapi.models.V1ObjectReference regarding) {
     _visitables.get("regarding").remove(this.regarding);
@@ -298,10 +298,10 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectReference getRelated() {
-    return this.related!=null?this.related.build():null;
+    return this.related!=null ?this.related.build():null;
   }
   public io.kubernetes.client.openapi.models.V1ObjectReference buildRelated() {
-    return this.related!=null?this.related.build():null;
+    return this.related!=null ?this.related.build():null;
   }
   public A withRelated(io.kubernetes.client.openapi.models.V1ObjectReference related) {
     _visitables.get("related").remove(this.related);
@@ -339,8 +339,8 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withReportingController instead.
    */
   @java.lang.Deprecated
-  public A withNewReportingController(java.lang.String original) {
-    return (A)withReportingController(new String(original));
+  public A withNewReportingController(java.lang.String arg0) {
+    return (A)withReportingController(new String(arg0));
   }
   public java.lang.String getReportingInstance() {
     return this.reportingInstance;
@@ -356,8 +356,8 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withReportingInstance instead.
    */
   @java.lang.Deprecated
-  public A withNewReportingInstance(java.lang.String original) {
-    return (A)withReportingInstance(new String(original));
+  public A withNewReportingInstance(java.lang.String arg0) {
+    return (A)withReportingInstance(new String(arg0));
   }
   
   /**
@@ -366,10 +366,10 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1beta1EventSeries getSeries() {
-    return this.series!=null?this.series.build():null;
+    return this.series!=null ?this.series.build():null;
   }
   public io.kubernetes.client.openapi.models.V1beta1EventSeries buildSeries() {
-    return this.series!=null?this.series.build():null;
+    return this.series!=null ?this.series.build():null;
   }
   public A withSeries(io.kubernetes.client.openapi.models.V1beta1EventSeries series) {
     _visitables.get("series").remove(this.series);
@@ -407,8 +407,8 @@ public class V1beta1EventFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A)withType(new String(original));
+  public A withNewType(java.lang.String arg0) {
+    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

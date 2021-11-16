@@ -29,7 +29,7 @@ public class V1CustomResourceDefinitionStatusFluentImpl<A extends io.kubernetes.
 
   }
   private io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder acceptedNames;
-  private java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder> conditions;
   private java.util.List<java.lang.String> storedVersions;
   
   /**
@@ -38,10 +38,10 @@ public class V1CustomResourceDefinitionStatusFluentImpl<A extends io.kubernetes.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames getAcceptedNames() {
-    return this.acceptedNames!=null?this.acceptedNames.build():null;
+    return this.acceptedNames!=null ?this.acceptedNames.build():null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames buildAcceptedNames() {
-    return this.acceptedNames!=null?this.acceptedNames.build():null;
+    return this.acceptedNames!=null ?this.acceptedNames.build():null;
   }
   public A withAcceptedNames(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames acceptedNames) {
     _visitables.get("acceptedNames").remove(this.acceptedNames);
@@ -110,10 +110,10 @@ public class V1CustomResourceDefinitionStatusFluentImpl<A extends io.kubernetes.
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -222,8 +222,8 @@ public class V1CustomResourceDefinitionStatusFluentImpl<A extends io.kubernetes.
   public java.lang.Boolean hasStoredVersions() {
     return storedVersions != null && !storedVersions.isEmpty();
   }
-  public A addNewStoredVersion(java.lang.String original) {
-    return (A)addToStoredVersions(new String(original));
+  public A addNewStoredVersion(java.lang.String arg0) {
+    return (A)addToStoredVersions(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

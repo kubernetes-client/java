@@ -31,10 +31,10 @@ public class V1HTTPIngressPathFluentImpl<A extends io.kubernetes.client.openapi.
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1IngressBackend getBackend() {
-    return this.backend!=null?this.backend.build():null;
+    return this.backend!=null ?this.backend.build():null;
   }
   public io.kubernetes.client.openapi.models.V1IngressBackend buildBackend() {
-    return this.backend!=null?this.backend.build():null;
+    return this.backend!=null ?this.backend.build():null;
   }
   public A withBackend(io.kubernetes.client.openapi.models.V1IngressBackend backend) {
     _visitables.get("backend").remove(this.backend);
@@ -72,8 +72,8 @@ public class V1HTTPIngressPathFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A)withPath(new String(original));
+  public A withNewPath(java.lang.String arg0) {
+    return (A)withPath(new String(arg0));
   }
   public java.lang.String getPathType() {
     return this.pathType;
@@ -89,8 +89,8 @@ public class V1HTTPIngressPathFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPathType instead.
    */
   @java.lang.Deprecated
-  public A withNewPathType(java.lang.String original) {
-    return (A)withPathType(new String(original));
+  public A withNewPathType(java.lang.String arg0) {
+    return (A)withPathType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

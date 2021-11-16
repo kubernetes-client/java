@@ -37,8 +37,8 @@ public class V1CustomResourceSubresourceScaleFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withLabelSelectorPath instead.
    */
   @java.lang.Deprecated
-  public A withNewLabelSelectorPath(java.lang.String original) {
-    return (A)withLabelSelectorPath(new String(original));
+  public A withNewLabelSelectorPath(java.lang.String arg0) {
+    return (A)withLabelSelectorPath(new String(arg0));
   }
   public java.lang.String getSpecReplicasPath() {
     return this.specReplicasPath;
@@ -54,8 +54,8 @@ public class V1CustomResourceSubresourceScaleFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withSpecReplicasPath instead.
    */
   @java.lang.Deprecated
-  public A withNewSpecReplicasPath(java.lang.String original) {
-    return (A)withSpecReplicasPath(new String(original));
+  public A withNewSpecReplicasPath(java.lang.String arg0) {
+    return (A)withSpecReplicasPath(new String(arg0));
   }
   public java.lang.String getStatusReplicasPath() {
     return this.statusReplicasPath;
@@ -71,8 +71,8 @@ public class V1CustomResourceSubresourceScaleFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withStatusReplicasPath instead.
    */
   @java.lang.Deprecated
-  public A withNewStatusReplicasPath(java.lang.String original) {
-    return (A)withStatusReplicasPath(new String(original));
+  public A withNewStatusReplicasPath(java.lang.String arg0) {
+    return (A)withStatusReplicasPath(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

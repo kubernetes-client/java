@@ -25,8 +25,8 @@ public class V1NodeSelectorTermFluentImpl<A extends io.kubernetes.client.openapi
     this.withMatchFields(instance.getMatchFields());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder> matchExpressions;
-  private java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder> matchFields;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder> matchExpressions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder> matchFields;
   public A addToMatchExpressions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item) {
     if (this.matchExpressions == null) {this.matchExpressions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>();}
     io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder builder = new io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder(item);_visitables.get("matchExpressions").add(index >= 0 ? index : _visitables.get("matchExpressions").size(), builder);this.matchExpressions.add(index >= 0 ? index : matchExpressions.size(), builder); return (A)this;
@@ -72,10 +72,10 @@ public class V1NodeSelectorTermFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> getMatchExpressions() {
-    return build(matchExpressions);
+    return matchExpressions != null ? build(matchExpressions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> buildMatchExpressions() {
-    return build(matchExpressions);
+    return matchExpressions != null ? build(matchExpressions) : null;
   }
   public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildMatchExpression(java.lang.Integer index) {
     return this.matchExpressions.get(index).build();
@@ -178,10 +178,10 @@ public class V1NodeSelectorTermFluentImpl<A extends io.kubernetes.client.openapi
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> getMatchFields() {
-    return build(matchFields);
+    return matchFields != null ? build(matchFields) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> buildMatchFields() {
-    return build(matchFields);
+    return matchFields != null ? build(matchFields) : null;
   }
   public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildMatchField(java.lang.Integer index) {
     return this.matchFields.get(index).build();

@@ -35,7 +35,7 @@ public class V1PersistentVolumeClaimStatusFluentImpl<A extends io.kubernetes.cli
   }
   private java.util.List<java.lang.String> accessModes;
   private java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> capacity;
-  private java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionBuilder> conditions;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionBuilder> conditions;
   private java.lang.String phase;
   public A addToAccessModes(java.lang.Integer index,java.lang.String item) {
     if (this.accessModes == null) {this.accessModes = new java.util.ArrayList<java.lang.String>();}
@@ -88,8 +88,8 @@ public class V1PersistentVolumeClaimStatusFluentImpl<A extends io.kubernetes.cli
   public java.lang.Boolean hasAccessModes() {
     return accessModes != null && !accessModes.isEmpty();
   }
-  public A addNewAccessMode(java.lang.String original) {
-    return (A)addToAccessModes(new String(original));
+  public A addNewAccessMode(java.lang.String arg0) {
+    return (A)addToAccessModes(new String(arg0));
   }
   public A addToCapacity(java.lang.String key,io.kubernetes.client.custom.Quantity value) {
     if(this.capacity == null && key != null && value != null) { this.capacity = new java.util.LinkedHashMap(); }
@@ -161,10 +161,10 @@ public class V1PersistentVolumeClaimStatusFluentImpl<A extends io.kubernetes.cli
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition> getConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition> buildConditions() {
-    return build(conditions);
+    return conditions != null ? build(conditions) : null;
   }
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition buildCondition(java.lang.Integer index) {
     return this.conditions.get(index).build();
@@ -236,8 +236,8 @@ public class V1PersistentVolumeClaimStatusFluentImpl<A extends io.kubernetes.cli
    * Method is deprecated. use withPhase instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String original) {
-    return (A)withPhase(new String(original));
+  public A withNewPhase(java.lang.String arg0) {
+    return (A)withPhase(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

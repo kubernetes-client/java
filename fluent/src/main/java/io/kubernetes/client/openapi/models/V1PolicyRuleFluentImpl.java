@@ -84,8 +84,8 @@ public class V1PolicyRuleFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasApiGroups() {
     return apiGroups != null && !apiGroups.isEmpty();
   }
-  public A addNewApiGroup(java.lang.String original) {
-    return (A)addToApiGroups(new String(original));
+  public A addNewApiGroup(java.lang.String arg0) {
+    return (A)addToApiGroups(new String(arg0));
   }
   public A addToNonResourceURLs(java.lang.Integer index,java.lang.String item) {
     if (this.nonResourceURLs == null) {this.nonResourceURLs = new java.util.ArrayList<java.lang.String>();}
@@ -138,8 +138,8 @@ public class V1PolicyRuleFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasNonResourceURLs() {
     return nonResourceURLs != null && !nonResourceURLs.isEmpty();
   }
-  public A addNewNonResourceURL(java.lang.String original) {
-    return (A)addToNonResourceURLs(new String(original));
+  public A addNewNonResourceURL(java.lang.String arg0) {
+    return (A)addToNonResourceURLs(new String(arg0));
   }
   public A addToResourceNames(java.lang.Integer index,java.lang.String item) {
     if (this.resourceNames == null) {this.resourceNames = new java.util.ArrayList<java.lang.String>();}
@@ -192,8 +192,8 @@ public class V1PolicyRuleFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasResourceNames() {
     return resourceNames != null && !resourceNames.isEmpty();
   }
-  public A addNewResourceName(java.lang.String original) {
-    return (A)addToResourceNames(new String(original));
+  public A addNewResourceName(java.lang.String arg0) {
+    return (A)addToResourceNames(new String(arg0));
   }
   public A addToResources(java.lang.Integer index,java.lang.String item) {
     if (this.resources == null) {this.resources = new java.util.ArrayList<java.lang.String>();}
@@ -246,8 +246,8 @@ public class V1PolicyRuleFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasResources() {
     return resources != null && !resources.isEmpty();
   }
-  public A addNewResource(java.lang.String original) {
-    return (A)addToResources(new String(original));
+  public A addNewResource(java.lang.String arg0) {
+    return (A)addToResources(new String(arg0));
   }
   public A addToVerbs(java.lang.Integer index,java.lang.String item) {
     if (this.verbs == null) {this.verbs = new java.util.ArrayList<java.lang.String>();}
@@ -300,8 +300,8 @@ public class V1PolicyRuleFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasVerbs() {
     return verbs != null && !verbs.isEmpty();
   }
-  public A addNewVerb(java.lang.String original) {
-    return (A)addToVerbs(new String(original));
+  public A addNewVerb(java.lang.String arg0) {
+    return (A)addToVerbs(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

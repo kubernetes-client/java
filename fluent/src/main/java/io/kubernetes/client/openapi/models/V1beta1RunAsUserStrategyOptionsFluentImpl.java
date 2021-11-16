@@ -26,7 +26,7 @@ public class V1beta1RunAsUserStrategyOptionsFluentImpl<A extends io.kubernetes.c
     this.withRule(instance.getRule());
 
   }
-  private java.util.List<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder> ranges;
+  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder> ranges;
   private java.lang.String rule;
   public A addToRanges(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1IDRange item) {
     if (this.ranges == null) {this.ranges = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>();}
@@ -73,10 +73,10 @@ public class V1beta1RunAsUserStrategyOptionsFluentImpl<A extends io.kubernetes.c
    */
   @java.lang.Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1IDRange> getRanges() {
-    return build(ranges);
+    return ranges != null ? build(ranges) : null;
   }
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1IDRange> buildRanges() {
-    return build(ranges);
+    return ranges != null ? build(ranges) : null;
   }
   public io.kubernetes.client.openapi.models.V1beta1IDRange buildRange(java.lang.Integer index) {
     return this.ranges.get(index).build();
@@ -148,8 +148,8 @@ public class V1beta1RunAsUserStrategyOptionsFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withRule instead.
    */
   @java.lang.Deprecated
-  public A withNewRule(java.lang.String original) {
-    return (A)withRule(new String(original));
+  public A withNewRule(java.lang.String arg0) {
+    return (A)withRule(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

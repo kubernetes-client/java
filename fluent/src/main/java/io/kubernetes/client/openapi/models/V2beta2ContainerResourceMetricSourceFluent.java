@@ -19,7 +19,7 @@ public interface V2beta2ContainerResourceMetricSourceFluent<A extends io.kuberne
    * Method is deprecated. use withContainer instead.
    */
   @java.lang.Deprecated
-  public A withNewContainer(java.lang.String original);
+  public A withNewContainer(java.lang.String arg0);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -28,7 +28,7 @@ public interface V2beta2ContainerResourceMetricSourceFluent<A extends io.kuberne
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public A withNewName(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildTarget instead.

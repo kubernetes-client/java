@@ -30,7 +30,7 @@ public interface V1IngressTLSFluent<A extends io.kubernetes.client.openapi.model
   public A withHosts(java.util.List<java.lang.String> hosts);
   public A withHosts(java.lang.String... hosts);
   public java.lang.Boolean hasHosts();
-  public A addNewHost(java.lang.String original);
+  public A addNewHost(java.lang.String arg0);
   public java.lang.String getSecretName();
   public A withSecretName(java.lang.String secretName);
   public java.lang.Boolean hasSecretName();
@@ -39,6 +39,6 @@ public interface V1IngressTLSFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withSecretName instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String original);
+  public A withNewSecretName(java.lang.String arg0);
   
 }

@@ -18,7 +18,7 @@ public interface V1NodeAddressFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withAddress instead.
    */
   @java.lang.Deprecated
-  public A withNewAddress(java.lang.String original);
+  public A withNewAddress(java.lang.String arg0);
   public java.lang.String getType();
   public A withType(java.lang.String type);
   public java.lang.Boolean hasType();
@@ -27,6 +27,6 @@ public interface V1NodeAddressFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withNewType(java.lang.String arg0);
   
 }

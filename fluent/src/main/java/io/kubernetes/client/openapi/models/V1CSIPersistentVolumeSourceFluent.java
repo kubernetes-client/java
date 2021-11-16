@@ -51,7 +51,7 @@ public interface V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original);
+  public A withNewDriver(java.lang.String arg0);
   public java.lang.String getFsType();
   public A withFsType(java.lang.String fsType);
   public java.lang.Boolean hasFsType();
@@ -60,7 +60,7 @@ public interface V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
+  public A withNewFsType(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildNodePublishSecretRef instead.
@@ -109,7 +109,7 @@ public interface V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeHandle instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeHandle(java.lang.String original);
+  public A withNewVolumeHandle(java.lang.String arg0);
   public interface ControllerExpandSecretRefNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1SecretReferenceFluent<io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<N>>{
     public N and();
     public N endControllerExpandSecretRef();

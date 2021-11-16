@@ -20,7 +20,7 @@ public interface V2beta1PodsMetricSourceFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withMetricName instead.
    */
   @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original);
+  public A withNewMetricName(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildSelector instead.

@@ -35,8 +35,8 @@ public class V1CustomResourceConversionFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withStrategy instead.
    */
   @java.lang.Deprecated
-  public A withNewStrategy(java.lang.String original) {
-    return (A)withStrategy(new String(original));
+  public A withNewStrategy(java.lang.String arg0) {
+    return (A)withStrategy(new String(arg0));
   }
   
   /**
@@ -45,10 +45,10 @@ public class V1CustomResourceConversionFluentImpl<A extends io.kubernetes.client
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1WebhookConversion getWebhook() {
-    return this.webhook!=null?this.webhook.build():null;
+    return this.webhook!=null ?this.webhook.build():null;
   }
   public io.kubernetes.client.openapi.models.V1WebhookConversion buildWebhook() {
-    return this.webhook!=null?this.webhook.build():null;
+    return this.webhook!=null ?this.webhook.build():null;
   }
   public A withWebhook(io.kubernetes.client.openapi.models.V1WebhookConversion webhook) {
     _visitables.get("webhook").remove(this.webhook);

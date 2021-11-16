@@ -26,7 +26,7 @@ public interface V1APIVersionsFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public A withNewApiVersion(java.lang.String arg0);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -35,7 +35,7 @@ public interface V1APIVersionsFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
+  public A withNewKind(java.lang.String arg0);
   public A addToServerAddressByClientCIDRs(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item);
   public A setToServerAddressByClientCIDRs(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item);
   public A addToServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items);
@@ -81,7 +81,7 @@ public interface V1APIVersionsFluent<A extends io.kubernetes.client.openapi.mode
   public A withVersions(java.util.List<java.lang.String> versions);
   public A withVersions(java.lang.String... versions);
   public java.lang.Boolean hasVersions();
-  public A addNewVersion(java.lang.String original);
+  public A addNewVersion(java.lang.String arg0);
   public interface ServerAddressByClientCIDRsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<io.kubernetes.client.openapi.models.V1APIVersionsFluent.ServerAddressByClientCIDRsNested<N>>{
     public N and();
     public N endServerAddressByClientCIDR();

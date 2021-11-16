@@ -18,6 +18,6 @@ public interface V1PodReadinessGateFluent<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withConditionType instead.
    */
   @java.lang.Deprecated
-  public A withNewConditionType(java.lang.String original);
+  public A withNewConditionType(java.lang.String arg0);
   
 }

@@ -38,8 +38,8 @@ public class V1VolumeAttachmentSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withAttacher instead.
    */
   @java.lang.Deprecated
-  public A withNewAttacher(java.lang.String original) {
-    return (A)withAttacher(new String(original));
+  public A withNewAttacher(java.lang.String arg0) {
+    return (A)withAttacher(new String(arg0));
   }
   public java.lang.String getNodeName() {
     return this.nodeName;
@@ -55,8 +55,8 @@ public class V1VolumeAttachmentSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original) {
-    return (A)withNodeName(new String(original));
+  public A withNewNodeName(java.lang.String arg0) {
+    return (A)withNodeName(new String(arg0));
   }
   
   /**
@@ -65,10 +65,10 @@ public class V1VolumeAttachmentSpecFluentImpl<A extends io.kubernetes.client.ope
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V1VolumeAttachmentSource getSource() {
-    return this.source!=null?this.source.build():null;
+    return this.source!=null ?this.source.build():null;
   }
   public io.kubernetes.client.openapi.models.V1VolumeAttachmentSource buildSource() {
-    return this.source!=null?this.source.build():null;
+    return this.source!=null ?this.source.build():null;
   }
   public A withSource(io.kubernetes.client.openapi.models.V1VolumeAttachmentSource source) {
     _visitables.get("source").remove(this.source);

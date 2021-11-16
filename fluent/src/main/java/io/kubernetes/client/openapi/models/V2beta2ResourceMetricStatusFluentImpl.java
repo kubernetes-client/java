@@ -28,10 +28,10 @@ public class V2beta2ResourceMetricStatusFluentImpl<A extends io.kubernetes.clien
    */
   @java.lang.Deprecated
   public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus getCurrent() {
-    return this.current!=null?this.current.build():null;
+    return this.current!=null ?this.current.build():null;
   }
   public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus buildCurrent() {
-    return this.current!=null?this.current.build():null;
+    return this.current!=null ?this.current.build():null;
   }
   public A withCurrent(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus current) {
     _visitables.get("current").remove(this.current);
@@ -69,8 +69,8 @@ public class V2beta2ResourceMetricStatusFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A)withName(new String(original));
+  public A withNewName(java.lang.String arg0) {
+    return (A)withName(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -19,7 +19,7 @@ public interface V1AWSElasticBlockStoreVolumeSourceFluent<A extends io.kubernete
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
+  public A withNewFsType(java.lang.String arg0);
   public java.lang.Integer getPartition();
   public A withPartition(java.lang.Integer partition);
   public java.lang.Boolean hasPartition();
@@ -34,6 +34,6 @@ public interface V1AWSElasticBlockStoreVolumeSourceFluent<A extends io.kubernete
    * Method is deprecated. use withVolumeID instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeID(java.lang.String original);
+  public A withNewVolumeID(java.lang.String arg0);
   
 }

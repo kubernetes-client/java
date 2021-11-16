@@ -22,6 +22,6 @@ public interface V1ScaleStatusFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSelector instead.
    */
   @java.lang.Deprecated
-  public A withNewSelector(java.lang.String original);
+  public A withNewSelector(java.lang.String arg0);
   
 }
