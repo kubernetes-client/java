@@ -58,22 +58,25 @@ public class ReflectorRunnable<
 
   private AtomicBoolean isActive = new AtomicBoolean(true);
 
-  private final BiConsumer<Class<ApiType>, Throwable> exceptionHandler;
+  /* visible for testing */ final BiConsumer<Class<ApiType>, Throwable> exceptionHandler;
 
   public ReflectorRunnable(
-      Class<ApiType> apiTypeClass, ListerWatcher listerWatcher, DeltaFIFO store) {
-    this(apiTypeClass, listerWatcher, store, ReflectorRunnable::defaultWatchErrorHandler);
+      Class<ApiType> apiTypeClass,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      DeltaFIFO store) {
+    this(apiTypeClass, listerWatcher, store, null);
   }
 
   public ReflectorRunnable(
       Class<ApiType> apiTypeClass,
-      ListerWatcher listerWatcher,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
       DeltaFIFO store,
       BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
     this.listerWatcher = listerWatcher;
     this.store = store;
     this.apiTypeClass = apiTypeClass;
-    this.exceptionHandler = exceptionHandler;
+    this.exceptionHandler =
+        exceptionHandler == null ? ReflectorRunnable::defaultWatchErrorHandler : exceptionHandler;
   }
 
   /**
@@ -277,7 +280,7 @@ public class ReflectorRunnable<
     }
   }
 
-  private static <ApiType extends KubernetesObject> void defaultWatchErrorHandler(
+  static <ApiType extends KubernetesObject> void defaultWatchErrorHandler(
       Class<ApiType> watchingApiTypeClass, Throwable t) {
     log.error(String.format("%s#Reflector loop failed unexpectedly", watchingApiTypeClass), t);
   }

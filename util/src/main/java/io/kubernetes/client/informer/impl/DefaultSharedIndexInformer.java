@@ -26,6 +26,7 @@ import io.kubernetes.client.informer.cache.SharedProcessor;
 import java.util.Deque;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -82,7 +83,28 @@ public class DefaultSharedIndexInformer<
         new DeltaFIFO(
             (Function<KubernetesObject, String>) cache.getKeyFunc(),
             (Cache<KubernetesObject>) cache),
-        cache);
+        cache,
+        null);
+  }
+
+  public DefaultSharedIndexInformer(
+      Class<ApiType> apiTypeClass,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      long resyncPeriod,
+      Cache<ApiType> cache,
+      BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
+    this(
+        apiTypeClass,
+        listerWatcher,
+        resyncPeriod,
+        // down-casting should be safe here because one delta FIFO instance only serves one
+        // resource
+        // type
+        new DeltaFIFO(
+            (Function<KubernetesObject, String>) cache.getKeyFunc(),
+            (Cache<KubernetesObject>) cache),
+        cache,
+        exceptionHandler);
   }
 
   public DefaultSharedIndexInformer(
@@ -91,19 +113,31 @@ public class DefaultSharedIndexInformer<
       long resyncPeriod,
       DeltaFIFO deltaFIFO,
       Indexer<ApiType> indexer) {
+    this(apiTypeClass, listerWatcher, resyncPeriod, deltaFIFO, indexer, null);
+  }
+
+  public DefaultSharedIndexInformer(
+      Class<ApiType> apiTypeClass,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      long resyncPeriod,
+      DeltaFIFO deltaFIFO,
+      Indexer<ApiType> indexer,
+      BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
+
     this.resyncCheckPeriodMillis = resyncPeriod;
     this.defaultEventHandlerResyncPeriod = resyncPeriod;
 
     this.processor = new SharedProcessor<>();
     this.indexer = indexer;
     this.controller =
-        new Controller<ApiType, ApiListType>(
+        new Controller<>(
             apiTypeClass,
             deltaFIFO,
             listerWatcher,
             this::handleDeltas,
             processor::shouldResync,
-            resyncCheckPeriodMillis);
+            resyncCheckPeriodMillis,
+            exceptionHandler);
 
     controllerThread =
         new Thread(controller::run, "informer-controller-" + apiTypeClass.getSimpleName());
