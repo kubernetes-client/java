@@ -32,7 +32,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 import org.junit.Test;
 
 /** Tests for the ConfigBuilder helper class */
@@ -304,10 +303,13 @@ public class ClientBuilderTest {
 
   @Test
   public void testDetectsServerNotSet() {
-    assertThrows("No server in kubeconfig", IllegalArgumentException.class, () -> {
-      KubeConfig kubeConfigWithoutServer = mock(KubeConfig.class);
+    assertThrows(
+        "No server in kubeconfig",
+        IllegalArgumentException.class,
+        () -> {
+          KubeConfig kubeConfigWithoutServer = mock(KubeConfig.class);
 
-      ClientBuilder.kubeconfig(kubeConfigWithoutServer);
-    });
+          ClientBuilder.kubeconfig(kubeConfigWithoutServer);
+        });
   }
 }

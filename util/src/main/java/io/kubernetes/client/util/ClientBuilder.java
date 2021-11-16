@@ -278,7 +278,7 @@ public class ClientBuilder {
 
     String server = config.getServer();
     if (server == null) {
-        throw new IllegalArgumentException("No server in kubeconfig");
+      throw new IllegalArgumentException("No server in kubeconfig");
     }
     if (!server.contains("://")) {
       if (server.contains(":443")) {
