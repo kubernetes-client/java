@@ -15,6 +15,7 @@ package io.kubernetes.client.informer;
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.informer.cache.Cache;
 import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -32,6 +33,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.function.BiConsumer;
 import okhttp3.Call;
 import org.apache.commons.collections4.MapUtils;
 
@@ -140,8 +142,19 @@ public class SharedInformerFactory {
           ListerWatcher<ApiType, ApiListType> listerWatcher,
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis) {
+    return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis, null);
+  }
+
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          ListerWatcher<ApiType, ApiListType> listerWatcher,
+          Class<ApiType> apiTypeClass,
+          long resyncPeriodInMillis,
+          BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
+
     SharedIndexInformer<ApiType> informer =
-        new DefaultSharedIndexInformer<>(apiTypeClass, listerWatcher, resyncPeriodInMillis);
+        new DefaultSharedIndexInformer<>(
+            apiTypeClass, listerWatcher, resyncPeriodInMillis, new Cache<>(), exceptionHandler);
     this.informers.putIfAbsent(TypeToken.get(apiTypeClass).getType(), informer);
     return informer;
   }

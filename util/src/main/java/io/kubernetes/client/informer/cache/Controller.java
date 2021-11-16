@@ -23,6 +23,7 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -65,6 +66,8 @@ public class Controller<
 
   private ScheduledFuture reflectorFuture;
 
+  /* visible for testing */ BiConsumer<Class<ApiType>, Throwable> exceptionHandler;
+
   public Controller(
       Class<ApiType> apiTypeClass,
       DeltaFIFO queue,
@@ -72,12 +75,25 @@ public class Controller<
       Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>> processFunc,
       Supplier<Boolean> resyncFunc,
       long fullResyncPeriod) {
+    this(apiTypeClass, queue, listerWatcher, processFunc, resyncFunc, fullResyncPeriod, null);
+  }
+
+  public Controller(
+      Class<ApiType> apiTypeClass,
+      DeltaFIFO queue,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>> processFunc,
+      Supplier<Boolean> resyncFunc,
+      long fullResyncPeriod,
+      BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
+
     this.queue = queue;
     this.listerWatcher = listerWatcher;
     this.apiTypeClass = apiTypeClass;
     this.processFunc = processFunc;
     this.resyncFunc = resyncFunc;
     this.fullResyncPeriod = fullResyncPeriod;
+    this.exceptionHandler = exceptionHandler;
 
     // starts one daemon thread for reflector
     this.reflectExecutor =
@@ -113,7 +129,7 @@ public class Controller<
 
     synchronized (this) {
       // TODO(yue9944882): proper naming for reflector
-      reflector = new ReflectorRunnable<ApiType, ApiListType>(apiTypeClass, listerWatcher, queue);
+      reflector = newReflector();
       try {
         reflectorFuture =
             reflectExecutor.scheduleWithFixedDelay(
@@ -128,6 +144,10 @@ public class Controller<
 
     // start the process loop
     this.processLoop();
+  }
+
+  /* visible for testing */ ReflectorRunnable<ApiType, ApiListType> newReflector() {
+    return new ReflectorRunnable<>(apiTypeClass, listerWatcher, queue, exceptionHandler);
   }
 
   /** stops the resync thread pool firstly, then stop the reflector */
