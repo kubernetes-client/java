@@ -23,12 +23,13 @@ jobs:
       - name: Verify Format and License
         run: mvn spotless:check
   build:
-    runs-on: ubuntu-latest
     name: Java ${{ matrix.java }} Maven Test
     strategy:
       matrix:
         # Test against the LTS Java versions. TODO: add JDK18 when it becomes available.
         java: [ 8.0.x, 11.0.x, 17.0.x ]
+        os: [ windows-latest, macos-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2.4.0
       - name: Setup Java
@@ -41,11 +42,9 @@ jobs:
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
-      - name: Buid with Maven
+      - name: Build with Maven
         run: |
-          sudo mvn clean test \
-            -q \
-            -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+          mvn clean test -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   build-graalvm:
     runs-on: ubuntu-latest
     name: GraalVM Maven Test
