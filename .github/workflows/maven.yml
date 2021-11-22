@@ -27,8 +27,8 @@ jobs:
     name: Java ${{ matrix.java }} Maven Test
     strategy:
       matrix:
-        # test against latest update of each major Java version, as well as specific updates of LTS versions:
-        java: [ 8.0.x, 9.0.x, 10.0.x, 11.0.x, 12.0.x, 16.0.x ]
+        # Test against the LTS Java versions. TODO: add JDK18 when it becomes available.
+        java: [ 8.0.x, 11.0.x, 17.0.x ]
     steps:
       - uses: actions/checkout@v2.4.0
       - name: Setup Java
