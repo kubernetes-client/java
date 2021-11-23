@@ -27,6 +27,7 @@ import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.util.ClientBuilder;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -37,13 +38,20 @@ import org.junit.Test;
 public class KubectlPatchTest {
 
   private static final String DISCOVERY_API =
-      KubectlPatchTest.class.getClassLoader().getResource("discovery-api.json").getPath();
+      new File(KubectlPatchTest.class.getClassLoader().getResource("discovery-api.json").getPath())
+          .toString();
 
   private static final String DISCOVERY_APIV1 =
-      KubectlPatchTest.class.getClassLoader().getResource("discovery-api-v1.json").getPath();
+      new File(
+              KubectlPatchTest.class
+                  .getClassLoader()
+                  .getResource("discovery-api-v1.json")
+                  .getPath())
+          .toString();
 
   private static final String DISCOVERY_APIS =
-      KubectlPatchTest.class.getClassLoader().getResource("discovery-apis.json").getPath();
+      new File(KubectlPatchTest.class.getClassLoader().getResource("discovery-apis.json").getPath())
+          .toString();
 
   private ApiClient apiClient;
 

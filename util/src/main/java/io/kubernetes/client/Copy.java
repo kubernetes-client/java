@@ -411,6 +411,7 @@ public class Copy extends Exec {
 
   private Process execCopyToPod(String namespace, String pod, String container, Path destPath)
       throws ApiException, IOException {
+    // TODO: This assumes Linux and won't work on Windows Containers (for many reasons...)
     String parentPath = destPath.getParent() != null ? destPath.getParent().toString() : ".";
     parentPath = parentPath.replace("\\", "/");
     return this.exec(

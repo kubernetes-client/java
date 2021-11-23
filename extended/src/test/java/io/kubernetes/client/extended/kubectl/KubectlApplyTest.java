@@ -38,13 +38,22 @@ import org.junit.Test;
 public class KubectlApplyTest {
 
   private static final String DISCOVERY_API =
-      KubectlApplyTest.class.getClassLoader().getResource("discovery-api.json").getPath();
+      new java.io.File(
+              KubectlApplyTest.class.getClassLoader().getResource("discovery-api.json").getPath())
+          .toString();
 
   private static final String DISCOVERY_APIV1 =
-      KubectlApplyTest.class.getClassLoader().getResource("discovery-api-v1.json").getPath();
+      new java.io.File(
+              KubectlApplyTest.class
+                  .getClassLoader()
+                  .getResource("discovery-api-v1.json")
+                  .getPath())
+          .toString();
 
   private static final String DISCOVERY_APIS =
-      KubectlApplyTest.class.getClassLoader().getResource("discovery-apis.json").getPath();
+      new java.io.File(
+              KubectlApplyTest.class.getClassLoader().getResource("discovery-apis.json").getPath())
+          .toString();
 
   private ApiClient apiClient;
 

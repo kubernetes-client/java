@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import io.kubernetes.client.Resources;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,15 +24,16 @@ import junit.framework.TestCase;
 
 public class SSLUtilsTest extends TestCase {
 
-  private static final String CLIENT_KEY_PATH = Resources.getResource("clientauth.key").getPath();
+  private static final String CLIENT_KEY_PATH =
+      new File(Resources.getResource("clientauth.key").getPath()).toString();
   private static final String CLIENT_KEY_RSA_PATH =
-      Resources.getResource("clientauth-rsa.key").getPath();
+      new File(Resources.getResource("clientauth-rsa.key").getPath()).toString();
   private static final String CLIENT_KEY_EC_PATH =
-      Resources.getResource("clientauth-ec.key").getPath();
+      new File(Resources.getResource("clientauth-ec.key").getPath()).toString();
 
   public void testPKCS8KeyLoadDump()
       throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-    byte[] loaded = Files.readAllBytes(Paths.get(CLIENT_KEY_PATH));
+    byte[] loaded = Files.readAllBytes(Paths.get(CLIENT_KEY_PATH.replace("C:/", "")));
     PrivateKey privateKey = SSLUtils.loadKey(loaded);
     byte[] dumped = SSLUtils.dumpKey(privateKey);
     PrivateKey reloaded = SSLUtils.loadKey(dumped);

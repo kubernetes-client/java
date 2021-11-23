@@ -31,6 +31,7 @@ import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -41,7 +42,8 @@ import org.junit.Test;
 public class KubectlDrainTest {
 
   private static final String POD_LIST_API =
-      KubectlDrainTest.class.getClassLoader().getResource("pod-list.json").getPath();
+      new File(KubectlDrainTest.class.getClassLoader().getResource("pod-list.json").getPath())
+          .toString();
 
   private ApiClient apiClient;
 

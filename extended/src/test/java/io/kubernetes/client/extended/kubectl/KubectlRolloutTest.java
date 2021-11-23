@@ -34,6 +34,7 @@ import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.openapi.models.V1StatefulSetList;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -50,34 +51,56 @@ public class KubectlRolloutTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   private static final String DEPLOYMENT =
-      KubectlRolloutTest.class.getClassLoader().getResource("deployment.json").getPath();
+      new File(KubectlRolloutTest.class.getClassLoader().getResource("deployment.json").getPath())
+          .toString();
 
   private static final String REPLICASET_LIST =
-      KubectlRolloutTest.class.getClassLoader().getResource("replicaset-list.json").getPath();
+      new File(
+              KubectlRolloutTest.class
+                  .getClassLoader()
+                  .getResource("replicaset-list.json")
+                  .getPath())
+          .toString();
 
   private static final String DAEMON_SET =
-      KubectlRolloutTest.class.getClassLoader().getResource("daemonset.json").getPath();
+      new File(KubectlRolloutTest.class.getClassLoader().getResource("daemonset.json").getPath())
+          .toString();
 
   private static final String PATCHED_DAEMON_SET =
-      KubectlRolloutTest.class.getClassLoader().getResource("patched-daemonset.json").getPath();
+      new File(
+              KubectlRolloutTest.class
+                  .getClassLoader()
+                  .getResource("patched-daemonset.json")
+                  .getPath())
+          .toString();
 
   private static final String DAEMON_SET_CONTROLLER_REVISION_LIST =
-      KubectlRolloutTest.class
-          .getClassLoader()
-          .getResource("daemonset-controllerrevision-list.json")
-          .getPath();
+      new File(
+              KubectlRolloutTest.class
+                  .getClassLoader()
+                  .getResource("daemonset-controllerrevision-list.json")
+                  .getPath())
+          .toString();
 
   private static final String STATEFUL_SET =
-      KubectlRolloutTest.class.getClassLoader().getResource("statefulset.json").getPath();
+      new File(KubectlRolloutTest.class.getClassLoader().getResource("statefulset.json").getPath())
+          .toString();
 
   private static final String PATCHED_STATEFUL_SET =
-      KubectlRolloutTest.class.getClassLoader().getResource("patched-statefulset.json").getPath();
+      new File(
+              KubectlRolloutTest.class
+                  .getClassLoader()
+                  .getResource("patched-statefulset.json")
+                  .getPath())
+          .toString();
 
   private static final String STATEFUL_SET_CONTROLLER_REVISION_LIST =
-      KubectlRolloutTest.class
-          .getClassLoader()
-          .getResource("statefulset-controllerrevision-list.json")
-          .getPath();
+      new File(
+              KubectlRolloutTest.class
+                  .getClassLoader()
+                  .getResource("statefulset-controllerrevision-list.json")
+                  .getPath())
+          .toString();
 
   @Before
   public void setup() throws IOException {

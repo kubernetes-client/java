@@ -27,6 +27,7 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
+import java.io.File;
 import java.io.IOException;
 import java.time.Instant;
 import org.junit.Before;
@@ -35,9 +36,9 @@ import org.junit.Test;
 
 public class TokenFileAuthenticationTest {
   private static final String SERVICEACCOUNT_TOKEN1_PATH =
-      Resources.getResource("token1").getPath();
+      new File(Resources.getResource("token1").getPath()).toString();
   private static final String SERVICEACCOUNT_TOKEN2_PATH =
-      Resources.getResource("token2").getPath();
+      new File(Resources.getResource("token2").getPath()).toString();
   private static final int PORT = 8089;
   private TokenFileAuthentication auth;
 

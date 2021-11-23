@@ -14,31 +14,34 @@ package io.kubernetes.client.util.credentials;
 
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.junit.Test;
 
 public class ClientCertificateAuthenticationTest {
-  private static final String CLIENT_CERT_PATH = Resources.getResource("clientauth.cert").getPath();
+  private static final String CLIENT_CERT_PATH =
+      new File(Resources.getResource("clientauth.cert").getPath()).toString();
   private static final String CLIENT_EC_CERT_PATH =
-      Resources.getResource("clientauth-ec.cert").getPath();
+      new File(Resources.getResource("clientauth-ec.cert").getPath()).toString();
 
   // RSA key in PKCS8 format
-  private static final String CLIENT_KEY_PATH = Resources.getResource("clientauth.key").getPath();
+  private static final String CLIENT_KEY_PATH =
+      new File(Resources.getResource("clientauth.key").getPath()).toString();
   // EC key in PKCS8 format
   private static final String CLIENT_EC_KEY_PATH =
-      Resources.getResource("clientauth-ec-fixed.key").getPath();
+      new File(Resources.getResource("clientauth-ec-fixed.key").getPath()).toString();
   // RSA key in PKCS1 format
   private static final String CLIENT_KEY_OLD_PATH =
-      Resources.getResource("clientauth-rsa.key").getPath();
+      new File(Resources.getResource("clientauth-rsa.key").getPath()).toString();
   // EC key in PKCS7 format
   private static final String CLIENT_EC_KEY_OLD_PATH =
-      Resources.getResource("clientauth-ec.key").getPath();
+      new File(Resources.getResource("clientauth-ec.key").getPath()).toString();
 
   private static final String CLIENT_CERT_CHAIN_PATH =
-      Resources.getResource("clientauth-chain.cert").getPath();
+      new File(Resources.getResource("clientauth-chain.cert").getPath()).toString();
   private static final String CLIENT_CERT_CHAIN_KEY_PATH =
-      Resources.getResource("clientauth-chain.key").getPath();
+      new File(Resources.getResource("clientauth-chain.key").getPath()).toString();
 
   @Test
   public void testValidCertificates() throws Exception {

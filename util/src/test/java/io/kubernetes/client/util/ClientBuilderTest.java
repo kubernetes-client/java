@@ -46,9 +46,10 @@ public class ClientBuilderTest {
       Resources.getResource("kubeconfig-https").getPath();
   private static final String KUBECONFIG_HTTPS_X509_FILE_PATH =
       Resources.getResource("kubeconfig-https-x509").getPath();
-  private static final String SSL_CA_CERT_PATH = Resources.getResource("ca-cert.pem").getPath();
+  private static final String SSL_CA_CERT_PATH =
+      new File(Resources.getResource("ca-cert.pem").getPath()).toString();
   private static final String INVALID_SSL_CA_CERT_PATH =
-      Resources.getResource("ca-cert-invalid.pem").getPath();
+      new File(Resources.getResource("ca-cert-invalid.pem").getPath()).toString();
 
   private String basePath = "http://localhost";
   private String apiKey = "ABCD";
@@ -62,6 +63,8 @@ public class ClientBuilderTest {
   public void testDefaultClientWithNoFiles() throws Exception {
     String path =
         withEnvironmentVariable("HOME", "/non-existent")
+            .and("HOMEDRIVE", null)
+            .and("USERPROFILE", null)
             .and("KUBECONFIG", null)
             .execute(
                 () -> {
@@ -139,6 +142,8 @@ public class ClientBuilderTest {
     String path =
         withEnvironmentVariable("KUBECONFIG", "/non-existent")
             .and("HOME", "/none-existent")
+            .and("HOMEDRIVE", null)
+            .and("USERPROFILE", null)
             .execute(
                 () -> {
                   final ApiClient client = ClientBuilder.standard().build();
