@@ -37,7 +37,7 @@ jobs:
           distribution: 'adopt'
           java-version: ${{ matrix.java }}
       - name: Cache local Maven repository
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
@@ -84,7 +84,7 @@ jobs:
           distribution: 'adopt'
           java-version: 11.0.x
       - name: Cache local Maven repository
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
