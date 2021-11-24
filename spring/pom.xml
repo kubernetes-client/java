@@ -121,7 +121,7 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
-                        <argLine>@{argLine} -Xms512m -Xmx1500m --illegal-access=warn</argLine>
+                        <argLine>@{argLine} -Xms512m -Xmx1500m --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.time=ALL-UNNAMED</argLine>
                         <parallel>methods</parallel>
                         <perCoreThreadCount>false</perCoreThreadCount>
                         <threadCount>1</threadCount>
