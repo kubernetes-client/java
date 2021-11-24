@@ -25,6 +25,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 
 /** The default delaying queue implementation. */
 public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements DelayingQueue<T> {
@@ -34,8 +35,10 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
   private DelayQueue<WaitForEntry<T>> delayQueue;
   private ConcurrentMap<T, WaitForEntry<T>> waitingEntryByData;
   protected BlockingQueue<WaitForEntry<T>> waitingForAddQueue;
+  private Supplier<Instant> timeSource;
 
   public DefaultDelayingQueue(ExecutorService waitingWorker) {
+    this.timeSource = Instant::now;
     this.delayQueue = new DelayQueue<>();
     this.waitingEntryByData = new ConcurrentHashMap<>();
     this.waitingForAddQueue = new LinkedBlockingQueue<>(1000);
@@ -57,8 +60,14 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
       super.add(item);
       return;
     }
-    WaitForEntry<T> entry = new WaitForEntry<>(item, duration.addTo(Instant.now()));
+    WaitForEntry<T> entry =
+        new WaitForEntry<>(item, duration.addTo(this.timeSource.get()), this.timeSource);
     this.waitingForAddQueue.offer(entry);
+  }
+
+  // Visible for testing
+  protected void injectTimeSource(Supplier<Instant> fn) {
+    this.timeSource = fn;
   }
 
   private void waitingLoop() {
@@ -78,7 +87,7 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
           //   a. if ready, remove it from the delay-queue and push it into underlying
           // work-queue
           //   b. if not, refresh the next ready-at time.
-          Instant now = Instant.now();
+          Instant now = this.timeSource.get();
           if (!Duration.between(entry.readyAtMillis, now).isNegative()) {
             delayQueue.remove(entry);
             super.add(entry.data);
@@ -92,7 +101,7 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
         WaitForEntry<T> waitForEntry =
             waitingForAddQueue.poll(nextReadyAt.toMillis(), TimeUnit.MILLISECONDS);
         if (waitForEntry != null) {
-          if (Duration.between(waitForEntry.readyAtMillis, Instant.now()).isNegative()) {
+          if (Duration.between(waitForEntry.readyAtMillis, this.timeSource.get()).isNegative()) {
             // the item is not yet ready, insert it to the delay-queue
             insert(this.delayQueue, this.waitingEntryByData, waitForEntry);
           } else {
@@ -126,17 +135,19 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
   // WaitForEntry holds the data to add and the time it should be added.
   private static class WaitForEntry<T> implements Delayed {
 
-    private WaitForEntry(T data, Temporal readyAtMillis) {
+    private WaitForEntry(T data, Temporal readyAtMillis, Supplier<Instant> timeSource) {
       this.data = data;
       this.readyAtMillis = readyAtMillis;
+      this.timeSource = timeSource;
     }
 
     private T data;
     private Temporal readyAtMillis;
+    private Supplier<Instant> timeSource;
 
     @Override
     public long getDelay(TimeUnit unit) {
-      Duration duration = Duration.between(Instant.now(), readyAtMillis);
+      Duration duration = Duration.between(this.timeSource.get(), readyAtMillis);
       return unit.convert(duration.toMillis(), TimeUnit.MILLISECONDS);
     }
 
