@@ -33,6 +33,8 @@ public class ConfigTest {
     try {
       String path =
           withEnvironmentVariable("HOME", "/non-existent")
+              .and("HOMEDRIVE", null)
+              .and("USERPROFILE", null)
               .execute(
                   () -> {
                     ApiClient client = Config.defaultClient();

@@ -18,6 +18,7 @@ import com.google.gson.JsonObject;
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.util.Yaml;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -25,9 +26,11 @@ import org.junit.Test;
 
 public class DynamicsTest {
 
-  private static final String TEST_POD_YAML_FILE = Resources.getResource("test-pod.yaml").getPath();
+  private static final String TEST_POD_YAML_FILE =
+      new File(Resources.getResource("test-pod.yaml").getPath()).toString();
 
-  private static final String TEST_POD_JSON_FILE = Resources.getResource("test-pod.json").getPath();
+  private static final String TEST_POD_JSON_FILE =
+      new File(Resources.getResource("test-pod.json").getPath()).toString();
 
   private JSON json = new JSON();
 

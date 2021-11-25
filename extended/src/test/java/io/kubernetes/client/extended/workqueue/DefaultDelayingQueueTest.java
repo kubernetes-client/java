@@ -17,25 +17,37 @@ import static org.junit.Assert.assertTrue;
 
 import io.kubernetes.client.extended.wait.Wait;
 import java.time.Duration;
+import java.time.Instant;
 import org.junit.Test;
 
 public class DefaultDelayingQueueTest {
 
   @Test
   public void testSimpleDelayingQueue() throws Exception {
+    final Instant staticTime = Instant.now();
     DefaultDelayingQueue<String> queue = new DefaultDelayingQueue<>();
+    // Hold time still
+    queue.injectTimeSource(
+        () -> {
+          return staticTime;
+        });
     queue.addAfter("foo", Duration.ofMillis(50));
 
+    // Verify that we haven't released it
     assertTrue(waitForWaitingQueueToFill(queue));
-    assertTrue(queue.length() == 0);
+    assertEquals(queue.length(), 0);
 
-    Thread.sleep(60L);
+    // Advance time
+    queue.injectTimeSource(
+        () -> {
+          return staticTime.plusMillis(100);
+        });
     assertTrue(waitForAdded(queue, 1));
     String item = queue.get();
     queue.done(item);
 
     Thread.sleep(10 * 1000L);
-    assertTrue(queue.length() == 0);
+    assertEquals(queue.length(), 0);
   }
 
   @Test

@@ -43,7 +43,7 @@ import org.junit.Test;
 public class YamlTest {
 
   private static final URL TEST_YAML_FILE = Resources.getResource("test.yaml");
-  private static final String TEST_YAML_FILE_PATH = TEST_YAML_FILE.getPath();
+  private static final String TEST_YAML_FILE_PATH = new File(TEST_YAML_FILE.getPath()).toString();
 
   private static final URL EXPECTED_YAML_FILE = Resources.getResource("expected.yaml");
 
@@ -160,7 +160,7 @@ public class YamlTest {
       }
     }
     String result = Yaml.dumpAll(k8ObjectList.iterator());
-    String expected = Resources.toString(EXPECTED_YAML_FILE, UTF_8);
+    String expected = Resources.toString(EXPECTED_YAML_FILE, UTF_8).replace("\r\n", "\n");
     assertThat(result, equalTo(expected));
   }
 
@@ -287,7 +287,7 @@ public class YamlTest {
 
   @Test
   public void testLoadDumpCRDWithIntOrStringExtension() {
-    String data = Resources.toString(CRD_INT_OR_STRING_FILE, UTF_8);
+    String data = Resources.toString(CRD_INT_OR_STRING_FILE, UTF_8).replace("\r\n", "\n");
     V1CustomResourceDefinition crd = Yaml.loadAs(data, V1CustomResourceDefinition.class);
     assertNotNull(crd);
     assertTrue(

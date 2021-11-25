@@ -140,7 +140,6 @@ public class ClientBuilder {
     if (kubeConfigPath == null) {
       return null;
     }
-
     final File kubeConfig = new File(kubeConfigPath);
     if (kubeConfig.exists()) {
       return kubeConfig;

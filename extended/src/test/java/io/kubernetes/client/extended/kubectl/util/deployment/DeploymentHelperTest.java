@@ -28,6 +28,7 @@ import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ReplicaSet;
 import io.kubernetes.client.openapi.models.V1ReplicaSetList;
 import io.kubernetes.client.util.ClientBuilder;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -46,10 +47,16 @@ public class DeploymentHelperTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort(), false);
 
   private static final String DEPLOYMENT =
-      DeploymentHelperTest.class.getClassLoader().getResource("deployment.json").getPath();
+      new File(DeploymentHelperTest.class.getClassLoader().getResource("deployment.json").getPath())
+          .toString();
 
   private static final String REPLICASET_LIST =
-      DeploymentHelperTest.class.getClassLoader().getResource("replicaset-list.json").getPath();
+      new File(
+              DeploymentHelperTest.class
+                  .getClassLoader()
+                  .getResource("replicaset-list.json")
+                  .getPath())
+          .toString();
 
   @Before
   public void setup() throws IOException {

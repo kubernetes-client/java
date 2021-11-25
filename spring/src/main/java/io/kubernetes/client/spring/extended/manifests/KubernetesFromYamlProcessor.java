@@ -14,6 +14,7 @@ package io.kubernetes.client.spring.extended.manifests;
 
 import io.kubernetes.client.spring.extended.manifests.annotation.FromYaml;
 import io.kubernetes.client.util.Yaml;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
@@ -91,7 +92,8 @@ public class KubernetesFromYamlProcessor
     Path targetPath = Paths.get(targetFilePath);
     if (!Files.exists(Paths.get(targetFilePath))) { // checks if it exists on the machine
       // otherwise use load from classpath resources
-      Path classPath = Paths.get(getClass().getClassLoader().getResource(targetFilePath).getPath());
+      Path classPath =
+          new File(getClass().getClassLoader().getResource(targetFilePath).getFile()).toPath();
       if (Files.exists(classPath)) { // use classpath it works
         targetPath = classPath;
       } else {
