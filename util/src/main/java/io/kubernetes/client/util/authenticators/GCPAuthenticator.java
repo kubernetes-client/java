@@ -12,6 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.util.authenticators;
 
+import com.google.auth.oauth2.AccessToken;
+import com.google.auth.oauth2.GoogleCredentials;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.kubernetes.client.util.KubeConfig;
@@ -40,17 +42,25 @@ public class GCPAuthenticator implements Authenticator {
   static final String EXPIRY = "expiry";
   static final String CMD_ARGS = "cmd-args";
   static final String CMD_PATH = "cmd-path";
+  static final String SCOPES = "scopes";
+  static final String[] DEFAULT_SCOPES =
+      new String[] {
+        "https://www.googleapis.com/auth/cloud-platform",
+        "https://www.googleapis.com/auth/userinfo.email"
+      };
 
   private static final Logger log = LoggerFactory.getLogger(GCPAuthenticator.class);
 
   private final ProcessBuilder pb;
+  private GoogleCredentials gc;
 
   public GCPAuthenticator() {
-    this(new ProcessBuilder());
+    this(new ProcessBuilder(), null);
   }
 
-  public GCPAuthenticator(ProcessBuilder pb) {
+  public GCPAuthenticator(ProcessBuilder pb, GoogleCredentials gc) {
     this.pb = pb;
+    this.gc = gc;
   }
 
   @Override
@@ -81,8 +91,39 @@ public class GCPAuthenticator implements Authenticator {
 
   @Override
   public Map<String, Object> refresh(Map<String, Object> config) {
-    if (!config.containsKey(CMD_ARGS) || !config.containsKey(CMD_PATH))
-      throw new RuntimeException("Could not refresh token");
+    if (isCmd(config)) {
+      return refreshCmd(config);
+    }
+    // Google Application Credentials-based refresh
+    // https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication#environments-without-gcloud
+    String[] scopes = parseScopes(config);
+    try {
+      if (this.gc == null) this.gc = GoogleCredentials.getApplicationDefault().createScoped(scopes);
+      AccessToken accessToken = gc.getAccessToken();
+      config.put(ACCESS_TOKEN, accessToken.getTokenValue());
+      config.put(EXPIRY, accessToken.getExpirationTime());
+      return config;
+    } catch (IOException e) {
+      throw new RuntimeException("The Application Default Credentials are not available.", e);
+    }
+  }
+
+  public String[] parseScopes(Map<String, Object> config) {
+    String scopes = (String) config.get(SCOPES);
+    if (scopes == null) {
+      return DEFAULT_SCOPES;
+    }
+    if (scopes.isEmpty()) {
+      return new String[] {};
+    }
+    return scopes.split(",");
+  }
+
+  private boolean isCmd(Map<String, Object> config) {
+    return config.containsKey(CMD_ARGS) && config.containsKey(CMD_PATH);
+  }
+
+  private Map<String, Object> refreshCmd(Map<String, Object> config) {
     String cmdPath = (String) config.get(CMD_PATH);
     String cmdArgs = (String) config.get(CMD_ARGS);
     List<String> fullCmd =
