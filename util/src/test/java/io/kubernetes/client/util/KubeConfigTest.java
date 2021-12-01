@@ -14,6 +14,8 @@ package io.kubernetes.client.util;
 
 import static org.junit.Assert.*;
 
+import com.google.auth.oauth2.AccessToken;
+import com.google.auth.oauth2.GoogleCredentials;
 import io.kubernetes.client.util.authenticators.Authenticator;
 import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
@@ -25,6 +27,8 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.sql.Date;
+import java.time.Instant;
 import java.util.Map;
 import org.junit.Rule;
 import org.junit.Test;
@@ -151,7 +155,7 @@ public class KubeConfigTest {
   }
 
   @Test
-  public void testGCPAuthProviderExpiredToken() {
+  public void testGCPAuthProviderExpiredTokenWithinGCloud() {
     String gcpConfigExpiredToken =
         "apiVersion: v1\n"
             + "contexts:\n"
@@ -191,10 +195,45 @@ public class KubeConfigTest {
       fail("Unexpected exception: " + ex);
     }
 
-    KubeConfig.registerAuthenticator(new GCPAuthenticator(mockPB));
+    KubeConfig.registerAuthenticator(new GCPAuthenticator(mockPB, null));
     try {
       KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(gcpConfigExpiredToken));
       assertEquals("new-fake-token", kc.getAccessToken());
+    } catch (Exception ex) {
+      ex.printStackTrace();
+      fail("Unexpected exception: " + ex);
+    }
+  }
+
+  @Test
+  public void testGCPAuthProviderExpiredTokenWithoutGCloud() {
+    String gcpConfigExpiredToken =
+        "apiVersion: v1\n"
+            + "contexts:\n"
+            + "- context:\n"
+            + "    user: gke-cluster\n"
+            + "  name: foo-context\n"
+            + "current-context: foo-context\n"
+            + "users:\n"
+            + "- name: gke-cluster\n"
+            + "  user:\n"
+            + "    auth-provider:\n"
+            + "      config:\n"
+            + "        access-token: fake-token\n"
+            + "        expiry: 1970-01-01T00:00:00Z\n"
+            + "      name: gcp";
+
+    String fakeToken = "new-fake-token";
+    String fakeTokenExpiry = "2121-08-05T02:30:24Z";
+
+    GoogleCredentials mockGC = Mockito.mock(GoogleCredentials.class);
+    Mockito.when(mockGC.getAccessToken())
+        .thenReturn(new AccessToken(fakeToken, Date.from(Instant.parse(fakeTokenExpiry))));
+
+    KubeConfig.registerAuthenticator(new GCPAuthenticator(null, mockGC));
+    try {
+      KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(gcpConfigExpiredToken));
+      assertEquals(fakeToken, kc.getAccessToken());
     } catch (Exception ex) {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);

@@ -14,12 +14,17 @@ package io.kubernetes.client.util.authenticators;
 
 import static org.assertj.core.api.Fail.fail;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 
+import com.google.auth.oauth2.AccessToken;
+import com.google.auth.oauth2.GoogleCredentials;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,18 +48,24 @@ public class GCPAuthenticatorTest {
               add(cmdArgsSplit[2]);
             }
           });
-
+  private static final String fakeToken = "new-fake-token";
+  private static final String fakeTokenExpiry = "2121-08-05T02:30:24Z";
   private static final String fakeExecResult =
       "{\n"
           + "  \"credential\": {\n"
-          + "    \"access_token\": \"new-fake-token\",\n"
+          + "    \"access_token\": \""
+          + fakeToken
+          + "\",\n"
           + "    \"id_token\": \"id-fake-token\",\n"
-          + "    \"token_expiry\": \"2121-08-05T02:30:24Z\"\n"
+          + "    \"token_expiry\": \""
+          + fakeTokenExpiry
+          + "\"\n"
           + "  }\n"
           + "}";
 
   private final ProcessBuilder mockPB = Mockito.mock(ProcessBuilder.class);
-  private final GCPAuthenticator gcpAuthenticator = new GCPAuthenticator(mockPB);
+  private final GoogleCredentials mockGC = Mockito.mock(GoogleCredentials.class);
+  private final GCPAuthenticator gcpAuthenticator = new GCPAuthenticator(mockPB, mockGC);
 
   @Before
   public void setup() {
@@ -182,5 +193,16 @@ public class GCPAuthenticatorTest {
     gcpAuthenticator.refresh(gcpConfig);
     List<String> executedCommand = mockPB.command();
     MatcherAssert.assertThat(executedCommand, is(expectedCommand));
+  }
+
+  @Test
+  public void testRefreshApplicationDefaultCredentials() {
+    Date fakeTokenExpiryDate = Date.from(Instant.parse(fakeTokenExpiry));
+    Mockito.when(mockGC.getAccessToken())
+        .thenReturn(new AccessToken(fakeToken, fakeTokenExpiryDate));
+    final Map<String, Object> config = new HashMap<String, Object>() {};
+    final Map<String, Object> result = gcpAuthenticator.refresh(config);
+    assertEquals(fakeToken, result.get(GCPAuthenticator.ACCESS_TOKEN));
+    assertEquals(fakeTokenExpiryDate, result.get(GCPAuthenticator.EXPIRY));
   }
 }

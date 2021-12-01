@@ -84,6 +84,11 @@
             <groupId>org.bitbucket.b_c</groupId>
             <artifactId>jose4j</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.google.auth</groupId>
+            <artifactId>google-auth-library-oauth2-http</artifactId>
+            <optional>true</optional>
+        </dependency>
         <!-- test dependencies -->
         <dependency>
             <groupId>junit</groupId>
