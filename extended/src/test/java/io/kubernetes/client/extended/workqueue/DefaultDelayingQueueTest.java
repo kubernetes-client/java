@@ -52,8 +52,15 @@ public class DefaultDelayingQueueTest {
 
   @Test
   public void testDeduping() throws Exception {
+    final Instant staticTime = Instant.now();
     DefaultDelayingQueue<String> queue = new DefaultDelayingQueue<>();
     String item = "foo";
+
+    // Hold time still
+    queue.injectTimeSource(
+        () -> {
+          return staticTime;
+        });
 
     queue.addAfter(item, Duration.ofMillis(50));
     assertTrue(waitForWaitingQueueToFill(queue));
@@ -61,14 +68,21 @@ public class DefaultDelayingQueueTest {
     assertTrue(waitForWaitingQueueToFill(queue));
     assertTrue("should not have added", queue.length() == 0);
 
-    // step past the first block, we should receive now
-    Thread.sleep(60L);
+    // Advance time
+    queue.injectTimeSource(
+        () -> {
+          return staticTime.plusMillis(60);
+        });
     assertTrue(waitForAdded(queue, 1));
     item = queue.get();
     queue.done(item);
 
     // step past the second add
-    Thread.sleep(20L);
+    // Advance time
+    queue.injectTimeSource(
+        () -> {
+          return staticTime.plusMillis(90);
+        });
     assertTrue("should not have added", queue.length() == 0);
 
     // test again, but this time the earlier should override
@@ -77,19 +91,33 @@ public class DefaultDelayingQueueTest {
     assertTrue(waitForWaitingQueueToFill(queue));
     assertTrue("should not have added", queue.length() == 0);
 
-    Thread.sleep(40L);
+    // Advance time
+    queue.injectTimeSource(
+        () -> {
+          return staticTime.plusMillis(150);
+        });
     assertTrue(waitForAdded(queue, 1));
     item = queue.get();
     queue.done(item);
 
     // step past the second add
-    Thread.sleep(1L);
+    // Advance time
+    queue.injectTimeSource(
+        () -> {
+          return staticTime.plusMillis(190);
+        });
     assertTrue("should not have added", queue.length() == 0);
   }
 
   @Test
   public void testCopyShifting() throws Exception {
+    final Instant staticTime = Instant.now();
     DefaultDelayingQueue<String> queue = new DefaultDelayingQueue<>();
+    queue.injectTimeSource(
+        () -> {
+          return staticTime;
+        });
+
     final String first = "foo";
     final String second = "bar";
     final String third = "baz";
@@ -100,7 +128,10 @@ public class DefaultDelayingQueueTest {
     assertTrue(waitForWaitingQueueToFill(queue));
     assertTrue("should not have added", queue.length() == 0);
 
-    Thread.sleep(2000L);
+    queue.injectTimeSource(
+        () -> {
+          return staticTime.plusMillis(2000);
+        });
     assertTrue(waitForAdded(queue, 3));
     String actualFirst = queue.get();
     assertEquals(actualFirst, third);

@@ -37,6 +37,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 import java.util.function.Function;
 import org.junit.After;
 import org.junit.Before;
@@ -53,16 +54,6 @@ public class DefaultControllerBuilderTest {
   private static final int PORT = 8089;
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
-
-  private final int stepCooldownIntervalInMillis = 500;
-
-  private void cooldown() {
-    try {
-      Thread.sleep(stepCooldownIntervalInMillis);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
 
   @Before
   public void setUp() throws Exception {
@@ -134,7 +125,7 @@ public class DefaultControllerBuilderTest {
   }
 
   @Test
-  public void testBuildWatchEventNotificationShouldWork() {
+  public void testBuildWatchEventNotificationShouldWork() throws InterruptedException {
     V1PodList podList =
         new V1PodList()
             .metadata(new V1ListMeta().resourceVersion("0"))
@@ -183,13 +174,17 @@ public class DefaultControllerBuilderTest {
         };
 
     List<Request> controllerReceivingRequests = new ArrayList<>();
-    Controller testController =
+    final Semaphore latch = new Semaphore(1);
+    latch.acquire();
+
+    final Controller testController =
         ControllerBuilder.defaultBuilder(informerFactory)
             .withReconciler(
                 new Reconciler() {
                   @Override
                   public Result reconcile(Request request) {
                     controllerReceivingRequests.add(request);
+                    latch.release();
                     return new Result(false);
                   }
                 })
@@ -203,10 +198,10 @@ public class DefaultControllerBuilderTest {
     controllerThead.submit(testController::run);
     informerFactory.startAllRegisteredInformers();
 
+    // Wait for the request to be processed.
+    latch.acquire(1);
+
     Request expectedRequest = new Request("hostname1/test-pod1");
-
-    cooldown();
-
     assertEquals(1, keyFuncReceivingRequests.size());
     assertEquals(expectedRequest, keyFuncReceivingRequests.get(0));
 
