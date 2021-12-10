@@ -15,9 +15,19 @@ Name | Type | Description | Notes
 **daemonEndpoints** | [**V1NodeDaemonEndpoints**](V1NodeDaemonEndpoints.md) |  |  [optional]
 **images** | [**List&lt;V1ContainerImage&gt;**](V1ContainerImage.md) | List of container images on this node |  [optional]
 **nodeInfo** | [**V1NodeSystemInfo**](V1NodeSystemInfo.md) |  |  [optional]
-**phase** | **String** | NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated. |  [optional]
+**phase** | [**PhaseEnum**](#PhaseEnum) | NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated.  Possible enum values:  - &#x60;\&quot;Pending\&quot;&#x60; means the node has been created/added by the system, but not configured.  - &#x60;\&quot;Running\&quot;&#x60; means the node has been configured and has Kubernetes components running.  - &#x60;\&quot;Terminated\&quot;&#x60; means the node has been removed from the cluster. |  [optional]
 **volumesAttached** | [**List&lt;V1AttachedVolume&gt;**](V1AttachedVolume.md) | List of volumes that are attached to the node. |  [optional]
 **volumesInUse** | **List&lt;String&gt;** | List of attachable volumes in use (mounted) by the node. |  [optional]
+
+
+
+## Enum: PhaseEnum
+
+Name | Value
+---- | -----
+PENDING | &quot;Pending&quot;
+RUNNING | &quot;Running&quot;
+TERMINATED | &quot;Terminated&quot;
 
 
 

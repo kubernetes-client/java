@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="createCustomResourceDefinition"></a>
 # **createCustomResourceDefinition**
-> V1CustomResourceDefinition createCustomResourceDefinition(body, pretty, dryRun, fieldManager)
+> V1CustomResourceDefinition createCustomResourceDefinition(body, pretty, dryRun, fieldManager, fieldValidation)
 
 
 
@@ -51,8 +51,9 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     try {
-      V1CustomResourceDefinition result = apiInstance.createCustomResourceDefinition(body, pretty, dryRun, fieldManager);
+      V1CustomResourceDefinition result = apiInstance.createCustomResourceDefinition(body, pretty, dryRun, fieldManager, fieldValidation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApiextensionsV1Api#createCustomResourceDefinition");
@@ -73,6 +74,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
 
 ### Return type
 
@@ -428,7 +430,7 @@ Name | Type | Description  | Notes
 
 <a name="patchCustomResourceDefinition"></a>
 # **patchCustomResourceDefinition**
-> V1CustomResourceDefinition patchCustomResourceDefinition(name, body, pretty, dryRun, fieldManager, force)
+> V1CustomResourceDefinition patchCustomResourceDefinition(name, body, pretty, dryRun, fieldManager, fieldValidation, force)
 
 
 
@@ -461,9 +463,10 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      V1CustomResourceDefinition result = apiInstance.patchCustomResourceDefinition(name, body, pretty, dryRun, fieldManager, force);
+      V1CustomResourceDefinition result = apiInstance.patchCustomResourceDefinition(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApiextensionsV1Api#patchCustomResourceDefinition");
@@ -485,6 +488,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
  **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
@@ -509,7 +513,7 @@ Name | Type | Description  | Notes
 
 <a name="patchCustomResourceDefinitionStatus"></a>
 # **patchCustomResourceDefinitionStatus**
-> V1CustomResourceDefinition patchCustomResourceDefinitionStatus(name, body, pretty, dryRun, fieldManager, force)
+> V1CustomResourceDefinition patchCustomResourceDefinitionStatus(name, body, pretty, dryRun, fieldManager, fieldValidation, force)
 
 
 
@@ -542,9 +546,10 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      V1CustomResourceDefinition result = apiInstance.patchCustomResourceDefinitionStatus(name, body, pretty, dryRun, fieldManager, force);
+      V1CustomResourceDefinition result = apiInstance.patchCustomResourceDefinitionStatus(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApiextensionsV1Api#patchCustomResourceDefinitionStatus");
@@ -566,6 +571,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
  **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
@@ -734,7 +740,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceCustomResourceDefinition"></a>
 # **replaceCustomResourceDefinition**
-> V1CustomResourceDefinition replaceCustomResourceDefinition(name, body, pretty, dryRun, fieldManager)
+> V1CustomResourceDefinition replaceCustomResourceDefinition(name, body, pretty, dryRun, fieldManager, fieldValidation)
 
 
 
@@ -767,8 +773,9 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     try {
-      V1CustomResourceDefinition result = apiInstance.replaceCustomResourceDefinition(name, body, pretty, dryRun, fieldManager);
+      V1CustomResourceDefinition result = apiInstance.replaceCustomResourceDefinition(name, body, pretty, dryRun, fieldManager, fieldValidation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApiextensionsV1Api#replaceCustomResourceDefinition");
@@ -790,6 +797,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
 
 ### Return type
 
@@ -813,7 +821,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceCustomResourceDefinitionStatus"></a>
 # **replaceCustomResourceDefinitionStatus**
-> V1CustomResourceDefinition replaceCustomResourceDefinitionStatus(name, body, pretty, dryRun, fieldManager)
+> V1CustomResourceDefinition replaceCustomResourceDefinitionStatus(name, body, pretty, dryRun, fieldManager, fieldValidation)
 
 
 
@@ -846,8 +854,9 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     try {
-      V1CustomResourceDefinition result = apiInstance.replaceCustomResourceDefinitionStatus(name, body, pretty, dryRun, fieldManager);
+      V1CustomResourceDefinition result = apiInstance.replaceCustomResourceDefinitionStatus(name, body, pretty, dryRun, fieldManager, fieldValidation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApiextensionsV1Api#replaceCustomResourceDefinitionStatus");
@@ -869,6 +878,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
 
 ### Return type
 

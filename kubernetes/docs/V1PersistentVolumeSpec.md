@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **mountOptions** | **List&lt;String&gt;** | A list of mount options, e.g. [\&quot;ro\&quot;, \&quot;soft\&quot;]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options |  [optional]
 **nfs** | [**V1NFSVolumeSource**](V1NFSVolumeSource.md) |  |  [optional]
 **nodeAffinity** | [**V1VolumeNodeAffinity**](V1VolumeNodeAffinity.md) |  |  [optional]
-**persistentVolumeReclaimPolicy** | **String** | What happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming |  [optional]
+**persistentVolumeReclaimPolicy** | [**PersistentVolumeReclaimPolicyEnum**](#PersistentVolumeReclaimPolicyEnum) | What happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming  Possible enum values:  - &#x60;\&quot;Delete\&quot;&#x60; means the volume will be deleted from Kubernetes on release from its claim. The volume plugin must support Deletion.  - &#x60;\&quot;Recycle\&quot;&#x60; means the volume will be recycled back into the pool of unbound persistent volumes on release from its claim. The volume plugin must support Recycling.  - &#x60;\&quot;Retain\&quot;&#x60; means the volume will be left in its current phase (Released) for manual reclamation by the administrator. The default policy is Retain. |  [optional]
 **photonPersistentDisk** | [**V1PhotonPersistentDiskVolumeSource**](V1PhotonPersistentDiskVolumeSource.md) |  |  [optional]
 **portworxVolume** | [**V1PortworxVolumeSource**](V1PortworxVolumeSource.md) |  |  [optional]
 **quobyte** | [**V1QuobyteVolumeSource**](V1QuobyteVolumeSource.md) |  |  [optional]
@@ -37,6 +37,16 @@ Name | Type | Description | Notes
 **storageos** | [**V1StorageOSPersistentVolumeSource**](V1StorageOSPersistentVolumeSource.md) |  |  [optional]
 **volumeMode** | **String** | volumeMode defines if a volume is intended to be used with a formatted filesystem or to remain in raw block state. Value of Filesystem is implied when not included in spec. |  [optional]
 **vsphereVolume** | [**V1VsphereVirtualDiskVolumeSource**](V1VsphereVirtualDiskVolumeSource.md) |  |  [optional]
+
+
+
+## Enum: PersistentVolumeReclaimPolicyEnum
+
+Name | Value
+---- | -----
+DELETE | &quot;Delete&quot;
+RECYCLE | &quot;Recycle&quot;
+RETAIN | &quot;Retain&quot;
 
 
 

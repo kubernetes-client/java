@@ -7,8 +7,8 @@ Lifecycle describes actions that the management system should take in response t
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**postStart** | [**V1Handler**](V1Handler.md) |  |  [optional]
-**preStop** | [**V1Handler**](V1Handler.md) |  |  [optional]
+**postStart** | [**V1LifecycleHandler**](V1LifecycleHandler.md) |  |  [optional]
+**preStop** | [**V1LifecycleHandler**](V1LifecycleHandler.md) |  |  [optional]
 
 
 
