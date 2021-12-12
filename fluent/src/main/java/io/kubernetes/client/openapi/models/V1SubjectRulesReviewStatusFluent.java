@@ -26,7 +26,7 @@ public interface V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client
    * Method is deprecated. use withEvaluationError instead.
    */
   @java.lang.Deprecated
-  public A withNewEvaluationError(java.lang.String arg0);
+  public A withNewEvaluationError(java.lang.String original);
   public java.lang.Boolean getIncomplete();
   public A withIncomplete(java.lang.Boolean incomplete);
   public java.lang.Boolean hasIncomplete();

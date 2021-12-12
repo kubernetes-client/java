@@ -19,7 +19,7 @@ public interface V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0);
+  public A withNewFsType(java.lang.String original);
   public java.lang.Integer getPartition();
   public A withPartition(java.lang.Integer partition);
   public java.lang.Boolean hasPartition();
@@ -31,7 +31,7 @@ public interface V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withPdName instead.
    */
   @java.lang.Deprecated
-  public A withNewPdName(java.lang.String arg0);
+  public A withNewPdName(java.lang.String original);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();

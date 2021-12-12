@@ -54,8 +54,8 @@ public class V1StatusFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public java.lang.Integer getCode() {
     return this.code;
@@ -114,8 +114,8 @@ public class V1StatusFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   public java.lang.String getMessage() {
     return this.message;
@@ -131,8 +131,8 @@ public class V1StatusFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0) {
-    return (A)withMessage(new String(arg0));
+  public A withNewMessage(java.lang.String original) {
+    return (A)withMessage(new String(original));
   }
   
   /**
@@ -182,8 +182,8 @@ public class V1StatusFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0) {
-    return (A)withReason(new String(arg0));
+  public A withNewReason(java.lang.String original) {
+    return (A)withReason(new String(original));
   }
   public java.lang.String getStatus() {
     return this.status;
@@ -199,8 +199,8 @@ public class V1StatusFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewStatus(java.lang.String arg0) {
-    return (A)withStatus(new String(arg0));
+  public A withNewStatus(java.lang.String original) {
+    return (A)withStatus(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

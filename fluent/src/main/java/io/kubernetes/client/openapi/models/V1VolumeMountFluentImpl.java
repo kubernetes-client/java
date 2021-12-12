@@ -46,8 +46,8 @@ public class V1VolumeMountFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withMountPath instead.
    */
   @java.lang.Deprecated
-  public A withNewMountPath(java.lang.String arg0) {
-    return (A)withMountPath(new String(arg0));
+  public A withNewMountPath(java.lang.String original) {
+    return (A)withMountPath(new String(original));
   }
   public java.lang.String getMountPropagation() {
     return this.mountPropagation;
@@ -63,8 +63,8 @@ public class V1VolumeMountFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withMountPropagation instead.
    */
   @java.lang.Deprecated
-  public A withNewMountPropagation(java.lang.String arg0) {
-    return (A)withMountPropagation(new String(arg0));
+  public A withNewMountPropagation(java.lang.String original) {
+    return (A)withMountPropagation(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -80,8 +80,8 @@ public class V1VolumeMountFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -106,8 +106,8 @@ public class V1VolumeMountFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSubPath instead.
    */
   @java.lang.Deprecated
-  public A withNewSubPath(java.lang.String arg0) {
-    return (A)withSubPath(new String(arg0));
+  public A withNewSubPath(java.lang.String original) {
+    return (A)withSubPath(new String(original));
   }
   public java.lang.String getSubPathExpr() {
     return this.subPathExpr;
@@ -123,8 +123,8 @@ public class V1VolumeMountFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSubPathExpr instead.
    */
   @java.lang.Deprecated
-  public A withNewSubPathExpr(java.lang.String arg0) {
-    return (A)withSubPathExpr(new String(arg0));
+  public A withNewSubPathExpr(java.lang.String original) {
+    return (A)withSubPathExpr(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

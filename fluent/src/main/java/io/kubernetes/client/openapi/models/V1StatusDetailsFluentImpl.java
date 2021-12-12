@@ -160,8 +160,8 @@ public class V1StatusDetailsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String arg0) {
-    return (A)withGroup(new String(arg0));
+  public A withNewGroup(java.lang.String original) {
+    return (A)withGroup(new String(original));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -177,8 +177,8 @@ public class V1StatusDetailsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -194,8 +194,8 @@ public class V1StatusDetailsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Integer getRetryAfterSeconds() {
     return this.retryAfterSeconds;
@@ -220,8 +220,8 @@ public class V1StatusDetailsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String arg0) {
-    return (A)withUid(new String(arg0));
+  public A withNewUid(java.lang.String original) {
+    return (A)withUid(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

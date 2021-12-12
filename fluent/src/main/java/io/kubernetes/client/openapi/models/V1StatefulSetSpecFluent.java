@@ -21,15 +21,24 @@ public interface V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.
   public java.lang.Integer getMinReadySeconds();
   public A withMinReadySeconds(java.lang.Integer minReadySeconds);
   public java.lang.Boolean hasMinReadySeconds();
-  public java.lang.String getPodManagementPolicy();
-  public A withPodManagementPolicy(java.lang.String podManagementPolicy);
-  public java.lang.Boolean hasPodManagementPolicy();
   
   /**
-   * Method is deprecated. use withPodManagementPolicy instead.
+   * This method has been deprecated, please use method buildPersistentVolumeClaimRetentionPolicy instead.
+   * @return The buildable object.
    */
   @java.lang.Deprecated
-  public A withNewPodManagementPolicy(java.lang.String arg0);
+  public io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy getPersistentVolumeClaimRetentionPolicy();
+  public io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy buildPersistentVolumeClaimRetentionPolicy();
+  public A withPersistentVolumeClaimRetentionPolicy(io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy);
+  public java.lang.Boolean hasPersistentVolumeClaimRetentionPolicy();
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> withNewPersistentVolumeClaimRetentionPolicy();
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> withNewPersistentVolumeClaimRetentionPolicyLike(io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy item);
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> editPersistentVolumeClaimRetentionPolicy();
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> editOrNewPersistentVolumeClaimRetentionPolicy();
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> editOrNewPersistentVolumeClaimRetentionPolicyLike(io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy item);
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpec.PodManagementPolicyEnum getPodManagementPolicy();
+  public A withPodManagementPolicy(io.kubernetes.client.openapi.models.V1StatefulSetSpec.PodManagementPolicyEnum podManagementPolicy);
+  public java.lang.Boolean hasPodManagementPolicy();
   public java.lang.Integer getReplicas();
   public A withReplicas(java.lang.Integer replicas);
   public java.lang.Boolean hasReplicas();
@@ -59,7 +68,7 @@ public interface V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withServiceName instead.
    */
   @java.lang.Deprecated
-  public A withNewServiceName(java.lang.String arg0);
+  public A withNewServiceName(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildTemplate instead.
@@ -120,6 +129,11 @@ public interface V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.
   public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editFirstVolumeClaimTemplate();
   public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editLastVolumeClaimTemplate();
   public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editMatchingVolumeClaimTemplate(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder> predicate);
+  public interface PersistentVolumeClaimRetentionPolicyNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<N>>{
+    public N and();
+    public N endPersistentVolumeClaimRetentionPolicy();
+    
+  }
   public interface SelectorNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1LabelSelectorFluent<io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.SelectorNested<N>>{
     public N and();
     public N endSelector();

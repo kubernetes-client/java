@@ -88,8 +88,8 @@ public class V1CustomResourceDefinitionNamesFluentImpl<A extends io.kubernetes.c
   public java.lang.Boolean hasCategories() {
     return categories != null && !categories.isEmpty();
   }
-  public A addNewCategory(java.lang.String arg0) {
-    return (A)addToCategories(new String(arg0));
+  public A addNewCategory(java.lang.String original) {
+    return (A)addToCategories(new String(original));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -105,8 +105,8 @@ public class V1CustomResourceDefinitionNamesFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   public java.lang.String getListKind() {
     return this.listKind;
@@ -122,8 +122,8 @@ public class V1CustomResourceDefinitionNamesFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withListKind instead.
    */
   @java.lang.Deprecated
-  public A withNewListKind(java.lang.String arg0) {
-    return (A)withListKind(new String(arg0));
+  public A withNewListKind(java.lang.String original) {
+    return (A)withListKind(new String(original));
   }
   public java.lang.String getPlural() {
     return this.plural;
@@ -139,8 +139,8 @@ public class V1CustomResourceDefinitionNamesFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withPlural instead.
    */
   @java.lang.Deprecated
-  public A withNewPlural(java.lang.String arg0) {
-    return (A)withPlural(new String(arg0));
+  public A withNewPlural(java.lang.String original) {
+    return (A)withPlural(new String(original));
   }
   public A addToShortNames(java.lang.Integer index,java.lang.String item) {
     if (this.shortNames == null) {this.shortNames = new java.util.ArrayList<java.lang.String>();}
@@ -193,8 +193,8 @@ public class V1CustomResourceDefinitionNamesFluentImpl<A extends io.kubernetes.c
   public java.lang.Boolean hasShortNames() {
     return shortNames != null && !shortNames.isEmpty();
   }
-  public A addNewShortName(java.lang.String arg0) {
-    return (A)addToShortNames(new String(arg0));
+  public A addNewShortName(java.lang.String original) {
+    return (A)addToShortNames(new String(original));
   }
   public java.lang.String getSingular() {
     return this.singular;
@@ -210,8 +210,8 @@ public class V1CustomResourceDefinitionNamesFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withSingular instead.
    */
   @java.lang.Deprecated
-  public A withNewSingular(java.lang.String arg0) {
-    return (A)withSingular(new String(arg0));
+  public A withNewSingular(java.lang.String original) {
+    return (A)withSingular(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

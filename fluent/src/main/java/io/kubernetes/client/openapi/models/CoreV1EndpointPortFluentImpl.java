@@ -26,7 +26,7 @@ public class CoreV1EndpointPortFluentImpl<A extends io.kubernetes.client.openapi
   private java.lang.String appProtocol;
   private java.lang.String name;
   private java.lang.Integer port;
-  private java.lang.String protocol;
+  private io.kubernetes.client.openapi.models.CoreV1EndpointPort.ProtocolEnum protocol;
   public java.lang.String getAppProtocol() {
     return this.appProtocol;
   }
@@ -41,8 +41,8 @@ public class CoreV1EndpointPortFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withAppProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String arg0) {
-    return (A)withAppProtocol(new String(arg0));
+  public A withNewAppProtocol(java.lang.String original) {
+    return (A)withAppProtocol(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -58,8 +58,8 @@ public class CoreV1EndpointPortFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Integer getPort() {
     return this.port;
@@ -70,22 +70,14 @@ public class CoreV1EndpointPortFluentImpl<A extends io.kubernetes.client.openapi
   public java.lang.Boolean hasPort() {
     return this.port != null;
   }
-  public java.lang.String getProtocol() {
+  public io.kubernetes.client.openapi.models.CoreV1EndpointPort.ProtocolEnum getProtocol() {
     return this.protocol;
   }
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(io.kubernetes.client.openapi.models.CoreV1EndpointPort.ProtocolEnum protocol) {
     this.protocol=protocol; return (A) this;
   }
   public java.lang.Boolean hasProtocol() {
     return this.protocol != null;
-  }
-  
-  /**
-   * Method is deprecated. use withProtocol instead.
-   */
-  @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0) {
-    return (A)withProtocol(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

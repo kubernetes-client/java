@@ -18,7 +18,7 @@ public interface V1SubjectFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withApiGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewApiGroup(java.lang.String arg0);
+  public A withNewApiGroup(java.lang.String original);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -27,7 +27,7 @@ public interface V1SubjectFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -36,7 +36,7 @@ public interface V1SubjectFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.String getNamespace();
   public A withNamespace(java.lang.String namespace);
   public java.lang.Boolean hasNamespace();
@@ -45,6 +45,6 @@ public interface V1SubjectFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String arg0);
+  public A withNewNamespace(java.lang.String original);
   
 }

@@ -3,7 +3,6 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
 import java.lang.Deprecated;
@@ -27,7 +26,7 @@ public class V1NamespaceStatusFluentImpl<A extends io.kubernetes.client.openapi.
 
   }
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NamespaceConditionBuilder> conditions;
-  private java.lang.String phase;
+  private io.kubernetes.client.openapi.models.V1NamespaceStatus.PhaseEnum phase;
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1NamespaceCondition item) {
     if (this.conditions == null) {this.conditions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NamespaceConditionBuilder>();}
     io.kubernetes.client.openapi.models.V1NamespaceConditionBuilder builder = new io.kubernetes.client.openapi.models.V1NamespaceConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
@@ -134,22 +133,14 @@ public class V1NamespaceStatusFluentImpl<A extends io.kubernetes.client.openapi.
     if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public java.lang.String getPhase() {
+  public io.kubernetes.client.openapi.models.V1NamespaceStatus.PhaseEnum getPhase() {
     return this.phase;
   }
-  public A withPhase(java.lang.String phase) {
+  public A withPhase(io.kubernetes.client.openapi.models.V1NamespaceStatus.PhaseEnum phase) {
     this.phase=phase; return (A) this;
   }
   public java.lang.Boolean hasPhase() {
     return this.phase != null;
-  }
-  
-  /**
-   * Method is deprecated. use withPhase instead.
-   */
-  @java.lang.Deprecated
-  public A withNewPhase(java.lang.String arg0) {
-    return (A)withPhase(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

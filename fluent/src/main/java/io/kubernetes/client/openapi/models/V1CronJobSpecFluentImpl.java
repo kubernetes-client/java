@@ -31,29 +31,21 @@ public class V1CronJobSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
     this.withSuspend(instance.getSuspend());
 
   }
-  private java.lang.String concurrencyPolicy;
+  private io.kubernetes.client.openapi.models.V1CronJobSpec.ConcurrencyPolicyEnum concurrencyPolicy;
   private java.lang.Integer failedJobsHistoryLimit;
   private io.kubernetes.client.openapi.models.V1JobTemplateSpecBuilder jobTemplate;
   private java.lang.String schedule;
   private java.lang.Long startingDeadlineSeconds;
   private java.lang.Integer successfulJobsHistoryLimit;
   private java.lang.Boolean suspend;
-  public java.lang.String getConcurrencyPolicy() {
+  public io.kubernetes.client.openapi.models.V1CronJobSpec.ConcurrencyPolicyEnum getConcurrencyPolicy() {
     return this.concurrencyPolicy;
   }
-  public A withConcurrencyPolicy(java.lang.String concurrencyPolicy) {
+  public A withConcurrencyPolicy(io.kubernetes.client.openapi.models.V1CronJobSpec.ConcurrencyPolicyEnum concurrencyPolicy) {
     this.concurrencyPolicy=concurrencyPolicy; return (A) this;
   }
   public java.lang.Boolean hasConcurrencyPolicy() {
     return this.concurrencyPolicy != null;
-  }
-  
-  /**
-   * Method is deprecated. use withConcurrencyPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewConcurrencyPolicy(java.lang.String arg0) {
-    return (A)withConcurrencyPolicy(new String(arg0));
   }
   public java.lang.Integer getFailedJobsHistoryLimit() {
     return this.failedJobsHistoryLimit;
@@ -112,8 +104,8 @@ public class V1CronJobSpecFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSchedule instead.
    */
   @java.lang.Deprecated
-  public A withNewSchedule(java.lang.String arg0) {
-    return (A)withSchedule(new String(arg0));
+  public A withNewSchedule(java.lang.String original) {
+    return (A)withSchedule(new String(original));
   }
   public java.lang.Long getStartingDeadlineSeconds() {
     return this.startingDeadlineSeconds;

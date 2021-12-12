@@ -55,6 +55,8 @@ public class V1PodSpecBuilder extends io.kubernetes.client.openapi.models.V1PodS
 
     fluent.withNodeSelector(instance.getNodeSelector());
 
+    fluent.withOs(instance.getOs());
+
     fluent.withOverhead(instance.getOverhead());
 
     fluent.withPreemptionPolicy(instance.getPreemptionPolicy());
@@ -132,6 +134,8 @@ public class V1PodSpecBuilder extends io.kubernetes.client.openapi.models.V1PodS
 
     this.withNodeSelector(instance.getNodeSelector());
 
+    this.withOs(instance.getOs());
+
     this.withOverhead(instance.getOverhead());
 
     this.withPreemptionPolicy(instance.getPreemptionPolicy());
@@ -191,6 +195,7 @@ public class V1PodSpecBuilder extends io.kubernetes.client.openapi.models.V1PodS
     buildable.setInitContainers(fluent.getInitContainers());
     buildable.setNodeName(fluent.getNodeName());
     buildable.setNodeSelector(fluent.getNodeSelector());
+    buildable.setOs(fluent.getOs());
     buildable.setOverhead(fluent.getOverhead());
     buildable.setPreemptionPolicy(fluent.getPreemptionPolicy());
     buildable.setPriority(fluent.getPriority());

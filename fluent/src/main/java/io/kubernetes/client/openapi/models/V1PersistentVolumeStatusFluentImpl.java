@@ -21,7 +21,7 @@ public class V1PersistentVolumeStatusFluentImpl<A extends io.kubernetes.client.o
 
   }
   private java.lang.String message;
-  private java.lang.String phase;
+  private io.kubernetes.client.openapi.models.V1PersistentVolumeStatus.PhaseEnum phase;
   private java.lang.String reason;
   public java.lang.String getMessage() {
     return this.message;
@@ -37,25 +37,17 @@ public class V1PersistentVolumeStatusFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0) {
-    return (A)withMessage(new String(arg0));
+  public A withNewMessage(java.lang.String original) {
+    return (A)withMessage(new String(original));
   }
-  public java.lang.String getPhase() {
+  public io.kubernetes.client.openapi.models.V1PersistentVolumeStatus.PhaseEnum getPhase() {
     return this.phase;
   }
-  public A withPhase(java.lang.String phase) {
+  public A withPhase(io.kubernetes.client.openapi.models.V1PersistentVolumeStatus.PhaseEnum phase) {
     this.phase=phase; return (A) this;
   }
   public java.lang.Boolean hasPhase() {
     return this.phase != null;
-  }
-  
-  /**
-   * Method is deprecated. use withPhase instead.
-   */
-  @java.lang.Deprecated
-  public A withNewPhase(java.lang.String arg0) {
-    return (A)withPhase(new String(arg0));
   }
   public java.lang.String getReason() {
     return this.reason;
@@ -71,8 +63,8 @@ public class V1PersistentVolumeStatusFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0) {
-    return (A)withReason(new String(arg0));
+  public A withNewReason(java.lang.String original) {
+    return (A)withReason(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

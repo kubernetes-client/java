@@ -75,8 +75,8 @@ public class V1CapabilitiesFluentImpl<A extends io.kubernetes.client.openapi.mod
   public java.lang.Boolean hasAdd() {
     return add != null && !add.isEmpty();
   }
-  public A addNewAdd(java.lang.String arg0) {
-    return (A)addToAdd(new String(arg0));
+  public A addNewAdd(java.lang.String original) {
+    return (A)addToAdd(new String(original));
   }
   public A addToDrop(java.lang.Integer index,java.lang.String item) {
     if (this.drop == null) {this.drop = new java.util.ArrayList<java.lang.String>();}
@@ -129,8 +129,8 @@ public class V1CapabilitiesFluentImpl<A extends io.kubernetes.client.openapi.mod
   public java.lang.Boolean hasDrop() {
     return drop != null && !drop.isEmpty();
   }
-  public A addNewDrop(java.lang.String arg0) {
-    return (A)addToDrop(new String(arg0));
+  public A addNewDrop(java.lang.String original) {
+    return (A)addToDrop(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

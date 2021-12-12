@@ -44,8 +44,8 @@ public class V1TokenRequestStatusFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withToken instead.
    */
   @java.lang.Deprecated
-  public A withNewToken(java.lang.String arg0) {
-    return (A)withToken(new String(arg0));
+  public A withNewToken(java.lang.String original) {
+    return (A)withToken(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

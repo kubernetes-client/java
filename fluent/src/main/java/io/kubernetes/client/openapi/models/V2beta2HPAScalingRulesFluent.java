@@ -56,7 +56,7 @@ public interface V2beta2HPAScalingRulesFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withSelectPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewSelectPolicy(java.lang.String arg0);
+  public A withNewSelectPolicy(java.lang.String original);
   public java.lang.Integer getStabilizationWindowSeconds();
   public A withStabilizationWindowSeconds(java.lang.Integer stabilizationWindowSeconds);
   public java.lang.Boolean hasStabilizationWindowSeconds();

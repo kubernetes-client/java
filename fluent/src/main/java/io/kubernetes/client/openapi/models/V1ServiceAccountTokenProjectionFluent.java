@@ -19,7 +19,7 @@ public interface V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.c
    * Method is deprecated. use withAudience instead.
    */
   @java.lang.Deprecated
-  public A withNewAudience(java.lang.String arg0);
+  public A withNewAudience(java.lang.String original);
   public java.lang.Long getExpirationSeconds();
   public A withExpirationSeconds(java.lang.Long expirationSeconds);
   public java.lang.Boolean hasExpirationSeconds();
@@ -31,6 +31,6 @@ public interface V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.c
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0);
+  public A withNewPath(java.lang.String original);
   
 }

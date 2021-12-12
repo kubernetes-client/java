@@ -30,7 +30,7 @@ public interface V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.
   public A withAudiences(java.util.List<java.lang.String> audiences);
   public A withAudiences(java.lang.String... audiences);
   public java.lang.Boolean hasAudiences();
-  public A addNewAudience(java.lang.String arg0);
+  public A addNewAudience(java.lang.String original);
   public java.lang.String getToken();
   public A withToken(java.lang.String token);
   public java.lang.Boolean hasToken();
@@ -39,6 +39,6 @@ public interface V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withToken instead.
    */
   @java.lang.Deprecated
-  public A withNewToken(java.lang.String arg0);
+  public A withNewToken(java.lang.String original);
   
 }

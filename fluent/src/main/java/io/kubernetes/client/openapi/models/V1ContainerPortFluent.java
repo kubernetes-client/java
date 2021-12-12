@@ -22,7 +22,7 @@ public interface V1ContainerPortFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withHostIP instead.
    */
   @java.lang.Deprecated
-  public A withNewHostIP(java.lang.String arg0);
+  public A withNewHostIP(java.lang.String original);
   public java.lang.Integer getHostPort();
   public A withHostPort(java.lang.Integer hostPort);
   public java.lang.Boolean hasHostPort();
@@ -34,15 +34,9 @@ public interface V1ContainerPortFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
-  public java.lang.String getProtocol();
-  public A withProtocol(java.lang.String protocol);
+  public A withNewName(java.lang.String original);
+  public io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum getProtocol();
+  public A withProtocol(io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum protocol);
   public java.lang.Boolean hasProtocol();
-  
-  /**
-   * Method is deprecated. use withProtocol instead.
-   */
-  @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0);
   
 }

@@ -23,7 +23,7 @@ public interface V1TopologySelectorLabelRequirementFluent<A extends io.kubernete
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String arg0);
+  public A withNewKey(java.lang.String original);
   public A addToValues(java.lang.Integer index,java.lang.String item);
   public A setToValues(java.lang.Integer index,java.lang.String item);
   public A addToValues(java.lang.String... items);
@@ -39,6 +39,6 @@ public interface V1TopologySelectorLabelRequirementFluent<A extends io.kubernete
   public A withValues(java.util.List<java.lang.String> values);
   public A withValues(java.lang.String... values);
   public java.lang.Boolean hasValues();
-  public A addNewValue(java.lang.String arg0);
+  public A addNewValue(java.lang.String original);
   
 }

@@ -34,7 +34,7 @@ public interface V1beta1SubjectFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildServiceAccount instead.

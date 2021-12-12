@@ -34,8 +34,8 @@ public class V1ObjectFieldSelectorFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public java.lang.String getFieldPath() {
     return this.fieldPath;
@@ -51,8 +51,8 @@ public class V1ObjectFieldSelectorFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withFieldPath instead.
    */
   @java.lang.Deprecated
-  public A withNewFieldPath(java.lang.String arg0) {
-    return (A)withFieldPath(new String(arg0));
+  public A withNewFieldPath(java.lang.String original) {
+    return (A)withFieldPath(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

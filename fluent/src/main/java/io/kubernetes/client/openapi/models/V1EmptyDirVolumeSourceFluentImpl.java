@@ -35,8 +35,8 @@ public class V1EmptyDirVolumeSourceFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withMedium instead.
    */
   @java.lang.Deprecated
-  public A withNewMedium(java.lang.String arg0) {
-    return (A)withMedium(new String(arg0));
+  public A withNewMedium(java.lang.String original) {
+    return (A)withMedium(new String(original));
   }
   public io.kubernetes.client.custom.Quantity getSizeLimit() {
     return this.sizeLimit;

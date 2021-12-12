@@ -27,7 +27,7 @@ public interface V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withHost instead.
    */
   @java.lang.Deprecated
-  public A withNewHost(java.lang.String arg0);
+  public A withNewHost(java.lang.String original);
   public A addToHttpHeaders(java.lang.Integer index,io.kubernetes.client.openapi.models.V1HTTPHeader item);
   public A setToHttpHeaders(java.lang.Integer index,io.kubernetes.client.openapi.models.V1HTTPHeader item);
   public A addToHttpHeaders(io.kubernetes.client.openapi.models.V1HTTPHeader... items);
@@ -66,21 +66,15 @@ public interface V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0);
+  public A withNewPath(java.lang.String original);
   public io.kubernetes.client.custom.IntOrString getPort();
   public A withPort(io.kubernetes.client.custom.IntOrString port);
   public java.lang.Boolean hasPort();
   public A withNewPort(int value);
   public A withNewPort(java.lang.String value);
-  public java.lang.String getScheme();
-  public A withScheme(java.lang.String scheme);
+  public io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum getScheme();
+  public A withScheme(io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum scheme);
   public java.lang.Boolean hasScheme();
-  
-  /**
-   * Method is deprecated. use withScheme instead.
-   */
-  @java.lang.Deprecated
-  public A withNewScheme(java.lang.String arg0);
   public interface HttpHeadersNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1HTTPHeaderFluent<io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<N>>{
     public N and();
     public N endHttpHeader();

@@ -23,7 +23,7 @@ public class V1PortStatusFluentImpl<A extends io.kubernetes.client.openapi.model
   }
   private java.lang.String error;
   private java.lang.Integer port;
-  private java.lang.String protocol;
+  private io.kubernetes.client.openapi.models.V1PortStatus.ProtocolEnum protocol;
   public java.lang.String getError() {
     return this.error;
   }
@@ -38,8 +38,8 @@ public class V1PortStatusFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String arg0) {
-    return (A)withError(new String(arg0));
+  public A withNewError(java.lang.String original) {
+    return (A)withError(new String(original));
   }
   public java.lang.Integer getPort() {
     return this.port;
@@ -50,22 +50,14 @@ public class V1PortStatusFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasPort() {
     return this.port != null;
   }
-  public java.lang.String getProtocol() {
+  public io.kubernetes.client.openapi.models.V1PortStatus.ProtocolEnum getProtocol() {
     return this.protocol;
   }
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(io.kubernetes.client.openapi.models.V1PortStatus.ProtocolEnum protocol) {
     this.protocol=protocol; return (A) this;
   }
   public java.lang.Boolean hasProtocol() {
     return this.protocol != null;
-  }
-  
-  /**
-   * Method is deprecated. use withProtocol instead.
-   */
-  @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0) {
-    return (A)withProtocol(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

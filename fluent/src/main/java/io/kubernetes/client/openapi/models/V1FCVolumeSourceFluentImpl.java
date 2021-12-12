@@ -48,8 +48,8 @@ public class V1FCVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0) {
-    return (A)withFsType(new String(arg0));
+  public A withNewFsType(java.lang.String original) {
+    return (A)withFsType(new String(original));
   }
   public java.lang.Integer getLun() {
     return this.lun;
@@ -120,8 +120,8 @@ public class V1FCVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.m
   public java.lang.Boolean hasTargetWWNs() {
     return targetWWNs != null && !targetWWNs.isEmpty();
   }
-  public A addNewTargetWWN(java.lang.String arg0) {
-    return (A)addToTargetWWNs(new String(arg0));
+  public A addNewTargetWWN(java.lang.String original) {
+    return (A)addToTargetWWNs(new String(original));
   }
   public A addToWwids(java.lang.Integer index,java.lang.String item) {
     if (this.wwids == null) {this.wwids = new java.util.ArrayList<java.lang.String>();}
@@ -174,8 +174,8 @@ public class V1FCVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.m
   public java.lang.Boolean hasWwids() {
     return wwids != null && !wwids.isEmpty();
   }
-  public A addNewWwid(java.lang.String arg0) {
-    return (A)addToWwids(new String(arg0));
+  public A addNewWwid(java.lang.String original) {
+    return (A)addToWwids(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

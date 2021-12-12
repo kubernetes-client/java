@@ -72,8 +72,8 @@ public class V1ExecActionFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasCommand() {
     return command != null && !command.isEmpty();
   }
-  public A addNewCommand(java.lang.String arg0) {
-    return (A)addToCommand(new String(arg0));
+  public A addNewCommand(java.lang.String original) {
+    return (A)addToCommand(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

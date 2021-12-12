@@ -19,7 +19,7 @@ public class V1SeccompProfileFluentImpl<A extends io.kubernetes.client.openapi.m
 
   }
   private java.lang.String localhostProfile;
-  private java.lang.String type;
+  private io.kubernetes.client.openapi.models.V1SeccompProfile.TypeEnum type;
   public java.lang.String getLocalhostProfile() {
     return this.localhostProfile;
   }
@@ -34,25 +34,17 @@ public class V1SeccompProfileFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withLocalhostProfile instead.
    */
   @java.lang.Deprecated
-  public A withNewLocalhostProfile(java.lang.String arg0) {
-    return (A)withLocalhostProfile(new String(arg0));
+  public A withNewLocalhostProfile(java.lang.String original) {
+    return (A)withLocalhostProfile(new String(original));
   }
-  public java.lang.String getType() {
+  public io.kubernetes.client.openapi.models.V1SeccompProfile.TypeEnum getType() {
     return this.type;
   }
-  public A withType(java.lang.String type) {
+  public A withType(io.kubernetes.client.openapi.models.V1SeccompProfile.TypeEnum type) {
     this.type=type; return (A) this;
   }
   public java.lang.Boolean hasType() {
     return this.type != null;
-  }
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

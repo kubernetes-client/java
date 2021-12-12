@@ -45,8 +45,8 @@ public class V1APIGroupListFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public A addToGroups(java.lang.Integer index,io.kubernetes.client.openapi.models.V1APIGroup item) {
     if (this.groups == null) {this.groups = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1APIGroupBuilder>();}
@@ -168,8 +168,8 @@ public class V1APIGroupListFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

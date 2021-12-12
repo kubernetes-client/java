@@ -26,7 +26,7 @@ public interface V1APIGroupListFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public A addToGroups(java.lang.Integer index,io.kubernetes.client.openapi.models.V1APIGroup item);
   public A setToGroups(java.lang.Integer index,io.kubernetes.client.openapi.models.V1APIGroup item);
   public A addToGroups(io.kubernetes.client.openapi.models.V1APIGroup... items);
@@ -65,7 +65,7 @@ public interface V1APIGroupListFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   public interface GroupsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1APIGroupFluent<io.kubernetes.client.openapi.models.V1APIGroupListFluent.GroupsNested<N>>{
     public N and();
     public N endGroup();

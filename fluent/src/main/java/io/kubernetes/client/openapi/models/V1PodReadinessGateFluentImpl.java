@@ -1,9 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
-import java.lang.String;
 import java.lang.Boolean;
 
  /**
@@ -16,23 +14,15 @@ public class V1PodReadinessGateFluentImpl<A extends io.kubernetes.client.openapi
     this.withConditionType(instance.getConditionType());
 
   }
-  private java.lang.String conditionType;
-  public java.lang.String getConditionType() {
+  private io.kubernetes.client.openapi.models.V1PodReadinessGate.ConditionTypeEnum conditionType;
+  public io.kubernetes.client.openapi.models.V1PodReadinessGate.ConditionTypeEnum getConditionType() {
     return this.conditionType;
   }
-  public A withConditionType(java.lang.String conditionType) {
+  public A withConditionType(io.kubernetes.client.openapi.models.V1PodReadinessGate.ConditionTypeEnum conditionType) {
     this.conditionType=conditionType; return (A) this;
   }
   public java.lang.Boolean hasConditionType() {
     return this.conditionType != null;
-  }
-  
-  /**
-   * Method is deprecated. use withConditionType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewConditionType(java.lang.String arg0) {
-    return (A)withConditionType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

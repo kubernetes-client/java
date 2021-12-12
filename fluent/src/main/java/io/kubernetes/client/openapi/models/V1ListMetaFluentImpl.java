@@ -41,8 +41,8 @@ public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withContinue instead.
    */
   @java.lang.Deprecated
-  public A withNewContinue(java.lang.String arg0) {
-    return (A)withContinue(new String(arg0));
+  public A withNewContinue(java.lang.String original) {
+    return (A)withContinue(new String(original));
   }
   public java.lang.Long getRemainingItemCount() {
     return this.remainingItemCount;
@@ -67,8 +67,8 @@ public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withResourceVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String arg0) {
-    return (A)withResourceVersion(new String(arg0));
+  public A withNewResourceVersion(java.lang.String original) {
+    return (A)withResourceVersion(new String(original));
   }
   public java.lang.String getSelfLink() {
     return this.selfLink;
@@ -84,8 +84,8 @@ public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withSelfLink instead.
    */
   @java.lang.Deprecated
-  public A withNewSelfLink(java.lang.String arg0) {
-    return (A)withSelfLink(new String(arg0));
+  public A withNewSelfLink(java.lang.String original) {
+    return (A)withSelfLink(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

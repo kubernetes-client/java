@@ -56,7 +56,7 @@ public interface V1ConfigMapProjectionFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.Boolean getOptional();
   public A withOptional(java.lang.Boolean optional);
   public java.lang.Boolean hasOptional();

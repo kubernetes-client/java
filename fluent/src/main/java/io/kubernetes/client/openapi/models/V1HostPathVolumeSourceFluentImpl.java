@@ -34,8 +34,8 @@ public class V1HostPathVolumeSourceFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0) {
-    return (A)withPath(new String(arg0));
+  public A withNewPath(java.lang.String original) {
+    return (A)withPath(new String(original));
   }
   public java.lang.String getType() {
     return this.type;
@@ -51,8 +51,8 @@ public class V1HostPathVolumeSourceFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
+  public A withNewType(java.lang.String original) {
+    return (A)withType(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

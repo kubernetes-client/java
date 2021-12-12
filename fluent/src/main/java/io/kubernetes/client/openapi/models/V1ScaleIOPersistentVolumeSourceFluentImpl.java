@@ -59,8 +59,8 @@ public class V1ScaleIOPersistentVolumeSourceFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0) {
-    return (A)withFsType(new String(arg0));
+  public A withNewFsType(java.lang.String original) {
+    return (A)withFsType(new String(original));
   }
   public java.lang.String getGateway() {
     return this.gateway;
@@ -76,8 +76,8 @@ public class V1ScaleIOPersistentVolumeSourceFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withGateway instead.
    */
   @java.lang.Deprecated
-  public A withNewGateway(java.lang.String arg0) {
-    return (A)withGateway(new String(arg0));
+  public A withNewGateway(java.lang.String original) {
+    return (A)withGateway(new String(original));
   }
   public java.lang.String getProtectionDomain() {
     return this.protectionDomain;
@@ -93,8 +93,8 @@ public class V1ScaleIOPersistentVolumeSourceFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withProtectionDomain instead.
    */
   @java.lang.Deprecated
-  public A withNewProtectionDomain(java.lang.String arg0) {
-    return (A)withProtectionDomain(new String(arg0));
+  public A withNewProtectionDomain(java.lang.String original) {
+    return (A)withProtectionDomain(new String(original));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -162,8 +162,8 @@ public class V1ScaleIOPersistentVolumeSourceFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withStorageMode instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageMode(java.lang.String arg0) {
-    return (A)withStorageMode(new String(arg0));
+  public A withNewStorageMode(java.lang.String original) {
+    return (A)withStorageMode(new String(original));
   }
   public java.lang.String getStoragePool() {
     return this.storagePool;
@@ -179,8 +179,8 @@ public class V1ScaleIOPersistentVolumeSourceFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withStoragePool instead.
    */
   @java.lang.Deprecated
-  public A withNewStoragePool(java.lang.String arg0) {
-    return (A)withStoragePool(new String(arg0));
+  public A withNewStoragePool(java.lang.String original) {
+    return (A)withStoragePool(new String(original));
   }
   public java.lang.String getSystem() {
     return this.system;
@@ -196,8 +196,8 @@ public class V1ScaleIOPersistentVolumeSourceFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withSystem instead.
    */
   @java.lang.Deprecated
-  public A withNewSystem(java.lang.String arg0) {
-    return (A)withSystem(new String(arg0));
+  public A withNewSystem(java.lang.String original) {
+    return (A)withSystem(new String(original));
   }
   public java.lang.String getVolumeName() {
     return this.volumeName;
@@ -213,8 +213,8 @@ public class V1ScaleIOPersistentVolumeSourceFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String arg0) {
-    return (A)withVolumeName(new String(arg0));
+  public A withNewVolumeName(java.lang.String original) {
+    return (A)withVolumeName(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

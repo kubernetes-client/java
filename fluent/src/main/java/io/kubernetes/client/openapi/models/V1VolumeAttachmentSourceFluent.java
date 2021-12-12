@@ -34,7 +34,7 @@ public interface V1VolumeAttachmentSourceFluent<A extends io.kubernetes.client.o
    * Method is deprecated. use withPersistentVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewPersistentVolumeName(java.lang.String arg0);
+  public A withNewPersistentVolumeName(java.lang.String original);
   public interface InlineVolumeSpecNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<N>>{
     public N and();
     public N endInlineVolumeSpec();

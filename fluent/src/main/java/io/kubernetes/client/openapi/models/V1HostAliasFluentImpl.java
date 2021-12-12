@@ -76,8 +76,8 @@ public class V1HostAliasFluentImpl<A extends io.kubernetes.client.openapi.models
   public java.lang.Boolean hasHostnames() {
     return hostnames != null && !hostnames.isEmpty();
   }
-  public A addNewHostname(java.lang.String arg0) {
-    return (A)addToHostnames(new String(arg0));
+  public A addNewHostname(java.lang.String original) {
+    return (A)addToHostnames(new String(original));
   }
   public java.lang.String getIp() {
     return this.ip;
@@ -93,8 +93,8 @@ public class V1HostAliasFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String arg0) {
-    return (A)withIp(new String(arg0));
+  public A withNewIp(java.lang.String original) {
+    return (A)withIp(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -20,7 +20,7 @@ public interface V1ContainerStateTerminatedFluent<A extends io.kubernetes.client
    * Method is deprecated. use withContainerID instead.
    */
   @java.lang.Deprecated
-  public A withNewContainerID(java.lang.String arg0);
+  public A withNewContainerID(java.lang.String original);
   public java.lang.Integer getExitCode();
   public A withExitCode(java.lang.Integer exitCode);
   public java.lang.Boolean hasExitCode();
@@ -35,7 +35,7 @@ public interface V1ContainerStateTerminatedFluent<A extends io.kubernetes.client
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0);
+  public A withNewMessage(java.lang.String original);
   public java.lang.String getReason();
   public A withReason(java.lang.String reason);
   public java.lang.Boolean hasReason();
@@ -44,7 +44,7 @@ public interface V1ContainerStateTerminatedFluent<A extends io.kubernetes.client
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0);
+  public A withNewReason(java.lang.String original);
   public java.lang.Integer getSignal();
   public A withSignal(java.lang.Integer signal);
   public java.lang.Boolean hasSignal();

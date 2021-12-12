@@ -142,8 +142,8 @@ public class V1ResourceQuotaSpecFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasScopes() {
     return scopes != null && !scopes.isEmpty();
   }
-  public A addNewScope(java.lang.String arg0) {
-    return (A)addToScopes(new String(arg0));
+  public A addNewScope(java.lang.String original) {
+    return (A)addToScopes(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -23,6 +23,8 @@ public class V1StatefulSetSpecBuilder extends io.kubernetes.client.openapi.model
     this.fluent = fluent; 
     fluent.withMinReadySeconds(instance.getMinReadySeconds());
 
+    fluent.withPersistentVolumeClaimRetentionPolicy(instance.getPersistentVolumeClaimRetentionPolicy());
+
     fluent.withPodManagementPolicy(instance.getPodManagementPolicy());
 
     fluent.withReplicas(instance.getReplicas());
@@ -48,6 +50,8 @@ public class V1StatefulSetSpecBuilder extends io.kubernetes.client.openapi.model
     this.fluent = this; 
     this.withMinReadySeconds(instance.getMinReadySeconds());
 
+    this.withPersistentVolumeClaimRetentionPolicy(instance.getPersistentVolumeClaimRetentionPolicy());
+
     this.withPodManagementPolicy(instance.getPodManagementPolicy());
 
     this.withReplicas(instance.getReplicas());
@@ -71,6 +75,7 @@ public class V1StatefulSetSpecBuilder extends io.kubernetes.client.openapi.model
   public io.kubernetes.client.openapi.models.V1StatefulSetSpec build() {
     V1StatefulSetSpec buildable = new V1StatefulSetSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
+    buildable.setPersistentVolumeClaimRetentionPolicy(fluent.getPersistentVolumeClaimRetentionPolicy());
     buildable.setPodManagementPolicy(fluent.getPodManagementPolicy());
     buildable.setReplicas(fluent.getReplicas());
     buildable.setRevisionHistoryLimit(fluent.getRevisionHistoryLimit());

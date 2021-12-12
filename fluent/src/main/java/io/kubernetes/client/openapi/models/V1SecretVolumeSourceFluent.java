@@ -62,7 +62,7 @@ public interface V1SecretVolumeSourceFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withSecretName instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String arg0);
+  public A withNewSecretName(java.lang.String original);
   public interface ItemsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1KeyToPathFluent<io.kubernetes.client.openapi.models.V1SecretVolumeSourceFluent.ItemsNested<N>>{
     public N and();
     public N endItem();

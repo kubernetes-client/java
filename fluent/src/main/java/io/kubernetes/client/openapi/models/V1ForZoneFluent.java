@@ -18,6 +18,6 @@ public interface V1ForZoneFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   
 }

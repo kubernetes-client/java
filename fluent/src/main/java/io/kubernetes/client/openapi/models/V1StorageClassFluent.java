@@ -61,7 +61,7 @@ public interface V1StorageClassFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -70,7 +70,7 @@ public interface V1StorageClassFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -101,7 +101,7 @@ public interface V1StorageClassFluent<A extends io.kubernetes.client.openapi.mod
   public A withMountOptions(java.util.List<java.lang.String> mountOptions);
   public A withMountOptions(java.lang.String... mountOptions);
   public java.lang.Boolean hasMountOptions();
-  public A addNewMountOption(java.lang.String arg0);
+  public A addNewMountOption(java.lang.String original);
   public A addToParameters(java.lang.String key,java.lang.String value);
   public A addToParameters(java.util.Map<java.lang.String,java.lang.String> map);
   public A removeFromParameters(java.lang.String key);
@@ -117,7 +117,7 @@ public interface V1StorageClassFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withProvisioner instead.
    */
   @java.lang.Deprecated
-  public A withNewProvisioner(java.lang.String arg0);
+  public A withNewProvisioner(java.lang.String original);
   public java.lang.String getReclaimPolicy();
   public A withReclaimPolicy(java.lang.String reclaimPolicy);
   public java.lang.Boolean hasReclaimPolicy();
@@ -126,7 +126,7 @@ public interface V1StorageClassFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withReclaimPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewReclaimPolicy(java.lang.String arg0);
+  public A withNewReclaimPolicy(java.lang.String original);
   public java.lang.String getVolumeBindingMode();
   public A withVolumeBindingMode(java.lang.String volumeBindingMode);
   public java.lang.Boolean hasVolumeBindingMode();
@@ -135,7 +135,7 @@ public interface V1StorageClassFluent<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withVolumeBindingMode instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeBindingMode(java.lang.String arg0);
+  public A withNewVolumeBindingMode(java.lang.String original);
   public interface AllowedTopologiesNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent<io.kubernetes.client.openapi.models.V1StorageClassFluent.AllowedTopologiesNested<N>>{
     public N and();
     public N endAllowedTopology();

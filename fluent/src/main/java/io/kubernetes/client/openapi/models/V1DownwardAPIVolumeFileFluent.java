@@ -38,7 +38,7 @@ public interface V1DownwardAPIVolumeFileFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0);
+  public A withNewPath(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildResourceFieldRef instead.

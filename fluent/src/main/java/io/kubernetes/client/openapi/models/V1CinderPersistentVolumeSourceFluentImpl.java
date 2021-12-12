@@ -41,8 +41,8 @@ public class V1CinderPersistentVolumeSourceFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0) {
-    return (A)withFsType(new String(arg0));
+  public A withNewFsType(java.lang.String original) {
+    return (A)withFsType(new String(original));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -101,8 +101,8 @@ public class V1CinderPersistentVolumeSourceFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withVolumeID instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeID(java.lang.String arg0) {
-    return (A)withVolumeID(new String(arg0));
+  public A withNewVolumeID(java.lang.String original) {
+    return (A)withVolumeID(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

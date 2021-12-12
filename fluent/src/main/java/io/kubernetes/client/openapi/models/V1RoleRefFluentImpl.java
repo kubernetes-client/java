@@ -37,8 +37,8 @@ public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withApiGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewApiGroup(java.lang.String arg0) {
-    return (A)withApiGroup(new String(arg0));
+  public A withNewApiGroup(java.lang.String original) {
+    return (A)withApiGroup(new String(original));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -54,8 +54,8 @@ public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -71,8 +71,8 @@ public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

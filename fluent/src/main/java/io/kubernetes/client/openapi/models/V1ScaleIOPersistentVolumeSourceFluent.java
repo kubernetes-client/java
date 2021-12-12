@@ -19,7 +19,7 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0);
+  public A withNewFsType(java.lang.String original);
   public java.lang.String getGateway();
   public A withGateway(java.lang.String gateway);
   public java.lang.Boolean hasGateway();
@@ -28,7 +28,7 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withGateway instead.
    */
   @java.lang.Deprecated
-  public A withNewGateway(java.lang.String arg0);
+  public A withNewGateway(java.lang.String original);
   public java.lang.String getProtectionDomain();
   public A withProtectionDomain(java.lang.String protectionDomain);
   public java.lang.Boolean hasProtectionDomain();
@@ -37,7 +37,7 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withProtectionDomain instead.
    */
   @java.lang.Deprecated
-  public A withNewProtectionDomain(java.lang.String arg0);
+  public A withNewProtectionDomain(java.lang.String original);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();
@@ -67,7 +67,7 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withStorageMode instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageMode(java.lang.String arg0);
+  public A withNewStorageMode(java.lang.String original);
   public java.lang.String getStoragePool();
   public A withStoragePool(java.lang.String storagePool);
   public java.lang.Boolean hasStoragePool();
@@ -76,7 +76,7 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withStoragePool instead.
    */
   @java.lang.Deprecated
-  public A withNewStoragePool(java.lang.String arg0);
+  public A withNewStoragePool(java.lang.String original);
   public java.lang.String getSystem();
   public A withSystem(java.lang.String system);
   public java.lang.Boolean hasSystem();
@@ -85,7 +85,7 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withSystem instead.
    */
   @java.lang.Deprecated
-  public A withNewSystem(java.lang.String arg0);
+  public A withNewSystem(java.lang.String original);
   public java.lang.String getVolumeName();
   public A withVolumeName(java.lang.String volumeName);
   public java.lang.Boolean hasVolumeName();
@@ -94,7 +94,7 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<A extends io.kubernetes.c
    * Method is deprecated. use withVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String arg0);
+  public A withNewVolumeName(java.lang.String original);
   public interface SecretRefNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1SecretReferenceFluent<io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<N>>{
     public N and();
     public N endSecretRef();

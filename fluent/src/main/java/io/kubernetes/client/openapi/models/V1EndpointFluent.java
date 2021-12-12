@@ -33,7 +33,7 @@ public interface V1EndpointFluent<A extends io.kubernetes.client.openapi.models.
   public A withAddresses(java.util.List<java.lang.String> addresses);
   public A withAddresses(java.lang.String... addresses);
   public java.lang.Boolean hasAddresses();
-  public A addNewAddress(java.lang.String arg0);
+  public A addNewAddress(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildConditions instead.
@@ -79,7 +79,7 @@ public interface V1EndpointFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String arg0);
+  public A withNewHostname(java.lang.String original);
   public java.lang.String getNodeName();
   public A withNodeName(java.lang.String nodeName);
   public java.lang.Boolean hasNodeName();
@@ -88,7 +88,7 @@ public interface V1EndpointFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String arg0);
+  public A withNewNodeName(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildTargetRef instead.
@@ -112,7 +112,7 @@ public interface V1EndpointFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withZone instead.
    */
   @java.lang.Deprecated
-  public A withNewZone(java.lang.String arg0);
+  public A withNewZone(java.lang.String original);
   public interface ConditionsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<io.kubernetes.client.openapi.models.V1EndpointFluent.ConditionsNested<N>>{
     public N and();
     public N endConditions();

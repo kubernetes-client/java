@@ -54,8 +54,8 @@ public class V1beta1EndpointSliceFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withAddressType instead.
    */
   @java.lang.Deprecated
-  public A withNewAddressType(java.lang.String arg0) {
-    return (A)withAddressType(new String(arg0));
+  public A withNewAddressType(java.lang.String original) {
+    return (A)withAddressType(new String(original));
   }
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -71,8 +71,8 @@ public class V1beta1EndpointSliceFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public A addToEndpoints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
     if (this.endpoints == null) {this.endpoints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>();}
@@ -194,8 +194,8 @@ public class V1beta1EndpointSliceFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   
   /**

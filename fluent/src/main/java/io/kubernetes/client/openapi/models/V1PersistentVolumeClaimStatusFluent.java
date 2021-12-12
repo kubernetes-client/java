@@ -36,7 +36,14 @@ public interface V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.cli
   public A withAccessModes(java.util.List<java.lang.String> accessModes);
   public A withAccessModes(java.lang.String... accessModes);
   public java.lang.Boolean hasAccessModes();
-  public A addNewAccessMode(java.lang.String arg0);
+  public A addNewAccessMode(java.lang.String original);
+  public A addToAllocatedResources(java.lang.String key,io.kubernetes.client.custom.Quantity value);
+  public A addToAllocatedResources(java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> map);
+  public A removeFromAllocatedResources(java.lang.String key);
+  public A removeFromAllocatedResources(java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> map);
+  public java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> getAllocatedResources();
+  public <K,V>A withAllocatedResources(java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> allocatedResources);
+  public java.lang.Boolean hasAllocatedResources();
   public A addToCapacity(java.lang.String key,io.kubernetes.client.custom.Quantity value);
   public A addToCapacity(java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> map);
   public A removeFromCapacity(java.lang.String key);
@@ -74,15 +81,18 @@ public interface V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.cli
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editFirstCondition();
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editLastCondition();
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editMatchingCondition(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionBuilder> predicate);
-  public java.lang.String getPhase();
-  public A withPhase(java.lang.String phase);
+  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus.PhaseEnum getPhase();
+  public A withPhase(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus.PhaseEnum phase);
   public java.lang.Boolean hasPhase();
+  public java.lang.String getResizeStatus();
+  public A withResizeStatus(java.lang.String resizeStatus);
+  public java.lang.Boolean hasResizeStatus();
   
   /**
-   * Method is deprecated. use withPhase instead.
+   * Method is deprecated. use withResizeStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewPhase(java.lang.String arg0);
+  public A withNewResizeStatus(java.lang.String original);
   public interface ConditionsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionFluent<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<N>>{
     public N and();
     public N endCondition();

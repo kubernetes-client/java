@@ -40,8 +40,8 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0) {
-    return (A)withFsType(new String(arg0));
+  public A withNewFsType(java.lang.String original) {
+    return (A)withFsType(new String(original));
   }
   public java.lang.String getStoragePolicyID() {
     return this.storagePolicyID;
@@ -57,8 +57,8 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withStoragePolicyID instead.
    */
   @java.lang.Deprecated
-  public A withNewStoragePolicyID(java.lang.String arg0) {
-    return (A)withStoragePolicyID(new String(arg0));
+  public A withNewStoragePolicyID(java.lang.String original) {
+    return (A)withStoragePolicyID(new String(original));
   }
   public java.lang.String getStoragePolicyName() {
     return this.storagePolicyName;
@@ -74,8 +74,8 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withStoragePolicyName instead.
    */
   @java.lang.Deprecated
-  public A withNewStoragePolicyName(java.lang.String arg0) {
-    return (A)withStoragePolicyName(new String(arg0));
+  public A withNewStoragePolicyName(java.lang.String original) {
+    return (A)withStoragePolicyName(new String(original));
   }
   public java.lang.String getVolumePath() {
     return this.volumePath;
@@ -91,8 +91,8 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withVolumePath instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumePath(java.lang.String arg0) {
-    return (A)withVolumePath(new String(arg0));
+  public A withNewVolumePath(java.lang.String original) {
+    return (A)withVolumePath(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

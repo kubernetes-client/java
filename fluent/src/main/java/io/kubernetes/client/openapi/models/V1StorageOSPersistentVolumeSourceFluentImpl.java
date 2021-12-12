@@ -44,8 +44,8 @@ public class V1StorageOSPersistentVolumeSourceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0) {
-    return (A)withFsType(new String(arg0));
+  public A withNewFsType(java.lang.String original) {
+    return (A)withFsType(new String(original));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -104,8 +104,8 @@ public class V1StorageOSPersistentVolumeSourceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String arg0) {
-    return (A)withVolumeName(new String(arg0));
+  public A withNewVolumeName(java.lang.String original) {
+    return (A)withVolumeName(new String(original));
   }
   public java.lang.String getVolumeNamespace() {
     return this.volumeNamespace;
@@ -121,8 +121,8 @@ public class V1StorageOSPersistentVolumeSourceFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withVolumeNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeNamespace(java.lang.String arg0) {
-    return (A)withVolumeNamespace(new String(arg0));
+  public A withNewVolumeNamespace(java.lang.String original) {
+    return (A)withVolumeNamespace(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

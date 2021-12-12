@@ -34,8 +34,8 @@ public class V1NonResourceAttributesFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0) {
-    return (A)withPath(new String(arg0));
+  public A withNewPath(java.lang.String original) {
+    return (A)withPath(new String(original));
   }
   public java.lang.String getVerb() {
     return this.verb;
@@ -51,8 +51,8 @@ public class V1NonResourceAttributesFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withVerb instead.
    */
   @java.lang.Deprecated
-  public A withNewVerb(java.lang.String arg0) {
-    return (A)withVerb(new String(arg0));
+  public A withNewVerb(java.lang.String original) {
+    return (A)withVerb(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

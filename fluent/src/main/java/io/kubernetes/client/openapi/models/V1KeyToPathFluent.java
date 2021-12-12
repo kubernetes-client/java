@@ -19,7 +19,7 @@ public interface V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String arg0);
+  public A withNewKey(java.lang.String original);
   public java.lang.Integer getMode();
   public A withMode(java.lang.Integer mode);
   public java.lang.Boolean hasMode();
@@ -31,6 +31,6 @@ public interface V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0);
+  public A withNewPath(java.lang.String original);
   
 }

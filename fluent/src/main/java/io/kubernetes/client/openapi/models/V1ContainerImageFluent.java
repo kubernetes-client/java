@@ -30,7 +30,7 @@ public interface V1ContainerImageFluent<A extends io.kubernetes.client.openapi.m
   public A withNames(java.util.List<java.lang.String> names);
   public A withNames(java.lang.String... names);
   public java.lang.Boolean hasNames();
-  public A addNewName(java.lang.String arg0);
+  public A addNewName(java.lang.String original);
   public java.lang.Long getSizeBytes();
   public A withSizeBytes(java.lang.Long sizeBytes);
   public java.lang.Boolean hasSizeBytes();

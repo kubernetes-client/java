@@ -18,7 +18,7 @@ public interface V1ConfigMapNodeConfigSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withKubeletConfigKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKubeletConfigKey(java.lang.String arg0);
+  public A withNewKubeletConfigKey(java.lang.String original);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -27,7 +27,7 @@ public interface V1ConfigMapNodeConfigSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.String getNamespace();
   public A withNamespace(java.lang.String namespace);
   public java.lang.Boolean hasNamespace();
@@ -36,7 +36,7 @@ public interface V1ConfigMapNodeConfigSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String arg0);
+  public A withNewNamespace(java.lang.String original);
   public java.lang.String getResourceVersion();
   public A withResourceVersion(java.lang.String resourceVersion);
   public java.lang.Boolean hasResourceVersion();
@@ -45,7 +45,7 @@ public interface V1ConfigMapNodeConfigSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withResourceVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String arg0);
+  public A withNewResourceVersion(java.lang.String original);
   public java.lang.String getUid();
   public A withUid(java.lang.String uid);
   public java.lang.Boolean hasUid();
@@ -54,6 +54,6 @@ public interface V1ConfigMapNodeConfigSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String arg0);
+  public A withNewUid(java.lang.String original);
   
 }

@@ -31,7 +31,7 @@ public interface V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.clien
   public A withAccessModes(java.util.List<java.lang.String> accessModes);
   public A withAccessModes(java.lang.String... accessModes);
   public java.lang.Boolean hasAccessModes();
-  public A addNewAccessMode(java.lang.String arg0);
+  public A addNewAccessMode(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildDataSource instead.
@@ -100,7 +100,7 @@ public interface V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String arg0);
+  public A withNewStorageClassName(java.lang.String original);
   public java.lang.String getVolumeMode();
   public A withVolumeMode(java.lang.String volumeMode);
   public java.lang.Boolean hasVolumeMode();
@@ -109,7 +109,7 @@ public interface V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeMode instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String arg0);
+  public A withNewVolumeMode(java.lang.String original);
   public java.lang.String getVolumeName();
   public A withVolumeName(java.lang.String volumeName);
   public java.lang.Boolean hasVolumeName();
@@ -118,7 +118,7 @@ public interface V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String arg0);
+  public A withNewVolumeName(java.lang.String original);
   public interface DataSourceNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceFluent<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceNested<N>>{
     public N and();
     public N endDataSource();

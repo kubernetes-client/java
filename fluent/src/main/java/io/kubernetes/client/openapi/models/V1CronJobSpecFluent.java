@@ -13,15 +13,9 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1CronJobSpecFluent<A extends io.kubernetes.client.openapi.models.V1CronJobSpecFluent<A>> extends io.kubernetes.client.fluent.Fluent<A>{
-  public java.lang.String getConcurrencyPolicy();
-  public A withConcurrencyPolicy(java.lang.String concurrencyPolicy);
+  public io.kubernetes.client.openapi.models.V1CronJobSpec.ConcurrencyPolicyEnum getConcurrencyPolicy();
+  public A withConcurrencyPolicy(io.kubernetes.client.openapi.models.V1CronJobSpec.ConcurrencyPolicyEnum concurrencyPolicy);
   public java.lang.Boolean hasConcurrencyPolicy();
-  
-  /**
-   * Method is deprecated. use withConcurrencyPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewConcurrencyPolicy(java.lang.String arg0);
   public java.lang.Integer getFailedJobsHistoryLimit();
   public A withFailedJobsHistoryLimit(java.lang.Integer failedJobsHistoryLimit);
   public java.lang.Boolean hasFailedJobsHistoryLimit();
@@ -48,7 +42,7 @@ public interface V1CronJobSpecFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSchedule instead.
    */
   @java.lang.Deprecated
-  public A withNewSchedule(java.lang.String arg0);
+  public A withNewSchedule(java.lang.String original);
   public java.lang.Long getStartingDeadlineSeconds();
   public A withStartingDeadlineSeconds(java.lang.Long startingDeadlineSeconds);
   public java.lang.Boolean hasStartingDeadlineSeconds();

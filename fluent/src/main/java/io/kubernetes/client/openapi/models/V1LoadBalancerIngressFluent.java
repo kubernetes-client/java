@@ -26,7 +26,7 @@ public interface V1LoadBalancerIngressFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String arg0);
+  public A withNewHostname(java.lang.String original);
   public java.lang.String getIp();
   public A withIp(java.lang.String ip);
   public java.lang.Boolean hasIp();
@@ -35,7 +35,7 @@ public interface V1LoadBalancerIngressFluent<A extends io.kubernetes.client.open
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String arg0);
+  public A withNewIp(java.lang.String original);
   public A addToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PortStatus item);
   public A setToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PortStatus item);
   public A addToPorts(io.kubernetes.client.openapi.models.V1PortStatus... items);

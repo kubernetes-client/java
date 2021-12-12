@@ -45,8 +45,8 @@ public class V1alpha1StorageVersionStatusFluentImpl<A extends io.kubernetes.clie
    * Method is deprecated. use withCommonEncodingVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewCommonEncodingVersion(java.lang.String arg0) {
-    return (A)withCommonEncodingVersion(new String(arg0));
+  public A withNewCommonEncodingVersion(java.lang.String original) {
+    return (A)withCommonEncodingVersion(new String(original));
   }
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition item) {
     if (this.conditions == null) {this.conditions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionBuilder>();}

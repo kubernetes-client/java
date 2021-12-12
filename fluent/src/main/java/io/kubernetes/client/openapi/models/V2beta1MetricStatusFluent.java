@@ -94,7 +94,7 @@ public interface V2beta1MetricStatusFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
+  public A withNewType(java.lang.String original);
   public interface ContainerResourceNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V2beta1ContainerResourceMetricStatusFluent<io.kubernetes.client.openapi.models.V2beta1MetricStatusFluent.ContainerResourceNested<N>>{
     public N and();
     public N endContainerResource();

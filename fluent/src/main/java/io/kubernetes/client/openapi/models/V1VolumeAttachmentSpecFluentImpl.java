@@ -38,8 +38,8 @@ public class V1VolumeAttachmentSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withAttacher instead.
    */
   @java.lang.Deprecated
-  public A withNewAttacher(java.lang.String arg0) {
-    return (A)withAttacher(new String(arg0));
+  public A withNewAttacher(java.lang.String original) {
+    return (A)withAttacher(new String(original));
   }
   public java.lang.String getNodeName() {
     return this.nodeName;
@@ -55,8 +55,8 @@ public class V1VolumeAttachmentSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String arg0) {
-    return (A)withNodeName(new String(arg0));
+  public A withNewNodeName(java.lang.String original) {
+    return (A)withNodeName(new String(original));
   }
   
   /**

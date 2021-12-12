@@ -56,8 +56,8 @@ public class V1DeleteOptionsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public A addToDryRun(java.lang.Integer index,java.lang.String item) {
     if (this.dryRun == null) {this.dryRun = new java.util.ArrayList<java.lang.String>();}
@@ -110,8 +110,8 @@ public class V1DeleteOptionsFluentImpl<A extends io.kubernetes.client.openapi.mo
   public java.lang.Boolean hasDryRun() {
     return dryRun != null && !dryRun.isEmpty();
   }
-  public A addNewDryRun(java.lang.String arg0) {
-    return (A)addToDryRun(new String(arg0));
+  public A addNewDryRun(java.lang.String original) {
+    return (A)addToDryRun(new String(original));
   }
   public java.lang.Long getGracePeriodSeconds() {
     return this.gracePeriodSeconds;
@@ -136,8 +136,8 @@ public class V1DeleteOptionsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   public java.lang.Boolean getOrphanDependents() {
     return this.orphanDependents;
@@ -196,8 +196,8 @@ public class V1DeleteOptionsFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPropagationPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPropagationPolicy(java.lang.String arg0) {
-    return (A)withPropagationPolicy(new String(arg0));
+  public A withNewPropagationPolicy(java.lang.String original) {
+    return (A)withPropagationPolicy(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

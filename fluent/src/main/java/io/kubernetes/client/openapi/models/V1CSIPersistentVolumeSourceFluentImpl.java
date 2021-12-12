@@ -126,8 +126,8 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String arg0) {
-    return (A)withDriver(new String(arg0));
+  public A withNewDriver(java.lang.String original) {
+    return (A)withDriver(new String(original));
   }
   public java.lang.String getFsType() {
     return this.fsType;
@@ -143,8 +143,8 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0) {
-    return (A)withFsType(new String(arg0));
+  public A withNewFsType(java.lang.String original) {
+    return (A)withFsType(new String(original));
   }
   
   /**
@@ -262,8 +262,8 @@ public class V1CSIPersistentVolumeSourceFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeHandle instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeHandle(java.lang.String arg0) {
-    return (A)withVolumeHandle(new String(arg0));
+  public A withNewVolumeHandle(java.lang.String original) {
+    return (A)withVolumeHandle(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

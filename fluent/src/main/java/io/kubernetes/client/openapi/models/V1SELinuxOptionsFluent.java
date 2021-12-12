@@ -18,7 +18,7 @@ public interface V1SELinuxOptionsFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withLevel instead.
    */
   @java.lang.Deprecated
-  public A withNewLevel(java.lang.String arg0);
+  public A withNewLevel(java.lang.String original);
   public java.lang.String getRole();
   public A withRole(java.lang.String role);
   public java.lang.Boolean hasRole();
@@ -27,7 +27,7 @@ public interface V1SELinuxOptionsFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withRole instead.
    */
   @java.lang.Deprecated
-  public A withNewRole(java.lang.String arg0);
+  public A withNewRole(java.lang.String original);
   public java.lang.String getType();
   public A withType(java.lang.String type);
   public java.lang.Boolean hasType();
@@ -36,7 +36,7 @@ public interface V1SELinuxOptionsFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
+  public A withNewType(java.lang.String original);
   public java.lang.String getUser();
   public A withUser(java.lang.String user);
   public java.lang.Boolean hasUser();
@@ -45,6 +45,6 @@ public interface V1SELinuxOptionsFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String arg0);
+  public A withNewUser(java.lang.String original);
   
 }

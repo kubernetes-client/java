@@ -79,8 +79,8 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withCompletionMode instead.
    */
   @java.lang.Deprecated
-  public A withNewCompletionMode(java.lang.String arg0) {
-    return (A)withCompletionMode(new String(arg0));
+  public A withNewCompletionMode(java.lang.String original) {
+    return (A)withCompletionMode(new String(original));
   }
   public java.lang.Integer getCompletions() {
     return this.completions;

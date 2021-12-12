@@ -59,6 +59,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
 
     this.withNodeSelector(instance.getNodeSelector());
 
+    this.withOs(instance.getOs());
+
     this.withOverhead(instance.getOverhead());
 
     this.withPreemptionPolicy(instance.getPreemptionPolicy());
@@ -101,7 +103,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   private java.lang.Boolean automountServiceAccountToken;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerBuilder> containers;
   private io.kubernetes.client.openapi.models.V1PodDNSConfigBuilder dnsConfig;
-  private java.lang.String dnsPolicy;
+  private io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum dnsPolicy;
   private java.lang.Boolean enableServiceLinks;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EphemeralContainerBuilder> ephemeralContainers;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1HostAliasBuilder> hostAliases;
@@ -113,12 +115,13 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerBuilder> initContainers;
   private java.lang.String nodeName;
   private java.util.Map<java.lang.String,java.lang.String> nodeSelector;
+  private io.kubernetes.client.openapi.models.V1PodOSBuilder os;
   private java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> overhead;
   private java.lang.String preemptionPolicy;
   private java.lang.Integer priority;
   private java.lang.String priorityClassName;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodReadinessGateBuilder> readinessGates;
-  private java.lang.String restartPolicy;
+  private io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum restartPolicy;
   private java.lang.String runtimeClassName;
   private java.lang.String schedulerName;
   private io.kubernetes.client.openapi.models.V1PodSecurityContextBuilder securityContext;
@@ -323,22 +326,14 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A> editOrNewDnsConfigLike(io.kubernetes.client.openapi.models.V1PodDNSConfig item) {
     return withNewDnsConfigLike(getDnsConfig() != null ? getDnsConfig(): item);
   }
-  public java.lang.String getDnsPolicy() {
+  public io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum getDnsPolicy() {
     return this.dnsPolicy;
   }
-  public A withDnsPolicy(java.lang.String dnsPolicy) {
+  public A withDnsPolicy(io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum dnsPolicy) {
     this.dnsPolicy=dnsPolicy; return (A) this;
   }
   public java.lang.Boolean hasDnsPolicy() {
     return this.dnsPolicy != null;
-  }
-  
-  /**
-   * Method is deprecated. use withDnsPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewDnsPolicy(java.lang.String arg0) {
-    return (A)withDnsPolicy(new String(arg0));
   }
   public java.lang.Boolean getEnableServiceLinks() {
     return this.enableServiceLinks;
@@ -602,8 +597,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String arg0) {
-    return (A)withHostname(new String(arg0));
+  public A withNewHostname(java.lang.String original) {
+    return (A)withHostname(new String(original));
   }
   public A addToImagePullSecrets(java.lang.Integer index,io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {this.imagePullSecrets = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>();}
@@ -831,8 +826,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String arg0) {
-    return (A)withNodeName(new String(arg0));
+  public A withNewNodeName(java.lang.String original) {
+    return (A)withNodeName(new String(original));
   }
   public A addToNodeSelector(java.lang.String key,java.lang.String value) {
     if(this.nodeSelector == null && key != null && value != null) { this.nodeSelector = new java.util.LinkedHashMap(); }
@@ -858,6 +853,40 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   }
   public java.lang.Boolean hasNodeSelector() {
     return this.nodeSelector != null;
+  }
+  
+  /**
+   * This method has been deprecated, please use method buildOs instead.
+   * @return The buildable object.
+   */
+  @java.lang.Deprecated
+  public io.kubernetes.client.openapi.models.V1PodOS getOs() {
+    return this.os!=null ?this.os.build():null;
+  }
+  public io.kubernetes.client.openapi.models.V1PodOS buildOs() {
+    return this.os!=null ?this.os.build():null;
+  }
+  public A withOs(io.kubernetes.client.openapi.models.V1PodOS os) {
+    _visitables.get("os").remove(this.os);
+    if (os!=null){ this.os= new io.kubernetes.client.openapi.models.V1PodOSBuilder(os); _visitables.get("os").add(this.os);} return (A) this;
+  }
+  public java.lang.Boolean hasOs() {
+    return this.os != null;
+  }
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> withNewOs() {
+    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.OsNestedImpl();
+  }
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> withNewOsLike(io.kubernetes.client.openapi.models.V1PodOS item) {
+    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.OsNestedImpl(item);
+  }
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> editOs() {
+    return withNewOsLike(getOs());
+  }
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> editOrNewOs() {
+    return withNewOsLike(getOs() != null ? getOs(): new io.kubernetes.client.openapi.models.V1PodOSBuilder().build());
+  }
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> editOrNewOsLike(io.kubernetes.client.openapi.models.V1PodOS item) {
+    return withNewOsLike(getOs() != null ? getOs(): item);
   }
   public A addToOverhead(java.lang.String key,io.kubernetes.client.custom.Quantity value) {
     if(this.overhead == null && key != null && value != null) { this.overhead = new java.util.LinkedHashMap(); }
@@ -898,8 +927,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withPreemptionPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPreemptionPolicy(java.lang.String arg0) {
-    return (A)withPreemptionPolicy(new String(arg0));
+  public A withNewPreemptionPolicy(java.lang.String original) {
+    return (A)withPreemptionPolicy(new String(original));
   }
   public java.lang.Integer getPriority() {
     return this.priority;
@@ -924,8 +953,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withPriorityClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewPriorityClassName(java.lang.String arg0) {
-    return (A)withPriorityClassName(new String(arg0));
+  public A withNewPriorityClassName(java.lang.String original) {
+    return (A)withPriorityClassName(new String(original));
   }
   public A addToReadinessGates(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodReadinessGate item) {
     if (this.readinessGates == null) {this.readinessGates = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodReadinessGateBuilder>();}
@@ -1033,22 +1062,14 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     if (index < 0) throw new RuntimeException("Can't edit matching readinessGates. No match found.");
     return setNewReadinessGateLike(index, buildReadinessGate(index));
   }
-  public java.lang.String getRestartPolicy() {
+  public io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum getRestartPolicy() {
     return this.restartPolicy;
   }
-  public A withRestartPolicy(java.lang.String restartPolicy) {
+  public A withRestartPolicy(io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum restartPolicy) {
     this.restartPolicy=restartPolicy; return (A) this;
   }
   public java.lang.Boolean hasRestartPolicy() {
     return this.restartPolicy != null;
-  }
-  
-  /**
-   * Method is deprecated. use withRestartPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewRestartPolicy(java.lang.String arg0) {
-    return (A)withRestartPolicy(new String(arg0));
   }
   public java.lang.String getRuntimeClassName() {
     return this.runtimeClassName;
@@ -1064,8 +1085,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withRuntimeClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewRuntimeClassName(java.lang.String arg0) {
-    return (A)withRuntimeClassName(new String(arg0));
+  public A withNewRuntimeClassName(java.lang.String original) {
+    return (A)withRuntimeClassName(new String(original));
   }
   public java.lang.String getSchedulerName() {
     return this.schedulerName;
@@ -1081,8 +1102,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withSchedulerName instead.
    */
   @java.lang.Deprecated
-  public A withNewSchedulerName(java.lang.String arg0) {
-    return (A)withSchedulerName(new String(arg0));
+  public A withNewSchedulerName(java.lang.String original) {
+    return (A)withSchedulerName(new String(original));
   }
   
   /**
@@ -1132,8 +1153,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withServiceAccount instead.
    */
   @java.lang.Deprecated
-  public A withNewServiceAccount(java.lang.String arg0) {
-    return (A)withServiceAccount(new String(arg0));
+  public A withNewServiceAccount(java.lang.String original) {
+    return (A)withServiceAccount(new String(original));
   }
   public java.lang.String getServiceAccountName() {
     return this.serviceAccountName;
@@ -1149,8 +1170,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withServiceAccountName instead.
    */
   @java.lang.Deprecated
-  public A withNewServiceAccountName(java.lang.String arg0) {
-    return (A)withServiceAccountName(new String(arg0));
+  public A withNewServiceAccountName(java.lang.String original) {
+    return (A)withServiceAccountName(new String(original));
   }
   public java.lang.Boolean getSetHostnameAsFQDN() {
     return this.setHostnameAsFQDN;
@@ -1184,8 +1205,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withSubdomain instead.
    */
   @java.lang.Deprecated
-  public A withNewSubdomain(java.lang.String arg0) {
-    return (A)withSubdomain(new String(arg0));
+  public A withNewSubdomain(java.lang.String original) {
+    return (A)withSubdomain(new String(original));
   }
   public java.lang.Long getTerminationGracePeriodSeconds() {
     return this.terminationGracePeriodSeconds;
@@ -1535,6 +1556,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     if (initContainers != null ? !initContainers.equals(that.initContainers) :that.initContainers != null) return false;
     if (nodeName != null ? !nodeName.equals(that.nodeName) :that.nodeName != null) return false;
     if (nodeSelector != null ? !nodeSelector.equals(that.nodeSelector) :that.nodeSelector != null) return false;
+    if (os != null ? !os.equals(that.os) :that.os != null) return false;
     if (overhead != null ? !overhead.equals(that.overhead) :that.overhead != null) return false;
     if (preemptionPolicy != null ? !preemptionPolicy.equals(that.preemptionPolicy) :that.preemptionPolicy != null) return false;
     if (priority != null ? !priority.equals(that.priority) :that.priority != null) return false;
@@ -1556,7 +1578,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return true;
   }
   public int hashCode() {
-    return java.util.Objects.hash(activeDeadlineSeconds,  affinity,  automountServiceAccountToken,  containers,  dnsConfig,  dnsPolicy,  enableServiceLinks,  ephemeralContainers,  hostAliases,  hostIPC,  hostNetwork,  hostPID,  hostname,  imagePullSecrets,  initContainers,  nodeName,  nodeSelector,  overhead,  preemptionPolicy,  priority,  priorityClassName,  readinessGates,  restartPolicy,  runtimeClassName,  schedulerName,  securityContext,  serviceAccount,  serviceAccountName,  setHostnameAsFQDN,  shareProcessNamespace,  subdomain,  terminationGracePeriodSeconds,  tolerations,  topologySpreadConstraints,  volumes,  super.hashCode());
+    return java.util.Objects.hash(activeDeadlineSeconds,  affinity,  automountServiceAccountToken,  containers,  dnsConfig,  dnsPolicy,  enableServiceLinks,  ephemeralContainers,  hostAliases,  hostIPC,  hostNetwork,  hostPID,  hostname,  imagePullSecrets,  initContainers,  nodeName,  nodeSelector,  os,  overhead,  preemptionPolicy,  priority,  priorityClassName,  readinessGates,  restartPolicy,  runtimeClassName,  schedulerName,  securityContext,  serviceAccount,  serviceAccountName,  setHostnameAsFQDN,  shareProcessNamespace,  subdomain,  terminationGracePeriodSeconds,  tolerations,  topologySpreadConstraints,  volumes,  super.hashCode());
   }
   public class AffinityNestedImpl<N> extends io.kubernetes.client.openapi.models.V1AffinityFluentImpl<io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<N>> implements io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<N>,io.kubernetes.client.fluent.Nested<N>{
     AffinityNestedImpl(io.kubernetes.client.openapi.models.V1Affinity item) {
@@ -1681,6 +1703,22 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
       return (N) V1PodSpecFluentImpl.this.setToInitContainers(index,builder.build());
     }
     public N endInitContainer() {
+      return and();
+    }
+    
+  }
+  public class OsNestedImpl<N> extends io.kubernetes.client.openapi.models.V1PodOSFluentImpl<io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<N>> implements io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<N>,io.kubernetes.client.fluent.Nested<N>{
+    OsNestedImpl(io.kubernetes.client.openapi.models.V1PodOS item) {
+      this.builder = new io.kubernetes.client.openapi.models.V1PodOSBuilder(this, item);
+    }
+    OsNestedImpl() {
+      this.builder = new io.kubernetes.client.openapi.models.V1PodOSBuilder(this);
+    }
+    io.kubernetes.client.openapi.models.V1PodOSBuilder builder;
+    public N and() {
+      return (N) V1PodSpecFluentImpl.this.withOs(builder.build());
+    }
+    public N endOs() {
       return and();
     }
     

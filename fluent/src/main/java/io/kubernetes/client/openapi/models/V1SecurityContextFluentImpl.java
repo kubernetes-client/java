@@ -115,8 +115,8 @@ public class V1SecurityContextFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withProcMount instead.
    */
   @java.lang.Deprecated
-  public A withNewProcMount(java.lang.String arg0) {
-    return (A)withProcMount(new String(arg0));
+  public A withNewProcMount(java.lang.String original) {
+    return (A)withProcMount(new String(original));
   }
   public java.lang.Boolean getReadOnlyRootFilesystem() {
     return this.readOnlyRootFilesystem;

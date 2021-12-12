@@ -38,8 +38,8 @@ public class V1EnvVarFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.String getValue() {
     return this.value;
@@ -55,8 +55,8 @@ public class V1EnvVarFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withValue instead.
    */
   @java.lang.Deprecated
-  public A withNewValue(java.lang.String arg0) {
-    return (A)withValue(new String(arg0));
+  public A withNewValue(java.lang.String original) {
+    return (A)withValue(new String(original));
   }
   
   /**

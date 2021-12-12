@@ -19,7 +19,7 @@ public interface V1EmptyDirVolumeSourceFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withMedium instead.
    */
   @java.lang.Deprecated
-  public A withNewMedium(java.lang.String arg0);
+  public A withNewMedium(java.lang.String original);
   public io.kubernetes.client.custom.Quantity getSizeLimit();
   public A withSizeLimit(io.kubernetes.client.custom.Quantity sizeLimit);
   public java.lang.Boolean hasSizeLimit();

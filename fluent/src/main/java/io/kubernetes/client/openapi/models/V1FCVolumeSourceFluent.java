@@ -23,7 +23,7 @@ public interface V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0);
+  public A withNewFsType(java.lang.String original);
   public java.lang.Integer getLun();
   public A withLun(java.lang.Integer lun);
   public java.lang.Boolean hasLun();
@@ -45,7 +45,7 @@ public interface V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   public A withTargetWWNs(java.util.List<java.lang.String> targetWWNs);
   public A withTargetWWNs(java.lang.String... targetWWNs);
   public java.lang.Boolean hasTargetWWNs();
-  public A addNewTargetWWN(java.lang.String arg0);
+  public A addNewTargetWWN(java.lang.String original);
   public A addToWwids(java.lang.Integer index,java.lang.String item);
   public A setToWwids(java.lang.Integer index,java.lang.String item);
   public A addToWwids(java.lang.String... items);
@@ -61,6 +61,6 @@ public interface V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   public A withWwids(java.util.List<java.lang.String> wwids);
   public A withWwids(java.lang.String... wwids);
   public java.lang.Boolean hasWwids();
-  public A addNewWwid(java.lang.String arg0);
+  public A addNewWwid(java.lang.String original);
   
 }

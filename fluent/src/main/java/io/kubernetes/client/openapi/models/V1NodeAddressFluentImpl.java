@@ -19,7 +19,7 @@ public class V1NodeAddressFluentImpl<A extends io.kubernetes.client.openapi.mode
 
   }
   private java.lang.String address;
-  private java.lang.String type;
+  private io.kubernetes.client.openapi.models.V1NodeAddress.TypeEnum type;
   public java.lang.String getAddress() {
     return this.address;
   }
@@ -34,25 +34,17 @@ public class V1NodeAddressFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withAddress instead.
    */
   @java.lang.Deprecated
-  public A withNewAddress(java.lang.String arg0) {
-    return (A)withAddress(new String(arg0));
+  public A withNewAddress(java.lang.String original) {
+    return (A)withAddress(new String(original));
   }
-  public java.lang.String getType() {
+  public io.kubernetes.client.openapi.models.V1NodeAddress.TypeEnum getType() {
     return this.type;
   }
-  public A withType(java.lang.String type) {
+  public A withType(io.kubernetes.client.openapi.models.V1NodeAddress.TypeEnum type) {
     this.type=type; return (A) this;
   }
   public java.lang.Boolean hasType() {
     return this.type != null;
-  }
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

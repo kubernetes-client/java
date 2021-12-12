@@ -1,6 +1,5 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Deprecated;
 import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.custom.Quantity;
@@ -48,14 +47,8 @@ public interface V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.m
   public java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> getMin();
   public <K,V>A withMin(java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> min);
   public java.lang.Boolean hasMin();
-  public java.lang.String getType();
-  public A withType(java.lang.String type);
+  public io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum getType();
+  public A withType(io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum type);
   public java.lang.Boolean hasType();
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
   
 }

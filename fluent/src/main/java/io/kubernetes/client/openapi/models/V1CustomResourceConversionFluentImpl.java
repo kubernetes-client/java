@@ -35,8 +35,8 @@ public class V1CustomResourceConversionFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withStrategy instead.
    */
   @java.lang.Deprecated
-  public A withNewStrategy(java.lang.String arg0) {
-    return (A)withStrategy(new String(arg0));
+  public A withNewStrategy(java.lang.String original) {
+    return (A)withStrategy(new String(original));
   }
   
   /**

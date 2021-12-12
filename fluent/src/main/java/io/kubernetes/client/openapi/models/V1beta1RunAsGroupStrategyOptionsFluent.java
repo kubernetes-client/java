@@ -56,7 +56,7 @@ public interface V1beta1RunAsGroupStrategyOptionsFluent<A extends io.kubernetes.
    * Method is deprecated. use withRule instead.
    */
   @java.lang.Deprecated
-  public A withNewRule(java.lang.String arg0);
+  public A withNewRule(java.lang.String original);
   public interface RangesNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1beta1IDRangeFluent<io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsFluent.RangesNested<N>>{
     public N and();
     public N endRange();

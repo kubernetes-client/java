@@ -111,8 +111,8 @@ public class V1WebhookConversionFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasConversionReviewVersions() {
     return conversionReviewVersions != null && !conversionReviewVersions.isEmpty();
   }
-  public A addNewConversionReviewVersion(java.lang.String arg0) {
-    return (A)addToConversionReviewVersions(new String(arg0));
+  public A addNewConversionReviewVersion(java.lang.String original) {
+    return (A)addToConversionReviewVersions(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

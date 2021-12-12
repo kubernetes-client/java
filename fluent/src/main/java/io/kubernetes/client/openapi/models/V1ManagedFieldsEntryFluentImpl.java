@@ -50,8 +50,8 @@ public class V1ManagedFieldsEntryFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public java.lang.String getFieldsType() {
     return this.fieldsType;
@@ -67,8 +67,8 @@ public class V1ManagedFieldsEntryFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withFieldsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFieldsType(java.lang.String arg0) {
-    return (A)withFieldsType(new String(arg0));
+  public A withNewFieldsType(java.lang.String original) {
+    return (A)withFieldsType(new String(original));
   }
   public java.lang.Object getFieldsV1() {
     return this.fieldsV1;
@@ -93,8 +93,8 @@ public class V1ManagedFieldsEntryFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withManager instead.
    */
   @java.lang.Deprecated
-  public A withNewManager(java.lang.String arg0) {
-    return (A)withManager(new String(arg0));
+  public A withNewManager(java.lang.String original) {
+    return (A)withManager(new String(original));
   }
   public java.lang.String getOperation() {
     return this.operation;
@@ -110,8 +110,8 @@ public class V1ManagedFieldsEntryFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withOperation instead.
    */
   @java.lang.Deprecated
-  public A withNewOperation(java.lang.String arg0) {
-    return (A)withOperation(new String(arg0));
+  public A withNewOperation(java.lang.String original) {
+    return (A)withOperation(new String(original));
   }
   public java.lang.String getSubresource() {
     return this.subresource;
@@ -127,8 +127,8 @@ public class V1ManagedFieldsEntryFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withSubresource instead.
    */
   @java.lang.Deprecated
-  public A withNewSubresource(java.lang.String arg0) {
-    return (A)withSubresource(new String(arg0));
+  public A withNewSubresource(java.lang.String original) {
+    return (A)withSubresource(new String(original));
   }
   public java.time.OffsetDateTime getTime() {
     return this.time;

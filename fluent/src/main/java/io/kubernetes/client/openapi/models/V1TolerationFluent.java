@@ -11,15 +11,9 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1TolerationFluent<A extends io.kubernetes.client.openapi.models.V1TolerationFluent<A>> extends io.kubernetes.client.fluent.Fluent<A>{
-  public java.lang.String getEffect();
-  public A withEffect(java.lang.String effect);
+  public io.kubernetes.client.openapi.models.V1Toleration.EffectEnum getEffect();
+  public A withEffect(io.kubernetes.client.openapi.models.V1Toleration.EffectEnum effect);
   public java.lang.Boolean hasEffect();
-  
-  /**
-   * Method is deprecated. use withEffect instead.
-   */
-  @java.lang.Deprecated
-  public A withNewEffect(java.lang.String arg0);
   public java.lang.String getKey();
   public A withKey(java.lang.String key);
   public java.lang.Boolean hasKey();
@@ -28,16 +22,10 @@ public interface V1TolerationFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String arg0);
-  public java.lang.String getOperator();
-  public A withOperator(java.lang.String operator);
+  public A withNewKey(java.lang.String original);
+  public io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum getOperator();
+  public A withOperator(io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum operator);
   public java.lang.Boolean hasOperator();
-  
-  /**
-   * Method is deprecated. use withOperator instead.
-   */
-  @java.lang.Deprecated
-  public A withNewOperator(java.lang.String arg0);
   public java.lang.Long getTolerationSeconds();
   public A withTolerationSeconds(java.lang.Long tolerationSeconds);
   public java.lang.Boolean hasTolerationSeconds();
@@ -49,6 +37,6 @@ public interface V1TolerationFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withValue instead.
    */
   @java.lang.Deprecated
-  public A withNewValue(java.lang.String arg0);
+  public A withNewValue(java.lang.String original);
   
 }

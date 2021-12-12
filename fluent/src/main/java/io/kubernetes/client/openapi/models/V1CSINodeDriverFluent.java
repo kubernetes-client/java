@@ -39,7 +39,7 @@ public interface V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.String getNodeID();
   public A withNodeID(java.lang.String nodeID);
   public java.lang.Boolean hasNodeID();
@@ -48,7 +48,7 @@ public interface V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withNodeID instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeID(java.lang.String arg0);
+  public A withNewNodeID(java.lang.String original);
   public A addToTopologyKeys(java.lang.Integer index,java.lang.String item);
   public A setToTopologyKeys(java.lang.Integer index,java.lang.String item);
   public A addToTopologyKeys(java.lang.String... items);
@@ -64,7 +64,7 @@ public interface V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.mo
   public A withTopologyKeys(java.util.List<java.lang.String> topologyKeys);
   public A withTopologyKeys(java.lang.String... topologyKeys);
   public java.lang.Boolean hasTopologyKeys();
-  public A addNewTopologyKey(java.lang.String arg0);
+  public A addNewTopologyKey(java.lang.String original);
   public interface AllocatableNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<io.kubernetes.client.openapi.models.V1CSINodeDriverFluent.AllocatableNested<N>>{
     public N and();
     public N endAllocatable();

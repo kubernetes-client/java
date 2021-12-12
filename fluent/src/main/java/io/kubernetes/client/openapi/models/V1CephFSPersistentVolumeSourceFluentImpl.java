@@ -89,8 +89,8 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<A extends io.kubernetes.cl
   public java.lang.Boolean hasMonitors() {
     return monitors != null && !monitors.isEmpty();
   }
-  public A addNewMonitor(java.lang.String arg0) {
-    return (A)addToMonitors(new String(arg0));
+  public A addNewMonitor(java.lang.String original) {
+    return (A)addToMonitors(new String(original));
   }
   public java.lang.String getPath() {
     return this.path;
@@ -106,8 +106,8 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0) {
-    return (A)withPath(new String(arg0));
+  public A withNewPath(java.lang.String original) {
+    return (A)withPath(new String(original));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -132,8 +132,8 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withSecretFile instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretFile(java.lang.String arg0) {
-    return (A)withSecretFile(new String(arg0));
+  public A withNewSecretFile(java.lang.String original) {
+    return (A)withSecretFile(new String(original));
   }
   
   /**
@@ -183,8 +183,8 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String arg0) {
-    return (A)withUser(new String(arg0));
+  public A withNewUser(java.lang.String original) {
+    return (A)withUser(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -82,8 +82,8 @@ public class EventsV1EventFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withAction instead.
    */
   @java.lang.Deprecated
-  public A withNewAction(java.lang.String arg0) {
-    return (A)withAction(new String(arg0));
+  public A withNewAction(java.lang.String original) {
+    return (A)withAction(new String(original));
   }
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -99,8 +99,8 @@ public class EventsV1EventFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public java.lang.Integer getDeprecatedCount() {
     return this.deprecatedCount;
@@ -186,8 +186,8 @@ public class EventsV1EventFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   
   /**
@@ -237,8 +237,8 @@ public class EventsV1EventFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withNote instead.
    */
   @java.lang.Deprecated
-  public A withNewNote(java.lang.String arg0) {
-    return (A)withNote(new String(arg0));
+  public A withNewNote(java.lang.String original) {
+    return (A)withNote(new String(original));
   }
   public java.lang.String getReason() {
     return this.reason;
@@ -254,8 +254,8 @@ public class EventsV1EventFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0) {
-    return (A)withReason(new String(arg0));
+  public A withNewReason(java.lang.String original) {
+    return (A)withReason(new String(original));
   }
   
   /**
@@ -339,8 +339,8 @@ public class EventsV1EventFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withReportingController instead.
    */
   @java.lang.Deprecated
-  public A withNewReportingController(java.lang.String arg0) {
-    return (A)withReportingController(new String(arg0));
+  public A withNewReportingController(java.lang.String original) {
+    return (A)withReportingController(new String(original));
   }
   public java.lang.String getReportingInstance() {
     return this.reportingInstance;
@@ -356,8 +356,8 @@ public class EventsV1EventFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withReportingInstance instead.
    */
   @java.lang.Deprecated
-  public A withNewReportingInstance(java.lang.String arg0) {
-    return (A)withReportingInstance(new String(arg0));
+  public A withNewReportingInstance(java.lang.String original) {
+    return (A)withReportingInstance(new String(original));
   }
   
   /**
@@ -407,8 +407,8 @@ public class EventsV1EventFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
+  public A withNewType(java.lang.String original) {
+    return (A)withType(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

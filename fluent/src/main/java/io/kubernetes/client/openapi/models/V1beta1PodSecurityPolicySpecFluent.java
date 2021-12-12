@@ -66,7 +66,7 @@ public interface V1beta1PodSecurityPolicySpecFluent<A extends io.kubernetes.clie
   public A withAllowedCapabilities(java.util.List<java.lang.String> allowedCapabilities);
   public A withAllowedCapabilities(java.lang.String... allowedCapabilities);
   public java.lang.Boolean hasAllowedCapabilities();
-  public A addNewAllowedCapability(java.lang.String arg0);
+  public A addNewAllowedCapability(java.lang.String original);
   public A addToAllowedFlexVolumes(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolume item);
   public A setToAllowedFlexVolumes(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolume item);
   public A addToAllowedFlexVolumes(io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolume... items);
@@ -142,7 +142,7 @@ public interface V1beta1PodSecurityPolicySpecFluent<A extends io.kubernetes.clie
   public A withAllowedProcMountTypes(java.util.List<java.lang.String> allowedProcMountTypes);
   public A withAllowedProcMountTypes(java.lang.String... allowedProcMountTypes);
   public java.lang.Boolean hasAllowedProcMountTypes();
-  public A addNewAllowedProcMountType(java.lang.String arg0);
+  public A addNewAllowedProcMountType(java.lang.String original);
   public A addToAllowedUnsafeSysctls(java.lang.Integer index,java.lang.String item);
   public A setToAllowedUnsafeSysctls(java.lang.Integer index,java.lang.String item);
   public A addToAllowedUnsafeSysctls(java.lang.String... items);
@@ -158,7 +158,7 @@ public interface V1beta1PodSecurityPolicySpecFluent<A extends io.kubernetes.clie
   public A withAllowedUnsafeSysctls(java.util.List<java.lang.String> allowedUnsafeSysctls);
   public A withAllowedUnsafeSysctls(java.lang.String... allowedUnsafeSysctls);
   public java.lang.Boolean hasAllowedUnsafeSysctls();
-  public A addNewAllowedUnsafeSysctl(java.lang.String arg0);
+  public A addNewAllowedUnsafeSysctl(java.lang.String original);
   public A addToDefaultAddCapabilities(java.lang.Integer index,java.lang.String item);
   public A setToDefaultAddCapabilities(java.lang.Integer index,java.lang.String item);
   public A addToDefaultAddCapabilities(java.lang.String... items);
@@ -174,7 +174,7 @@ public interface V1beta1PodSecurityPolicySpecFluent<A extends io.kubernetes.clie
   public A withDefaultAddCapabilities(java.util.List<java.lang.String> defaultAddCapabilities);
   public A withDefaultAddCapabilities(java.lang.String... defaultAddCapabilities);
   public java.lang.Boolean hasDefaultAddCapabilities();
-  public A addNewDefaultAddCapability(java.lang.String arg0);
+  public A addNewDefaultAddCapability(java.lang.String original);
   public java.lang.Boolean getDefaultAllowPrivilegeEscalation();
   public A withDefaultAllowPrivilegeEscalation(java.lang.Boolean defaultAllowPrivilegeEscalation);
   public java.lang.Boolean hasDefaultAllowPrivilegeEscalation();
@@ -193,7 +193,7 @@ public interface V1beta1PodSecurityPolicySpecFluent<A extends io.kubernetes.clie
   public A withForbiddenSysctls(java.util.List<java.lang.String> forbiddenSysctls);
   public A withForbiddenSysctls(java.lang.String... forbiddenSysctls);
   public java.lang.Boolean hasForbiddenSysctls();
-  public A addNewForbiddenSysctl(java.lang.String arg0);
+  public A addNewForbiddenSysctl(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildFsGroup instead.
@@ -269,7 +269,7 @@ public interface V1beta1PodSecurityPolicySpecFluent<A extends io.kubernetes.clie
   public A withRequiredDropCapabilities(java.util.List<java.lang.String> requiredDropCapabilities);
   public A withRequiredDropCapabilities(java.lang.String... requiredDropCapabilities);
   public java.lang.Boolean hasRequiredDropCapabilities();
-  public A addNewRequiredDropCapability(java.lang.String arg0);
+  public A addNewRequiredDropCapability(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildRunAsGroup instead.
@@ -360,7 +360,7 @@ public interface V1beta1PodSecurityPolicySpecFluent<A extends io.kubernetes.clie
   public A withVolumes(java.util.List<java.lang.String> volumes);
   public A withVolumes(java.lang.String... volumes);
   public java.lang.Boolean hasVolumes();
-  public A addNewVolume(java.lang.String arg0);
+  public A addNewVolume(java.lang.String original);
   public interface AllowedCSIDriversNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverFluent<io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.AllowedCSIDriversNested<N>>{
     public N and();
     public N endAllowedCSIDriver();

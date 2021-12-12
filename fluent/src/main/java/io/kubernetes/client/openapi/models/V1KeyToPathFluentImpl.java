@@ -38,8 +38,8 @@ public class V1KeyToPathFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String arg0) {
-    return (A)withKey(new String(arg0));
+  public A withNewKey(java.lang.String original) {
+    return (A)withKey(new String(original));
   }
   public java.lang.Integer getMode() {
     return this.mode;
@@ -64,8 +64,8 @@ public class V1KeyToPathFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0) {
-    return (A)withPath(new String(arg0));
+  public A withNewPath(java.lang.String original) {
+    return (A)withPath(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

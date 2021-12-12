@@ -29,7 +29,7 @@ public class V1NamespaceConditionFluentImpl<A extends io.kubernetes.client.opena
   private java.lang.String message;
   private java.lang.String reason;
   private java.lang.String status;
-  private java.lang.String type;
+  private io.kubernetes.client.openapi.models.V1NamespaceCondition.TypeEnum type;
   public java.time.OffsetDateTime getLastTransitionTime() {
     return this.lastTransitionTime;
   }
@@ -53,8 +53,8 @@ public class V1NamespaceConditionFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0) {
-    return (A)withMessage(new String(arg0));
+  public A withNewMessage(java.lang.String original) {
+    return (A)withMessage(new String(original));
   }
   public java.lang.String getReason() {
     return this.reason;
@@ -70,8 +70,8 @@ public class V1NamespaceConditionFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0) {
-    return (A)withReason(new String(arg0));
+  public A withNewReason(java.lang.String original) {
+    return (A)withReason(new String(original));
   }
   public java.lang.String getStatus() {
     return this.status;
@@ -87,25 +87,17 @@ public class V1NamespaceConditionFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewStatus(java.lang.String arg0) {
-    return (A)withStatus(new String(arg0));
+  public A withNewStatus(java.lang.String original) {
+    return (A)withStatus(new String(original));
   }
-  public java.lang.String getType() {
+  public io.kubernetes.client.openapi.models.V1NamespaceCondition.TypeEnum getType() {
     return this.type;
   }
-  public A withType(java.lang.String type) {
+  public A withType(io.kubernetes.client.openapi.models.V1NamespaceCondition.TypeEnum type) {
     this.type=type; return (A) this;
   }
   public java.lang.Boolean hasType() {
     return this.type != null;
-  }
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -88,15 +88,9 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A> editDnsConfig();
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A> editOrNewDnsConfig();
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A> editOrNewDnsConfigLike(io.kubernetes.client.openapi.models.V1PodDNSConfig item);
-  public java.lang.String getDnsPolicy();
-  public A withDnsPolicy(java.lang.String dnsPolicy);
+  public io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum getDnsPolicy();
+  public A withDnsPolicy(io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum dnsPolicy);
   public java.lang.Boolean hasDnsPolicy();
-  
-  /**
-   * Method is deprecated. use withDnsPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewDnsPolicy(java.lang.String arg0);
   public java.lang.Boolean getEnableServiceLinks();
   public A withEnableServiceLinks(java.lang.Boolean enableServiceLinks);
   public java.lang.Boolean hasEnableServiceLinks();
@@ -177,7 +171,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String arg0);
+  public A withNewHostname(java.lang.String original);
   public A addToImagePullSecrets(java.lang.Integer index,io.kubernetes.client.openapi.models.V1LocalObjectReference item);
   public A setToImagePullSecrets(java.lang.Integer index,io.kubernetes.client.openapi.models.V1LocalObjectReference item);
   public A addToImagePullSecrets(io.kubernetes.client.openapi.models.V1LocalObjectReference... items);
@@ -246,7 +240,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String arg0);
+  public A withNewNodeName(java.lang.String original);
   public A addToNodeSelector(java.lang.String key,java.lang.String value);
   public A addToNodeSelector(java.util.Map<java.lang.String,java.lang.String> map);
   public A removeFromNodeSelector(java.lang.String key);
@@ -254,6 +248,21 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
   public java.util.Map<java.lang.String,java.lang.String> getNodeSelector();
   public <K,V>A withNodeSelector(java.util.Map<java.lang.String,java.lang.String> nodeSelector);
   public java.lang.Boolean hasNodeSelector();
+  
+  /**
+   * This method has been deprecated, please use method buildOs instead.
+   * @return The buildable object.
+   */
+  @java.lang.Deprecated
+  public io.kubernetes.client.openapi.models.V1PodOS getOs();
+  public io.kubernetes.client.openapi.models.V1PodOS buildOs();
+  public A withOs(io.kubernetes.client.openapi.models.V1PodOS os);
+  public java.lang.Boolean hasOs();
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> withNewOs();
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> withNewOsLike(io.kubernetes.client.openapi.models.V1PodOS item);
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> editOs();
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> editOrNewOs();
+  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> editOrNewOsLike(io.kubernetes.client.openapi.models.V1PodOS item);
   public A addToOverhead(java.lang.String key,io.kubernetes.client.custom.Quantity value);
   public A addToOverhead(java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> map);
   public A removeFromOverhead(java.lang.String key);
@@ -269,7 +278,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withPreemptionPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPreemptionPolicy(java.lang.String arg0);
+  public A withNewPreemptionPolicy(java.lang.String original);
   public java.lang.Integer getPriority();
   public A withPriority(java.lang.Integer priority);
   public java.lang.Boolean hasPriority();
@@ -281,7 +290,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withPriorityClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewPriorityClassName(java.lang.String arg0);
+  public A withNewPriorityClassName(java.lang.String original);
   public A addToReadinessGates(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodReadinessGate item);
   public A setToReadinessGates(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodReadinessGate item);
   public A addToReadinessGates(io.kubernetes.client.openapi.models.V1PodReadinessGate... items);
@@ -312,15 +321,9 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<A> editFirstReadinessGate();
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<A> editLastReadinessGate();
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<A> editMatchingReadinessGate(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodReadinessGateBuilder> predicate);
-  public java.lang.String getRestartPolicy();
-  public A withRestartPolicy(java.lang.String restartPolicy);
+  public io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum getRestartPolicy();
+  public A withRestartPolicy(io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum restartPolicy);
   public java.lang.Boolean hasRestartPolicy();
-  
-  /**
-   * Method is deprecated. use withRestartPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewRestartPolicy(java.lang.String arg0);
   public java.lang.String getRuntimeClassName();
   public A withRuntimeClassName(java.lang.String runtimeClassName);
   public java.lang.Boolean hasRuntimeClassName();
@@ -329,7 +332,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withRuntimeClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewRuntimeClassName(java.lang.String arg0);
+  public A withNewRuntimeClassName(java.lang.String original);
   public java.lang.String getSchedulerName();
   public A withSchedulerName(java.lang.String schedulerName);
   public java.lang.Boolean hasSchedulerName();
@@ -338,7 +341,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withSchedulerName instead.
    */
   @java.lang.Deprecated
-  public A withNewSchedulerName(java.lang.String arg0);
+  public A withNewSchedulerName(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildSecurityContext instead.
@@ -362,7 +365,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withServiceAccount instead.
    */
   @java.lang.Deprecated
-  public A withNewServiceAccount(java.lang.String arg0);
+  public A withNewServiceAccount(java.lang.String original);
   public java.lang.String getServiceAccountName();
   public A withServiceAccountName(java.lang.String serviceAccountName);
   public java.lang.Boolean hasServiceAccountName();
@@ -371,7 +374,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withServiceAccountName instead.
    */
   @java.lang.Deprecated
-  public A withNewServiceAccountName(java.lang.String arg0);
+  public A withNewServiceAccountName(java.lang.String original);
   public java.lang.Boolean getSetHostnameAsFQDN();
   public A withSetHostnameAsFQDN(java.lang.Boolean setHostnameAsFQDN);
   public java.lang.Boolean hasSetHostnameAsFQDN();
@@ -386,7 +389,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withSubdomain instead.
    */
   @java.lang.Deprecated
-  public A withNewSubdomain(java.lang.String arg0);
+  public A withNewSubdomain(java.lang.String original);
   public java.lang.Long getTerminationGracePeriodSeconds();
   public A withTerminationGracePeriodSeconds(java.lang.Long terminationGracePeriodSeconds);
   public java.lang.Boolean hasTerminationGracePeriodSeconds();
@@ -513,6 +516,11 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
   public interface InitContainersNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1ContainerFluent<io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<N>>{
     public N and();
     public N endInitContainer();
+    
+  }
+  public interface OsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1PodOSFluent<io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<N>>{
+    public N and();
+    public N endOs();
     
   }
   public interface ReadinessGatesNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<N>>{

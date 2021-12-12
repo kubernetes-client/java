@@ -41,7 +41,7 @@ public interface V1SecurityContextFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withProcMount instead.
    */
   @java.lang.Deprecated
-  public A withNewProcMount(java.lang.String arg0);
+  public A withNewProcMount(java.lang.String original);
   public java.lang.Boolean getReadOnlyRootFilesystem();
   public A withReadOnlyRootFilesystem(java.lang.Boolean readOnlyRootFilesystem);
   public java.lang.Boolean hasReadOnlyRootFilesystem();

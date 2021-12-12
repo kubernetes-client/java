@@ -148,8 +148,8 @@ public class V1beta1FSGroupStrategyOptionsFluentImpl<A extends io.kubernetes.cli
    * Method is deprecated. use withRule instead.
    */
   @java.lang.Deprecated
-  public A withNewRule(java.lang.String arg0) {
-    return (A)withRule(new String(arg0));
+  public A withNewRule(java.lang.String original) {
+    return (A)withRule(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

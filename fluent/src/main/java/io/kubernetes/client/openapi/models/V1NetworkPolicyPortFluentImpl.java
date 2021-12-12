@@ -63,8 +63,8 @@ public class V1NetworkPolicyPortFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0) {
-    return (A)withProtocol(new String(arg0));
+  public A withNewProtocol(java.lang.String original) {
+    return (A)withProtocol(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

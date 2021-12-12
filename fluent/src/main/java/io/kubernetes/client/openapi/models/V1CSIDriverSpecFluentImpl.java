@@ -66,8 +66,8 @@ public class V1CSIDriverSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withFsGroupPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewFsGroupPolicy(java.lang.String arg0) {
-    return (A)withFsGroupPolicy(new String(arg0));
+  public A withNewFsGroupPolicy(java.lang.String original) {
+    return (A)withFsGroupPolicy(new String(original));
   }
   public java.lang.Boolean getPodInfoOnMount() {
     return this.podInfoOnMount;
@@ -253,8 +253,8 @@ public class V1CSIDriverSpecFluentImpl<A extends io.kubernetes.client.openapi.mo
   public java.lang.Boolean hasVolumeLifecycleModes() {
     return volumeLifecycleModes != null && !volumeLifecycleModes.isEmpty();
   }
-  public A addNewVolumeLifecycleMode(java.lang.String arg0) {
-    return (A)addToVolumeLifecycleModes(new String(arg0));
+  public A addNewVolumeLifecycleMode(java.lang.String original) {
+    return (A)addToVolumeLifecycleModes(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

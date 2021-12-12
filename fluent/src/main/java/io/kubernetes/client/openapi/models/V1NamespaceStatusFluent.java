@@ -48,15 +48,9 @@ public interface V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.
   public io.kubernetes.client.openapi.models.V1NamespaceStatusFluent.ConditionsNested<A> editFirstCondition();
   public io.kubernetes.client.openapi.models.V1NamespaceStatusFluent.ConditionsNested<A> editLastCondition();
   public io.kubernetes.client.openapi.models.V1NamespaceStatusFluent.ConditionsNested<A> editMatchingCondition(java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NamespaceConditionBuilder> predicate);
-  public java.lang.String getPhase();
-  public A withPhase(java.lang.String phase);
+  public io.kubernetes.client.openapi.models.V1NamespaceStatus.PhaseEnum getPhase();
+  public A withPhase(io.kubernetes.client.openapi.models.V1NamespaceStatus.PhaseEnum phase);
   public java.lang.Boolean hasPhase();
-  
-  /**
-   * Method is deprecated. use withPhase instead.
-   */
-  @java.lang.Deprecated
-  public A withNewPhase(java.lang.String arg0);
   public interface ConditionsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1NamespaceConditionFluent<io.kubernetes.client.openapi.models.V1NamespaceStatusFluent.ConditionsNested<N>>{
     public N and();
     public N endCondition();

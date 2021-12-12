@@ -76,8 +76,8 @@ public class V1ContainerImageFluentImpl<A extends io.kubernetes.client.openapi.m
   public java.lang.Boolean hasNames() {
     return names != null && !names.isEmpty();
   }
-  public A addNewName(java.lang.String arg0) {
-    return (A)addToNames(new String(arg0));
+  public A addNewName(java.lang.String original) {
+    return (A)addToNames(new String(original));
   }
   public java.lang.Long getSizeBytes() {
     return this.sizeBytes;

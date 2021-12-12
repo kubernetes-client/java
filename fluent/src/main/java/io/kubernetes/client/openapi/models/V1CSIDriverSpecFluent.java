@@ -29,7 +29,7 @@ public interface V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withFsGroupPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewFsGroupPolicy(java.lang.String arg0);
+  public A withNewFsGroupPolicy(java.lang.String original);
   public java.lang.Boolean getPodInfoOnMount();
   public A withPodInfoOnMount(java.lang.Boolean podInfoOnMount);
   public java.lang.Boolean hasPodInfoOnMount();
@@ -84,7 +84,7 @@ public interface V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.mo
   public A withVolumeLifecycleModes(java.util.List<java.lang.String> volumeLifecycleModes);
   public A withVolumeLifecycleModes(java.lang.String... volumeLifecycleModes);
   public java.lang.Boolean hasVolumeLifecycleModes();
-  public A addNewVolumeLifecycleMode(java.lang.String arg0);
+  public A addNewVolumeLifecycleMode(java.lang.String original);
   public interface TokenRequestsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent.TokenRequestsNested<N>>{
     public N and();
     public N endTokenRequest();

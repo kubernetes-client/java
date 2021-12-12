@@ -95,8 +95,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
   public java.lang.Boolean hasAccessModes() {
     return accessModes != null && !accessModes.isEmpty();
   }
-  public A addNewAccessMode(java.lang.String arg0) {
-    return (A)addToAccessModes(new String(arg0));
+  public A addNewAccessMode(java.lang.String original) {
+    return (A)addToAccessModes(new String(original));
   }
   
   /**
@@ -248,8 +248,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String arg0) {
-    return (A)withStorageClassName(new String(arg0));
+  public A withNewStorageClassName(java.lang.String original) {
+    return (A)withStorageClassName(new String(original));
   }
   public java.lang.String getVolumeMode() {
     return this.volumeMode;
@@ -265,8 +265,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeMode instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String arg0) {
-    return (A)withVolumeMode(new String(arg0));
+  public A withNewVolumeMode(java.lang.String original) {
+    return (A)withVolumeMode(new String(original));
   }
   public java.lang.String getVolumeName() {
     return this.volumeName;
@@ -282,8 +282,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<A extends io.kubernetes.clien
    * Method is deprecated. use withVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String arg0) {
-    return (A)withVolumeName(new String(arg0));
+  public A withNewVolumeName(java.lang.String original) {
+    return (A)withVolumeName(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

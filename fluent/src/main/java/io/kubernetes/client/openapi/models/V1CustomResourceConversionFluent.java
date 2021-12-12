@@ -19,7 +19,7 @@ public interface V1CustomResourceConversionFluent<A extends io.kubernetes.client
    * Method is deprecated. use withStrategy instead.
    */
   @java.lang.Deprecated
-  public A withNewStrategy(java.lang.String arg0);
+  public A withNewStrategy(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildWebhook instead.

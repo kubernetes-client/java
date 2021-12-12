@@ -19,6 +19,8 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
 
     this.withFailureThreshold(instance.getFailureThreshold());
 
+    this.withGrpc(instance.getGrpc());
+
     this.withHttpGet(instance.getHttpGet());
 
     this.withInitialDelaySeconds(instance.getInitialDelaySeconds());
@@ -36,6 +38,7 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
   }
   private io.kubernetes.client.openapi.models.V1ExecActionBuilder exec;
   private java.lang.Integer failureThreshold;
+  private io.kubernetes.client.openapi.models.V1GRPCActionBuilder grpc;
   private io.kubernetes.client.openapi.models.V1HTTPGetActionBuilder httpGet;
   private java.lang.Integer initialDelaySeconds;
   private java.lang.Integer periodSeconds;
@@ -85,6 +88,40 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
   }
   public java.lang.Boolean hasFailureThreshold() {
     return this.failureThreshold != null;
+  }
+  
+  /**
+   * This method has been deprecated, please use method buildGrpc instead.
+   * @return The buildable object.
+   */
+  @java.lang.Deprecated
+  public io.kubernetes.client.openapi.models.V1GRPCAction getGrpc() {
+    return this.grpc!=null ?this.grpc.build():null;
+  }
+  public io.kubernetes.client.openapi.models.V1GRPCAction buildGrpc() {
+    return this.grpc!=null ?this.grpc.build():null;
+  }
+  public A withGrpc(io.kubernetes.client.openapi.models.V1GRPCAction grpc) {
+    _visitables.get("grpc").remove(this.grpc);
+    if (grpc!=null){ this.grpc= new io.kubernetes.client.openapi.models.V1GRPCActionBuilder(grpc); _visitables.get("grpc").add(this.grpc);} return (A) this;
+  }
+  public java.lang.Boolean hasGrpc() {
+    return this.grpc != null;
+  }
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> withNewGrpc() {
+    return new io.kubernetes.client.openapi.models.V1ProbeFluentImpl.GrpcNestedImpl();
+  }
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> withNewGrpcLike(io.kubernetes.client.openapi.models.V1GRPCAction item) {
+    return new io.kubernetes.client.openapi.models.V1ProbeFluentImpl.GrpcNestedImpl(item);
+  }
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> editGrpc() {
+    return withNewGrpcLike(getGrpc());
+  }
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> editOrNewGrpc() {
+    return withNewGrpcLike(getGrpc() != null ? getGrpc(): new io.kubernetes.client.openapi.models.V1GRPCActionBuilder().build());
+  }
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> editOrNewGrpcLike(io.kubernetes.client.openapi.models.V1GRPCAction item) {
+    return withNewGrpcLike(getGrpc() != null ? getGrpc(): item);
   }
   
   /**
@@ -205,6 +242,7 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     V1ProbeFluentImpl that = (V1ProbeFluentImpl) o;
     if (exec != null ? !exec.equals(that.exec) :that.exec != null) return false;
     if (failureThreshold != null ? !failureThreshold.equals(that.failureThreshold) :that.failureThreshold != null) return false;
+    if (grpc != null ? !grpc.equals(that.grpc) :that.grpc != null) return false;
     if (httpGet != null ? !httpGet.equals(that.httpGet) :that.httpGet != null) return false;
     if (initialDelaySeconds != null ? !initialDelaySeconds.equals(that.initialDelaySeconds) :that.initialDelaySeconds != null) return false;
     if (periodSeconds != null ? !periodSeconds.equals(that.periodSeconds) :that.periodSeconds != null) return false;
@@ -215,7 +253,7 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     return true;
   }
   public int hashCode() {
-    return java.util.Objects.hash(exec,  failureThreshold,  httpGet,  initialDelaySeconds,  periodSeconds,  successThreshold,  tcpSocket,  terminationGracePeriodSeconds,  timeoutSeconds,  super.hashCode());
+    return java.util.Objects.hash(exec,  failureThreshold,  grpc,  httpGet,  initialDelaySeconds,  periodSeconds,  successThreshold,  tcpSocket,  terminationGracePeriodSeconds,  timeoutSeconds,  super.hashCode());
   }
   public class ExecNestedImpl<N> extends io.kubernetes.client.openapi.models.V1ExecActionFluentImpl<io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<N>> implements io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<N>,io.kubernetes.client.fluent.Nested<N>{
     ExecNestedImpl(io.kubernetes.client.openapi.models.V1ExecAction item) {
@@ -229,6 +267,22 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
       return (N) V1ProbeFluentImpl.this.withExec(builder.build());
     }
     public N endExec() {
+      return and();
+    }
+    
+  }
+  public class GrpcNestedImpl<N> extends io.kubernetes.client.openapi.models.V1GRPCActionFluentImpl<io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<N>> implements io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<N>,io.kubernetes.client.fluent.Nested<N>{
+    GrpcNestedImpl(io.kubernetes.client.openapi.models.V1GRPCAction item) {
+      this.builder = new io.kubernetes.client.openapi.models.V1GRPCActionBuilder(this, item);
+    }
+    GrpcNestedImpl() {
+      this.builder = new io.kubernetes.client.openapi.models.V1GRPCActionBuilder(this);
+    }
+    io.kubernetes.client.openapi.models.V1GRPCActionBuilder builder;
+    public N and() {
+      return (N) V1ProbeFluentImpl.this.withGrpc(builder.build());
+    }
+    public N endGrpc() {
       return and();
     }
     

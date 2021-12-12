@@ -40,8 +40,8 @@ public class V1WindowsSecurityContextOptionsFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withGmsaCredentialSpec instead.
    */
   @java.lang.Deprecated
-  public A withNewGmsaCredentialSpec(java.lang.String arg0) {
-    return (A)withGmsaCredentialSpec(new String(arg0));
+  public A withNewGmsaCredentialSpec(java.lang.String original) {
+    return (A)withGmsaCredentialSpec(new String(original));
   }
   public java.lang.String getGmsaCredentialSpecName() {
     return this.gmsaCredentialSpecName;
@@ -57,8 +57,8 @@ public class V1WindowsSecurityContextOptionsFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withGmsaCredentialSpecName instead.
    */
   @java.lang.Deprecated
-  public A withNewGmsaCredentialSpecName(java.lang.String arg0) {
-    return (A)withGmsaCredentialSpecName(new String(arg0));
+  public A withNewGmsaCredentialSpecName(java.lang.String original) {
+    return (A)withGmsaCredentialSpecName(new String(original));
   }
   public java.lang.Boolean getHostProcess() {
     return this.hostProcess;
@@ -83,8 +83,8 @@ public class V1WindowsSecurityContextOptionsFluentImpl<A extends io.kubernetes.c
    * Method is deprecated. use withRunAsUserName instead.
    */
   @java.lang.Deprecated
-  public A withNewRunAsUserName(java.lang.String arg0) {
-    return (A)withRunAsUserName(new String(arg0));
+  public A withNewRunAsUserName(java.lang.String original) {
+    return (A)withRunAsUserName(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

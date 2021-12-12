@@ -32,7 +32,7 @@ public interface V1APIServiceSpecFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String arg0);
+  public A withNewGroup(java.lang.String original);
   public java.lang.Integer getGroupPriorityMinimum();
   public A withGroupPriorityMinimum(java.lang.Integer groupPriorityMinimum);
   public java.lang.Boolean hasGroupPriorityMinimum();
@@ -62,7 +62,7 @@ public interface V1APIServiceSpecFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewVersion(java.lang.String arg0);
+  public A withNewVersion(java.lang.String original);
   public java.lang.Integer getVersionPriority();
   public A withVersionPriority(java.lang.Integer versionPriority);
   public java.lang.Boolean hasVersionPriority();

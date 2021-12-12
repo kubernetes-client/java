@@ -57,8 +57,8 @@ public class V2beta1ObjectMetricSourceFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withMetricName instead.
    */
   @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String arg0) {
-    return (A)withMetricName(new String(arg0));
+  public A withNewMetricName(java.lang.String original) {
+    return (A)withMetricName(new String(original));
   }
   
   /**

@@ -30,7 +30,7 @@ public interface V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.c
   public A withCategories(java.util.List<java.lang.String> categories);
   public A withCategories(java.lang.String... categories);
   public java.lang.Boolean hasCategories();
-  public A addNewCategory(java.lang.String arg0);
+  public A addNewCategory(java.lang.String original);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -39,7 +39,7 @@ public interface V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.c
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   public java.lang.String getListKind();
   public A withListKind(java.lang.String listKind);
   public java.lang.Boolean hasListKind();
@@ -48,7 +48,7 @@ public interface V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.c
    * Method is deprecated. use withListKind instead.
    */
   @java.lang.Deprecated
-  public A withNewListKind(java.lang.String arg0);
+  public A withNewListKind(java.lang.String original);
   public java.lang.String getPlural();
   public A withPlural(java.lang.String plural);
   public java.lang.Boolean hasPlural();
@@ -57,7 +57,7 @@ public interface V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.c
    * Method is deprecated. use withPlural instead.
    */
   @java.lang.Deprecated
-  public A withNewPlural(java.lang.String arg0);
+  public A withNewPlural(java.lang.String original);
   public A addToShortNames(java.lang.Integer index,java.lang.String item);
   public A setToShortNames(java.lang.Integer index,java.lang.String item);
   public A addToShortNames(java.lang.String... items);
@@ -73,7 +73,7 @@ public interface V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.c
   public A withShortNames(java.util.List<java.lang.String> shortNames);
   public A withShortNames(java.lang.String... shortNames);
   public java.lang.Boolean hasShortNames();
-  public A addNewShortName(java.lang.String arg0);
+  public A addNewShortName(java.lang.String original);
   public java.lang.String getSingular();
   public A withSingular(java.lang.String singular);
   public java.lang.Boolean hasSingular();
@@ -82,6 +82,6 @@ public interface V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.c
    * Method is deprecated. use withSingular instead.
    */
   @java.lang.Deprecated
-  public A withNewSingular(java.lang.String arg0);
+  public A withNewSingular(java.lang.String original);
   
 }

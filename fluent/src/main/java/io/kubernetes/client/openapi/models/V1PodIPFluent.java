@@ -18,6 +18,6 @@ public interface V1PodIPFluent<A extends io.kubernetes.client.openapi.models.V1P
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String arg0);
+  public A withNewIp(java.lang.String original);
   
 }

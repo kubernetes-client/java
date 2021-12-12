@@ -163,8 +163,8 @@ public class V1ConfigMapVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Boolean getOptional() {
     return this.optional;

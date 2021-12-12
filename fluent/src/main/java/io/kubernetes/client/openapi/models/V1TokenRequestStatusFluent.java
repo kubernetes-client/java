@@ -22,6 +22,6 @@ public interface V1TokenRequestStatusFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withToken instead.
    */
   @java.lang.Deprecated
-  public A withNewToken(java.lang.String arg0);
+  public A withNewToken(java.lang.String original);
   
 }

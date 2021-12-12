@@ -19,7 +19,7 @@ public interface V1TCPSocketActionFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withHost instead.
    */
   @java.lang.Deprecated
-  public A withNewHost(java.lang.String arg0);
+  public A withNewHost(java.lang.String original);
   public io.kubernetes.client.custom.IntOrString getPort();
   public A withPort(io.kubernetes.client.custom.IntOrString port);
   public java.lang.Boolean hasPort();

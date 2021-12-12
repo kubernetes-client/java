@@ -109,8 +109,8 @@ public class V1NodeConfigStatusFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String arg0) {
-    return (A)withError(new String(arg0));
+  public A withNewError(java.lang.String original) {
+    return (A)withError(new String(original));
   }
   
   /**

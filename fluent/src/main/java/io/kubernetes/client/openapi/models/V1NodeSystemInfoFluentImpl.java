@@ -58,8 +58,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withArchitecture instead.
    */
   @java.lang.Deprecated
-  public A withNewArchitecture(java.lang.String arg0) {
-    return (A)withArchitecture(new String(arg0));
+  public A withNewArchitecture(java.lang.String original) {
+    return (A)withArchitecture(new String(original));
   }
   public java.lang.String getBootID() {
     return this.bootID;
@@ -75,8 +75,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withBootID instead.
    */
   @java.lang.Deprecated
-  public A withNewBootID(java.lang.String arg0) {
-    return (A)withBootID(new String(arg0));
+  public A withNewBootID(java.lang.String original) {
+    return (A)withBootID(new String(original));
   }
   public java.lang.String getContainerRuntimeVersion() {
     return this.containerRuntimeVersion;
@@ -92,8 +92,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withContainerRuntimeVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewContainerRuntimeVersion(java.lang.String arg0) {
-    return (A)withContainerRuntimeVersion(new String(arg0));
+  public A withNewContainerRuntimeVersion(java.lang.String original) {
+    return (A)withContainerRuntimeVersion(new String(original));
   }
   public java.lang.String getKernelVersion() {
     return this.kernelVersion;
@@ -109,8 +109,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withKernelVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewKernelVersion(java.lang.String arg0) {
-    return (A)withKernelVersion(new String(arg0));
+  public A withNewKernelVersion(java.lang.String original) {
+    return (A)withKernelVersion(new String(original));
   }
   public java.lang.String getKubeProxyVersion() {
     return this.kubeProxyVersion;
@@ -126,8 +126,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withKubeProxyVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewKubeProxyVersion(java.lang.String arg0) {
-    return (A)withKubeProxyVersion(new String(arg0));
+  public A withNewKubeProxyVersion(java.lang.String original) {
+    return (A)withKubeProxyVersion(new String(original));
   }
   public java.lang.String getKubeletVersion() {
     return this.kubeletVersion;
@@ -143,8 +143,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withKubeletVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewKubeletVersion(java.lang.String arg0) {
-    return (A)withKubeletVersion(new String(arg0));
+  public A withNewKubeletVersion(java.lang.String original) {
+    return (A)withKubeletVersion(new String(original));
   }
   public java.lang.String getMachineID() {
     return this.machineID;
@@ -160,8 +160,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withMachineID instead.
    */
   @java.lang.Deprecated
-  public A withNewMachineID(java.lang.String arg0) {
-    return (A)withMachineID(new String(arg0));
+  public A withNewMachineID(java.lang.String original) {
+    return (A)withMachineID(new String(original));
   }
   public java.lang.String getOperatingSystem() {
     return this.operatingSystem;
@@ -177,8 +177,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withOperatingSystem instead.
    */
   @java.lang.Deprecated
-  public A withNewOperatingSystem(java.lang.String arg0) {
-    return (A)withOperatingSystem(new String(arg0));
+  public A withNewOperatingSystem(java.lang.String original) {
+    return (A)withOperatingSystem(new String(original));
   }
   public java.lang.String getOsImage() {
     return this.osImage;
@@ -194,8 +194,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withOsImage instead.
    */
   @java.lang.Deprecated
-  public A withNewOsImage(java.lang.String arg0) {
-    return (A)withOsImage(new String(arg0));
+  public A withNewOsImage(java.lang.String original) {
+    return (A)withOsImage(new String(original));
   }
   public java.lang.String getSystemUUID() {
     return this.systemUUID;
@@ -211,8 +211,8 @@ public class V1NodeSystemInfoFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withSystemUUID instead.
    */
   @java.lang.Deprecated
-  public A withNewSystemUUID(java.lang.String arg0) {
-    return (A)withSystemUUID(new String(arg0));
+  public A withNewSystemUUID(java.lang.String original) {
+    return (A)withSystemUUID(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

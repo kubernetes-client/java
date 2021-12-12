@@ -41,7 +41,7 @@ public interface V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.cl
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String arg0);
+  public A withNewGroup(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildNames instead.
@@ -68,7 +68,7 @@ public interface V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.cl
    * Method is deprecated. use withScope instead.
    */
   @java.lang.Deprecated
-  public A withNewScope(java.lang.String arg0);
+  public A withNewScope(java.lang.String original);
   public A addToVersions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion item);
   public A setToVersions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion item);
   public A addToVersions(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion... items);

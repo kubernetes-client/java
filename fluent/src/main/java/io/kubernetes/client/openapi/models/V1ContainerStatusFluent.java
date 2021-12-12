@@ -20,7 +20,7 @@ public interface V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withContainerID instead.
    */
   @java.lang.Deprecated
-  public A withNewContainerID(java.lang.String arg0);
+  public A withNewContainerID(java.lang.String original);
   public java.lang.String getImage();
   public A withImage(java.lang.String image);
   public java.lang.Boolean hasImage();
@@ -29,7 +29,7 @@ public interface V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withImage instead.
    */
   @java.lang.Deprecated
-  public A withNewImage(java.lang.String arg0);
+  public A withNewImage(java.lang.String original);
   public java.lang.String getImageID();
   public A withImageID(java.lang.String imageID);
   public java.lang.Boolean hasImageID();
@@ -38,7 +38,7 @@ public interface V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withImageID instead.
    */
   @java.lang.Deprecated
-  public A withNewImageID(java.lang.String arg0);
+  public A withNewImageID(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildLastState instead.
@@ -62,7 +62,7 @@ public interface V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.Boolean getReady();
   public A withReady(java.lang.Boolean ready);
   public java.lang.Boolean hasReady();

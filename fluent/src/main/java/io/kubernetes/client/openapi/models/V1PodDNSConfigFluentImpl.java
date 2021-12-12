@@ -82,8 +82,8 @@ public class V1PodDNSConfigFluentImpl<A extends io.kubernetes.client.openapi.mod
   public java.lang.Boolean hasNameservers() {
     return nameservers != null && !nameservers.isEmpty();
   }
-  public A addNewNameserver(java.lang.String arg0) {
-    return (A)addToNameservers(new String(arg0));
+  public A addNewNameserver(java.lang.String original) {
+    return (A)addToNameservers(new String(original));
   }
   public A addToOptions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodDNSConfigOption item) {
     if (this.options == null) {this.options = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder>();}
@@ -242,8 +242,8 @@ public class V1PodDNSConfigFluentImpl<A extends io.kubernetes.client.openapi.mod
   public java.lang.Boolean hasSearches() {
     return searches != null && !searches.isEmpty();
   }
-  public A addNewSearch(java.lang.String arg0) {
-    return (A)addToSearches(new String(arg0));
+  public A addNewSearch(java.lang.String original) {
+    return (A)addToSearches(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

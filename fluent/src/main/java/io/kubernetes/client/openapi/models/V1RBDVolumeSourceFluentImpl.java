@@ -58,8 +58,8 @@ public class V1RBDVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0) {
-    return (A)withFsType(new String(arg0));
+  public A withNewFsType(java.lang.String original) {
+    return (A)withFsType(new String(original));
   }
   public java.lang.String getImage() {
     return this.image;
@@ -75,8 +75,8 @@ public class V1RBDVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withImage instead.
    */
   @java.lang.Deprecated
-  public A withNewImage(java.lang.String arg0) {
-    return (A)withImage(new String(arg0));
+  public A withNewImage(java.lang.String original) {
+    return (A)withImage(new String(original));
   }
   public java.lang.String getKeyring() {
     return this.keyring;
@@ -92,8 +92,8 @@ public class V1RBDVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withKeyring instead.
    */
   @java.lang.Deprecated
-  public A withNewKeyring(java.lang.String arg0) {
-    return (A)withKeyring(new String(arg0));
+  public A withNewKeyring(java.lang.String original) {
+    return (A)withKeyring(new String(original));
   }
   public A addToMonitors(java.lang.Integer index,java.lang.String item) {
     if (this.monitors == null) {this.monitors = new java.util.ArrayList<java.lang.String>();}
@@ -146,8 +146,8 @@ public class V1RBDVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.
   public java.lang.Boolean hasMonitors() {
     return monitors != null && !monitors.isEmpty();
   }
-  public A addNewMonitor(java.lang.String arg0) {
-    return (A)addToMonitors(new String(arg0));
+  public A addNewMonitor(java.lang.String original) {
+    return (A)addToMonitors(new String(original));
   }
   public java.lang.String getPool() {
     return this.pool;
@@ -163,8 +163,8 @@ public class V1RBDVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPool instead.
    */
   @java.lang.Deprecated
-  public A withNewPool(java.lang.String arg0) {
-    return (A)withPool(new String(arg0));
+  public A withNewPool(java.lang.String original) {
+    return (A)withPool(new String(original));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
@@ -223,8 +223,8 @@ public class V1RBDVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String arg0) {
-    return (A)withUser(new String(arg0));
+  public A withNewUser(java.lang.String original) {
+    return (A)withUser(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -94,8 +94,8 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
   public java.lang.Boolean hasAddresses() {
     return addresses != null && !addresses.isEmpty();
   }
-  public A addNewAddress(java.lang.String arg0) {
-    return (A)addToAddresses(new String(arg0));
+  public A addNewAddress(java.lang.String original) {
+    return (A)addToAddresses(new String(original));
   }
   
   /**
@@ -179,8 +179,8 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String arg0) {
-    return (A)withHostname(new String(arg0));
+  public A withNewHostname(java.lang.String original) {
+    return (A)withHostname(new String(original));
   }
   public java.lang.String getNodeName() {
     return this.nodeName;
@@ -196,8 +196,8 @@ public class V1beta1EndpointFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String arg0) {
-    return (A)withNodeName(new String(arg0));
+  public A withNewNodeName(java.lang.String original) {
+    return (A)withNodeName(new String(original));
   }
   
   /**
