@@ -16,6 +16,7 @@ import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1Container;
 import io.kubernetes.client.openapi.models.V1JSONSchemaProps;
 import java.io.File;
 import java.io.FileReader;
@@ -228,8 +229,8 @@ public class Yaml {
 
   /** Defines constructor logic for custom types in this library. */
   public static class CustomConstructor extends Constructor {
-    public CustomConstructor(Class<?> type) {
-      super(type);
+    public CustomConstructor(Class<?> type, LoaderOptions loaderConfig) {
+      super(type, loaderConfig);
     }
 
     @Override
@@ -274,6 +275,15 @@ public class Yaml {
       this.representers.put(byte[].class, new RepresentByteArray());
       this.representers.put(Quantity.class, new RepresentQuantity());
       this.representers.put(OffsetDateTime.class, new RepresentDateTime());
+      this.representers.put(V1Container.ImagePullPolicyEnum.class, new RepresentImagePull());
+    }
+
+    private class RepresentImagePull implements Represent {
+      @Override
+      public Node representData(Object data) {
+        return CustomRepresenter.this.representData(
+            ((V1Container.ImagePullPolicyEnum) data).getValue());
+      }
     }
 
     private class RepresentDateTime implements Represent {
@@ -411,23 +421,30 @@ public class Yaml {
       DumperOptions dumperOptions,
       LoaderOptions loaderOptions,
       TypeDescription... typeDescriptions) {
-    BaseConstructor constructor = new SafeConstructor();
+    if (loaderOptions == null) {
+      loaderOptions = new LoaderOptions();
+    }
+    loaderOptions.setEnumCaseSensitive(false);
+
+    BaseConstructor constructor = new SafeConstructor(loaderOptions);
     Representer representer = new CustomRepresenter();
     if (type != null) {
-      constructor = new CustomConstructor(type);
+      constructor = new CustomConstructor(type, loaderOptions);
     }
     // register builtin type descriptions
     registerBuiltinGsonCompatibles(constructor, representer);
     for (TypeDescription desc : typeDescriptions) {
       registerCustomTypeDescriptions(constructor, representer, desc);
     }
-    if (dumperOptions != null) {
-      if (loaderOptions != null) {
-        return new org.yaml.snakeyaml.Yaml(constructor, representer, dumperOptions, loaderOptions);
-      }
-      return new org.yaml.snakeyaml.Yaml(constructor, representer, dumperOptions);
+    if (dumperOptions == null) {
+      dumperOptions = new DumperOptions();
+      dumperOptions.setDefaultFlowStyle(representer.getDefaultFlowStyle());
+      dumperOptions.setDefaultScalarStyle(representer.getDefaultScalarStyle());
+      dumperOptions.setAllowReadOnlyProperties(
+          representer.getPropertyUtils().isAllowReadOnlyProperties());
+      dumperOptions.setTimeZone(representer.getTimeZone());
     }
-    return new org.yaml.snakeyaml.Yaml(constructor, representer);
+    return new org.yaml.snakeyaml.Yaml(constructor, representer, dumperOptions, loaderOptions);
   }
 
   /**

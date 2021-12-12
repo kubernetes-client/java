@@ -28,7 +28,7 @@ class CoreV1ApiTest extends Specification {
 		Configuration.setDefaultApiClient(apiClient)
 		def namespaceFoo = new V1Namespace().metadata(new V1ObjectMeta().name("e2e-basic"))
 		when:
-		V1Namespace created = corev1api.createNamespace(namespaceFoo, null, null, null)
+		V1Namespace created = corev1api.createNamespace(namespaceFoo, null, null, null, null)
 		then:
 		created != null
 		when:

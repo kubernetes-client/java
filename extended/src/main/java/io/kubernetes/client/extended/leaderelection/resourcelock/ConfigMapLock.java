@@ -97,7 +97,7 @@ public class ConfigMapLock implements Lock {
       }
       configMap.setMetadata(objectMeta);
       V1ConfigMap createdConfigMap =
-          coreV1Client.createNamespacedConfigMap(namespace, configMap, null, null, null);
+          coreV1Client.createNamespacedConfigMap(namespace, configMap, null, null, null, null);
       configMapRefer.set(createdConfigMap);
       return true;
     } catch (ApiException e) {
@@ -121,7 +121,8 @@ public class ConfigMapLock implements Lock {
               coreV1Client.getApiClient().getJSON().serialize(record));
       // TODO consider to retry if receiving a 409 code
       V1ConfigMap replacedConfigMap =
-          coreV1Client.replaceNamespacedConfigMap(name, namespace, configMap, null, null, null);
+          coreV1Client.replaceNamespacedConfigMap(
+              name, namespace, configMap, null, null, null, null);
       configMapRefer.set(replacedConfigMap);
       return true;
     } catch (ApiException e) {

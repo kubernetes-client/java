@@ -44,7 +44,7 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
           @Override
           public CoreV1Event create(CoreV1Event event) throws ApiException {
             return coreV1Api.createNamespacedEvent(
-                event.getMetadata().getNamespace(), event, null, null, null);
+                event.getMetadata().getNamespace(), event, null, null, null, null);
           }
 
           @Override
@@ -53,6 +53,7 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
                 event.getMetadata().getName(),
                 event.getMetadata().getNamespace(),
                 event,
+                null,
                 null,
                 null,
                 null);
@@ -67,6 +68,7 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
                         event.getMetadata().getName(),
                         event.getMetadata().getNamespace(),
                         patch,
+                        null,
                         null,
                         null,
                         null,

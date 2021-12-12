@@ -16,7 +16,9 @@
     <module>fluent</module>
     <module>spring</module>
     <module>e2e</module>
+<!--
     <module>examples</module>
+-->
     <module>client-java-contrib/cert-manager</module>
     <module>client-java-contrib/prometheus-operator</module>
     <module>client-java-contrib/admissionreview</module>

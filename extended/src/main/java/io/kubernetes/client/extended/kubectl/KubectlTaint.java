@@ -12,12 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
+import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.NOEXECUTE;
+import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.NOSCHEDULE;
+import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.PREFERNOSCHEDULE;
+
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Node;
+import io.kubernetes.client.openapi.models.V1Taint;
 import io.kubernetes.client.util.taints.Taints;
-import io.kubernetes.client.util.taints.Taints.Effect;
 import io.kubernetes.client.util.taints.Taints.TaintsBuilder;
 import java.io.IOException;
 import java.util.HashMap;
@@ -82,18 +86,18 @@ public class KubectlTaint extends Kubectl.ResourceBuilder<V1Node, KubectlTaint>
         builder.removeTaint(taint.getKey(), makeEffect(taint.getValue()));
       }
     }
-    return v1.replaceNode(name, node, null, null, null);
+    return v1.replaceNode(name, node, null, null, null, null);
   }
 
-  private Effect makeEffect(String effect) throws KubectlException {
-    if (effect.equals(Effect.NO_SCHEDULE.toString())) {
-      return Effect.NO_SCHEDULE;
+  private V1Taint.EffectEnum makeEffect(String effect) throws KubectlException {
+    if (effect.equals(NOSCHEDULE.toString())) {
+      return NOSCHEDULE;
     }
-    if (effect.equals(Effect.PREFER_NO_SCHEDULE.toString())) {
-      return Effect.PREFER_NO_SCHEDULE;
+    if (effect.equals(PREFERNOSCHEDULE.toString())) {
+      return PREFERNOSCHEDULE;
     }
-    if (effect.equals(Effect.NO_EXECUTE.toString())) {
-      return Effect.NO_EXECUTE;
+    if (effect.equals(NOEXECUTE.toString())) {
+      return NOEXECUTE;
     }
     throw new KubectlException("Unknown effect: " + effect);
   }

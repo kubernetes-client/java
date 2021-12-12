@@ -12,6 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.util.taints;
 
+import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.NOEXECUTE;
+import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.NOSCHEDULE;
+import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.PREFERNOSCHEDULE;
 import static io.kubernetes.client.util.taints.Taints.taints;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -23,38 +26,36 @@ public class TaintsTest {
   @Test
   public void testAddTaints() {
     V1Node node = new V1Node();
-    taints(node)
-        .addTaint("key1", Taints.Effect.NO_SCHEDULE)
-        .addTaint("key2", Taints.Effect.PREFER_NO_SCHEDULE);
+    taints(node).addTaint("key1", NOSCHEDULE).addTaint("key2", PREFERNOSCHEDULE);
 
-    assertNotNull(Taints.findTaint(node, "key1", Taints.Effect.NO_SCHEDULE));
-    assertNotNull(Taints.findTaint(node, "key2", Taints.Effect.PREFER_NO_SCHEDULE));
+    assertNotNull(Taints.findTaint(node, "key1", NOSCHEDULE));
+    assertNotNull(Taints.findTaint(node, "key2", PREFERNOSCHEDULE));
   }
 
   @Test
   public void testRemoveTaints() {
     V1Node node = new V1Node();
     taints(node)
-        .addTaint("key1", Taints.Effect.NO_SCHEDULE)
-        .addTaint("key1", Taints.Effect.PREFER_NO_SCHEDULE)
-        .addTaint("key1", Taints.Effect.NO_EXECUTE)
-        .addTaint("key2", Taints.Effect.PREFER_NO_SCHEDULE)
-        .addTaint("key3", Taints.Effect.NO_SCHEDULE)
-        .addTaint("key3", Taints.Effect.NO_EXECUTE);
+        .addTaint("key1", NOSCHEDULE)
+        .addTaint("key1", PREFERNOSCHEDULE)
+        .addTaint("key1", NOEXECUTE)
+        .addTaint("key2", PREFERNOSCHEDULE)
+        .addTaint("key3", NOSCHEDULE)
+        .addTaint("key3", NOEXECUTE);
 
     taints(node)
         // Remove all
         .removeTaint("key1")
         // Shouldn't remove, 'effect' is different.
-        .removeTaint("key2", Taints.Effect.NO_SCHEDULE)
+        .removeTaint("key2", NOSCHEDULE)
         // Remove matching
-        .removeTaint("key3", Taints.Effect.NO_EXECUTE);
+        .removeTaint("key3", NOEXECUTE);
 
-    assertNull(Taints.findTaint(node, "key1", Taints.Effect.NO_SCHEDULE));
-    assertNull(Taints.findTaint(node, "key1", Taints.Effect.PREFER_NO_SCHEDULE));
-    assertNull(Taints.findTaint(node, "key1", Taints.Effect.NO_EXECUTE));
-    assertNull(Taints.findTaint(node, "key3", Taints.Effect.NO_EXECUTE));
-    assertNotNull(Taints.findTaint(node, "key2", Taints.Effect.PREFER_NO_SCHEDULE));
-    assertNotNull(Taints.findTaint(node, "key3", Taints.Effect.NO_SCHEDULE));
+    assertNull(Taints.findTaint(node, "key1", NOSCHEDULE));
+    assertNull(Taints.findTaint(node, "key1", PREFERNOSCHEDULE));
+    assertNull(Taints.findTaint(node, "key1", NOEXECUTE));
+    assertNull(Taints.findTaint(node, "key3", NOEXECUTE));
+    assertNotNull(Taints.findTaint(node, "key2", PREFERNOSCHEDULE));
+    assertNotNull(Taints.findTaint(node, "key3", NOSCHEDULE));
   }
 }
