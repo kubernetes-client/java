@@ -49,7 +49,7 @@ public class ExampleTest {
                     .withBody(client.getJSON().serialize(ns1))));
 
     CoreV1Api api = new CoreV1Api();
-    V1Namespace ns2 = api.readNamespace("name", null);
+    V1Namespace ns2 = api.readNamespace("name", null, null, null);
     assertEquals(ns1, ns2);
   }
 }
