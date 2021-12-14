@@ -13,6 +13,8 @@ limitations under the License.
 package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.mock;
@@ -35,6 +37,7 @@ import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.BiConsumer;
 import org.awaitility.Awaitility;
 import org.hamcrest.core.IsEqual;
 import org.junit.Test;
@@ -45,9 +48,13 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class ReflectorRunnableTest {
 
+  private static final Class<V1Pod> anyApiType = V1Pod.class;
+
   @Mock private DeltaFIFO deltaFIFO;
 
   @Mock private ListerWatcher<V1Pod, V1PodList> listerWatcher;
+
+  @Mock private BiConsumer<Class<V1Pod>, Throwable> exceptionHandler;
 
   @Test
   public void testReflectorRunOnce() throws ApiException {
@@ -342,5 +349,21 @@ public class ReflectorRunnableTest {
     } finally {
       reflectorRunnable.stop();
     }
+  }
+
+  @Test
+  public void testDefaultExceptionHandlerSetPerDefault() {
+    ReflectorRunnable<V1Pod, V1PodList> reflector =
+        new ReflectorRunnable<>(anyApiType, listerWatcher, deltaFIFO);
+
+    assertNotNull(reflector.exceptionHandler);
+  }
+
+  @Test
+  public void testGivemExceptionHandlerSet() {
+    ReflectorRunnable<V1Pod, V1PodList> reflector =
+        new ReflectorRunnable<>(anyApiType, listerWatcher, deltaFIFO, exceptionHandler);
+
+    assertSame(exceptionHandler, reflector.exceptionHandler);
   }
 }

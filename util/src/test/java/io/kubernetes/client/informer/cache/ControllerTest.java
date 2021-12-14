@@ -14,6 +14,7 @@ package io.kubernetes.client.informer.cache;
 
 import static org.junit.Assert.*;
 
+import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.openapi.models.V1ListMeta;
@@ -23,12 +24,35 @@ import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.Watch;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+import org.apache.commons.lang3.tuple.MutablePair;
 import org.awaitility.Awaitility;
 import org.hamcrest.core.IsEqual;
+import org.junit.Rule;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
 public class ControllerTest {
+
+  @Rule public MockitoRule mockitoRule = MockitoJUnit.rule();
+
+  private static final Class<V1Pod> anyApiTypeClass = V1Pod.class;
+  private static final long anyFullResyncPeriod = 1000L;
+
+  @Mock private DeltaFIFO deltaFIFOMock;
+  @Mock private ListerWatcher<V1Pod, V1PodList> listerWatcherMock;
+
+  @Mock
+  private Consumer<Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>> popProcessFuncMock;
+
+  @Mock private Supplier<Boolean> resyncFuncMock;
+  @Mock private BiConsumer<Class<V1Pod>, Throwable> exceptionHandlerMock;
 
   @Test
   public void testControllerProcessDeltas() {
@@ -74,5 +98,38 @@ public class ControllerTest {
     } finally {
       controller.stop();
     }
+  }
+
+  @Test
+  public void testReflectorIsConstructedWithExeptionHandler() {
+    Controller<V1Pod, V1PodList> controller =
+        new Controller<>(
+            anyApiTypeClass,
+            deltaFIFOMock,
+            listerWatcherMock,
+            popProcessFuncMock,
+            resyncFuncMock,
+            anyFullResyncPeriod,
+            exceptionHandlerMock);
+    assertSame(exceptionHandlerMock, controller.exceptionHandler);
+
+    ReflectorRunnable<V1Pod, V1PodList> reflector = controller.newReflector();
+
+    assertSame(exceptionHandlerMock, reflector.exceptionHandler);
+  }
+
+  @Test
+  public void testControllerHasNoExceptionHandlerPerDefault() {
+
+    Controller<V1Pod, V1PodList> controller =
+        new Controller<>(
+            anyApiTypeClass,
+            deltaFIFOMock,
+            listerWatcherMock,
+            popProcessFuncMock,
+            resyncFuncMock,
+            anyFullResyncPeriod);
+
+    assertNull(controller.exceptionHandler);
   }
 }
