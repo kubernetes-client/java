@@ -19,6 +19,8 @@
 		<module>examples-release-11</module>
 		<module>examples-release-12</module>
 		<module>examples-release-13</module>
+		<module>examples-release-14</module>
+		<module>examples-release-15</module>
 	</modules>
 
 	<build>
