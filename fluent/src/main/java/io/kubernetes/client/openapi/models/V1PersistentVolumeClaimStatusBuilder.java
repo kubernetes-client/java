@@ -23,11 +23,15 @@ public class V1PersistentVolumeClaimStatusBuilder extends io.kubernetes.client.o
     this.fluent = fluent; 
     fluent.withAccessModes(instance.getAccessModes());
 
+    fluent.withAllocatedResources(instance.getAllocatedResources());
+
     fluent.withCapacity(instance.getCapacity());
 
     fluent.withConditions(instance.getConditions());
 
     fluent.withPhase(instance.getPhase());
+
+    fluent.withResizeStatus(instance.getResizeStatus());
 
     this.validationEnabled = validationEnabled; 
   }
@@ -38,11 +42,15 @@ public class V1PersistentVolumeClaimStatusBuilder extends io.kubernetes.client.o
     this.fluent = this; 
     this.withAccessModes(instance.getAccessModes());
 
+    this.withAllocatedResources(instance.getAllocatedResources());
+
     this.withCapacity(instance.getCapacity());
 
     this.withConditions(instance.getConditions());
 
     this.withPhase(instance.getPhase());
+
+    this.withResizeStatus(instance.getResizeStatus());
 
     this.validationEnabled = validationEnabled; 
   }
@@ -51,9 +59,11 @@ public class V1PersistentVolumeClaimStatusBuilder extends io.kubernetes.client.o
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus build() {
     V1PersistentVolumeClaimStatus buildable = new V1PersistentVolumeClaimStatus();
     buildable.setAccessModes(fluent.getAccessModes());
+    buildable.setAllocatedResources(fluent.getAllocatedResources());
     buildable.setCapacity(fluent.getCapacity());
     buildable.setConditions(fluent.getConditions());
     buildable.setPhase(fluent.getPhase());
+    buildable.setResizeStatus(fluent.getResizeStatus());
     return buildable;
   }
   public boolean equals(java.lang.Object o) {

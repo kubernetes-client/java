@@ -12,7 +12,19 @@ Name | Type | Description | Notes
 **message** | **String** | Human readable message indicating details about last transition. |  [optional]
 **reason** | **String** | (brief) reason for the condition&#39;s last transition. |  [optional]
 **status** | **String** | Status of the condition, one of True, False, Unknown. | 
-**type** | **String** | Type of node condition. | 
+**type** | [**TypeEnum**](#TypeEnum) | Type of node condition.  Possible enum values:  - &#x60;\&quot;DiskPressure\&quot;&#x60; means the kubelet is under pressure due to insufficient available disk.  - &#x60;\&quot;MemoryPressure\&quot;&#x60; means the kubelet is under pressure due to insufficient available memory.  - &#x60;\&quot;NetworkUnavailable\&quot;&#x60; means that network for the node is not correctly configured.  - &#x60;\&quot;PIDPressure\&quot;&#x60; means the kubelet is under pressure due to insufficient available PID.  - &#x60;\&quot;Ready\&quot;&#x60; means kubelet is healthy and ready to accept pods. | 
+
+
+
+## Enum: TypeEnum
+
+Name | Value
+---- | -----
+DISKPRESSURE | &quot;DiskPressure&quot;
+MEMORYPRESSURE | &quot;MemoryPressure&quot;
+NETWORKUNAVAILABLE | &quot;NetworkUnavailable&quot;
+PIDPRESSURE | &quot;PIDPressure&quot;
+READY | &quot;Ready&quot;
 
 
 

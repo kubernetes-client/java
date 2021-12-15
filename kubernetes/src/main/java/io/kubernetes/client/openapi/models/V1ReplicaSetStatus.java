@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "ReplicaSetStatus represents the current status of a ReplicaSet.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1ReplicaSetStatus {
   public static final String SERIALIZED_NAME_AVAILABLE_REPLICAS = "availableReplicas";
 
@@ -161,12 +161,14 @@ public class V1ReplicaSetStatus {
   }
 
   /**
-   * The number of ready replicas for this replica set.
+   * readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition.
    *
    * @return readyReplicas
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of ready replicas for this replica set.")
+  @ApiModelProperty(
+      value =
+          "readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition.")
   public Integer getReadyReplicas() {
     return readyReplicas;
   }

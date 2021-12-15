@@ -30,7 +30,7 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
   public A withCategories(java.util.List<java.lang.String> categories);
   public A withCategories(java.lang.String... categories);
   public java.lang.Boolean hasCategories();
-  public A addNewCategory(java.lang.String arg0);
+  public A addNewCategory(java.lang.String original);
   public java.lang.String getGroup();
   public A withGroup(java.lang.String group);
   public java.lang.Boolean hasGroup();
@@ -39,7 +39,7 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String arg0);
+  public A withNewGroup(java.lang.String original);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -48,7 +48,7 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -57,7 +57,7 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.Boolean getNamespaced();
   public A withNamespaced(java.lang.Boolean namespaced);
   public java.lang.Boolean hasNamespaced();
@@ -76,7 +76,7 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
   public A withShortNames(java.util.List<java.lang.String> shortNames);
   public A withShortNames(java.lang.String... shortNames);
   public java.lang.Boolean hasShortNames();
-  public A addNewShortName(java.lang.String arg0);
+  public A addNewShortName(java.lang.String original);
   public java.lang.String getSingularName();
   public A withSingularName(java.lang.String singularName);
   public java.lang.Boolean hasSingularName();
@@ -85,7 +85,7 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withSingularName instead.
    */
   @java.lang.Deprecated
-  public A withNewSingularName(java.lang.String arg0);
+  public A withNewSingularName(java.lang.String original);
   public java.lang.String getStorageVersionHash();
   public A withStorageVersionHash(java.lang.String storageVersionHash);
   public java.lang.Boolean hasStorageVersionHash();
@@ -94,7 +94,7 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withStorageVersionHash instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageVersionHash(java.lang.String arg0);
+  public A withNewStorageVersionHash(java.lang.String original);
   public A addToVerbs(java.lang.Integer index,java.lang.String item);
   public A setToVerbs(java.lang.Integer index,java.lang.String item);
   public A addToVerbs(java.lang.String... items);
@@ -110,7 +110,7 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
   public A withVerbs(java.util.List<java.lang.String> verbs);
   public A withVerbs(java.lang.String... verbs);
   public java.lang.Boolean hasVerbs();
-  public A addNewVerb(java.lang.String arg0);
+  public A addNewVerb(java.lang.String original);
   public java.lang.String getVersion();
   public A withVersion(java.lang.String version);
   public java.lang.Boolean hasVersion();
@@ -119,6 +119,6 @@ public interface V1APIResourceFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewVersion(java.lang.String arg0);
+  public A withNewVersion(java.lang.String original);
   
 }

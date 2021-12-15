@@ -19,7 +19,7 @@ public interface V1StorageOSVolumeSourceFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0);
+  public A withNewFsType(java.lang.String original);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();
@@ -46,7 +46,7 @@ public interface V1StorageOSVolumeSourceFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String arg0);
+  public A withNewVolumeName(java.lang.String original);
   public java.lang.String getVolumeNamespace();
   public A withVolumeNamespace(java.lang.String volumeNamespace);
   public java.lang.Boolean hasVolumeNamespace();
@@ -55,7 +55,7 @@ public interface V1StorageOSVolumeSourceFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withVolumeNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeNamespace(java.lang.String arg0);
+  public A withNewVolumeNamespace(java.lang.String original);
   public interface SecretRefNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<io.kubernetes.client.openapi.models.V1StorageOSVolumeSourceFluent.SecretRefNested<N>>{
     public N and();
     public N endSecretRef();

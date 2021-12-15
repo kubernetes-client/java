@@ -26,7 +26,7 @@ import java.util.Objects;
         "IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1IngressClassParametersReference {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
 
@@ -150,15 +150,14 @@ public class V1IngressClassParametersReference {
 
   /**
    * Scope represents if this refers to a cluster or namespace scoped resource. This may be set to
-   * \&quot;Cluster\&quot; (default) or \&quot;Namespace\&quot;. Field can be enabled with
-   * IngressClassNamespacedParams feature gate.
+   * \&quot;Cluster\&quot; (default) or \&quot;Namespace\&quot;.
    *
    * @return scope
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Scope represents if this refers to a cluster or namespace scoped resource. This may be set to \"Cluster\" (default) or \"Namespace\". Field can be enabled with IngressClassNamespacedParams feature gate.")
+          "Scope represents if this refers to a cluster or namespace scoped resource. This may be set to \"Cluster\" (default) or \"Namespace\".")
   public String getScope() {
     return scope;
   }

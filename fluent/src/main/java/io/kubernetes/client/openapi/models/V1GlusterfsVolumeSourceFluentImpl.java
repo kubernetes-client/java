@@ -37,8 +37,8 @@ public class V1GlusterfsVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withEndpoints instead.
    */
   @java.lang.Deprecated
-  public A withNewEndpoints(java.lang.String arg0) {
-    return (A)withEndpoints(new String(arg0));
+  public A withNewEndpoints(java.lang.String original) {
+    return (A)withEndpoints(new String(original));
   }
   public java.lang.String getPath() {
     return this.path;
@@ -54,8 +54,8 @@ public class V1GlusterfsVolumeSourceFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0) {
-    return (A)withPath(new String(arg0));
+  public A withNewPath(java.lang.String original) {
+    return (A)withPath(new String(original));
   }
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;

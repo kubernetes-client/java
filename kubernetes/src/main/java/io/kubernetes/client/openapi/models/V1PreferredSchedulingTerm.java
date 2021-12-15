@@ -26,7 +26,7 @@ import java.util.Objects;
         "An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1PreferredSchedulingTerm {
   public static final String SERIALIZED_NAME_PREFERENCE = "preference";
 

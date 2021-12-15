@@ -56,10 +56,10 @@ public class V1PodStatusFluentImpl<A extends io.kubernetes.client.openapi.models
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder> initContainerStatuses;
   private java.lang.String message;
   private java.lang.String nominatedNodeName;
-  private java.lang.String phase;
+  private io.kubernetes.client.openapi.models.V1PodStatus.PhaseEnum phase;
   private java.lang.String podIP;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodIPBuilder> podIPs;
-  private java.lang.String qosClass;
+  private io.kubernetes.client.openapi.models.V1PodStatus.QosClassEnum qosClass;
   private java.lang.String reason;
   private java.time.OffsetDateTime startTime;
   public A addToConditions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodCondition item) {
@@ -394,8 +394,8 @@ public class V1PodStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withHostIP instead.
    */
   @java.lang.Deprecated
-  public A withNewHostIP(java.lang.String arg0) {
-    return (A)withHostIP(new String(arg0));
+  public A withNewHostIP(java.lang.String original) {
+    return (A)withHostIP(new String(original));
   }
   public A addToInitContainerStatuses(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ContainerStatus item) {
     if (this.initContainerStatuses == null) {this.initContainerStatuses = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();}
@@ -517,8 +517,8 @@ public class V1PodStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0) {
-    return (A)withMessage(new String(arg0));
+  public A withNewMessage(java.lang.String original) {
+    return (A)withMessage(new String(original));
   }
   public java.lang.String getNominatedNodeName() {
     return this.nominatedNodeName;
@@ -534,25 +534,17 @@ public class V1PodStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withNominatedNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNominatedNodeName(java.lang.String arg0) {
-    return (A)withNominatedNodeName(new String(arg0));
+  public A withNewNominatedNodeName(java.lang.String original) {
+    return (A)withNominatedNodeName(new String(original));
   }
-  public java.lang.String getPhase() {
+  public io.kubernetes.client.openapi.models.V1PodStatus.PhaseEnum getPhase() {
     return this.phase;
   }
-  public A withPhase(java.lang.String phase) {
+  public A withPhase(io.kubernetes.client.openapi.models.V1PodStatus.PhaseEnum phase) {
     this.phase=phase; return (A) this;
   }
   public java.lang.Boolean hasPhase() {
     return this.phase != null;
-  }
-  
-  /**
-   * Method is deprecated. use withPhase instead.
-   */
-  @java.lang.Deprecated
-  public A withNewPhase(java.lang.String arg0) {
-    return (A)withPhase(new String(arg0));
   }
   public java.lang.String getPodIP() {
     return this.podIP;
@@ -568,8 +560,8 @@ public class V1PodStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withPodIP instead.
    */
   @java.lang.Deprecated
-  public A withNewPodIP(java.lang.String arg0) {
-    return (A)withPodIP(new String(arg0));
+  public A withNewPodIP(java.lang.String original) {
+    return (A)withPodIP(new String(original));
   }
   public A addToPodIPs(java.lang.Integer index,io.kubernetes.client.openapi.models.V1PodIP item) {
     if (this.podIPs == null) {this.podIPs = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodIPBuilder>();}
@@ -677,22 +669,14 @@ public class V1PodStatusFluentImpl<A extends io.kubernetes.client.openapi.models
     if (index < 0) throw new RuntimeException("Can't edit matching podIPs. No match found.");
     return setNewPodIPLike(index, buildPodIP(index));
   }
-  public java.lang.String getQosClass() {
+  public io.kubernetes.client.openapi.models.V1PodStatus.QosClassEnum getQosClass() {
     return this.qosClass;
   }
-  public A withQosClass(java.lang.String qosClass) {
+  public A withQosClass(io.kubernetes.client.openapi.models.V1PodStatus.QosClassEnum qosClass) {
     this.qosClass=qosClass; return (A) this;
   }
   public java.lang.Boolean hasQosClass() {
     return this.qosClass != null;
-  }
-  
-  /**
-   * Method is deprecated. use withQosClass instead.
-   */
-  @java.lang.Deprecated
-  public A withNewQosClass(java.lang.String arg0) {
-    return (A)withQosClass(new String(arg0));
   }
   public java.lang.String getReason() {
     return this.reason;
@@ -708,8 +692,8 @@ public class V1PodStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0) {
-    return (A)withReason(new String(arg0));
+  public A withNewReason(java.lang.String original) {
+    return (A)withReason(new String(original));
   }
   public java.time.OffsetDateTime getStartTime() {
     return this.startTime;

@@ -26,7 +26,7 @@ import java.util.Objects;
         "Probe describes a health check to be performed against a container to determine whether it is alive or ready to receive traffic.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1Probe {
   public static final String SERIALIZED_NAME_EXEC = "exec";
 
@@ -37,6 +37,11 @@ public class V1Probe {
 
   @SerializedName(SERIALIZED_NAME_FAILURE_THRESHOLD)
   private Integer failureThreshold;
+
+  public static final String SERIALIZED_NAME_GRPC = "grpc";
+
+  @SerializedName(SERIALIZED_NAME_GRPC)
+  private V1GRPCAction grpc;
 
   public static final String SERIALIZED_NAME_HTTP_GET = "httpGet";
 
@@ -117,6 +122,27 @@ public class V1Probe {
 
   public void setFailureThreshold(Integer failureThreshold) {
     this.failureThreshold = failureThreshold;
+  }
+
+  public V1Probe grpc(V1GRPCAction grpc) {
+
+    this.grpc = grpc;
+    return this;
+  }
+
+  /**
+   * Get grpc
+   *
+   * @return grpc
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1GRPCAction getGrpc() {
+    return grpc;
+  }
+
+  public void setGrpc(V1GRPCAction grpc) {
+    this.grpc = grpc;
   }
 
   public V1Probe httpGet(V1HTTPGetAction httpGet) {
@@ -298,6 +324,7 @@ public class V1Probe {
     V1Probe v1Probe = (V1Probe) o;
     return Objects.equals(this.exec, v1Probe.exec)
         && Objects.equals(this.failureThreshold, v1Probe.failureThreshold)
+        && Objects.equals(this.grpc, v1Probe.grpc)
         && Objects.equals(this.httpGet, v1Probe.httpGet)
         && Objects.equals(this.initialDelaySeconds, v1Probe.initialDelaySeconds)
         && Objects.equals(this.periodSeconds, v1Probe.periodSeconds)
@@ -312,6 +339,7 @@ public class V1Probe {
     return Objects.hash(
         exec,
         failureThreshold,
+        grpc,
         httpGet,
         initialDelaySeconds,
         periodSeconds,
@@ -327,6 +355,7 @@ public class V1Probe {
     sb.append("class V1Probe {\n");
     sb.append("    exec: ").append(toIndentedString(exec)).append("\n");
     sb.append("    failureThreshold: ").append(toIndentedString(failureThreshold)).append("\n");
+    sb.append("    grpc: ").append(toIndentedString(grpc)).append("\n");
     sb.append("    httpGet: ").append(toIndentedString(httpGet)).append("\n");
     sb.append("    initialDelaySeconds: ")
         .append(toIndentedString(initialDelaySeconds))

@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 <a name="createCertificateSigningRequest"></a>
 # **createCertificateSigningRequest**
-> V1CertificateSigningRequest createCertificateSigningRequest(body, pretty, dryRun, fieldManager)
+> V1CertificateSigningRequest createCertificateSigningRequest(body, pretty, dryRun, fieldManager, fieldValidation)
 
 
 
@@ -54,8 +54,9 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     try {
-      V1CertificateSigningRequest result = apiInstance.createCertificateSigningRequest(body, pretty, dryRun, fieldManager);
+      V1CertificateSigningRequest result = apiInstance.createCertificateSigningRequest(body, pretty, dryRun, fieldManager, fieldValidation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CertificatesV1Api#createCertificateSigningRequest");
@@ -76,6 +77,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
 
 ### Return type
 
@@ -431,7 +433,7 @@ Name | Type | Description  | Notes
 
 <a name="patchCertificateSigningRequest"></a>
 # **patchCertificateSigningRequest**
-> V1CertificateSigningRequest patchCertificateSigningRequest(name, body, pretty, dryRun, fieldManager, force)
+> V1CertificateSigningRequest patchCertificateSigningRequest(name, body, pretty, dryRun, fieldManager, fieldValidation, force)
 
 
 
@@ -464,9 +466,10 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      V1CertificateSigningRequest result = apiInstance.patchCertificateSigningRequest(name, body, pretty, dryRun, fieldManager, force);
+      V1CertificateSigningRequest result = apiInstance.patchCertificateSigningRequest(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CertificatesV1Api#patchCertificateSigningRequest");
@@ -488,6 +491,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
  **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
@@ -512,7 +516,7 @@ Name | Type | Description  | Notes
 
 <a name="patchCertificateSigningRequestApproval"></a>
 # **patchCertificateSigningRequestApproval**
-> V1CertificateSigningRequest patchCertificateSigningRequestApproval(name, body, pretty, dryRun, fieldManager, force)
+> V1CertificateSigningRequest patchCertificateSigningRequestApproval(name, body, pretty, dryRun, fieldManager, fieldValidation, force)
 
 
 
@@ -545,9 +549,10 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      V1CertificateSigningRequest result = apiInstance.patchCertificateSigningRequestApproval(name, body, pretty, dryRun, fieldManager, force);
+      V1CertificateSigningRequest result = apiInstance.patchCertificateSigningRequestApproval(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CertificatesV1Api#patchCertificateSigningRequestApproval");
@@ -569,6 +574,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
  **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
@@ -593,7 +599,7 @@ Name | Type | Description  | Notes
 
 <a name="patchCertificateSigningRequestStatus"></a>
 # **patchCertificateSigningRequestStatus**
-> V1CertificateSigningRequest patchCertificateSigningRequestStatus(name, body, pretty, dryRun, fieldManager, force)
+> V1CertificateSigningRequest patchCertificateSigningRequestStatus(name, body, pretty, dryRun, fieldManager, fieldValidation, force)
 
 
 
@@ -626,9 +632,10 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
     try {
-      V1CertificateSigningRequest result = apiInstance.patchCertificateSigningRequestStatus(name, body, pretty, dryRun, fieldManager, force);
+      V1CertificateSigningRequest result = apiInstance.patchCertificateSigningRequestStatus(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CertificatesV1Api#patchCertificateSigningRequestStatus");
@@ -650,6 +657,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
  **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional]
 
 ### Return type
@@ -890,7 +898,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceCertificateSigningRequest"></a>
 # **replaceCertificateSigningRequest**
-> V1CertificateSigningRequest replaceCertificateSigningRequest(name, body, pretty, dryRun, fieldManager)
+> V1CertificateSigningRequest replaceCertificateSigningRequest(name, body, pretty, dryRun, fieldManager, fieldValidation)
 
 
 
@@ -923,8 +931,9 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     try {
-      V1CertificateSigningRequest result = apiInstance.replaceCertificateSigningRequest(name, body, pretty, dryRun, fieldManager);
+      V1CertificateSigningRequest result = apiInstance.replaceCertificateSigningRequest(name, body, pretty, dryRun, fieldManager, fieldValidation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CertificatesV1Api#replaceCertificateSigningRequest");
@@ -946,6 +955,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
 
 ### Return type
 
@@ -969,7 +979,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceCertificateSigningRequestApproval"></a>
 # **replaceCertificateSigningRequestApproval**
-> V1CertificateSigningRequest replaceCertificateSigningRequestApproval(name, body, pretty, dryRun, fieldManager)
+> V1CertificateSigningRequest replaceCertificateSigningRequestApproval(name, body, pretty, dryRun, fieldManager, fieldValidation)
 
 
 
@@ -1002,8 +1012,9 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     try {
-      V1CertificateSigningRequest result = apiInstance.replaceCertificateSigningRequestApproval(name, body, pretty, dryRun, fieldManager);
+      V1CertificateSigningRequest result = apiInstance.replaceCertificateSigningRequestApproval(name, body, pretty, dryRun, fieldManager, fieldValidation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CertificatesV1Api#replaceCertificateSigningRequestApproval");
@@ -1025,6 +1036,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
 
 ### Return type
 
@@ -1048,7 +1060,7 @@ Name | Type | Description  | Notes
 
 <a name="replaceCertificateSigningRequestStatus"></a>
 # **replaceCertificateSigningRequestStatus**
-> V1CertificateSigningRequest replaceCertificateSigningRequestStatus(name, body, pretty, dryRun, fieldManager)
+> V1CertificateSigningRequest replaceCertificateSigningRequestStatus(name, body, pretty, dryRun, fieldManager, fieldValidation)
 
 
 
@@ -1081,8 +1093,9 @@ public class Example {
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
     String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the `ServerSideFieldValidation` feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields.
     try {
-      V1CertificateSigningRequest result = apiInstance.replaceCertificateSigningRequestStatus(name, body, pretty, dryRun, fieldManager);
+      V1CertificateSigningRequest result = apiInstance.replaceCertificateSigningRequestStatus(name, body, pretty, dryRun, fieldManager, fieldValidation);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CertificatesV1Api#replaceCertificateSigningRequestStatus");
@@ -1104,6 +1117,7 @@ Name | Type | Description  | Notes
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
  **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
  **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
+ **fieldValidation** | **String**| fieldValidation determines how the server should respond to unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will discard valid values specified in  this param and not perform any server side field validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds with a warning for each unknown/duplicate field, but successfully serves the request. - Strict: fails the request on unknown/duplicate fields. | [optional]
 
 ### Return type
 

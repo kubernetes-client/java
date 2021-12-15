@@ -56,7 +56,7 @@ public interface V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String arg0);
+  public A withNewGroup(java.lang.String original);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -65,7 +65,7 @@ public interface V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -74,7 +74,7 @@ public interface V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.Integer getRetryAfterSeconds();
   public A withRetryAfterSeconds(java.lang.Integer retryAfterSeconds);
   public java.lang.Boolean hasRetryAfterSeconds();
@@ -86,7 +86,7 @@ public interface V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String arg0);
+  public A withNewUid(java.lang.String original);
   public interface CausesNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1StatusCauseFluent<io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<N>>{
     public N and();
     public N endCause();

@@ -41,7 +41,7 @@ public interface V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withExternalID instead.
    */
   @java.lang.Deprecated
-  public A withNewExternalID(java.lang.String arg0);
+  public A withNewExternalID(java.lang.String original);
   public java.lang.String getPodCIDR();
   public A withPodCIDR(java.lang.String podCIDR);
   public java.lang.Boolean hasPodCIDR();
@@ -50,7 +50,7 @@ public interface V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withPodCIDR instead.
    */
   @java.lang.Deprecated
-  public A withNewPodCIDR(java.lang.String arg0);
+  public A withNewPodCIDR(java.lang.String original);
   public A addToPodCIDRs(java.lang.Integer index,java.lang.String item);
   public A setToPodCIDRs(java.lang.Integer index,java.lang.String item);
   public A addToPodCIDRs(java.lang.String... items);
@@ -66,7 +66,7 @@ public interface V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.
   public A withPodCIDRs(java.util.List<java.lang.String> podCIDRs);
   public A withPodCIDRs(java.lang.String... podCIDRs);
   public java.lang.Boolean hasPodCIDRs();
-  public A addNewPodCIDR(java.lang.String arg0);
+  public A addNewPodCIDR(java.lang.String original);
   public java.lang.String getProviderID();
   public A withProviderID(java.lang.String providerID);
   public java.lang.Boolean hasProviderID();
@@ -75,7 +75,7 @@ public interface V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withProviderID instead.
    */
   @java.lang.Deprecated
-  public A withNewProviderID(java.lang.String arg0);
+  public A withNewProviderID(java.lang.String original);
   public A addToTaints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Taint item);
   public A setToTaints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Taint item);
   public A addToTaints(io.kubernetes.client.openapi.models.V1Taint... items);

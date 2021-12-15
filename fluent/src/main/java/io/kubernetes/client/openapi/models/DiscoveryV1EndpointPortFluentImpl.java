@@ -41,8 +41,8 @@ public class DiscoveryV1EndpointPortFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withAppProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String arg0) {
-    return (A)withAppProtocol(new String(arg0));
+  public A withNewAppProtocol(java.lang.String original) {
+    return (A)withAppProtocol(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -58,8 +58,8 @@ public class DiscoveryV1EndpointPortFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Integer getPort() {
     return this.port;
@@ -84,8 +84,8 @@ public class DiscoveryV1EndpointPortFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0) {
-    return (A)withProtocol(new String(arg0));
+  public A withNewProtocol(java.lang.String original) {
+    return (A)withProtocol(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

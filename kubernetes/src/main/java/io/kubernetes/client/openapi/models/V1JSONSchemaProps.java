@@ -27,7 +27,7 @@ import java.util.Objects;
         "JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
 
@@ -247,6 +247,11 @@ public class V1JSONSchemaProps {
 
   @SerializedName(SERIALIZED_NAME_X_KUBERNETES_PRESERVE_UNKNOWN_FIELDS)
   private Boolean xKubernetesPreserveUnknownFields;
+
+  public static final String SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS = "x-kubernetes-validations";
+
+  @SerializedName(SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS)
+  private List<V1ValidationRule> xKubernetesValidations = null;
 
   public V1JSONSchemaProps $ref(String $ref) {
 
@@ -1316,6 +1321,40 @@ public class V1JSONSchemaProps {
     this.xKubernetesPreserveUnknownFields = xKubernetesPreserveUnknownFields;
   }
 
+  public V1JSONSchemaProps xKubernetesValidations(List<V1ValidationRule> xKubernetesValidations) {
+
+    this.xKubernetesValidations = xKubernetesValidations;
+    return this;
+  }
+
+  public V1JSONSchemaProps addXKubernetesValidationsItem(
+      V1ValidationRule xKubernetesValidationsItem) {
+    if (this.xKubernetesValidations == null) {
+      this.xKubernetesValidations = new ArrayList<>();
+    }
+    this.xKubernetesValidations.add(xKubernetesValidationsItem);
+    return this;
+  }
+
+  /**
+   * x-kubernetes-validations describes a list of validation rules written in the CEL expression
+   * language. This field is an alpha-level. Using this field requires the feature gate
+   * &#x60;CustomResourceValidationExpressions&#x60; to be enabled.
+   *
+   * @return xKubernetesValidations
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "x-kubernetes-validations describes a list of validation rules written in the CEL expression language. This field is an alpha-level. Using this field requires the feature gate `CustomResourceValidationExpressions` to be enabled.")
+  public List<V1ValidationRule> getxKubernetesValidations() {
+    return xKubernetesValidations;
+  }
+
+  public void setxKubernetesValidations(List<V1ValidationRule> xKubernetesValidations) {
+    this.xKubernetesValidations = xKubernetesValidations;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -1370,7 +1409,8 @@ public class V1JSONSchemaProps {
         && Objects.equals(this.xKubernetesMapType, v1JSONSchemaProps.xKubernetesMapType)
         && Objects.equals(
             this.xKubernetesPreserveUnknownFields,
-            v1JSONSchemaProps.xKubernetesPreserveUnknownFields);
+            v1JSONSchemaProps.xKubernetesPreserveUnknownFields)
+        && Objects.equals(this.xKubernetesValidations, v1JSONSchemaProps.xKubernetesValidations);
   }
 
   @Override
@@ -1418,7 +1458,8 @@ public class V1JSONSchemaProps {
         xKubernetesListMapKeys,
         xKubernetesListType,
         xKubernetesMapType,
-        xKubernetesPreserveUnknownFields);
+        xKubernetesPreserveUnknownFields,
+        xKubernetesValidations);
   }
 
   @Override
@@ -1479,6 +1520,9 @@ public class V1JSONSchemaProps {
     sb.append("    xKubernetesMapType: ").append(toIndentedString(xKubernetesMapType)).append("\n");
     sb.append("    xKubernetesPreserveUnknownFields: ")
         .append(toIndentedString(xKubernetesPreserveUnknownFields))
+        .append("\n");
+    sb.append("    xKubernetesValidations: ")
+        .append(toIndentedString(xKubernetesValidations))
         .append("\n");
     sb.append("}");
     return sb.toString();

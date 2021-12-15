@@ -217,8 +217,8 @@ public class V2beta2MetricStatusFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
+  public A withNewType(java.lang.String original) {
+    return (A)withType(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -22,7 +22,7 @@ public interface V1NamespaceConditionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0);
+  public A withNewMessage(java.lang.String original);
   public java.lang.String getReason();
   public A withReason(java.lang.String reason);
   public java.lang.Boolean hasReason();
@@ -31,7 +31,7 @@ public interface V1NamespaceConditionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0);
+  public A withNewReason(java.lang.String original);
   public java.lang.String getStatus();
   public A withStatus(java.lang.String status);
   public java.lang.Boolean hasStatus();
@@ -40,15 +40,9 @@ public interface V1NamespaceConditionFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewStatus(java.lang.String arg0);
-  public java.lang.String getType();
-  public A withType(java.lang.String type);
+  public A withNewStatus(java.lang.String original);
+  public io.kubernetes.client.openapi.models.V1NamespaceCondition.TypeEnum getType();
+  public A withType(io.kubernetes.client.openapi.models.V1NamespaceCondition.TypeEnum type);
   public java.lang.Boolean hasType();
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
   
 }

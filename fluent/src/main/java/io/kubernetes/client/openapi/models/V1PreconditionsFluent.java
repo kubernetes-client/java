@@ -18,7 +18,7 @@ public interface V1PreconditionsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withResourceVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String arg0);
+  public A withNewResourceVersion(java.lang.String original);
   public java.lang.String getUid();
   public A withUid(java.lang.String uid);
   public java.lang.Boolean hasUid();
@@ -27,6 +27,6 @@ public interface V1PreconditionsFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String arg0);
+  public A withNewUid(java.lang.String original);
   
 }

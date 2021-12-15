@@ -69,8 +69,8 @@ public class V1VolumeAttachmentSourceFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withPersistentVolumeName instead.
    */
   @java.lang.Deprecated
-  public A withNewPersistentVolumeName(java.lang.String arg0) {
-    return (A)withPersistentVolumeName(new String(arg0));
+  public A withNewPersistentVolumeName(java.lang.String original) {
+    return (A)withPersistentVolumeName(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

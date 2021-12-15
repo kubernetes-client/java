@@ -12,10 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -26,7 +31,7 @@ import java.util.Objects;
         "LimitRangeItem defines a min/max usage limit for any resource that matches on kind.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1LimitRangeItem {
   public static final String SERIALIZED_NAME_DEFAULT = "default";
 
@@ -53,10 +58,64 @@ public class V1LimitRangeItem {
   @SerializedName(SERIALIZED_NAME_MIN)
   private Map<String, Quantity> min = null;
 
+  /**
+   * Type of resource that this limit applies to. Possible enum values: -
+   * &#x60;\&quot;Container\&quot;&#x60; Limit that applies to all containers in a namespace -
+   * &#x60;\&quot;PersistentVolumeClaim\&quot;&#x60; Limit that applies to all persistent volume
+   * claims in a namespace - &#x60;\&quot;Pod\&quot;&#x60; Limit that applies to all pods in a
+   * namespace
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CONTAINER("Container"),
+
+    PERSISTENTVOLUMECLAIM("PersistentVolumeClaim"),
+
+    POD("Pod");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public V1LimitRangeItem _default(Map<String, Quantity> _default) {
 
@@ -213,23 +272,30 @@ public class V1LimitRangeItem {
     this.min = min;
   }
 
-  public V1LimitRangeItem type(String type) {
+  public V1LimitRangeItem type(TypeEnum type) {
 
     this.type = type;
     return this;
   }
 
   /**
-   * Type of resource that this limit applies to.
+   * Type of resource that this limit applies to. Possible enum values: -
+   * &#x60;\&quot;Container\&quot;&#x60; Limit that applies to all containers in a namespace -
+   * &#x60;\&quot;PersistentVolumeClaim\&quot;&#x60; Limit that applies to all persistent volume
+   * claims in a namespace - &#x60;\&quot;Pod\&quot;&#x60; Limit that applies to all pods in a
+   * namespace
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "Type of resource that this limit applies to.")
-  public String getType() {
+  @ApiModelProperty(
+      required = true,
+      value =
+          "Type of resource that this limit applies to.  Possible enum values:  - `\"Container\"` Limit that applies to all containers in a namespace  - `\"PersistentVolumeClaim\"` Limit that applies to all persistent volume claims in a namespace  - `\"Pod\"` Limit that applies to all pods in a namespace")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

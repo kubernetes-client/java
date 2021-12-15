@@ -352,6 +352,7 @@ public class ModelMapper {
     preBuiltApiVersions.add("V1beta1");
     preBuiltApiVersions.add("V1alpha1");
     preBuiltApiVersions.add("V1");
+    preBuiltApiVersions.add("V2");
   }
 
   private static void initModelMap() throws IOException {

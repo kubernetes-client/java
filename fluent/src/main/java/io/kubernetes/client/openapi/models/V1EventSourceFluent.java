@@ -18,7 +18,7 @@ public interface V1EventSourceFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withComponent instead.
    */
   @java.lang.Deprecated
-  public A withNewComponent(java.lang.String arg0);
+  public A withNewComponent(java.lang.String original);
   public java.lang.String getHost();
   public A withHost(java.lang.String host);
   public java.lang.Boolean hasHost();
@@ -27,6 +27,6 @@ public interface V1EventSourceFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withHost instead.
    */
   @java.lang.Deprecated
-  public A withNewHost(java.lang.String arg0);
+  public A withNewHost(java.lang.String original);
   
 }

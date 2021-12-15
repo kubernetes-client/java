@@ -51,8 +51,8 @@ public class V1beta1CSIStorageCapacityFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public io.kubernetes.client.custom.Quantity getCapacity() {
     return this.capacity;
@@ -80,8 +80,8 @@ public class V1beta1CSIStorageCapacityFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   public io.kubernetes.client.custom.Quantity getMaximumVolumeSize() {
     return this.maximumVolumeSize;
@@ -177,8 +177,8 @@ public class V1beta1CSIStorageCapacityFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String arg0) {
-    return (A)withStorageClassName(new String(arg0));
+  public A withNewStorageClassName(java.lang.String original) {
+    return (A)withStorageClassName(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

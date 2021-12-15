@@ -23,6 +23,8 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
   public V1StatefulSetSpecFluentImpl(io.kubernetes.client.openapi.models.V1StatefulSetSpec instance) {
     this.withMinReadySeconds(instance.getMinReadySeconds());
 
+    this.withPersistentVolumeClaimRetentionPolicy(instance.getPersistentVolumeClaimRetentionPolicy());
+
     this.withPodManagementPolicy(instance.getPodManagementPolicy());
 
     this.withReplicas(instance.getReplicas());
@@ -41,7 +43,8 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
 
   }
   private java.lang.Integer minReadySeconds;
-  private java.lang.String podManagementPolicy;
+  private io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder persistentVolumeClaimRetentionPolicy;
+  private io.kubernetes.client.openapi.models.V1StatefulSetSpec.PodManagementPolicyEnum podManagementPolicy;
   private java.lang.Integer replicas;
   private java.lang.Integer revisionHistoryLimit;
   private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder selector;
@@ -58,22 +61,48 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
   public java.lang.Boolean hasMinReadySeconds() {
     return this.minReadySeconds != null;
   }
-  public java.lang.String getPodManagementPolicy() {
+  
+  /**
+   * This method has been deprecated, please use method buildPersistentVolumeClaimRetentionPolicy instead.
+   * @return The buildable object.
+   */
+  @java.lang.Deprecated
+  public io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy getPersistentVolumeClaimRetentionPolicy() {
+    return this.persistentVolumeClaimRetentionPolicy!=null ?this.persistentVolumeClaimRetentionPolicy.build():null;
+  }
+  public io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy buildPersistentVolumeClaimRetentionPolicy() {
+    return this.persistentVolumeClaimRetentionPolicy!=null ?this.persistentVolumeClaimRetentionPolicy.build():null;
+  }
+  public A withPersistentVolumeClaimRetentionPolicy(io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
+    _visitables.get("persistentVolumeClaimRetentionPolicy").remove(this.persistentVolumeClaimRetentionPolicy);
+    if (persistentVolumeClaimRetentionPolicy!=null){ this.persistentVolumeClaimRetentionPolicy= new io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(persistentVolumeClaimRetentionPolicy); _visitables.get("persistentVolumeClaimRetentionPolicy").add(this.persistentVolumeClaimRetentionPolicy);} return (A) this;
+  }
+  public java.lang.Boolean hasPersistentVolumeClaimRetentionPolicy() {
+    return this.persistentVolumeClaimRetentionPolicy != null;
+  }
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> withNewPersistentVolumeClaimRetentionPolicy() {
+    return new io.kubernetes.client.openapi.models.V1StatefulSetSpecFluentImpl.PersistentVolumeClaimRetentionPolicyNestedImpl();
+  }
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> withNewPersistentVolumeClaimRetentionPolicyLike(io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy item) {
+    return new io.kubernetes.client.openapi.models.V1StatefulSetSpecFluentImpl.PersistentVolumeClaimRetentionPolicyNestedImpl(item);
+  }
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> editPersistentVolumeClaimRetentionPolicy() {
+    return withNewPersistentVolumeClaimRetentionPolicyLike(getPersistentVolumeClaimRetentionPolicy());
+  }
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> editOrNewPersistentVolumeClaimRetentionPolicy() {
+    return withNewPersistentVolumeClaimRetentionPolicyLike(getPersistentVolumeClaimRetentionPolicy() != null ? getPersistentVolumeClaimRetentionPolicy(): new io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder().build());
+  }
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A> editOrNewPersistentVolumeClaimRetentionPolicyLike(io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy item) {
+    return withNewPersistentVolumeClaimRetentionPolicyLike(getPersistentVolumeClaimRetentionPolicy() != null ? getPersistentVolumeClaimRetentionPolicy(): item);
+  }
+  public io.kubernetes.client.openapi.models.V1StatefulSetSpec.PodManagementPolicyEnum getPodManagementPolicy() {
     return this.podManagementPolicy;
   }
-  public A withPodManagementPolicy(java.lang.String podManagementPolicy) {
+  public A withPodManagementPolicy(io.kubernetes.client.openapi.models.V1StatefulSetSpec.PodManagementPolicyEnum podManagementPolicy) {
     this.podManagementPolicy=podManagementPolicy; return (A) this;
   }
   public java.lang.Boolean hasPodManagementPolicy() {
     return this.podManagementPolicy != null;
-  }
-  
-  /**
-   * Method is deprecated. use withPodManagementPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewPodManagementPolicy(java.lang.String arg0) {
-    return (A)withPodManagementPolicy(new String(arg0));
   }
   public java.lang.Integer getReplicas() {
     return this.replicas;
@@ -141,8 +170,8 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withServiceName instead.
    */
   @java.lang.Deprecated
-  public A withNewServiceName(java.lang.String arg0) {
-    return (A)withServiceName(new String(arg0));
+  public A withNewServiceName(java.lang.String original) {
+    return (A)withServiceName(new String(original));
   }
   
   /**
@@ -323,6 +352,7 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
     if (o == null || getClass() != o.getClass()) return false;
     V1StatefulSetSpecFluentImpl that = (V1StatefulSetSpecFluentImpl) o;
     if (minReadySeconds != null ? !minReadySeconds.equals(that.minReadySeconds) :that.minReadySeconds != null) return false;
+    if (persistentVolumeClaimRetentionPolicy != null ? !persistentVolumeClaimRetentionPolicy.equals(that.persistentVolumeClaimRetentionPolicy) :that.persistentVolumeClaimRetentionPolicy != null) return false;
     if (podManagementPolicy != null ? !podManagementPolicy.equals(that.podManagementPolicy) :that.podManagementPolicy != null) return false;
     if (replicas != null ? !replicas.equals(that.replicas) :that.replicas != null) return false;
     if (revisionHistoryLimit != null ? !revisionHistoryLimit.equals(that.revisionHistoryLimit) :that.revisionHistoryLimit != null) return false;
@@ -334,7 +364,23 @@ public class V1StatefulSetSpecFluentImpl<A extends io.kubernetes.client.openapi.
     return true;
   }
   public int hashCode() {
-    return java.util.Objects.hash(minReadySeconds,  podManagementPolicy,  replicas,  revisionHistoryLimit,  selector,  serviceName,  template,  updateStrategy,  volumeClaimTemplates,  super.hashCode());
+    return java.util.Objects.hash(minReadySeconds,  persistentVolumeClaimRetentionPolicy,  podManagementPolicy,  replicas,  revisionHistoryLimit,  selector,  serviceName,  template,  updateStrategy,  volumeClaimTemplates,  super.hashCode());
+  }
+  public class PersistentVolumeClaimRetentionPolicyNestedImpl<N> extends io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<N>> implements io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<N>,io.kubernetes.client.fluent.Nested<N>{
+    PersistentVolumeClaimRetentionPolicyNestedImpl(io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy item) {
+      this.builder = new io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(this, item);
+    }
+    PersistentVolumeClaimRetentionPolicyNestedImpl() {
+      this.builder = new io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(this);
+    }
+    io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder builder;
+    public N and() {
+      return (N) V1StatefulSetSpecFluentImpl.this.withPersistentVolumeClaimRetentionPolicy(builder.build());
+    }
+    public N endPersistentVolumeClaimRetentionPolicy() {
+      return and();
+    }
+    
   }
   public class SelectorNestedImpl<N> extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.SelectorNested<N>> implements io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.SelectorNested<N>,io.kubernetes.client.fluent.Nested<N>{
     SelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {

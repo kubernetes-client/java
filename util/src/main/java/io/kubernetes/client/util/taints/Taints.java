@@ -18,27 +18,9 @@ import io.kubernetes.client.openapi.models.V1Taint;
 import java.util.Iterator;
 
 public class Taints {
-  public enum Effect {
-    NO_SCHEDULE {
-      public String toString() {
-        return "NoSchedule";
-      }
-    },
-    PREFER_NO_SCHEDULE {
-      public String toString() {
-        return "PreferNoSchedule";
-      }
-    },
-    NO_EXECUTE {
-      public String toString() {
-        return "NoExcute";
-      }
-    }
-  }
-
-  public static V1Taint findTaint(V1Node node, String key, Effect effect) {
+  public static V1Taint findTaint(V1Node node, String key, V1Taint.EffectEnum effect) {
     for (V1Taint taint : node.getSpec().getTaints()) {
-      if (taint.getKey().equals(key) && taint.getEffect().equals(effect.toString())) {
+      if (taint.getKey().equals(key) && taint.getEffect().equals(effect)) {
         return taint;
       }
     }
@@ -62,7 +44,7 @@ public class Taints {
      * @param key The key for the taint
      * @param effect The effect
      */
-    public TaintsBuilder addTaint(String key, Effect effect) {
+    public TaintsBuilder addTaint(String key, V1Taint.EffectEnum effect) {
       return addTaint(key, null, effect);
     }
 
@@ -72,11 +54,11 @@ public class Taints {
      * @param key The key for the taint
      * @param effect The effect
      */
-    public TaintsBuilder addTaint(String key, String value, Effect effect) {
+    public TaintsBuilder addTaint(String key, String value, V1Taint.EffectEnum effect) {
       V1Taint taint = new V1Taint();
       taint.setKey(key);
       taint.setValue(value);
-      taint.setEffect(effect.toString());
+      taint.setEffect(effect);
       if (node.getSpec() == null) {
         node.setSpec(new V1NodeSpec());
       }
@@ -90,7 +72,7 @@ public class Taints {
      * @param key The key for the taint
      * @param effect The effect
      */
-    public TaintsBuilder updateTaint(String key, String value, Effect effect) {
+    public TaintsBuilder updateTaint(String key, String value, V1Taint.EffectEnum effect) {
       V1Taint taint = findTaint(node, key, effect);
       taint.setValue(value);
       return this;
@@ -121,14 +103,14 @@ public class Taints {
      * @param key They key to match
      * @param effect The effect to match
      */
-    public TaintsBuilder removeTaint(String key, Effect effect) {
+    public TaintsBuilder removeTaint(String key, V1Taint.EffectEnum effect) {
       if (node.getSpec() == null) {
         return this;
       }
       Iterator<V1Taint> taints = node.getSpec().getTaints().iterator();
       while (taints.hasNext()) {
         V1Taint taint = taints.next();
-        if (taint.getKey().equals(key) && taint.getEffect().equals(effect.toString())) {
+        if (taint.getKey().equals(key) && taint.getEffect().equals(effect)) {
           taints.remove();
         }
       }

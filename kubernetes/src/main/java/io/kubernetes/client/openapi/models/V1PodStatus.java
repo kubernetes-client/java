@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +34,7 @@ import java.util.Objects;
         "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
@@ -67,10 +72,89 @@ public class V1PodStatus {
   @SerializedName(SERIALIZED_NAME_NOMINATED_NODE_NAME)
   private String nominatedNodeName;
 
+  /**
+   * The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle. The
+   * conditions array, the reason and message fields, and the individual container status arrays
+   * contain more detail about the pod&#39;s status. There are five possible phase values: Pending:
+   * The pod has been accepted by the Kubernetes system, but one or more of the container images has
+   * not been created. This includes time before being scheduled as well as time spent downloading
+   * images over the network, which could take a while. Running: The pod has been bound to a node,
+   * and all of the containers have been created. At least one container is still running, or is in
+   * the process of starting or restarting. Succeeded: All containers in the pod have terminated in
+   * success, and will not be restarted. Failed: All containers in the pod have terminated, and at
+   * least one container has terminated in failure. The container either exited with non-zero status
+   * or was terminated by the system. Unknown: For some reason the state of the pod could not be
+   * obtained, typically due to an error in communicating with the host of the pod. More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase Possible enum
+   * values: - &#x60;\&quot;Failed\&quot;&#x60; means that all containers in the pod have
+   * terminated, and at least one container has terminated in a failure (exited with a non-zero exit
+   * code or was stopped by the system). - &#x60;\&quot;Pending\&quot;&#x60; means the pod has been
+   * accepted by the system, but one or more of the containers has not been started. This includes
+   * time before being bound to a node, as well as time spent pulling images onto the host. -
+   * &#x60;\&quot;Running\&quot;&#x60; means the pod has been bound to a node and all of the
+   * containers have been started. At least one container is still running or is in the process of
+   * being restarted. - &#x60;\&quot;Succeeded\&quot;&#x60; means that all containers in the pod
+   * have voluntarily terminated with a container exit code of 0, and the system is not going to
+   * restart any of these containers. - &#x60;\&quot;Unknown\&quot;&#x60; means that for some reason
+   * the state of the pod could not be obtained, typically due to an error in communicating with the
+   * host of the pod. Deprecated: It isn&#39;t being set since 2015
+   * (74da3b14b0c0f658b3bb8d2def5094686d0e9095)
+   */
+  @JsonAdapter(PhaseEnum.Adapter.class)
+  public enum PhaseEnum {
+    FAILED("Failed"),
+
+    PENDING("Pending"),
+
+    RUNNING("Running"),
+
+    SUCCEEDED("Succeeded"),
+
+    UNKNOWN("Unknown");
+
+    private String value;
+
+    PhaseEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PhaseEnum fromValue(String value) {
+      for (PhaseEnum b : PhaseEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PhaseEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PhaseEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PhaseEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PhaseEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_PHASE = "phase";
 
   @SerializedName(SERIALIZED_NAME_PHASE)
-  private String phase;
+  private PhaseEnum phase;
 
   public static final String SERIALIZED_NAME_POD_I_P = "podIP";
 
@@ -82,10 +166,65 @@ public class V1PodStatus {
   @SerializedName(SERIALIZED_NAME_POD_I_PS)
   private List<V1PodIP> podIPs = null;
 
+  /**
+   * The Quality of Service (QOS) classification assigned to the pod based on resource requirements
+   * See PodQOSClass type for available QOS classes More info:
+   * https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md Possible enum
+   * values: - &#x60;\&quot;BestEffort\&quot;&#x60; is the BestEffort qos class. -
+   * &#x60;\&quot;Burstable\&quot;&#x60; is the Burstable qos class. -
+   * &#x60;\&quot;Guaranteed\&quot;&#x60; is the Guaranteed qos class.
+   */
+  @JsonAdapter(QosClassEnum.Adapter.class)
+  public enum QosClassEnum {
+    BESTEFFORT("BestEffort"),
+
+    BURSTABLE("Burstable"),
+
+    GUARANTEED("Guaranteed");
+
+    private String value;
+
+    QosClassEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static QosClassEnum fromValue(String value) {
+      for (QosClassEnum b : QosClassEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<QosClassEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final QosClassEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public QosClassEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return QosClassEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_QOS_CLASS = "qosClass";
 
   @SerializedName(SERIALIZED_NAME_QOS_CLASS)
-  private String qosClass;
+  private QosClassEnum qosClass;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
 
@@ -179,15 +318,15 @@ public class V1PodStatus {
   }
 
   /**
-   * Status for any ephemeral containers that have run in this pod. This field is alpha-level and is
-   * only populated by servers that enable the EphemeralContainers feature.
+   * Status for any ephemeral containers that have run in this pod. This field is beta-level and
+   * available on clusters that haven&#39;t disabled the EphemeralContainers feature gate.
    *
    * @return ephemeralContainerStatuses
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Status for any ephemeral containers that have run in this pod. This field is alpha-level and is only populated by servers that enable the EphemeralContainers feature.")
+          "Status for any ephemeral containers that have run in this pod. This field is beta-level and available on clusters that haven't disabled the EphemeralContainers feature gate.")
   public List<V1ContainerStatus> getEphemeralContainerStatuses() {
     return ephemeralContainerStatuses;
   }
@@ -302,7 +441,7 @@ public class V1PodStatus {
     this.nominatedNodeName = nominatedNodeName;
   }
 
-  public V1PodStatus phase(String phase) {
+  public V1PodStatus phase(PhaseEnum phase) {
 
     this.phase = phase;
     return this;
@@ -321,19 +460,32 @@ public class V1PodStatus {
    * least one container has terminated in failure. The container either exited with non-zero status
    * or was terminated by the system. Unknown: For some reason the state of the pod could not be
    * obtained, typically due to an error in communicating with the host of the pod. More info:
-   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase Possible enum
+   * values: - &#x60;\&quot;Failed\&quot;&#x60; means that all containers in the pod have
+   * terminated, and at least one container has terminated in a failure (exited with a non-zero exit
+   * code or was stopped by the system). - &#x60;\&quot;Pending\&quot;&#x60; means the pod has been
+   * accepted by the system, but one or more of the containers has not been started. This includes
+   * time before being bound to a node, as well as time spent pulling images onto the host. -
+   * &#x60;\&quot;Running\&quot;&#x60; means the pod has been bound to a node and all of the
+   * containers have been started. At least one container is still running or is in the process of
+   * being restarted. - &#x60;\&quot;Succeeded\&quot;&#x60; means that all containers in the pod
+   * have voluntarily terminated with a container exit code of 0, and the system is not going to
+   * restart any of these containers. - &#x60;\&quot;Unknown\&quot;&#x60; means that for some reason
+   * the state of the pod could not be obtained, typically due to an error in communicating with the
+   * host of the pod. Deprecated: It isn&#39;t being set since 2015
+   * (74da3b14b0c0f658b3bb8d2def5094686d0e9095)
    *
    * @return phase
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle. The conditions array, the reason and message fields, and the individual container status arrays contain more detail about the pod's status. There are five possible phase values:  Pending: The pod has been accepted by the Kubernetes system, but one or more of the container images has not been created. This includes time before being scheduled as well as time spent downloading images over the network, which could take a while. Running: The pod has been bound to a node, and all of the containers have been created. At least one container is still running, or is in the process of starting or restarting. Succeeded: All containers in the pod have terminated in success, and will not be restarted. Failed: All containers in the pod have terminated, and at least one container has terminated in failure. The container either exited with non-zero status or was terminated by the system. Unknown: For some reason the state of the pod could not be obtained, typically due to an error in communicating with the host of the pod.  More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase")
-  public String getPhase() {
+          "The phase of a Pod is a simple, high-level summary of where the Pod is in its lifecycle. The conditions array, the reason and message fields, and the individual container status arrays contain more detail about the pod's status. There are five possible phase values:  Pending: The pod has been accepted by the Kubernetes system, but one or more of the container images has not been created. This includes time before being scheduled as well as time spent downloading images over the network, which could take a while. Running: The pod has been bound to a node, and all of the containers have been created. At least one container is still running, or is in the process of starting or restarting. Succeeded: All containers in the pod have terminated in success, and will not be restarted. Failed: All containers in the pod have terminated, and at least one container has terminated in failure. The container either exited with non-zero status or was terminated by the system. Unknown: For some reason the state of the pod could not be obtained, typically due to an error in communicating with the host of the pod.  More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-phase  Possible enum values:  - `\"Failed\"` means that all containers in the pod have terminated, and at least one container has terminated in a failure (exited with a non-zero exit code or was stopped by the system).  - `\"Pending\"` means the pod has been accepted by the system, but one or more of the containers has not been started. This includes time before being bound to a node, as well as time spent pulling images onto the host.  - `\"Running\"` means the pod has been bound to a node and all of the containers have been started. At least one container is still running or is in the process of being restarted.  - `\"Succeeded\"` means that all containers in the pod have voluntarily terminated with a container exit code of 0, and the system is not going to restart any of these containers.  - `\"Unknown\"` means that for some reason the state of the pod could not be obtained, typically due to an error in communicating with the host of the pod. Deprecated: It isn't being set since 2015 (74da3b14b0c0f658b3bb8d2def5094686d0e9095)")
+  public PhaseEnum getPhase() {
     return phase;
   }
 
-  public void setPhase(String phase) {
+  public void setPhase(PhaseEnum phase) {
     this.phase = phase;
   }
 
@@ -394,7 +546,7 @@ public class V1PodStatus {
     this.podIPs = podIPs;
   }
 
-  public V1PodStatus qosClass(String qosClass) {
+  public V1PodStatus qosClass(QosClassEnum qosClass) {
 
     this.qosClass = qosClass;
     return this;
@@ -403,19 +555,22 @@ public class V1PodStatus {
   /**
    * The Quality of Service (QOS) classification assigned to the pod based on resource requirements
    * See PodQOSClass type for available QOS classes More info:
-   * https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md
+   * https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md Possible enum
+   * values: - &#x60;\&quot;BestEffort\&quot;&#x60; is the BestEffort qos class. -
+   * &#x60;\&quot;Burstable\&quot;&#x60; is the Burstable qos class. -
+   * &#x60;\&quot;Guaranteed\&quot;&#x60; is the Guaranteed qos class.
    *
    * @return qosClass
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md")
-  public String getQosClass() {
+          "The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md  Possible enum values:  - `\"BestEffort\"` is the BestEffort qos class.  - `\"Burstable\"` is the Burstable qos class.  - `\"Guaranteed\"` is the Guaranteed qos class.")
+  public QosClassEnum getQosClass() {
     return qosClass;
   }
 
-  public void setQosClass(String qosClass) {
+  public void setQosClass(QosClassEnum qosClass) {
     this.qosClass = qosClass;
   }
 

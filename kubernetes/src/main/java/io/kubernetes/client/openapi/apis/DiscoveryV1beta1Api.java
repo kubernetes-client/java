@@ -62,6 +62,13 @@ public class DiscoveryV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -80,6 +87,7 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -102,6 +110,11 @@ public class DiscoveryV1beta1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -142,6 +155,7 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -158,7 +172,8 @@ public class DiscoveryV1beta1Api {
     }
 
     okhttp3.Call localVarCall =
-        createNamespacedEndpointSliceCall(namespace, body, pretty, dryRun, fieldManager, _callback);
+        createNamespacedEndpointSliceCall(
+            namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -174,6 +189,13 @@ public class DiscoveryV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1beta1EndpointSlice
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -191,10 +213,12 @@ public class DiscoveryV1beta1Api {
       V1beta1EndpointSlice body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V1beta1EndpointSlice> localVarResp =
-        createNamespacedEndpointSliceWithHttpInfo(namespace, body, pretty, dryRun, fieldManager);
+        createNamespacedEndpointSliceWithHttpInfo(
+            namespace, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -210,6 +234,13 @@ public class DiscoveryV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1beta1EndpointSlice&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -227,11 +258,12 @@ public class DiscoveryV1beta1Api {
       V1beta1EndpointSlice body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     okhttp3.Call localVarCall =
         createNamespacedEndpointSliceValidateBeforeCall(
-            namespace, body, pretty, dryRun, fieldManager, null);
+            namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1beta1EndpointSlice>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -248,6 +280,13 @@ public class DiscoveryV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -266,12 +305,13 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1beta1EndpointSlice> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         createNamespacedEndpointSliceValidateBeforeCall(
-            namespace, body, pretty, dryRun, fieldManager, _callback);
+            namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1beta1EndpointSlice>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -2323,6 +2363,13 @@ public class DiscoveryV1beta1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2344,6 +2391,7 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -2368,6 +2416,11 @@ public class DiscoveryV1beta1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     if (force != null) {
@@ -2417,6 +2470,7 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -2441,7 +2495,7 @@ public class DiscoveryV1beta1Api {
 
     okhttp3.Call localVarCall =
         patchNamespacedEndpointSliceCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     return localVarCall;
   }
 
@@ -2460,6 +2514,13 @@ public class DiscoveryV1beta1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2481,11 +2542,12 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force)
       throws ApiException {
     ApiResponse<V1beta1EndpointSlice> localVarResp =
         patchNamespacedEndpointSliceWithHttpInfo(
-            name, namespace, body, pretty, dryRun, fieldManager, force);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force);
     return localVarResp.getData();
   }
 
@@ -2504,6 +2566,13 @@ public class DiscoveryV1beta1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2525,11 +2594,12 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force)
       throws ApiException {
     okhttp3.Call localVarCall =
         patchNamespacedEndpointSliceValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, null);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
     Type localVarReturnType = new TypeToken<V1beta1EndpointSlice>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2549,6 +2619,13 @@ public class DiscoveryV1beta1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2570,13 +2647,14 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback<V1beta1EndpointSlice> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchNamespacedEndpointSliceValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     Type localVarReturnType = new TypeToken<V1beta1EndpointSlice>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -2756,6 +2834,13 @@ public class DiscoveryV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2774,6 +2859,7 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -2797,6 +2883,11 @@ public class DiscoveryV1beta1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2838,6 +2929,7 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -2861,7 +2953,7 @@ public class DiscoveryV1beta1Api {
 
     okhttp3.Call localVarCall =
         replaceNamespacedEndpointSliceCall(
-            name, namespace, body, pretty, dryRun, fieldManager, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -2878,6 +2970,13 @@ public class DiscoveryV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1beta1EndpointSlice
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2895,11 +2994,12 @@ public class DiscoveryV1beta1Api {
       V1beta1EndpointSlice body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V1beta1EndpointSlice> localVarResp =
         replaceNamespacedEndpointSliceWithHttpInfo(
-            name, namespace, body, pretty, dryRun, fieldManager);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -2916,6 +3016,13 @@ public class DiscoveryV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1beta1EndpointSlice&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2933,11 +3040,12 @@ public class DiscoveryV1beta1Api {
       V1beta1EndpointSlice body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     okhttp3.Call localVarCall =
         replaceNamespacedEndpointSliceValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, null);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1beta1EndpointSlice>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2955,6 +3063,13 @@ public class DiscoveryV1beta1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2973,12 +3088,13 @@ public class DiscoveryV1beta1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1beta1EndpointSlice> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replaceNamespacedEndpointSliceValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1beta1EndpointSlice>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

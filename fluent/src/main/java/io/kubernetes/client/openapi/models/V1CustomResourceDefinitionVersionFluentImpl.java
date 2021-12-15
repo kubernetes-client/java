@@ -175,8 +175,8 @@ public class V1CustomResourceDefinitionVersionFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withDeprecationWarning instead.
    */
   @java.lang.Deprecated
-  public A withNewDeprecationWarning(java.lang.String arg0) {
-    return (A)withDeprecationWarning(new String(arg0));
+  public A withNewDeprecationWarning(java.lang.String original) {
+    return (A)withDeprecationWarning(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -192,8 +192,8 @@ public class V1CustomResourceDefinitionVersionFluentImpl<A extends io.kubernetes
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   
   /**

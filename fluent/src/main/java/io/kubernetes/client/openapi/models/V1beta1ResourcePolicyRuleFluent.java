@@ -29,7 +29,7 @@ public interface V1beta1ResourcePolicyRuleFluent<A extends io.kubernetes.client.
   public A withApiGroups(java.util.List<java.lang.String> apiGroups);
   public A withApiGroups(java.lang.String... apiGroups);
   public java.lang.Boolean hasApiGroups();
-  public A addNewApiGroup(java.lang.String arg0);
+  public A addNewApiGroup(java.lang.String original);
   public java.lang.Boolean getClusterScope();
   public A withClusterScope(java.lang.Boolean clusterScope);
   public java.lang.Boolean hasClusterScope();
@@ -48,7 +48,7 @@ public interface V1beta1ResourcePolicyRuleFluent<A extends io.kubernetes.client.
   public A withNamespaces(java.util.List<java.lang.String> namespaces);
   public A withNamespaces(java.lang.String... namespaces);
   public java.lang.Boolean hasNamespaces();
-  public A addNewNamespace(java.lang.String arg0);
+  public A addNewNamespace(java.lang.String original);
   public A addToResources(java.lang.Integer index,java.lang.String item);
   public A setToResources(java.lang.Integer index,java.lang.String item);
   public A addToResources(java.lang.String... items);
@@ -64,7 +64,7 @@ public interface V1beta1ResourcePolicyRuleFluent<A extends io.kubernetes.client.
   public A withResources(java.util.List<java.lang.String> resources);
   public A withResources(java.lang.String... resources);
   public java.lang.Boolean hasResources();
-  public A addNewResource(java.lang.String arg0);
+  public A addNewResource(java.lang.String original);
   public A addToVerbs(java.lang.Integer index,java.lang.String item);
   public A setToVerbs(java.lang.Integer index,java.lang.String item);
   public A addToVerbs(java.lang.String... items);
@@ -80,6 +80,6 @@ public interface V1beta1ResourcePolicyRuleFluent<A extends io.kubernetes.client.
   public A withVerbs(java.util.List<java.lang.String> verbs);
   public A withVerbs(java.lang.String... verbs);
   public java.lang.Boolean hasVerbs();
-  public A addNewVerb(java.lang.String arg0);
+  public A addNewVerb(java.lang.String original);
   
 }

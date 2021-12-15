@@ -21,7 +21,7 @@ public interface V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public A addToBinaryData(java.lang.String key,byte[] value);
   public A addToBinaryData(java.util.Map<java.lang.String,byte[]> map);
   public A removeFromBinaryData(java.lang.String key);
@@ -47,7 +47,7 @@ public interface V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

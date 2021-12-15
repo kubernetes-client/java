@@ -68,12 +68,12 @@ public class CSRUtils {
         .getStatus()
         .addConditionsItem(
             new V1CertificateSigningRequestCondition()
-                .type("Approved")
+                .type(V1CertificateSigningRequestCondition.TypeEnum.APPROVED)
                 .status("True")
                 .reason("Kubernetes Java Client")
                 .lastTransitionTime(now)
                 .lastUpdateTime(now));
-    api.replaceCertificateSigningRequestApproval(csrObjName, current, null, null, null);
+    api.replaceCertificateSigningRequestApproval(csrObjName, current, null, null, null, null);
   }
 
   /**
@@ -119,7 +119,7 @@ public class CSRUtils {
       throws ApiException {
     CertificatesV1Api api = new CertificatesV1Api(apiClient);
     try {
-      api.createCertificateSigningRequest(csr, null, null, null);
+      api.createCertificateSigningRequest(csr, null, null, null, null);
       return true;
     } catch (ApiException e) {
       if (e.getCode() == 409) { // HTTP-Conflict

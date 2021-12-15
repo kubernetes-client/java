@@ -18,6 +18,6 @@ public interface V1beta1AllowedFlexVolumeFluent<A extends io.kubernetes.client.o
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String arg0);
+  public A withNewDriver(java.lang.String original);
   
 }

@@ -25,27 +25,19 @@ public class V1TolerationFluentImpl<A extends io.kubernetes.client.openapi.model
     this.withValue(instance.getValue());
 
   }
-  private java.lang.String effect;
+  private io.kubernetes.client.openapi.models.V1Toleration.EffectEnum effect;
   private java.lang.String key;
-  private java.lang.String operator;
+  private io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum operator;
   private java.lang.Long tolerationSeconds;
   private java.lang.String value;
-  public java.lang.String getEffect() {
+  public io.kubernetes.client.openapi.models.V1Toleration.EffectEnum getEffect() {
     return this.effect;
   }
-  public A withEffect(java.lang.String effect) {
+  public A withEffect(io.kubernetes.client.openapi.models.V1Toleration.EffectEnum effect) {
     this.effect=effect; return (A) this;
   }
   public java.lang.Boolean hasEffect() {
     return this.effect != null;
-  }
-  
-  /**
-   * Method is deprecated. use withEffect instead.
-   */
-  @java.lang.Deprecated
-  public A withNewEffect(java.lang.String arg0) {
-    return (A)withEffect(new String(arg0));
   }
   public java.lang.String getKey() {
     return this.key;
@@ -61,25 +53,17 @@ public class V1TolerationFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String arg0) {
-    return (A)withKey(new String(arg0));
+  public A withNewKey(java.lang.String original) {
+    return (A)withKey(new String(original));
   }
-  public java.lang.String getOperator() {
+  public io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum getOperator() {
     return this.operator;
   }
-  public A withOperator(java.lang.String operator) {
+  public A withOperator(io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum operator) {
     this.operator=operator; return (A) this;
   }
   public java.lang.Boolean hasOperator() {
     return this.operator != null;
-  }
-  
-  /**
-   * Method is deprecated. use withOperator instead.
-   */
-  @java.lang.Deprecated
-  public A withNewOperator(java.lang.String arg0) {
-    return (A)withOperator(new String(arg0));
   }
   public java.lang.Long getTolerationSeconds() {
     return this.tolerationSeconds;
@@ -104,8 +88,8 @@ public class V1TolerationFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withValue instead.
    */
   @java.lang.Deprecated
-  public A withNewValue(java.lang.String arg0) {
-    return (A)withValue(new String(arg0));
+  public A withNewValue(java.lang.String original) {
+    return (A)withValue(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

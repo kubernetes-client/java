@@ -23,15 +23,17 @@ import java.util.Objects;
  * ResourcePolicyRule is a predicate that matches some resource requests, testing the request&#39;s
  * verb and the target resource. A ResourcePolicyRule matches a resource request if and only if: (a)
  * at least one member of verbs matches the request, (b) at least one member of apiGroups matches
- * the request, (c) at least one member of resources matches the request, and (d) least one member
- * of namespaces matches the request.
+ * the request, (c) at least one member of resources matches the request, and (d) either (d1) the
+ * request does not specify a namespace (i.e., &#x60;Namespace&#x3D;&#x3D;\&quot;\&quot;&#x60;) and
+ * clusterScope is true or (d2) the request specifies a namespace and least one member of namespaces
+ * matches the request&#39;s namespace.
  */
 @ApiModel(
     description =
-        "ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource. A ResourcePolicyRule matches a resource request if and only if: (a) at least one member of verbs matches the request, (b) at least one member of apiGroups matches the request, (c) at least one member of resources matches the request, and (d) least one member of namespaces matches the request.")
+        "ResourcePolicyRule is a predicate that matches some resource requests, testing the request's verb and the target resource. A ResourcePolicyRule matches a resource request if and only if: (a) at least one member of verbs matches the request, (b) at least one member of apiGroups matches the request, (c) at least one member of resources matches the request, and (d) either (d1) the request does not specify a namespace (i.e., `Namespace==\"\"`) and clusterScope is true or (d2) the request specifies a namespace and least one member of namespaces matches the request's namespace.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1beta1ResourcePolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 

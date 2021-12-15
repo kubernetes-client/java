@@ -84,8 +84,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends io.kubernetes.client.
   public java.lang.Boolean hasApiGroups() {
     return apiGroups != null && !apiGroups.isEmpty();
   }
-  public A addNewApiGroup(java.lang.String arg0) {
-    return (A)addToApiGroups(new String(arg0));
+  public A addNewApiGroup(java.lang.String original) {
+    return (A)addToApiGroups(new String(original));
   }
   public java.lang.Boolean getClusterScope() {
     return this.clusterScope;
@@ -147,8 +147,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends io.kubernetes.client.
   public java.lang.Boolean hasNamespaces() {
     return namespaces != null && !namespaces.isEmpty();
   }
-  public A addNewNamespace(java.lang.String arg0) {
-    return (A)addToNamespaces(new String(arg0));
+  public A addNewNamespace(java.lang.String original) {
+    return (A)addToNamespaces(new String(original));
   }
   public A addToResources(java.lang.Integer index,java.lang.String item) {
     if (this.resources == null) {this.resources = new java.util.ArrayList<java.lang.String>();}
@@ -201,8 +201,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends io.kubernetes.client.
   public java.lang.Boolean hasResources() {
     return resources != null && !resources.isEmpty();
   }
-  public A addNewResource(java.lang.String arg0) {
-    return (A)addToResources(new String(arg0));
+  public A addNewResource(java.lang.String original) {
+    return (A)addToResources(new String(original));
   }
   public A addToVerbs(java.lang.Integer index,java.lang.String item) {
     if (this.verbs == null) {this.verbs = new java.util.ArrayList<java.lang.String>();}
@@ -255,8 +255,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends io.kubernetes.client.
   public java.lang.Boolean hasVerbs() {
     return verbs != null && !verbs.isEmpty();
   }
-  public A addNewVerb(java.lang.String arg0) {
-    return (A)addToVerbs(new String(arg0));
+  public A addNewVerb(java.lang.String original) {
+    return (A)addToVerbs(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -121,8 +121,8 @@ return result;
    * Method is deprecated. use withUrl instead.
    */
   @java.lang.Deprecated
-  public A withNewUrl(java.lang.String arg0) {
-    return (A)withUrl(new String(arg0));
+  public A withNewUrl(java.lang.String original) {
+    return (A)withUrl(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -38,8 +38,8 @@ public class V1ResourceFieldSelectorFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withContainerName instead.
    */
   @java.lang.Deprecated
-  public A withNewContainerName(java.lang.String arg0) {
-    return (A)withContainerName(new String(arg0));
+  public A withNewContainerName(java.lang.String original) {
+    return (A)withContainerName(new String(original));
   }
   public io.kubernetes.client.custom.Quantity getDivisor() {
     return this.divisor;
@@ -67,8 +67,8 @@ public class V1ResourceFieldSelectorFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withResource instead.
    */
   @java.lang.Deprecated
-  public A withNewResource(java.lang.String arg0) {
-    return (A)withResource(new String(arg0));
+  public A withNewResource(java.lang.String original) {
+    return (A)withResource(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

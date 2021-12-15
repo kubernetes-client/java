@@ -172,8 +172,8 @@ public class V1SecretVolumeSourceFluentImpl<A extends io.kubernetes.client.opena
    * Method is deprecated. use withSecretName instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String arg0) {
-    return (A)withSecretName(new String(arg0));
+  public A withNewSecretName(java.lang.String original) {
+    return (A)withSecretName(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

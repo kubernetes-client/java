@@ -96,7 +96,7 @@ public class EndpointsLock implements Lock {
       }
       endpoints.setMetadata(objectMeta);
       V1Endpoints createdendpoints =
-          coreV1Client.createNamespacedEndpoints(namespace, endpoints, null, null, null);
+          coreV1Client.createNamespacedEndpoints(namespace, endpoints, null, null, null, null);
       endpointsRefer.set(createdendpoints);
       return true;
     } catch (ApiException e) {
@@ -120,7 +120,8 @@ public class EndpointsLock implements Lock {
               coreV1Client.getApiClient().getJSON().serialize(record));
       // TODO consider to retry if receiving a 409 code
       V1Endpoints replacedEndpoints =
-          coreV1Client.replaceNamespacedEndpoints(name, namespace, endpoints, null, null, null);
+          coreV1Client.replaceNamespacedEndpoints(
+              name, namespace, endpoints, null, null, null, null);
       endpointsRefer.set(replacedEndpoints);
       return true;
     } catch (ApiException e) {

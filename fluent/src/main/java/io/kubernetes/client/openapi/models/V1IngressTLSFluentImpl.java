@@ -76,8 +76,8 @@ public class V1IngressTLSFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasHosts() {
     return hosts != null && !hosts.isEmpty();
   }
-  public A addNewHost(java.lang.String arg0) {
-    return (A)addToHosts(new String(arg0));
+  public A addNewHost(java.lang.String original) {
+    return (A)addToHosts(new String(original));
   }
   public java.lang.String getSecretName() {
     return this.secretName;
@@ -93,8 +93,8 @@ public class V1IngressTLSFluentImpl<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withSecretName instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String arg0) {
-    return (A)withSecretName(new String(arg0));
+  public A withNewSecretName(java.lang.String original) {
+    return (A)withSecretName(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

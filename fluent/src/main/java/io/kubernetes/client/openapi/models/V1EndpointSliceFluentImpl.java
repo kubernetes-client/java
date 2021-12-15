@@ -34,28 +34,20 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
     this.withPorts(instance.getPorts());
 
   }
-  private java.lang.String addressType;
+  private io.kubernetes.client.openapi.models.V1EndpointSlice.AddressTypeEnum addressType;
   private java.lang.String apiVersion;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointBuilder> endpoints;
   private java.lang.String kind;
   private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortBuilder> ports;
-  public java.lang.String getAddressType() {
+  public io.kubernetes.client.openapi.models.V1EndpointSlice.AddressTypeEnum getAddressType() {
     return this.addressType;
   }
-  public A withAddressType(java.lang.String addressType) {
+  public A withAddressType(io.kubernetes.client.openapi.models.V1EndpointSlice.AddressTypeEnum addressType) {
     this.addressType=addressType; return (A) this;
   }
   public java.lang.Boolean hasAddressType() {
     return this.addressType != null;
-  }
-  
-  /**
-   * Method is deprecated. use withAddressType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewAddressType(java.lang.String arg0) {
-    return (A)withAddressType(new String(arg0));
   }
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -71,8 +63,8 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public A addToEndpoints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Endpoint item) {
     if (this.endpoints == null) {this.endpoints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointBuilder>();}
@@ -194,8 +186,8 @@ public class V1EndpointSliceFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   
   /**

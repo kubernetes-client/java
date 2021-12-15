@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "ContainerStatus contains details for the current status of this container.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
 
@@ -98,14 +98,14 @@ public class V1ContainerStatus {
 
   /**
    * The image the container is running. More info:
-   * https://kubernetes.io/docs/concepts/containers/images
+   * https://kubernetes.io/docs/concepts/containers/images.
    *
    * @return image
    */
   @ApiModelProperty(
       required = true,
       value =
-          "The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images")
+          "The image the container is running. More info: https://kubernetes.io/docs/concepts/containers/images.")
   public String getImage() {
     return image;
   }
@@ -207,16 +207,13 @@ public class V1ContainerStatus {
   }
 
   /**
-   * The number of times the container has been restarted, currently based on the number of dead
-   * containers that have not yet been removed. Note that this is calculated from dead containers.
-   * But those containers are subject to garbage collection. This value will get capped at 5 by GC.
+   * The number of times the container has been restarted.
    *
    * @return restartCount
    */
   @ApiModelProperty(
       required = true,
-      value =
-          "The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC.")
+      value = "The number of times the container has been restarted.")
   public Integer getRestartCount() {
     return restartCount;
   }

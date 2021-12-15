@@ -38,16 +38,10 @@ public interface V1TopologySpreadConstraintFluent<A extends io.kubernetes.client
    * Method is deprecated. use withTopologyKey instead.
    */
   @java.lang.Deprecated
-  public A withNewTopologyKey(java.lang.String arg0);
-  public java.lang.String getWhenUnsatisfiable();
-  public A withWhenUnsatisfiable(java.lang.String whenUnsatisfiable);
+  public A withNewTopologyKey(java.lang.String original);
+  public io.kubernetes.client.openapi.models.V1TopologySpreadConstraint.WhenUnsatisfiableEnum getWhenUnsatisfiable();
+  public A withWhenUnsatisfiable(io.kubernetes.client.openapi.models.V1TopologySpreadConstraint.WhenUnsatisfiableEnum whenUnsatisfiable);
   public java.lang.Boolean hasWhenUnsatisfiable();
-  
-  /**
-   * Method is deprecated. use withWhenUnsatisfiable instead.
-   */
-  @java.lang.Deprecated
-  public A withNewWhenUnsatisfiable(java.lang.String arg0);
   public interface LabelSelectorNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1LabelSelectorFluent<io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<N>>{
     public N and();
     public N endLabelSelector();

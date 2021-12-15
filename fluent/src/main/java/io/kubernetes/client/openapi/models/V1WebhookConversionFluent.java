@@ -46,7 +46,7 @@ public interface V1WebhookConversionFluent<A extends io.kubernetes.client.openap
   public A withConversionReviewVersions(java.util.List<java.lang.String> conversionReviewVersions);
   public A withConversionReviewVersions(java.lang.String... conversionReviewVersions);
   public java.lang.Boolean hasConversionReviewVersions();
-  public A addNewConversionReviewVersion(java.lang.String arg0);
+  public A addNewConversionReviewVersion(java.lang.String original);
   public interface ClientConfigNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<io.kubernetes.client.openapi.models.V1WebhookConversionFluent.ClientConfigNested<N>>{
     public N and();
     public N endClientConfig();

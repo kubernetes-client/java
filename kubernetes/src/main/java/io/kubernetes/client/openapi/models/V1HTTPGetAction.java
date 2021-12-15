@@ -12,10 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.IntOrString;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,7 +29,7 @@ import java.util.Objects;
 @ApiModel(description = "HTTPGetAction describes an action based on HTTP Get requests.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1HTTPGetAction {
   public static final String SERIALIZED_NAME_HOST = "host";
 
@@ -46,10 +51,60 @@ public class V1HTTPGetAction {
   @SerializedName(SERIALIZED_NAME_PORT)
   private IntOrString port;
 
+  /**
+   * Scheme to use for connecting to the host. Defaults to HTTP. Possible enum values: -
+   * &#x60;\&quot;HTTP\&quot;&#x60; means that the scheme used will be http:// -
+   * &#x60;\&quot;HTTPS\&quot;&#x60; means that the scheme used will be https://
+   */
+  @JsonAdapter(SchemeEnum.Adapter.class)
+  public enum SchemeEnum {
+    HTTP("HTTP"),
+
+    HTTPS("HTTPS");
+
+    private String value;
+
+    SchemeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SchemeEnum fromValue(String value) {
+      for (SchemeEnum b : SchemeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SchemeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SchemeEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SchemeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SchemeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_SCHEME = "scheme";
 
   @SerializedName(SERIALIZED_NAME_SCHEME)
-  private String scheme;
+  private SchemeEnum scheme;
 
   public V1HTTPGetAction host(String host) {
 
@@ -150,24 +205,28 @@ public class V1HTTPGetAction {
     this.port = port;
   }
 
-  public V1HTTPGetAction scheme(String scheme) {
+  public V1HTTPGetAction scheme(SchemeEnum scheme) {
 
     this.scheme = scheme;
     return this;
   }
 
   /**
-   * Scheme to use for connecting to the host. Defaults to HTTP.
+   * Scheme to use for connecting to the host. Defaults to HTTP. Possible enum values: -
+   * &#x60;\&quot;HTTP\&quot;&#x60; means that the scheme used will be http:// -
+   * &#x60;\&quot;HTTPS\&quot;&#x60; means that the scheme used will be https://
    *
    * @return scheme
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Scheme to use for connecting to the host. Defaults to HTTP.")
-  public String getScheme() {
+  @ApiModelProperty(
+      value =
+          "Scheme to use for connecting to the host. Defaults to HTTP.  Possible enum values:  - `\"HTTP\"` means that the scheme used will be http://  - `\"HTTPS\"` means that the scheme used will be https://")
+  public SchemeEnum getScheme() {
     return scheme;
   }
 
-  public void setScheme(String scheme) {
+  public void setScheme(SchemeEnum scheme) {
     this.scheme = scheme;
   }
 

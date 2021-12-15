@@ -55,7 +55,7 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
   private io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsBuilder daemonEndpoints;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerImageBuilder> images;
   private io.kubernetes.client.openapi.models.V1NodeSystemInfoBuilder nodeInfo;
-  private java.lang.String phase;
+  private io.kubernetes.client.openapi.models.V1NodeStatus.PhaseEnum phase;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1AttachedVolumeBuilder> volumesAttached;
   private java.util.List<java.lang.String> volumesInUse;
   public A addToAddresses(java.lang.Integer index,io.kubernetes.client.openapi.models.V1NodeAddress item) {
@@ -528,22 +528,14 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
   public io.kubernetes.client.openapi.models.V1NodeStatusFluent.NodeInfoNested<A> editOrNewNodeInfoLike(io.kubernetes.client.openapi.models.V1NodeSystemInfo item) {
     return withNewNodeInfoLike(getNodeInfo() != null ? getNodeInfo(): item);
   }
-  public java.lang.String getPhase() {
+  public io.kubernetes.client.openapi.models.V1NodeStatus.PhaseEnum getPhase() {
     return this.phase;
   }
-  public A withPhase(java.lang.String phase) {
+  public A withPhase(io.kubernetes.client.openapi.models.V1NodeStatus.PhaseEnum phase) {
     this.phase=phase; return (A) this;
   }
   public java.lang.Boolean hasPhase() {
     return this.phase != null;
-  }
-  
-  /**
-   * Method is deprecated. use withPhase instead.
-   */
-  @java.lang.Deprecated
-  public A withNewPhase(java.lang.String arg0) {
-    return (A)withPhase(new String(arg0));
   }
   public A addToVolumesAttached(java.lang.Integer index,io.kubernetes.client.openapi.models.V1AttachedVolume item) {
     if (this.volumesAttached == null) {this.volumesAttached = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1AttachedVolumeBuilder>();}
@@ -702,8 +694,8 @@ public class V1NodeStatusFluentImpl<A extends io.kubernetes.client.openapi.model
   public java.lang.Boolean hasVolumesInUse() {
     return volumesInUse != null && !volumesInUse.isEmpty();
   }
-  public A addNewVolumesInUse(java.lang.String arg0) {
-    return (A)addToVolumesInUse(new String(arg0));
+  public A addNewVolumesInUse(java.lang.String original) {
+    return (A)addToVolumesInUse(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

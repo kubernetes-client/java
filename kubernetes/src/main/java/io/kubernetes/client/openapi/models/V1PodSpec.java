@@ -12,10 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +31,7 @@ import java.util.Objects;
 @ApiModel(description = "PodSpec is a description of a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -54,10 +59,74 @@ public class V1PodSpec {
   @SerializedName(SERIALIZED_NAME_DNS_CONFIG)
   private V1PodDNSConfig dnsConfig;
 
+  /**
+   * Set DNS policy for the pod. Defaults to \&quot;ClusterFirst\&quot;. Valid values are
+   * &#39;ClusterFirstWithHostNet&#39;, &#39;ClusterFirst&#39;, &#39;Default&#39; or &#39;None&#39;.
+   * DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To
+   * have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to
+   * &#39;ClusterFirstWithHostNet&#39;. Possible enum values: -
+   * &#x60;\&quot;ClusterFirst\&quot;&#x60; indicates that the pod should use cluster DNS first
+   * unless hostNetwork is true, if it is available, then fall back on the default (as determined by
+   * kubelet) DNS settings. - &#x60;\&quot;ClusterFirstWithHostNet\&quot;&#x60; indicates that the
+   * pod should use cluster DNS first, if it is available, then fall back on the default (as
+   * determined by kubelet) DNS settings. - &#x60;\&quot;Default\&quot;&#x60; indicates that the pod
+   * should use the default (as determined by kubelet) DNS settings. -
+   * &#x60;\&quot;None\&quot;&#x60; indicates that the pod should use empty DNS settings. DNS
+   * parameters such as nameservers and search paths should be defined via DNSConfig.
+   */
+  @JsonAdapter(DnsPolicyEnum.Adapter.class)
+  public enum DnsPolicyEnum {
+    CLUSTERFIRST("ClusterFirst"),
+
+    CLUSTERFIRSTWITHHOSTNET("ClusterFirstWithHostNet"),
+
+    DEFAULT("Default"),
+
+    NONE("None");
+
+    private String value;
+
+    DnsPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DnsPolicyEnum fromValue(String value) {
+      for (DnsPolicyEnum b : DnsPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<DnsPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DnsPolicyEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DnsPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return DnsPolicyEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_DNS_POLICY = "dnsPolicy";
 
   @SerializedName(SERIALIZED_NAME_DNS_POLICY)
-  private String dnsPolicy;
+  private DnsPolicyEnum dnsPolicy;
 
   public static final String SERIALIZED_NAME_ENABLE_SERVICE_LINKS = "enableServiceLinks";
 
@@ -114,6 +183,11 @@ public class V1PodSpec {
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR)
   private Map<String, String> nodeSelector = null;
 
+  public static final String SERIALIZED_NAME_OS = "os";
+
+  @SerializedName(SERIALIZED_NAME_OS)
+  private V1PodOS os;
+
   public static final String SERIALIZED_NAME_OVERHEAD = "overhead";
 
   @SerializedName(SERIALIZED_NAME_OVERHEAD)
@@ -139,10 +213,64 @@ public class V1PodSpec {
   @SerializedName(SERIALIZED_NAME_READINESS_GATES)
   private List<V1PodReadinessGate> readinessGates = null;
 
+  /**
+   * Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to
+   * Always. More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy Possible enum
+   * values: - &#x60;\&quot;Always\&quot;&#x60; - &#x60;\&quot;Never\&quot;&#x60; -
+   * &#x60;\&quot;OnFailure\&quot;&#x60;
+   */
+  @JsonAdapter(RestartPolicyEnum.Adapter.class)
+  public enum RestartPolicyEnum {
+    ALWAYS("Always"),
+
+    NEVER("Never"),
+
+    ONFAILURE("OnFailure");
+
+    private String value;
+
+    RestartPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RestartPolicyEnum fromValue(String value) {
+      for (RestartPolicyEnum b : RestartPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<RestartPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RestartPolicyEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RestartPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return RestartPolicyEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_RESTART_POLICY = "restartPolicy";
 
   @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
-  private String restartPolicy;
+  private RestartPolicyEnum restartPolicy;
 
   public static final String SERIALIZED_NAME_RUNTIME_CLASS_NAME = "runtimeClassName";
 
@@ -326,7 +454,7 @@ public class V1PodSpec {
     this.dnsConfig = dnsConfig;
   }
 
-  public V1PodSpec dnsPolicy(String dnsPolicy) {
+  public V1PodSpec dnsPolicy(DnsPolicyEnum dnsPolicy) {
 
     this.dnsPolicy = dnsPolicy;
     return this;
@@ -337,19 +465,27 @@ public class V1PodSpec {
    * &#39;ClusterFirstWithHostNet&#39;, &#39;ClusterFirst&#39;, &#39;Default&#39; or &#39;None&#39;.
    * DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To
    * have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to
-   * &#39;ClusterFirstWithHostNet&#39;.
+   * &#39;ClusterFirstWithHostNet&#39;. Possible enum values: -
+   * &#x60;\&quot;ClusterFirst\&quot;&#x60; indicates that the pod should use cluster DNS first
+   * unless hostNetwork is true, if it is available, then fall back on the default (as determined by
+   * kubelet) DNS settings. - &#x60;\&quot;ClusterFirstWithHostNet\&quot;&#x60; indicates that the
+   * pod should use cluster DNS first, if it is available, then fall back on the default (as
+   * determined by kubelet) DNS settings. - &#x60;\&quot;Default\&quot;&#x60; indicates that the pod
+   * should use the default (as determined by kubelet) DNS settings. -
+   * &#x60;\&quot;None\&quot;&#x60; indicates that the pod should use empty DNS settings. DNS
+   * parameters such as nameservers and search paths should be defined via DNSConfig.
    *
    * @return dnsPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.")
-  public String getDnsPolicy() {
+          "Set DNS policy for the pod. Defaults to \"ClusterFirst\". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.  Possible enum values:  - `\"ClusterFirst\"` indicates that the pod should use cluster DNS first unless hostNetwork is true, if it is available, then fall back on the default (as determined by kubelet) DNS settings.  - `\"ClusterFirstWithHostNet\"` indicates that the pod should use cluster DNS first, if it is available, then fall back on the default (as determined by kubelet) DNS settings.  - `\"Default\"` indicates that the pod should use the default (as determined by kubelet) DNS settings.  - `\"None\"` indicates that the pod should use empty DNS settings. DNS parameters such as nameservers and search paths should be defined via DNSConfig.")
+  public DnsPolicyEnum getDnsPolicy() {
     return dnsPolicy;
   }
 
-  public void setDnsPolicy(String dnsPolicy) {
+  public void setDnsPolicy(DnsPolicyEnum dnsPolicy) {
     this.dnsPolicy = dnsPolicy;
   }
 
@@ -397,15 +533,15 @@ public class V1PodSpec {
    * pod to perform user-initiated actions such as debugging. This list cannot be specified when
    * creating a pod, and it cannot be modified by updating the pod spec. In order to add an
    * ephemeral container to an existing pod, use the pod&#39;s ephemeralcontainers subresource. This
-   * field is alpha-level and is only honored by servers that enable the EphemeralContainers
-   * feature.
+   * field is beta-level and available on clusters that haven&#39;t disabled the EphemeralContainers
+   * feature gate.
    *
    * @return ephemeralContainers
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource. This field is alpha-level and is only honored by servers that enable the EphemeralContainers feature.")
+          "List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource. This field is beta-level and available on clusters that haven't disabled the EphemeralContainers feature gate.")
   public List<V1EphemeralContainer> getEphemeralContainers() {
     return ephemeralContainers;
   }
@@ -669,6 +805,27 @@ public class V1PodSpec {
     this.nodeSelector = nodeSelector;
   }
 
+  public V1PodSpec os(V1PodOS os) {
+
+    this.os = os;
+    return this;
+  }
+
+  /**
+   * Get os
+   *
+   * @return os
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1PodOS getOs() {
+    return os;
+  }
+
+  public void setOs(V1PodOS os) {
+    this.os = os;
+  }
+
   public V1PodSpec overhead(Map<String, Quantity> overhead) {
 
     this.overhead = overhead;
@@ -821,7 +978,7 @@ public class V1PodSpec {
     this.readinessGates = readinessGates;
   }
 
-  public V1PodSpec restartPolicy(String restartPolicy) {
+  public V1PodSpec restartPolicy(RestartPolicyEnum restartPolicy) {
 
     this.restartPolicy = restartPolicy;
     return this;
@@ -830,19 +987,21 @@ public class V1PodSpec {
   /**
    * Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to
    * Always. More info:
-   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy Possible enum
+   * values: - &#x60;\&quot;Always\&quot;&#x60; - &#x60;\&quot;Never\&quot;&#x60; -
+   * &#x60;\&quot;OnFailure\&quot;&#x60;
    *
    * @return restartPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy")
-  public String getRestartPolicy() {
+          "Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy  Possible enum values:  - `\"Always\"`  - `\"Never\"`  - `\"OnFailure\"`")
+  public RestartPolicyEnum getRestartPolicy() {
     return restartPolicy;
   }
 
-  public void setRestartPolicy(String restartPolicy) {
+  public void setRestartPolicy(RestartPolicyEnum restartPolicy) {
     this.restartPolicy = restartPolicy;
   }
 
@@ -1198,6 +1357,7 @@ public class V1PodSpec {
         && Objects.equals(this.initContainers, v1PodSpec.initContainers)
         && Objects.equals(this.nodeName, v1PodSpec.nodeName)
         && Objects.equals(this.nodeSelector, v1PodSpec.nodeSelector)
+        && Objects.equals(this.os, v1PodSpec.os)
         && Objects.equals(this.overhead, v1PodSpec.overhead)
         && Objects.equals(this.preemptionPolicy, v1PodSpec.preemptionPolicy)
         && Objects.equals(this.priority, v1PodSpec.priority)
@@ -1239,6 +1399,7 @@ public class V1PodSpec {
         initContainers,
         nodeName,
         nodeSelector,
+        os,
         overhead,
         preemptionPolicy,
         priority,
@@ -1286,6 +1447,7 @@ public class V1PodSpec {
     sb.append("    initContainers: ").append(toIndentedString(initContainers)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
+    sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("    overhead: ").append(toIndentedString(overhead)).append("\n");
     sb.append("    preemptionPolicy: ").append(toIndentedString(preemptionPolicy)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");

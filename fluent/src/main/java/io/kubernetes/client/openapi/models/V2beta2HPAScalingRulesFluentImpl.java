@@ -151,8 +151,8 @@ public class V2beta2HPAScalingRulesFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withSelectPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewSelectPolicy(java.lang.String arg0) {
-    return (A)withSelectPolicy(new String(arg0));
+  public A withNewSelectPolicy(java.lang.String original) {
+    return (A)withSelectPolicy(new String(original));
   }
   public java.lang.Integer getStabilizationWindowSeconds() {
     return this.stabilizationWindowSeconds;

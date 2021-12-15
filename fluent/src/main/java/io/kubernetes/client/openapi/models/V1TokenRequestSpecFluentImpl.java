@@ -81,8 +81,8 @@ public class V1TokenRequestSpecFluentImpl<A extends io.kubernetes.client.openapi
   public java.lang.Boolean hasAudiences() {
     return audiences != null && !audiences.isEmpty();
   }
-  public A addNewAudience(java.lang.String arg0) {
-    return (A)addToAudiences(new String(arg0));
+  public A addNewAudience(java.lang.String original) {
+    return (A)addToAudiences(new String(original));
   }
   
   /**

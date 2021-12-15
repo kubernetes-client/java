@@ -32,6 +32,8 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
 
     this.withFailed(instance.getFailed());
 
+    this.withReady(instance.getReady());
+
     this.withStartTime(instance.getStartTime());
 
     this.withSucceeded(instance.getSucceeded());
@@ -44,6 +46,7 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
   private java.time.OffsetDateTime completionTime;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JobConditionBuilder> conditions;
   private java.lang.Integer failed;
+  private java.lang.Integer ready;
   private java.time.OffsetDateTime startTime;
   private java.lang.Integer succeeded;
   private io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsBuilder uncountedTerminatedPods;
@@ -70,8 +73,8 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withCompletedIndexes instead.
    */
   @java.lang.Deprecated
-  public A withNewCompletedIndexes(java.lang.String arg0) {
-    return (A)withCompletedIndexes(new String(arg0));
+  public A withNewCompletedIndexes(java.lang.String original) {
+    return (A)withCompletedIndexes(new String(original));
   }
   public java.time.OffsetDateTime getCompletionTime() {
     return this.completionTime;
@@ -197,6 +200,15 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
   public java.lang.Boolean hasFailed() {
     return this.failed != null;
   }
+  public java.lang.Integer getReady() {
+    return this.ready;
+  }
+  public A withReady(java.lang.Integer ready) {
+    this.ready=ready; return (A) this;
+  }
+  public java.lang.Boolean hasReady() {
+    return this.ready != null;
+  }
   public java.time.OffsetDateTime getStartTime() {
     return this.startTime;
   }
@@ -258,13 +270,14 @@ public class V1JobStatusFluentImpl<A extends io.kubernetes.client.openapi.models
     if (completionTime != null ? !completionTime.equals(that.completionTime) :that.completionTime != null) return false;
     if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
     if (failed != null ? !failed.equals(that.failed) :that.failed != null) return false;
+    if (ready != null ? !ready.equals(that.ready) :that.ready != null) return false;
     if (startTime != null ? !startTime.equals(that.startTime) :that.startTime != null) return false;
     if (succeeded != null ? !succeeded.equals(that.succeeded) :that.succeeded != null) return false;
     if (uncountedTerminatedPods != null ? !uncountedTerminatedPods.equals(that.uncountedTerminatedPods) :that.uncountedTerminatedPods != null) return false;
     return true;
   }
   public int hashCode() {
-    return java.util.Objects.hash(active,  completedIndexes,  completionTime,  conditions,  failed,  startTime,  succeeded,  uncountedTerminatedPods,  super.hashCode());
+    return java.util.Objects.hash(active,  completedIndexes,  completionTime,  conditions,  failed,  ready,  startTime,  succeeded,  uncountedTerminatedPods,  super.hashCode());
   }
   public class ConditionsNestedImpl<N> extends io.kubernetes.client.openapi.models.V1JobConditionFluentImpl<io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<N>> implements io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<N>,io.kubernetes.client.fluent.Nested<N>{
     ConditionsNestedImpl(java.lang.Integer index,io.kubernetes.client.openapi.models.V1JobCondition item) {

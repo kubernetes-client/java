@@ -26,7 +26,7 @@ public interface V1APIResourceListFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public java.lang.String getGroupVersion();
   public A withGroupVersion(java.lang.String groupVersion);
   public java.lang.Boolean hasGroupVersion();
@@ -35,7 +35,7 @@ public interface V1APIResourceListFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withGroupVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewGroupVersion(java.lang.String arg0);
+  public A withNewGroupVersion(java.lang.String original);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -44,7 +44,7 @@ public interface V1APIResourceListFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   public A addToResources(java.lang.Integer index,io.kubernetes.client.openapi.models.V1APIResource item);
   public A setToResources(java.lang.Integer index,io.kubernetes.client.openapi.models.V1APIResource item);
   public A addToResources(io.kubernetes.client.openapi.models.V1APIResource... items);

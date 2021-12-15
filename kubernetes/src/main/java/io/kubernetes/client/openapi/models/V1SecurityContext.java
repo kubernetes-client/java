@@ -27,7 +27,7 @@ import java.util.Objects;
         "SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1SecurityContext {
   public static final String SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION =
       "allowPrivilegeEscalation";
@@ -95,14 +95,14 @@ public class V1SecurityContext {
    * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent
    * process. This bool directly controls if the no_new_privs flag will be set on the container
    * process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2)
-   * has CAP_SYS_ADMIN
+   * has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.
    *
    * @return allowPrivilegeEscalation
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN")
+          "AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.")
   public Boolean getAllowPrivilegeEscalation() {
     return allowPrivilegeEscalation;
   }
@@ -140,14 +140,15 @@ public class V1SecurityContext {
 
   /**
    * Run container in privileged mode. Processes in privileged containers are essentially equivalent
-   * to root on the host. Defaults to false.
+   * to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is
+   * windows.
    *
    * @return privileged
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false.")
+          "Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.")
   public Boolean getPrivileged() {
     return privileged;
   }
@@ -165,14 +166,15 @@ public class V1SecurityContext {
   /**
    * procMount denotes the type of proc mount to use for the containers. The default is
    * DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths.
-   * This requires the ProcMountType feature flag to be enabled.
+   * This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set
+   * when spec.os.name is windows.
    *
    * @return procMount
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled.")
+          "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.")
   public String getProcMount() {
     return procMount;
   }
@@ -188,13 +190,15 @@ public class V1SecurityContext {
   }
 
   /**
-   * Whether this container has a read-only root filesystem. Default is false.
+   * Whether this container has a read-only root filesystem. Default is false. Note that this field
+   * cannot be set when spec.os.name is windows.
    *
    * @return readOnlyRootFilesystem
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "Whether this container has a read-only root filesystem. Default is false.")
+      value =
+          "Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.")
   public Boolean getReadOnlyRootFilesystem() {
     return readOnlyRootFilesystem;
   }
@@ -212,14 +216,15 @@ public class V1SecurityContext {
   /**
    * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also
    * be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value
-   * specified in SecurityContext takes precedence.
+   * specified in SecurityContext takes precedence. Note that this field cannot be set when
+   * spec.os.name is windows.
    *
    * @return runAsGroup
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
+          "The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.")
   public Long getRunAsGroup() {
     return runAsGroup;
   }
@@ -264,14 +269,15 @@ public class V1SecurityContext {
   /**
    * The UID to run the entrypoint of the container process. Defaults to user specified in image
    * metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext
-   * and PodSecurityContext, the value specified in SecurityContext takes precedence.
+   * and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this
+   * field cannot be set when spec.os.name is windows.
    *
    * @return runAsUser
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
+          "The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.")
   public Long getRunAsUser() {
     return runAsUser;
   }

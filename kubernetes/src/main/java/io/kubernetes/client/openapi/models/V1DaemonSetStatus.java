@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "DaemonSetStatus represents the current status of a daemon set.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1DaemonSetStatus {
   public static final String SERIALIZED_NAME_COLLISION_COUNT = "collisionCount";
 
@@ -234,15 +234,15 @@ public class V1DaemonSetStatus {
   }
 
   /**
-   * The number of nodes that should be running the daemon pod and have one or more of the daemon
-   * pod running and ready.
+   * numberReady is the number of nodes that should be running the daemon pod and have one or more
+   * of the daemon pod running with a Ready Condition.
    *
    * @return numberReady
    */
   @ApiModelProperty(
       required = true,
       value =
-          "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready.")
+          "numberReady is the number of nodes that should be running the daemon pod and have one or more of the daemon pod running with a Ready Condition.")
   public Integer getNumberReady() {
     return numberReady;
   }

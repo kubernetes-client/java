@@ -18,7 +18,7 @@ public interface V1ExternalDocumentationFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withDescription instead.
    */
   @java.lang.Deprecated
-  public A withNewDescription(java.lang.String arg0);
+  public A withNewDescription(java.lang.String original);
   public java.lang.String getUrl();
   public A withUrl(java.lang.String url);
   public java.lang.Boolean hasUrl();
@@ -27,6 +27,6 @@ public interface V1ExternalDocumentationFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withUrl instead.
    */
   @java.lang.Deprecated
-  public A withNewUrl(java.lang.String arg0);
+  public A withNewUrl(java.lang.String original);
   
 }

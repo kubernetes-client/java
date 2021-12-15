@@ -1,10 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Deprecated;
 import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
+import java.lang.Deprecated;
 import java.lang.Boolean;
 
  /**
@@ -26,15 +26,9 @@ public interface V1StatefulSetUpdateStrategyFluent<A extends io.kubernetes.clien
   public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> editRollingUpdate();
   public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdate();
   public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdateLike(io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy item);
-  public java.lang.String getType();
-  public A withType(java.lang.String type);
+  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy.TypeEnum getType();
+  public A withType(io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy.TypeEnum type);
   public java.lang.Boolean hasType();
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
   public interface RollingUpdateNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<N>>{
     public N and();
     public N endRollingUpdate();

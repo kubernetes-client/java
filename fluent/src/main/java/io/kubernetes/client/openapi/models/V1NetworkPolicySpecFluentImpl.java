@@ -331,8 +331,8 @@ public class V1NetworkPolicySpecFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasPolicyTypes() {
     return policyTypes != null && !policyTypes.isEmpty();
   }
-  public A addNewPolicyType(java.lang.String arg0) {
-    return (A)addToPolicyTypes(new String(arg0));
+  public A addNewPolicyType(java.lang.String original) {
+    return (A)addToPolicyTypes(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

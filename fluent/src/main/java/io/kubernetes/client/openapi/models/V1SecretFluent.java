@@ -21,7 +21,7 @@ public interface V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public A addToData(java.lang.String key,byte[] value);
   public A addToData(java.util.Map<java.lang.String,byte[]> map);
   public A removeFromData(java.lang.String key);
@@ -40,7 +40,7 @@ public interface V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -71,7 +71,7 @@ public interface V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
+  public A withNewType(java.lang.String original);
   public interface MetadataNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1ObjectMetaFluent<io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<N>>{
     public N and();
     public N endMetadata();

@@ -34,7 +34,7 @@ public interface V1beta1PriorityLevelConfigurationSpecFluent<A extends io.kubern
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
+  public A withNewType(java.lang.String original);
   public interface LimitedNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<N>>{
     public N and();
     public N endLimited();

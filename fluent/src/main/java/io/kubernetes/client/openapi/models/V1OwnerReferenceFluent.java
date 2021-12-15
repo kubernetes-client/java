@@ -18,7 +18,7 @@ public interface V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public java.lang.Boolean getBlockOwnerDeletion();
   public A withBlockOwnerDeletion(java.lang.Boolean blockOwnerDeletion);
   public java.lang.Boolean hasBlockOwnerDeletion();
@@ -33,7 +33,7 @@ public interface V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -42,7 +42,7 @@ public interface V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.String getUid();
   public A withUid(java.lang.String uid);
   public java.lang.Boolean hasUid();
@@ -51,6 +51,6 @@ public interface V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String arg0);
+  public A withNewUid(java.lang.String original);
   
 }

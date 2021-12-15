@@ -260,8 +260,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<A extends io.kubernetes.clie
   public java.lang.Boolean hasAllowedCapabilities() {
     return allowedCapabilities != null && !allowedCapabilities.isEmpty();
   }
-  public A addNewAllowedCapability(java.lang.String arg0) {
-    return (A)addToAllowedCapabilities(new String(arg0));
+  public A addNewAllowedCapability(java.lang.String original) {
+    return (A)addToAllowedCapabilities(new String(original));
   }
   public A addToAllowedFlexVolumes(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolume item) {
     if (this.allowedFlexVolumes == null) {this.allowedFlexVolumes = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeBuilder>();}
@@ -526,8 +526,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<A extends io.kubernetes.clie
   public java.lang.Boolean hasAllowedProcMountTypes() {
     return allowedProcMountTypes != null && !allowedProcMountTypes.isEmpty();
   }
-  public A addNewAllowedProcMountType(java.lang.String arg0) {
-    return (A)addToAllowedProcMountTypes(new String(arg0));
+  public A addNewAllowedProcMountType(java.lang.String original) {
+    return (A)addToAllowedProcMountTypes(new String(original));
   }
   public A addToAllowedUnsafeSysctls(java.lang.Integer index,java.lang.String item) {
     if (this.allowedUnsafeSysctls == null) {this.allowedUnsafeSysctls = new java.util.ArrayList<java.lang.String>();}
@@ -580,8 +580,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<A extends io.kubernetes.clie
   public java.lang.Boolean hasAllowedUnsafeSysctls() {
     return allowedUnsafeSysctls != null && !allowedUnsafeSysctls.isEmpty();
   }
-  public A addNewAllowedUnsafeSysctl(java.lang.String arg0) {
-    return (A)addToAllowedUnsafeSysctls(new String(arg0));
+  public A addNewAllowedUnsafeSysctl(java.lang.String original) {
+    return (A)addToAllowedUnsafeSysctls(new String(original));
   }
   public A addToDefaultAddCapabilities(java.lang.Integer index,java.lang.String item) {
     if (this.defaultAddCapabilities == null) {this.defaultAddCapabilities = new java.util.ArrayList<java.lang.String>();}
@@ -634,8 +634,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<A extends io.kubernetes.clie
   public java.lang.Boolean hasDefaultAddCapabilities() {
     return defaultAddCapabilities != null && !defaultAddCapabilities.isEmpty();
   }
-  public A addNewDefaultAddCapability(java.lang.String arg0) {
-    return (A)addToDefaultAddCapabilities(new String(arg0));
+  public A addNewDefaultAddCapability(java.lang.String original) {
+    return (A)addToDefaultAddCapabilities(new String(original));
   }
   public java.lang.Boolean getDefaultAllowPrivilegeEscalation() {
     return this.defaultAllowPrivilegeEscalation;
@@ -697,8 +697,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<A extends io.kubernetes.clie
   public java.lang.Boolean hasForbiddenSysctls() {
     return forbiddenSysctls != null && !forbiddenSysctls.isEmpty();
   }
-  public A addNewForbiddenSysctl(java.lang.String arg0) {
-    return (A)addToForbiddenSysctls(new String(arg0));
+  public A addNewForbiddenSysctl(java.lang.String original) {
+    return (A)addToForbiddenSysctls(new String(original));
   }
   
   /**
@@ -936,8 +936,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<A extends io.kubernetes.clie
   public java.lang.Boolean hasRequiredDropCapabilities() {
     return requiredDropCapabilities != null && !requiredDropCapabilities.isEmpty();
   }
-  public A addNewRequiredDropCapability(java.lang.String arg0) {
-    return (A)addToRequiredDropCapabilities(new String(arg0));
+  public A addNewRequiredDropCapability(java.lang.String original) {
+    return (A)addToRequiredDropCapabilities(new String(original));
   }
   
   /**
@@ -1160,8 +1160,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<A extends io.kubernetes.clie
   public java.lang.Boolean hasVolumes() {
     return volumes != null && !volumes.isEmpty();
   }
-  public A addNewVolume(java.lang.String arg0) {
-    return (A)addToVolumes(new String(arg0));
+  public A addNewVolume(java.lang.String original) {
+    return (A)addToVolumes(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -56,6 +56,13 @@ public class AuthenticationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
@@ -73,6 +80,7 @@ public class AuthenticationV1Api {
       V1TokenReview body,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       String pretty,
       final ApiCallback _callback)
       throws ApiException {
@@ -89,6 +97,11 @@ public class AuthenticationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     if (pretty != null) {
@@ -131,6 +144,7 @@ public class AuthenticationV1Api {
       V1TokenReview body,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       String pretty,
       final ApiCallback _callback)
       throws ApiException {
@@ -142,7 +156,7 @@ public class AuthenticationV1Api {
     }
 
     okhttp3.Call localVarCall =
-        createTokenReviewCall(body, dryRun, fieldManager, pretty, _callback);
+        createTokenReviewCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
     return localVarCall;
   }
 
@@ -156,6 +170,13 @@ public class AuthenticationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @return V1TokenReview
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -170,9 +191,10 @@ public class AuthenticationV1Api {
    * </table>
    */
   public V1TokenReview createTokenReview(
-      V1TokenReview body, String dryRun, String fieldManager, String pretty) throws ApiException {
+      V1TokenReview body, String dryRun, String fieldManager, String fieldValidation, String pretty)
+      throws ApiException {
     ApiResponse<V1TokenReview> localVarResp =
-        createTokenReviewWithHttpInfo(body, dryRun, fieldManager, pretty);
+        createTokenReviewWithHttpInfo(body, dryRun, fieldManager, fieldValidation, pretty);
     return localVarResp.getData();
   }
 
@@ -186,6 +208,13 @@ public class AuthenticationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @return ApiResponse&lt;V1TokenReview&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -200,9 +229,11 @@ public class AuthenticationV1Api {
    * </table>
    */
   public ApiResponse<V1TokenReview> createTokenReviewWithHttpInfo(
-      V1TokenReview body, String dryRun, String fieldManager, String pretty) throws ApiException {
+      V1TokenReview body, String dryRun, String fieldManager, String fieldValidation, String pretty)
+      throws ApiException {
     okhttp3.Call localVarCall =
-        createTokenReviewValidateBeforeCall(body, dryRun, fieldManager, pretty, null);
+        createTokenReviewValidateBeforeCall(
+            body, dryRun, fieldManager, fieldValidation, pretty, null);
     Type localVarReturnType = new TypeToken<V1TokenReview>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -217,6 +248,13 @@ public class AuthenticationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
@@ -234,12 +272,14 @@ public class AuthenticationV1Api {
       V1TokenReview body,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       String pretty,
       final ApiCallback<V1TokenReview> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        createTokenReviewValidateBeforeCall(body, dryRun, fieldManager, pretty, _callback);
+        createTokenReviewValidateBeforeCall(
+            body, dryRun, fieldManager, fieldValidation, pretty, _callback);
     Type localVarReturnType = new TypeToken<V1TokenReview>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

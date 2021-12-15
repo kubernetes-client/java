@@ -88,8 +88,8 @@ public class V1CustomResourceDefinitionSpecFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String arg0) {
-    return (A)withGroup(new String(arg0));
+  public A withNewGroup(java.lang.String original) {
+    return (A)withGroup(new String(original));
   }
   
   /**
@@ -148,8 +148,8 @@ public class V1CustomResourceDefinitionSpecFluentImpl<A extends io.kubernetes.cl
    * Method is deprecated. use withScope instead.
    */
   @java.lang.Deprecated
-  public A withNewScope(java.lang.String arg0) {
-    return (A)withScope(new String(arg0));
+  public A withNewScope(java.lang.String original) {
+    return (A)withScope(new String(original));
   }
   public A addToVersions(java.lang.Integer index,io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion item) {
     if (this.versions == null) {this.versions = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionBuilder>();}

@@ -27,7 +27,7 @@ public class V1TopologySpreadConstraintFluentImpl<A extends io.kubernetes.client
   private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder labelSelector;
   private java.lang.Integer maxSkew;
   private java.lang.String topologyKey;
-  private java.lang.String whenUnsatisfiable;
+  private io.kubernetes.client.openapi.models.V1TopologySpreadConstraint.WhenUnsatisfiableEnum whenUnsatisfiable;
   
   /**
    * This method has been deprecated, please use method buildLabelSelector instead.
@@ -85,25 +85,17 @@ public class V1TopologySpreadConstraintFluentImpl<A extends io.kubernetes.client
    * Method is deprecated. use withTopologyKey instead.
    */
   @java.lang.Deprecated
-  public A withNewTopologyKey(java.lang.String arg0) {
-    return (A)withTopologyKey(new String(arg0));
+  public A withNewTopologyKey(java.lang.String original) {
+    return (A)withTopologyKey(new String(original));
   }
-  public java.lang.String getWhenUnsatisfiable() {
+  public io.kubernetes.client.openapi.models.V1TopologySpreadConstraint.WhenUnsatisfiableEnum getWhenUnsatisfiable() {
     return this.whenUnsatisfiable;
   }
-  public A withWhenUnsatisfiable(java.lang.String whenUnsatisfiable) {
+  public A withWhenUnsatisfiable(io.kubernetes.client.openapi.models.V1TopologySpreadConstraint.WhenUnsatisfiableEnum whenUnsatisfiable) {
     this.whenUnsatisfiable=whenUnsatisfiable; return (A) this;
   }
   public java.lang.Boolean hasWhenUnsatisfiable() {
     return this.whenUnsatisfiable != null;
-  }
-  
-  /**
-   * Method is deprecated. use withWhenUnsatisfiable instead.
-   */
-  @java.lang.Deprecated
-  public A withNewWhenUnsatisfiable(java.lang.String arg0) {
-    return (A)withWhenUnsatisfiable(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

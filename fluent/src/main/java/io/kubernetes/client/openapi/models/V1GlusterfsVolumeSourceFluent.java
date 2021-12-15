@@ -18,7 +18,7 @@ public interface V1GlusterfsVolumeSourceFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withEndpoints instead.
    */
   @java.lang.Deprecated
-  public A withNewEndpoints(java.lang.String arg0);
+  public A withNewEndpoints(java.lang.String original);
   public java.lang.String getPath();
   public A withPath(java.lang.String path);
   public java.lang.Boolean hasPath();
@@ -27,7 +27,7 @@ public interface V1GlusterfsVolumeSourceFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0);
+  public A withNewPath(java.lang.String original);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();

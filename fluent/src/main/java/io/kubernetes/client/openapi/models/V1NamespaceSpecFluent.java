@@ -29,6 +29,6 @@ public interface V1NamespaceSpecFluent<A extends io.kubernetes.client.openapi.mo
   public A withFinalizers(java.util.List<java.lang.String> finalizers);
   public A withFinalizers(java.lang.String... finalizers);
   public java.lang.Boolean hasFinalizers();
-  public A addNewFinalizer(java.lang.String arg0);
+  public A addNewFinalizer(java.lang.String original);
   
 }

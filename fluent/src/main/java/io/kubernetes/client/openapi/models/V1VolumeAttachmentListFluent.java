@@ -26,7 +26,7 @@ public interface V1VolumeAttachmentListFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public A addToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1VolumeAttachment item);
   public A setToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1VolumeAttachment item);
   public A addToItems(io.kubernetes.client.openapi.models.V1VolumeAttachment... items);
@@ -65,7 +65,7 @@ public interface V1VolumeAttachmentListFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

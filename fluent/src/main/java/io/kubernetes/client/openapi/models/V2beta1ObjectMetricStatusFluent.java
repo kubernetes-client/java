@@ -28,7 +28,7 @@ public interface V2beta1ObjectMetricStatusFluent<A extends io.kubernetes.client.
    * Method is deprecated. use withMetricName instead.
    */
   @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String arg0);
+  public A withNewMetricName(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildSelector instead.

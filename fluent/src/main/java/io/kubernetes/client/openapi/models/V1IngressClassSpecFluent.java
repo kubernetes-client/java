@@ -19,7 +19,7 @@ public interface V1IngressClassSpecFluent<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withController instead.
    */
   @java.lang.Deprecated
-  public A withNewController(java.lang.String arg0);
+  public A withNewController(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildParameters instead.

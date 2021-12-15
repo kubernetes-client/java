@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "Local represents directly-attached storage with node affinity (Beta feature)")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1LocalVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -43,14 +43,14 @@ public class V1LocalVolumeSource {
   /**
    * Filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem
    * type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;,
-   * \&quot;ntfs\&quot;. The default value is to auto-select a fileystem if unspecified.
+   * \&quot;ntfs\&quot;. The default value is to auto-select a filesystem if unspecified.
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default value is to auto-select a fileystem if unspecified.")
+          "Filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default value is to auto-select a filesystem if unspecified.")
   public String getFsType() {
     return fsType;
   }

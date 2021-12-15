@@ -71,7 +71,7 @@ public class V1ContainerFluentImpl<A extends io.kubernetes.client.openapi.models
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvVarBuilder> env;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder> envFrom;
   private java.lang.String image;
-  private java.lang.String imagePullPolicy;
+  private io.kubernetes.client.openapi.models.V1Container.ImagePullPolicyEnum imagePullPolicy;
   private io.kubernetes.client.openapi.models.V1LifecycleBuilder lifecycle;
   private io.kubernetes.client.openapi.models.V1ProbeBuilder livenessProbe;
   private java.lang.String name;
@@ -83,7 +83,7 @@ public class V1ContainerFluentImpl<A extends io.kubernetes.client.openapi.models
   private java.lang.Boolean stdin;
   private java.lang.Boolean stdinOnce;
   private java.lang.String terminationMessagePath;
-  private java.lang.String terminationMessagePolicy;
+  private io.kubernetes.client.openapi.models.V1Container.TerminationMessagePolicyEnum terminationMessagePolicy;
   private java.lang.Boolean tty;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder> volumeDevices;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeMountBuilder> volumeMounts;
@@ -139,8 +139,8 @@ public class V1ContainerFluentImpl<A extends io.kubernetes.client.openapi.models
   public java.lang.Boolean hasArgs() {
     return args != null && !args.isEmpty();
   }
-  public A addNewArg(java.lang.String arg0) {
-    return (A)addToArgs(new String(arg0));
+  public A addNewArg(java.lang.String original) {
+    return (A)addToArgs(new String(original));
   }
   public A addToCommand(java.lang.Integer index,java.lang.String item) {
     if (this.command == null) {this.command = new java.util.ArrayList<java.lang.String>();}
@@ -193,8 +193,8 @@ public class V1ContainerFluentImpl<A extends io.kubernetes.client.openapi.models
   public java.lang.Boolean hasCommand() {
     return command != null && !command.isEmpty();
   }
-  public A addNewCommand(java.lang.String arg0) {
-    return (A)addToCommand(new String(arg0));
+  public A addNewCommand(java.lang.String original) {
+    return (A)addToCommand(new String(original));
   }
   public A addToEnv(java.lang.Integer index,io.kubernetes.client.openapi.models.V1EnvVar item) {
     if (this.env == null) {this.env = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvVarBuilder>();}
@@ -422,25 +422,17 @@ public class V1ContainerFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withImage instead.
    */
   @java.lang.Deprecated
-  public A withNewImage(java.lang.String arg0) {
-    return (A)withImage(new String(arg0));
+  public A withNewImage(java.lang.String original) {
+    return (A)withImage(new String(original));
   }
-  public java.lang.String getImagePullPolicy() {
+  public io.kubernetes.client.openapi.models.V1Container.ImagePullPolicyEnum getImagePullPolicy() {
     return this.imagePullPolicy;
   }
-  public A withImagePullPolicy(java.lang.String imagePullPolicy) {
+  public A withImagePullPolicy(io.kubernetes.client.openapi.models.V1Container.ImagePullPolicyEnum imagePullPolicy) {
     this.imagePullPolicy=imagePullPolicy; return (A) this;
   }
   public java.lang.Boolean hasImagePullPolicy() {
     return this.imagePullPolicy != null;
-  }
-  
-  /**
-   * Method is deprecated. use withImagePullPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewImagePullPolicy(java.lang.String arg0) {
-    return (A)withImagePullPolicy(new String(arg0));
   }
   
   /**
@@ -524,8 +516,8 @@ public class V1ContainerFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public A addToPorts(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ContainerPort item) {
     if (this.ports == null) {this.ports = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerPortBuilder>();}
@@ -801,25 +793,17 @@ public class V1ContainerFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withTerminationMessagePath instead.
    */
   @java.lang.Deprecated
-  public A withNewTerminationMessagePath(java.lang.String arg0) {
-    return (A)withTerminationMessagePath(new String(arg0));
+  public A withNewTerminationMessagePath(java.lang.String original) {
+    return (A)withTerminationMessagePath(new String(original));
   }
-  public java.lang.String getTerminationMessagePolicy() {
+  public io.kubernetes.client.openapi.models.V1Container.TerminationMessagePolicyEnum getTerminationMessagePolicy() {
     return this.terminationMessagePolicy;
   }
-  public A withTerminationMessagePolicy(java.lang.String terminationMessagePolicy) {
+  public A withTerminationMessagePolicy(io.kubernetes.client.openapi.models.V1Container.TerminationMessagePolicyEnum terminationMessagePolicy) {
     this.terminationMessagePolicy=terminationMessagePolicy; return (A) this;
   }
   public java.lang.Boolean hasTerminationMessagePolicy() {
     return this.terminationMessagePolicy != null;
-  }
-  
-  /**
-   * Method is deprecated. use withTerminationMessagePolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewTerminationMessagePolicy(java.lang.String arg0) {
-    return (A)withTerminationMessagePolicy(new String(arg0));
   }
   public java.lang.Boolean getTty() {
     return this.tty;
@@ -1056,8 +1040,8 @@ public class V1ContainerFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withWorkingDir instead.
    */
   @java.lang.Deprecated
-  public A withNewWorkingDir(java.lang.String arg0) {
-    return (A)withWorkingDir(new String(arg0));
+  public A withNewWorkingDir(java.lang.String original) {
+    return (A)withWorkingDir(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

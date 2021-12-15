@@ -28,7 +28,7 @@ import java.util.Objects;
         "Represents downward API info for projecting into a projected volume. Note that this is identical to a downwardAPI volume source without the default mode.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1DownwardAPIProjection {
   public static final String SERIALIZED_NAME_ITEMS = "items";
 

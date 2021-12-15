@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.Objects;
 
 /** DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet. */
@@ -23,17 +28,68 @@ import java.util.Objects;
         "DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1DaemonSetUpdateStrategy {
   public static final String SERIALIZED_NAME_ROLLING_UPDATE = "rollingUpdate";
 
   @SerializedName(SERIALIZED_NAME_ROLLING_UPDATE)
   private V1RollingUpdateDaemonSet rollingUpdate;
 
+  /**
+   * Type of daemon set update. Can be \&quot;RollingUpdate\&quot; or \&quot;OnDelete\&quot;.
+   * Default is RollingUpdate. Possible enum values: - &#x60;\&quot;OnDelete\&quot;&#x60; Replace
+   * the old daemons only when it&#39;s killed - &#x60;\&quot;RollingUpdate\&quot;&#x60; Replace the
+   * old daemons by new ones using rolling update i.e replace them on each node one after the other.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    ONDELETE("OnDelete"),
+
+    ROLLINGUPDATE("RollingUpdate");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public V1DaemonSetUpdateStrategy rollingUpdate(V1RollingUpdateDaemonSet rollingUpdate) {
 
@@ -56,7 +112,7 @@ public class V1DaemonSetUpdateStrategy {
     this.rollingUpdate = rollingUpdate;
   }
 
-  public V1DaemonSetUpdateStrategy type(String type) {
+  public V1DaemonSetUpdateStrategy type(TypeEnum type) {
 
     this.type = type;
     return this;
@@ -64,19 +120,21 @@ public class V1DaemonSetUpdateStrategy {
 
   /**
    * Type of daemon set update. Can be \&quot;RollingUpdate\&quot; or \&quot;OnDelete\&quot;.
-   * Default is RollingUpdate.
+   * Default is RollingUpdate. Possible enum values: - &#x60;\&quot;OnDelete\&quot;&#x60; Replace
+   * the old daemons only when it&#39;s killed - &#x60;\&quot;RollingUpdate\&quot;&#x60; Replace the
+   * old daemons by new ones using rolling update i.e replace them on each node one after the other.
    *
    * @return type
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.")
-  public String getType() {
+          "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.  Possible enum values:  - `\"OnDelete\"` Replace the old daemons only when it's killed  - `\"RollingUpdate\"` Replace the old daemons by new ones using rolling update i.e replace them on each node one after the other.")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

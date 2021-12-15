@@ -19,7 +19,7 @@ public interface V1CinderPersistentVolumeSourceFluent<A extends io.kubernetes.cl
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0);
+  public A withNewFsType(java.lang.String original);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();
@@ -46,7 +46,7 @@ public interface V1CinderPersistentVolumeSourceFluent<A extends io.kubernetes.cl
    * Method is deprecated. use withVolumeID instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeID(java.lang.String arg0);
+  public A withNewVolumeID(java.lang.String original);
   public interface SecretRefNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1SecretReferenceFluent<io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceFluent.SecretRefNested<N>>{
     public N and();
     public N endSecretRef();

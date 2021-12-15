@@ -18,7 +18,7 @@ public interface V1ConfigMapKeySelectorFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String arg0);
+  public A withNewKey(java.lang.String original);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -27,7 +27,7 @@ public interface V1ConfigMapKeySelectorFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.Boolean getOptional();
   public A withOptional(java.lang.Boolean optional);
   public java.lang.Boolean hasOptional();

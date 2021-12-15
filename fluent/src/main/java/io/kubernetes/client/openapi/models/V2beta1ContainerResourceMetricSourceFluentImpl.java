@@ -42,8 +42,8 @@ public class V2beta1ContainerResourceMetricSourceFluentImpl<A extends io.kuberne
    * Method is deprecated. use withContainer instead.
    */
   @java.lang.Deprecated
-  public A withNewContainer(java.lang.String arg0) {
-    return (A)withContainer(new String(arg0));
+  public A withNewContainer(java.lang.String original) {
+    return (A)withContainer(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -59,8 +59,8 @@ public class V2beta1ContainerResourceMetricSourceFluentImpl<A extends io.kuberne
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Integer getTargetAverageUtilization() {
     return this.targetAverageUtilization;

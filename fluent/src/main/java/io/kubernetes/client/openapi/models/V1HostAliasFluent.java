@@ -30,7 +30,7 @@ public interface V1HostAliasFluent<A extends io.kubernetes.client.openapi.models
   public A withHostnames(java.util.List<java.lang.String> hostnames);
   public A withHostnames(java.lang.String... hostnames);
   public java.lang.Boolean hasHostnames();
-  public A addNewHostname(java.lang.String arg0);
+  public A addNewHostname(java.lang.String original);
   public java.lang.String getIp();
   public A withIp(java.lang.String ip);
   public java.lang.Boolean hasIp();
@@ -39,6 +39,6 @@ public interface V1HostAliasFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String arg0);
+  public A withNewIp(java.lang.String original);
   
 }

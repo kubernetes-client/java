@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "JobSpec describes how the job execution will look like.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -321,15 +321,14 @@ public class V1JobSpec {
    * is eligible to be automatically deleted. When the Job is being deleted, its lifecycle
    * guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won&#39;t be
    * automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted
-   * immediately after it finishes. This field is alpha-level and is only honored by servers that
-   * enable the TTLAfterFinished feature.
+   * immediately after it finishes.
    *
    * @return ttlSecondsAfterFinished
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes. This field is alpha-level and is only honored by servers that enable the TTLAfterFinished feature.")
+          "ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes.")
   public Integer getTtlSecondsAfterFinished() {
     return ttlSecondsAfterFinished;
   }

@@ -72,8 +72,8 @@ public class V1EnvFromSourceFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPrefix instead.
    */
   @java.lang.Deprecated
-  public A withNewPrefix(java.lang.String arg0) {
-    return (A)withPrefix(new String(arg0));
+  public A withNewPrefix(java.lang.String original) {
+    return (A)withPrefix(new String(original));
   }
   
   /**

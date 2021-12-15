@@ -50,7 +50,7 @@ public class PrometheusExample {
           api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null);
       // A request that should return 404
       try {
-        V1Pod pod = api.readNamespacedPod("foo", "bar", null);
+        V1Pod pod = api.readNamespacedPod("foo", "bar", null, null, null);
       } catch (ApiException ex) {
         if (ex.getCode() != 404) {
           throw ex;

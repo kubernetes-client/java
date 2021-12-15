@@ -1,6 +1,5 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.custom.Quantity;
 import java.lang.Object;
@@ -34,7 +33,7 @@ public class V1LimitRangeItemFluentImpl<A extends io.kubernetes.client.openapi.m
   private java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> max;
   private java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> maxLimitRequestRatio;
   private java.util.Map<java.lang.String,io.kubernetes.client.custom.Quantity> min;
-  private java.lang.String type;
+  private io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum type;
   public A addToDefault(java.lang.String key,io.kubernetes.client.custom.Quantity value) {
     if(this._default == null && key != null && value != null) { this._default = new java.util.LinkedHashMap(); }
     if(key != null && value != null) {this._default.put(key, value);} return (A)this;
@@ -160,22 +159,14 @@ public class V1LimitRangeItemFluentImpl<A extends io.kubernetes.client.openapi.m
   public java.lang.Boolean hasMin() {
     return this.min != null;
   }
-  public java.lang.String getType() {
+  public io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum getType() {
     return this.type;
   }
-  public A withType(java.lang.String type) {
+  public A withType(io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum type) {
     this.type=type; return (A) this;
   }
   public java.lang.Boolean hasType() {
     return this.type != null;
-  }
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -18,6 +18,6 @@ public interface V1SelfSubjectRulesReviewSpecFluent<A extends io.kubernetes.clie
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String arg0);
+  public A withNewNamespace(java.lang.String original);
   
 }

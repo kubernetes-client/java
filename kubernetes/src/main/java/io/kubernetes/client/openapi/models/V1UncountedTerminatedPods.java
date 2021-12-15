@@ -28,7 +28,7 @@ import java.util.Objects;
         "UncountedTerminatedPods holds UIDs of Pods that have terminated but haven't been accounted in Job status counters.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1UncountedTerminatedPods {
   public static final String SERIALIZED_NAME_FAILED = "failed";
 

@@ -28,19 +28,19 @@ import java.util.Objects;
         "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1Lifecycle {
   public static final String SERIALIZED_NAME_POST_START = "postStart";
 
   @SerializedName(SERIALIZED_NAME_POST_START)
-  private V1Handler postStart;
+  private V1LifecycleHandler postStart;
 
   public static final String SERIALIZED_NAME_PRE_STOP = "preStop";
 
   @SerializedName(SERIALIZED_NAME_PRE_STOP)
-  private V1Handler preStop;
+  private V1LifecycleHandler preStop;
 
-  public V1Lifecycle postStart(V1Handler postStart) {
+  public V1Lifecycle postStart(V1LifecycleHandler postStart) {
 
     this.postStart = postStart;
     return this;
@@ -53,15 +53,15 @@ public class V1Lifecycle {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public V1Handler getPostStart() {
+  public V1LifecycleHandler getPostStart() {
     return postStart;
   }
 
-  public void setPostStart(V1Handler postStart) {
+  public void setPostStart(V1LifecycleHandler postStart) {
     this.postStart = postStart;
   }
 
-  public V1Lifecycle preStop(V1Handler preStop) {
+  public V1Lifecycle preStop(V1LifecycleHandler preStop) {
 
     this.preStop = preStop;
     return this;
@@ -74,11 +74,11 @@ public class V1Lifecycle {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public V1Handler getPreStop() {
+  public V1LifecycleHandler getPreStop() {
     return preStop;
   }
 
-  public void setPreStop(V1Handler preStop) {
+  public void setPreStop(V1LifecycleHandler preStop) {
     this.preStop = preStop;
   }
 

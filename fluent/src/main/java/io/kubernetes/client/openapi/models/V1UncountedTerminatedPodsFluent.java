@@ -29,7 +29,7 @@ public interface V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.
   public A withFailed(java.util.List<java.lang.String> failed);
   public A withFailed(java.lang.String... failed);
   public java.lang.Boolean hasFailed();
-  public A addNewFailed(java.lang.String arg0);
+  public A addNewFailed(java.lang.String original);
   public A addToSucceeded(java.lang.Integer index,java.lang.String item);
   public A setToSucceeded(java.lang.Integer index,java.lang.String item);
   public A addToSucceeded(java.lang.String... items);
@@ -45,6 +45,6 @@ public interface V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.
   public A withSucceeded(java.util.List<java.lang.String> succeeded);
   public A withSucceeded(java.lang.String... succeeded);
   public java.lang.Boolean hasSucceeded();
-  public A addNewSucceeded(java.lang.String arg0);
+  public A addNewSucceeded(java.lang.String original);
   
 }

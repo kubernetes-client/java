@@ -1,13 +1,13 @@
 package io.kubernetes.client.openapi.models;
 
 import com.google.gson.annotations.SerializedName;
-import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
-import java.lang.Integer;
 import java.lang.Deprecated;
-import java.lang.Long;
 import java.lang.Boolean;
+import io.kubernetes.client.fluent.Fluent;
+import java.lang.Integer;
+import java.lang.Long;
 
  /**
   * Generated
@@ -31,6 +31,21 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
   public java.lang.Integer getFailureThreshold();
   public A withFailureThreshold(java.lang.Integer failureThreshold);
   public java.lang.Boolean hasFailureThreshold();
+  
+  /**
+   * This method has been deprecated, please use method buildGrpc instead.
+   * @return The buildable object.
+   */
+  @java.lang.Deprecated
+  public io.kubernetes.client.openapi.models.V1GRPCAction getGrpc();
+  public io.kubernetes.client.openapi.models.V1GRPCAction buildGrpc();
+  public A withGrpc(io.kubernetes.client.openapi.models.V1GRPCAction grpc);
+  public java.lang.Boolean hasGrpc();
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> withNewGrpc();
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> withNewGrpcLike(io.kubernetes.client.openapi.models.V1GRPCAction item);
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> editGrpc();
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> editOrNewGrpc();
+  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> editOrNewGrpcLike(io.kubernetes.client.openapi.models.V1GRPCAction item);
   
   /**
    * This method has been deprecated, please use method buildHttpGet instead.
@@ -79,6 +94,11 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
   public interface ExecNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1ExecActionFluent<io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<N>>{
     public N and();
     public N endExec();
+    
+  }
+  public interface GrpcNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1GRPCActionFluent<io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<N>>{
+    public N and();
+    public N endGrpc();
     
   }
   public interface HttpGetNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<io.kubernetes.client.openapi.models.V1ProbeFluent.HttpGetNested<N>>{

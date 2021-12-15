@@ -99,8 +99,8 @@ return result;
    * Method is deprecated. use withGroup instead.
    */
   @java.lang.Deprecated
-  public A withNewGroup(java.lang.String arg0) {
-    return (A)withGroup(new String(arg0));
+  public A withNewGroup(java.lang.String original) {
+    return (A)withGroup(new String(original));
   }
   public java.lang.Integer getGroupPriorityMinimum() {
     return this.groupPriorityMinimum;
@@ -168,8 +168,8 @@ return result;
    * Method is deprecated. use withVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewVersion(java.lang.String arg0) {
-    return (A)withVersion(new String(arg0));
+  public A withNewVersion(java.lang.String original) {
+    return (A)withVersion(new String(original));
   }
   public java.lang.Integer getVersionPriority() {
     return this.versionPriority;

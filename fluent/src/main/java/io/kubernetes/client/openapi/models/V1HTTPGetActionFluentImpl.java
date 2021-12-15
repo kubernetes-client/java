@@ -37,7 +37,7 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder> httpHeaders;
   private java.lang.String path;
   private io.kubernetes.client.custom.IntOrString port;
-  private java.lang.String scheme;
+  private io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum scheme;
   public java.lang.String getHost() {
     return this.host;
   }
@@ -52,8 +52,8 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withHost instead.
    */
   @java.lang.Deprecated
-  public A withNewHost(java.lang.String arg0) {
-    return (A)withHost(new String(arg0));
+  public A withNewHost(java.lang.String original) {
+    return (A)withHost(new String(original));
   }
   public A addToHttpHeaders(java.lang.Integer index,io.kubernetes.client.openapi.models.V1HTTPHeader item) {
     if (this.httpHeaders == null) {this.httpHeaders = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder>();}
@@ -175,8 +175,8 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0) {
-    return (A)withPath(new String(arg0));
+  public A withNewPath(java.lang.String original) {
+    return (A)withPath(new String(original));
   }
   public io.kubernetes.client.custom.IntOrString getPort() {
     return this.port;
@@ -193,22 +193,14 @@ public class V1HTTPGetActionFluentImpl<A extends io.kubernetes.client.openapi.mo
   public A withNewPort(java.lang.String value) {
     return (A)withPort(new IntOrString(value));
   }
-  public java.lang.String getScheme() {
+  public io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum getScheme() {
     return this.scheme;
   }
-  public A withScheme(java.lang.String scheme) {
+  public A withScheme(io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum scheme) {
     this.scheme=scheme; return (A) this;
   }
   public java.lang.Boolean hasScheme() {
     return this.scheme != null;
-  }
-  
-  /**
-   * Method is deprecated. use withScheme instead.
-   */
-  @java.lang.Deprecated
-  public A withNewScheme(java.lang.String arg0) {
-    return (A)withScheme(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -19,7 +19,7 @@ public interface V1VolumeErrorFluent<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0);
+  public A withNewMessage(java.lang.String original);
   public java.time.OffsetDateTime getTime();
   public A withTime(java.time.OffsetDateTime time);
   public java.lang.Boolean hasTime();

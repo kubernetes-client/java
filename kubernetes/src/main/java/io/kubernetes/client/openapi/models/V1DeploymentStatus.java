@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "DeploymentStatus is the most recently observed status of the Deployment.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1DeploymentStatus {
   public static final String SERIALIZED_NAME_AVAILABLE_REPLICAS = "availableReplicas";
 
@@ -171,12 +171,14 @@ public class V1DeploymentStatus {
   }
 
   /**
-   * Total number of ready pods targeted by this deployment.
+   * readyReplicas is the number of pods targeted by this Deployment with a Ready Condition.
    *
    * @return readyReplicas
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of ready pods targeted by this deployment.")
+  @ApiModelProperty(
+      value =
+          "readyReplicas is the number of pods targeted by this Deployment with a Ready Condition.")
   public Integer getReadyReplicas() {
     return readyReplicas;
   }

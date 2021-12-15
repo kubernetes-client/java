@@ -31,8 +31,8 @@ public class V1PodIPFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String arg0) {
-    return (A)withIp(new String(arg0));
+  public A withNewIp(java.lang.String original) {
+    return (A)withIp(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

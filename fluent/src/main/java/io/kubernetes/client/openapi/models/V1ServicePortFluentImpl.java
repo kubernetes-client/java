@@ -32,7 +32,7 @@ public class V1ServicePortFluentImpl<A extends io.kubernetes.client.openapi.mode
   private java.lang.String name;
   private java.lang.Integer nodePort;
   private java.lang.Integer port;
-  private java.lang.String protocol;
+  private io.kubernetes.client.openapi.models.V1ServicePort.ProtocolEnum protocol;
   private io.kubernetes.client.custom.IntOrString targetPort;
   public java.lang.String getAppProtocol() {
     return this.appProtocol;
@@ -48,8 +48,8 @@ public class V1ServicePortFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withAppProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String arg0) {
-    return (A)withAppProtocol(new String(arg0));
+  public A withNewAppProtocol(java.lang.String original) {
+    return (A)withAppProtocol(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -65,8 +65,8 @@ public class V1ServicePortFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Integer getNodePort() {
     return this.nodePort;
@@ -86,22 +86,14 @@ public class V1ServicePortFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasPort() {
     return this.port != null;
   }
-  public java.lang.String getProtocol() {
+  public io.kubernetes.client.openapi.models.V1ServicePort.ProtocolEnum getProtocol() {
     return this.protocol;
   }
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(io.kubernetes.client.openapi.models.V1ServicePort.ProtocolEnum protocol) {
     this.protocol=protocol; return (A) this;
   }
   public java.lang.Boolean hasProtocol() {
     return this.protocol != null;
-  }
-  
-  /**
-   * Method is deprecated. use withProtocol instead.
-   */
-  @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0) {
-    return (A)withProtocol(new String(arg0));
   }
   public io.kubernetes.client.custom.IntOrString getTargetPort() {
     return this.targetPort;

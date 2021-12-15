@@ -46,8 +46,8 @@ public class V1FlexVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String arg0) {
-    return (A)withDriver(new String(arg0));
+  public A withNewDriver(java.lang.String original) {
+    return (A)withDriver(new String(original));
   }
   public java.lang.String getFsType() {
     return this.fsType;
@@ -63,8 +63,8 @@ public class V1FlexVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0) {
-    return (A)withFsType(new String(arg0));
+  public A withNewFsType(java.lang.String original) {
+    return (A)withFsType(new String(original));
   }
   public A addToOptions(java.lang.String key,java.lang.String value) {
     if(this.options == null && key != null && value != null) { this.options = new java.util.LinkedHashMap(); }

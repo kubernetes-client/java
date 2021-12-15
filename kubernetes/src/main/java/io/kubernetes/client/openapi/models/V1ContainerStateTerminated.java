@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "ContainerStateTerminated is a terminated state of a container.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1ContainerStateTerminated {
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
 

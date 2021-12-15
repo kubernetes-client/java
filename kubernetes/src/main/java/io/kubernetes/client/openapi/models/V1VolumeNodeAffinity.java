@@ -25,7 +25,7 @@ import java.util.Objects;
         "VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1VolumeNodeAffinity {
   public static final String SERIALIZED_NAME_REQUIRED = "required";
 

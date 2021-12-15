@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "JobStatus represents the current state of a Job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
 
@@ -51,6 +51,11 @@ public class V1JobStatus {
   @SerializedName(SERIALIZED_NAME_FAILED)
   private Integer failed;
 
+  public static final String SERIALIZED_NAME_READY = "ready";
+
+  @SerializedName(SERIALIZED_NAME_READY)
+  private Integer ready;
+
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
 
   @SerializedName(SERIALIZED_NAME_START_TIME)
@@ -73,12 +78,12 @@ public class V1JobStatus {
   }
 
   /**
-   * The number of actively running pods.
+   * The number of pending and running pods.
    *
    * @return active
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of actively running pods.")
+  @ApiModelProperty(value = "The number of pending and running pods.")
   public Integer getActive() {
     return active;
   }
@@ -197,6 +202,30 @@ public class V1JobStatus {
     this.failed = failed;
   }
 
+  public V1JobStatus ready(Integer ready) {
+
+    this.ready = ready;
+    return this;
+  }
+
+  /**
+   * The number of pods which have a Ready condition. This field is alpha-level. The job controller
+   * populates the field when the feature gate JobReadyPods is enabled (disabled by default).
+   *
+   * @return ready
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The number of pods which have a Ready condition.  This field is alpha-level. The job controller populates the field when the feature gate JobReadyPods is enabled (disabled by default).")
+  public Integer getReady() {
+    return ready;
+  }
+
+  public void setReady(Integer ready) {
+    this.ready = ready;
+  }
+
   public V1JobStatus startTime(OffsetDateTime startTime) {
 
     this.startTime = startTime;
@@ -278,6 +307,7 @@ public class V1JobStatus {
         && Objects.equals(this.completionTime, v1JobStatus.completionTime)
         && Objects.equals(this.conditions, v1JobStatus.conditions)
         && Objects.equals(this.failed, v1JobStatus.failed)
+        && Objects.equals(this.ready, v1JobStatus.ready)
         && Objects.equals(this.startTime, v1JobStatus.startTime)
         && Objects.equals(this.succeeded, v1JobStatus.succeeded)
         && Objects.equals(this.uncountedTerminatedPods, v1JobStatus.uncountedTerminatedPods);
@@ -291,6 +321,7 @@ public class V1JobStatus {
         completionTime,
         conditions,
         failed,
+        ready,
         startTime,
         succeeded,
         uncountedTerminatedPods);
@@ -305,6 +336,7 @@ public class V1JobStatus {
     sb.append("    completionTime: ").append(toIndentedString(completionTime)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    failed: ").append(toIndentedString(failed)).append("\n");
+    sb.append("    ready: ").append(toIndentedString(ready)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    succeeded: ").append(toIndentedString(succeeded)).append("\n");
     sb.append("    uncountedTerminatedPods: ")

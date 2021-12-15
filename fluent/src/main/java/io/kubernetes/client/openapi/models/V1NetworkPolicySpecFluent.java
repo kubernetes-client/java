@@ -108,7 +108,7 @@ public interface V1NetworkPolicySpecFluent<A extends io.kubernetes.client.openap
   public A withPolicyTypes(java.util.List<java.lang.String> policyTypes);
   public A withPolicyTypes(java.lang.String... policyTypes);
   public java.lang.Boolean hasPolicyTypes();
-  public A addNewPolicyType(java.lang.String arg0);
+  public A addNewPolicyType(java.lang.String original);
   public interface EgressNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent<io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.EgressNested<N>>{
     public N and();
     public N endEgress();

@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,17 +33,76 @@ import java.util.Objects;
         "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1NodeSelectorRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
 
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  /**
+   * Represents a key&#39;s relationship to a set of values. Valid operators are In, NotIn, Exists,
+   * DoesNotExist. Gt, and Lt. Possible enum values: - &#x60;\&quot;DoesNotExist\&quot;&#x60; -
+   * &#x60;\&quot;Exists\&quot;&#x60; - &#x60;\&quot;Gt\&quot;&#x60; - &#x60;\&quot;In\&quot;&#x60;
+   * - &#x60;\&quot;Lt\&quot;&#x60; - &#x60;\&quot;NotIn\&quot;&#x60;
+   */
+  @JsonAdapter(OperatorEnum.Adapter.class)
+  public enum OperatorEnum {
+    DOESNOTEXIST("DoesNotExist"),
+
+    EXISTS("Exists"),
+
+    GT("Gt"),
+
+    IN("In"),
+
+    LT("Lt"),
+
+    NOTIN("NotIn");
+
+    private String value;
+
+    OperatorEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OperatorEnum fromValue(String value) {
+      for (OperatorEnum b : OperatorEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<OperatorEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OperatorEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OperatorEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OperatorEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
 
   @SerializedName(SERIALIZED_NAME_OPERATOR)
-  private String operator;
+  private OperatorEnum operator;
 
   public static final String SERIALIZED_NAME_VALUES = "values";
 
@@ -65,7 +129,7 @@ public class V1NodeSelectorRequirement {
     this.key = key;
   }
 
-  public V1NodeSelectorRequirement operator(String operator) {
+  public V1NodeSelectorRequirement operator(OperatorEnum operator) {
 
     this.operator = operator;
     return this;
@@ -73,19 +137,21 @@ public class V1NodeSelectorRequirement {
 
   /**
    * Represents a key&#39;s relationship to a set of values. Valid operators are In, NotIn, Exists,
-   * DoesNotExist. Gt, and Lt.
+   * DoesNotExist. Gt, and Lt. Possible enum values: - &#x60;\&quot;DoesNotExist\&quot;&#x60; -
+   * &#x60;\&quot;Exists\&quot;&#x60; - &#x60;\&quot;Gt\&quot;&#x60; - &#x60;\&quot;In\&quot;&#x60;
+   * - &#x60;\&quot;Lt\&quot;&#x60; - &#x60;\&quot;NotIn\&quot;&#x60;
    *
    * @return operator
    */
   @ApiModelProperty(
       required = true,
       value =
-          "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.")
-  public String getOperator() {
+          "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.  Possible enum values:  - `\"DoesNotExist\"`  - `\"Exists\"`  - `\"Gt\"`  - `\"In\"`  - `\"Lt\"`  - `\"NotIn\"`")
+  public OperatorEnum getOperator() {
     return operator;
   }
 
-  public void setOperator(String operator) {
+  public void setOperator(OperatorEnum operator) {
     this.operator = operator;
   }
 

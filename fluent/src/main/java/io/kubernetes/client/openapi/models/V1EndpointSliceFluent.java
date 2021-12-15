@@ -18,15 +18,9 @@ import java.util.Collection;
   * Generated
   */
 public interface V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models.V1EndpointSliceFluent<A>> extends io.kubernetes.client.fluent.Fluent<A>{
-  public java.lang.String getAddressType();
-  public A withAddressType(java.lang.String addressType);
+  public io.kubernetes.client.openapi.models.V1EndpointSlice.AddressTypeEnum getAddressType();
+  public A withAddressType(io.kubernetes.client.openapi.models.V1EndpointSlice.AddressTypeEnum addressType);
   public java.lang.Boolean hasAddressType();
-  
-  /**
-   * Method is deprecated. use withAddressType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewAddressType(java.lang.String arg0);
   public java.lang.String getApiVersion();
   public A withApiVersion(java.lang.String apiVersion);
   public java.lang.Boolean hasApiVersion();
@@ -35,7 +29,7 @@ public interface V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public A addToEndpoints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Endpoint item);
   public A setToEndpoints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Endpoint item);
   public A addToEndpoints(io.kubernetes.client.openapi.models.V1Endpoint... items);
@@ -74,7 +68,7 @@ public interface V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

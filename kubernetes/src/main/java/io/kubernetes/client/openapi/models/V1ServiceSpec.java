@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +30,7 @@ import java.util.Objects;
 @ApiModel(description = "ServiceSpec describes the attributes that a user creates on a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS =
       "allocateLoadBalancerNodePorts";
@@ -53,10 +58,64 @@ public class V1ServiceSpec {
   @SerializedName(SERIALIZED_NAME_EXTERNAL_NAME)
   private String externalName;
 
+  /**
+   * externalTrafficPolicy denotes if this Service desires to route external traffic to node-local
+   * or cluster-wide endpoints. \&quot;Local\&quot; preserves the client source IP and avoids a
+   * second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced
+   * traffic spreading. \&quot;Cluster\&quot; obscures the client source IP and may cause a second
+   * hop to another node, but should have good overall load-spreading. Possible enum values: -
+   * &#x60;\&quot;Cluster\&quot;&#x60; specifies node-global (legacy) behavior. -
+   * &#x60;\&quot;Local\&quot;&#x60; specifies node-local endpoints behavior.
+   */
+  @JsonAdapter(ExternalTrafficPolicyEnum.Adapter.class)
+  public enum ExternalTrafficPolicyEnum {
+    CLUSTER("Cluster"),
+
+    LOCAL("Local");
+
+    private String value;
+
+    ExternalTrafficPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ExternalTrafficPolicyEnum fromValue(String value) {
+      for (ExternalTrafficPolicyEnum b : ExternalTrafficPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ExternalTrafficPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ExternalTrafficPolicyEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ExternalTrafficPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ExternalTrafficPolicyEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_EXTERNAL_TRAFFIC_POLICY = "externalTrafficPolicy";
 
   @SerializedName(SERIALIZED_NAME_EXTERNAL_TRAFFIC_POLICY)
-  private String externalTrafficPolicy;
+  private ExternalTrafficPolicyEnum externalTrafficPolicy;
 
   public static final String SERIALIZED_NAME_HEALTH_CHECK_NODE_PORT = "healthCheckNodePort";
 
@@ -110,20 +169,143 @@ public class V1ServiceSpec {
   @SerializedName(SERIALIZED_NAME_SELECTOR)
   private Map<String, String> selector = null;
 
+  /**
+   * Supports \&quot;ClientIP\&quot; and \&quot;None\&quot;. Used to maintain session affinity.
+   * Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info:
+   * https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+   * Possible enum values: - &#x60;\&quot;ClientIP\&quot;&#x60; is the Client IP based. -
+   * &#x60;\&quot;None\&quot;&#x60; - no session affinity.
+   */
+  @JsonAdapter(SessionAffinityEnum.Adapter.class)
+  public enum SessionAffinityEnum {
+    CLIENTIP("ClientIP"),
+
+    NONE("None");
+
+    private String value;
+
+    SessionAffinityEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SessionAffinityEnum fromValue(String value) {
+      for (SessionAffinityEnum b : SessionAffinityEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<SessionAffinityEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SessionAffinityEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SessionAffinityEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return SessionAffinityEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_SESSION_AFFINITY = "sessionAffinity";
 
   @SerializedName(SERIALIZED_NAME_SESSION_AFFINITY)
-  private String sessionAffinity;
+  private SessionAffinityEnum sessionAffinity;
 
   public static final String SERIALIZED_NAME_SESSION_AFFINITY_CONFIG = "sessionAffinityConfig";
 
   @SerializedName(SERIALIZED_NAME_SESSION_AFFINITY_CONFIG)
   private V1SessionAffinityConfig sessionAffinityConfig;
 
+  /**
+   * type determines how the Service is exposed. Defaults to ClusterIP. Valid options are
+   * ExternalName, ClusterIP, NodePort, and LoadBalancer. \&quot;ClusterIP\&quot; allocates a
+   * cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the
+   * selector or if that is not specified, by manual construction of an Endpoints object or
+   * EndpointSlice objects. If clusterIP is \&quot;None\&quot;, no virtual IP is allocated and the
+   * endpoints are published as a set of endpoints rather than a virtual IP. \&quot;NodePort\&quot;
+   * builds on ClusterIP and allocates a port on every node which routes to the same endpoints as
+   * the clusterIP. \&quot;LoadBalancer\&quot; builds on NodePort and creates an external
+   * load-balancer (if supported in the current cloud) which routes to the same endpoints as the
+   * clusterIP. \&quot;ExternalName\&quot; aliases this service to the specified externalName.
+   * Several other fields do not apply to ExternalName services. More info:
+   * https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+   * Possible enum values: - &#x60;\&quot;ClusterIP\&quot;&#x60; means a service will only be
+   * accessible inside the cluster, via the cluster IP. - &#x60;\&quot;ExternalName\&quot;&#x60;
+   * means a service consists of only a reference to an external name that kubedns or equivalent
+   * will return as a CNAME record, with no exposing or proxying of any pods involved. -
+   * &#x60;\&quot;LoadBalancer\&quot;&#x60; means a service will be exposed via an external load
+   * balancer (if the cloud provider supports it), in addition to &#39;NodePort&#39; type. -
+   * &#x60;\&quot;NodePort\&quot;&#x60; means a service will be exposed on one port of every node,
+   * in addition to &#39;ClusterIP&#39; type.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CLUSTERIP("ClusterIP"),
+
+    EXTERNALNAME("ExternalName"),
+
+    LOADBALANCER("LoadBalancer"),
+
+    NODEPORT("NodePort");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public V1ServiceSpec allocateLoadBalancerNodePorts(Boolean allocateLoadBalancerNodePorts) {
 
@@ -217,11 +399,9 @@ public class V1ServiceSpec {
    * creating a Service of type ExternalName, creation will fail. This field will be wiped when
    * updating a Service to type ExternalName. If this field is not specified, it will be initialized
    * from the clusterIP field. If this field is specified, clients must ensure that clusterIPs[0]
-   * and clusterIP have the same value. Unless the \&quot;IPv6DualStack\&quot; feature gate is
-   * enabled, this field is limited to one value, which must be the same as the clusterIP field. If
-   * the feature gate is enabled, this field may hold a maximum of two entries (dual-stack IPs, in
-   * either order). These IPs must correspond to the values of the ipFamilies field. Both clusterIPs
-   * and ipFamilies are governed by the ipFamilyPolicy field. More info:
+   * and clusterIP have the same value. This field may hold a maximum of two entries (dual-stack
+   * IPs, in either order). These IPs must correspond to the values of the ipFamilies field. Both
+   * clusterIPs and ipFamilies are governed by the ipFamilyPolicy field. More info:
    * https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
    *
    * @return clusterIPs
@@ -229,7 +409,7 @@ public class V1ServiceSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "ClusterIPs is a list of IP addresses assigned to this service, and are usually assigned randomly.  If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail. This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be empty) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).  Valid values are \"None\", empty string (\"\"), or a valid IP address.  Setting this to \"None\" makes a \"headless service\" (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.  Only applies to types ClusterIP, NodePort, and LoadBalancer. If this field is specified when creating a Service of type ExternalName, creation will fail. This field will be wiped when updating a Service to type ExternalName.  If this field is not specified, it will be initialized from the clusterIP field.  If this field is specified, clients must ensure that clusterIPs[0] and clusterIP have the same value.  Unless the \"IPv6DualStack\" feature gate is enabled, this field is limited to one value, which must be the same as the clusterIP field.  If the feature gate is enabled, this field may hold a maximum of two entries (dual-stack IPs, in either order).  These IPs must correspond to the values of the ipFamilies field. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies")
+          "ClusterIPs is a list of IP addresses assigned to this service, and are usually assigned randomly.  If an address is specified manually, is in-range (as per system configuration), and is not in use, it will be allocated to the service; otherwise creation of the service will fail. This field may not be changed through updates unless the type field is also being changed to ExternalName (which requires this field to be empty) or the type field is being changed from ExternalName (in which case this field may optionally be specified, as describe above).  Valid values are \"None\", empty string (\"\"), or a valid IP address.  Setting this to \"None\" makes a \"headless service\" (no virtual IP), which is useful when direct endpoint connections are preferred and proxying is not required.  Only applies to types ClusterIP, NodePort, and LoadBalancer. If this field is specified when creating a Service of type ExternalName, creation will fail. This field will be wiped when updating a Service to type ExternalName.  If this field is not specified, it will be initialized from the clusterIP field.  If this field is specified, clients must ensure that clusterIPs[0] and clusterIP have the same value.  This field may hold a maximum of two entries (dual-stack IPs, in either order). These IPs must correspond to the values of the ipFamilies field. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies")
   public List<String> getClusterIPs() {
     return clusterIPs;
   }
@@ -298,7 +478,7 @@ public class V1ServiceSpec {
     this.externalName = externalName;
   }
 
-  public V1ServiceSpec externalTrafficPolicy(String externalTrafficPolicy) {
+  public V1ServiceSpec externalTrafficPolicy(ExternalTrafficPolicyEnum externalTrafficPolicy) {
 
     this.externalTrafficPolicy = externalTrafficPolicy;
     return this;
@@ -309,19 +489,21 @@ public class V1ServiceSpec {
    * or cluster-wide endpoints. \&quot;Local\&quot; preserves the client source IP and avoids a
    * second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced
    * traffic spreading. \&quot;Cluster\&quot; obscures the client source IP and may cause a second
-   * hop to another node, but should have good overall load-spreading.
+   * hop to another node, but should have good overall load-spreading. Possible enum values: -
+   * &#x60;\&quot;Cluster\&quot;&#x60; specifies node-global (legacy) behavior. -
+   * &#x60;\&quot;Local\&quot;&#x60; specifies node-local endpoints behavior.
    *
    * @return externalTrafficPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints. \"Local\" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. \"Cluster\" obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading.")
-  public String getExternalTrafficPolicy() {
+          "externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints. \"Local\" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. \"Cluster\" obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading.  Possible enum values:  - `\"Cluster\"` specifies node-global (legacy) behavior.  - `\"Local\"` specifies node-local endpoints behavior.")
+  public ExternalTrafficPolicyEnum getExternalTrafficPolicy() {
     return externalTrafficPolicy;
   }
 
-  public void setExternalTrafficPolicy(String externalTrafficPolicy) {
+  public void setExternalTrafficPolicy(ExternalTrafficPolicyEnum externalTrafficPolicy) {
     this.externalTrafficPolicy = externalTrafficPolicy;
   }
 
@@ -396,25 +578,25 @@ public class V1ServiceSpec {
   }
 
   /**
-   * IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service, and is gated by
-   * the \&quot;IPv6DualStack\&quot; feature gate. This field is usually assigned automatically
-   * based on cluster configuration and the ipFamilyPolicy field. If this field is specified
-   * manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it
-   * will be used; otherwise creation of the service will fail. This field is conditionally mutable:
-   * it allows for adding or removing a secondary IP family, but it does not allow changing the
-   * primary IP family of the Service. Valid values are \&quot;IPv4\&quot; and \&quot;IPv6\&quot;.
-   * This field only applies to Services of types ClusterIP, NodePort, and LoadBalancer, and does
-   * apply to \&quot;headless\&quot; services. This field will be wiped when updating a Service to
-   * type ExternalName. This field may hold a maximum of two entries (dual-stack families, in either
-   * order). These families must correspond to the values of the clusterIPs field, if specified.
-   * Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.
+   * IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service. This field is
+   * usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If
+   * this field is specified manually, the requested family is available in the cluster, and
+   * ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail. This
+   * field is conditionally mutable: it allows for adding or removing a secondary IP family, but it
+   * does not allow changing the primary IP family of the Service. Valid values are
+   * \&quot;IPv4\&quot; and \&quot;IPv6\&quot;. This field only applies to Services of types
+   * ClusterIP, NodePort, and LoadBalancer, and does apply to \&quot;headless\&quot; services. This
+   * field will be wiped when updating a Service to type ExternalName. This field may hold a maximum
+   * of two entries (dual-stack families, in either order). These families must correspond to the
+   * values of the clusterIPs field, if specified. Both clusterIPs and ipFamilies are governed by
+   * the ipFamilyPolicy field.
    *
    * @return ipFamilies
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service, and is gated by the \"IPv6DualStack\" feature gate.  This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail.  This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service.  Valid values are \"IPv4\" and \"IPv6\".  This field only applies to Services of types ClusterIP, NodePort, and LoadBalancer, and does apply to \"headless\" services.  This field will be wiped when updating a Service to type ExternalName.  This field may hold a maximum of two entries (dual-stack families, in either order).  These families must correspond to the values of the clusterIPs field, if specified. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.")
+          "IPFamilies is a list of IP families (e.g. IPv4, IPv6) assigned to this service. This field is usually assigned automatically based on cluster configuration and the ipFamilyPolicy field. If this field is specified manually, the requested family is available in the cluster, and ipFamilyPolicy allows it, it will be used; otherwise creation of the service will fail. This field is conditionally mutable: it allows for adding or removing a secondary IP family, but it does not allow changing the primary IP family of the Service. Valid values are \"IPv4\" and \"IPv6\".  This field only applies to Services of types ClusterIP, NodePort, and LoadBalancer, and does apply to \"headless\" services. This field will be wiped when updating a Service to type ExternalName.  This field may hold a maximum of two entries (dual-stack families, in either order).  These families must correspond to the values of the clusterIPs field, if specified. Both clusterIPs and ipFamilies are governed by the ipFamilyPolicy field.")
   public List<String> getIpFamilies() {
     return ipFamilies;
   }
@@ -430,21 +612,20 @@ public class V1ServiceSpec {
   }
 
   /**
-   * IPFamilyPolicy represents the dual-stack-ness requested or required by this Service, and is
-   * gated by the \&quot;IPv6DualStack\&quot; feature gate. If there is no value provided, then this
-   * field will be set to SingleStack. Services can be \&quot;SingleStack\&quot; (a single IP
-   * family), \&quot;PreferDualStack\&quot; (two IP families on dual-stack configured clusters or a
-   * single IP family on single-stack clusters), or \&quot;RequireDualStack\&quot; (two IP families
-   * on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend
-   * on the value of this field. This field will be wiped when updating a service to type
-   * ExternalName.
+   * IPFamilyPolicy represents the dual-stack-ness requested or required by this Service. If there
+   * is no value provided, then this field will be set to SingleStack. Services can be
+   * \&quot;SingleStack\&quot; (a single IP family), \&quot;PreferDualStack\&quot; (two IP families
+   * on dual-stack configured clusters or a single IP family on single-stack clusters), or
+   * \&quot;RequireDualStack\&quot; (two IP families on dual-stack configured clusters, otherwise
+   * fail). The ipFamilies and clusterIPs fields depend on the value of this field. This field will
+   * be wiped when updating a service to type ExternalName.
    *
    * @return ipFamilyPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "IPFamilyPolicy represents the dual-stack-ness requested or required by this Service, and is gated by the \"IPv6DualStack\" feature gate.  If there is no value provided, then this field will be set to SingleStack. Services can be \"SingleStack\" (a single IP family), \"PreferDualStack\" (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or \"RequireDualStack\" (two IP families on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend on the value of this field.  This field will be wiped when updating a service to type ExternalName.")
+          "IPFamilyPolicy represents the dual-stack-ness requested or required by this Service. If there is no value provided, then this field will be set to SingleStack. Services can be \"SingleStack\" (a single IP family), \"PreferDualStack\" (two IP families on dual-stack configured clusters or a single IP family on single-stack clusters), or \"RequireDualStack\" (two IP families on dual-stack configured clusters, otherwise fail). The ipFamilies and clusterIPs fields depend on the value of this field. This field will be wiped when updating a service to type ExternalName.")
   public String getIpFamilyPolicy() {
     return ipFamilyPolicy;
   }
@@ -643,7 +824,7 @@ public class V1ServiceSpec {
     this.selector = selector;
   }
 
-  public V1ServiceSpec sessionAffinity(String sessionAffinity) {
+  public V1ServiceSpec sessionAffinity(SessionAffinityEnum sessionAffinity) {
 
     this.sessionAffinity = sessionAffinity;
     return this;
@@ -653,18 +834,20 @@ public class V1ServiceSpec {
    * Supports \&quot;ClientIP\&quot; and \&quot;None\&quot;. Used to maintain session affinity.
    * Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info:
    * https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies
+   * Possible enum values: - &#x60;\&quot;ClientIP\&quot;&#x60; is the Client IP based. -
+   * &#x60;\&quot;None\&quot;&#x60; - no session affinity.
    *
    * @return sessionAffinity
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Supports \"ClientIP\" and \"None\". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies")
-  public String getSessionAffinity() {
+          "Supports \"ClientIP\" and \"None\". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies  Possible enum values:  - `\"ClientIP\"` is the Client IP based.  - `\"None\"` - no session affinity.")
+  public SessionAffinityEnum getSessionAffinity() {
     return sessionAffinity;
   }
 
-  public void setSessionAffinity(String sessionAffinity) {
+  public void setSessionAffinity(SessionAffinityEnum sessionAffinity) {
     this.sessionAffinity = sessionAffinity;
   }
 
@@ -689,7 +872,7 @@ public class V1ServiceSpec {
     this.sessionAffinityConfig = sessionAffinityConfig;
   }
 
-  public V1ServiceSpec type(String type) {
+  public V1ServiceSpec type(TypeEnum type) {
 
     this.type = type;
     return this;
@@ -708,18 +891,26 @@ public class V1ServiceSpec {
    * clusterIP. \&quot;ExternalName\&quot; aliases this service to the specified externalName.
    * Several other fields do not apply to ExternalName services. More info:
    * https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+   * Possible enum values: - &#x60;\&quot;ClusterIP\&quot;&#x60; means a service will only be
+   * accessible inside the cluster, via the cluster IP. - &#x60;\&quot;ExternalName\&quot;&#x60;
+   * means a service consists of only a reference to an external name that kubedns or equivalent
+   * will return as a CNAME record, with no exposing or proxying of any pods involved. -
+   * &#x60;\&quot;LoadBalancer\&quot;&#x60; means a service will be exposed via an external load
+   * balancer (if the cloud provider supports it), in addition to &#39;NodePort&#39; type. -
+   * &#x60;\&quot;NodePort\&quot;&#x60; means a service will be exposed on one port of every node,
+   * in addition to &#39;ClusterIP&#39; type.
    *
    * @return type
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \"ClusterIP\" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object or EndpointSlice objects. If clusterIP is \"None\", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a virtual IP. \"NodePort\" builds on ClusterIP and allocates a port on every node which routes to the same endpoints as the clusterIP. \"LoadBalancer\" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the same endpoints as the clusterIP. \"ExternalName\" aliases this service to the specified externalName. Several other fields do not apply to ExternalName services. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types")
-  public String getType() {
+          "type determines how the Service is exposed. Defaults to ClusterIP. Valid options are ExternalName, ClusterIP, NodePort, and LoadBalancer. \"ClusterIP\" allocates a cluster-internal IP address for load-balancing to endpoints. Endpoints are determined by the selector or if that is not specified, by manual construction of an Endpoints object or EndpointSlice objects. If clusterIP is \"None\", no virtual IP is allocated and the endpoints are published as a set of endpoints rather than a virtual IP. \"NodePort\" builds on ClusterIP and allocates a port on every node which routes to the same endpoints as the clusterIP. \"LoadBalancer\" builds on NodePort and creates an external load-balancer (if supported in the current cloud) which routes to the same endpoints as the clusterIP. \"ExternalName\" aliases this service to the specified externalName. Several other fields do not apply to ExternalName services. More info: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types  Possible enum values:  - `\"ClusterIP\"` means a service will only be accessible inside the cluster, via the cluster IP.  - `\"ExternalName\"` means a service consists of only a reference to an external name that kubedns or equivalent will return as a CNAME record, with no exposing or proxying of any pods involved.  - `\"LoadBalancer\"` means a service will be exposed via an external load balancer (if the cloud provider supports it), in addition to 'NodePort' type.  - `\"NodePort\"` means a service will be exposed on one port of every node, in addition to 'ClusterIP' type.")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

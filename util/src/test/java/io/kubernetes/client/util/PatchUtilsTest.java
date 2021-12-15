@@ -53,7 +53,7 @@ public class PatchUtilsTest {
         V1Pod.class,
         () ->
             coreV1Api.patchNamespacedPodCall(
-                "foo", "default", new V1Patch("[]"), null, null, null, null, null),
+                "foo", "default", new V1Patch("[]"), null, null, null, null, null, null),
         V1Patch.PATCH_FORMAT_JSON_PATCH,
         client);
 
@@ -76,7 +76,7 @@ public class PatchUtilsTest {
         V1Pod.class,
         () ->
             coreV1Api.patchNamespacedPodCall(
-                "foo", "default", new V1Patch("[]"), null, null, null, null, null),
+                "foo", "default", new V1Patch("[]"), null, null, null, null, null, null),
         V1Patch.PATCH_FORMAT_JSON_MERGE_PATCH,
         client);
 
@@ -99,7 +99,7 @@ public class PatchUtilsTest {
         V1Pod.class,
         () ->
             coreV1Api.patchNamespacedPodCall(
-                "foo", "default", new V1Patch("[]"), null, null, null, null, null),
+                "foo", "default", new V1Patch("[]"), null, null, null, null, null, null),
         V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
         client);
 

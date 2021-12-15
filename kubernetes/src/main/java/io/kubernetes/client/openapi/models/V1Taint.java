@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -27,12 +32,71 @@ import java.util.Objects;
         "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1Taint {
+  /**
+   * Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are
+   * NoSchedule, PreferNoSchedule and NoExecute. Possible enum values: -
+   * &#x60;\&quot;NoExecute\&quot;&#x60; Evict any already-running pods that do not tolerate the
+   * taint. Currently enforced by NodeController. - &#x60;\&quot;NoSchedule\&quot;&#x60; Do not
+   * allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods
+   * submitted to Kubelet without going through the scheduler to start, and allow all
+   * already-running pods to continue running. Enforced by the scheduler. -
+   * &#x60;\&quot;PreferNoSchedule\&quot;&#x60; Like TaintEffectNoSchedule, but the scheduler tries
+   * not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto
+   * the node entirely. Enforced by the scheduler.
+   */
+  @JsonAdapter(EffectEnum.Adapter.class)
+  public enum EffectEnum {
+    NOEXECUTE("NoExecute"),
+
+    NOSCHEDULE("NoSchedule"),
+
+    PREFERNOSCHEDULE("PreferNoSchedule");
+
+    private String value;
+
+    EffectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EffectEnum fromValue(String value) {
+      for (EffectEnum b : EffectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EffectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EffectEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EffectEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EffectEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_EFFECT = "effect";
 
   @SerializedName(SERIALIZED_NAME_EFFECT)
-  private String effect;
+  private EffectEnum effect;
 
   public static final String SERIALIZED_NAME_KEY = "key";
 
@@ -49,7 +113,7 @@ public class V1Taint {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
-  public V1Taint effect(String effect) {
+  public V1Taint effect(EffectEnum effect) {
 
     this.effect = effect;
     return this;
@@ -57,19 +121,27 @@ public class V1Taint {
 
   /**
    * Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are
-   * NoSchedule, PreferNoSchedule and NoExecute.
+   * NoSchedule, PreferNoSchedule and NoExecute. Possible enum values: -
+   * &#x60;\&quot;NoExecute\&quot;&#x60; Evict any already-running pods that do not tolerate the
+   * taint. Currently enforced by NodeController. - &#x60;\&quot;NoSchedule\&quot;&#x60; Do not
+   * allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods
+   * submitted to Kubelet without going through the scheduler to start, and allow all
+   * already-running pods to continue running. Enforced by the scheduler. -
+   * &#x60;\&quot;PreferNoSchedule\&quot;&#x60; Like TaintEffectNoSchedule, but the scheduler tries
+   * not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto
+   * the node entirely. Enforced by the scheduler.
    *
    * @return effect
    */
   @ApiModelProperty(
       required = true,
       value =
-          "Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.")
-  public String getEffect() {
+          "Required. The effect of the taint on pods that do not tolerate the taint. Valid effects are NoSchedule, PreferNoSchedule and NoExecute.  Possible enum values:  - `\"NoExecute\"` Evict any already-running pods that do not tolerate the taint. Currently enforced by NodeController.  - `\"NoSchedule\"` Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.  - `\"PreferNoSchedule\"` Like TaintEffectNoSchedule, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.")
+  public EffectEnum getEffect() {
     return effect;
   }
 
-  public void setEffect(String effect) {
+  public void setEffect(EffectEnum effect) {
     this.effect = effect;
   }
 

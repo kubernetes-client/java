@@ -103,7 +103,7 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
   private java.util.List<java.lang.String> mountOptions;
   private io.kubernetes.client.openapi.models.V1NFSVolumeSourceBuilder nfs;
   private io.kubernetes.client.openapi.models.V1VolumeNodeAffinityBuilder nodeAffinity;
-  private java.lang.String persistentVolumeReclaimPolicy;
+  private io.kubernetes.client.openapi.models.V1PersistentVolumeSpec.PersistentVolumeReclaimPolicyEnum persistentVolumeReclaimPolicy;
   private io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceBuilder photonPersistentDisk;
   private io.kubernetes.client.openapi.models.V1PortworxVolumeSourceBuilder portworxVolume;
   private io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceBuilder quobyte;
@@ -164,8 +164,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
   public java.lang.Boolean hasAccessModes() {
     return accessModes != null && !accessModes.isEmpty();
   }
-  public A addNewAccessMode(java.lang.String arg0) {
-    return (A)addToAccessModes(new String(arg0));
+  public A addNewAccessMode(java.lang.String original) {
+    return (A)addToAccessModes(new String(original));
   }
   
   /**
@@ -753,8 +753,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
   public java.lang.Boolean hasMountOptions() {
     return mountOptions != null && !mountOptions.isEmpty();
   }
-  public A addNewMountOption(java.lang.String arg0) {
-    return (A)addToMountOptions(new String(arg0));
+  public A addNewMountOption(java.lang.String original) {
+    return (A)addToMountOptions(new String(original));
   }
   
   /**
@@ -824,22 +824,14 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A> editOrNewNodeAffinityLike(io.kubernetes.client.openapi.models.V1VolumeNodeAffinity item) {
     return withNewNodeAffinityLike(getNodeAffinity() != null ? getNodeAffinity(): item);
   }
-  public java.lang.String getPersistentVolumeReclaimPolicy() {
+  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec.PersistentVolumeReclaimPolicyEnum getPersistentVolumeReclaimPolicy() {
     return this.persistentVolumeReclaimPolicy;
   }
-  public A withPersistentVolumeReclaimPolicy(java.lang.String persistentVolumeReclaimPolicy) {
+  public A withPersistentVolumeReclaimPolicy(io.kubernetes.client.openapi.models.V1PersistentVolumeSpec.PersistentVolumeReclaimPolicyEnum persistentVolumeReclaimPolicy) {
     this.persistentVolumeReclaimPolicy=persistentVolumeReclaimPolicy; return (A) this;
   }
   public java.lang.Boolean hasPersistentVolumeReclaimPolicy() {
     return this.persistentVolumeReclaimPolicy != null;
-  }
-  
-  /**
-   * Method is deprecated. use withPersistentVolumeReclaimPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewPersistentVolumeReclaimPolicy(java.lang.String arg0) {
-    return (A)withPersistentVolumeReclaimPolicy(new String(arg0));
   }
   
   /**
@@ -1025,8 +1017,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String arg0) {
-    return (A)withStorageClassName(new String(arg0));
+  public A withNewStorageClassName(java.lang.String original) {
+    return (A)withStorageClassName(new String(original));
   }
   
   /**
@@ -1076,8 +1068,8 @@ public class V1PersistentVolumeSpecFluentImpl<A extends io.kubernetes.client.ope
    * Method is deprecated. use withVolumeMode instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String arg0) {
-    return (A)withVolumeMode(new String(arg0));
+  public A withNewVolumeMode(java.lang.String original) {
+    return (A)withVolumeMode(new String(original));
   }
   
   /**

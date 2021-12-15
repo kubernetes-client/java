@@ -1,7 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
@@ -20,7 +19,7 @@ public class V1StatefulSetUpdateStrategyFluentImpl<A extends io.kubernetes.clien
 
   }
   private io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyBuilder rollingUpdate;
-  private java.lang.String type;
+  private io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy.TypeEnum type;
   
   /**
    * This method has been deprecated, please use method buildRollingUpdate instead.
@@ -55,22 +54,14 @@ public class V1StatefulSetUpdateStrategyFluentImpl<A extends io.kubernetes.clien
   public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdateLike(io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy item) {
     return withNewRollingUpdateLike(getRollingUpdate() != null ? getRollingUpdate(): item);
   }
-  public java.lang.String getType() {
+  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy.TypeEnum getType() {
     return this.type;
   }
-  public A withType(java.lang.String type) {
+  public A withType(io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy.TypeEnum type) {
     this.type=type; return (A) this;
   }
   public java.lang.Boolean hasType() {
     return this.type != null;
-  }
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

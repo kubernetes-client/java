@@ -222,8 +222,8 @@ public class V1CustomResourceDefinitionStatusFluentImpl<A extends io.kubernetes.
   public java.lang.Boolean hasStoredVersions() {
     return storedVersions != null && !storedVersions.isEmpty();
   }
-  public A addNewStoredVersion(java.lang.String arg0) {
-    return (A)addToStoredVersions(new String(arg0));
+  public A addNewStoredVersion(java.lang.String original) {
+    return (A)addToStoredVersions(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

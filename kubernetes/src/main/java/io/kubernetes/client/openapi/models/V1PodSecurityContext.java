@@ -29,7 +29,7 @@ import java.util.Objects;
         "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_FS_GROUP = "fsGroup";
 
@@ -92,14 +92,15 @@ public class V1PodSecurityContext {
    * the Kubelet to change the ownership of that volume to be owned by the pod: 1. The owning GID
    * will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by
    * FSGroup) 3. The permission bits are OR&#39;d with rw-rw---- If unset, the Kubelet will not
-   * modify the ownership and permissions of any volume.
+   * modify the ownership and permissions of any volume. Note that this field cannot be set when
+   * spec.os.name is windows.
    *
    * @return fsGroup
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:  1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----  If unset, the Kubelet will not modify the ownership and permissions of any volume.")
+          "A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:  1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----  If unset, the Kubelet will not modify the ownership and permissions of any volume. Note that this field cannot be set when spec.os.name is windows.")
   public Long getFsGroup() {
     return fsGroup;
   }
@@ -119,14 +120,15 @@ public class V1PodSecurityContext {
    * being exposed inside Pod. This field will only apply to volume types which support fsGroup
    * based ownership(and permissions). It will have no effect on ephemeral volume types such as:
    * secret, configmaps and emptydir. Valid values are \&quot;OnRootMismatch\&quot; and
-   * \&quot;Always\&quot;. If not specified, \&quot;Always\&quot; is used.
+   * \&quot;Always\&quot;. If not specified, \&quot;Always\&quot; is used. Note that this field
+   * cannot be set when spec.os.name is windows.
    *
    * @return fsGroupChangePolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are \"OnRootMismatch\" and \"Always\". If not specified, \"Always\" is used.")
+          "fsGroupChangePolicy defines behavior of changing ownership and permission of the volume before being exposed inside Pod. This field will only apply to volume types which support fsGroup based ownership(and permissions). It will have no effect on ephemeral volume types such as: secret, configmaps and emptydir. Valid values are \"OnRootMismatch\" and \"Always\". If not specified, \"Always\" is used. Note that this field cannot be set when spec.os.name is windows.")
   public String getFsGroupChangePolicy() {
     return fsGroupChangePolicy;
   }
@@ -144,14 +146,15 @@ public class V1PodSecurityContext {
   /**
    * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also
    * be set in SecurityContext. If set in both SecurityContext and PodSecurityContext, the value
-   * specified in SecurityContext takes precedence for that container.
+   * specified in SecurityContext takes precedence for that container. Note that this field cannot
+   * be set when spec.os.name is windows.
    *
    * @return runAsGroup
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.")
+          "The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.")
   public Long getRunAsGroup() {
     return runAsGroup;
   }
@@ -197,13 +200,14 @@ public class V1PodSecurityContext {
    * The UID to run the entrypoint of the container process. Defaults to user specified in image
    * metadata if unspecified. May also be set in SecurityContext. If set in both SecurityContext and
    * PodSecurityContext, the value specified in SecurityContext takes precedence for that container.
+   * Note that this field cannot be set when spec.os.name is windows.
    *
    * @return runAsUser
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container.")
+          "The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in SecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence for that container. Note that this field cannot be set when spec.os.name is windows.")
   public Long getRunAsUser() {
     return runAsUser;
   }
@@ -270,14 +274,15 @@ public class V1PodSecurityContext {
 
   /**
    * A list of groups applied to the first process run in each container, in addition to the
-   * container&#39;s primary GID. If unspecified, no groups will be added to any container.
+   * container&#39;s primary GID. If unspecified, no groups will be added to any container. Note
+   * that this field cannot be set when spec.os.name is windows.
    *
    * @return supplementalGroups
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container.")
+          "A list of groups applied to the first process run in each container, in addition to the container's primary GID.  If unspecified, no groups will be added to any container. Note that this field cannot be set when spec.os.name is windows.")
   public List<Long> getSupplementalGroups() {
     return supplementalGroups;
   }
@@ -302,14 +307,15 @@ public class V1PodSecurityContext {
 
   /**
    * Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by
-   * the container runtime) might fail to launch.
+   * the container runtime) might fail to launch. Note that this field cannot be set when
+   * spec.os.name is windows.
    *
    * @return sysctls
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch.")
+          "Sysctls hold a list of namespaced sysctls used for the pod. Pods with unsupported sysctls (by the container runtime) might fail to launch. Note that this field cannot be set when spec.os.name is windows.")
   public List<V1Sysctl> getSysctls() {
     return sysctls;
   }

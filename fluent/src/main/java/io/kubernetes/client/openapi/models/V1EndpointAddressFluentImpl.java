@@ -41,8 +41,8 @@ public class V1EndpointAddressFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withHostname instead.
    */
   @java.lang.Deprecated
-  public A withNewHostname(java.lang.String arg0) {
-    return (A)withHostname(new String(arg0));
+  public A withNewHostname(java.lang.String original) {
+    return (A)withHostname(new String(original));
   }
   public java.lang.String getIp() {
     return this.ip;
@@ -58,8 +58,8 @@ public class V1EndpointAddressFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withIp instead.
    */
   @java.lang.Deprecated
-  public A withNewIp(java.lang.String arg0) {
-    return (A)withIp(new String(arg0));
+  public A withNewIp(java.lang.String original) {
+    return (A)withIp(new String(original));
   }
   public java.lang.String getNodeName() {
     return this.nodeName;
@@ -75,8 +75,8 @@ public class V1EndpointAddressFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withNodeName instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String arg0) {
-    return (A)withNodeName(new String(arg0));
+  public A withNewNodeName(java.lang.String original) {
+    return (A)withNodeName(new String(original));
   }
   
   /**

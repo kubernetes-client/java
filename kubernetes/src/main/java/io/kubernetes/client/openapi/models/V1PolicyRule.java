@@ -28,7 +28,7 @@ import java.util.Objects;
         "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1PolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 
@@ -198,15 +198,15 @@ public class V1PolicyRule {
   }
 
   /**
-   * Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions
-   * contained in this rule. &#39;*&#39; represents all verbs.
+   * Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule.
+   * &#39;*&#39; represents all verbs.
    *
    * @return verbs
    */
   @ApiModelProperty(
       required = true,
       value =
-          "Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. '*' represents all verbs.")
+          "Verbs is a list of Verbs that apply to ALL the ResourceKinds contained in this rule. '*' represents all verbs.")
   public List<String> getVerbs() {
     return verbs;
   }

@@ -61,6 +61,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -78,6 +85,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -97,6 +105,11 @@ public class ApiregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -136,6 +149,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -145,7 +159,8 @@ public class ApiregistrationV1Api {
           "Missing the required parameter 'body' when calling createAPIService(Async)");
     }
 
-    okhttp3.Call localVarCall = createAPIServiceCall(body, pretty, dryRun, fieldManager, _callback);
+    okhttp3.Call localVarCall =
+        createAPIServiceCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -160,6 +175,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1APIService
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -173,9 +195,10 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public V1APIService createAPIService(
-      V1APIService body, String pretty, String dryRun, String fieldManager) throws ApiException {
+      V1APIService body, String pretty, String dryRun, String fieldManager, String fieldValidation)
+      throws ApiException {
     ApiResponse<V1APIService> localVarResp =
-        createAPIServiceWithHttpInfo(body, pretty, dryRun, fieldManager);
+        createAPIServiceWithHttpInfo(body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -190,6 +213,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1APIService&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -203,9 +233,11 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1APIService> createAPIServiceWithHttpInfo(
-      V1APIService body, String pretty, String dryRun, String fieldManager) throws ApiException {
+      V1APIService body, String pretty, String dryRun, String fieldManager, String fieldValidation)
+      throws ApiException {
     okhttp3.Call localVarCall =
-        createAPIServiceValidateBeforeCall(body, pretty, dryRun, fieldManager, null);
+        createAPIServiceValidateBeforeCall(
+            body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -221,6 +253,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -238,11 +277,13 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1APIService> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        createAPIServiceValidateBeforeCall(body, pretty, dryRun, fieldManager, _callback);
+        createAPIServiceValidateBeforeCall(
+            body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -1737,6 +1778,13 @@ public class ApiregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -1757,6 +1805,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -1779,6 +1828,11 @@ public class ApiregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     if (force != null) {
@@ -1827,6 +1881,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -1844,7 +1899,8 @@ public class ApiregistrationV1Api {
     }
 
     okhttp3.Call localVarCall =
-        patchAPIServiceCall(name, body, pretty, dryRun, fieldManager, force, _callback);
+        patchAPIServiceCall(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     return localVarCall;
   }
 
@@ -1862,6 +1918,13 @@ public class ApiregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -1877,10 +1940,17 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public V1APIService patchAPIService(
-      String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation,
+      Boolean force)
       throws ApiException {
     ApiResponse<V1APIService> localVarResp =
-        patchAPIServiceWithHttpInfo(name, body, pretty, dryRun, fieldManager, force);
+        patchAPIServiceWithHttpInfo(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force);
     return localVarResp.getData();
   }
 
@@ -1898,6 +1968,13 @@ public class ApiregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -1913,10 +1990,17 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1APIService> patchAPIServiceWithHttpInfo(
-      String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation,
+      Boolean force)
       throws ApiException {
     okhttp3.Call localVarCall =
-        patchAPIServiceValidateBeforeCall(name, body, pretty, dryRun, fieldManager, force, null);
+        patchAPIServiceValidateBeforeCall(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -1935,6 +2019,13 @@ public class ApiregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -1955,13 +2046,14 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback<V1APIService> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchAPIServiceValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, force, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -1980,6 +2072,13 @@ public class ApiregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2000,6 +2099,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -2022,6 +2122,11 @@ public class ApiregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     if (force != null) {
@@ -2070,6 +2175,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -2087,7 +2193,8 @@ public class ApiregistrationV1Api {
     }
 
     okhttp3.Call localVarCall =
-        patchAPIServiceStatusCall(name, body, pretty, dryRun, fieldManager, force, _callback);
+        patchAPIServiceStatusCall(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     return localVarCall;
   }
 
@@ -2105,6 +2212,13 @@ public class ApiregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2120,10 +2234,17 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public V1APIService patchAPIServiceStatus(
-      String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation,
+      Boolean force)
       throws ApiException {
     ApiResponse<V1APIService> localVarResp =
-        patchAPIServiceStatusWithHttpInfo(name, body, pretty, dryRun, fieldManager, force);
+        patchAPIServiceStatusWithHttpInfo(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force);
     return localVarResp.getData();
   }
 
@@ -2141,6 +2262,13 @@ public class ApiregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2156,11 +2284,17 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1APIService> patchAPIServiceStatusWithHttpInfo(
-      String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation,
+      Boolean force)
       throws ApiException {
     okhttp3.Call localVarCall =
         patchAPIServiceStatusValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, force, null);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2179,6 +2313,13 @@ public class ApiregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2199,13 +2340,14 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback<V1APIService> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchAPIServiceStatusValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, force, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -2502,6 +2644,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2519,6 +2668,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -2540,6 +2690,11 @@ public class ApiregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2580,6 +2735,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -2596,7 +2752,7 @@ public class ApiregistrationV1Api {
     }
 
     okhttp3.Call localVarCall =
-        replaceAPIServiceCall(name, body, pretty, dryRun, fieldManager, _callback);
+        replaceAPIServiceCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -2612,6 +2768,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1APIService
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2624,10 +2787,15 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public V1APIService replaceAPIService(
-      String name, V1APIService body, String pretty, String dryRun, String fieldManager)
+      String name,
+      V1APIService body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V1APIService> localVarResp =
-        replaceAPIServiceWithHttpInfo(name, body, pretty, dryRun, fieldManager);
+        replaceAPIServiceWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -2643,6 +2811,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1APIService&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2655,10 +2830,16 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1APIService> replaceAPIServiceWithHttpInfo(
-      String name, V1APIService body, String pretty, String dryRun, String fieldManager)
+      String name,
+      V1APIService body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     okhttp3.Call localVarCall =
-        replaceAPIServiceValidateBeforeCall(name, body, pretty, dryRun, fieldManager, null);
+        replaceAPIServiceValidateBeforeCall(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2675,6 +2856,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2692,11 +2880,13 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1APIService> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
-        replaceAPIServiceValidateBeforeCall(name, body, pretty, dryRun, fieldManager, _callback);
+        replaceAPIServiceValidateBeforeCall(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -2713,6 +2903,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -2730,6 +2927,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -2751,6 +2949,11 @@ public class ApiregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -2791,6 +2994,7 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -2807,7 +3011,8 @@ public class ApiregistrationV1Api {
     }
 
     okhttp3.Call localVarCall =
-        replaceAPIServiceStatusCall(name, body, pretty, dryRun, fieldManager, _callback);
+        replaceAPIServiceStatusCall(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -2823,6 +3028,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1APIService
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2835,10 +3047,16 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public V1APIService replaceAPIServiceStatus(
-      String name, V1APIService body, String pretty, String dryRun, String fieldManager)
+      String name,
+      V1APIService body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V1APIService> localVarResp =
-        replaceAPIServiceStatusWithHttpInfo(name, body, pretty, dryRun, fieldManager);
+        replaceAPIServiceStatusWithHttpInfo(
+            name, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -2854,6 +3072,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1APIService&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -2866,10 +3091,16 @@ public class ApiregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1APIService> replaceAPIServiceStatusWithHttpInfo(
-      String name, V1APIService body, String pretty, String dryRun, String fieldManager)
+      String name,
+      V1APIService body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     okhttp3.Call localVarCall =
-        replaceAPIServiceStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, null);
+        replaceAPIServiceStatusValidateBeforeCall(
+            name, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2886,6 +3117,13 @@ public class ApiregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2903,12 +3141,13 @@ public class ApiregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1APIService> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replaceAPIServiceStatusValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1APIService>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

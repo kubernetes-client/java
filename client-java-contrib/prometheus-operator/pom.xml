@@ -3,13 +3,13 @@
     <parent>
         <artifactId>client-java-parent</artifactId>
         <groupId>io.kubernetes</groupId>
-        <version>14.0.1-SNAPSHOT</version>
+        <version>15.0.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>client-java-prometheus-operator-models</artifactId>
-    <version>14.0.1-SNAPSHOT</version>
+    <version>15.0.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>io.kubernetes</groupId>

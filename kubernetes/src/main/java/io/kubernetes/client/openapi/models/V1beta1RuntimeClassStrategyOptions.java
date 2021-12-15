@@ -28,7 +28,7 @@ import java.util.Objects;
         "RuntimeClassStrategyOptions define the strategy that will dictate the allowable RuntimeClasses for a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1beta1RuntimeClassStrategyOptions {
   public static final String SERIALIZED_NAME_ALLOWED_RUNTIME_CLASS_NAMES =
       "allowedRuntimeClassNames";

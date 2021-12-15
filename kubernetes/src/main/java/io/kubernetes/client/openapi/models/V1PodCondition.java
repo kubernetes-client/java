@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -22,7 +27,7 @@ import java.util.Objects;
 @ApiModel(description = "PodCondition contains details for the current condition of this pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1PodCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
 
@@ -49,10 +54,68 @@ public class V1PodCondition {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
+  /**
+   * Type is the type of the condition. More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions Possible enum
+   * values: - &#x60;\&quot;ContainersReady\&quot;&#x60; indicates whether all containers in the pod
+   * are ready. - &#x60;\&quot;Initialized\&quot;&#x60; means that all init containers in the pod
+   * have started successfully. - &#x60;\&quot;PodScheduled\&quot;&#x60; represents status of the
+   * scheduling process for this pod. - &#x60;\&quot;Ready\&quot;&#x60; means the pod is able to
+   * service requests and should be added to the load balancing pools of all matching services.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    CONTAINERSREADY("ContainersReady"),
+
+    INITIALIZED("Initialized"),
+
+    PODSCHEDULED("PodScheduled"),
+
+    READY("Ready");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public V1PodCondition lastProbeTime(OffsetDateTime lastProbeTime) {
 
@@ -163,7 +226,7 @@ public class V1PodCondition {
     this.status = status;
   }
 
-  public V1PodCondition type(String type) {
+  public V1PodCondition type(TypeEnum type) {
 
     this.type = type;
     return this;
@@ -171,19 +234,24 @@ public class V1PodCondition {
 
   /**
    * Type is the type of the condition. More info:
-   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions Possible enum
+   * values: - &#x60;\&quot;ContainersReady\&quot;&#x60; indicates whether all containers in the pod
+   * are ready. - &#x60;\&quot;Initialized\&quot;&#x60; means that all init containers in the pod
+   * have started successfully. - &#x60;\&quot;PodScheduled\&quot;&#x60; represents status of the
+   * scheduling process for this pod. - &#x60;\&quot;Ready\&quot;&#x60; means the pod is able to
+   * service requests and should be added to the load balancing pools of all matching services.
    *
    * @return type
    */
   @ApiModelProperty(
       required = true,
       value =
-          "Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions")
-  public String getType() {
+          "Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions  Possible enum values:  - `\"ContainersReady\"` indicates whether all containers in the pod are ready.  - `\"Initialized\"` means that all init containers in the pod have started successfully.  - `\"PodScheduled\"` represents status of the scheduling process for this pod.  - `\"Ready\"` means the pod is able to service requests and should be added to the load balancing pools of all matching services.")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

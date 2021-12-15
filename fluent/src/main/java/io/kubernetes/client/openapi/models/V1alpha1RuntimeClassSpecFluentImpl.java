@@ -72,8 +72,8 @@ public class V1alpha1RuntimeClassSpecFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withRuntimeHandler instead.
    */
   @java.lang.Deprecated
-  public A withNewRuntimeHandler(java.lang.String arg0) {
-    return (A)withRuntimeHandler(new String(arg0));
+  public A withNewRuntimeHandler(java.lang.String original) {
+    return (A)withRuntimeHandler(new String(original));
   }
   
   /**

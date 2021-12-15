@@ -12,26 +12,95 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.Objects;
 
 /** PersistentVolumeStatus is the current status of a persistent volume. */
 @ApiModel(description = "PersistentVolumeStatus is the current status of a persistent volume.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
+  /**
+   * Phase indicates if a volume is available, bound to a claim, or released by a claim. More info:
+   * https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase Possible enum values: -
+   * &#x60;\&quot;Available\&quot;&#x60; used for PersistentVolumes that are not yet bound Available
+   * volumes are held by the binder and matched to PersistentVolumeClaims -
+   * &#x60;\&quot;Bound\&quot;&#x60; used for PersistentVolumes that are bound -
+   * &#x60;\&quot;Failed\&quot;&#x60; used for PersistentVolumes that failed to be correctly
+   * recycled or deleted after being released from a claim - &#x60;\&quot;Pending\&quot;&#x60; used
+   * for PersistentVolumes that are not available - &#x60;\&quot;Released\&quot;&#x60; used for
+   * PersistentVolumes where the bound PersistentVolumeClaim was deleted released volumes must be
+   * recycled before becoming available again this phase is used by the persistent volume claim
+   * binder to signal to another process to reclaim the resource
+   */
+  @JsonAdapter(PhaseEnum.Adapter.class)
+  public enum PhaseEnum {
+    AVAILABLE("Available"),
+
+    BOUND("Bound"),
+
+    FAILED("Failed"),
+
+    PENDING("Pending"),
+
+    RELEASED("Released");
+
+    private String value;
+
+    PhaseEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PhaseEnum fromValue(String value) {
+      for (PhaseEnum b : PhaseEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PhaseEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PhaseEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PhaseEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PhaseEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_PHASE = "phase";
 
   @SerializedName(SERIALIZED_NAME_PHASE)
-  private String phase;
+  private PhaseEnum phase;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
 
@@ -60,7 +129,7 @@ public class V1PersistentVolumeStatus {
     this.message = message;
   }
 
-  public V1PersistentVolumeStatus phase(String phase) {
+  public V1PersistentVolumeStatus phase(PhaseEnum phase) {
 
     this.phase = phase;
     return this;
@@ -68,19 +137,28 @@ public class V1PersistentVolumeStatus {
 
   /**
    * Phase indicates if a volume is available, bound to a claim, or released by a claim. More info:
-   * https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase
+   * https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase Possible enum values: -
+   * &#x60;\&quot;Available\&quot;&#x60; used for PersistentVolumes that are not yet bound Available
+   * volumes are held by the binder and matched to PersistentVolumeClaims -
+   * &#x60;\&quot;Bound\&quot;&#x60; used for PersistentVolumes that are bound -
+   * &#x60;\&quot;Failed\&quot;&#x60; used for PersistentVolumes that failed to be correctly
+   * recycled or deleted after being released from a claim - &#x60;\&quot;Pending\&quot;&#x60; used
+   * for PersistentVolumes that are not available - &#x60;\&quot;Released\&quot;&#x60; used for
+   * PersistentVolumes where the bound PersistentVolumeClaim was deleted released volumes must be
+   * recycled before becoming available again this phase is used by the persistent volume claim
+   * binder to signal to another process to reclaim the resource
    *
    * @return phase
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase")
-  public String getPhase() {
+          "Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase  Possible enum values:  - `\"Available\"` used for PersistentVolumes that are not yet bound Available volumes are held by the binder and matched to PersistentVolumeClaims  - `\"Bound\"` used for PersistentVolumes that are bound  - `\"Failed\"` used for PersistentVolumes that failed to be correctly recycled or deleted after being released from a claim  - `\"Pending\"` used for PersistentVolumes that are not available  - `\"Released\"` used for PersistentVolumes where the bound PersistentVolumeClaim was deleted released volumes must be recycled before becoming available again this phase is used by the persistent volume claim binder to signal to another process to reclaim the resource")
+  public PhaseEnum getPhase() {
     return phase;
   }
 
-  public void setPhase(String phase) {
+  public void setPhase(PhaseEnum phase) {
     this.phase = phase;
   }
 

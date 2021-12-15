@@ -183,8 +183,8 @@ public class V1StorageClassFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -200,8 +200,8 @@ public class V1StorageClassFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   
   /**
@@ -288,8 +288,8 @@ public class V1StorageClassFluentImpl<A extends io.kubernetes.client.openapi.mod
   public java.lang.Boolean hasMountOptions() {
     return mountOptions != null && !mountOptions.isEmpty();
   }
-  public A addNewMountOption(java.lang.String arg0) {
-    return (A)addToMountOptions(new String(arg0));
+  public A addNewMountOption(java.lang.String original) {
+    return (A)addToMountOptions(new String(original));
   }
   public A addToParameters(java.lang.String key,java.lang.String value) {
     if(this.parameters == null && key != null && value != null) { this.parameters = new java.util.LinkedHashMap(); }
@@ -330,8 +330,8 @@ public class V1StorageClassFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withProvisioner instead.
    */
   @java.lang.Deprecated
-  public A withNewProvisioner(java.lang.String arg0) {
-    return (A)withProvisioner(new String(arg0));
+  public A withNewProvisioner(java.lang.String original) {
+    return (A)withProvisioner(new String(original));
   }
   public java.lang.String getReclaimPolicy() {
     return this.reclaimPolicy;
@@ -347,8 +347,8 @@ public class V1StorageClassFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withReclaimPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewReclaimPolicy(java.lang.String arg0) {
-    return (A)withReclaimPolicy(new String(arg0));
+  public A withNewReclaimPolicy(java.lang.String original) {
+    return (A)withReclaimPolicy(new String(original));
   }
   public java.lang.String getVolumeBindingMode() {
     return this.volumeBindingMode;
@@ -364,8 +364,8 @@ public class V1StorageClassFluentImpl<A extends io.kubernetes.client.openapi.mod
    * Method is deprecated. use withVolumeBindingMode instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeBindingMode(java.lang.String arg0) {
-    return (A)withVolumeBindingMode(new String(arg0));
+  public A withNewVolumeBindingMode(java.lang.String original) {
+    return (A)withVolumeBindingMode(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

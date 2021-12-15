@@ -57,8 +57,8 @@ public class V1ContainerStatusFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withContainerID instead.
    */
   @java.lang.Deprecated
-  public A withNewContainerID(java.lang.String arg0) {
-    return (A)withContainerID(new String(arg0));
+  public A withNewContainerID(java.lang.String original) {
+    return (A)withContainerID(new String(original));
   }
   public java.lang.String getImage() {
     return this.image;
@@ -74,8 +74,8 @@ public class V1ContainerStatusFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withImage instead.
    */
   @java.lang.Deprecated
-  public A withNewImage(java.lang.String arg0) {
-    return (A)withImage(new String(arg0));
+  public A withNewImage(java.lang.String original) {
+    return (A)withImage(new String(original));
   }
   public java.lang.String getImageID() {
     return this.imageID;
@@ -91,8 +91,8 @@ public class V1ContainerStatusFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withImageID instead.
    */
   @java.lang.Deprecated
-  public A withNewImageID(java.lang.String arg0) {
-    return (A)withImageID(new String(arg0));
+  public A withNewImageID(java.lang.String original) {
+    return (A)withImageID(new String(original));
   }
   
   /**
@@ -142,8 +142,8 @@ public class V1ContainerStatusFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Boolean getReady() {
     return this.ready;

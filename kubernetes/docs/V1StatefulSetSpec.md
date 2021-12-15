@@ -8,7 +8,8 @@ A StatefulSetSpec is the specification of a StatefulSet.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **minReadySeconds** | **Integer** | Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate. |  [optional]
-**podManagementPolicy** | **String** | podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is &#x60;OrderedReady&#x60;, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is &#x60;Parallel&#x60; which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once. |  [optional]
+**persistentVolumeClaimRetentionPolicy** | [**V1StatefulSetPersistentVolumeClaimRetentionPolicy**](V1StatefulSetPersistentVolumeClaimRetentionPolicy.md) |  |  [optional]
+**podManagementPolicy** | [**PodManagementPolicyEnum**](#PodManagementPolicyEnum) | podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is &#x60;OrderedReady&#x60;, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is &#x60;Parallel&#x60; which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.  Possible enum values:  - &#x60;\&quot;OrderedReady\&quot;&#x60; will create pods in strictly increasing order on scale up and strictly decreasing order on scale down, progressing only when the previous pod is ready or terminated. At most one pod will be changed at any time.  - &#x60;\&quot;Parallel\&quot;&#x60; will create and delete pods as soon as the stateful set replica count is changed, and will not wait for pods to be ready or complete termination. |  [optional]
 **replicas** | **Integer** | replicas is the desired number of replicas of the given Template. These are replicas in the sense that they are instantiations of the same Template, but individual replicas also have a consistent identity. If unspecified, defaults to 1. |  [optional]
 **revisionHistoryLimit** | **Integer** | revisionHistoryLimit is the maximum number of revisions that will be maintained in the StatefulSet&#39;s revision history. The revision history consists of all revisions not represented by a currently applied StatefulSetSpec version. The default value is 10. |  [optional]
 **selector** | [**V1LabelSelector**](V1LabelSelector.md) |  | 
@@ -16,6 +17,15 @@ Name | Type | Description | Notes
 **template** | [**V1PodTemplateSpec**](V1PodTemplateSpec.md) |  | 
 **updateStrategy** | [**V1StatefulSetUpdateStrategy**](V1StatefulSetUpdateStrategy.md) |  |  [optional]
 **volumeClaimTemplates** | [**List&lt;V1PersistentVolumeClaim&gt;**](V1PersistentVolumeClaim.md) | volumeClaimTemplates is a list of claims that pods are allowed to reference. The StatefulSet controller is responsible for mapping network identities to claims in a way that maintains the identity of a pod. Every claim in this list must have at least one matching (by name) volumeMount in one container in the template. A claim in this list takes precedence over any volumes in the template, with the same name. |  [optional]
+
+
+
+## Enum: PodManagementPolicyEnum
+
+Name | Value
+---- | -----
+ORDEREDREADY | &quot;OrderedReady&quot;
+PARALLEL | &quot;Parallel&quot;
 
 
 

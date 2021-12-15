@@ -31,7 +31,7 @@ public interface V1TokenReviewStatusFluent<A extends io.kubernetes.client.openap
   public A withAudiences(java.util.List<java.lang.String> audiences);
   public A withAudiences(java.lang.String... audiences);
   public java.lang.Boolean hasAudiences();
-  public A addNewAudience(java.lang.String arg0);
+  public A addNewAudience(java.lang.String original);
   public java.lang.Boolean getAuthenticated();
   public A withAuthenticated(java.lang.Boolean authenticated);
   public java.lang.Boolean hasAuthenticated();
@@ -43,7 +43,7 @@ public interface V1TokenReviewStatusFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String arg0);
+  public A withNewError(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildUser instead.

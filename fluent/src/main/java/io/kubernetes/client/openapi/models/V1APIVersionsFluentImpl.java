@@ -48,8 +48,8 @@ public class V1APIVersionsFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -65,8 +65,8 @@ public class V1APIVersionsFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   public A addToServerAddressByClientCIDRs(java.lang.Integer index,io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>();}
@@ -225,8 +225,8 @@ public class V1APIVersionsFluentImpl<A extends io.kubernetes.client.openapi.mode
   public java.lang.Boolean hasVersions() {
     return versions != null && !versions.isEmpty();
   }
-  public A addNewVersion(java.lang.String arg0) {
-    return (A)addToVersions(new String(arg0));
+  public A addNewVersion(java.lang.String original) {
+    return (A)addToVersions(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

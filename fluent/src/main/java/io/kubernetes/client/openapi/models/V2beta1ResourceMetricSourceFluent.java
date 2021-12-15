@@ -20,7 +20,7 @@ public interface V2beta1ResourceMetricSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.Integer getTargetAverageUtilization();
   public A withTargetAverageUtilization(java.lang.Integer targetAverageUtilization);
   public java.lang.Boolean hasTargetAverageUtilization();

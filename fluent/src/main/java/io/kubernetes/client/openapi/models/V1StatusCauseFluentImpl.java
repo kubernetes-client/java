@@ -37,8 +37,8 @@ public class V1StatusCauseFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withField instead.
    */
   @java.lang.Deprecated
-  public A withNewField(java.lang.String arg0) {
-    return (A)withField(new String(arg0));
+  public A withNewField(java.lang.String original) {
+    return (A)withField(new String(original));
   }
   public java.lang.String getMessage() {
     return this.message;
@@ -54,8 +54,8 @@ public class V1StatusCauseFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0) {
-    return (A)withMessage(new String(arg0));
+  public A withNewMessage(java.lang.String original) {
+    return (A)withMessage(new String(original));
   }
   public java.lang.String getReason() {
     return this.reason;
@@ -71,8 +71,8 @@ public class V1StatusCauseFluentImpl<A extends io.kubernetes.client.openapi.mode
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0) {
-    return (A)withReason(new String(arg0));
+  public A withNewReason(java.lang.String original) {
+    return (A)withReason(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

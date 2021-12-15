@@ -18,7 +18,7 @@ public interface V1GroupVersionForDiscoveryFluent<A extends io.kubernetes.client
    * Method is deprecated. use withGroupVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewGroupVersion(java.lang.String arg0);
+  public A withNewGroupVersion(java.lang.String original);
   public java.lang.String getVersion();
   public A withVersion(java.lang.String version);
   public java.lang.Boolean hasVersion();
@@ -27,6 +27,6 @@ public interface V1GroupVersionForDiscoveryFluent<A extends io.kubernetes.client
    * Method is deprecated. use withVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewVersion(java.lang.String arg0);
+  public A withNewVersion(java.lang.String original);
   
 }

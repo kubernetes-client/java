@@ -62,6 +62,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -80,6 +87,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -102,6 +110,11 @@ public class AutoscalingV2beta2Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -142,6 +155,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -159,7 +173,7 @@ public class AutoscalingV2beta2Api {
 
     okhttp3.Call localVarCall =
         createNamespacedHorizontalPodAutoscalerCall(
-            namespace, body, pretty, dryRun, fieldManager, _callback);
+            namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -175,6 +189,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V2beta2HorizontalPodAutoscaler
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -192,11 +213,12 @@ public class AutoscalingV2beta2Api {
       V2beta2HorizontalPodAutoscaler body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V2beta2HorizontalPodAutoscaler> localVarResp =
         createNamespacedHorizontalPodAutoscalerWithHttpInfo(
-            namespace, body, pretty, dryRun, fieldManager);
+            namespace, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -212,6 +234,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V2beta2HorizontalPodAutoscaler&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -230,11 +259,12 @@ public class AutoscalingV2beta2Api {
           V2beta2HorizontalPodAutoscaler body,
           String pretty,
           String dryRun,
-          String fieldManager)
+          String fieldManager,
+          String fieldValidation)
           throws ApiException {
     okhttp3.Call localVarCall =
         createNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-            namespace, body, pretty, dryRun, fieldManager, null);
+            namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -251,6 +281,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -269,12 +306,13 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V2beta2HorizontalPodAutoscaler> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         createNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-            namespace, body, pretty, dryRun, fieldManager, _callback);
+            namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -2328,6 +2366,13 @@ public class AutoscalingV2beta2Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2349,6 +2394,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -2373,6 +2419,11 @@ public class AutoscalingV2beta2Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     if (force != null) {
@@ -2422,6 +2473,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -2446,7 +2498,7 @@ public class AutoscalingV2beta2Api {
 
     okhttp3.Call localVarCall =
         patchNamespacedHorizontalPodAutoscalerCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     return localVarCall;
   }
 
@@ -2465,6 +2517,13 @@ public class AutoscalingV2beta2Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2486,11 +2545,12 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force)
       throws ApiException {
     ApiResponse<V2beta2HorizontalPodAutoscaler> localVarResp =
         patchNamespacedHorizontalPodAutoscalerWithHttpInfo(
-            name, namespace, body, pretty, dryRun, fieldManager, force);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force);
     return localVarResp.getData();
   }
 
@@ -2509,6 +2569,13 @@ public class AutoscalingV2beta2Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2531,11 +2598,12 @@ public class AutoscalingV2beta2Api {
           String pretty,
           String dryRun,
           String fieldManager,
+          String fieldValidation,
           Boolean force)
           throws ApiException {
     okhttp3.Call localVarCall =
         patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, null);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2555,6 +2623,13 @@ public class AutoscalingV2beta2Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2576,13 +2651,14 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback<V2beta2HorizontalPodAutoscaler> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -2602,6 +2678,13 @@ public class AutoscalingV2beta2Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2623,6 +2706,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -2647,6 +2731,11 @@ public class AutoscalingV2beta2Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     if (force != null) {
@@ -2696,6 +2785,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -2720,7 +2810,7 @@ public class AutoscalingV2beta2Api {
 
     okhttp3.Call localVarCall =
         patchNamespacedHorizontalPodAutoscalerStatusCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     return localVarCall;
   }
 
@@ -2739,6 +2829,13 @@ public class AutoscalingV2beta2Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2760,11 +2857,12 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force)
       throws ApiException {
     ApiResponse<V2beta2HorizontalPodAutoscaler> localVarResp =
         patchNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(
-            name, namespace, body, pretty, dryRun, fieldManager, force);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force);
     return localVarResp.getData();
   }
 
@@ -2783,6 +2881,13 @@ public class AutoscalingV2beta2Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2805,11 +2910,12 @@ public class AutoscalingV2beta2Api {
           String pretty,
           String dryRun,
           String fieldManager,
+          String fieldValidation,
           Boolean force)
           throws ApiException {
     okhttp3.Call localVarCall =
         patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, null);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -2829,6 +2935,13 @@ public class AutoscalingV2beta2Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -2850,13 +2963,14 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback<V2beta2HorizontalPodAutoscaler> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, force, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -3204,6 +3318,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -3222,6 +3343,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -3245,6 +3367,11 @@ public class AutoscalingV2beta2Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -3286,6 +3413,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -3309,7 +3437,7 @@ public class AutoscalingV2beta2Api {
 
     okhttp3.Call localVarCall =
         replaceNamespacedHorizontalPodAutoscalerCall(
-            name, namespace, body, pretty, dryRun, fieldManager, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -3326,6 +3454,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V2beta2HorizontalPodAutoscaler
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -3343,11 +3478,12 @@ public class AutoscalingV2beta2Api {
       V2beta2HorizontalPodAutoscaler body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V2beta2HorizontalPodAutoscaler> localVarResp =
         replaceNamespacedHorizontalPodAutoscalerWithHttpInfo(
-            name, namespace, body, pretty, dryRun, fieldManager);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -3364,6 +3500,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V2beta2HorizontalPodAutoscaler&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -3382,11 +3525,12 @@ public class AutoscalingV2beta2Api {
           V2beta2HorizontalPodAutoscaler body,
           String pretty,
           String dryRun,
-          String fieldManager)
+          String fieldManager,
+          String fieldValidation)
           throws ApiException {
     okhttp3.Call localVarCall =
         replaceNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, null);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -3404,6 +3548,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3422,12 +3573,13 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V2beta2HorizontalPodAutoscaler> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replaceNamespacedHorizontalPodAutoscalerValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -3445,6 +3597,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -3463,6 +3622,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -3486,6 +3646,11 @@ public class AutoscalingV2beta2Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -3527,6 +3692,7 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -3550,7 +3716,7 @@ public class AutoscalingV2beta2Api {
 
     okhttp3.Call localVarCall =
         replaceNamespacedHorizontalPodAutoscalerStatusCall(
-            name, namespace, body, pretty, dryRun, fieldManager, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -3567,6 +3733,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V2beta2HorizontalPodAutoscaler
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -3584,11 +3757,12 @@ public class AutoscalingV2beta2Api {
       V2beta2HorizontalPodAutoscaler body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V2beta2HorizontalPodAutoscaler> localVarResp =
         replaceNamespacedHorizontalPodAutoscalerStatusWithHttpInfo(
-            name, namespace, body, pretty, dryRun, fieldManager);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -3605,6 +3779,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V2beta2HorizontalPodAutoscaler&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -3623,11 +3804,12 @@ public class AutoscalingV2beta2Api {
           V2beta2HorizontalPodAutoscaler body,
           String pretty,
           String dryRun,
-          String fieldManager)
+          String fieldManager,
+          String fieldValidation)
           throws ApiException {
     okhttp3.Call localVarCall =
         replaceNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, null);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -3645,6 +3827,13 @@ public class AutoscalingV2beta2Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3663,12 +3852,13 @@ public class AutoscalingV2beta2Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V2beta2HorizontalPodAutoscaler> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replaceNamespacedHorizontalPodAutoscalerStatusValidateBeforeCall(
-            name, namespace, body, pretty, dryRun, fieldManager, _callback);
+            name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V2beta2HorizontalPodAutoscaler>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

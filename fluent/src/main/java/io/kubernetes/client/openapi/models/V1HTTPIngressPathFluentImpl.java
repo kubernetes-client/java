@@ -72,8 +72,8 @@ public class V1HTTPIngressPathFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0) {
-    return (A)withPath(new String(arg0));
+  public A withNewPath(java.lang.String original) {
+    return (A)withPath(new String(original));
   }
   public java.lang.String getPathType() {
     return this.pathType;
@@ -89,8 +89,8 @@ public class V1HTTPIngressPathFluentImpl<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withPathType instead.
    */
   @java.lang.Deprecated
-  public A withNewPathType(java.lang.String arg0) {
-    return (A)withPathType(new String(arg0));
+  public A withNewPathType(java.lang.String original) {
+    return (A)withPathType(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

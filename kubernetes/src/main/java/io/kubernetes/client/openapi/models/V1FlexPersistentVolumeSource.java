@@ -28,7 +28,7 @@ import java.util.Objects;
         "FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1FlexPersistentVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
 

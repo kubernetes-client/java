@@ -26,7 +26,7 @@ import java.util.Objects;
         "ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V2beta2ObjectMetricSource {
   public static final String SERIALIZED_NAME_DESCRIBED_OBJECT = "describedObject";
 

@@ -78,6 +78,7 @@ public class LeaseLock implements Lock {
               new V1Lease().metadata(objectMeta).spec(getLeaseFromRecord(record)),
               null,
               null,
+              null,
               null);
       leaseRefer.set(createdLease);
       return true;
@@ -97,7 +98,7 @@ public class LeaseLock implements Lock {
       V1Lease latest = leaseRefer.get();
       latest.setSpec(getLeaseFromRecord(record));
       V1Lease updatedLease =
-          coordinationV1Api.replaceNamespacedLease(name, namespace, latest, null, null, null);
+          coordinationV1Api.replaceNamespacedLease(name, namespace, latest, null, null, null, null);
       leaseRefer.set(updatedLease);
       return true;
     } catch (ApiException e) {

@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -29,12 +34,67 @@ import java.util.Objects;
         "EndpointSlice represents a subset of the endpoints that implement a service. For a given service there may be multiple EndpointSlice objects, selected by labels, which must be joined to produce the full set of endpoints.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesObject {
+  /**
+   * addressType specifies the type of address carried by this EndpointSlice. All addresses in this
+   * slice must be the same type. This field is immutable after creation. The following address
+   * types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6
+   * Address. * FQDN: Represents a Fully Qualified Domain Name. Possible enum values: -
+   * &#x60;\&quot;FQDN\&quot;&#x60; represents a FQDN. - &#x60;\&quot;IPv4\&quot;&#x60; represents
+   * an IPv4 Address. - &#x60;\&quot;IPv6\&quot;&#x60; represents an IPv6 Address.
+   */
+  @JsonAdapter(AddressTypeEnum.Adapter.class)
+  public enum AddressTypeEnum {
+    FQDN("FQDN"),
+
+    IPV4("IPv4"),
+
+    IPV6("IPv6");
+
+    private String value;
+
+    AddressTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AddressTypeEnum fromValue(String value) {
+      for (AddressTypeEnum b : AddressTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<AddressTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AddressTypeEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AddressTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return AddressTypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_ADDRESS_TYPE = "addressType";
 
   @SerializedName(SERIALIZED_NAME_ADDRESS_TYPE)
-  private String addressType;
+  private AddressTypeEnum addressType;
 
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -61,7 +121,7 @@ public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesOb
   @SerializedName(SERIALIZED_NAME_PORTS)
   private List<DiscoveryV1EndpointPort> ports = null;
 
-  public V1EndpointSlice addressType(String addressType) {
+  public V1EndpointSlice addressType(AddressTypeEnum addressType) {
 
     this.addressType = addressType;
     return this;
@@ -71,19 +131,21 @@ public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesOb
    * addressType specifies the type of address carried by this EndpointSlice. All addresses in this
    * slice must be the same type. This field is immutable after creation. The following address
    * types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6
-   * Address. * FQDN: Represents a Fully Qualified Domain Name.
+   * Address. * FQDN: Represents a Fully Qualified Domain Name. Possible enum values: -
+   * &#x60;\&quot;FQDN\&quot;&#x60; represents a FQDN. - &#x60;\&quot;IPv4\&quot;&#x60; represents
+   * an IPv4 Address. - &#x60;\&quot;IPv6\&quot;&#x60; represents an IPv6 Address.
    *
    * @return addressType
    */
   @ApiModelProperty(
       required = true,
       value =
-          "addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.")
-  public String getAddressType() {
+          "addressType specifies the type of address carried by this EndpointSlice. All addresses in this slice must be the same type. This field is immutable after creation. The following address types are currently supported: * IPv4: Represents an IPv4 Address. * IPv6: Represents an IPv6 Address. * FQDN: Represents a Fully Qualified Domain Name.  Possible enum values:  - `\"FQDN\"` represents a FQDN.  - `\"IPv4\"` represents an IPv4 Address.  - `\"IPv6\"` represents an IPv6 Address.")
+  public AddressTypeEnum getAddressType() {
     return addressType;
   }
 
-  public void setAddressType(String addressType) {
+  public void setAddressType(AddressTypeEnum addressType) {
     this.addressType = addressType;
   }
 

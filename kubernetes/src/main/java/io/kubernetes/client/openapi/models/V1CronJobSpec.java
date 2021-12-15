@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.Objects;
 
 /** CronJobSpec describes how the job execution will look like and when it will actually run. */
@@ -23,12 +28,69 @@ import java.util.Objects;
         "CronJobSpec describes how the job execution will look like and when it will actually run.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1CronJobSpec {
+  /**
+   * Specifies how to treat concurrent executions of a Job. Valid values are: - \&quot;Allow\&quot;
+   * (default): allows CronJobs to run concurrently; - \&quot;Forbid\&quot;: forbids concurrent
+   * runs, skipping next run if previous run hasn&#39;t finished yet; - \&quot;Replace\&quot;:
+   * cancels currently running job and replaces it with a new one Possible enum values: -
+   * &#x60;\&quot;Allow\&quot;&#x60; allows CronJobs to run concurrently. -
+   * &#x60;\&quot;Forbid\&quot;&#x60; forbids concurrent runs, skipping next run if previous
+   * hasn&#39;t finished yet. - &#x60;\&quot;Replace\&quot;&#x60; cancels currently running job and
+   * replaces it with a new one.
+   */
+  @JsonAdapter(ConcurrencyPolicyEnum.Adapter.class)
+  public enum ConcurrencyPolicyEnum {
+    ALLOW("Allow"),
+
+    FORBID("Forbid"),
+
+    REPLACE("Replace");
+
+    private String value;
+
+    ConcurrencyPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ConcurrencyPolicyEnum fromValue(String value) {
+      for (ConcurrencyPolicyEnum b : ConcurrencyPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ConcurrencyPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ConcurrencyPolicyEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ConcurrencyPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ConcurrencyPolicyEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_CONCURRENCY_POLICY = "concurrencyPolicy";
 
   @SerializedName(SERIALIZED_NAME_CONCURRENCY_POLICY)
-  private String concurrencyPolicy;
+  private ConcurrencyPolicyEnum concurrencyPolicy;
 
   public static final String SERIALIZED_NAME_FAILED_JOBS_HISTORY_LIMIT = "failedJobsHistoryLimit";
 
@@ -61,7 +123,7 @@ public class V1CronJobSpec {
   @SerializedName(SERIALIZED_NAME_SUSPEND)
   private Boolean suspend;
 
-  public V1CronJobSpec concurrencyPolicy(String concurrencyPolicy) {
+  public V1CronJobSpec concurrencyPolicy(ConcurrencyPolicyEnum concurrencyPolicy) {
 
     this.concurrencyPolicy = concurrencyPolicy;
     return this;
@@ -71,19 +133,23 @@ public class V1CronJobSpec {
    * Specifies how to treat concurrent executions of a Job. Valid values are: - \&quot;Allow\&quot;
    * (default): allows CronJobs to run concurrently; - \&quot;Forbid\&quot;: forbids concurrent
    * runs, skipping next run if previous run hasn&#39;t finished yet; - \&quot;Replace\&quot;:
-   * cancels currently running job and replaces it with a new one
+   * cancels currently running job and replaces it with a new one Possible enum values: -
+   * &#x60;\&quot;Allow\&quot;&#x60; allows CronJobs to run concurrently. -
+   * &#x60;\&quot;Forbid\&quot;&#x60; forbids concurrent runs, skipping next run if previous
+   * hasn&#39;t finished yet. - &#x60;\&quot;Replace\&quot;&#x60; cancels currently running job and
+   * replaces it with a new one.
    *
    * @return concurrencyPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Specifies how to treat concurrent executions of a Job. Valid values are: - \"Allow\" (default): allows CronJobs to run concurrently; - \"Forbid\": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - \"Replace\": cancels currently running job and replaces it with a new one")
-  public String getConcurrencyPolicy() {
+          "Specifies how to treat concurrent executions of a Job. Valid values are: - \"Allow\" (default): allows CronJobs to run concurrently; - \"Forbid\": forbids concurrent runs, skipping next run if previous run hasn't finished yet; - \"Replace\": cancels currently running job and replaces it with a new one  Possible enum values:  - `\"Allow\"` allows CronJobs to run concurrently.  - `\"Forbid\"` forbids concurrent runs, skipping next run if previous hasn't finished yet.  - `\"Replace\"` cancels currently running job and replaces it with a new one.")
+  public ConcurrencyPolicyEnum getConcurrencyPolicy() {
     return concurrencyPolicy;
   }
 
-  public void setConcurrencyPolicy(String concurrencyPolicy) {
+  public void setConcurrencyPolicy(ConcurrencyPolicyEnum concurrencyPolicy) {
     this.concurrencyPolicy = concurrencyPolicy;
   }
 

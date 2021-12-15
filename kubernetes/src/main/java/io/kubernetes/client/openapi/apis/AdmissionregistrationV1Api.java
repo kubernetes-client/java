@@ -63,6 +63,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -80,6 +87,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -99,6 +107,11 @@ public class AdmissionregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -138,6 +151,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -148,7 +162,8 @@ public class AdmissionregistrationV1Api {
     }
 
     okhttp3.Call localVarCall =
-        createMutatingWebhookConfigurationCall(body, pretty, dryRun, fieldManager, _callback);
+        createMutatingWebhookConfigurationCall(
+            body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -163,6 +178,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1MutatingWebhookConfiguration
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -176,10 +198,15 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public V1MutatingWebhookConfiguration createMutatingWebhookConfiguration(
-      V1MutatingWebhookConfiguration body, String pretty, String dryRun, String fieldManager)
+      V1MutatingWebhookConfiguration body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V1MutatingWebhookConfiguration> localVarResp =
-        createMutatingWebhookConfigurationWithHttpInfo(body, pretty, dryRun, fieldManager);
+        createMutatingWebhookConfigurationWithHttpInfo(
+            body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -194,6 +221,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1MutatingWebhookConfiguration&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -207,11 +241,15 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1MutatingWebhookConfiguration> createMutatingWebhookConfigurationWithHttpInfo(
-      V1MutatingWebhookConfiguration body, String pretty, String dryRun, String fieldManager)
+      V1MutatingWebhookConfiguration body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     okhttp3.Call localVarCall =
         createMutatingWebhookConfigurationValidateBeforeCall(
-            body, pretty, dryRun, fieldManager, null);
+            body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1MutatingWebhookConfiguration>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -227,6 +265,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -244,12 +289,13 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1MutatingWebhookConfiguration> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         createMutatingWebhookConfigurationValidateBeforeCall(
-            body, pretty, dryRun, fieldManager, _callback);
+            body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1MutatingWebhookConfiguration>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -265,6 +311,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -282,6 +335,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -301,6 +355,11 @@ public class AdmissionregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -340,6 +399,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -350,7 +410,8 @@ public class AdmissionregistrationV1Api {
     }
 
     okhttp3.Call localVarCall =
-        createValidatingWebhookConfigurationCall(body, pretty, dryRun, fieldManager, _callback);
+        createValidatingWebhookConfigurationCall(
+            body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -365,6 +426,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1ValidatingWebhookConfiguration
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -378,10 +446,15 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public V1ValidatingWebhookConfiguration createValidatingWebhookConfiguration(
-      V1ValidatingWebhookConfiguration body, String pretty, String dryRun, String fieldManager)
+      V1ValidatingWebhookConfiguration body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V1ValidatingWebhookConfiguration> localVarResp =
-        createValidatingWebhookConfigurationWithHttpInfo(body, pretty, dryRun, fieldManager);
+        createValidatingWebhookConfigurationWithHttpInfo(
+            body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -396,6 +469,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1ValidatingWebhookConfiguration&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -410,11 +490,15 @@ public class AdmissionregistrationV1Api {
    */
   public ApiResponse<V1ValidatingWebhookConfiguration>
       createValidatingWebhookConfigurationWithHttpInfo(
-          V1ValidatingWebhookConfiguration body, String pretty, String dryRun, String fieldManager)
+          V1ValidatingWebhookConfiguration body,
+          String pretty,
+          String dryRun,
+          String fieldManager,
+          String fieldValidation)
           throws ApiException {
     okhttp3.Call localVarCall =
         createValidatingWebhookConfigurationValidateBeforeCall(
-            body, pretty, dryRun, fieldManager, null);
+            body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1ValidatingWebhookConfiguration>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -430,6 +514,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -447,12 +538,13 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1ValidatingWebhookConfiguration> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         createValidatingWebhookConfigurationValidateBeforeCall(
-            body, pretty, dryRun, fieldManager, _callback);
+            body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1ValidatingWebhookConfiguration>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -3307,6 +3399,13 @@ public class AdmissionregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -3327,6 +3426,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -3349,6 +3449,11 @@ public class AdmissionregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     if (force != null) {
@@ -3397,6 +3502,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -3415,7 +3521,7 @@ public class AdmissionregistrationV1Api {
 
     okhttp3.Call localVarCall =
         patchMutatingWebhookConfigurationCall(
-            name, body, pretty, dryRun, fieldManager, force, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     return localVarCall;
   }
 
@@ -3433,6 +3539,13 @@ public class AdmissionregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -3448,11 +3561,17 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public V1MutatingWebhookConfiguration patchMutatingWebhookConfiguration(
-      String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation,
+      Boolean force)
       throws ApiException {
     ApiResponse<V1MutatingWebhookConfiguration> localVarResp =
         patchMutatingWebhookConfigurationWithHttpInfo(
-            name, body, pretty, dryRun, fieldManager, force);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force);
     return localVarResp.getData();
   }
 
@@ -3470,6 +3589,13 @@ public class AdmissionregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -3485,11 +3611,17 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public ApiResponse<V1MutatingWebhookConfiguration> patchMutatingWebhookConfigurationWithHttpInfo(
-      String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation,
+      Boolean force)
       throws ApiException {
     okhttp3.Call localVarCall =
         patchMutatingWebhookConfigurationValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, force, null);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
     Type localVarReturnType = new TypeToken<V1MutatingWebhookConfiguration>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -3508,6 +3640,13 @@ public class AdmissionregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -3528,13 +3667,14 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback<V1MutatingWebhookConfiguration> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchMutatingWebhookConfigurationValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, force, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     Type localVarReturnType = new TypeToken<V1MutatingWebhookConfiguration>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -3553,6 +3693,13 @@ public class AdmissionregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -3573,6 +3720,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -3595,6 +3743,11 @@ public class AdmissionregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     if (force != null) {
@@ -3643,6 +3796,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback _callback)
       throws ApiException {
@@ -3661,7 +3815,7 @@ public class AdmissionregistrationV1Api {
 
     okhttp3.Call localVarCall =
         patchValidatingWebhookConfigurationCall(
-            name, body, pretty, dryRun, fieldManager, force, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     return localVarCall;
   }
 
@@ -3679,6 +3833,13 @@ public class AdmissionregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -3694,11 +3855,17 @@ public class AdmissionregistrationV1Api {
    * </table>
    */
   public V1ValidatingWebhookConfiguration patchValidatingWebhookConfiguration(
-      String name, V1Patch body, String pretty, String dryRun, String fieldManager, Boolean force)
+      String name,
+      V1Patch body,
+      String pretty,
+      String dryRun,
+      String fieldManager,
+      String fieldValidation,
+      Boolean force)
       throws ApiException {
     ApiResponse<V1ValidatingWebhookConfiguration> localVarResp =
         patchValidatingWebhookConfigurationWithHttpInfo(
-            name, body, pretty, dryRun, fieldManager, force);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force);
     return localVarResp.getData();
   }
 
@@ -3716,6 +3883,13 @@ public class AdmissionregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -3737,11 +3911,12 @@ public class AdmissionregistrationV1Api {
           String pretty,
           String dryRun,
           String fieldManager,
+          String fieldValidation,
           Boolean force)
           throws ApiException {
     okhttp3.Call localVarCall =
         patchValidatingWebhookConfigurationValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, force, null);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
     Type localVarReturnType = new TypeToken<V1ValidatingWebhookConfiguration>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -3760,6 +3935,13 @@ public class AdmissionregistrationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -3780,13 +3962,14 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       Boolean force,
       final ApiCallback<V1ValidatingWebhookConfiguration> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         patchValidatingWebhookConfigurationValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, force, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
     Type localVarReturnType = new TypeToken<V1ValidatingWebhookConfiguration>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -4094,6 +4277,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -4111,6 +4301,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -4132,6 +4323,11 @@ public class AdmissionregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4172,6 +4368,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -4189,7 +4386,7 @@ public class AdmissionregistrationV1Api {
 
     okhttp3.Call localVarCall =
         replaceMutatingWebhookConfigurationCall(
-            name, body, pretty, dryRun, fieldManager, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -4205,6 +4402,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1MutatingWebhookConfiguration
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -4221,10 +4425,12 @@ public class AdmissionregistrationV1Api {
       V1MutatingWebhookConfiguration body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V1MutatingWebhookConfiguration> localVarResp =
-        replaceMutatingWebhookConfigurationWithHttpInfo(name, body, pretty, dryRun, fieldManager);
+        replaceMutatingWebhookConfigurationWithHttpInfo(
+            name, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -4240,6 +4446,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1MutatingWebhookConfiguration&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -4257,11 +4470,12 @@ public class AdmissionregistrationV1Api {
           V1MutatingWebhookConfiguration body,
           String pretty,
           String dryRun,
-          String fieldManager)
+          String fieldManager,
+          String fieldValidation)
           throws ApiException {
     okhttp3.Call localVarCall =
         replaceMutatingWebhookConfigurationValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, null);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1MutatingWebhookConfiguration>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -4278,6 +4492,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4295,12 +4516,13 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1MutatingWebhookConfiguration> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replaceMutatingWebhookConfigurationValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1MutatingWebhookConfiguration>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;
@@ -4317,6 +4539,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -4334,6 +4563,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
     Object localVarPostBody = body;
@@ -4355,6 +4585,11 @@ public class AdmissionregistrationV1Api {
 
     if (fieldManager != null) {
       localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+    }
+
+    if (fieldValidation != null) {
+      localVarQueryParams.addAll(
+          localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
     }
 
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4395,6 +4630,7 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback _callback)
       throws ApiException {
 
@@ -4412,7 +4648,7 @@ public class AdmissionregistrationV1Api {
 
     okhttp3.Call localVarCall =
         replaceValidatingWebhookConfigurationCall(
-            name, body, pretty, dryRun, fieldManager, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     return localVarCall;
   }
 
@@ -4428,6 +4664,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return V1ValidatingWebhookConfiguration
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -4444,10 +4687,12 @@ public class AdmissionregistrationV1Api {
       V1ValidatingWebhookConfiguration body,
       String pretty,
       String dryRun,
-      String fieldManager)
+      String fieldManager,
+      String fieldValidation)
       throws ApiException {
     ApiResponse<V1ValidatingWebhookConfiguration> localVarResp =
-        replaceValidatingWebhookConfigurationWithHttpInfo(name, body, pretty, dryRun, fieldManager);
+        replaceValidatingWebhookConfigurationWithHttpInfo(
+            name, body, pretty, dryRun, fieldManager, fieldValidation);
     return localVarResp.getData();
   }
 
@@ -4463,6 +4708,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @return ApiResponse&lt;V1ValidatingWebhookConfiguration&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -4480,11 +4732,12 @@ public class AdmissionregistrationV1Api {
           V1ValidatingWebhookConfiguration body,
           String pretty,
           String dryRun,
-          String fieldManager)
+          String fieldManager,
+          String fieldValidation)
           throws ApiException {
     okhttp3.Call localVarCall =
         replaceValidatingWebhookConfigurationValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, null);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, null);
     Type localVarReturnType = new TypeToken<V1ValidatingWebhookConfiguration>() {}.getType();
     return localVarApiClient.execute(localVarCall, localVarReturnType);
   }
@@ -4501,6 +4754,13 @@ public class AdmissionregistrationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+   * @param fieldValidation fieldValidation determines how the server should respond to
+   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
+   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
+   *     discard valid values specified in this param and not perform any server side field
+   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
+   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
+   *     Strict: fails the request on unknown/duplicate fields. (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4518,12 +4778,13 @@ public class AdmissionregistrationV1Api {
       String pretty,
       String dryRun,
       String fieldManager,
+      String fieldValidation,
       final ApiCallback<V1ValidatingWebhookConfiguration> _callback)
       throws ApiException {
 
     okhttp3.Call localVarCall =
         replaceValidatingWebhookConfigurationValidateBeforeCall(
-            name, body, pretty, dryRun, fieldManager, _callback);
+            name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
     Type localVarReturnType = new TypeToken<V1ValidatingWebhookConfiguration>() {}.getType();
     localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
     return localVarCall;

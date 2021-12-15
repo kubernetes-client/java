@@ -12,28 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * An EphemeralContainer is a container that may be added temporarily to an existing pod for
+ * An EphemeralContainer is a temporary container that you may add to an existing Pod for
  * user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling
- * guarantees, and they will not be restarted when they exit or when a pod is removed or restarted.
- * If an ephemeral container causes a pod to exceed its resource allocation, the pod may be evicted.
- * Ephemeral containers may not be added by directly updating the pod spec. They must be added via
- * the pod&#39;s ephemeralcontainers subresource, and they will appear in the pod spec once added.
- * This is an alpha feature enabled by the EphemeralContainers feature flag.
+ * guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted.
+ * The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource
+ * allocation. To add an ephemeral container, use the ephemeralcontainers subresource of an existing
+ * Pod. Ephemeral containers may not be removed or restarted. This is a beta feature available on
+ * clusters that haven&#39;t disabled the EphemeralContainers feature gate.
  */
 @ApiModel(
     description =
-        "An EphemeralContainer is a container that may be added temporarily to an existing pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a pod is removed or restarted. If an ephemeral container causes a pod to exceed its resource allocation, the pod may be evicted. Ephemeral containers may not be added by directly updating the pod spec. They must be added via the pod's ephemeralcontainers subresource, and they will appear in the pod spec once added. This is an alpha feature enabled by the EphemeralContainers feature flag.")
+        "An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.  To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.  This is a beta feature available on clusters that haven't disabled the EphemeralContainers feature gate.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1EphemeralContainer {
   public static final String SERIALIZED_NAME_ARGS = "args";
 
@@ -60,10 +65,68 @@ public class V1EphemeralContainer {
   @SerializedName(SERIALIZED_NAME_IMAGE)
   private String image;
 
+  /**
+   * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is
+   * specified, or IfNotPresent otherwise. Cannot be updated. More info:
+   * https://kubernetes.io/docs/concepts/containers/images#updating-images Possible enum values: -
+   * &#x60;\&quot;Always\&quot;&#x60; means that kubelet always attempts to pull the latest image.
+   * Container will fail If the pull fails. - &#x60;\&quot;IfNotPresent\&quot;&#x60; means that
+   * kubelet pulls if the image isn&#39;t present on disk. Container will fail if the image
+   * isn&#39;t present and the pull fails. - &#x60;\&quot;Never\&quot;&#x60; means that kubelet
+   * never pulls an image, but only uses a local image. Container will fail if the image isn&#39;t
+   * present
+   */
+  @JsonAdapter(ImagePullPolicyEnum.Adapter.class)
+  public enum ImagePullPolicyEnum {
+    ALWAYS("Always"),
+
+    IFNOTPRESENT("IfNotPresent"),
+
+    NEVER("Never");
+
+    private String value;
+
+    ImagePullPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ImagePullPolicyEnum fromValue(String value) {
+      for (ImagePullPolicyEnum b : ImagePullPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ImagePullPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ImagePullPolicyEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ImagePullPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return ImagePullPolicyEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_IMAGE_PULL_POLICY = "imagePullPolicy";
 
   @SerializedName(SERIALIZED_NAME_IMAGE_PULL_POLICY)
-  private String imagePullPolicy;
+  private ImagePullPolicyEnum imagePullPolicy;
 
   public static final String SERIALIZED_NAME_LIFECYCLE = "lifecycle";
 
@@ -125,11 +188,68 @@ public class V1EphemeralContainer {
   @SerializedName(SERIALIZED_NAME_TERMINATION_MESSAGE_PATH)
   private String terminationMessagePath;
 
+  /**
+   * Indicate how the termination message should be populated. File will use the contents of
+   * terminationMessagePath to populate the container status message on both success and failure.
+   * FallbackToLogsOnError will use the last chunk of container log output if the termination
+   * message file is empty and the container exited with an error. The log output is limited to 2048
+   * bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated. Possible enum
+   * values: - &#x60;\&quot;FallbackToLogsOnError\&quot;&#x60; will read the most recent contents of
+   * the container logs for the container status message when the container exits with an error and
+   * the terminationMessagePath has no contents. - &#x60;\&quot;File\&quot;&#x60; is the default
+   * behavior and will set the container status message to the contents of the container&#39;s
+   * terminationMessagePath when the container exits.
+   */
+  @JsonAdapter(TerminationMessagePolicyEnum.Adapter.class)
+  public enum TerminationMessagePolicyEnum {
+    FALLBACKTOLOGSONERROR("FallbackToLogsOnError"),
+
+    FILE("File");
+
+    private String value;
+
+    TerminationMessagePolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TerminationMessagePolicyEnum fromValue(String value) {
+      for (TerminationMessagePolicyEnum b : TerminationMessagePolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TerminationMessagePolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TerminationMessagePolicyEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TerminationMessagePolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TerminationMessagePolicyEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TERMINATION_MESSAGE_POLICY =
       "terminationMessagePolicy";
 
   @SerializedName(SERIALIZED_NAME_TERMINATION_MESSAGE_POLICY)
-  private String terminationMessagePolicy;
+  private TerminationMessagePolicyEnum terminationMessagePolicy;
 
   public static final String SERIALIZED_NAME_TTY = "tty";
 
@@ -314,7 +434,7 @@ public class V1EphemeralContainer {
     this.image = image;
   }
 
-  public V1EphemeralContainer imagePullPolicy(String imagePullPolicy) {
+  public V1EphemeralContainer imagePullPolicy(ImagePullPolicyEnum imagePullPolicy) {
 
     this.imagePullPolicy = imagePullPolicy;
     return this;
@@ -323,19 +443,25 @@ public class V1EphemeralContainer {
   /**
    * Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is
    * specified, or IfNotPresent otherwise. Cannot be updated. More info:
-   * https://kubernetes.io/docs/concepts/containers/images#updating-images
+   * https://kubernetes.io/docs/concepts/containers/images#updating-images Possible enum values: -
+   * &#x60;\&quot;Always\&quot;&#x60; means that kubelet always attempts to pull the latest image.
+   * Container will fail If the pull fails. - &#x60;\&quot;IfNotPresent\&quot;&#x60; means that
+   * kubelet pulls if the image isn&#39;t present on disk. Container will fail if the image
+   * isn&#39;t present and the pull fails. - &#x60;\&quot;Never\&quot;&#x60; means that kubelet
+   * never pulls an image, but only uses a local image. Container will fail if the image isn&#39;t
+   * present
    *
    * @return imagePullPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images")
-  public String getImagePullPolicy() {
+          "Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images  Possible enum values:  - `\"Always\"` means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.  - `\"IfNotPresent\"` means that kubelet pulls if the image isn't present on disk. Container will fail if the image isn't present and the pull fails.  - `\"Never\"` means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn't present")
+  public ImagePullPolicyEnum getImagePullPolicy() {
     return imagePullPolicy;
   }
 
-  public void setImagePullPolicy(String imagePullPolicy) {
+  public void setImagePullPolicy(ImagePullPolicyEnum imagePullPolicy) {
     this.imagePullPolicy = imagePullPolicy;
   }
 
@@ -580,15 +706,16 @@ public class V1EphemeralContainer {
   /**
    * If set, the name of the container from PodSpec that this ephemeral container targets. The
    * ephemeral container will be run in the namespaces (IPC, PID, etc) of this container. If not set
-   * then the ephemeral container is run in whatever namespaces are shared for the pod. Note that
-   * the container runtime must support this feature.
+   * then the ephemeral container uses the namespaces configured in the Pod spec. The container
+   * runtime must implement support for this feature. If the runtime does not support namespace
+   * targeting then the result of setting this field is undefined.
    *
    * @return targetContainerName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "If set, the name of the container from PodSpec that this ephemeral container targets. The ephemeral container will be run in the namespaces (IPC, PID, etc) of this container. If not set then the ephemeral container is run in whatever namespaces are shared for the pod. Note that the container runtime must support this feature.")
+          "If set, the name of the container from PodSpec that this ephemeral container targets. The ephemeral container will be run in the namespaces (IPC, PID, etc) of this container. If not set then the ephemeral container uses the namespaces configured in the Pod spec.  The container runtime must implement support for this feature. If the runtime does not support namespace targeting then the result of setting this field is undefined.")
   public String getTargetContainerName() {
     return targetContainerName;
   }
@@ -624,7 +751,8 @@ public class V1EphemeralContainer {
     this.terminationMessagePath = terminationMessagePath;
   }
 
-  public V1EphemeralContainer terminationMessagePolicy(String terminationMessagePolicy) {
+  public V1EphemeralContainer terminationMessagePolicy(
+      TerminationMessagePolicyEnum terminationMessagePolicy) {
 
     this.terminationMessagePolicy = terminationMessagePolicy;
     return this;
@@ -635,19 +763,24 @@ public class V1EphemeralContainer {
    * terminationMessagePath to populate the container status message on both success and failure.
    * FallbackToLogsOnError will use the last chunk of container log output if the termination
    * message file is empty and the container exited with an error. The log output is limited to 2048
-   * bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.
+   * bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated. Possible enum
+   * values: - &#x60;\&quot;FallbackToLogsOnError\&quot;&#x60; will read the most recent contents of
+   * the container logs for the container status message when the container exits with an error and
+   * the terminationMessagePath has no contents. - &#x60;\&quot;File\&quot;&#x60; is the default
+   * behavior and will set the container status message to the contents of the container&#39;s
+   * terminationMessagePath when the container exits.
    *
    * @return terminationMessagePolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.")
-  public String getTerminationMessagePolicy() {
+          "Indicate how the termination message should be populated. File will use the contents of terminationMessagePath to populate the container status message on both success and failure. FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error. The log output is limited to 2048 bytes or 80 lines, whichever is smaller. Defaults to File. Cannot be updated.  Possible enum values:  - `\"FallbackToLogsOnError\"` will read the most recent contents of the container logs for the container status message when the container exits with an error and the terminationMessagePath has no contents.  - `\"File\"` is the default behavior and will set the container status message to the contents of the container's terminationMessagePath when the container exits.")
+  public TerminationMessagePolicyEnum getTerminationMessagePolicy() {
     return terminationMessagePolicy;
   }
 
-  public void setTerminationMessagePolicy(String terminationMessagePolicy) {
+  public void setTerminationMessagePolicy(TerminationMessagePolicyEnum terminationMessagePolicy) {
     this.terminationMessagePolicy = terminationMessagePolicy;
   }
 
@@ -720,13 +853,15 @@ public class V1EphemeralContainer {
   }
 
   /**
-   * Pod volumes to mount into the container&#39;s filesystem. Cannot be updated.
+   * Pod volumes to mount into the container&#39;s filesystem. Subpath mounts are not allowed for
+   * ephemeral containers. Cannot be updated.
    *
    * @return volumeMounts
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "Pod volumes to mount into the container's filesystem. Cannot be updated.")
+      value =
+          "Pod volumes to mount into the container's filesystem. Subpath mounts are not allowed for ephemeral containers. Cannot be updated.")
   public List<V1VolumeMount> getVolumeMounts() {
     return volumeMounts;
   }

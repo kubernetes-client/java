@@ -23,7 +23,7 @@ public interface V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withHolderIdentity instead.
    */
   @java.lang.Deprecated
-  public A withNewHolderIdentity(java.lang.String arg0);
+  public A withNewHolderIdentity(java.lang.String original);
   public java.lang.Integer getLeaseDurationSeconds();
   public A withLeaseDurationSeconds(java.lang.Integer leaseDurationSeconds);
   public java.lang.Boolean hasLeaseDurationSeconds();

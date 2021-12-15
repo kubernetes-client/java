@@ -39,8 +39,8 @@ public class V1TopologySelectorLabelRequirementFluentImpl<A extends io.kubernete
    * Method is deprecated. use withKey instead.
    */
   @java.lang.Deprecated
-  public A withNewKey(java.lang.String arg0) {
-    return (A)withKey(new String(arg0));
+  public A withNewKey(java.lang.String original) {
+    return (A)withKey(new String(original));
   }
   public A addToValues(java.lang.Integer index,java.lang.String item) {
     if (this.values == null) {this.values = new java.util.ArrayList<java.lang.String>();}
@@ -93,8 +93,8 @@ public class V1TopologySelectorLabelRequirementFluentImpl<A extends io.kubernete
   public java.lang.Boolean hasValues() {
     return values != null && !values.isEmpty();
   }
-  public A addNewValue(java.lang.String arg0) {
-    return (A)addToValues(new String(arg0));
+  public A addNewValue(java.lang.String original) {
+    return (A)addToValues(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

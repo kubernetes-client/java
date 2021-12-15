@@ -26,7 +26,7 @@ public interface V1beta1EndpointSliceFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withAddressType instead.
    */
   @java.lang.Deprecated
-  public A withNewAddressType(java.lang.String arg0);
+  public A withNewAddressType(java.lang.String original);
   public java.lang.String getApiVersion();
   public A withApiVersion(java.lang.String apiVersion);
   public java.lang.Boolean hasApiVersion();
@@ -35,7 +35,7 @@ public interface V1beta1EndpointSliceFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public A addToEndpoints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1Endpoint item);
   public A setToEndpoints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1beta1Endpoint item);
   public A addToEndpoints(io.kubernetes.client.openapi.models.V1beta1Endpoint... items);
@@ -74,7 +74,7 @@ public interface V1beta1EndpointSliceFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

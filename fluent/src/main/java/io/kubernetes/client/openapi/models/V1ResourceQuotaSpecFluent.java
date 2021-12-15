@@ -56,7 +56,7 @@ public interface V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openap
   public A withScopes(java.util.List<java.lang.String> scopes);
   public A withScopes(java.lang.String... scopes);
   public java.lang.Boolean hasScopes();
-  public A addNewScope(java.lang.String arg0);
+  public A addNewScope(java.lang.String original);
   public interface ScopeSelectorNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<N>>{
     public N and();
     public N endScopeSelector();

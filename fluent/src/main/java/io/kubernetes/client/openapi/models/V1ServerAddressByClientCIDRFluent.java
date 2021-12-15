@@ -18,7 +18,7 @@ public interface V1ServerAddressByClientCIDRFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withClientCIDR instead.
    */
   @java.lang.Deprecated
-  public A withNewClientCIDR(java.lang.String arg0);
+  public A withNewClientCIDR(java.lang.String original);
   public java.lang.String getServerAddress();
   public A withServerAddress(java.lang.String serverAddress);
   public java.lang.Boolean hasServerAddress();
@@ -27,6 +27,6 @@ public interface V1ServerAddressByClientCIDRFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withServerAddress instead.
    */
   @java.lang.Deprecated
-  public A withNewServerAddress(java.lang.String arg0);
+  public A withNewServerAddress(java.lang.String original);
   
 }

@@ -24,7 +24,7 @@ public interface V1RBDPersistentVolumeSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0);
+  public A withNewFsType(java.lang.String original);
   public java.lang.String getImage();
   public A withImage(java.lang.String image);
   public java.lang.Boolean hasImage();
@@ -33,7 +33,7 @@ public interface V1RBDPersistentVolumeSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withImage instead.
    */
   @java.lang.Deprecated
-  public A withNewImage(java.lang.String arg0);
+  public A withNewImage(java.lang.String original);
   public java.lang.String getKeyring();
   public A withKeyring(java.lang.String keyring);
   public java.lang.Boolean hasKeyring();
@@ -42,7 +42,7 @@ public interface V1RBDPersistentVolumeSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withKeyring instead.
    */
   @java.lang.Deprecated
-  public A withNewKeyring(java.lang.String arg0);
+  public A withNewKeyring(java.lang.String original);
   public A addToMonitors(java.lang.Integer index,java.lang.String item);
   public A setToMonitors(java.lang.Integer index,java.lang.String item);
   public A addToMonitors(java.lang.String... items);
@@ -58,7 +58,7 @@ public interface V1RBDPersistentVolumeSourceFluent<A extends io.kubernetes.clien
   public A withMonitors(java.util.List<java.lang.String> monitors);
   public A withMonitors(java.lang.String... monitors);
   public java.lang.Boolean hasMonitors();
-  public A addNewMonitor(java.lang.String arg0);
+  public A addNewMonitor(java.lang.String original);
   public java.lang.String getPool();
   public A withPool(java.lang.String pool);
   public java.lang.Boolean hasPool();
@@ -67,7 +67,7 @@ public interface V1RBDPersistentVolumeSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withPool instead.
    */
   @java.lang.Deprecated
-  public A withNewPool(java.lang.String arg0);
+  public A withNewPool(java.lang.String original);
   public java.lang.Boolean getReadOnly();
   public A withReadOnly(java.lang.Boolean readOnly);
   public java.lang.Boolean hasReadOnly();
@@ -94,7 +94,7 @@ public interface V1RBDPersistentVolumeSourceFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String arg0);
+  public A withNewUser(java.lang.String original);
   public interface SecretRefNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1SecretReferenceFluent<io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSourceFluent.SecretRefNested<N>>{
     public N and();
     public N endSecretRef();

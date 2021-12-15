@@ -31,8 +31,8 @@ public class V1SelfSubjectRulesReviewSpecFluentImpl<A extends io.kubernetes.clie
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String arg0) {
-    return (A)withNamespace(new String(arg0));
+  public A withNewNamespace(java.lang.String original) {
+    return (A)withNamespace(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

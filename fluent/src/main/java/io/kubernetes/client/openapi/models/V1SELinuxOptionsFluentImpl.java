@@ -40,8 +40,8 @@ public class V1SELinuxOptionsFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withLevel instead.
    */
   @java.lang.Deprecated
-  public A withNewLevel(java.lang.String arg0) {
-    return (A)withLevel(new String(arg0));
+  public A withNewLevel(java.lang.String original) {
+    return (A)withLevel(new String(original));
   }
   public java.lang.String getRole() {
     return this.role;
@@ -57,8 +57,8 @@ public class V1SELinuxOptionsFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withRole instead.
    */
   @java.lang.Deprecated
-  public A withNewRole(java.lang.String arg0) {
-    return (A)withRole(new String(arg0));
+  public A withNewRole(java.lang.String original) {
+    return (A)withRole(new String(original));
   }
   public java.lang.String getType() {
     return this.type;
@@ -74,8 +74,8 @@ public class V1SELinuxOptionsFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
+  public A withNewType(java.lang.String original) {
+    return (A)withType(new String(original));
   }
   public java.lang.String getUser() {
     return this.user;
@@ -91,8 +91,8 @@ public class V1SELinuxOptionsFluentImpl<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String arg0) {
-    return (A)withUser(new String(arg0));
+  public A withNewUser(java.lang.String original) {
+    return (A)withUser(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

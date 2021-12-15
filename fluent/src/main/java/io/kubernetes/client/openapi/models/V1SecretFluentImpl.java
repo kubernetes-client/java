@@ -52,8 +52,8 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public A addToData(java.lang.String key,byte[] value) {
     if(this.data == null && key != null && value != null) { this.data = new java.util.LinkedHashMap(); }
@@ -103,8 +103,8 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   
   /**
@@ -179,8 +179,8 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
+  public A withNewType(java.lang.String original) {
+    return (A)withType(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

@@ -21,7 +21,7 @@ public interface V1beta1CronJobSpecFluent<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withConcurrencyPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewConcurrencyPolicy(java.lang.String arg0);
+  public A withNewConcurrencyPolicy(java.lang.String original);
   public java.lang.Integer getFailedJobsHistoryLimit();
   public A withFailedJobsHistoryLimit(java.lang.Integer failedJobsHistoryLimit);
   public java.lang.Boolean hasFailedJobsHistoryLimit();
@@ -48,7 +48,7 @@ public interface V1beta1CronJobSpecFluent<A extends io.kubernetes.client.openapi
    * Method is deprecated. use withSchedule instead.
    */
   @java.lang.Deprecated
-  public A withNewSchedule(java.lang.String arg0);
+  public A withNewSchedule(java.lang.String original);
   public java.lang.Long getStartingDeadlineSeconds();
   public A withStartingDeadlineSeconds(java.lang.Long startingDeadlineSeconds);
   public java.lang.Boolean hasStartingDeadlineSeconds();

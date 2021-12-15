@@ -67,8 +67,8 @@ public class YamlTest {
       new String[] {
         "v1",
         "batch/v1",
-        "autoscaling/v2beta1",
-        "rbac.authorization.k8s.io/v1alpha1",
+        "autoscaling/v2",
+        "rbac.authorization.k8s.io/v1",
         "apps/v1",
         "apiregistration.k8s.io/v1",
         "apps/v1",
@@ -77,8 +77,8 @@ public class YamlTest {
       new String[] {
         "V1Pod",
         "V1CronJob",
-        "V2beta1HorizontalPodAutoscaler",
-        "V1alpha1ClusterRole",
+        "V2HorizontalPodAutoscaler",
+        "V1ClusterRole",
         "V1Deployment",
         "V1APIService",
         "V1Scale",

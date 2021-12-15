@@ -47,8 +47,8 @@ public class V1CustomResourceColumnDefinitionFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withDescription instead.
    */
   @java.lang.Deprecated
-  public A withNewDescription(java.lang.String arg0) {
-    return (A)withDescription(new String(arg0));
+  public A withNewDescription(java.lang.String original) {
+    return (A)withDescription(new String(original));
   }
   public java.lang.String getFormat() {
     return this.format;
@@ -64,8 +64,8 @@ public class V1CustomResourceColumnDefinitionFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withFormat instead.
    */
   @java.lang.Deprecated
-  public A withNewFormat(java.lang.String arg0) {
-    return (A)withFormat(new String(arg0));
+  public A withNewFormat(java.lang.String original) {
+    return (A)withFormat(new String(original));
   }
   public java.lang.String getJsonPath() {
     return this.jsonPath;
@@ -81,8 +81,8 @@ public class V1CustomResourceColumnDefinitionFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withJsonPath instead.
    */
   @java.lang.Deprecated
-  public A withNewJsonPath(java.lang.String arg0) {
-    return (A)withJsonPath(new String(arg0));
+  public A withNewJsonPath(java.lang.String original) {
+    return (A)withJsonPath(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -98,8 +98,8 @@ public class V1CustomResourceColumnDefinitionFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.Integer getPriority() {
     return this.priority;
@@ -124,8 +124,8 @@ public class V1CustomResourceColumnDefinitionFluentImpl<A extends io.kubernetes.
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0) {
-    return (A)withType(new String(arg0));
+  public A withNewType(java.lang.String original) {
+    return (A)withType(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

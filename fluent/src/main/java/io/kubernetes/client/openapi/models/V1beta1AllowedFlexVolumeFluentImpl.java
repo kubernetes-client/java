@@ -31,8 +31,8 @@ public class V1beta1AllowedFlexVolumeFluentImpl<A extends io.kubernetes.client.o
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String arg0) {
-    return (A)withDriver(new String(arg0));
+  public A withNewDriver(java.lang.String original) {
+    return (A)withDriver(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

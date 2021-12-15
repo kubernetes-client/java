@@ -20,7 +20,7 @@ public interface V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public java.lang.Integer getCode();
   public A withCode(java.lang.Integer code);
   public java.lang.Boolean hasCode();
@@ -47,7 +47,7 @@ public interface V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   public java.lang.String getMessage();
   public A withMessage(java.lang.String message);
   public java.lang.Boolean hasMessage();
@@ -56,7 +56,7 @@ public interface V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0);
+  public A withNewMessage(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -80,7 +80,7 @@ public interface V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0);
+  public A withNewReason(java.lang.String original);
   public java.lang.String getStatus();
   public A withStatus(java.lang.String status);
   public java.lang.Boolean hasStatus();
@@ -89,7 +89,7 @@ public interface V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1
    * Method is deprecated. use withStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewStatus(java.lang.String arg0);
+  public A withNewStatus(java.lang.String original);
   public interface DetailsNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V1StatusDetailsFluent<io.kubernetes.client.openapi.models.V1StatusFluent.DetailsNested<N>>{
     public N and();
     public N endDetails();

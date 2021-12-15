@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "StatefulSetStatus represents the current state of a StatefulSet.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1StatefulSetStatus {
   public static final String SERIALIZED_NAME_AVAILABLE_REPLICAS = "availableReplicas";
 
@@ -83,15 +83,15 @@ public class V1StatefulSetStatus {
 
   /**
    * Total number of available pods (ready for at least minReadySeconds) targeted by this
-   * statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature
-   * gate. Remove omitempty when graduating to beta
+   * statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature
+   * gate.
    *
    * @return availableReplicas
    */
-  @javax.annotation.Nullable
   @ApiModelProperty(
+      required = true,
       value =
-          "Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate. Remove omitempty when graduating to beta")
+          "Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. This is a beta field and enabled/disabled by StatefulSetMinReadySeconds feature gate.")
   public Integer getAvailableReplicas() {
     return availableReplicas;
   }
@@ -234,15 +234,14 @@ public class V1StatefulSetStatus {
   }
 
   /**
-   * readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready
-   * Condition.
+   * readyReplicas is the number of pods created for this StatefulSet with a Ready Condition.
    *
    * @return readyReplicas
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition.")
+          "readyReplicas is the number of pods created for this StatefulSet with a Ready Condition.")
   public Integer getReadyReplicas() {
     return readyReplicas;
   }

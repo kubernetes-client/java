@@ -27,7 +27,7 @@ import java.util.Objects;
         "ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1ManagedFieldsEntry {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 

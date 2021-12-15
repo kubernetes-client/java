@@ -23,7 +23,7 @@ public interface V1alpha1StorageVersionConditionFluent<A extends io.kubernetes.c
    * Method is deprecated. use withMessage instead.
    */
   @java.lang.Deprecated
-  public A withNewMessage(java.lang.String arg0);
+  public A withNewMessage(java.lang.String original);
   public java.lang.Long getObservedGeneration();
   public A withObservedGeneration(java.lang.Long observedGeneration);
   public java.lang.Boolean hasObservedGeneration();
@@ -35,7 +35,7 @@ public interface V1alpha1StorageVersionConditionFluent<A extends io.kubernetes.c
    * Method is deprecated. use withReason instead.
    */
   @java.lang.Deprecated
-  public A withNewReason(java.lang.String arg0);
+  public A withNewReason(java.lang.String original);
   public java.lang.String getStatus();
   public A withStatus(java.lang.String status);
   public java.lang.Boolean hasStatus();
@@ -44,7 +44,7 @@ public interface V1alpha1StorageVersionConditionFluent<A extends io.kubernetes.c
    * Method is deprecated. use withStatus instead.
    */
   @java.lang.Deprecated
-  public A withNewStatus(java.lang.String arg0);
+  public A withNewStatus(java.lang.String original);
   public java.lang.String getType();
   public A withType(java.lang.String type);
   public java.lang.Boolean hasType();
@@ -53,6 +53,6 @@ public interface V1alpha1StorageVersionConditionFluent<A extends io.kubernetes.c
    * Method is deprecated. use withType instead.
    */
   @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
+  public A withNewType(java.lang.String original);
   
 }

@@ -25,6 +25,8 @@ public class V1ProbeBuilder extends io.kubernetes.client.openapi.models.V1ProbeF
 
     fluent.withFailureThreshold(instance.getFailureThreshold());
 
+    fluent.withGrpc(instance.getGrpc());
+
     fluent.withHttpGet(instance.getHttpGet());
 
     fluent.withInitialDelaySeconds(instance.getInitialDelaySeconds());
@@ -50,6 +52,8 @@ public class V1ProbeBuilder extends io.kubernetes.client.openapi.models.V1ProbeF
 
     this.withFailureThreshold(instance.getFailureThreshold());
 
+    this.withGrpc(instance.getGrpc());
+
     this.withHttpGet(instance.getHttpGet());
 
     this.withInitialDelaySeconds(instance.getInitialDelaySeconds());
@@ -72,6 +76,7 @@ public class V1ProbeBuilder extends io.kubernetes.client.openapi.models.V1ProbeF
     V1Probe buildable = new V1Probe();
     buildable.setExec(fluent.getExec());
     buildable.setFailureThreshold(fluent.getFailureThreshold());
+    buildable.setGrpc(fluent.getGrpc());
     buildable.setHttpGet(fluent.getHttpGet());
     buildable.setInitialDelaySeconds(fluent.getInitialDelaySeconds());
     buildable.setPeriodSeconds(fluent.getPeriodSeconds());

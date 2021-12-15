@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
 import java.lang.Integer;
-import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Collection;
 import java.lang.Object;
@@ -25,42 +24,26 @@ public class V1ScopedResourceSelectorRequirementFluentImpl<A extends io.kubernet
     this.withValues(instance.getValues());
 
   }
-  private java.lang.String operator;
-  private java.lang.String scopeName;
+  private io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.OperatorEnum operator;
+  private io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.ScopeNameEnum scopeName;
   private java.util.List<java.lang.String> values;
-  public java.lang.String getOperator() {
+  public io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.OperatorEnum getOperator() {
     return this.operator;
   }
-  public A withOperator(java.lang.String operator) {
+  public A withOperator(io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.OperatorEnum operator) {
     this.operator=operator; return (A) this;
   }
   public java.lang.Boolean hasOperator() {
     return this.operator != null;
   }
-  
-  /**
-   * Method is deprecated. use withOperator instead.
-   */
-  @java.lang.Deprecated
-  public A withNewOperator(java.lang.String arg0) {
-    return (A)withOperator(new String(arg0));
-  }
-  public java.lang.String getScopeName() {
+  public io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.ScopeNameEnum getScopeName() {
     return this.scopeName;
   }
-  public A withScopeName(java.lang.String scopeName) {
+  public A withScopeName(io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.ScopeNameEnum scopeName) {
     this.scopeName=scopeName; return (A) this;
   }
   public java.lang.Boolean hasScopeName() {
     return this.scopeName != null;
-  }
-  
-  /**
-   * Method is deprecated. use withScopeName instead.
-   */
-  @java.lang.Deprecated
-  public A withNewScopeName(java.lang.String arg0) {
-    return (A)withScopeName(new String(arg0));
   }
   public A addToValues(java.lang.Integer index,java.lang.String item) {
     if (this.values == null) {this.values = new java.util.ArrayList<java.lang.String>();}
@@ -113,8 +96,8 @@ public class V1ScopedResourceSelectorRequirementFluentImpl<A extends io.kubernet
   public java.lang.Boolean hasValues() {
     return values != null && !values.isEmpty();
   }
-  public A addNewValue(java.lang.String arg0) {
-    return (A)addToValues(new String(arg0));
+  public A addNewValue(java.lang.String original) {
+    return (A)addToValues(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

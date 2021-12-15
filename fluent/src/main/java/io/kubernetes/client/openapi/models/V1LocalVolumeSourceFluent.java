@@ -18,7 +18,7 @@ public interface V1LocalVolumeSourceFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0);
+  public A withNewFsType(java.lang.String original);
   public java.lang.String getPath();
   public A withPath(java.lang.String path);
   public java.lang.Boolean hasPath();
@@ -27,6 +27,6 @@ public interface V1LocalVolumeSourceFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0);
+  public A withNewPath(java.lang.String original);
   
 }

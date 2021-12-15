@@ -51,8 +51,8 @@ public class V1PriorityClassFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public java.lang.String getDescription() {
     return this.description;
@@ -68,8 +68,8 @@ public class V1PriorityClassFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withDescription instead.
    */
   @java.lang.Deprecated
-  public A withNewDescription(java.lang.String arg0) {
-    return (A)withDescription(new String(arg0));
+  public A withNewDescription(java.lang.String original) {
+    return (A)withDescription(new String(original));
   }
   public java.lang.Boolean getGlobalDefault() {
     return this.globalDefault;
@@ -94,8 +94,8 @@ public class V1PriorityClassFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   
   /**
@@ -145,8 +145,8 @@ public class V1PriorityClassFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withPreemptionPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewPreemptionPolicy(java.lang.String arg0) {
-    return (A)withPreemptionPolicy(new String(arg0));
+  public A withNewPreemptionPolicy(java.lang.String original) {
+    return (A)withPreemptionPolicy(new String(original));
   }
   public java.lang.Integer getValue() {
     return this.value;

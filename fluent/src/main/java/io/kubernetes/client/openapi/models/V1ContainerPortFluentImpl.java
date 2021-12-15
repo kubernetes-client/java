@@ -29,7 +29,7 @@ public class V1ContainerPortFluentImpl<A extends io.kubernetes.client.openapi.mo
   private java.lang.String hostIP;
   private java.lang.Integer hostPort;
   private java.lang.String name;
-  private java.lang.String protocol;
+  private io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum protocol;
   public java.lang.Integer getContainerPort() {
     return this.containerPort;
   }
@@ -53,8 +53,8 @@ public class V1ContainerPortFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withHostIP instead.
    */
   @java.lang.Deprecated
-  public A withNewHostIP(java.lang.String arg0) {
-    return (A)withHostIP(new String(arg0));
+  public A withNewHostIP(java.lang.String original) {
+    return (A)withHostIP(new String(original));
   }
   public java.lang.Integer getHostPort() {
     return this.hostPort;
@@ -79,25 +79,17 @@ public class V1ContainerPortFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
-  public java.lang.String getProtocol() {
+  public io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum getProtocol() {
     return this.protocol;
   }
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum protocol) {
     this.protocol=protocol; return (A) this;
   }
   public java.lang.Boolean hasProtocol() {
     return this.protocol != null;
-  }
-  
-  /**
-   * Method is deprecated. use withProtocol instead.
-   */
-  @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0) {
-    return (A)withProtocol(new String(arg0));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

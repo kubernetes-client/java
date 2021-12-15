@@ -39,7 +39,7 @@ public interface V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.
   public A withGroups(java.util.List<java.lang.String> groups);
   public A withGroups(java.lang.String... groups);
   public java.lang.Boolean hasGroups();
-  public A addNewGroup(java.lang.String arg0);
+  public A addNewGroup(java.lang.String original);
   public java.lang.String getUid();
   public A withUid(java.lang.String uid);
   public java.lang.Boolean hasUid();
@@ -48,7 +48,7 @@ public interface V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String arg0);
+  public A withNewUid(java.lang.String original);
   public java.lang.String getUsername();
   public A withUsername(java.lang.String username);
   public java.lang.Boolean hasUsername();
@@ -57,6 +57,6 @@ public interface V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withUsername instead.
    */
   @java.lang.Deprecated
-  public A withNewUsername(java.lang.String arg0);
+  public A withNewUsername(java.lang.String original);
   
 }

@@ -103,8 +103,8 @@ public class V1ValidatingWebhookFluentImpl<A extends io.kubernetes.client.openap
   public java.lang.Boolean hasAdmissionReviewVersions() {
     return admissionReviewVersions != null && !admissionReviewVersions.isEmpty();
   }
-  public A addNewAdmissionReviewVersion(java.lang.String arg0) {
-    return (A)addToAdmissionReviewVersions(new String(arg0));
+  public A addNewAdmissionReviewVersion(java.lang.String original) {
+    return (A)addToAdmissionReviewVersions(new String(original));
   }
   
   /**
@@ -154,8 +154,8 @@ public class V1ValidatingWebhookFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withFailurePolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewFailurePolicy(java.lang.String arg0) {
-    return (A)withFailurePolicy(new String(arg0));
+  public A withNewFailurePolicy(java.lang.String original) {
+    return (A)withFailurePolicy(new String(original));
   }
   public java.lang.String getMatchPolicy() {
     return this.matchPolicy;
@@ -171,8 +171,8 @@ public class V1ValidatingWebhookFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withMatchPolicy instead.
    */
   @java.lang.Deprecated
-  public A withNewMatchPolicy(java.lang.String arg0) {
-    return (A)withMatchPolicy(new String(arg0));
+  public A withNewMatchPolicy(java.lang.String original) {
+    return (A)withMatchPolicy(new String(original));
   }
   public java.lang.String getName() {
     return this.name;
@@ -188,8 +188,8 @@ public class V1ValidatingWebhookFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   
   /**
@@ -379,8 +379,8 @@ public class V1ValidatingWebhookFluentImpl<A extends io.kubernetes.client.openap
    * Method is deprecated. use withSideEffects instead.
    */
   @java.lang.Deprecated
-  public A withNewSideEffects(java.lang.String arg0) {
-    return (A)withSideEffects(new String(arg0));
+  public A withNewSideEffects(java.lang.String original) {
+    return (A)withSideEffects(new String(original));
   }
   public java.lang.Integer getTimeoutSeconds() {
     return this.timeoutSeconds;

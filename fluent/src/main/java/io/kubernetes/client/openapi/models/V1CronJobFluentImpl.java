@@ -44,8 +44,8 @@ public class V1CronJobFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0) {
-    return (A)withApiVersion(new String(arg0));
+  public A withNewApiVersion(java.lang.String original) {
+    return (A)withApiVersion(new String(original));
   }
   public java.lang.String getKind() {
     return this.kind;
@@ -61,8 +61,8 @@ public class V1CronJobFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0) {
-    return (A)withKind(new String(arg0));
+  public A withNewKind(java.lang.String original) {
+    return (A)withKind(new String(original));
   }
   
   /**

@@ -21,7 +21,7 @@ public interface V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withDriver instead.
    */
   @java.lang.Deprecated
-  public A withNewDriver(java.lang.String arg0);
+  public A withNewDriver(java.lang.String original);
   public java.lang.String getFsType();
   public A withFsType(java.lang.String fsType);
   public java.lang.Boolean hasFsType();
@@ -30,7 +30,7 @@ public interface V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.
    * Method is deprecated. use withFsType instead.
    */
   @java.lang.Deprecated
-  public A withNewFsType(java.lang.String arg0);
+  public A withNewFsType(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildNodePublishSecretRef instead.

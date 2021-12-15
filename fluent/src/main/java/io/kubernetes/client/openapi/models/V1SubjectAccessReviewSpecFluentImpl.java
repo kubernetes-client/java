@@ -116,8 +116,8 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.client.
   public java.lang.Boolean hasGroups() {
     return groups != null && !groups.isEmpty();
   }
-  public A addNewGroup(java.lang.String arg0) {
-    return (A)addToGroups(new String(arg0));
+  public A addNewGroup(java.lang.String original) {
+    return (A)addToGroups(new String(original));
   }
   
   /**
@@ -201,8 +201,8 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withUid instead.
    */
   @java.lang.Deprecated
-  public A withNewUid(java.lang.String arg0) {
-    return (A)withUid(new String(arg0));
+  public A withNewUid(java.lang.String original) {
+    return (A)withUid(new String(original));
   }
   public java.lang.String getUser() {
     return this.user;
@@ -218,8 +218,8 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends io.kubernetes.client.
    * Method is deprecated. use withUser instead.
    */
   @java.lang.Deprecated
-  public A withNewUser(java.lang.String arg0) {
-    return (A)withUser(new String(arg0));
+  public A withNewUser(java.lang.String original) {
+    return (A)withUser(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

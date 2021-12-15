@@ -34,7 +34,7 @@ public interface V1PersistentVolumeSpecFluent<A extends io.kubernetes.client.ope
   public A withAccessModes(java.util.List<java.lang.String> accessModes);
   public A withAccessModes(java.lang.String... accessModes);
   public java.lang.Boolean hasAccessModes();
-  public A addNewAccessMode(java.lang.String arg0);
+  public A addNewAccessMode(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildAwsElasticBlockStore instead.
@@ -282,7 +282,7 @@ public interface V1PersistentVolumeSpecFluent<A extends io.kubernetes.client.ope
   public A withMountOptions(java.util.List<java.lang.String> mountOptions);
   public A withMountOptions(java.lang.String... mountOptions);
   public java.lang.Boolean hasMountOptions();
-  public A addNewMountOption(java.lang.String arg0);
+  public A addNewMountOption(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildNfs instead.
@@ -313,15 +313,9 @@ public interface V1PersistentVolumeSpecFluent<A extends io.kubernetes.client.ope
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A> editNodeAffinity();
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A> editOrNewNodeAffinity();
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A> editOrNewNodeAffinityLike(io.kubernetes.client.openapi.models.V1VolumeNodeAffinity item);
-  public java.lang.String getPersistentVolumeReclaimPolicy();
-  public A withPersistentVolumeReclaimPolicy(java.lang.String persistentVolumeReclaimPolicy);
+  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec.PersistentVolumeReclaimPolicyEnum getPersistentVolumeReclaimPolicy();
+  public A withPersistentVolumeReclaimPolicy(io.kubernetes.client.openapi.models.V1PersistentVolumeSpec.PersistentVolumeReclaimPolicyEnum persistentVolumeReclaimPolicy);
   public java.lang.Boolean hasPersistentVolumeReclaimPolicy();
-  
-  /**
-   * Method is deprecated. use withPersistentVolumeReclaimPolicy instead.
-   */
-  @java.lang.Deprecated
-  public A withNewPersistentVolumeReclaimPolicy(java.lang.String arg0);
   
   /**
    * This method has been deprecated, please use method buildPhotonPersistentDisk instead.
@@ -405,7 +399,7 @@ public interface V1PersistentVolumeSpecFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withStorageClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String arg0);
+  public A withNewStorageClassName(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildStorageos instead.
@@ -429,7 +423,7 @@ public interface V1PersistentVolumeSpecFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withVolumeMode instead.
    */
   @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String arg0);
+  public A withNewVolumeMode(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildVsphereVolume instead.

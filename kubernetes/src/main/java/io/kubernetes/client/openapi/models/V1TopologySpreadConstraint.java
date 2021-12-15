@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.Objects;
 
 /** TopologySpreadConstraint specifies how to spread matching pods among the given topology. */
@@ -23,7 +28,7 @@ import java.util.Objects;
         "TopologySpreadConstraint specifies how to spread matching pods among the given topology.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1TopologySpreadConstraint {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
 
@@ -40,10 +45,71 @@ public class V1TopologySpreadConstraint {
   @SerializedName(SERIALIZED_NAME_TOPOLOGY_KEY)
   private String topologyKey;
 
+  /**
+   * WhenUnsatisfiable indicates how to deal with a pod if it doesn&#39;t satisfy the spread
+   * constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway
+   * tells the scheduler to schedule the pod in any location, but giving higher precedence to
+   * topologies that would help reduce the skew. A constraint is considered
+   * \&quot;Unsatisfiable\&quot; for an incoming pod if and only if every possible node assignment
+   * for that pod would violate \&quot;MaxSkew\&quot; on some topology. For example, in a 3-zone
+   * cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 |
+   * zone2 | zone3 | | P P P | P | P | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod
+   * can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3)
+   * satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler
+   * won&#39;t make it *more* imbalanced. It&#39;s a required field. Possible enum values: -
+   * &#x60;\&quot;DoNotSchedule\&quot;&#x60; instructs the scheduler not to schedule the pod when
+   * constraints are not satisfied. - &#x60;\&quot;ScheduleAnyway\&quot;&#x60; instructs the
+   * scheduler to schedule the pod even if constraints are not satisfied.
+   */
+  @JsonAdapter(WhenUnsatisfiableEnum.Adapter.class)
+  public enum WhenUnsatisfiableEnum {
+    DONOTSCHEDULE("DoNotSchedule"),
+
+    SCHEDULEANYWAY("ScheduleAnyway");
+
+    private String value;
+
+    WhenUnsatisfiableEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static WhenUnsatisfiableEnum fromValue(String value) {
+      for (WhenUnsatisfiableEnum b : WhenUnsatisfiableEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<WhenUnsatisfiableEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final WhenUnsatisfiableEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public WhenUnsatisfiableEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return WhenUnsatisfiableEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_WHEN_UNSATISFIABLE = "whenUnsatisfiable";
 
   @SerializedName(SERIALIZED_NAME_WHEN_UNSATISFIABLE)
-  private String whenUnsatisfiable;
+  private WhenUnsatisfiableEnum whenUnsatisfiable;
 
   public V1TopologySpreadConstraint labelSelector(V1LabelSelector labelSelector) {
 
@@ -124,7 +190,7 @@ public class V1TopologySpreadConstraint {
     this.topologyKey = topologyKey;
   }
 
-  public V1TopologySpreadConstraint whenUnsatisfiable(String whenUnsatisfiable) {
+  public V1TopologySpreadConstraint whenUnsatisfiable(WhenUnsatisfiableEnum whenUnsatisfiable) {
 
     this.whenUnsatisfiable = whenUnsatisfiable;
     return this;
@@ -135,25 +201,28 @@ public class V1TopologySpreadConstraint {
    * constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway
    * tells the scheduler to schedule the pod in any location, but giving higher precedence to
    * topologies that would help reduce the skew. A constraint is considered
-   * \&quot;Unsatisfiable\&quot; for an incoming pod if and only if every possible node assigment
+   * \&quot;Unsatisfiable\&quot; for an incoming pod if and only if every possible node assignment
    * for that pod would violate \&quot;MaxSkew\&quot; on some topology. For example, in a 3-zone
    * cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 |
    * zone2 | zone3 | | P P P | P | P | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod
    * can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3)
    * satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler
-   * won&#39;t make it *more* imbalanced. It&#39;s a required field.
+   * won&#39;t make it *more* imbalanced. It&#39;s a required field. Possible enum values: -
+   * &#x60;\&quot;DoNotSchedule\&quot;&#x60; instructs the scheduler not to schedule the pod when
+   * constraints are not satisfied. - &#x60;\&quot;ScheduleAnyway\&quot;&#x60; instructs the
+   * scheduler to schedule the pod even if constraints are not satisfied.
    *
    * @return whenUnsatisfiable
    */
   @ApiModelProperty(
       required = true,
       value =
-          "WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location,   but giving higher precedence to topologies that would help reduce the   skew. A constraint is considered \"Unsatisfiable\" for an incoming pod if and only if every possible node assigment for that pod would violate \"MaxSkew\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.")
-  public String getWhenUnsatisfiable() {
+          "WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location,   but giving higher precedence to topologies that would help reduce the   skew. A constraint is considered \"Unsatisfiable\" for an incoming pod if and only if every possible node assignment for that pod would violate \"MaxSkew\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.  Possible enum values:  - `\"DoNotSchedule\"` instructs the scheduler not to schedule the pod when constraints are not satisfied.  - `\"ScheduleAnyway\"` instructs the scheduler to schedule the pod even if constraints are not satisfied.")
+  public WhenUnsatisfiableEnum getWhenUnsatisfiable() {
     return whenUnsatisfiable;
   }
 
-  public void setWhenUnsatisfiable(String whenUnsatisfiable) {
+  public void setWhenUnsatisfiable(WhenUnsatisfiableEnum whenUnsatisfiable) {
     this.whenUnsatisfiable = whenUnsatisfiable;
   }
 

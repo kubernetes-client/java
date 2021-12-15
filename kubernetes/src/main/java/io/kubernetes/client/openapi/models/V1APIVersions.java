@@ -28,7 +28,7 @@ import java.util.Objects;
         "APIVersions lists the versions that are available, to allow clients to discover the API at /api, which is the root path of the legacy v1 API.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1APIVersions {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 

@@ -20,7 +20,7 @@ public interface V1alpha1StorageVersionFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public java.lang.String getKind();
   public A withKind(java.lang.String kind);
   public java.lang.Boolean hasKind();
@@ -29,7 +29,7 @@ public interface V1alpha1StorageVersionFluent<A extends io.kubernetes.client.ope
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

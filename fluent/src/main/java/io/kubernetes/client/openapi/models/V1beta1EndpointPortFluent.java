@@ -19,7 +19,7 @@ public interface V1beta1EndpointPortFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withAppProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String arg0);
+  public A withNewAppProtocol(java.lang.String original);
   public java.lang.String getName();
   public A withName(java.lang.String name);
   public java.lang.Boolean hasName();
@@ -28,7 +28,7 @@ public interface V1beta1EndpointPortFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public java.lang.Integer getPort();
   public A withPort(java.lang.Integer port);
   public java.lang.Boolean hasPort();
@@ -40,6 +40,6 @@ public interface V1beta1EndpointPortFluent<A extends io.kubernetes.client.openap
    * Method is deprecated. use withProtocol instead.
    */
   @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0);
+  public A withNewProtocol(java.lang.String original);
   
 }

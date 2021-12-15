@@ -18,15 +18,9 @@ public interface V1SeccompProfileFluent<A extends io.kubernetes.client.openapi.m
    * Method is deprecated. use withLocalhostProfile instead.
    */
   @java.lang.Deprecated
-  public A withNewLocalhostProfile(java.lang.String arg0);
-  public java.lang.String getType();
-  public A withType(java.lang.String type);
+  public A withNewLocalhostProfile(java.lang.String original);
+  public io.kubernetes.client.openapi.models.V1SeccompProfile.TypeEnum getType();
+  public A withType(io.kubernetes.client.openapi.models.V1SeccompProfile.TypeEnum type);
   public java.lang.Boolean hasType();
-  
-  /**
-   * Method is deprecated. use withType instead.
-   */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String arg0);
   
 }

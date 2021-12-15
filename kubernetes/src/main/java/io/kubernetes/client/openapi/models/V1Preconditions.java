@@ -23,7 +23,7 @@ import java.util.Objects;
         "Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1Preconditions {
   public static final String SERIALIZED_NAME_RESOURCE_VERSION = "resourceVersion";
 

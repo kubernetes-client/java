@@ -26,7 +26,7 @@ import java.util.Objects;
         "TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1TypedLocalObjectReference {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
 

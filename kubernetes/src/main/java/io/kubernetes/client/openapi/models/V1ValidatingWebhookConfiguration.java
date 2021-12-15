@@ -28,7 +28,7 @@ import java.util.Objects;
         "ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1ValidatingWebhookConfiguration
     implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";

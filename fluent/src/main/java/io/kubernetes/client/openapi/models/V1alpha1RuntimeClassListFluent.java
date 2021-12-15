@@ -26,7 +26,7 @@ public interface V1alpha1RuntimeClassListFluent<A extends io.kubernetes.client.o
    * Method is deprecated. use withApiVersion instead.
    */
   @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String arg0);
+  public A withNewApiVersion(java.lang.String original);
   public A addToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1alpha1RuntimeClass item);
   public A setToItems(java.lang.Integer index,io.kubernetes.client.openapi.models.V1alpha1RuntimeClass item);
   public A addToItems(io.kubernetes.client.openapi.models.V1alpha1RuntimeClass... items);
@@ -65,7 +65,7 @@ public interface V1alpha1RuntimeClassListFluent<A extends io.kubernetes.client.o
    * Method is deprecated. use withKind instead.
    */
   @java.lang.Deprecated
-  public A withNewKind(java.lang.String arg0);
+  public A withNewKind(java.lang.String original);
   
   /**
    * This method has been deprecated, please use method buildMetadata instead.

@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -26,22 +31,132 @@ import java.util.Objects;
         "The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1Toleration {
+  /**
+   * Effect indicates the taint effect to match. Empty means match all taint effects. When
+   * specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute. Possible enum values:
+   * - &#x60;\&quot;NoExecute\&quot;&#x60; Evict any already-running pods that do not tolerate the
+   * taint. Currently enforced by NodeController. - &#x60;\&quot;NoSchedule\&quot;&#x60; Do not
+   * allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods
+   * submitted to Kubelet without going through the scheduler to start, and allow all
+   * already-running pods to continue running. Enforced by the scheduler. -
+   * &#x60;\&quot;PreferNoSchedule\&quot;&#x60; Like TaintEffectNoSchedule, but the scheduler tries
+   * not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto
+   * the node entirely. Enforced by the scheduler.
+   */
+  @JsonAdapter(EffectEnum.Adapter.class)
+  public enum EffectEnum {
+    NOEXECUTE("NoExecute"),
+
+    NOSCHEDULE("NoSchedule"),
+
+    PREFERNOSCHEDULE("PreferNoSchedule");
+
+    private String value;
+
+    EffectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EffectEnum fromValue(String value) {
+      for (EffectEnum b : EffectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EffectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EffectEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EffectEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EffectEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_EFFECT = "effect";
 
   @SerializedName(SERIALIZED_NAME_EFFECT)
-  private String effect;
+  private EffectEnum effect;
 
   public static final String SERIALIZED_NAME_KEY = "key";
 
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  /**
+   * Operator represents a key&#39;s relationship to the value. Valid operators are Exists and
+   * Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can
+   * tolerate all taints of a particular category. Possible enum values: -
+   * &#x60;\&quot;Equal\&quot;&#x60; - &#x60;\&quot;Exists\&quot;&#x60;
+   */
+  @JsonAdapter(OperatorEnum.Adapter.class)
+  public enum OperatorEnum {
+    EQUAL("Equal"),
+
+    EXISTS("Exists");
+
+    private String value;
+
+    OperatorEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OperatorEnum fromValue(String value) {
+      for (OperatorEnum b : OperatorEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<OperatorEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OperatorEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OperatorEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return OperatorEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
 
   @SerializedName(SERIALIZED_NAME_OPERATOR)
-  private String operator;
+  private OperatorEnum operator;
 
   public static final String SERIALIZED_NAME_TOLERATION_SECONDS = "tolerationSeconds";
 
@@ -53,7 +168,7 @@ public class V1Toleration {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
-  public V1Toleration effect(String effect) {
+  public V1Toleration effect(EffectEnum effect) {
 
     this.effect = effect;
     return this;
@@ -61,19 +176,27 @@ public class V1Toleration {
 
   /**
    * Effect indicates the taint effect to match. Empty means match all taint effects. When
-   * specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+   * specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute. Possible enum values:
+   * - &#x60;\&quot;NoExecute\&quot;&#x60; Evict any already-running pods that do not tolerate the
+   * taint. Currently enforced by NodeController. - &#x60;\&quot;NoSchedule\&quot;&#x60; Do not
+   * allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods
+   * submitted to Kubelet without going through the scheduler to start, and allow all
+   * already-running pods to continue running. Enforced by the scheduler. -
+   * &#x60;\&quot;PreferNoSchedule\&quot;&#x60; Like TaintEffectNoSchedule, but the scheduler tries
+   * not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto
+   * the node entirely. Enforced by the scheduler.
    *
    * @return effect
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.")
-  public String getEffect() {
+          "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.  Possible enum values:  - `\"NoExecute\"` Evict any already-running pods that do not tolerate the taint. Currently enforced by NodeController.  - `\"NoSchedule\"` Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.  - `\"PreferNoSchedule\"` Like TaintEffectNoSchedule, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.")
+  public EffectEnum getEffect() {
     return effect;
   }
 
-  public void setEffect(String effect) {
+  public void setEffect(EffectEnum effect) {
     this.effect = effect;
   }
 
@@ -101,7 +224,7 @@ public class V1Toleration {
     this.key = key;
   }
 
-  public V1Toleration operator(String operator) {
+  public V1Toleration operator(OperatorEnum operator) {
 
     this.operator = operator;
     return this;
@@ -110,19 +233,20 @@ public class V1Toleration {
   /**
    * Operator represents a key&#39;s relationship to the value. Valid operators are Exists and
    * Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can
-   * tolerate all taints of a particular category.
+   * tolerate all taints of a particular category. Possible enum values: -
+   * &#x60;\&quot;Equal\&quot;&#x60; - &#x60;\&quot;Exists\&quot;&#x60;
    *
    * @return operator
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.")
-  public String getOperator() {
+          "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.  Possible enum values:  - `\"Equal\"`  - `\"Exists\"`")
+  public OperatorEnum getOperator() {
     return operator;
   }
 
-  public void setOperator(String operator) {
+  public void setOperator(OperatorEnum operator) {
     this.operator = operator;
   }
 

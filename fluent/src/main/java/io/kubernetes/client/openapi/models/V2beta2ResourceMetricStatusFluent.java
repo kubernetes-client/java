@@ -34,7 +34,7 @@ public interface V2beta2ResourceMetricStatusFluent<A extends io.kubernetes.clien
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0);
+  public A withNewName(java.lang.String original);
   public interface CurrentNested<N> extends io.kubernetes.client.fluent.Nested<N>,io.kubernetes.client.openapi.models.V2beta2MetricValueStatusFluent<io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<N>>{
     public N and();
     public N endCurrent();

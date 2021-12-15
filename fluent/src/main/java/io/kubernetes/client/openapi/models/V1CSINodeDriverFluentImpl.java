@@ -80,8 +80,8 @@ public class V1CSINodeDriverFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.String getNodeID() {
     return this.nodeID;
@@ -97,8 +97,8 @@ public class V1CSINodeDriverFluentImpl<A extends io.kubernetes.client.openapi.mo
    * Method is deprecated. use withNodeID instead.
    */
   @java.lang.Deprecated
-  public A withNewNodeID(java.lang.String arg0) {
-    return (A)withNodeID(new String(arg0));
+  public A withNewNodeID(java.lang.String original) {
+    return (A)withNodeID(new String(original));
   }
   public A addToTopologyKeys(java.lang.Integer index,java.lang.String item) {
     if (this.topologyKeys == null) {this.topologyKeys = new java.util.ArrayList<java.lang.String>();}
@@ -151,8 +151,8 @@ public class V1CSINodeDriverFluentImpl<A extends io.kubernetes.client.openapi.mo
   public java.lang.Boolean hasTopologyKeys() {
     return topologyKeys != null && !topologyKeys.isEmpty();
   }
-  public A addNewTopologyKey(java.lang.String arg0) {
-    return (A)addToTopologyKeys(new String(arg0));
+  public A addNewTopologyKey(java.lang.String original) {
+    return (A)addToTopologyKeys(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

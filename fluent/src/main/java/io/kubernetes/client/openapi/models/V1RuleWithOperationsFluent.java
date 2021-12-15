@@ -30,7 +30,7 @@ public interface V1RuleWithOperationsFluent<A extends io.kubernetes.client.opena
   public A withApiGroups(java.util.List<java.lang.String> apiGroups);
   public A withApiGroups(java.lang.String... apiGroups);
   public java.lang.Boolean hasApiGroups();
-  public A addNewApiGroup(java.lang.String arg0);
+  public A addNewApiGroup(java.lang.String original);
   public A addToApiVersions(java.lang.Integer index,java.lang.String item);
   public A setToApiVersions(java.lang.Integer index,java.lang.String item);
   public A addToApiVersions(java.lang.String... items);
@@ -46,7 +46,7 @@ public interface V1RuleWithOperationsFluent<A extends io.kubernetes.client.opena
   public A withApiVersions(java.util.List<java.lang.String> apiVersions);
   public A withApiVersions(java.lang.String... apiVersions);
   public java.lang.Boolean hasApiVersions();
-  public A addNewApiVersion(java.lang.String arg0);
+  public A addNewApiVersion(java.lang.String original);
   public A addToOperations(java.lang.Integer index,java.lang.String item);
   public A setToOperations(java.lang.Integer index,java.lang.String item);
   public A addToOperations(java.lang.String... items);
@@ -62,7 +62,7 @@ public interface V1RuleWithOperationsFluent<A extends io.kubernetes.client.opena
   public A withOperations(java.util.List<java.lang.String> operations);
   public A withOperations(java.lang.String... operations);
   public java.lang.Boolean hasOperations();
-  public A addNewOperation(java.lang.String arg0);
+  public A addNewOperation(java.lang.String original);
   public A addToResources(java.lang.Integer index,java.lang.String item);
   public A setToResources(java.lang.Integer index,java.lang.String item);
   public A addToResources(java.lang.String... items);
@@ -78,7 +78,7 @@ public interface V1RuleWithOperationsFluent<A extends io.kubernetes.client.opena
   public A withResources(java.util.List<java.lang.String> resources);
   public A withResources(java.lang.String... resources);
   public java.lang.Boolean hasResources();
-  public A addNewResource(java.lang.String arg0);
+  public A addNewResource(java.lang.String original);
   public java.lang.String getScope();
   public A withScope(java.lang.String scope);
   public java.lang.Boolean hasScope();
@@ -87,6 +87,6 @@ public interface V1RuleWithOperationsFluent<A extends io.kubernetes.client.opena
    * Method is deprecated. use withScope instead.
    */
   @java.lang.Deprecated
-  public A withNewScope(java.lang.String arg0);
+  public A withNewScope(java.lang.String original);
   
 }

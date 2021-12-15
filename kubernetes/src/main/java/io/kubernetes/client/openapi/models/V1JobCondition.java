@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -22,7 +27,7 @@ import java.util.Objects;
 @ApiModel(description = "JobCondition describes current state of a job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1JobCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
 
@@ -49,10 +54,63 @@ public class V1JobCondition {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
+  /**
+   * Type of job condition, Complete or Failed. Possible enum values: -
+   * &#x60;\&quot;Complete\&quot;&#x60; means the job has completed its execution. -
+   * &#x60;\&quot;Failed\&quot;&#x60; means the job has failed its execution. -
+   * &#x60;\&quot;Suspended\&quot;&#x60; means the job has been suspended.
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    COMPLETE("Complete"),
+
+    FAILED("Failed"),
+
+    SUSPENDED("Suspended");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  private TypeEnum type;
 
   public V1JobCondition lastProbeTime(OffsetDateTime lastProbeTime) {
 
@@ -160,23 +218,29 @@ public class V1JobCondition {
     this.status = status;
   }
 
-  public V1JobCondition type(String type) {
+  public V1JobCondition type(TypeEnum type) {
 
     this.type = type;
     return this;
   }
 
   /**
-   * Type of job condition, Complete or Failed.
+   * Type of job condition, Complete or Failed. Possible enum values: -
+   * &#x60;\&quot;Complete\&quot;&#x60; means the job has completed its execution. -
+   * &#x60;\&quot;Failed\&quot;&#x60; means the job has failed its execution. -
+   * &#x60;\&quot;Suspended\&quot;&#x60; means the job has been suspended.
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "Type of job condition, Complete or Failed.")
-  public String getType() {
+  @ApiModelProperty(
+      required = true,
+      value =
+          "Type of job condition, Complete or Failed.  Possible enum values:  - `\"Complete\"` means the job has completed its execution.  - `\"Failed\"` means the job has failed its execution.  - `\"Suspended\"` means the job has been suspended.")
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

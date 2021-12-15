@@ -19,18 +19,12 @@ public interface V1PortStatusFluent<A extends io.kubernetes.client.openapi.model
    * Method is deprecated. use withError instead.
    */
   @java.lang.Deprecated
-  public A withNewError(java.lang.String arg0);
+  public A withNewError(java.lang.String original);
   public java.lang.Integer getPort();
   public A withPort(java.lang.Integer port);
   public java.lang.Boolean hasPort();
-  public java.lang.String getProtocol();
-  public A withProtocol(java.lang.String protocol);
+  public io.kubernetes.client.openapi.models.V1PortStatus.ProtocolEnum getProtocol();
+  public A withProtocol(io.kubernetes.client.openapi.models.V1PortStatus.ProtocolEnum protocol);
   public java.lang.Boolean hasProtocol();
-  
-  /**
-   * Method is deprecated. use withProtocol instead.
-   */
-  @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String arg0);
   
 }

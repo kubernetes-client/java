@@ -31,6 +31,8 @@ public class V1JobStatusBuilder extends io.kubernetes.client.openapi.models.V1Jo
 
     fluent.withFailed(instance.getFailed());
 
+    fluent.withReady(instance.getReady());
+
     fluent.withStartTime(instance.getStartTime());
 
     fluent.withSucceeded(instance.getSucceeded());
@@ -54,6 +56,8 @@ public class V1JobStatusBuilder extends io.kubernetes.client.openapi.models.V1Jo
 
     this.withFailed(instance.getFailed());
 
+    this.withReady(instance.getReady());
+
     this.withStartTime(instance.getStartTime());
 
     this.withSucceeded(instance.getSucceeded());
@@ -71,6 +75,7 @@ public class V1JobStatusBuilder extends io.kubernetes.client.openapi.models.V1Jo
     buildable.setCompletionTime(fluent.getCompletionTime());
     buildable.setConditions(fluent.getConditions());
     buildable.setFailed(fluent.getFailed());
+    buildable.setReady(fluent.getReady());
     buildable.setStartTime(fluent.getStartTime());
     buildable.setSucceeded(fluent.getSucceeded());
     buildable.setUncountedTerminatedPods(fluent.getUncountedTerminatedPods());

@@ -75,8 +75,8 @@ public class V1NonResourceRuleFluentImpl<A extends io.kubernetes.client.openapi.
   public java.lang.Boolean hasNonResourceURLs() {
     return nonResourceURLs != null && !nonResourceURLs.isEmpty();
   }
-  public A addNewNonResourceURL(java.lang.String arg0) {
-    return (A)addToNonResourceURLs(new String(arg0));
+  public A addNewNonResourceURL(java.lang.String original) {
+    return (A)addToNonResourceURLs(new String(original));
   }
   public A addToVerbs(java.lang.Integer index,java.lang.String item) {
     if (this.verbs == null) {this.verbs = new java.util.ArrayList<java.lang.String>();}
@@ -129,8 +129,8 @@ public class V1NonResourceRuleFluentImpl<A extends io.kubernetes.client.openapi.
   public java.lang.Boolean hasVerbs() {
     return verbs != null && !verbs.isEmpty();
   }
-  public A addNewVerb(java.lang.String arg0) {
-    return (A)addToVerbs(new String(arg0));
+  public A addNewVerb(java.lang.String original) {
+    return (A)addToVerbs(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

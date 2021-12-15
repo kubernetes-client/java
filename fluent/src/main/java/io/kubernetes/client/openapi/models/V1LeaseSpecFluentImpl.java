@@ -54,8 +54,8 @@ public class V1LeaseSpecFluentImpl<A extends io.kubernetes.client.openapi.models
    * Method is deprecated. use withHolderIdentity instead.
    */
   @java.lang.Deprecated
-  public A withNewHolderIdentity(java.lang.String arg0) {
-    return (A)withHolderIdentity(new String(arg0));
+  public A withNewHolderIdentity(java.lang.String original) {
+    return (A)withHolderIdentity(new String(original));
   }
   public java.lang.Integer getLeaseDurationSeconds() {
     return this.leaseDurationSeconds;

@@ -37,8 +37,8 @@ public class V1GitRepoVolumeSourceFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withDirectory instead.
    */
   @java.lang.Deprecated
-  public A withNewDirectory(java.lang.String arg0) {
-    return (A)withDirectory(new String(arg0));
+  public A withNewDirectory(java.lang.String original) {
+    return (A)withDirectory(new String(original));
   }
   public java.lang.String getRepository() {
     return this.repository;
@@ -54,8 +54,8 @@ public class V1GitRepoVolumeSourceFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withRepository instead.
    */
   @java.lang.Deprecated
-  public A withNewRepository(java.lang.String arg0) {
-    return (A)withRepository(new String(arg0));
+  public A withNewRepository(java.lang.String original) {
+    return (A)withRepository(new String(original));
   }
   public java.lang.String getRevision() {
     return this.revision;
@@ -71,8 +71,8 @@ public class V1GitRepoVolumeSourceFluentImpl<A extends io.kubernetes.client.open
    * Method is deprecated. use withRevision instead.
    */
   @java.lang.Deprecated
-  public A withNewRevision(java.lang.String arg0) {
-    return (A)withRevision(new String(arg0));
+  public A withNewRevision(java.lang.String original) {
+    return (A)withRevision(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

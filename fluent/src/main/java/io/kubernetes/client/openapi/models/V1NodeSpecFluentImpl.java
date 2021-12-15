@@ -91,8 +91,8 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withExternalID instead.
    */
   @java.lang.Deprecated
-  public A withNewExternalID(java.lang.String arg0) {
-    return (A)withExternalID(new String(arg0));
+  public A withNewExternalID(java.lang.String original) {
+    return (A)withExternalID(new String(original));
   }
   public java.lang.String getPodCIDR() {
     return this.podCIDR;
@@ -108,8 +108,8 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withPodCIDR instead.
    */
   @java.lang.Deprecated
-  public A withNewPodCIDR(java.lang.String arg0) {
-    return (A)withPodCIDR(new String(arg0));
+  public A withNewPodCIDR(java.lang.String original) {
+    return (A)withPodCIDR(new String(original));
   }
   public A addToPodCIDRs(java.lang.Integer index,java.lang.String item) {
     if (this.podCIDRs == null) {this.podCIDRs = new java.util.ArrayList<java.lang.String>();}
@@ -162,8 +162,8 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
   public java.lang.Boolean hasPodCIDRs() {
     return podCIDRs != null && !podCIDRs.isEmpty();
   }
-  public A addNewPodCIDR(java.lang.String arg0) {
-    return (A)addToPodCIDRs(new String(arg0));
+  public A addNewPodCIDR(java.lang.String original) {
+    return (A)addToPodCIDRs(new String(original));
   }
   public java.lang.String getProviderID() {
     return this.providerID;
@@ -179,8 +179,8 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
    * Method is deprecated. use withProviderID instead.
    */
   @java.lang.Deprecated
-  public A withNewProviderID(java.lang.String arg0) {
-    return (A)withProviderID(new String(arg0));
+  public A withNewProviderID(java.lang.String original) {
+    return (A)withProviderID(new String(original));
   }
   public A addToTaints(java.lang.Integer index,io.kubernetes.client.openapi.models.V1Taint item) {
     if (this.taints == null) {this.taints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1TaintBuilder>();}

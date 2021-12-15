@@ -41,8 +41,8 @@ public class AdmissionregistrationV1ServiceReferenceFluentImpl<A extends io.kube
    * Method is deprecated. use withName instead.
    */
   @java.lang.Deprecated
-  public A withNewName(java.lang.String arg0) {
-    return (A)withName(new String(arg0));
+  public A withNewName(java.lang.String original) {
+    return (A)withName(new String(original));
   }
   public java.lang.String getNamespace() {
     return this.namespace;
@@ -58,8 +58,8 @@ public class AdmissionregistrationV1ServiceReferenceFluentImpl<A extends io.kube
    * Method is deprecated. use withNamespace instead.
    */
   @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String arg0) {
-    return (A)withNamespace(new String(arg0));
+  public A withNewNamespace(java.lang.String original) {
+    return (A)withNamespace(new String(original));
   }
   public java.lang.String getPath() {
     return this.path;
@@ -75,8 +75,8 @@ public class AdmissionregistrationV1ServiceReferenceFluentImpl<A extends io.kube
    * Method is deprecated. use withPath instead.
    */
   @java.lang.Deprecated
-  public A withNewPath(java.lang.String arg0) {
-    return (A)withPath(new String(arg0));
+  public A withNewPath(java.lang.String original) {
+    return (A)withPath(new String(original));
   }
   public java.lang.Integer getPort() {
     return this.port;

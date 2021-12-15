@@ -12,9 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -23,17 +28,81 @@ import java.util.Objects;
 @ApiModel(description = "A StatefulSetSpec is the specification of a StatefulSet.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1StatefulSetSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
 
   @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)
   private Integer minReadySeconds;
 
+  public static final String SERIALIZED_NAME_PERSISTENT_VOLUME_CLAIM_RETENTION_POLICY =
+      "persistentVolumeClaimRetentionPolicy";
+
+  @SerializedName(SERIALIZED_NAME_PERSISTENT_VOLUME_CLAIM_RETENTION_POLICY)
+  private V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy;
+
+  /**
+   * podManagementPolicy controls how pods are created during initial scale up, when replacing pods
+   * on nodes, or when scaling down. The default policy is &#x60;OrderedReady&#x60;, where pods are
+   * created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each
+   * pod is ready before continuing. When scaling down, the pods are removed in the opposite order.
+   * The alternative policy is &#x60;Parallel&#x60; which will create pods in parallel to match the
+   * desired scale without waiting, and on scale down will delete all pods at once. Possible enum
+   * values: - &#x60;\&quot;OrderedReady\&quot;&#x60; will create pods in strictly increasing order
+   * on scale up and strictly decreasing order on scale down, progressing only when the previous pod
+   * is ready or terminated. At most one pod will be changed at any time. -
+   * &#x60;\&quot;Parallel\&quot;&#x60; will create and delete pods as soon as the stateful set
+   * replica count is changed, and will not wait for pods to be ready or complete termination.
+   */
+  @JsonAdapter(PodManagementPolicyEnum.Adapter.class)
+  public enum PodManagementPolicyEnum {
+    ORDEREDREADY("OrderedReady"),
+
+    PARALLEL("Parallel");
+
+    private String value;
+
+    PodManagementPolicyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PodManagementPolicyEnum fromValue(String value) {
+      for (PodManagementPolicyEnum b : PodManagementPolicyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PodManagementPolicyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PodManagementPolicyEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PodManagementPolicyEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PodManagementPolicyEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_POD_MANAGEMENT_POLICY = "podManagementPolicy";
 
   @SerializedName(SERIALIZED_NAME_POD_MANAGEMENT_POLICY)
-  private String podManagementPolicy;
+  private PodManagementPolicyEnum podManagementPolicy;
 
   public static final String SERIALIZED_NAME_REPLICAS = "replicas";
 
@@ -96,7 +165,31 @@ public class V1StatefulSetSpec {
     this.minReadySeconds = minReadySeconds;
   }
 
-  public V1StatefulSetSpec podManagementPolicy(String podManagementPolicy) {
+  public V1StatefulSetSpec persistentVolumeClaimRetentionPolicy(
+      V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
+
+    this.persistentVolumeClaimRetentionPolicy = persistentVolumeClaimRetentionPolicy;
+    return this;
+  }
+
+  /**
+   * Get persistentVolumeClaimRetentionPolicy
+   *
+   * @return persistentVolumeClaimRetentionPolicy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1StatefulSetPersistentVolumeClaimRetentionPolicy
+      getPersistentVolumeClaimRetentionPolicy() {
+    return persistentVolumeClaimRetentionPolicy;
+  }
+
+  public void setPersistentVolumeClaimRetentionPolicy(
+      V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
+    this.persistentVolumeClaimRetentionPolicy = persistentVolumeClaimRetentionPolicy;
+  }
+
+  public V1StatefulSetSpec podManagementPolicy(PodManagementPolicyEnum podManagementPolicy) {
 
     this.podManagementPolicy = podManagementPolicy;
     return this;
@@ -108,19 +201,24 @@ public class V1StatefulSetSpec {
    * created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each
    * pod is ready before continuing. When scaling down, the pods are removed in the opposite order.
    * The alternative policy is &#x60;Parallel&#x60; which will create pods in parallel to match the
-   * desired scale without waiting, and on scale down will delete all pods at once.
+   * desired scale without waiting, and on scale down will delete all pods at once. Possible enum
+   * values: - &#x60;\&quot;OrderedReady\&quot;&#x60; will create pods in strictly increasing order
+   * on scale up and strictly decreasing order on scale down, progressing only when the previous pod
+   * is ready or terminated. At most one pod will be changed at any time. -
+   * &#x60;\&quot;Parallel\&quot;&#x60; will create and delete pods as soon as the stateful set
+   * replica count is changed, and will not wait for pods to be ready or complete termination.
    *
    * @return podManagementPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is `OrderedReady`, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is `Parallel` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.")
-  public String getPodManagementPolicy() {
+          "podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is `OrderedReady`, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is `Parallel` which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once.  Possible enum values:  - `\"OrderedReady\"` will create pods in strictly increasing order on scale up and strictly decreasing order on scale down, progressing only when the previous pod is ready or terminated. At most one pod will be changed at any time.  - `\"Parallel\"` will create and delete pods as soon as the stateful set replica count is changed, and will not wait for pods to be ready or complete termination.")
+  public PodManagementPolicyEnum getPodManagementPolicy() {
     return podManagementPolicy;
   }
 
-  public void setPodManagementPolicy(String podManagementPolicy) {
+  public void setPodManagementPolicy(PodManagementPolicyEnum podManagementPolicy) {
     this.podManagementPolicy = podManagementPolicy;
   }
 
@@ -309,6 +407,9 @@ public class V1StatefulSetSpec {
     }
     V1StatefulSetSpec v1StatefulSetSpec = (V1StatefulSetSpec) o;
     return Objects.equals(this.minReadySeconds, v1StatefulSetSpec.minReadySeconds)
+        && Objects.equals(
+            this.persistentVolumeClaimRetentionPolicy,
+            v1StatefulSetSpec.persistentVolumeClaimRetentionPolicy)
         && Objects.equals(this.podManagementPolicy, v1StatefulSetSpec.podManagementPolicy)
         && Objects.equals(this.replicas, v1StatefulSetSpec.replicas)
         && Objects.equals(this.revisionHistoryLimit, v1StatefulSetSpec.revisionHistoryLimit)
@@ -323,6 +424,7 @@ public class V1StatefulSetSpec {
   public int hashCode() {
     return Objects.hash(
         minReadySeconds,
+        persistentVolumeClaimRetentionPolicy,
         podManagementPolicy,
         replicas,
         revisionHistoryLimit,
@@ -338,6 +440,9 @@ public class V1StatefulSetSpec {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1StatefulSetSpec {\n");
     sb.append("    minReadySeconds: ").append(toIndentedString(minReadySeconds)).append("\n");
+    sb.append("    persistentVolumeClaimRetentionPolicy: ")
+        .append(toIndentedString(persistentVolumeClaimRetentionPolicy))
+        .append("\n");
     sb.append("    podManagementPolicy: ")
         .append(toIndentedString(podManagementPolicy))
         .append("\n");

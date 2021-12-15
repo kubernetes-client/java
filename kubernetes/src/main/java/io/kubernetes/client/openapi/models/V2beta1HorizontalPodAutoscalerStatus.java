@@ -26,12 +26,12 @@ import java.util.Objects;
         "HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V2beta1HorizontalPodAutoscalerStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V2beta1HorizontalPodAutoscalerCondition> conditions = new ArrayList<>();
+  private List<V2beta1HorizontalPodAutoscalerCondition> conditions = null;
 
   public static final String SERIALIZED_NAME_CURRENT_METRICS = "currentMetrics";
 
@@ -67,6 +67,9 @@ public class V2beta1HorizontalPodAutoscalerStatus {
 
   public V2beta1HorizontalPodAutoscalerStatus addConditionsItem(
       V2beta1HorizontalPodAutoscalerCondition conditionsItem) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList<>();
+    }
     this.conditions.add(conditionsItem);
     return this;
   }
@@ -77,8 +80,8 @@ public class V2beta1HorizontalPodAutoscalerStatus {
    *
    * @return conditions
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
-      required = true,
       value =
           "conditions is the set of conditions required for this autoscaler to scale its target, and indicates whether or not those conditions are met.")
   public List<V2beta1HorizontalPodAutoscalerCondition> getConditions() {

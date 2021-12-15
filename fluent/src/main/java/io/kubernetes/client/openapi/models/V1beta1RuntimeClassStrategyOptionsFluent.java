@@ -30,7 +30,7 @@ public interface V1beta1RuntimeClassStrategyOptionsFluent<A extends io.kubernete
   public A withAllowedRuntimeClassNames(java.util.List<java.lang.String> allowedRuntimeClassNames);
   public A withAllowedRuntimeClassNames(java.lang.String... allowedRuntimeClassNames);
   public java.lang.Boolean hasAllowedRuntimeClassNames();
-  public A addNewAllowedRuntimeClassName(java.lang.String arg0);
+  public A addNewAllowedRuntimeClassName(java.lang.String original);
   public java.lang.String getDefaultRuntimeClassName();
   public A withDefaultRuntimeClassName(java.lang.String defaultRuntimeClassName);
   public java.lang.Boolean hasDefaultRuntimeClassName();
@@ -39,6 +39,6 @@ public interface V1beta1RuntimeClassStrategyOptionsFluent<A extends io.kubernete
    * Method is deprecated. use withDefaultRuntimeClassName instead.
    */
   @java.lang.Deprecated
-  public A withNewDefaultRuntimeClassName(java.lang.String arg0);
+  public A withNewDefaultRuntimeClassName(java.lang.String original);
   
 }

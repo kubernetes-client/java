@@ -34,8 +34,8 @@ public class V1ExternalDocumentationFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withDescription instead.
    */
   @java.lang.Deprecated
-  public A withNewDescription(java.lang.String arg0) {
-    return (A)withDescription(new String(arg0));
+  public A withNewDescription(java.lang.String original) {
+    return (A)withDescription(new String(original));
   }
   public java.lang.String getUrl() {
     return this.url;
@@ -51,8 +51,8 @@ public class V1ExternalDocumentationFluentImpl<A extends io.kubernetes.client.op
    * Method is deprecated. use withUrl instead.
    */
   @java.lang.Deprecated
-  public A withNewUrl(java.lang.String arg0) {
-    return (A)withUrl(new String(arg0));
+  public A withNewUrl(java.lang.String original) {
+    return (A)withUrl(new String(original));
   }
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;

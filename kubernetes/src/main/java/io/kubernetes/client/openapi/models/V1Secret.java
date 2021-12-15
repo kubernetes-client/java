@@ -28,7 +28,7 @@ import java.util.Objects;
         "Secret holds secret data of a certain type. The total bytes of the values in the Data field must be less than MaxSecretSize bytes.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -238,12 +238,15 @@ public class V1Secret implements io.kubernetes.client.common.KubernetesObject {
   }
 
   /**
-   * Used to facilitate programmatic handling of secret data.
+   * Used to facilitate programmatic handling of secret data. More info:
+   * https://kubernetes.io/docs/concepts/configuration/secret/#secret-types
    *
    * @return type
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Used to facilitate programmatic handling of secret data.")
+  @ApiModelProperty(
+      value =
+          "Used to facilitate programmatic handling of secret data. More info: https://kubernetes.io/docs/concepts/configuration/secret/#secret-types")
   public String getType() {
     return type;
   }

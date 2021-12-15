@@ -21,7 +21,7 @@ public interface V1AzureFileVolumeSourceFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withSecretName instead.
    */
   @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String arg0);
+  public A withNewSecretName(java.lang.String original);
   public java.lang.String getShareName();
   public A withShareName(java.lang.String shareName);
   public java.lang.Boolean hasShareName();
@@ -30,6 +30,6 @@ public interface V1AzureFileVolumeSourceFluent<A extends io.kubernetes.client.op
    * Method is deprecated. use withShareName instead.
    */
   @java.lang.Deprecated
-  public A withNewShareName(java.lang.String arg0);
+  public A withNewShareName(java.lang.String original);
   
 }

@@ -28,7 +28,7 @@ import java.util.Objects;
         "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-09-20T22:55:54.394Z[Etc/UTC]")
+    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
 public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_API_SERVER_I_D = "apiServerID";
 
