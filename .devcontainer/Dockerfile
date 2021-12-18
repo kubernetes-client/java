@@ -1,6 +1,6 @@
 # Update the VARIANT arg in devcontainer.json to pick a Java version >= 11
 ARG VARIANT=11
-FROM openjdk:${VARIANT}-jdk-buster
+FROM openjdk:${VARIANT}-jdk-buster cdjomga
 
 # Options for setup script
 ARG INSTALL_ZSH="true"
