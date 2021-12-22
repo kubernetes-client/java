@@ -1,0 +1,29 @@
+name: Upload Snapshot
+
+on:
+  push:
+    branches:
+      - master
+      - release-*
+  workflow_dispatch: {}
+
+jobs:
+  verify:
+    name: latest-images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 8.0.x
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Publish to Apache Maven Central
+        run: ./mvnw deploy
+        env:
+          OSSRH_USERNAME: ${{ secrets.SNAPSHOT_UPLOAD_USER }}
+          OSSRH_TOKEN: ${{ secrets.SNAPSHOT_UPLOAD_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSWORD }}
