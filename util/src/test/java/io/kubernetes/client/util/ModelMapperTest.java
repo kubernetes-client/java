@@ -51,6 +51,11 @@ public class ModelMapperTest {
 
     assertNull(ModelMapper.getApiTypeClass("example.io/v1", "Tofu"));
     assertNull(ModelMapper.getApiTypeClass("example.io", "v1", "Tofu"));
+
+    assertNull(ModelMapper.getApiTypeClass("v1", "Togu"));
+    ModelMapper.addModelMap("v1", "Togu", objClass);
+    assertEquals(objClass, ModelMapper.getApiTypeClass("", "v1", "Togu"));
+    assertEquals(objClass, ModelMapper.getApiTypeClass("v1", "Togu"));
   }
 
   @Test

@@ -89,10 +89,11 @@ public class ModelMapper {
   @Deprecated
   public static void addModelMap(String apiGroupVersion, String kind, Class<?> clazz) {
     String[] parts = apiGroupVersion.split("/");
-    if (parts.length == 1) { // legacy api group
+    if (parts.length <= 1) { // legacy api group
       addModelMap("", apiGroupVersion, kind, clazz);
+    } else {
+      addModelMap(parts[0], parts[1], kind, clazz);
     }
-    addModelMap(parts[0], parts[1], kind, clazz);
   }
 
   /**
