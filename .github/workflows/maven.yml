@@ -106,17 +106,17 @@ jobs:
           mvn clean install \
           -q \
           -Dmaven.test.skip=true
-      - name: Version 10
+      - name: Version 13
         run: |
-          cd examples/examples-release-10
+          cd examples/examples-release-13
           mvn clean install
-      - name: Version 11
+      - name: Version 14
         run: |
-          cd examples/examples-release-11
+          cd examples/examples-release-14
           mvn clean install
-      - name: Version 12
+      - name: Version 15
         run: |
-          cd examples/examples-release-12
+          cd examples/examples-release-15
           mvn clean install
   codegen:
     runs-on: ubuntu-latest
