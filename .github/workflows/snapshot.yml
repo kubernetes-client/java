@@ -18,6 +18,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 8.0.x
+          server-id: ossrh
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_TOKEN
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
       - name: Publish to Apache Maven Central
