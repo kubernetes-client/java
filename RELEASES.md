@@ -10,6 +10,55 @@ Releases are done on an as-needed basis, and this doc applies only to
 This does _not_ describe the process of cherry-picking changes onto release
 branches.
 
+## Release via Github Action
+
+Maintainers meet the following requirements will be able to perform automated
+release to maven central via Github Action job named "Maven Release":
+
+* Has "collaborator" permission or greater access (otherwise the can't run the
+  job manually).
+* Should be in the OWNERS file.
+
+### Steps
+
+#### Make sure the release job runs on the release branch
+
+When cutting the next major release, firstly we need to fork out a new release
+branch named `release-<major>`. So the release job will execute the maven 
+release plugin and push generated releasing commits to the release branch
+if the `release:prepare` process finishes successfully. Note that if we're 
+bumping a new patch version from an existing release branch, this step can be
+omitted.
+
+#### Filling release job input manually
+
+The github action job will require three manual input:
+
+* The POM releasing version, must be a valid semver `X.Y.Z` (without "v" prefix).
+* The next development POM version, conventionally we should bump a patch 
+  version from the current release version and add a `-SNAPSHOT` suffix. i.e.
+  `X.Y.(Z+1)-SNAPSHOT`.
+* Dry-Run: Indicating whether the release job will push the generated release
+  commits to the release branch and actually upload the artifacts.
+  
+Filling the inputs, then click "Run" to start the job. 
+
+> Note that during the release process, no commits shall be added the release
+> branch.
+
+#### Release note, announcements
+
+After the release job successfully finishes, we're supposed to see two generated
+commits automatically added to the release branch:
+
+1. Bump the previous development version to the target release version.
+2. Bump the release version to the next development version.
+
+And a git tag `vX.Y.Z` will also be pushed on the commit (1), a GITHUB release
+will also be packed on the tag.
+
+In the end, don't forget to clarify the release notes on the GITHUB release.
+
 ## One time setup
 
 You will need to have the following in place:
