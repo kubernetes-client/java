@@ -58,6 +58,7 @@ jobs:
             exec:exec | perl -ne 'die unless m/${{ github.event.inputs.releaseVersion }}-SNAPSHOT/'
       - name: Release Prepare
         run: |
+          git checkout -b 'automated-release-${{ github.event.inputs.releaseVersion }}'
           mvn --batch-mode \
             release:prepare \
             -Dtag=v${{ github.event.inputs.releaseVersion }} \
@@ -74,8 +75,16 @@ jobs:
         run: |
           # The tests are already executed in the prepare, skipping
           mvn -DlocalCheckout=true -Darguments=-DskipTests release:perform
-          git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${{ github.ref_name }}:${{ github.ref_name }}
+          git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
+            automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
+      - name: Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: automated-release-${{ github.event.inputs.releaseVersion }}
+          destination_branch: ${{ github.ref_name }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "Automated Release: ${{ github.event.inputs.releaseVersion }}"
       - name: Publish Release
         if: ${{ github.event.inputs.dry-run != 'true' }}
         uses: ncipollo/release-action@v1
