@@ -12,8 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static com.github.stefanbirkner.systemlambda.SystemLambda.withEnvironmentVariable;
 import static org.junit.Assert.*;
+import static uk.org.webcompere.systemstubs.SystemStubs.withEnvironmentVariable;
 
 import io.kubernetes.client.openapi.ApiClient;
 import java.io.File;
