@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static com.github.stefanbirkner.systemlambda.SystemLambda.withEnvironmentVariable;
 import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
 import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static uk.org.webcompere.systemstubs.SystemStubs.withEnvironmentVariable;
 
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;

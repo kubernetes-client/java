@@ -28,11 +28,11 @@ import com.github.tomakehurst.wiremock.extension.Parameters;
 import com.github.tomakehurst.wiremock.extension.PostServeAction;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
-import com.google.gson.Gson;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.openapi.models.V1ConfigMapList;
 import io.kubernetes.client.openapi.models.V1ListMeta;
@@ -135,8 +135,8 @@ public class KubernetesInformerCreatorTest {
                 aResponse()
                     .withStatus(200)
                     .withBody(
-                        new Gson()
-                            .toJson(
+                        new JSON()
+                            .serialize(
                                 new V1PodList()
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Arrays.asList(foo1))))));
@@ -154,8 +154,8 @@ public class KubernetesInformerCreatorTest {
                 aResponse()
                     .withStatus(200)
                     .withBody(
-                        new Gson()
-                            .toJson(
+                        new JSON()
+                            .serialize(
                                 new V1ConfigMapList()
                                     .metadata(new V1ListMeta().resourceVersion("0"))
                                     .items(Arrays.asList(bar1))))));

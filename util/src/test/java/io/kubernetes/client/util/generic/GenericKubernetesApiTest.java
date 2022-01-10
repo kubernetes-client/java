@@ -16,7 +16,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.google.gson.Gson;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -41,6 +40,7 @@ public class GenericKubernetesApiTest {
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(8181);
 
+  private JSON json = new JSON();
   private GenericKubernetesApi<V1Job, V1JobList> jobClient;
 
   @Before
@@ -56,7 +56,7 @@ public class GenericKubernetesApiTest {
     V1Status status = new V1Status().kind("Status").code(200).message("good!");
     stubFor(
         delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(status))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1", null);
     assertTrue(deleteJobResp.isSuccess());
@@ -72,7 +72,7 @@ public class GenericKubernetesApiTest {
 
     stubFor(
         delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1");
     assertTrue(deleteJobResp.isSuccess());
@@ -87,7 +87,7 @@ public class GenericKubernetesApiTest {
 
     stubFor(
         delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
-            .willReturn(aResponse().withStatus(403).withBody(new Gson().toJson(status))));
+            .willReturn(aResponse().withStatus(403).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1");
     assertFalse(deleteJobResp.isSuccess());
@@ -102,7 +102,7 @@ public class GenericKubernetesApiTest {
 
     stubFor(
         get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(jobList))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
     KubernetesApiResponse<V1JobList> jobListResp = jobClient.list("default");
     assertTrue(jobListResp.isSuccess());
     assertEquals(jobList, jobListResp.getObject());
@@ -116,7 +116,7 @@ public class GenericKubernetesApiTest {
 
     stubFor(
         get(urlPathEqualTo("/apis/batch/v1/jobs"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(jobList))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
     KubernetesApiResponse<V1JobList> jobListResp = jobClient.list();
     assertTrue(jobListResp.isSuccess());
     assertEquals(jobList, jobListResp.getObject());
@@ -131,7 +131,7 @@ public class GenericKubernetesApiTest {
 
     stubFor(
         post(urlEqualTo("/apis/batch/v1/namespaces/default/jobs"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.create(foo1);
     assertTrue(jobListResp.isSuccess());
     assertEquals(foo1, jobListResp.getObject());
@@ -146,7 +146,7 @@ public class GenericKubernetesApiTest {
 
     stubFor(
         put(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.update(foo1);
     assertTrue(jobListResp.isSuccess());
     assertEquals(foo1, jobListResp.getObject());
@@ -179,7 +179,7 @@ public class GenericKubernetesApiTest {
     stubFor(
         patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobPatchResp =
         jobClient.patch("default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
 
@@ -195,7 +195,7 @@ public class GenericKubernetesApiTest {
 
     stubFor(
         get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(jobList))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
     Watchable<V1Job> jobListWatch = jobClient.watch("default", new ListOptions());
     verify(
         1,

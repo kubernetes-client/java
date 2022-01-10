@@ -16,9 +16,9 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import com.google.gson.Gson;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -36,6 +36,7 @@ public class GenericKubernetesApiForCoreApiTest {
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(8181);
 
+  private JSON json = new JSON();
   private GenericKubernetesApi<V1Pod, V1PodList> podClient;
 
   @Before
@@ -51,7 +52,7 @@ public class GenericKubernetesApiForCoreApiTest {
     V1Status status = new V1Status().kind("Status").code(200).message("good!");
     stubFor(
         delete(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(status))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Pod> deletePodResp = podClient.delete("default", "foo1", null);
     assertTrue(deletePodResp.isSuccess());
@@ -67,7 +68,7 @@ public class GenericKubernetesApiForCoreApiTest {
 
     stubFor(
         delete(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
 
     KubernetesApiResponse<V1Pod> deletePodResp = podClient.delete("default", "foo1");
     assertTrue(deletePodResp.isSuccess());
@@ -82,7 +83,7 @@ public class GenericKubernetesApiForCoreApiTest {
 
     stubFor(
         delete(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
-            .willReturn(aResponse().withStatus(403).withBody(new Gson().toJson(status))));
+            .willReturn(aResponse().withStatus(403).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Pod> deletePodResp = podClient.delete("default", "foo1");
     assertFalse(deletePodResp.isSuccess());
@@ -97,7 +98,7 @@ public class GenericKubernetesApiForCoreApiTest {
 
     stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/default/pods"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(podList))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
     KubernetesApiResponse<V1PodList> podListResp = podClient.list("default");
     assertTrue(podListResp.isSuccess());
     assertEquals(podList, podListResp.getObject());
@@ -111,7 +112,7 @@ public class GenericKubernetesApiForCoreApiTest {
 
     stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(podList))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
     KubernetesApiResponse<V1PodList> podListResp = podClient.list();
     assertTrue(podListResp.isSuccess());
     assertEquals(podList, podListResp.getObject());
@@ -128,7 +129,7 @@ public class GenericKubernetesApiForCoreApiTest {
 
     stubFor(
         post(urlEqualTo("/api/v1/namespaces/default/pods"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Pod> podListResp = podClient.create(foo1);
     assertTrue(podListResp.isSuccess());
     assertEquals(foo1, podListResp.getObject());
@@ -143,7 +144,7 @@ public class GenericKubernetesApiForCoreApiTest {
 
     stubFor(
         put(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Pod> podListResp = podClient.update(foo1);
     assertTrue(podListResp.isSuccess());
     assertEquals(foo1, podListResp.getObject());
@@ -159,7 +160,7 @@ public class GenericKubernetesApiForCoreApiTest {
     stubFor(
         patch(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Pod> podPatchResp =
         podClient.patch("default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
 
@@ -179,7 +180,7 @@ public class GenericKubernetesApiForCoreApiTest {
     stubFor(
         patch(urlEqualTo(prefix + "/api/v1/namespaces/default/pods/foo1"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
-            .willReturn(aResponse().withStatus(200).withBody(new Gson().toJson(foo1))));
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
 
     GenericKubernetesApi<V1Pod, V1PodList> rancherPodClient =
         new GenericKubernetesApi<>(

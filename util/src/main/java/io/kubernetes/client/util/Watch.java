@@ -52,6 +52,8 @@ public class Watch<T> implements Watchable<T>, Closeable {
 
     public V1Status status;
 
+    public Response() {}
+
     public Response(String type, T object) {
       this.type = type;
       this.object = object;
