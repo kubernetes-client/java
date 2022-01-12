@@ -90,7 +90,10 @@ public class Attach {
   public AttachResult attach(V1Pod pod, boolean stdin) throws ApiException, IOException {
     return attach(pod, stdin, false);
   }
-
+  void bar() {
+throw new NullPointerException();
+}
+  
   /**
    * Attach to a running AttachResult in a container. If there are multiple containers in the pod,
    * uses the first container in the Pod.
