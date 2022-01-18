@@ -57,6 +57,8 @@ public class AttachTest {
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .willReturn(
                 aResponse()
+                    .withFixedDelay(
+                        5000) // A longer delay so the attach stream won't be closed too soon
                     .withStatus(404)
                     .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
