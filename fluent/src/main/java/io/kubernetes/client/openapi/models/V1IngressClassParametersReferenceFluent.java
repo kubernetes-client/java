@@ -1,59 +1,68 @@
+/*
+Copyright 2022 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Deprecated;
-import com.google.gson.annotations.SerializedName;
-import io.kubernetes.client.fluent.Fluent;
-import java.lang.String;
-import java.lang.Boolean;
-
- /**
-  * Generated
-  */
-public interface V1IngressClassParametersReferenceFluent<A extends io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceFluent<A>> extends io.kubernetes.client.fluent.Fluent<A>{
+/** Generated */
+public interface V1IngressClassParametersReferenceFluent<
+        A extends io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceFluent<A>>
+    extends io.kubernetes.client.fluent.Fluent<A> {
   public java.lang.String getApiGroup();
+
   public A withApiGroup(java.lang.String apiGroup);
+
   public java.lang.Boolean hasApiGroup();
-  
-  /**
-   * Method is deprecated. use withApiGroup instead.
-   */
+
+  /** Method is deprecated. use withApiGroup instead. */
   @java.lang.Deprecated
   public A withNewApiGroup(java.lang.String original);
+
   public java.lang.String getKind();
+
   public A withKind(java.lang.String kind);
+
   public java.lang.Boolean hasKind();
-  
-  /**
-   * Method is deprecated. use withKind instead.
-   */
+
+  /** Method is deprecated. use withKind instead. */
   @java.lang.Deprecated
   public A withNewKind(java.lang.String original);
+
   public java.lang.String getName();
+
   public A withName(java.lang.String name);
+
   public java.lang.Boolean hasName();
-  
-  /**
-   * Method is deprecated. use withName instead.
-   */
+
+  /** Method is deprecated. use withName instead. */
   @java.lang.Deprecated
   public A withNewName(java.lang.String original);
+
   public java.lang.String getNamespace();
+
   public A withNamespace(java.lang.String namespace);
+
   public java.lang.Boolean hasNamespace();
-  
-  /**
-   * Method is deprecated. use withNamespace instead.
-   */
+
+  /** Method is deprecated. use withNamespace instead. */
   @java.lang.Deprecated
   public A withNewNamespace(java.lang.String original);
+
   public java.lang.String getScope();
+
   public A withScope(java.lang.String scope);
+
   public java.lang.Boolean hasScope();
-  
-  /**
-   * Method is deprecated. use withScope instead.
-   */
+
+  /** Method is deprecated. use withScope instead. */
   @java.lang.Deprecated
   public A withNewScope(java.lang.String original);
-  
 }

@@ -1,26 +1,52 @@
+/*
+Copyright 2022 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
-import java.lang.Boolean;
-public class V1NodeBuilder extends io.kubernetes.client.openapi.models.V1NodeFluentImpl<io.kubernetes.client.openapi.models.V1NodeBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V1Node,io.kubernetes.client.openapi.models.V1NodeBuilder>{
+public class V1NodeBuilder
+    extends io.kubernetes.client.openapi.models.V1NodeFluentImpl<
+        io.kubernetes.client.openapi.models.V1NodeBuilder>
+    implements io.kubernetes.client.fluent.VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1Node,
+        io.kubernetes.client.openapi.models.V1NodeBuilder> {
   public V1NodeBuilder() {
     this(false);
   }
+
   public V1NodeBuilder(java.lang.Boolean validationEnabled) {
     this(new V1Node(), validationEnabled);
   }
+
   public V1NodeBuilder(io.kubernetes.client.openapi.models.V1NodeFluent<?> fluent) {
     this(fluent, false);
   }
-  public V1NodeBuilder(io.kubernetes.client.openapi.models.V1NodeFluent<?> fluent,java.lang.Boolean validationEnabled) {
+
+  public V1NodeBuilder(
+      io.kubernetes.client.openapi.models.V1NodeFluent<?> fluent,
+      java.lang.Boolean validationEnabled) {
     this(fluent, new V1Node(), validationEnabled);
   }
-  public V1NodeBuilder(io.kubernetes.client.openapi.models.V1NodeFluent<?> fluent,io.kubernetes.client.openapi.models.V1Node instance) {
+
+  public V1NodeBuilder(
+      io.kubernetes.client.openapi.models.V1NodeFluent<?> fluent,
+      io.kubernetes.client.openapi.models.V1Node instance) {
     this(fluent, instance, false);
   }
-  public V1NodeBuilder(io.kubernetes.client.openapi.models.V1NodeFluent<?> fluent,io.kubernetes.client.openapi.models.V1Node instance,java.lang.Boolean validationEnabled) {
-    this.fluent = fluent; 
+
+  public V1NodeBuilder(
+      io.kubernetes.client.openapi.models.V1NodeFluent<?> fluent,
+      io.kubernetes.client.openapi.models.V1Node instance,
+      java.lang.Boolean validationEnabled) {
+    this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
     fluent.withKind(instance.getKind());
@@ -31,13 +57,16 @@ public class V1NodeBuilder extends io.kubernetes.client.openapi.models.V1NodeFlu
 
     fluent.withStatus(instance.getStatus());
 
-    this.validationEnabled = validationEnabled; 
+    this.validationEnabled = validationEnabled;
   }
+
   public V1NodeBuilder(io.kubernetes.client.openapi.models.V1Node instance) {
-    this(instance,false);
+    this(instance, false);
   }
-  public V1NodeBuilder(io.kubernetes.client.openapi.models.V1Node instance,java.lang.Boolean validationEnabled) {
-    this.fluent = this; 
+
+  public V1NodeBuilder(
+      io.kubernetes.client.openapi.models.V1Node instance, java.lang.Boolean validationEnabled) {
+    this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -48,10 +77,12 @@ public class V1NodeBuilder extends io.kubernetes.client.openapi.models.V1NodeFlu
 
     this.withStatus(instance.getStatus());
 
-    this.validationEnabled = validationEnabled; 
+    this.validationEnabled = validationEnabled;
   }
+
   io.kubernetes.client.openapi.models.V1NodeFluent<?> fluent;
   java.lang.Boolean validationEnabled;
+
   public io.kubernetes.client.openapi.models.V1Node build() {
     V1Node buildable = new V1Node();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -61,18 +92,23 @@ public class V1NodeBuilder extends io.kubernetes.client.openapi.models.V1NodeFlu
     buildable.setStatus(fluent.getStatus());
     return buildable;
   }
+
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     V1NodeBuilder that = (V1NodeBuilder) o;
-    if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
+    if (fluent != null && fluent != this
+        ? !fluent.equals(that.fluent)
+        : that.fluent != null && fluent != this) return false;
 
-    if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
+    if (validationEnabled != null
+        ? !validationEnabled.equals(that.validationEnabled)
+        : that.validationEnabled != null) return false;
     return true;
   }
+
   public int hashCode() {
-    return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
+    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
-  
 }
