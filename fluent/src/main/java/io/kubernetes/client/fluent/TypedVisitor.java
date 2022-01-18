@@ -1,24 +1,53 @@
+/*
+Copyright 2022 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.fluent;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
-import java.lang.Class;
-import java.util.List;
-import java.lang.reflect.GenericArrayType;
-import java.util.Map;
 import java.util.LinkedHashMap;
-public abstract class TypedVisitor<V> implements io.kubernetes.client.fluent.Visitor<V>{
+import java.util.List;
+import java.util.Map;
+
+public abstract class TypedVisitor<V> implements io.kubernetes.client.fluent.Visitor<V> {
   public java.lang.Class<V> getType() {
     return (Class<V>) getTypeArguments(TypedVisitor.class, getClass()).get(0);
   }
+
   java.lang.Class<?> getClass(java.lang.reflect.Type type) {
-    if (type instanceof Class) {return (Class) type;} else if (type instanceof ParameterizedType) {return getClass(((ParameterizedType) type).getRawType());} else if (type instanceof GenericArrayType) {Type componentType = ((GenericArrayType) type).getGenericComponentType(); Class<?> componentClass = getClass(componentType); if (componentClass != null) {return Array.newInstance(componentClass, 0).getClass();} else {return null;}} else {return null;}
+    if (type instanceof Class) {
+      return (Class) type;
+    } else if (type instanceof ParameterizedType) {
+      return getClass(((ParameterizedType) type).getRawType());
+    } else if (type instanceof GenericArrayType) {
+      Type componentType = ((GenericArrayType) type).getGenericComponentType();
+      Class<?> componentClass = getClass(componentType);
+      if (componentClass != null) {
+        return Array.newInstance(componentClass, 0).getClass();
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
   }
-  <T>java.util.List<java.lang.Class<?>> getTypeArguments(java.lang.Class<T> baseClass,java.lang.Class<? extends T> childClass) {
-        Map<Type, Type> resolvedTypes = new LinkedHashMap<>();
+
+  <T> java.util.List<java.lang.Class<?>> getTypeArguments(
+      java.lang.Class<T> baseClass, java.lang.Class<? extends T> childClass) {
+    Map<Type, Type> resolvedTypes = new LinkedHashMap<>();
     Type type = childClass;
     // start walking up the inheritance hierarchy until we hit baseClass
     while (!getClass(type).equals(baseClass)) {
@@ -55,7 +84,5 @@ public abstract class TypedVisitor<V> implements io.kubernetes.client.fluent.Vis
       typeArgumentsAsClasses.add(getClass(baseType));
     }
     return typeArgumentsAsClasses;
-
   }
-  
 }

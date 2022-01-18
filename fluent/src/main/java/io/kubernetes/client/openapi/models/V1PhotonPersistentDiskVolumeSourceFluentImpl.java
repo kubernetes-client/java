@@ -1,69 +1,83 @@
+/*
+Copyright 2022 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Deprecated;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.lang.Object;
-import java.lang.String;
-import java.lang.Boolean;
+/** Generated */
+public class V1PhotonPersistentDiskVolumeSourceFluentImpl<
+        A extends io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<A>>
+    extends io.kubernetes.client.fluent.BaseFluent<A>
+    implements io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<A> {
+  public V1PhotonPersistentDiskVolumeSourceFluentImpl() {}
 
- /**
-  * Generated
-  */
-public class V1PhotonPersistentDiskVolumeSourceFluentImpl<A extends io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<A>> extends io.kubernetes.client.fluent.BaseFluent<A> implements io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<A>{
-  public V1PhotonPersistentDiskVolumeSourceFluentImpl() {
-  }
-  public V1PhotonPersistentDiskVolumeSourceFluentImpl(io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource instance) {
+  public V1PhotonPersistentDiskVolumeSourceFluentImpl(
+      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withPdID(instance.getPdID());
-
   }
+
   private java.lang.String fsType;
   private java.lang.String pdID;
+
   public java.lang.String getFsType() {
     return this.fsType;
   }
+
   public A withFsType(java.lang.String fsType) {
-    this.fsType=fsType; return (A) this;
+    this.fsType = fsType;
+    return (A) this;
   }
+
   public java.lang.Boolean hasFsType() {
     return this.fsType != null;
   }
-  
-  /**
-   * Method is deprecated. use withFsType instead.
-   */
+
+  /** Method is deprecated. use withFsType instead. */
   @java.lang.Deprecated
   public A withNewFsType(java.lang.String original) {
-    return (A)withFsType(new String(original));
+    return (A) withFsType(new String(original));
   }
+
   public java.lang.String getPdID() {
     return this.pdID;
   }
+
   public A withPdID(java.lang.String pdID) {
-    this.pdID=pdID; return (A) this;
+    this.pdID = pdID;
+    return (A) this;
   }
+
   public java.lang.Boolean hasPdID() {
     return this.pdID != null;
   }
-  
-  /**
-   * Method is deprecated. use withPdID instead.
-   */
+
+  /** Method is deprecated. use withPdID instead. */
   @java.lang.Deprecated
   public A withNewPdID(java.lang.String original) {
-    return (A)withPdID(new String(original));
+    return (A) withPdID(new String(original));
   }
+
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    V1PhotonPersistentDiskVolumeSourceFluentImpl that = (V1PhotonPersistentDiskVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (pdID != null ? !pdID.equals(that.pdID) :that.pdID != null) return false;
+    V1PhotonPersistentDiskVolumeSourceFluentImpl that =
+        (V1PhotonPersistentDiskVolumeSourceFluentImpl) o;
+    if (fsType != null ? !fsType.equals(that.fsType) : that.fsType != null) return false;
+    if (pdID != null ? !pdID.equals(that.pdID) : that.pdID != null) return false;
     return true;
   }
+
   public int hashCode() {
-    return java.util.Objects.hash(fsType,  pdID,  super.hashCode());
+    return java.util.Objects.hash(fsType, pdID, super.hashCode());
   }
-  
 }

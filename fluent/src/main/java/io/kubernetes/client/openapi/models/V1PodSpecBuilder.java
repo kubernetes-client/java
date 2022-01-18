@@ -1,26 +1,52 @@
+/*
+Copyright 2022 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
-import java.lang.Boolean;
-public class V1PodSpecBuilder extends io.kubernetes.client.openapi.models.V1PodSpecFluentImpl<io.kubernetes.client.openapi.models.V1PodSpecBuilder> implements io.kubernetes.client.fluent.VisitableBuilder<io.kubernetes.client.openapi.models.V1PodSpec,io.kubernetes.client.openapi.models.V1PodSpecBuilder>{
+public class V1PodSpecBuilder
+    extends io.kubernetes.client.openapi.models.V1PodSpecFluentImpl<
+        io.kubernetes.client.openapi.models.V1PodSpecBuilder>
+    implements io.kubernetes.client.fluent.VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1PodSpec,
+        io.kubernetes.client.openapi.models.V1PodSpecBuilder> {
   public V1PodSpecBuilder() {
     this(false);
   }
+
   public V1PodSpecBuilder(java.lang.Boolean validationEnabled) {
     this(new V1PodSpec(), validationEnabled);
   }
+
   public V1PodSpecBuilder(io.kubernetes.client.openapi.models.V1PodSpecFluent<?> fluent) {
     this(fluent, false);
   }
-  public V1PodSpecBuilder(io.kubernetes.client.openapi.models.V1PodSpecFluent<?> fluent,java.lang.Boolean validationEnabled) {
+
+  public V1PodSpecBuilder(
+      io.kubernetes.client.openapi.models.V1PodSpecFluent<?> fluent,
+      java.lang.Boolean validationEnabled) {
     this(fluent, new V1PodSpec(), validationEnabled);
   }
-  public V1PodSpecBuilder(io.kubernetes.client.openapi.models.V1PodSpecFluent<?> fluent,io.kubernetes.client.openapi.models.V1PodSpec instance) {
+
+  public V1PodSpecBuilder(
+      io.kubernetes.client.openapi.models.V1PodSpecFluent<?> fluent,
+      io.kubernetes.client.openapi.models.V1PodSpec instance) {
     this(fluent, instance, false);
   }
-  public V1PodSpecBuilder(io.kubernetes.client.openapi.models.V1PodSpecFluent<?> fluent,io.kubernetes.client.openapi.models.V1PodSpec instance,java.lang.Boolean validationEnabled) {
-    this.fluent = fluent; 
+
+  public V1PodSpecBuilder(
+      io.kubernetes.client.openapi.models.V1PodSpecFluent<?> fluent,
+      io.kubernetes.client.openapi.models.V1PodSpec instance,
+      java.lang.Boolean validationEnabled) {
+    this.fluent = fluent;
     fluent.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
 
     fluent.withAffinity(instance.getAffinity());
@@ -93,13 +119,16 @@ public class V1PodSpecBuilder extends io.kubernetes.client.openapi.models.V1PodS
 
     fluent.withVolumes(instance.getVolumes());
 
-    this.validationEnabled = validationEnabled; 
+    this.validationEnabled = validationEnabled;
   }
+
   public V1PodSpecBuilder(io.kubernetes.client.openapi.models.V1PodSpec instance) {
-    this(instance,false);
+    this(instance, false);
   }
-  public V1PodSpecBuilder(io.kubernetes.client.openapi.models.V1PodSpec instance,java.lang.Boolean validationEnabled) {
-    this.fluent = this; 
+
+  public V1PodSpecBuilder(
+      io.kubernetes.client.openapi.models.V1PodSpec instance, java.lang.Boolean validationEnabled) {
+    this.fluent = this;
     this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
 
     this.withAffinity(instance.getAffinity());
@@ -172,10 +201,12 @@ public class V1PodSpecBuilder extends io.kubernetes.client.openapi.models.V1PodS
 
     this.withVolumes(instance.getVolumes());
 
-    this.validationEnabled = validationEnabled; 
+    this.validationEnabled = validationEnabled;
   }
+
   io.kubernetes.client.openapi.models.V1PodSpecFluent<?> fluent;
   java.lang.Boolean validationEnabled;
+
   public io.kubernetes.client.openapi.models.V1PodSpec build() {
     V1PodSpec buildable = new V1PodSpec();
     buildable.setActiveDeadlineSeconds(fluent.getActiveDeadlineSeconds());
@@ -216,18 +247,23 @@ public class V1PodSpecBuilder extends io.kubernetes.client.openapi.models.V1PodS
     buildable.setVolumes(fluent.getVolumes());
     return buildable;
   }
+
   public boolean equals(java.lang.Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     V1PodSpecBuilder that = (V1PodSpecBuilder) o;
-    if (fluent != null &&fluent != this ? !fluent.equals(that.fluent) :that.fluent != null &&fluent != this ) return false;
+    if (fluent != null && fluent != this
+        ? !fluent.equals(that.fluent)
+        : that.fluent != null && fluent != this) return false;
 
-    if (validationEnabled != null ? !validationEnabled.equals(that.validationEnabled) :that.validationEnabled != null) return false;
+    if (validationEnabled != null
+        ? !validationEnabled.equals(that.validationEnabled)
+        : that.validationEnabled != null) return false;
     return true;
   }
+
   public int hashCode() {
-    return java.util.Objects.hash(fluent,  validationEnabled,  super.hashCode());
+    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
-  
 }
