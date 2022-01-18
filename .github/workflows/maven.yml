@@ -23,7 +23,7 @@ jobs:
       - name: Verify Format and License
         run: mvn spotless:check
   build:
-    name: Java ${{ matrix.java }} Maven Test
+    name: Java ${{ matrix.java }} Maven Test on ${{ matrix.os }}
     strategy:
       matrix:
         # Test against the LTS Java versions. TODO: add JDK18 when it becomes available.
