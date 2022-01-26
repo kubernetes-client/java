@@ -40,11 +40,11 @@ This tutorial provides a walkthrough of the basics of the Kubernetes cluster orc
 
 # Using the interactive tutorials, you can learn to:
 
-# Deploy a containerized application on a cluster.
-# Scale the deployment.
-# Update the containerized application with a new software version.
-# Debug the containerized application.
-# The tutorials use Katacoda to run a virtual terminal in your web browser that runs Minikube, a small-scale local deployment of Kubernetes that can run anywhere. There's no need to install any software or configure anything; each interactive tutorial runs directly out of your web browser itself.
+* Deploy a containerized application on a cluster.
+* Scale the deployment.
+* Update the containerized application with a new software version.
+* Debug the containerized application.
+ The tutorials use Katacoda to run a virtual terminal in your web browser that runs Minikube, a small-scale local deployment of Kubernetes that can run anywhere. There's no need to install any software or configure anything; each interactive tutorial runs directly out of your web browser itself.
 
 
 # What can Kubernetes do for you?
