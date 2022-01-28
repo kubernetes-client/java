@@ -41,12 +41,16 @@ public class InformerExample {
         apiClient.getHttpClient().newBuilder().readTimeout(0, TimeUnit.SECONDS).build();
     apiClient.setHttpClient(httpClient);
 
-    SharedInformerFactory factory = new SharedInformerFactory();
+    SharedInformerFactory factory = new SharedInformerFactory(apiClient);
 
     // Node informer
     SharedIndexInformer<V1Node> nodeInformer =
         factory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
+              // **NOTE**:
+              // The following "CallGeneratorParams" lambda merely generates a stateless
+              // HTTPs requests, the effective apiClient is the one specified when constructing
+              // the informer-factory.
               return coreV1Api.listNodeCall(
                   null,
                   null,
