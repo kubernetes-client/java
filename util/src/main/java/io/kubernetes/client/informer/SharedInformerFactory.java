@@ -49,6 +49,8 @@ public class SharedInformerFactory {
   private ApiClient apiClient;
 
   /** Constructor w/ default thread pool. */
+  /** DEPRECATE: In favor of explicit apiClient constructor to avoid misguiding */
+  @Deprecated
   public SharedInformerFactory() {
     this(Configuration.getDefaultApiClient().setReadTimeout(0), Executors.newCachedThreadPool());
   }
