@@ -25,13 +25,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.stubbing.Answer;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultControllerTest {
@@ -67,16 +70,26 @@ public class DefaultControllerTest {
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
 
     Request request1 = new Request("test1");
-    when(mockReconciler.reconcile(request1)).thenReturn(new Result(false));
+    final Semaphore latch = new Semaphore(1);
+    latch.acquire();
+    when(mockReconciler.reconcile(request1))
+        .thenAnswer(
+            new Answer() {
+              public Object answer(InvocationOnMock invocation) {
+                latch.release();
+                return new Result(false);
+              }
+            });
 
     // emit an event when the controller hasn't started
     workQueue.add(request1);
+    // I don't love sleeping here, but we're waiting for something we don't expect
+    // to happen, so there's no good way to do it other than sleep (that I can think of)
     cooldown();
     verify(mockReconciler, times(0)).reconcile(request1);
 
     controllerThead.submit(testController::run);
-
-    cooldown();
+    latch.acquire();
     verify(mockReconciler, times(1)).reconcile(request1);
 
     testController.shutdown();
@@ -84,6 +97,7 @@ public class DefaultControllerTest {
 
     // emit an event after the controller has shutdown
     workQueue.add(request2);
+    // as above wrt sleep
     cooldown();
     verify(mockReconciler, times(0)).reconcile(request2);
   }
@@ -92,8 +106,18 @@ public class DefaultControllerTest {
   public void testControllerWontStartBeforeReady() throws InterruptedException {
 
     Request request1 = new Request("test1");
-    when(mockReconciler.reconcile(request1)).thenReturn(new Result(false));
+    final Semaphore latch = new Semaphore(1);
 
+    when(mockReconciler.reconcile(request1))
+        .thenAnswer(
+            new Answer() {
+              public Object answer(InvocationOnMock invocation) {
+                latch.release();
+                return new Result(false);
+              }
+            });
+
+    latch.acquire();
     AtomicBoolean ready = new AtomicBoolean(false);
     DefaultController testController =
         new DefaultController("", mockReconciler, workQueue, () -> ready.get());
@@ -105,12 +129,13 @@ public class DefaultControllerTest {
 
     // emit an event when the controller hasn't been ready
     workQueue.add(request1);
+    // As above wrt sleep
     cooldown();
 
     verify(mockReconciler, times(0)).reconcile(request1);
 
     ready.set(true);
-    cooldown();
+    latch.acquire();
     verify(mockReconciler, times(1)).reconcile(request1);
   }
 
@@ -120,18 +145,23 @@ public class DefaultControllerTest {
     AtomicBoolean aborts = new AtomicBoolean(true);
     AtomicBoolean resumed = new AtomicBoolean(false);
     List<Request> finishedRequests = new ArrayList<>();
+    final Semaphore latch = new Semaphore(1);
     DefaultController testController =
         new DefaultController(
             "",
             new Reconciler() {
               @Override
               public Result reconcile(Request request) {
-                if (aborts.get()) {
-                  throw new RuntimeException("Oops!!");
+                try {
+                  if (aborts.get()) {
+                    throw new RuntimeException("Oops!!");
+                  }
+                  resumed.set(true);
+                  finishedRequests.add(request);
+                  return new Result(false);
+                } finally {
+                  latch.release();
                 }
-                resumed.set(true);
-                finishedRequests.add(request);
-                return new Result(false);
               }
             },
             workQueue);
@@ -142,13 +172,13 @@ public class DefaultControllerTest {
 
     Request request1 = new Request("test1");
     workQueue.add(request1);
-    cooldown();
+    latch.acquire();
 
     aborts.set(false);
     // emit another event, the previous one has been backoff'd
     Request request2 = new Request("test2");
     workQueue.add(request2);
-    cooldown();
+    latch.acquire();
     testController.shutdown();
 
     assertTrue(resumed.get());
