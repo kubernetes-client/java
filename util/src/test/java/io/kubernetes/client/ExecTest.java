@@ -20,7 +20,11 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
 
+import com.github.tomakehurst.wiremock.core.Admin;
+import com.github.tomakehurst.wiremock.extension.Parameters;
+import com.github.tomakehurst.wiremock.extension.PostServeAction;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
 import io.kubernetes.client.Exec.ExecProcess;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -35,12 +39,26 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
 /** Tests for the Exec helper class */
 public class ExecTest {
+
+  public static class CountRequestAction extends PostServeAction {
+    @Override
+    public String getName() {
+      return "semaphore";
+    }
+
+    @Override
+    public void doAction(ServeEvent serveEvent, Admin admin, Parameters parameters) {
+      Semaphore count = (Semaphore) parameters.get("semaphore");
+      count.release();
+    }
+  }
 
   private static final String OUTPUT_EXIT0 = "{\"metadata\":{},\"status\":\"Success\"}";
   private static final String OUTPUT_EXIT1 =
@@ -135,8 +153,13 @@ public class ExecTest {
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
+    Semaphore getCount = new Semaphore(2);
+    Parameters getParams = new Parameters();
+    getParams.put("semaphore", getCount);
+
     wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withPostServeAction("semaphore", getParams)
             .willReturn(
                 aResponse()
                     .withStatus(404)
@@ -152,6 +175,11 @@ public class ExecTest {
         .setStderr(false)
         .execute()
         .waitFor();
+
+    // These will be released for each web call above.
+    // There is a race between the above waitFor() and the request actually being recorded
+    // by WireMock. This fixes it.
+    getCount.acquire(2);
 
     wireMockRule.verify(
         getRequestedFor(
