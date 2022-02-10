@@ -15,7 +15,6 @@ package io.kubernetes.client.extended.controller;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -27,6 +26,7 @@ import io.kubernetes.client.extended.leaderelection.Lock;
 import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,21 +40,14 @@ public class LeaderElectingControllerTest {
 
   @Mock private Lock mockLock;
 
-  private final int stepCooldownIntervalInMillis = 2000;
-
-  private void cooldown() {
-    try {
-      Thread.sleep(stepCooldownIntervalInMillis);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
-
-  @Test
-  public void testLeaderElectingController() throws ApiException {
+  @Test(timeout = 90000)
+  public void testLeaderElectingController() throws ApiException, InterruptedException {
 
     AtomicReference<LeaderElectionRecord> record = new AtomicReference<>();
     record.set(new LeaderElectionRecord());
+
+    Semaphore latch = new Semaphore(2);
+    Semaphore controllerLatch = new Semaphore(2);
 
     when(mockLock.identity()).thenReturn("foo");
     when(mockLock.get())
@@ -65,12 +58,35 @@ public class LeaderElectingControllerTest {
     doAnswer(
             invocationOnMock -> {
               record.set(invocationOnMock.getArgument(0));
+              latch.release();
               return true;
             })
         .when(mockLock)
         .create(any());
 
-    doReturn(false).when(mockLock).update(any());
+    doAnswer(
+            invocationOnMock -> {
+              latch.release();
+              return false;
+            })
+        .when(mockLock)
+        .update(any());
+
+    doAnswer(
+            invocationOnMock -> {
+              controllerLatch.release();
+              return null;
+            })
+        .when(mockController)
+        .run();
+
+    doAnswer(
+            invocationOnMock -> {
+              controllerLatch.release();
+              return null;
+            })
+        .when(mockController)
+        .shutdown();
 
     LeaderElectingController leaderElectingController =
         new LeaderElectingController(
@@ -82,14 +98,18 @@ public class LeaderElectingControllerTest {
                     Duration.ofMillis(100))),
             mockController);
 
+    latch.acquire(2);
+    controllerLatch.acquire(2);
+
     Thread controllerThread = new Thread(leaderElectingController::run);
     controllerThread.start();
-    cooldown();
+    latch.acquire(2);
     controllerThread.interrupt();
 
     verify(mockLock, times(1)).create(any());
     verify(mockLock, atLeastOnce()).update(any());
 
+    controllerLatch.acquire(2);
     verify(mockController, times(1)).run();
     verify(mockController, times(1)).shutdown();
   }
