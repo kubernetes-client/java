@@ -61,7 +61,7 @@ public class DefaultControllerTest {
 
   @Mock private Reconciler mockReconciler;
 
-  @Test
+  @Test(timeout = 90000)
   public void testStartingStoppingController() throws InterruptedException {
 
     DefaultController testController = new DefaultController("", mockReconciler, workQueue);
@@ -102,7 +102,7 @@ public class DefaultControllerTest {
     verify(mockReconciler, times(0)).reconcile(request2);
   }
 
-  @Test
+  @Test(timeout = 90000)
   public void testControllerWontStartBeforeReady() throws InterruptedException {
 
     Request request1 = new Request("test1");
@@ -139,7 +139,7 @@ public class DefaultControllerTest {
     verify(mockReconciler, times(1)).reconcile(request1);
   }
 
-  @Test
+  @Test(timeout = 90000)
   public void testControllerKeepsWorkingWhenReconcilerAbortsWithRuntimeException()
       throws InterruptedException {
     AtomicBoolean aborts = new AtomicBoolean(true);
