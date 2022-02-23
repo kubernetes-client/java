@@ -17,6 +17,7 @@ import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.SharedIndexInformer;
+import io.kubernetes.client.informer.TransformFunc;
 import io.kubernetes.client.informer.cache.Cache;
 import io.kubernetes.client.informer.cache.Controller;
 import io.kubernetes.client.informer.cache.DeltaFIFO;
@@ -57,6 +58,8 @@ public class DefaultSharedIndexInformer<
   private Controller<ApiType, ApiListType> controller;
 
   private Thread controllerThread;
+
+  private TransformFunc transform;
 
   private volatile boolean started = false;
   private volatile boolean stopped = false;
@@ -212,6 +215,14 @@ public class DefaultSharedIndexInformer<
   }
 
   @Override
+  public void setTransform(TransformFunc transformFunc) {
+    if (started) {
+      throw new IllegalStateException("cannot set transform func to a running informer");
+    }
+    this.transform = transformFunc;
+  }
+
+  @Override
   public void run() {
     if (started) {
       return;
@@ -258,26 +269,28 @@ public class DefaultSharedIndexInformer<
     // from oldest to newest
     for (MutablePair<DeltaFIFO.DeltaType, KubernetesObject> delta : deltas) {
       DeltaFIFO.DeltaType deltaType = delta.getLeft();
+      KubernetesObject obj = delta.getRight();
+      if (transform != null) {
+        obj = transform.transform(obj);
+      }
       switch (deltaType) {
         case Sync:
         case Added:
         case Updated:
           boolean isSync = deltaType == DeltaFIFO.DeltaType.Sync;
-          Object oldObj = this.indexer.get((ApiType) delta.getRight());
+          Object oldObj = this.indexer.get((ApiType) obj);
           if (oldObj != null) {
-            this.indexer.update((ApiType) delta.getRight());
+            this.indexer.update((ApiType) obj);
             this.processor.distribute(
-                new ProcessorListener.UpdateNotification(oldObj, delta.getRight()), isSync);
+                new ProcessorListener.UpdateNotification(oldObj, obj), isSync);
           } else {
-            this.indexer.add((ApiType) delta.getRight());
-            this.processor.distribute(
-                new ProcessorListener.AddNotification(delta.getRight()), isSync);
+            this.indexer.add((ApiType) obj);
+            this.processor.distribute(new ProcessorListener.AddNotification(obj), isSync);
           }
           break;
         case Deleted:
-          this.indexer.delete((ApiType) delta.getRight());
-          this.processor.distribute(
-              new ProcessorListener.DeleteNotification(delta.getRight()), false);
+          this.indexer.delete((ApiType) obj);
+          this.processor.distribute(new ProcessorListener.DeleteNotification(obj), false);
           break;
       }
     }
