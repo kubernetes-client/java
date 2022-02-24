@@ -54,4 +54,19 @@ public interface SharedInformer<ApiType extends KubernetesObject> {
   // store. The value returned is not synchronized with access to the underlying store and is not
   // thread-safe.
   String lastSyncResourceVersion();
+
+  /**
+   * The TransformFunc is called for each object which is about to be stored. This function is
+   * intended for you to take the opportunity to remove, transform, or normalize fields. One use
+   * case is to strip unused metadata fields out of objects to save on RAM cost.
+   *
+   * <p>Must be set before starting the informer.
+   *
+   * <p>Note: Since the object given to the handler may be already shared with other goroutines, it
+   * is advisable to copy the object being transform before mutating it at all and returning the
+   * copy to prevent data races.
+   *
+   * @param transformFunc the transform function
+   */
+  void setTransform(TransformFunc transformFunc);
 }
