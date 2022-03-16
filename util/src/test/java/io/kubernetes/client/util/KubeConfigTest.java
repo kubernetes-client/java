@@ -61,7 +61,7 @@ public class KubeConfigTest {
   @Test
   public void testToken() {
     KubeConfig config = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_TOKEN));
-    assertEquals(config.getAccessToken(), "foobaz");
+    assertEquals(config.getCredentials().get(KubeConfig.CRED_TOKEN_KEY), "foobaz");
   }
 
   @Test
@@ -73,7 +73,7 @@ public class KubeConfigTest {
     String replace = KUBECONFIG_TOKEN.replace("foobaz", tokenFile.getCanonicalPath());
     replace = replace.replace("token:", "tokenFile:");
     KubeConfig config = KubeConfig.loadKubeConfig(new StringReader(replace));
-    assertEquals(config.getAccessToken(), token);
+    assertEquals(config.getCredentials().get(KubeConfig.CRED_TOKEN_KEY), token);
   }
 
   public static String GCP_CONFIG =
@@ -108,7 +108,7 @@ public class KubeConfigTest {
       writer.close();
 
       KubeConfig kc = KubeConfig.loadKubeConfig(new FileReader(config));
-      assertEquals("fake-token", kc.getAccessToken());
+      assertEquals("fake-token", kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
     } catch (Exception ex) {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);
@@ -147,7 +147,7 @@ public class KubeConfigTest {
       writer.close();
 
       KubeConfig kc = KubeConfig.loadKubeConfig(new FileReader(config));
-      assertEquals("fake-token", kc.getAccessToken());
+      assertEquals("fake-token", kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
     } catch (Exception ex) {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);
@@ -198,7 +198,7 @@ public class KubeConfigTest {
     KubeConfig.registerAuthenticator(new GCPAuthenticator(mockPB, null));
     try {
       KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(gcpConfigExpiredToken));
-      assertEquals("new-fake-token", kc.getAccessToken());
+      assertEquals("new-fake-token", kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
     } catch (Exception ex) {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);
@@ -233,7 +233,7 @@ public class KubeConfigTest {
     KubeConfig.registerAuthenticator(new GCPAuthenticator(null, mockGC));
     try {
       KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(gcpConfigExpiredToken));
-      assertEquals(fakeToken, kc.getAccessToken());
+      assertEquals(fakeToken, kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
     } catch (Exception ex) {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);
@@ -262,7 +262,7 @@ public class KubeConfigTest {
             + "      name: azure\n";
     try {
       KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(azureConfig));
-      assertEquals("fake-azure-token", kc.getAccessToken());
+      assertEquals("fake-azure-token", kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
     } catch (Exception ex) {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);
@@ -331,8 +331,8 @@ public class KubeConfigTest {
     fake.token = "someNewToken";
     fake.refresh = "refreshToken";
 
-    String token = config.getAccessToken();
-    assertEquals(token, fake.token);
+    Map<String, String> credentials = config.getCredentials();
+    assertEquals(credentials.get(KubeConfig.CRED_TOKEN_KEY), fake.token);
   }
 
   private static final String KUBECONFIG_EXEC =
@@ -360,7 +360,7 @@ public class KubeConfigTest {
     }
     KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC));
     kc.setFile(folder.newFile()); // just making sure it is ignored
-    assertEquals("abc123", kc.getAccessToken());
+    assertEquals("abc123", kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
   }
 
   @Test
@@ -371,7 +371,7 @@ public class KubeConfigTest {
     }
     KubeConfig kc =
         KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC.replace("v1beta1", "v1alpha1")));
-    assertEquals("abc123", kc.getAccessToken());
+    assertEquals("abc123", kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
   }
 
   private static final String KUBECONFIG_EXEC_ENV =
@@ -403,7 +403,7 @@ public class KubeConfigTest {
     }
 
     KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC_ENV));
-    assertEquals("abc123", kc.getAccessToken());
+    assertEquals("abc123", kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
   }
 
   private static final String KUBECONFIG_EXEC_BASEDIR =
@@ -448,7 +448,36 @@ public class KubeConfigTest {
     try (FileReader reader = new FileReader(config)) {
       KubeConfig kc = KubeConfig.loadKubeConfig(reader);
       kc.setFile(config);
-      assertEquals("abc123", kc.getAccessToken());
+      assertEquals("abc123", kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
     }
+  }
+
+  private static final String KUBECONFIG_EXEC_CERTIFICATE =
+      "apiVersion: v1\n"
+          + "current-context: c\n"
+          + "contexts:\n"
+          + "- name: c\n"
+          + "  context:\n"
+          + "    user: u\n"
+          + "users:\n"
+          + "- name: u\n"
+          + "  user:\n"
+          + "    exec:\n"
+          + "      apiVersion: client.authentication.k8s.io/v1beta1\n"
+          + "      command: echo\n"
+          + "      args:\n"
+          + "        - >-\n"
+          + "          {\"kind\":\"ExecCredential\",\"apiVersion\":\"client.authentication.k8s.io/v1beta1\", \"status\":{\"clientCertificateData\":\"cert\",\"clientKeyData\":\"key\"}}";
+
+  @Test
+  public void testExecCredentialsCertificate() throws Exception {
+    // TODO: test exec on Windows
+    if (System.getProperty("os.name").contains("Windows")) {
+      return;
+    }
+    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_EXEC_CERTIFICATE));
+    assertEquals("cert", kc.getCredentials().get(KubeConfig.CRED_CLIENT_CERTIFICATE_DATA_KEY));
+    assertEquals("key", kc.getCredentials().get(KubeConfig.CRED_CLIENT_KEY_DATA_KEY));
+    assertNull(kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
   }
 }

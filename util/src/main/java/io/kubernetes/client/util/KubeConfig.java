@@ -48,6 +48,9 @@ public class KubeConfig {
   public static final String ENV_HOME = "HOME";
   public static final String KUBEDIR = ".kube";
   public static final String KUBECONFIG = "config";
+  public static final String CRED_TOKEN_KEY = "token";
+  public static final String CRED_CLIENT_CERTIFICATE_DATA_KEY = "clientCertificateData";
+  public static final String CRED_CLIENT_KEY_DATA_KEY = "clientKeyData";
   private static Map<String, Authenticator> authenticators = new HashMap<>();
 
   // Note to the reader: I considered creating a Config object
@@ -198,10 +201,12 @@ public class KubeConfig {
   }
 
   @SuppressWarnings("unchecked")
-  public String getAccessToken() {
+  public Map<String, String> getCredentials() {
     if (currentUser == null) {
       return null;
     }
+
+    Map<String, String> credentials = new HashMap<>();
 
     Object authProvider = currentUser.get("auth-provider");
     if (authProvider != null) {
@@ -221,25 +226,28 @@ public class KubeConfig {
               }
             }
           }
-          return auth.getToken(authConfig);
+          credentials.put(CRED_TOKEN_KEY, auth.getToken(authConfig));
+          return credentials;
         } else {
           log.error("Unknown auth provider: " + name);
         }
       }
     }
-    String tokenViaExecCredential =
-        tokenViaExecCredential((Map<String, Object>) currentUser.get("exec"));
-    if (tokenViaExecCredential != null) {
-      return tokenViaExecCredential;
+    Map<String, String> credentialsViaExecCredential =
+        credentialsViaExecCredential((Map<String, Object>) currentUser.get("exec"));
+    if (credentialsViaExecCredential != null) {
+      return credentialsViaExecCredential;
     }
     if (currentUser.containsKey("token")) {
-      return (String) currentUser.get("token");
+      credentials.put(CRED_TOKEN_KEY, (String) currentUser.get("token"));
+      return credentials;
     }
     if (currentUser.containsKey("tokenFile")) {
       String tokenFile = (String) currentUser.get("tokenFile");
       try {
         byte[] data = Files.readAllBytes(FileSystems.getDefault().getPath(tokenFile));
-        return new String(data, StandardCharsets.UTF_8);
+        credentials.put(CRED_TOKEN_KEY, new String(data, StandardCharsets.UTF_8));
+        return credentials;
       } catch (IOException ex) {
         log.error("Failed to read token file", ex);
       }
@@ -248,17 +256,20 @@ public class KubeConfig {
   }
 
   /**
-   * Attempt to create an access token by running a configured external program.
+   * Attempt to create an access token or client certificate by running a configured external program.
    *
    * @see <a
    *     href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins">
    *     Authenticating » client-go credential plugins</a>
    */
   @SuppressWarnings("unchecked")
-  private String tokenViaExecCredential(Map<String, Object> execMap) {
+  private Map<String, String> credentialsViaExecCredential(Map<String, Object> execMap) {
     if (execMap == null) {
       return null;
     }
+
+    Map<String, String> credentials = new HashMap<>();
+
     String apiVersion = (String) execMap.get("apiVersion");
     if (!"client.authentication.k8s.io/v1beta1".equals(apiVersion)
         && !"client.authentication.k8s.io/v1alpha1".equals(apiVersion)) {
@@ -281,13 +292,19 @@ public class KubeConfig {
     JsonObject status = root.getAsJsonObject().get("status").getAsJsonObject();
     JsonElement token = status.get("token");
     if (token == null) {
-      // TODO handle clientCertificateData/clientKeyData
-      // (KubeconfigAuthentication is not yet set up for that to be dynamic)
-      log.warn("No token produced by {}", command);
-      return null;
+      if (status.get("clientCertificateData") != null && status.get("clientKeyData") != null) {
+        log.debug("Obtained a client certificate from {}", command);
+        credentials.put(CRED_CLIENT_CERTIFICATE_DATA_KEY, status.get("clientCertificateData").getAsString());
+        credentials.put(CRED_CLIENT_KEY_DATA_KEY, status.get("clientKeyData").getAsString());
+        return credentials;
+      } else {
+        log.warn("No token or certificates produced by {}", command);
+        return null;
+      }
     }
     log.debug("Obtained a token from {}", command);
-    return token.getAsString();
+    credentials.put(CRED_TOKEN_KEY, token.getAsString());
+    return credentials;
     // TODO cache tokens between calls, up to .status.expirationTimestamp
     // TODO a 401 is supposed to force a refresh,
     // but KubeconfigAuthentication hardcodes AccessTokenAuthentication which does not support
