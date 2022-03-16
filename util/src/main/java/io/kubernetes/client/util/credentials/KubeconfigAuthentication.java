@@ -59,14 +59,20 @@ public class KubeconfigAuthentication implements Authentication {
     Map<String, String> credentials = config.getCredentials();
     if (credentials != null) {
       if (StringUtils.isNotEmpty(credentials.get(KubeConfig.CRED_TOKEN_KEY))) {
-        delegateAuthentication = new AccessTokenAuthentication(credentials.get(KubeConfig.CRED_TOKEN_KEY));
+        delegateAuthentication =
+            new AccessTokenAuthentication(credentials.get(KubeConfig.CRED_TOKEN_KEY));
         return;
-      } else if (StringUtils.isNotEmpty(credentials.get(KubeConfig.CRED_CLIENT_CERTIFICATE_DATA_KEY))
+      } else if (StringUtils.isNotEmpty(
+              credentials.get(KubeConfig.CRED_CLIENT_CERTIFICATE_DATA_KEY))
           && StringUtils.isNotEmpty(credentials.get(KubeConfig.CRED_CLIENT_KEY_DATA_KEY))) {
         delegateAuthentication =
             new ClientCertificateAuthentication(
-                credentials.get(KubeConfig.CRED_CLIENT_CERTIFICATE_DATA_KEY).getBytes(StandardCharsets.UTF_8),
-                credentials.get(KubeConfig.CRED_CLIENT_KEY_DATA_KEY).getBytes(StandardCharsets.UTF_8));
+                credentials
+                    .get(KubeConfig.CRED_CLIENT_CERTIFICATE_DATA_KEY)
+                    .getBytes(StandardCharsets.UTF_8),
+                credentials
+                    .get(KubeConfig.CRED_CLIENT_KEY_DATA_KEY)
+                    .getBytes(StandardCharsets.UTF_8));
         return;
       }
     }

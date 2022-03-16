@@ -256,7 +256,8 @@ public class KubeConfig {
   }
 
   /**
-   * Attempt to create an access token or client certificate by running a configured external program.
+   * Attempt to create an access token or client certificate by running a configured external
+   * program.
    *
    * @see <a
    *     href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins">
@@ -294,7 +295,8 @@ public class KubeConfig {
     if (token == null) {
       if (status.get("clientCertificateData") != null && status.get("clientKeyData") != null) {
         log.debug("Obtained a client certificate from {}", command);
-        credentials.put(CRED_CLIENT_CERTIFICATE_DATA_KEY, status.get("clientCertificateData").getAsString());
+        credentials.put(
+            CRED_CLIENT_CERTIFICATE_DATA_KEY, status.get("clientCertificateData").getAsString());
         credentials.put(CRED_CLIENT_KEY_DATA_KEY, status.get("clientKeyData").getAsString());
         return credentials;
       } else {
