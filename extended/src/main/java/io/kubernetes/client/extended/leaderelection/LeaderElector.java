@@ -223,6 +223,9 @@ public class LeaderElector implements AutoCloseable {
             log.debug("failed to tryAcquireOrRenew", t);
           }
           renewResult = false;
+        } catch (Throwable t) {
+          log.error("Unexpected exception when renewing lease in the background", t);
+          renewResult = false;
         } finally {
           future.cancel(true); // make the lease worker doesn't overlap
         }
