@@ -11,11 +11,6 @@
 	<artifactId>client-java-examples-release-13</artifactId>
 	<name>client-java-examples-release-13</name>
 
-	<properties>
-		<kubernetes.prometheus.version>10.0.1</kubernetes.prometheus.version>
-		<kubernetes.cert-manager.version>10.0.1</kubernetes.cert-manager.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -64,12 +59,12 @@
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-cert-manager-models</artifactId>
-			<version>${kubernetes.cert-manager.version}</version>
+			<version>10.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-prometheus-operator-models</artifactId>
-			<version>${kubernetes.prometheus.version}</version>
+			<version>10.0.1</version>
 		</dependency>
 		<!-- test dependencies -->
 		<dependency>
