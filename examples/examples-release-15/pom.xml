@@ -12,8 +12,8 @@
 	<name>client-java-examples-release-15</name>
 
 	<properties>
-		<kubernetes.prometheus.version>15.0.0-SNAPSHOT</kubernetes.prometheus.version>
-		<kubernetes.cert-manager.version>15.0.0-SNAPSHOT</kubernetes.cert-manager.version>
+		<kubernetes.prometheus.version>10.0.1</kubernetes.prometheus.version>
+		<kubernetes.cert-manager.version>10.0.1</kubernetes.cert-manager.version>
 	</properties>
 
 	<dependencies>
