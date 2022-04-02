@@ -1,0 +1,64 @@
+name: Generate
+
+on:
+  workflow_dispatch:
+    inputs:
+      kubernetesBranch:
+        type: string
+        required: true
+        description: 'The remote kubernetes release branch to fetch openapi spec. .e.g. "release-1.23"'
+
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Java
+        uses: actions/checkout@v3
+      - name: Checkout Gen
+        uses: actions/checkout@v3
+        with:
+          path: gen
+          repository: kubernetes-client/gen
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: Generate Branch Name
+        run: |
+          SUFFIX=$(openssl rand -hex 4)
+          echo "BRANCH=automated-generate-$SUFFIX" >> $GITHUB_ENV
+      - name: Generate
+        run: |
+          cd gen/openapi
+          cat <<"EOF"> settings
+          # Kubernetes branch to get the OpenAPI spec from.
+          export KUBERNETES_BRANCH="${{ github.event.inputs.kubernetesBranch }}"
+
+          # client version for packaging and releasing. It can
+          # be different than SPEC_VERSION.
+          export CLIENT_VERSION=$(mvn -q \
+            -Dexec.executable="echo" \
+            -Dexec.args='${project.version}' \
+            --non-recursive \
+            org.codehaus.mojo:exec-maven-plugin:1.6.0:exec)
+
+          export PACKAGE_NAME="io.kubernetes.client.openapi"
+          EOF
+
+          bash java.sh ../../kubernetes/ settings
+          cd ../../
+          git config user.email "k8s.ci.robot@gmail.com"
+          git config user.name "Kubernetes Prow Robot"
+          git checkout -b "$BRANCH"
+          git add .
+          git commit -s -m 'Automated openapi generation from ${{ github.event.inputs.kubernetesBranch }}'
+          git push origin "$BRANCH"
+      - name: Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ${{ env.BRANCH }}
+          destination_branch: ${{ github.ref_name }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "Automated Generate from openapi ${{ github.event.inputs.kubernetesBranch }}"
+
+
+
+
