@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1EphemeralVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1EphemeralVolumeSourceFluentImpl<A extends V1EphemeralVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1EphemeralVolumeSourceFluent<A> {
   public V1EphemeralVolumeSourceFluentImpl() {}
 
   public V1EphemeralVolumeSourceFluentImpl(
@@ -24,17 +26,15 @@ public class V1EphemeralVolumeSourceFluentImpl<
     this.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
   }
 
-  private io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateBuilder
-      volumeClaimTemplate;
+  private V1PersistentVolumeClaimTemplateBuilder volumeClaimTemplate;
 
   /**
    * This method has been deprecated, please use method buildVolumeClaimTemplate instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate
-      getVolumeClaimTemplate() {
+  @Deprecated
+  public V1PersistentVolumeClaimTemplate getVolumeClaimTemplate() {
     return this.volumeClaimTemplate != null ? this.volumeClaimTemplate.build() : null;
   }
 
@@ -55,16 +55,12 @@ public class V1EphemeralVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumeClaimTemplate() {
+  public Boolean hasVolumeClaimTemplate() {
     return this.volumeClaimTemplate != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
-              .VolumeClaimTemplateNested<
-          A>
-      withNewVolumeClaimTemplate() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluentImpl
-        .VolumeClaimTemplateNestedImpl();
+  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> withNewVolumeClaimTemplate() {
+    return new V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
@@ -72,8 +68,7 @@ public class V1EphemeralVolumeSourceFluentImpl<
           A>
       withNewVolumeClaimTemplateLike(
           io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate item) {
-    return new io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluentImpl
-        .VolumeClaimTemplateNestedImpl(item);
+    return new V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
@@ -103,7 +98,7 @@ public class V1EphemeralVolumeSourceFluentImpl<
         getVolumeClaimTemplate() != null ? getVolumeClaimTemplate() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1EphemeralVolumeSourceFluentImpl that = (V1EphemeralVolumeSourceFluentImpl) o;
@@ -117,20 +112,27 @@ public class V1EphemeralVolumeSourceFluentImpl<
     return java.util.Objects.hash(volumeClaimTemplate, super.hashCode());
   }
 
-  public class VolumeClaimTemplateNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
-                  .VolumeClaimTemplateNested<
-              N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (volumeClaimTemplate != null) {
+      sb.append("volumeClaimTemplate:");
+      sb.append(volumeClaimTemplate);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class VolumeClaimTemplateNestedImpl<N>
+      extends V1PersistentVolumeClaimTemplateFluentImpl<
+          V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
                   .VolumeClaimTemplateNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     VolumeClaimTemplateNestedImpl(
         io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateBuilder(
-              this, item);
+      this.builder = new V1PersistentVolumeClaimTemplateBuilder(this, item);
     }
 
     VolumeClaimTemplateNestedImpl() {

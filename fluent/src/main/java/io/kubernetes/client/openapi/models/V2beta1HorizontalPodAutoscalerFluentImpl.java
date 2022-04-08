@@ -12,11 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V2beta1HorizontalPodAutoscalerFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent<A> {
+        A extends V2beta1HorizontalPodAutoscalerFluent<A>>
+    extends BaseFluent<A> implements V2beta1HorizontalPodAutoscalerFluent<A> {
   public V2beta1HorizontalPodAutoscalerFluentImpl() {}
 
   public V2beta1HorizontalPodAutoscalerFluentImpl(
@@ -32,11 +35,11 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     this.withStatus(instance.getStatus());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerSpecBuilder spec;
-  private io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerStatusBuilder status;
+  private V1ObjectMetaBuilder metadata;
+  private V2beta1HorizontalPodAutoscalerSpecBuilder spec;
+  private V2beta1HorizontalPodAutoscalerStatusBuilder status;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -47,14 +50,8 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -70,18 +67,12 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -93,7 +84,7 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -103,16 +94,13 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluentImpl
-        .MetadataNestedImpl();
+  public V2beta1HorizontalPodAutoscalerFluent.MetadataNested<A> withNewMetadata() {
+    return new V2beta1HorizontalPodAutoscalerFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluentImpl
-        .MetadataNestedImpl(item);
+    return new V2beta1HorizontalPodAutoscalerFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.MetadataNested<A>
@@ -139,7 +127,7 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerSpec getSpec() {
+  public V2beta1HorizontalPodAutoscalerSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
@@ -161,10 +149,8 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.SpecNested<A>
-      withNewSpec() {
-    return new io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluentImpl
-        .SpecNestedImpl();
+  public V2beta1HorizontalPodAutoscalerFluent.SpecNested<A> withNewSpec() {
+    return new V2beta1HorizontalPodAutoscalerFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.SpecNested<A>
@@ -199,7 +185,7 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerStatus getStatus() {
+  public V2beta1HorizontalPodAutoscalerStatus getStatus() {
     return this.status != null ? this.status.build() : null;
   }
 
@@ -223,10 +209,8 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     return this.status != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.StatusNested<A>
-      withNewStatus() {
-    return new io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluentImpl
-        .StatusNestedImpl();
+  public V2beta1HorizontalPodAutoscalerFluent.StatusNested<A> withNewStatus() {
+    return new V2beta1HorizontalPodAutoscalerFluentImpl.StatusNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.StatusNested<A>
@@ -256,7 +240,7 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     return withNewStatusLike(getStatus() != null ? getStatus() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta1HorizontalPodAutoscalerFluentImpl that = (V2beta1HorizontalPodAutoscalerFluentImpl) o;
@@ -273,16 +257,41 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, status, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.MetadataNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V2beta1HorizontalPodAutoscalerFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent
                   .MetadataNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -300,17 +309,15 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.SpecNested<N>>
+  class SpecNestedImpl<N>
+      extends V2beta1HorizontalPodAutoscalerSpecFluentImpl<
+          V2beta1HorizontalPodAutoscalerFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent
                   .SpecNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     SpecNestedImpl(io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerSpec item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerSpecBuilder(
-              this, item);
+      this.builder = new V2beta1HorizontalPodAutoscalerSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
@@ -329,18 +336,16 @@ public class V2beta1HorizontalPodAutoscalerFluentImpl<
     }
   }
 
-  public class StatusNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent.StatusNested<N>>
+  class StatusNestedImpl<N>
+      extends V2beta1HorizontalPodAutoscalerStatusFluentImpl<
+          V2beta1HorizontalPodAutoscalerFluent.StatusNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerFluent
                   .StatusNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     StatusNestedImpl(
         io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerStatus item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2beta1HorizontalPodAutoscalerStatusBuilder(
-              this, item);
+      this.builder = new V2beta1HorizontalPodAutoscalerStatusBuilder(this, item);
     }
 
     StatusNestedImpl() {

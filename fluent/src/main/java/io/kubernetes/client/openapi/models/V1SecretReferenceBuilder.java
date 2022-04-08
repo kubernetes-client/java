@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1SecretReferenceBuilder
-    extends io.kubernetes.client.openapi.models.V1SecretReferenceFluentImpl<
-        io.kubernetes.client.openapi.models.V1SecretReferenceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1SecretReference,
-        io.kubernetes.client.openapi.models.V1SecretReferenceBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1SecretReferenceBuilder extends V1SecretReferenceFluentImpl<V1SecretReferenceBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1SecretReference, V1SecretReferenceBuilder> {
   public V1SecretReferenceBuilder() {
     this(false);
   }
 
-  public V1SecretReferenceBuilder(java.lang.Boolean validationEnabled) {
+  public V1SecretReferenceBuilder(Boolean validationEnabled) {
     this(new V1SecretReference(), validationEnabled);
   }
 
@@ -78,24 +77,5 @@ public class V1SecretReferenceBuilder
     buildable.setName(fluent.getName());
     buildable.setNamespace(fluent.getNamespace());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1SecretReferenceBuilder that = (V1SecretReferenceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

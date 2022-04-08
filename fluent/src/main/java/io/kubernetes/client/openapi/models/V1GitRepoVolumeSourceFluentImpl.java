@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1GitRepoVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1GitRepoVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1GitRepoVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1GitRepoVolumeSourceFluentImpl<A extends V1GitRepoVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1GitRepoVolumeSourceFluent<A> {
   public V1GitRepoVolumeSourceFluentImpl() {}
 
   public V1GitRepoVolumeSourceFluentImpl(
@@ -28,7 +29,7 @@ public class V1GitRepoVolumeSourceFluentImpl<
     this.withRevision(instance.getRevision());
   }
 
-  private java.lang.String directory;
+  private String directory;
   private java.lang.String repository;
   private java.lang.String revision;
 
@@ -41,14 +42,8 @@ public class V1GitRepoVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasDirectory() {
+  public Boolean hasDirectory() {
     return this.directory != null;
-  }
-
-  /** Method is deprecated. use withDirectory instead. */
-  @java.lang.Deprecated
-  public A withNewDirectory(java.lang.String original) {
-    return (A) withDirectory(new String(original));
   }
 
   public java.lang.String getRepository() {
@@ -64,12 +59,6 @@ public class V1GitRepoVolumeSourceFluentImpl<
     return this.repository != null;
   }
 
-  /** Method is deprecated. use withRepository instead. */
-  @java.lang.Deprecated
-  public A withNewRepository(java.lang.String original) {
-    return (A) withRepository(new String(original));
-  }
-
   public java.lang.String getRevision() {
     return this.revision;
   }
@@ -83,13 +72,7 @@ public class V1GitRepoVolumeSourceFluentImpl<
     return this.revision != null;
   }
 
-  /** Method is deprecated. use withRevision instead. */
-  @java.lang.Deprecated
-  public A withNewRevision(java.lang.String original) {
-    return (A) withRevision(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1GitRepoVolumeSourceFluentImpl that = (V1GitRepoVolumeSourceFluentImpl) o;
@@ -103,5 +86,24 @@ public class V1GitRepoVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(directory, repository, revision, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (directory != null) {
+      sb.append("directory:");
+      sb.append(directory + ",");
+    }
+    if (repository != null) {
+      sb.append("repository:");
+      sb.append(repository + ",");
+    }
+    if (revision != null) {
+      sb.append("revision:");
+      sb.append(revision);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

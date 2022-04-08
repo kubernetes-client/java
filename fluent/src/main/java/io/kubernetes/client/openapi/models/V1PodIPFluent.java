@@ -12,16 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1PodIPFluent<A extends io.kubernetes.client.openapi.models.V1PodIPFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getIp();
+public interface V1PodIPFluent<A extends V1PodIPFluent<A>> extends Fluent<A> {
+  public String getIp();
 
   public A withIp(java.lang.String ip);
 
-  public java.lang.Boolean hasIp();
-
-  /** Method is deprecated. use withIp instead. */
-  @java.lang.Deprecated
-  public A withNewIp(java.lang.String original);
+  public Boolean hasIp();
 }

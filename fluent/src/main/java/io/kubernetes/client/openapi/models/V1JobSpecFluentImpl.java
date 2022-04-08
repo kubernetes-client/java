@@ -12,10 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V1JobSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1JobSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
+    implements V1JobSpecFluent<A> {
   public V1JobSpecFluentImpl() {}
 
   public V1JobSpecFluentImpl(io.kubernetes.client.openapi.models.V1JobSpec instance) {
@@ -40,15 +43,15 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     this.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
   }
 
-  private java.lang.Long activeDeadlineSeconds;
-  private java.lang.Integer backoffLimit;
-  private java.lang.String completionMode;
+  private Long activeDeadlineSeconds;
+  private Integer backoffLimit;
+  private String completionMode;
   private java.lang.Integer completions;
-  private java.lang.Boolean manualSelector;
+  private Boolean manualSelector;
   private java.lang.Integer parallelism;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder selector;
+  private V1LabelSelectorBuilder selector;
   private java.lang.Boolean suspend;
-  private io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder template;
+  private V1PodTemplateSpecBuilder template;
   private java.lang.Integer ttlSecondsAfterFinished;
 
   public java.lang.Long getActiveDeadlineSeconds() {
@@ -88,12 +91,6 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasCompletionMode() {
     return this.completionMode != null;
-  }
-
-  /** Method is deprecated. use withCompletionMode instead. */
-  @java.lang.Deprecated
-  public A withNewCompletionMode(java.lang.String original) {
-    return (A) withCompletionMode(new String(original));
   }
 
   public java.lang.Integer getCompletions() {
@@ -140,7 +137,7 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
@@ -152,7 +149,7 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
-      this.selector = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(selector);
+      this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
     }
     return (A) this;
@@ -162,13 +159,13 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.selector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<A> withNewSelector() {
-    return new io.kubernetes.client.openapi.models.V1JobSpecFluentImpl.SelectorNestedImpl();
+  public V1JobSpecFluent.SelectorNested<A> withNewSelector() {
+    return new V1JobSpecFluentImpl.SelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<A> withNewSelectorLike(
       io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V1JobSpecFluentImpl.SelectorNestedImpl(item);
+    return new V1JobSpecFluentImpl.SelectorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<A> editSelector() {
@@ -206,7 +203,7 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate() {
+  public V1PodTemplateSpec getTemplate() {
     return this.template != null ? this.template.build() : null;
   }
 
@@ -227,8 +224,8 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.template != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<A> withNewTemplate() {
-    return new io.kubernetes.client.openapi.models.V1JobSpecFluentImpl.TemplateNestedImpl();
+  public V1JobSpecFluent.TemplateNested<A> withNewTemplate() {
+    return new V1JobSpecFluentImpl.TemplateNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<A> withNewTemplateLike(
@@ -265,7 +262,7 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.ttlSecondsAfterFinished != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1JobSpecFluentImpl that = (V1JobSpecFluentImpl) o;
@@ -308,13 +305,65 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
         super.hashCode());
   }
 
-  public class SelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (activeDeadlineSeconds != null) {
+      sb.append("activeDeadlineSeconds:");
+      sb.append(activeDeadlineSeconds + ",");
+    }
+    if (backoffLimit != null) {
+      sb.append("backoffLimit:");
+      sb.append(backoffLimit + ",");
+    }
+    if (completionMode != null) {
+      sb.append("completionMode:");
+      sb.append(completionMode + ",");
+    }
+    if (completions != null) {
+      sb.append("completions:");
+      sb.append(completions + ",");
+    }
+    if (manualSelector != null) {
+      sb.append("manualSelector:");
+      sb.append(manualSelector + ",");
+    }
+    if (parallelism != null) {
+      sb.append("parallelism:");
+      sb.append(parallelism + ",");
+    }
+    if (selector != null) {
+      sb.append("selector:");
+      sb.append(selector + ",");
+    }
+    if (suspend != null) {
+      sb.append("suspend:");
+      sb.append(suspend + ",");
+    }
+    if (template != null) {
+      sb.append("template:");
+      sb.append(template + ",");
+    }
+    if (ttlSecondsAfterFinished != null) {
+      sb.append("ttlSecondsAfterFinished:");
+      sb.append(ttlSecondsAfterFinished);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withManualSelector() {
+    return withManualSelector(true);
+  }
+
+  public A withSuspend() {
+    return withSuspend(true);
+  }
+
+  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1JobSpecFluent.SelectorNested<N>>
+      implements io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<N>, Nested<N> {
+    SelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {
@@ -332,13 +381,11 @@ public class V1JobSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class TemplateNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PodTemplateSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<N>>
+  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1JobSpecFluent.TemplateNested<N>>
       implements io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    TemplateNestedImpl(io.kubernetes.client.openapi.models.V1PodTemplateSpec item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder(this, item);
+    TemplateNestedImpl(V1PodTemplateSpec item) {
+      this.builder = new V1PodTemplateSpecBuilder(this, item);
     }
 
     TemplateNestedImpl() {

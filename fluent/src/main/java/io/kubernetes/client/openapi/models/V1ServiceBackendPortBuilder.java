@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1ServiceBackendPortBuilder
-    extends io.kubernetes.client.openapi.models.V1ServiceBackendPortFluentImpl<
-        io.kubernetes.client.openapi.models.V1ServiceBackendPortBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ServiceBackendPort,
-        io.kubernetes.client.openapi.models.V1ServiceBackendPortBuilder> {
+    extends V1ServiceBackendPortFluentImpl<V1ServiceBackendPortBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1ServiceBackendPort, V1ServiceBackendPortBuilder> {
   public V1ServiceBackendPortBuilder() {
     this(false);
   }
 
-  public V1ServiceBackendPortBuilder(java.lang.Boolean validationEnabled) {
+  public V1ServiceBackendPortBuilder(Boolean validationEnabled) {
     this(new V1ServiceBackendPort(), validationEnabled);
   }
 
@@ -79,24 +79,5 @@ public class V1ServiceBackendPortBuilder
     buildable.setName(fluent.getName());
     buildable.setNumber(fluent.getNumber());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1ServiceBackendPortBuilder that = (V1ServiceBackendPortBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

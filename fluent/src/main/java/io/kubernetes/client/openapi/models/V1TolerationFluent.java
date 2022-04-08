@@ -12,15 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1TolerationFluent<
-        A extends io.kubernetes.client.openapi.models.V1TolerationFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public io.kubernetes.client.openapi.models.V1Toleration.EffectEnum getEffect();
+public interface V1TolerationFluent<A extends V1TolerationFluent<A>> extends Fluent<A> {
+  public String getEffect();
 
-  public A withEffect(io.kubernetes.client.openapi.models.V1Toleration.EffectEnum effect);
+  public A withEffect(java.lang.String effect);
 
-  public java.lang.Boolean hasEffect();
+  public Boolean hasEffect();
 
   public java.lang.String getKey();
 
@@ -28,17 +28,13 @@ public interface V1TolerationFluent<
 
   public java.lang.Boolean hasKey();
 
-  /** Method is deprecated. use withKey instead. */
-  @java.lang.Deprecated
-  public A withNewKey(java.lang.String original);
+  public java.lang.String getOperator();
 
-  public io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum getOperator();
-
-  public A withOperator(io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum operator);
+  public A withOperator(java.lang.String operator);
 
   public java.lang.Boolean hasOperator();
 
-  public java.lang.Long getTolerationSeconds();
+  public Long getTolerationSeconds();
 
   public A withTolerationSeconds(java.lang.Long tolerationSeconds);
 
@@ -49,8 +45,4 @@ public interface V1TolerationFluent<
   public A withValue(java.lang.String value);
 
   public java.lang.Boolean hasValue();
-
-  /** Method is deprecated. use withValue instead. */
-  @java.lang.Deprecated
-  public A withNewValue(java.lang.String original);
 }

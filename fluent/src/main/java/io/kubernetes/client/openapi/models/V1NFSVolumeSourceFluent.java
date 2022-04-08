@@ -12,19 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1NFSVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getPath();
+public interface V1NFSVolumeSourceFluent<A extends V1NFSVolumeSourceFluent<A>> extends Fluent<A> {
+  public String getPath();
 
   public A withPath(java.lang.String path);
 
-  public java.lang.Boolean hasPath();
-
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original);
+  public Boolean hasPath();
 
   public java.lang.Boolean getReadOnly();
 
@@ -38,7 +34,5 @@ public interface V1NFSVolumeSourceFluent<
 
   public java.lang.Boolean hasServer();
 
-  /** Method is deprecated. use withServer instead. */
-  @java.lang.Deprecated
-  public A withNewServer(java.lang.String original);
+  public A withReadOnly();
 }

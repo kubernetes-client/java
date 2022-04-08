@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1PersistentVolumeClaimTemplateBuilder
-    extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluentImpl<
-        io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate,
+    extends V1PersistentVolumeClaimTemplateFluentImpl<V1PersistentVolumeClaimTemplateBuilder>
+    implements VisitableBuilder<
+        V1PersistentVolumeClaimTemplate,
         io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateBuilder> {
   public V1PersistentVolumeClaimTemplateBuilder() {
     this(false);
   }
 
-  public V1PersistentVolumeClaimTemplateBuilder(java.lang.Boolean validationEnabled) {
+  public V1PersistentVolumeClaimTemplateBuilder(Boolean validationEnabled) {
     this(new V1PersistentVolumeClaimTemplate(), validationEnabled);
   }
 
@@ -79,24 +80,5 @@ public class V1PersistentVolumeClaimTemplateBuilder
     buildable.setMetadata(fluent.getMetadata());
     buildable.setSpec(fluent.getSpec());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1PersistentVolumeClaimTemplateBuilder that = (V1PersistentVolumeClaimTemplateBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

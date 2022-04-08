@@ -12,19 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1RoleBindingFluent<
-        A extends io.kubernetes.client.openapi.models.V1RoleBindingFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public Boolean hasApiVersion();
 
   public java.lang.String getKind();
 
@@ -32,17 +32,13 @@ public interface V1RoleBindingFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  @Deprecated
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -50,8 +46,7 @@ public interface V1RoleBindingFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1RoleBindingFluent.MetadataNested<A>
-      withNewMetadata();
+  public V1RoleBindingFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1RoleBindingFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -70,7 +65,7 @@ public interface V1RoleBindingFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1RoleRef getRoleRef();
+  public V1RoleRef getRoleRef();
 
   public io.kubernetes.client.openapi.models.V1RoleRef buildRoleRef();
 
@@ -78,7 +73,7 @@ public interface V1RoleBindingFluent<
 
   public java.lang.Boolean hasRoleRef();
 
-  public io.kubernetes.client.openapi.models.V1RoleBindingFluent.RoleRefNested<A> withNewRoleRef();
+  public V1RoleBindingFluent.RoleRefNested<A> withNewRoleRef();
 
   public io.kubernetes.client.openapi.models.V1RoleBindingFluent.RoleRefNested<A>
       withNewRoleRefLike(io.kubernetes.client.openapi.models.V1RoleRef item);
@@ -91,24 +86,21 @@ public interface V1RoleBindingFluent<
   public io.kubernetes.client.openapi.models.V1RoleBindingFluent.RoleRefNested<A>
       editOrNewRoleRefLike(io.kubernetes.client.openapi.models.V1RoleRef item);
 
-  public A addToSubjects(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Subject item);
+  public A addToSubjects(Integer index, V1Subject item);
 
   public A setToSubjects(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1Subject item);
 
   public A addToSubjects(io.kubernetes.client.openapi.models.V1Subject... items);
 
-  public A addAllToSubjects(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Subject> items);
+  public A addAllToSubjects(Collection<io.kubernetes.client.openapi.models.V1Subject> items);
 
   public A removeFromSubjects(io.kubernetes.client.openapi.models.V1Subject... items);
 
   public A removeAllFromSubjects(
       java.util.Collection<io.kubernetes.client.openapi.models.V1Subject> items);
 
-  public A removeMatchingFromSubjects(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1SubjectBuilder> predicate);
+  public A removeMatchingFromSubjects(Predicate<V1SubjectBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildSubjects instead.
@@ -116,7 +108,7 @@ public interface V1RoleBindingFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Subject> getSubjects();
+  public List<io.kubernetes.client.openapi.models.V1Subject> getSubjects();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1Subject> buildSubjects();
 
@@ -138,7 +130,7 @@ public interface V1RoleBindingFluent<
 
   public java.lang.Boolean hasSubjects();
 
-  public io.kubernetes.client.openapi.models.V1RoleBindingFluent.SubjectsNested<A> addNewSubject();
+  public V1RoleBindingFluent.SubjectsNested<A> addNewSubject();
 
   public io.kubernetes.client.openapi.models.V1RoleBindingFluent.SubjectsNested<A>
       addNewSubjectLike(io.kubernetes.client.openapi.models.V1Subject item);
@@ -162,9 +154,7 @@ public interface V1RoleBindingFluent<
               predicate);
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1RoleBindingFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1RoleBindingFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
@@ -172,8 +162,7 @@ public interface V1RoleBindingFluent<
 
   public interface RoleRefNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1RoleRefFluent<
-              io.kubernetes.client.openapi.models.V1RoleBindingFluent.RoleRefNested<N>> {
+          V1RoleRefFluent<V1RoleBindingFluent.RoleRefNested<N>> {
     public N and();
 
     public N endRoleRef();
@@ -181,8 +170,7 @@ public interface V1RoleBindingFluent<
 
   public interface SubjectsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1SubjectFluent<
-              io.kubernetes.client.openapi.models.V1RoleBindingFluent.SubjectsNested<N>> {
+          V1SubjectFluent<V1RoleBindingFluent.SubjectsNested<N>> {
     public N and();
 
     public N endSubject();

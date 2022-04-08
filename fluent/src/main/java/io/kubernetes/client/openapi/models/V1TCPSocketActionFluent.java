@@ -12,21 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1TCPSocketActionFluent<
-        A extends io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getHost();
+public interface V1TCPSocketActionFluent<A extends V1TCPSocketActionFluent<A>> extends Fluent<A> {
+  public String getHost();
 
   public A withHost(java.lang.String host);
 
-  public java.lang.Boolean hasHost();
+  public Boolean hasHost();
 
-  /** Method is deprecated. use withHost instead. */
-  @java.lang.Deprecated
-  public A withNewHost(java.lang.String original);
-
-  public io.kubernetes.client.custom.IntOrString getPort();
+  public IntOrString getPort();
 
   public A withPort(io.kubernetes.client.custom.IntOrString port);
 

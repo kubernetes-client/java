@@ -12,27 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1VolumeNodeAffinityFluent<
-        A extends io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1VolumeNodeAffinityFluent<A extends V1VolumeNodeAffinityFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildRequired instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NodeSelector getRequired();
+  @Deprecated
+  public V1NodeSelector getRequired();
 
   public io.kubernetes.client.openapi.models.V1NodeSelector buildRequired();
 
   public A withRequired(io.kubernetes.client.openapi.models.V1NodeSelector required);
 
-  public java.lang.Boolean hasRequired();
+  public Boolean hasRequired();
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
-      withNewRequired();
+  public V1VolumeNodeAffinityFluent.RequiredNested<A> withNewRequired();
 
   public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
       withNewRequiredLike(io.kubernetes.client.openapi.models.V1NodeSelector item);
@@ -47,9 +48,7 @@ public interface V1VolumeNodeAffinityFluent<
       editOrNewRequiredLike(io.kubernetes.client.openapi.models.V1NodeSelector item);
 
   public interface RequiredNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NodeSelectorFluent<
-              io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<N>> {
+      extends Nested<N>, V1NodeSelectorFluent<V1VolumeNodeAffinityFluent.RequiredNested<N>> {
     public N and();
 
     public N endRequired();

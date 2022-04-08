@@ -12,14 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1beta2PolicyRulesWithSubjectsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent<A> {
+        A extends V1beta2PolicyRulesWithSubjectsFluent<A>>
+    extends BaseFluent<A> implements V1beta2PolicyRulesWithSubjectsFluent<A> {
   public V1beta2PolicyRulesWithSubjectsFluentImpl() {}
 
   public V1beta2PolicyRulesWithSubjectsFluentImpl(
@@ -31,16 +36,11 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     this.withSubjects(instance.getSubjects());
   }
 
-  private java.util.ArrayList<
-          io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder>
-      nonResourceRules;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleBuilder>
-      resourceRules;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta2SubjectBuilder> subjects;
+  private ArrayList<V1beta2NonResourcePolicyRuleBuilder> nonResourceRules;
+  private java.util.ArrayList<V1beta2ResourcePolicyRuleBuilder> resourceRules;
+  private java.util.ArrayList<V1beta2SubjectBuilder> subjects;
 
-  public A addToNonResourceRules(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule item) {
+  public A addToNonResourceRules(Integer index, V1beta2NonResourcePolicyRule item) {
     if (this.nonResourceRules == null) {
       this.nonResourceRules =
           new java.util.ArrayList<
@@ -95,8 +95,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
   }
 
   public A addAllToNonResourceRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule>
-          items) {
+      Collection<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule> items) {
     if (this.nonResourceRules == null) {
       this.nonResourceRules =
           new java.util.ArrayList<
@@ -139,8 +138,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
   }
 
   public A removeMatchingFromNonResourceRules(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder>
+      Predicate<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder>
           predicate) {
     if (nonResourceRules == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder> each =
@@ -161,8 +159,8 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule>
       getNonResourceRules() {
     return nonResourceRules != null ? build(nonResourceRules) : null;
   }
@@ -201,7 +199,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingNonResourceRule(
+  public Boolean hasMatchingNonResourceRule(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder>
           predicate) {
@@ -250,12 +248,8 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     return nonResourceRules != null && !nonResourceRules.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-              .NonResourceRulesNested<
-          A>
-      addNewNonResourceRule() {
-    return new io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluentImpl
-        .NonResourceRulesNestedImpl();
+  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> addNewNonResourceRule() {
+    return new V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
@@ -263,8 +257,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
           A>
       addNewNonResourceRuleLike(
           io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule item) {
-    return new io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluentImpl
-        .NonResourceRulesNestedImpl(-1, item);
+    return new V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
@@ -327,9 +320,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
   public A addToResourceRules(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRule item) {
     if (this.resourceRules == null) {
-      this.resourceRules =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleBuilder>();
+      this.resourceRules = new java.util.ArrayList<V1beta2ResourcePolicyRuleBuilder>();
     }
     io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleBuilder builder =
         new io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleBuilder(item);
@@ -526,12 +517,8 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     return resourceRules != null && !resourceRules.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-              .ResourceRulesNested<
-          A>
-      addNewResourceRule() {
-    return new io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluentImpl
-        .ResourceRulesNestedImpl();
+  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> addNewResourceRule() {
+    return new V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
@@ -600,8 +587,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
   public A addToSubjects(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta2Subject item) {
     if (this.subjects == null) {
-      this.subjects =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta2SubjectBuilder>();
+      this.subjects = new java.util.ArrayList<V1beta2SubjectBuilder>();
     }
     io.kubernetes.client.openapi.models.V1beta2SubjectBuilder builder =
         new io.kubernetes.client.openapi.models.V1beta2SubjectBuilder(item);
@@ -784,10 +770,8 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     return subjects != null && !subjects.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A>
-      addNewSubject() {
-    return new io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluentImpl
-        .SubjectsNestedImpl();
+  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> addNewSubject() {
+    return new V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A>
@@ -839,7 +823,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     return setNewSubjectLike(index, buildSubject(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta2PolicyRulesWithSubjectsFluentImpl that = (V1beta2PolicyRulesWithSubjectsFluentImpl) o;
@@ -857,21 +841,37 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     return java.util.Objects.hash(nonResourceRules, resourceRules, subjects, super.hashCode());
   }
 
-  public class NonResourceRulesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-                  .NonResourceRulesNested<
-              N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (nonResourceRules != null && !nonResourceRules.isEmpty()) {
+      sb.append("nonResourceRules:");
+      sb.append(nonResourceRules + ",");
+    }
+    if (resourceRules != null && !resourceRules.isEmpty()) {
+      sb.append("resourceRules:");
+      sb.append(resourceRules + ",");
+    }
+    if (subjects != null && !subjects.isEmpty()) {
+      sb.append("subjects:");
+      sb.append(subjects);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class NonResourceRulesNestedImpl<N>
+      extends V1beta2NonResourcePolicyRuleFluentImpl<
+          V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
                   .NonResourceRulesNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     NonResourceRulesNestedImpl(
         java.lang.Integer index,
         io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder(this, item);
+      this.builder = new V1beta2NonResourcePolicyRuleBuilder(this, item);
     }
 
     NonResourceRulesNestedImpl() {
@@ -894,11 +894,9 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     }
   }
 
-  public class ResourceRulesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-                  .ResourceRulesNested<
-              N>>
+  class ResourceRulesNestedImpl<N>
+      extends V1beta2ResourcePolicyRuleFluentImpl<
+          V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
                   .ResourceRulesNested<
               N>,
@@ -907,8 +905,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
         java.lang.Integer index,
         io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRule item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleBuilder(this, item);
+      this.builder = new V1beta2ResourcePolicyRuleBuilder(this, item);
     }
 
     ResourceRulesNestedImpl() {
@@ -929,10 +926,8 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     }
   }
 
-  public class SubjectsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta2SubjectFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<
-              N>>
+  class SubjectsNestedImpl<N>
+      extends V1beta2SubjectFluentImpl<V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
                   .SubjectsNested<
               N>,
@@ -940,7 +935,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
     SubjectsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta2Subject item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1beta2SubjectBuilder(this, item);
+      this.builder = new V1beta2SubjectBuilder(this, item);
     }
 
     SubjectsNestedImpl() {

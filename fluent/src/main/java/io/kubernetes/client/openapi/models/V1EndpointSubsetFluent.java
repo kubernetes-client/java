@@ -12,12 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1EndpointSubsetFluent<
-        A extends io.kubernetes.client.openapi.models.V1EndpointSubsetFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToAddresses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointAddress item);
+public interface V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends Fluent<A> {
+  public A addToAddresses(Integer index, V1EndpointAddress item);
 
   public A setToAddresses(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointAddress item);
@@ -25,24 +28,22 @@ public interface V1EndpointSubsetFluent<
   public A addToAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items);
 
   public A addAllToAddresses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointAddress> items);
+      Collection<io.kubernetes.client.openapi.models.V1EndpointAddress> items);
 
   public A removeFromAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items);
 
   public A removeAllFromAddresses(
       java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointAddress> items);
 
-  public A removeMatchingFromAddresses(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
-          predicate);
+  public A removeMatchingFromAddresses(Predicate<V1EndpointAddressBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildAddresses instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> getAddresses();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1EndpointAddress> getAddresses();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> buildAddresses();
 
@@ -57,7 +58,7 @@ public interface V1EndpointSubsetFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingAddress(
+  public Boolean hasMatchingAddress(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
           predicate);
 
@@ -68,8 +69,7 @@ public interface V1EndpointSubsetFluent<
 
   public java.lang.Boolean hasAddresses();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A>
-      addNewAddress();
+  public V1EndpointSubsetFluent.AddressesNested<A> addNewAddress();
 
   public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A>
       addNewAddressLike(io.kubernetes.client.openapi.models.V1EndpointAddress item);
@@ -148,8 +148,7 @@ public interface V1EndpointSubsetFluent<
 
   public java.lang.Boolean hasNotReadyAddresses();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
-      addNewNotReadyAddress();
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> addNewNotReadyAddress();
 
   public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
       addNewNotReadyAddressLike(io.kubernetes.client.openapi.models.V1EndpointAddress item);
@@ -172,8 +171,7 @@ public interface V1EndpointSubsetFluent<
           java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
               predicate);
 
-  public A addToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.CoreV1EndpointPort item);
+  public A addToPorts(java.lang.Integer index, CoreV1EndpointPort item);
 
   public A setToPorts(
       java.lang.Integer index, io.kubernetes.client.openapi.models.CoreV1EndpointPort item);
@@ -189,8 +187,7 @@ public interface V1EndpointSubsetFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.CoreV1EndpointPort> items);
 
   public A removeMatchingFromPorts(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>
-          predicate);
+      java.util.function.Predicate<CoreV1EndpointPortBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildPorts instead.
@@ -222,7 +219,7 @@ public interface V1EndpointSubsetFluent<
 
   public java.lang.Boolean hasPorts();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> addNewPort();
+  public V1EndpointSubsetFluent.PortsNested<A> addNewPort();
 
   public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> addNewPortLike(
       io.kubernetes.client.openapi.models.CoreV1EndpointPort item);
@@ -242,9 +239,7 @@ public interface V1EndpointSubsetFluent<
           predicate);
 
   public interface AddressesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1EndpointAddressFluent<
-              io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<N>> {
+      extends Nested<N>, V1EndpointAddressFluent<V1EndpointSubsetFluent.AddressesNested<N>> {
     public N and();
 
     public N endAddress();
@@ -252,9 +247,7 @@ public interface V1EndpointSubsetFluent<
 
   public interface NotReadyAddressesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1EndpointAddressFluent<
-              io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<
-                  N>> {
+          V1EndpointAddressFluent<V1EndpointSubsetFluent.NotReadyAddressesNested<N>> {
     public N and();
 
     public N endNotReadyAddress();
@@ -262,8 +255,7 @@ public interface V1EndpointSubsetFluent<
 
   public interface PortsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.CoreV1EndpointPortFluent<
-              io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<N>> {
+          CoreV1EndpointPortFluent<V1EndpointSubsetFluent.PortsNested<N>> {
     public N and();
 
     public N endPort();

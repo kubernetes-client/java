@@ -12,27 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1FlockerVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1FlockerVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getDatasetName();
+public interface V1FlockerVolumeSourceFluent<A extends V1FlockerVolumeSourceFluent<A>>
+    extends Fluent<A> {
+  public String getDatasetName();
 
   public A withDatasetName(java.lang.String datasetName);
 
-  public java.lang.Boolean hasDatasetName();
-
-  /** Method is deprecated. use withDatasetName instead. */
-  @java.lang.Deprecated
-  public A withNewDatasetName(java.lang.String original);
+  public Boolean hasDatasetName();
 
   public java.lang.String getDatasetUUID();
 
   public A withDatasetUUID(java.lang.String datasetUUID);
 
   public java.lang.Boolean hasDatasetUUID();
-
-  /** Method is deprecated. use withDatasetUUID instead. */
-  @java.lang.Deprecated
-  public A withNewDatasetUUID(java.lang.String original);
 }

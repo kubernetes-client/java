@@ -12,22 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1DeleteOptionsBuilder
-    extends io.kubernetes.client.openapi.models.V1DeleteOptionsFluentImpl<
-        io.kubernetes.client.openapi.models.V1DeleteOptionsBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluentImpl<V1DeleteOptionsBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1DeleteOptions,
         io.kubernetes.client.openapi.models.V1DeleteOptionsBuilder> {
   public V1DeleteOptionsBuilder() {
     this(false);
   }
 
-  public V1DeleteOptionsBuilder(java.lang.Boolean validationEnabled) {
+  public V1DeleteOptionsBuilder(Boolean validationEnabled) {
     this(new V1DeleteOptions(), validationEnabled);
   }
 
-  public V1DeleteOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<?> fluent) {
+  public V1DeleteOptionsBuilder(V1DeleteOptionsFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -103,24 +102,5 @@ public class V1DeleteOptionsBuilder
     buildable.setPreconditions(fluent.getPreconditions());
     buildable.setPropagationPolicy(fluent.getPropagationPolicy());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1DeleteOptionsBuilder that = (V1DeleteOptionsBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

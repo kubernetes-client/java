@@ -12,37 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1NetworkPolicyEgressRuleFluent<
-        A extends io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyPort item);
+public interface V1NetworkPolicyEgressRuleFluent<A extends V1NetworkPolicyEgressRuleFluent<A>>
+    extends Fluent<A> {
+  public A addToPorts(Integer index, V1NetworkPolicyPort item);
 
   public A setToPorts(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyPort item);
 
   public A addToPorts(io.kubernetes.client.openapi.models.V1NetworkPolicyPort... items);
 
-  public A addAllToPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyPort> items);
+  public A addAllToPorts(Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyPort> items);
 
   public A removeFromPorts(io.kubernetes.client.openapi.models.V1NetworkPolicyPort... items);
 
   public A removeAllFromPorts(
       java.util.Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyPort> items);
 
-  public A removeMatchingFromPorts(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder>
-          predicate);
+  public A removeMatchingFromPorts(Predicate<V1NetworkPolicyPortBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildPorts instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPort> getPorts();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1NetworkPolicyPort> getPorts();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPort> buildPorts();
 
@@ -56,7 +57,7 @@ public interface V1NetworkPolicyEgressRuleFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingPort(
+  public Boolean hasMatchingPort(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder>
           predicate);
 
@@ -66,8 +67,7 @@ public interface V1NetworkPolicyEgressRuleFluent<
 
   public java.lang.Boolean hasPorts();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent.PortsNested<A>
-      addNewPort();
+  public V1NetworkPolicyEgressRuleFluent.PortsNested<A> addNewPort();
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent.PortsNested<A>
       addNewPortLike(io.kubernetes.client.openapi.models.V1NetworkPolicyPort item);
@@ -91,8 +91,7 @@ public interface V1NetworkPolicyEgressRuleFluent<
                   io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder>
               predicate);
 
-  public A addToTo(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyPeer item);
+  public A addToTo(java.lang.Integer index, V1NetworkPolicyPeer item);
 
   public A setToTo(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyPeer item);
@@ -107,9 +106,7 @@ public interface V1NetworkPolicyEgressRuleFluent<
   public A removeAllFromTo(
       java.util.Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyPeer> items);
 
-  public A removeMatchingFromTo(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder>
-          predicate);
+  public A removeMatchingFromTo(java.util.function.Predicate<V1NetworkPolicyPeerBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildTo instead.
@@ -141,7 +138,7 @@ public interface V1NetworkPolicyEgressRuleFluent<
 
   public java.lang.Boolean hasTo();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent.ToNested<A> addNewTo();
+  public V1NetworkPolicyEgressRuleFluent.ToNested<A> addNewTo();
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent.ToNested<A>
       addNewToLike(io.kubernetes.client.openapi.models.V1NetworkPolicyPeer item);
@@ -166,9 +163,7 @@ public interface V1NetworkPolicyEgressRuleFluent<
               predicate);
 
   public interface PortsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NetworkPolicyPortFluent<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent.PortsNested<N>> {
+      extends Nested<N>, V1NetworkPolicyPortFluent<V1NetworkPolicyEgressRuleFluent.PortsNested<N>> {
     public N and();
 
     public N endPort();
@@ -176,8 +171,7 @@ public interface V1NetworkPolicyEgressRuleFluent<
 
   public interface ToNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent.ToNested<N>> {
+          V1NetworkPolicyPeerFluent<V1NetworkPolicyEgressRuleFluent.ToNested<N>> {
     public N and();
 
     public N endTo();

@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1CustomResourceDefinitionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1CustomResourceDefinitionFluentImpl<A extends V1CustomResourceDefinitionFluent<A>>
+    extends BaseFluent<A> implements V1CustomResourceDefinitionFluent<A> {
   public V1CustomResourceDefinitionFluentImpl() {}
 
   public V1CustomResourceDefinitionFluentImpl(
@@ -32,11 +34,11 @@ public class V1CustomResourceDefinitionFluentImpl<
     this.withStatus(instance.getStatus());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecBuilder spec;
-  private io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusBuilder status;
+  private V1ObjectMetaBuilder metadata;
+  private V1CustomResourceDefinitionSpecBuilder spec;
+  private V1CustomResourceDefinitionStatusBuilder status;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -47,14 +49,8 @@ public class V1CustomResourceDefinitionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -70,18 +66,12 @@ public class V1CustomResourceDefinitionFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -93,7 +83,7 @@ public class V1CustomResourceDefinitionFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -103,16 +93,13 @@ public class V1CustomResourceDefinitionFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluentImpl
-        .MetadataNestedImpl();
+  public V1CustomResourceDefinitionFluent.MetadataNested<A> withNewMetadata() {
+    return new V1CustomResourceDefinitionFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluentImpl
-        .MetadataNestedImpl(item);
+    return new V1CustomResourceDefinitionFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.MetadataNested<A>
@@ -139,7 +126,7 @@ public class V1CustomResourceDefinitionFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpec getSpec() {
+  public V1CustomResourceDefinitionSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
@@ -161,10 +148,8 @@ public class V1CustomResourceDefinitionFluentImpl<
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.SpecNested<A>
-      withNewSpec() {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluentImpl
-        .SpecNestedImpl();
+  public V1CustomResourceDefinitionFluent.SpecNested<A> withNewSpec() {
+    return new V1CustomResourceDefinitionFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.SpecNested<A>
@@ -198,7 +183,7 @@ public class V1CustomResourceDefinitionFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus getStatus() {
+  public V1CustomResourceDefinitionStatus getStatus() {
     return this.status != null ? this.status.build() : null;
   }
 
@@ -220,10 +205,8 @@ public class V1CustomResourceDefinitionFluentImpl<
     return this.status != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.StatusNested<A>
-      withNewStatus() {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluentImpl
-        .StatusNestedImpl();
+  public V1CustomResourceDefinitionFluent.StatusNested<A> withNewStatus() {
+    return new V1CustomResourceDefinitionFluentImpl.StatusNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.StatusNested<A>
@@ -252,7 +235,7 @@ public class V1CustomResourceDefinitionFluentImpl<
     return withNewStatusLike(getStatus() != null ? getStatus() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CustomResourceDefinitionFluentImpl that = (V1CustomResourceDefinitionFluentImpl) o;
@@ -269,15 +252,41 @@ public class V1CustomResourceDefinitionFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, status, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1CustomResourceDefinitionFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent
                   .MetadataNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -295,14 +304,13 @@ public class V1CustomResourceDefinitionFluentImpl<
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.SpecNested<N>>
+  class SpecNestedImpl<N>
+      extends V1CustomResourceDefinitionSpecFluentImpl<
+          V1CustomResourceDefinitionFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.SpecNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SpecNestedImpl(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpec item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecBuilder(this, item);
+    SpecNestedImpl(V1CustomResourceDefinitionSpec item) {
+      this.builder = new V1CustomResourceDefinitionSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
@@ -321,16 +329,14 @@ public class V1CustomResourceDefinitionFluentImpl<
     }
   }
 
-  public class StatusNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.StatusNested<N>>
+  class StatusNestedImpl<N>
+      extends V1CustomResourceDefinitionStatusFluentImpl<
+          V1CustomResourceDefinitionFluent.StatusNested<N>>
       implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.StatusNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     StatusNestedImpl(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusBuilder(
-              this, item);
+      this.builder = new V1CustomResourceDefinitionStatusBuilder(this, item);
     }
 
     StatusNestedImpl() {

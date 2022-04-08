@@ -12,20 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1ListMetaFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getContinue();
+public interface V1ListMetaFluent<A extends V1ListMetaFluent<A>> extends Fluent<A> {
+  public String getContinue();
 
   public A withContinue(java.lang.String _continue);
 
-  public java.lang.Boolean hasContinue();
+  public Boolean hasContinue();
 
-  /** Method is deprecated. use withContinue instead. */
-  @java.lang.Deprecated
-  public A withNewContinue(java.lang.String original);
-
-  public java.lang.Long getRemainingItemCount();
+  public Long getRemainingItemCount();
 
   public A withRemainingItemCount(java.lang.Long remainingItemCount);
 
@@ -37,17 +34,9 @@ public interface V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.
 
   public java.lang.Boolean hasResourceVersion();
 
-  /** Method is deprecated. use withResourceVersion instead. */
-  @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original);
-
   public java.lang.String getSelfLink();
 
   public A withSelfLink(java.lang.String selfLink);
 
   public java.lang.Boolean hasSelfLink();
-
-  /** Method is deprecated. use withSelfLink instead. */
-  @java.lang.Deprecated
-  public A withNewSelfLink(java.lang.String original);
 }

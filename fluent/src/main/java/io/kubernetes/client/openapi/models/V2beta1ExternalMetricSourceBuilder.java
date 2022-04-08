@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V2beta1ExternalMetricSourceBuilder
-    extends io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2beta1ExternalMetricSource,
+    extends V2beta1ExternalMetricSourceFluentImpl<V2beta1ExternalMetricSourceBuilder>
+    implements VisitableBuilder<
+        V2beta1ExternalMetricSource,
         io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceBuilder> {
   public V2beta1ExternalMetricSourceBuilder() {
     this(false);
   }
 
-  public V2beta1ExternalMetricSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V2beta1ExternalMetricSourceBuilder(Boolean validationEnabled) {
     this(new V2beta1ExternalMetricSource(), validationEnabled);
   }
 
@@ -89,24 +90,5 @@ public class V2beta1ExternalMetricSourceBuilder
     buildable.setTargetAverageValue(fluent.getTargetAverageValue());
     buildable.setTargetValue(fluent.getTargetValue());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V2beta1ExternalMetricSourceBuilder that = (V2beta1ExternalMetricSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
-public class V1ServicePortFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ServicePortFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ServicePortFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ServicePortFluentImpl<A extends V1ServicePortFluent<A>> extends BaseFluent<A>
+    implements V1ServicePortFluent<A> {
   public V1ServicePortFluentImpl() {}
 
   public V1ServicePortFluentImpl(io.kubernetes.client.openapi.models.V1ServicePort instance) {
@@ -35,12 +35,12 @@ public class V1ServicePortFluentImpl<
     this.withTargetPort(instance.getTargetPort());
   }
 
-  private java.lang.String appProtocol;
+  private String appProtocol;
   private java.lang.String name;
-  private java.lang.Integer nodePort;
+  private Integer nodePort;
   private java.lang.Integer port;
-  private io.kubernetes.client.openapi.models.V1ServicePort.ProtocolEnum protocol;
-  private io.kubernetes.client.custom.IntOrString targetPort;
+  private java.lang.String protocol;
+  private IntOrString targetPort;
 
   public java.lang.String getAppProtocol() {
     return this.appProtocol;
@@ -51,14 +51,8 @@ public class V1ServicePortFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAppProtocol() {
+  public Boolean hasAppProtocol() {
     return this.appProtocol != null;
-  }
-
-  /** Method is deprecated. use withAppProtocol instead. */
-  @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String original) {
-    return (A) withAppProtocol(new String(original));
   }
 
   public java.lang.String getName() {
@@ -72,12 +66,6 @@ public class V1ServicePortFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.Integer getNodePort() {
@@ -106,11 +94,11 @@ public class V1ServicePortFluentImpl<
     return this.port != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ServicePort.ProtocolEnum getProtocol() {
+  public java.lang.String getProtocol() {
     return this.protocol;
   }
 
-  public A withProtocol(io.kubernetes.client.openapi.models.V1ServicePort.ProtocolEnum protocol) {
+  public A withProtocol(java.lang.String protocol) {
     this.protocol = protocol;
     return (A) this;
   }
@@ -140,7 +128,7 @@ public class V1ServicePortFluentImpl<
     return (A) withTargetPort(new IntOrString(value));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ServicePortFluentImpl that = (V1ServicePortFluentImpl) o;
@@ -158,5 +146,36 @@ public class V1ServicePortFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         appProtocol, name, nodePort, port, protocol, targetPort, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (appProtocol != null) {
+      sb.append("appProtocol:");
+      sb.append(appProtocol + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (nodePort != null) {
+      sb.append("nodePort:");
+      sb.append(nodePort + ",");
+    }
+    if (port != null) {
+      sb.append("port:");
+      sb.append(port + ",");
+    }
+    if (protocol != null) {
+      sb.append("protocol:");
+      sb.append(protocol + ",");
+    }
+    if (targetPort != null) {
+      sb.append("targetPort:");
+      sb.append(targetPort);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

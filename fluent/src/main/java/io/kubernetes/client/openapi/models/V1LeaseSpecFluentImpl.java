@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public class V1LeaseSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1LeaseSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1LeaseSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1LeaseSpecFluentImpl<A extends V1LeaseSpecFluent<A>> extends BaseFluent<A>
+    implements V1LeaseSpecFluent<A> {
   public V1LeaseSpecFluentImpl() {}
 
   public V1LeaseSpecFluentImpl(io.kubernetes.client.openapi.models.V1LeaseSpec instance) {
@@ -31,9 +33,9 @@ public class V1LeaseSpecFluentImpl<
     this.withRenewTime(instance.getRenewTime());
   }
 
-  private java.time.OffsetDateTime acquireTime;
-  private java.lang.String holderIdentity;
-  private java.lang.Integer leaseDurationSeconds;
+  private OffsetDateTime acquireTime;
+  private String holderIdentity;
+  private Integer leaseDurationSeconds;
   private java.lang.Integer leaseTransitions;
   private java.time.OffsetDateTime renewTime;
 
@@ -46,7 +48,7 @@ public class V1LeaseSpecFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAcquireTime() {
+  public Boolean hasAcquireTime() {
     return this.acquireTime != null;
   }
 
@@ -61,12 +63,6 @@ public class V1LeaseSpecFluentImpl<
 
   public java.lang.Boolean hasHolderIdentity() {
     return this.holderIdentity != null;
-  }
-
-  /** Method is deprecated. use withHolderIdentity instead. */
-  @java.lang.Deprecated
-  public A withNewHolderIdentity(java.lang.String original) {
-    return (A) withHolderIdentity(new String(original));
   }
 
   public java.lang.Integer getLeaseDurationSeconds() {
@@ -108,7 +104,7 @@ public class V1LeaseSpecFluentImpl<
     return this.renewTime != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1LeaseSpecFluentImpl that = (V1LeaseSpecFluentImpl) o;
@@ -136,5 +132,32 @@ public class V1LeaseSpecFluentImpl<
         leaseTransitions,
         renewTime,
         super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (acquireTime != null) {
+      sb.append("acquireTime:");
+      sb.append(acquireTime + ",");
+    }
+    if (holderIdentity != null) {
+      sb.append("holderIdentity:");
+      sb.append(holderIdentity + ",");
+    }
+    if (leaseDurationSeconds != null) {
+      sb.append("leaseDurationSeconds:");
+      sb.append(leaseDurationSeconds + ",");
+    }
+    if (leaseTransitions != null) {
+      sb.append("leaseTransitions:");
+      sb.append(leaseTransitions + ",");
+    }
+    if (renewTime != null) {
+      sb.append("renewTime:");
+      sb.append(renewTime);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

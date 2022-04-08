@@ -12,11 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /** Generated */
-public class V1ResourceRequirementsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFluent<A>>
+    extends BaseFluent<A> implements V1ResourceRequirementsFluent<A> {
   public V1ResourceRequirementsFluentImpl() {}
 
   public V1ResourceRequirementsFluentImpl(
@@ -26,12 +30,12 @@ public class V1ResourceRequirementsFluentImpl<
     this.withRequests(instance.getRequests());
   }
 
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> limits;
+  private Map<String, Quantity> limits;
   private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> requests;
 
   public A addToLimits(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
     if (this.limits == null && key != null && value != null) {
-      this.limits = new java.util.LinkedHashMap();
+      this.limits = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.limits.put(key, value);
@@ -88,7 +92,7 @@ public class V1ResourceRequirementsFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasLimits() {
+  public Boolean hasLimits() {
     return this.limits != null;
   }
 
@@ -156,7 +160,7 @@ public class V1ResourceRequirementsFluentImpl<
     return this.requests != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ResourceRequirementsFluentImpl that = (V1ResourceRequirementsFluentImpl) o;
@@ -167,5 +171,20 @@ public class V1ResourceRequirementsFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(limits, requests, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (limits != null && !limits.isEmpty()) {
+      sb.append("limits:");
+      sb.append(limits + ",");
+    }
+    if (requests != null && !requests.isEmpty()) {
+      sb.append("requests:");
+      sb.append(requests);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

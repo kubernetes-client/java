@@ -13,12 +13,13 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
 
 /** Generated */
-public class V2beta1ExternalMetricSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2beta1ExternalMetricSourceFluentImpl<A extends V2beta1ExternalMetricSourceFluent<A>>
+    extends BaseFluent<A> implements V2beta1ExternalMetricSourceFluent<A> {
   public V2beta1ExternalMetricSourceFluentImpl() {}
 
   public V2beta1ExternalMetricSourceFluentImpl(
@@ -32,9 +33,9 @@ public class V2beta1ExternalMetricSourceFluentImpl<
     this.withTargetValue(instance.getTargetValue());
   }
 
-  private java.lang.String metricName;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder metricSelector;
-  private io.kubernetes.client.custom.Quantity targetAverageValue;
+  private String metricName;
+  private V1LabelSelectorBuilder metricSelector;
+  private Quantity targetAverageValue;
   private io.kubernetes.client.custom.Quantity targetValue;
 
   public java.lang.String getMetricName() {
@@ -46,14 +47,8 @@ public class V2beta1ExternalMetricSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetricName() {
+  public Boolean hasMetricName() {
     return this.metricName != null;
-  }
-
-  /** Method is deprecated. use withMetricName instead. */
-  @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original) {
-    return (A) withMetricName(new String(original));
   }
 
   /**
@@ -61,7 +56,7 @@ public class V2beta1ExternalMetricSourceFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getMetricSelector() {
     return this.metricSelector != null ? this.metricSelector.build() : null;
   }
@@ -73,8 +68,7 @@ public class V2beta1ExternalMetricSourceFluentImpl<
   public A withMetricSelector(io.kubernetes.client.openapi.models.V1LabelSelector metricSelector) {
     _visitables.get("metricSelector").remove(this.metricSelector);
     if (metricSelector != null) {
-      this.metricSelector =
-          new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(metricSelector);
+      this.metricSelector = new V1LabelSelectorBuilder(metricSelector);
       _visitables.get("metricSelector").add(this.metricSelector);
     }
     return (A) this;
@@ -84,18 +78,14 @@ public class V2beta1ExternalMetricSourceFluentImpl<
     return this.metricSelector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent.MetricSelectorNested<
-          A>
-      withNewMetricSelector() {
-    return new io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluentImpl
-        .MetricSelectorNestedImpl();
+  public V2beta1ExternalMetricSourceFluent.MetricSelectorNested<A> withNewMetricSelector() {
+    return new V2beta1ExternalMetricSourceFluentImpl.MetricSelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent.MetricSelectorNested<
           A>
       withNewMetricSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluentImpl
-        .MetricSelectorNestedImpl(item);
+    return new V2beta1ExternalMetricSourceFluentImpl.MetricSelectorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent.MetricSelectorNested<
@@ -153,7 +143,7 @@ public class V2beta1ExternalMetricSourceFluentImpl<
     return (A) withTargetValue(new Quantity(value));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta1ExternalMetricSourceFluentImpl that = (V2beta1ExternalMetricSourceFluentImpl) o;
@@ -175,17 +165,37 @@ public class V2beta1ExternalMetricSourceFluentImpl<
         metricName, metricSelector, targetAverageValue, targetValue, super.hashCode());
   }
 
-  public class MetricSelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent
-                  .MetricSelectorNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (metricName != null) {
+      sb.append("metricName:");
+      sb.append(metricName + ",");
+    }
+    if (metricSelector != null) {
+      sb.append("metricSelector:");
+      sb.append(metricSelector + ",");
+    }
+    if (targetAverageValue != null) {
+      sb.append("targetAverageValue:");
+      sb.append(targetAverageValue + ",");
+    }
+    if (targetValue != null) {
+      sb.append("targetValue:");
+      sb.append(targetValue);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetricSelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V2beta1ExternalMetricSourceFluent.MetricSelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent
                   .MetricSelectorNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetricSelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+          Nested<N> {
+    MetricSelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     MetricSelectorNestedImpl() {

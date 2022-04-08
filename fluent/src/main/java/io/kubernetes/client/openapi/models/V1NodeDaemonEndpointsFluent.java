@@ -12,28 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1NodeDaemonEndpointsFluent<
-        A extends io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1NodeDaemonEndpointsFluent<A extends V1NodeDaemonEndpointsFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildKubeletEndpoint instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1DaemonEndpoint getKubeletEndpoint();
+  @Deprecated
+  public V1DaemonEndpoint getKubeletEndpoint();
 
   public io.kubernetes.client.openapi.models.V1DaemonEndpoint buildKubeletEndpoint();
 
   public A withKubeletEndpoint(
       io.kubernetes.client.openapi.models.V1DaemonEndpoint kubeletEndpoint);
 
-  public java.lang.Boolean hasKubeletEndpoint();
+  public Boolean hasKubeletEndpoint();
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      withNewKubeletEndpoint();
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> withNewKubeletEndpoint();
 
   public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
       withNewKubeletEndpointLike(io.kubernetes.client.openapi.models.V1DaemonEndpoint item);
@@ -48,10 +49,8 @@ public interface V1NodeDaemonEndpointsFluent<
       editOrNewKubeletEndpointLike(io.kubernetes.client.openapi.models.V1DaemonEndpoint item);
 
   public interface KubeletEndpointNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<
-              io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<
-                  N>> {
+      extends Nested<N>,
+          V1DaemonEndpointFluent<V1NodeDaemonEndpointsFluent.KubeletEndpointNested<N>> {
     public N and();
 
     public N endKubeletEndpoint();

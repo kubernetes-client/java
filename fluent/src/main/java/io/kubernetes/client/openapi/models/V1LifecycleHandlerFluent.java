@@ -12,26 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1LifecycleHandlerFluent<
-        A extends io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildExec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ExecAction getExec();
+  @Deprecated
+  public V1ExecAction getExec();
 
   public io.kubernetes.client.openapi.models.V1ExecAction buildExec();
 
   public A withExec(io.kubernetes.client.openapi.models.V1ExecAction exec);
 
-  public java.lang.Boolean hasExec();
+  public Boolean hasExec();
 
-  public io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.ExecNested<A> withNewExec();
+  public V1LifecycleHandlerFluent.ExecNested<A> withNewExec();
 
   public io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.ExecNested<A> withNewExecLike(
       io.kubernetes.client.openapi.models.V1ExecAction item);
@@ -49,7 +50,7 @@ public interface V1LifecycleHandlerFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1HTTPGetAction getHttpGet();
+  public V1HTTPGetAction getHttpGet();
 
   public io.kubernetes.client.openapi.models.V1HTTPGetAction buildHttpGet();
 
@@ -57,8 +58,7 @@ public interface V1LifecycleHandlerFluent<
 
   public java.lang.Boolean hasHttpGet();
 
-  public io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.HttpGetNested<A>
-      withNewHttpGet();
+  public V1LifecycleHandlerFluent.HttpGetNested<A> withNewHttpGet();
 
   public io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.HttpGetNested<A>
       withNewHttpGetLike(io.kubernetes.client.openapi.models.V1HTTPGetAction item);
@@ -78,7 +78,7 @@ public interface V1LifecycleHandlerFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1TCPSocketAction getTcpSocket();
+  public V1TCPSocketAction getTcpSocket();
 
   public io.kubernetes.client.openapi.models.V1TCPSocketAction buildTcpSocket();
 
@@ -86,8 +86,7 @@ public interface V1LifecycleHandlerFluent<
 
   public java.lang.Boolean hasTcpSocket();
 
-  public io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.TcpSocketNested<A>
-      withNewTcpSocket();
+  public V1LifecycleHandlerFluent.TcpSocketNested<A> withNewTcpSocket();
 
   public io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.TcpSocketNested<A>
       withNewTcpSocketLike(io.kubernetes.client.openapi.models.V1TCPSocketAction item);
@@ -102,9 +101,7 @@ public interface V1LifecycleHandlerFluent<
       editOrNewTcpSocketLike(io.kubernetes.client.openapi.models.V1TCPSocketAction item);
 
   public interface ExecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ExecActionFluent<
-              io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.ExecNested<N>> {
+      extends Nested<N>, V1ExecActionFluent<V1LifecycleHandlerFluent.ExecNested<N>> {
     public N and();
 
     public N endExec();
@@ -112,8 +109,7 @@ public interface V1LifecycleHandlerFluent<
 
   public interface HttpGetNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<
-              io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.HttpGetNested<N>> {
+          V1HTTPGetActionFluent<V1LifecycleHandlerFluent.HttpGetNested<N>> {
     public N and();
 
     public N endHttpGet();
@@ -121,8 +117,7 @@ public interface V1LifecycleHandlerFluent<
 
   public interface TcpSocketNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<
-              io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent.TcpSocketNested<N>> {
+          V1TCPSocketActionFluent<V1LifecycleHandlerFluent.TcpSocketNested<N>> {
     public N and();
 
     public N endTcpSocket();

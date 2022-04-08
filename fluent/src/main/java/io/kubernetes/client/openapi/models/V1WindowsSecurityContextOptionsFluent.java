@@ -12,29 +12,23 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
 public interface V1WindowsSecurityContextOptionsFluent<
-        A extends io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getGmsaCredentialSpec();
+        A extends V1WindowsSecurityContextOptionsFluent<A>>
+    extends Fluent<A> {
+  public String getGmsaCredentialSpec();
 
   public A withGmsaCredentialSpec(java.lang.String gmsaCredentialSpec);
 
-  public java.lang.Boolean hasGmsaCredentialSpec();
-
-  /** Method is deprecated. use withGmsaCredentialSpec instead. */
-  @java.lang.Deprecated
-  public A withNewGmsaCredentialSpec(java.lang.String original);
+  public Boolean hasGmsaCredentialSpec();
 
   public java.lang.String getGmsaCredentialSpecName();
 
   public A withGmsaCredentialSpecName(java.lang.String gmsaCredentialSpecName);
 
   public java.lang.Boolean hasGmsaCredentialSpecName();
-
-  /** Method is deprecated. use withGmsaCredentialSpecName instead. */
-  @java.lang.Deprecated
-  public A withNewGmsaCredentialSpecName(java.lang.String original);
 
   public java.lang.Boolean getHostProcess();
 
@@ -48,7 +42,5 @@ public interface V1WindowsSecurityContextOptionsFluent<
 
   public java.lang.Boolean hasRunAsUserName();
 
-  /** Method is deprecated. use withRunAsUserName instead. */
-  @java.lang.Deprecated
-  public A withNewRunAsUserName(java.lang.String original);
+  public A withHostProcess();
 }

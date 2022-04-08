@@ -12,10 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public class V1TaintFluentImpl<A extends io.kubernetes.client.openapi.models.V1TaintFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1TaintFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1TaintFluentImpl<A extends V1TaintFluent<A>> extends BaseFluent<A>
+    implements V1TaintFluent<A> {
   public V1TaintFluentImpl() {}
 
   public V1TaintFluentImpl(io.kubernetes.client.openapi.models.V1Taint instance) {
@@ -28,21 +31,21 @@ public class V1TaintFluentImpl<A extends io.kubernetes.client.openapi.models.V1T
     this.withValue(instance.getValue());
   }
 
-  private io.kubernetes.client.openapi.models.V1Taint.EffectEnum effect;
+  private String effect;
   private java.lang.String key;
-  private java.time.OffsetDateTime timeAdded;
+  private OffsetDateTime timeAdded;
   private java.lang.String value;
 
-  public io.kubernetes.client.openapi.models.V1Taint.EffectEnum getEffect() {
+  public java.lang.String getEffect() {
     return this.effect;
   }
 
-  public A withEffect(io.kubernetes.client.openapi.models.V1Taint.EffectEnum effect) {
+  public A withEffect(java.lang.String effect) {
     this.effect = effect;
     return (A) this;
   }
 
-  public java.lang.Boolean hasEffect() {
+  public Boolean hasEffect() {
     return this.effect != null;
   }
 
@@ -57,12 +60,6 @@ public class V1TaintFluentImpl<A extends io.kubernetes.client.openapi.models.V1T
 
   public java.lang.Boolean hasKey() {
     return this.key != null;
-  }
-
-  /** Method is deprecated. use withKey instead. */
-  @java.lang.Deprecated
-  public A withNewKey(java.lang.String original) {
-    return (A) withKey(new String(original));
   }
 
   public java.time.OffsetDateTime getTimeAdded() {
@@ -91,13 +88,7 @@ public class V1TaintFluentImpl<A extends io.kubernetes.client.openapi.models.V1T
     return this.value != null;
   }
 
-  /** Method is deprecated. use withValue instead. */
-  @java.lang.Deprecated
-  public A withNewValue(java.lang.String original) {
-    return (A) withValue(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1TaintFluentImpl that = (V1TaintFluentImpl) o;
@@ -111,5 +102,28 @@ public class V1TaintFluentImpl<A extends io.kubernetes.client.openapi.models.V1T
 
   public int hashCode() {
     return java.util.Objects.hash(effect, key, timeAdded, value, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (effect != null) {
+      sb.append("effect:");
+      sb.append(effect + ",");
+    }
+    if (key != null) {
+      sb.append("key:");
+      sb.append(key + ",");
+    }
+    if (timeAdded != null) {
+      sb.append("timeAdded:");
+      sb.append(timeAdded + ",");
+    }
+    if (value != null) {
+      sb.append("value:");
+      sb.append(value);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

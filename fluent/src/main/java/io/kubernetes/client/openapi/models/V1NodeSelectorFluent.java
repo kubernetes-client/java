@@ -12,12 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1NodeSelectorFluent<
-        A extends io.kubernetes.client.openapi.models.V1NodeSelectorFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToNodeSelectorTerms(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorTerm item);
+public interface V1NodeSelectorFluent<A extends V1NodeSelectorFluent<A>> extends Fluent<A> {
+  public A addToNodeSelectorTerms(Integer index, V1NodeSelectorTerm item);
 
   public A setToNodeSelectorTerms(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorTerm item);
@@ -25,7 +28,7 @@ public interface V1NodeSelectorFluent<
   public A addToNodeSelectorTerms(io.kubernetes.client.openapi.models.V1NodeSelectorTerm... items);
 
   public A addAllToNodeSelectorTerms(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeSelectorTerm> items);
+      Collection<io.kubernetes.client.openapi.models.V1NodeSelectorTerm> items);
 
   public A removeFromNodeSelectorTerms(
       io.kubernetes.client.openapi.models.V1NodeSelectorTerm... items);
@@ -33,18 +36,15 @@ public interface V1NodeSelectorFluent<
   public A removeAllFromNodeSelectorTerms(
       java.util.Collection<io.kubernetes.client.openapi.models.V1NodeSelectorTerm> items);
 
-  public A removeMatchingFromNodeSelectorTerms(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>
-          predicate);
+  public A removeMatchingFromNodeSelectorTerms(Predicate<V1NodeSelectorTermBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildNodeSelectorTerms instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorTerm>
-      getNodeSelectorTerms();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1NodeSelectorTerm> getNodeSelectorTerms();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorTerm>
       buildNodeSelectorTerms();
@@ -60,7 +60,7 @@ public interface V1NodeSelectorFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingNodeSelectorTerm(
+  public Boolean hasMatchingNodeSelectorTerm(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>
           predicate);
 
@@ -72,8 +72,7 @@ public interface V1NodeSelectorFluent<
 
   public java.lang.Boolean hasNodeSelectorTerms();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
-      addNewNodeSelectorTerm();
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> addNewNodeSelectorTerm();
 
   public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
       addNewNodeSelectorTermLike(io.kubernetes.client.openapi.models.V1NodeSelectorTerm item);
@@ -98,9 +97,7 @@ public interface V1NodeSelectorFluent<
               predicate);
 
   public interface NodeSelectorTermsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent<
-              io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<N>> {
+      extends Nested<N>, V1NodeSelectorTermFluent<V1NodeSelectorFluent.NodeSelectorTermsNested<N>> {
     public N and();
 
     public N endNodeSelectorTerm();

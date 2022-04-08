@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1beta1QueuingConfigurationFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1QueuingConfigurationFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1QueuingConfigurationFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1QueuingConfigurationFluentImpl<A extends V1beta1QueuingConfigurationFluent<A>>
+    extends BaseFluent<A> implements V1beta1QueuingConfigurationFluent<A> {
   public V1beta1QueuingConfigurationFluentImpl() {}
 
   public V1beta1QueuingConfigurationFluentImpl(
@@ -28,7 +29,7 @@ public class V1beta1QueuingConfigurationFluentImpl<
     this.withQueues(instance.getQueues());
   }
 
-  private java.lang.Integer handSize;
+  private Integer handSize;
   private java.lang.Integer queueLengthLimit;
   private java.lang.Integer queues;
 
@@ -41,7 +42,7 @@ public class V1beta1QueuingConfigurationFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasHandSize() {
+  public Boolean hasHandSize() {
     return this.handSize != null;
   }
 
@@ -71,7 +72,7 @@ public class V1beta1QueuingConfigurationFluentImpl<
     return this.queues != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1QueuingConfigurationFluentImpl that = (V1beta1QueuingConfigurationFluentImpl) o;
@@ -85,5 +86,24 @@ public class V1beta1QueuingConfigurationFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(handSize, queueLengthLimit, queues, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (handSize != null) {
+      sb.append("handSize:");
+      sb.append(handSize + ",");
+    }
+    if (queueLengthLimit != null) {
+      sb.append("queueLengthLimit:");
+      sb.append(queueLengthLimit + ",");
+    }
+    if (queues != null) {
+      sb.append("queues:");
+      sb.append(queues);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

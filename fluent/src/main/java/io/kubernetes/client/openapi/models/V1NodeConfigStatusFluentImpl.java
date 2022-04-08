@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1NodeConfigStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NodeConfigStatusFluentImpl<A extends V1NodeConfigStatusFluent<A>>
+    extends BaseFluent<A> implements V1NodeConfigStatusFluent<A> {
   public V1NodeConfigStatusFluentImpl() {}
 
   public V1NodeConfigStatusFluentImpl(
@@ -30,9 +32,9 @@ public class V1NodeConfigStatusFluentImpl<
     this.withLastKnownGood(instance.getLastKnownGood());
   }
 
-  private io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder active;
-  private io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder assigned;
-  private java.lang.String error;
+  private V1NodeConfigSourceBuilder active;
+  private V1NodeConfigSourceBuilder assigned;
+  private String error;
   private io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder lastKnownGood;
 
   /**
@@ -40,7 +42,7 @@ public class V1NodeConfigStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1NodeConfigSource getActive() {
     return this.active != null ? this.active.build() : null;
   }
@@ -58,19 +60,17 @@ public class V1NodeConfigStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasActive() {
+  public Boolean hasActive() {
     return this.active != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<A>
-      withNewActive() {
-    return new io.kubernetes.client.openapi.models.V1NodeConfigStatusFluentImpl.ActiveNestedImpl();
+  public V1NodeConfigStatusFluent.ActiveNested<A> withNewActive() {
+    return new V1NodeConfigStatusFluentImpl.ActiveNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<A>
       withNewActiveLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
-    return new io.kubernetes.client.openapi.models.V1NodeConfigStatusFluentImpl.ActiveNestedImpl(
-        item);
+    return new V1NodeConfigStatusFluentImpl.ActiveNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<A> editActive() {
@@ -117,10 +117,8 @@ public class V1NodeConfigStatusFluentImpl<
     return this.assigned != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.AssignedNested<A>
-      withNewAssigned() {
-    return new io.kubernetes.client.openapi.models.V1NodeConfigStatusFluentImpl
-        .AssignedNestedImpl();
+  public V1NodeConfigStatusFluent.AssignedNested<A> withNewAssigned() {
+    return new V1NodeConfigStatusFluentImpl.AssignedNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.AssignedNested<A>
@@ -160,12 +158,6 @@ public class V1NodeConfigStatusFluentImpl<
     return this.error != null;
   }
 
-  /** Method is deprecated. use withError instead. */
-  @java.lang.Deprecated
-  public A withNewError(java.lang.String original) {
-    return (A) withError(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildLastKnownGood instead.
    *
@@ -194,10 +186,8 @@ public class V1NodeConfigStatusFluentImpl<
     return this.lastKnownGood != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.LastKnownGoodNested<A>
-      withNewLastKnownGood() {
-    return new io.kubernetes.client.openapi.models.V1NodeConfigStatusFluentImpl
-        .LastKnownGoodNestedImpl();
+  public V1NodeConfigStatusFluent.LastKnownGoodNested<A> withNewLastKnownGood() {
+    return new V1NodeConfigStatusFluentImpl.LastKnownGoodNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.LastKnownGoodNested<A>
@@ -224,7 +214,7 @@ public class V1NodeConfigStatusFluentImpl<
     return withNewLastKnownGoodLike(getLastKnownGood() != null ? getLastKnownGood() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NodeConfigStatusFluentImpl that = (V1NodeConfigStatusFluentImpl) o;
@@ -241,13 +231,35 @@ public class V1NodeConfigStatusFluentImpl<
     return java.util.Objects.hash(active, assigned, error, lastKnownGood, super.hashCode());
   }
 
-  public class ActiveNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NodeConfigSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (active != null) {
+      sb.append("active:");
+      sb.append(active + ",");
+    }
+    if (assigned != null) {
+      sb.append("assigned:");
+      sb.append(assigned + ",");
+    }
+    if (error != null) {
+      sb.append("error:");
+      sb.append(error + ",");
+    }
+    if (lastKnownGood != null) {
+      sb.append("lastKnownGood:");
+      sb.append(lastKnownGood);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ActiveNestedImpl<N>
+      extends V1NodeConfigSourceFluentImpl<V1NodeConfigStatusFluent.ActiveNested<N>>
       implements io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ActiveNestedImpl(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder(this, item);
+      this.builder = new V1NodeConfigSourceBuilder(this, item);
     }
 
     ActiveNestedImpl() {
@@ -265,13 +277,12 @@ public class V1NodeConfigStatusFluentImpl<
     }
   }
 
-  public class AssignedNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NodeConfigSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.AssignedNested<N>>
+  class AssignedNestedImpl<N>
+      extends V1NodeConfigSourceFluentImpl<V1NodeConfigStatusFluent.AssignedNested<N>>
       implements io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.AssignedNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     AssignedNestedImpl(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder(this, item);
+      this.builder = new V1NodeConfigSourceBuilder(this, item);
     }
 
     AssignedNestedImpl() {
@@ -289,14 +300,13 @@ public class V1NodeConfigStatusFluentImpl<
     }
   }
 
-  public class LastKnownGoodNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NodeConfigSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.LastKnownGoodNested<N>>
+  class LastKnownGoodNestedImpl<N>
+      extends V1NodeConfigSourceFluentImpl<V1NodeConfigStatusFluent.LastKnownGoodNested<N>>
       implements io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.LastKnownGoodNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     LastKnownGoodNestedImpl(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder(this, item);
+      this.builder = new V1NodeConfigSourceBuilder(this, item);
     }
 
     LastKnownGoodNestedImpl() {

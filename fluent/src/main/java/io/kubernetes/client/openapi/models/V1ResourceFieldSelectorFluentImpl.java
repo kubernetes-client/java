@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
-public class V1ResourceFieldSelectorFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ResourceFieldSelectorFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ResourceFieldSelectorFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ResourceFieldSelectorFluentImpl<A extends V1ResourceFieldSelectorFluent<A>>
+    extends BaseFluent<A> implements V1ResourceFieldSelectorFluent<A> {
   public V1ResourceFieldSelectorFluentImpl() {}
 
   public V1ResourceFieldSelectorFluentImpl(
@@ -30,8 +30,8 @@ public class V1ResourceFieldSelectorFluentImpl<
     this.withResource(instance.getResource());
   }
 
-  private java.lang.String containerName;
-  private io.kubernetes.client.custom.Quantity divisor;
+  private String containerName;
+  private Quantity divisor;
   private java.lang.String resource;
 
   public java.lang.String getContainerName() {
@@ -43,14 +43,8 @@ public class V1ResourceFieldSelectorFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasContainerName() {
+  public Boolean hasContainerName() {
     return this.containerName != null;
-  }
-
-  /** Method is deprecated. use withContainerName instead. */
-  @java.lang.Deprecated
-  public A withNewContainerName(java.lang.String original) {
-    return (A) withContainerName(new String(original));
   }
 
   public io.kubernetes.client.custom.Quantity getDivisor() {
@@ -83,13 +77,7 @@ public class V1ResourceFieldSelectorFluentImpl<
     return this.resource != null;
   }
 
-  /** Method is deprecated. use withResource instead. */
-  @java.lang.Deprecated
-  public A withNewResource(java.lang.String original) {
-    return (A) withResource(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ResourceFieldSelectorFluentImpl that = (V1ResourceFieldSelectorFluentImpl) o;
@@ -103,5 +91,24 @@ public class V1ResourceFieldSelectorFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(containerName, divisor, resource, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (containerName != null) {
+      sb.append("containerName:");
+      sb.append(containerName + ",");
+    }
+    if (divisor != null) {
+      sb.append("divisor:");
+      sb.append(divisor + ",");
+    }
+    if (resource != null) {
+      sb.append("resource:");
+      sb.append(resource);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

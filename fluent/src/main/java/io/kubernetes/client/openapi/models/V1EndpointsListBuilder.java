@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1EndpointsListBuilder
-    extends io.kubernetes.client.openapi.models.V1EndpointsListFluentImpl<
-        io.kubernetes.client.openapi.models.V1EndpointsListBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1EndpointsList,
-        io.kubernetes.client.openapi.models.V1EndpointsListBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1EndpointsListBuilder extends V1EndpointsListFluentImpl<V1EndpointsListBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1EndpointsList, V1EndpointsListBuilder> {
   public V1EndpointsListBuilder() {
     this(false);
   }
 
-  public V1EndpointsListBuilder(java.lang.Boolean validationEnabled) {
+  public V1EndpointsListBuilder(Boolean validationEnabled) {
     this(new V1EndpointsList(), validationEnabled);
   }
 
@@ -88,24 +87,5 @@ public class V1EndpointsListBuilder
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.getMetadata());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1EndpointsListBuilder that = (V1EndpointsListBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

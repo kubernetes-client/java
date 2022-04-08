@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1HostAliasFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1HostAliasFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1HostAliasFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseFluent<A>
+    implements V1HostAliasFluent<A> {
   public V1HostAliasFluentImpl() {}
 
   public V1HostAliasFluentImpl(io.kubernetes.client.openapi.models.V1HostAlias instance) {
@@ -25,12 +30,12 @@ public class V1HostAliasFluentImpl<
     this.withIp(instance.getIp());
   }
 
-  private java.util.List<java.lang.String> hostnames;
+  private List<String> hostnames;
   private java.lang.String ip;
 
-  public A addToHostnames(java.lang.Integer index, java.lang.String item) {
+  public A addToHostnames(Integer index, java.lang.String item) {
     if (this.hostnames == null) {
-      this.hostnames = new java.util.ArrayList<java.lang.String>();
+      this.hostnames = new ArrayList<java.lang.String>();
     }
     this.hostnames.add(index, item);
     return (A) this;
@@ -54,7 +59,7 @@ public class V1HostAliasFluentImpl<
     return (A) this;
   }
 
-  public A addAllToHostnames(java.util.Collection<java.lang.String> items) {
+  public A addAllToHostnames(Collection<java.lang.String> items) {
     if (this.hostnames == null) {
       this.hostnames = new java.util.ArrayList<java.lang.String>();
     }
@@ -98,8 +103,7 @@ public class V1HostAliasFluentImpl<
     return this.hostnames.get(hostnames.size() - 1);
   }
 
-  public java.lang.String getMatchingHostname(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingHostname(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : hostnames) {
       if (predicate.test(item)) {
         return item;
@@ -108,8 +112,7 @@ public class V1HostAliasFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingHostname(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingHostname(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : hostnames) {
       if (predicate.test(item)) {
         return true;
@@ -146,10 +149,6 @@ public class V1HostAliasFluentImpl<
     return hostnames != null && !hostnames.isEmpty();
   }
 
-  public A addNewHostname(java.lang.String original) {
-    return (A) addToHostnames(new String(original));
-  }
-
   public java.lang.String getIp() {
     return this.ip;
   }
@@ -163,13 +162,7 @@ public class V1HostAliasFluentImpl<
     return this.ip != null;
   }
 
-  /** Method is deprecated. use withIp instead. */
-  @java.lang.Deprecated
-  public A withNewIp(java.lang.String original) {
-    return (A) withIp(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1HostAliasFluentImpl that = (V1HostAliasFluentImpl) o;
@@ -181,5 +174,20 @@ public class V1HostAliasFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(hostnames, ip, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (hostnames != null && !hostnames.isEmpty()) {
+      sb.append("hostnames:");
+      sb.append(hostnames + ",");
+    }
+    if (ip != null) {
+      sb.append("ip:");
+      sb.append(ip);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

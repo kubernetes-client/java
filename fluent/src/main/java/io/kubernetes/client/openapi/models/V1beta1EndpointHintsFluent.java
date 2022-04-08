@@ -12,37 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1beta1EndpointHintsFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToForZones(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1ForZone item);
+public interface V1beta1EndpointHintsFluent<A extends V1beta1EndpointHintsFluent<A>>
+    extends Fluent<A> {
+  public A addToForZones(Integer index, V1beta1ForZone item);
 
   public A setToForZones(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1ForZone item);
 
   public A addToForZones(io.kubernetes.client.openapi.models.V1beta1ForZone... items);
 
-  public A addAllToForZones(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1ForZone> items);
+  public A addAllToForZones(Collection<io.kubernetes.client.openapi.models.V1beta1ForZone> items);
 
   public A removeFromForZones(io.kubernetes.client.openapi.models.V1beta1ForZone... items);
 
   public A removeAllFromForZones(
       java.util.Collection<io.kubernetes.client.openapi.models.V1beta1ForZone> items);
 
-  public A removeMatchingFromForZones(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder>
-          predicate);
+  public A removeMatchingFromForZones(Predicate<V1beta1ForZoneBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildForZones instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1ForZone> getForZones();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1ForZone> getForZones();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1ForZone> buildForZones();
 
@@ -56,7 +57,7 @@ public interface V1beta1EndpointHintsFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingForZone(
+  public Boolean hasMatchingForZone(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder>
           predicate);
 
@@ -67,8 +68,7 @@ public interface V1beta1EndpointHintsFluent<
 
   public java.lang.Boolean hasForZones();
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<A>
-      addNewForZone();
+  public V1beta1EndpointHintsFluent.ForZonesNested<A> addNewForZone();
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<A>
       addNewForZoneLike(io.kubernetes.client.openapi.models.V1beta1ForZone item);
@@ -92,9 +92,7 @@ public interface V1beta1EndpointHintsFluent<
               predicate);
 
   public interface ForZonesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1ForZoneFluent<
-              io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<N>> {
+      extends Nested<N>, V1beta1ForZoneFluent<V1beta1EndpointHintsFluent.ForZonesNested<N>> {
     public N and();
 
     public N endForZone();

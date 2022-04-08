@@ -12,22 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V2HPAScalingRulesBuilder
-    extends io.kubernetes.client.openapi.models.V2HPAScalingRulesFluentImpl<
-        io.kubernetes.client.openapi.models.V2HPAScalingRulesBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2HPAScalingRules,
-        io.kubernetes.client.openapi.models.V2HPAScalingRulesBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V2HPAScalingRulesBuilder extends V2HPAScalingRulesFluentImpl<V2HPAScalingRulesBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V2HPAScalingRules, V2HPAScalingRulesBuilder> {
   public V2HPAScalingRulesBuilder() {
     this(false);
   }
 
-  public V2HPAScalingRulesBuilder(java.lang.Boolean validationEnabled) {
+  public V2HPAScalingRulesBuilder(Boolean validationEnabled) {
     this(new V2HPAScalingRules(), validationEnabled);
   }
 
-  public V2HPAScalingRulesBuilder(
-      io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent<?> fluent) {
+  public V2HPAScalingRulesBuilder(V2HPAScalingRulesFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -83,24 +81,5 @@ public class V2HPAScalingRulesBuilder
     buildable.setSelectPolicy(fluent.getSelectPolicy());
     buildable.setStabilizationWindowSeconds(fluent.getStabilizationWindowSeconds());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V2HPAScalingRulesBuilder that = (V2HPAScalingRulesBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

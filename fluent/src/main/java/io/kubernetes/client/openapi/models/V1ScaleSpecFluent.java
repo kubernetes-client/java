@@ -12,13 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1ScaleSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1ScaleSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getReplicas();
+public interface V1ScaleSpecFluent<A extends V1ScaleSpecFluent<A>> extends Fluent<A> {
+  public Integer getReplicas();
 
   public A withReplicas(java.lang.Integer replicas);
 
-  public java.lang.Boolean hasReplicas();
+  public Boolean hasReplicas();
 }

@@ -12,18 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1DaemonEndpointFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1DaemonEndpointFluentImpl<A extends V1DaemonEndpointFluent<A>> extends BaseFluent<A>
+    implements V1DaemonEndpointFluent<A> {
   public V1DaemonEndpointFluentImpl() {}
 
   public V1DaemonEndpointFluentImpl(io.kubernetes.client.openapi.models.V1DaemonEndpoint instance) {
     this.withPort(instance.getPort());
   }
 
-  private java.lang.Integer port;
+  private Integer port;
 
   public java.lang.Integer getPort() {
     return this.port;
@@ -34,11 +35,11 @@ public class V1DaemonEndpointFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1DaemonEndpointFluentImpl that = (V1DaemonEndpointFluentImpl) o;
@@ -48,5 +49,16 @@ public class V1DaemonEndpointFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(port, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (port != null) {
+      sb.append("port:");
+      sb.append(port);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

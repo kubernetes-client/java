@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1SubjectAccessReviewStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Boolean getAllowed();
+public interface V1SubjectAccessReviewStatusFluent<A extends V1SubjectAccessReviewStatusFluent<A>>
+    extends Fluent<A> {
+  public Boolean getAllowed();
 
   public A withAllowed(java.lang.Boolean allowed);
 
@@ -28,15 +29,11 @@ public interface V1SubjectAccessReviewStatusFluent<
 
   public java.lang.Boolean hasDenied();
 
-  public java.lang.String getEvaluationError();
+  public String getEvaluationError();
 
   public A withEvaluationError(java.lang.String evaluationError);
 
   public java.lang.Boolean hasEvaluationError();
-
-  /** Method is deprecated. use withEvaluationError instead. */
-  @java.lang.Deprecated
-  public A withNewEvaluationError(java.lang.String original);
 
   public java.lang.String getReason();
 
@@ -44,7 +41,7 @@ public interface V1SubjectAccessReviewStatusFluent<
 
   public java.lang.Boolean hasReason();
 
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
+  public A withAllowed();
+
+  public A withDenied();
 }

@@ -12,47 +12,44 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1HTTPGetActionFluent<
-        A extends io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getHost();
+public interface V1HTTPGetActionFluent<A extends V1HTTPGetActionFluent<A>> extends Fluent<A> {
+  public String getHost();
 
   public A withHost(java.lang.String host);
 
-  public java.lang.Boolean hasHost();
+  public Boolean hasHost();
 
-  /** Method is deprecated. use withHost instead. */
-  @java.lang.Deprecated
-  public A withNewHost(java.lang.String original);
-
-  public A addToHttpHeaders(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1HTTPHeader item);
+  public A addToHttpHeaders(Integer index, V1HTTPHeader item);
 
   public A setToHttpHeaders(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1HTTPHeader item);
 
   public A addToHttpHeaders(io.kubernetes.client.openapi.models.V1HTTPHeader... items);
 
-  public A addAllToHttpHeaders(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1HTTPHeader> items);
+  public A addAllToHttpHeaders(Collection<io.kubernetes.client.openapi.models.V1HTTPHeader> items);
 
   public A removeFromHttpHeaders(io.kubernetes.client.openapi.models.V1HTTPHeader... items);
 
   public A removeAllFromHttpHeaders(
       java.util.Collection<io.kubernetes.client.openapi.models.V1HTTPHeader> items);
 
-  public A removeMatchingFromHttpHeaders(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder>
-          predicate);
+  public A removeMatchingFromHttpHeaders(Predicate<V1HTTPHeaderBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildHttpHeaders instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1HTTPHeader> getHttpHeaders();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1HTTPHeader> getHttpHeaders();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1HTTPHeader> buildHttpHeaders();
 
@@ -77,8 +74,7 @@ public interface V1HTTPGetActionFluent<
 
   public java.lang.Boolean hasHttpHeaders();
 
-  public io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<A>
-      addNewHttpHeader();
+  public V1HTTPGetActionFluent.HttpHeadersNested<A> addNewHttpHeader();
 
   public io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<A>
       addNewHttpHeaderLike(io.kubernetes.client.openapi.models.V1HTTPHeader item);
@@ -107,11 +103,7 @@ public interface V1HTTPGetActionFluent<
 
   public java.lang.Boolean hasPath();
 
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original);
-
-  public io.kubernetes.client.custom.IntOrString getPort();
+  public IntOrString getPort();
 
   public A withPort(io.kubernetes.client.custom.IntOrString port);
 
@@ -121,16 +113,14 @@ public interface V1HTTPGetActionFluent<
 
   public A withNewPort(java.lang.String value);
 
-  public io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum getScheme();
+  public java.lang.String getScheme();
 
-  public A withScheme(io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum scheme);
+  public A withScheme(java.lang.String scheme);
 
   public java.lang.Boolean hasScheme();
 
   public interface HttpHeadersNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1HTTPHeaderFluent<
-              io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<N>> {
+      extends Nested<N>, V1HTTPHeaderFluent<V1HTTPGetActionFluent.HttpHeadersNested<N>> {
     public N and();
 
     public N endHttpHeader();

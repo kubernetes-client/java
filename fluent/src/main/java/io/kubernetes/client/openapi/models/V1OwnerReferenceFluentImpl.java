@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1OwnerReferenceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1OwnerReferenceFluentImpl<A extends V1OwnerReferenceFluent<A>> extends BaseFluent<A>
+    implements V1OwnerReferenceFluent<A> {
   public V1OwnerReferenceFluentImpl() {}
 
   public V1OwnerReferenceFluentImpl(io.kubernetes.client.openapi.models.V1OwnerReference instance) {
@@ -33,8 +34,8 @@ public class V1OwnerReferenceFluentImpl<
     this.withUid(instance.getUid());
   }
 
-  private java.lang.String apiVersion;
-  private java.lang.Boolean blockOwnerDeletion;
+  private String apiVersion;
+  private Boolean blockOwnerDeletion;
   private java.lang.Boolean controller;
   private java.lang.String kind;
   private java.lang.String name;
@@ -51,12 +52,6 @@ public class V1OwnerReferenceFluentImpl<
 
   public java.lang.Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.Boolean getBlockOwnerDeletion() {
@@ -98,12 +93,6 @@ public class V1OwnerReferenceFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -115,12 +104,6 @@ public class V1OwnerReferenceFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.String getUid() {
@@ -136,13 +119,7 @@ public class V1OwnerReferenceFluentImpl<
     return this.uid != null;
   }
 
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A) withUid(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1OwnerReferenceFluentImpl that = (V1OwnerReferenceFluentImpl) o;
@@ -162,5 +139,44 @@ public class V1OwnerReferenceFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         apiVersion, blockOwnerDeletion, controller, kind, name, uid, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (blockOwnerDeletion != null) {
+      sb.append("blockOwnerDeletion:");
+      sb.append(blockOwnerDeletion + ",");
+    }
+    if (controller != null) {
+      sb.append("controller:");
+      sb.append(controller + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (uid != null) {
+      sb.append("uid:");
+      sb.append(uid);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withBlockOwnerDeletion() {
+    return withBlockOwnerDeletion(true);
+  }
+
+  public A withController() {
+    return withController(true);
   }
 }

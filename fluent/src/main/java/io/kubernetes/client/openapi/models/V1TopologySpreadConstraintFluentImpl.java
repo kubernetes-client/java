@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1TopologySpreadConstraintFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1TopologySpreadConstraintFluentImpl<A extends V1TopologySpreadConstraintFluent<A>>
+    extends BaseFluent<A> implements V1TopologySpreadConstraintFluent<A> {
   public V1TopologySpreadConstraintFluentImpl() {}
 
   public V1TopologySpreadConstraintFluentImpl(
@@ -30,18 +32,17 @@ public class V1TopologySpreadConstraintFluentImpl<
     this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
   }
 
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder labelSelector;
-  private java.lang.Integer maxSkew;
-  private java.lang.String topologyKey;
-  private io.kubernetes.client.openapi.models.V1TopologySpreadConstraint.WhenUnsatisfiableEnum
-      whenUnsatisfiable;
+  private V1LabelSelectorBuilder labelSelector;
+  private Integer maxSkew;
+  private String topologyKey;
+  private java.lang.String whenUnsatisfiable;
 
   /**
    * This method has been deprecated, please use method buildLabelSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getLabelSelector() {
     return this.labelSelector != null ? this.labelSelector.build() : null;
   }
@@ -53,27 +54,23 @@ public class V1TopologySpreadConstraintFluentImpl<
   public A withLabelSelector(io.kubernetes.client.openapi.models.V1LabelSelector labelSelector) {
     _visitables.get("labelSelector").remove(this.labelSelector);
     if (labelSelector != null) {
-      this.labelSelector =
-          new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(labelSelector);
+      this.labelSelector = new V1LabelSelectorBuilder(labelSelector);
       _visitables.get("labelSelector").add(this.labelSelector);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasLabelSelector() {
+  public Boolean hasLabelSelector() {
     return this.labelSelector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<A>
-      withNewLabelSelector() {
-    return new io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluentImpl
-        .LabelSelectorNestedImpl();
+  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> withNewLabelSelector() {
+    return new V1TopologySpreadConstraintFluentImpl.LabelSelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<A>
       withNewLabelSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluentImpl
-        .LabelSelectorNestedImpl(item);
+    return new V1TopologySpreadConstraintFluentImpl.LabelSelectorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<A>
@@ -120,20 +117,11 @@ public class V1TopologySpreadConstraintFluentImpl<
     return this.topologyKey != null;
   }
 
-  /** Method is deprecated. use withTopologyKey instead. */
-  @java.lang.Deprecated
-  public A withNewTopologyKey(java.lang.String original) {
-    return (A) withTopologyKey(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1TopologySpreadConstraint.WhenUnsatisfiableEnum
-      getWhenUnsatisfiable() {
+  public java.lang.String getWhenUnsatisfiable() {
     return this.whenUnsatisfiable;
   }
 
-  public A withWhenUnsatisfiable(
-      io.kubernetes.client.openapi.models.V1TopologySpreadConstraint.WhenUnsatisfiableEnum
-          whenUnsatisfiable) {
+  public A withWhenUnsatisfiable(java.lang.String whenUnsatisfiable) {
     this.whenUnsatisfiable = whenUnsatisfiable;
     return (A) this;
   }
@@ -142,7 +130,7 @@ public class V1TopologySpreadConstraintFluentImpl<
     return this.whenUnsatisfiable != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1TopologySpreadConstraintFluentImpl that = (V1TopologySpreadConstraintFluentImpl) o;
@@ -163,16 +151,37 @@ public class V1TopologySpreadConstraintFluentImpl<
         labelSelector, maxSkew, topologyKey, whenUnsatisfiable, super.hashCode());
   }
 
-  public class LabelSelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (labelSelector != null) {
+      sb.append("labelSelector:");
+      sb.append(labelSelector + ",");
+    }
+    if (maxSkew != null) {
+      sb.append("maxSkew:");
+      sb.append(maxSkew + ",");
+    }
+    if (topologyKey != null) {
+      sb.append("topologyKey:");
+      sb.append(topologyKey + ",");
+    }
+    if (whenUnsatisfiable != null) {
+      sb.append("whenUnsatisfiable:");
+      sb.append(whenUnsatisfiable);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class LabelSelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V1TopologySpreadConstraintFluent.LabelSelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent
                   .LabelSelectorNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    LabelSelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+          Nested<N> {
+    LabelSelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     LabelSelectorNestedImpl() {

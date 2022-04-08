@@ -12,10 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /** Generated */
-public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1SecretFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1SecretFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1SecretFluentImpl<A extends V1SecretFluent<A>> extends BaseFluent<A>
+    implements V1SecretFluent<A> {
   public V1SecretFluentImpl() {}
 
   public V1SecretFluentImpl(io.kubernetes.client.openapi.models.V1Secret instance) {
@@ -34,11 +39,11 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
     this.withType(instance.getType());
   }
 
-  private java.lang.String apiVersion;
-  private java.util.Map<java.lang.String, byte[]> data;
-  private java.lang.Boolean immutable;
+  private String apiVersion;
+  private Map<java.lang.String, byte[]> data;
+  private Boolean immutable;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
+  private V1ObjectMetaBuilder metadata;
   private java.util.Map<java.lang.String, java.lang.String> stringData;
   private java.lang.String type;
 
@@ -55,15 +60,9 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
   public A addToData(java.lang.String key, byte[] value) {
     if (this.data == null && key != null && value != null) {
-      this.data = new java.util.LinkedHashMap();
+      this.data = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.data.put(key, value);
@@ -148,18 +147,12 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -171,7 +164,7 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -181,13 +174,13 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1SecretFluentImpl.MetadataNestedImpl();
+  public V1SecretFluent.MetadataNested<A> withNewMetadata() {
+    return new V1SecretFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> withNewMetadataLike(
       io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1SecretFluentImpl.MetadataNestedImpl(item);
+    return new V1SecretFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> editMetadata() {
@@ -280,13 +273,7 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
     return this.type != null;
   }
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A) withType(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1SecretFluentImpl that = (V1SecretFluentImpl) o;
@@ -308,13 +295,49 @@ public class V1SecretFluentImpl<A extends io.kubernetes.client.openapi.models.V1
         apiVersion, data, immutable, kind, metadata, stringData, type, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (data != null && !data.isEmpty()) {
+      sb.append("data:");
+      sb.append(data + ",");
+    }
+    if (immutable != null) {
+      sb.append("immutable:");
+      sb.append(immutable + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (stringData != null && !stringData.isEmpty()) {
+      sb.append("stringData:");
+      sb.append(stringData + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withImmutable() {
+    return withImmutable(true);
+  }
+
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1SecretFluent.MetadataNested<N>>
+      implements io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<N>, Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {

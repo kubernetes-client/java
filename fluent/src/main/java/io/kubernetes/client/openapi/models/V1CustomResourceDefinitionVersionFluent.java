@@ -12,13 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1CustomResourceDefinitionVersionFluent<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToAdditionalPrinterColumns(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item);
+        A extends V1CustomResourceDefinitionVersionFluent<A>>
+    extends Fluent<A> {
+  public A addToAdditionalPrinterColumns(Integer index, V1CustomResourceColumnDefinition item);
 
   public A setToAdditionalPrinterColumns(
       java.lang.Integer index,
@@ -28,8 +32,7 @@ public interface V1CustomResourceDefinitionVersionFluent<
       io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition... items);
 
   public A addAllToAdditionalPrinterColumns(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition>
-          items);
+      Collection<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition> items);
 
   public A removeFromAdditionalPrinterColumns(
       io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition... items);
@@ -39,17 +42,15 @@ public interface V1CustomResourceDefinitionVersionFluent<
           items);
 
   public A removeMatchingFromAdditionalPrinterColumns(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>
-          predicate);
+      Predicate<V1CustomResourceColumnDefinitionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildAdditionalPrinterColumns instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition>
       getAdditionalPrinterColumns();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition>
@@ -70,7 +71,7 @@ public interface V1CustomResourceDefinitionVersionFluent<
                   io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>
               predicate);
 
-  public java.lang.Boolean hasMatchingAdditionalPrinterColumn(
+  public Boolean hasMatchingAdditionalPrinterColumn(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>
           predicate);
@@ -85,9 +86,7 @@ public interface V1CustomResourceDefinitionVersionFluent<
 
   public java.lang.Boolean hasAdditionalPrinterColumns();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .AdditionalPrinterColumnsNested<
-          A>
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A>
       addNewAdditionalPrinterColumn();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
@@ -132,15 +131,11 @@ public interface V1CustomResourceDefinitionVersionFluent<
 
   public java.lang.Boolean hasDeprecated();
 
-  public java.lang.String getDeprecationWarning();
+  public String getDeprecationWarning();
 
   public A withDeprecationWarning(java.lang.String deprecationWarning);
 
   public java.lang.Boolean hasDeprecationWarning();
-
-  /** Method is deprecated. use withDeprecationWarning instead. */
-  @java.lang.Deprecated
-  public A withNewDeprecationWarning(java.lang.String original);
 
   public java.lang.String getName();
 
@@ -148,17 +143,13 @@ public interface V1CustomResourceDefinitionVersionFluent<
 
   public java.lang.Boolean hasName();
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildSchema instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceValidation getSchema();
+  public V1CustomResourceValidation getSchema();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceValidation buildSchema();
 
@@ -166,8 +157,7 @@ public interface V1CustomResourceDefinitionVersionFluent<
 
   public java.lang.Boolean hasSchema();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent.SchemaNested<A>
-      withNewSchema();
+  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> withNewSchema();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent.SchemaNested<A>
       withNewSchemaLike(io.kubernetes.client.openapi.models.V1CustomResourceValidation item);
@@ -199,7 +189,7 @@ public interface V1CustomResourceDefinitionVersionFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresources getSubresources();
+  public V1CustomResourceSubresources getSubresources();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresources buildSubresources();
 
@@ -208,10 +198,7 @@ public interface V1CustomResourceDefinitionVersionFluent<
 
   public java.lang.Boolean hasSubresources();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .SubresourcesNested<
-          A>
-      withNewSubresources();
+  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> withNewSubresources();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
               .SubresourcesNested<
@@ -235,12 +222,16 @@ public interface V1CustomResourceDefinitionVersionFluent<
       editOrNewSubresourcesLike(
           io.kubernetes.client.openapi.models.V1CustomResourceSubresources item);
 
+  public A withDeprecated();
+
+  public A withServed();
+
+  public A withStorage();
+
   public interface AdditionalPrinterColumnsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-                      .AdditionalPrinterColumnsNested<
-                  N>> {
+      extends Nested<N>,
+          V1CustomResourceColumnDefinitionFluent<
+              V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<N>> {
     public N and();
 
     public N endAdditionalPrinterColumn();
@@ -248,10 +239,8 @@ public interface V1CustomResourceDefinitionVersionFluent<
 
   public interface SchemaNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-                      .SchemaNested<
-                  N>> {
+          V1CustomResourceValidationFluent<
+              V1CustomResourceDefinitionVersionFluent.SchemaNested<N>> {
     public N and();
 
     public N endSchema();
@@ -259,10 +248,8 @@ public interface V1CustomResourceDefinitionVersionFluent<
 
   public interface SubresourcesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-                      .SubresourcesNested<
-                  N>> {
+          V1CustomResourceSubresourcesFluent<
+              V1CustomResourceDefinitionVersionFluent.SubresourcesNested<N>> {
     public N and();
 
     public N endSubresources();

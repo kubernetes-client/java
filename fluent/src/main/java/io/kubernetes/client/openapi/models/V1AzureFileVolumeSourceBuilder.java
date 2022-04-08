@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1AzureFileVolumeSourceBuilder
-    extends io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1AzureFileVolumeSource,
+    extends V1AzureFileVolumeSourceFluentImpl<V1AzureFileVolumeSourceBuilder>
+    implements VisitableBuilder<
+        V1AzureFileVolumeSource,
         io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceBuilder> {
   public V1AzureFileVolumeSourceBuilder() {
     this(false);
   }
 
-  public V1AzureFileVolumeSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V1AzureFileVolumeSourceBuilder(Boolean validationEnabled) {
     this(new V1AzureFileVolumeSource(), validationEnabled);
   }
 
-  public V1AzureFileVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<?> fluent) {
+  public V1AzureFileVolumeSourceBuilder(V1AzureFileVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -84,24 +84,5 @@ public class V1AzureFileVolumeSourceBuilder
     buildable.setSecretName(fluent.getSecretName());
     buildable.setShareName(fluent.getShareName());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1AzureFileVolumeSourceBuilder that = (V1AzureFileVolumeSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

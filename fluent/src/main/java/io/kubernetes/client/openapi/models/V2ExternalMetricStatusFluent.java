@@ -12,27 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V2ExternalMetricStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V2ExternalMetricStatusFluent<A extends V2ExternalMetricStatusFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildCurrent instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2MetricValueStatus getCurrent();
+  @Deprecated
+  public V2MetricValueStatus getCurrent();
 
   public io.kubernetes.client.openapi.models.V2MetricValueStatus buildCurrent();
 
   public A withCurrent(io.kubernetes.client.openapi.models.V2MetricValueStatus current);
 
-  public java.lang.Boolean hasCurrent();
+  public Boolean hasCurrent();
 
-  public io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent.CurrentNested<A>
-      withNewCurrent();
+  public V2ExternalMetricStatusFluent.CurrentNested<A> withNewCurrent();
 
   public io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent.CurrentNested<A>
       withNewCurrentLike(io.kubernetes.client.openapi.models.V2MetricValueStatus item);
@@ -52,7 +53,7 @@ public interface V2ExternalMetricStatusFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2MetricIdentifier getMetric();
+  public V2MetricIdentifier getMetric();
 
   public io.kubernetes.client.openapi.models.V2MetricIdentifier buildMetric();
 
@@ -60,8 +61,7 @@ public interface V2ExternalMetricStatusFluent<
 
   public java.lang.Boolean hasMetric();
 
-  public io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent.MetricNested<A>
-      withNewMetric();
+  public V2ExternalMetricStatusFluent.MetricNested<A> withNewMetric();
 
   public io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent.MetricNested<A>
       withNewMetricLike(io.kubernetes.client.openapi.models.V2MetricIdentifier item);
@@ -76,9 +76,7 @@ public interface V2ExternalMetricStatusFluent<
       editOrNewMetricLike(io.kubernetes.client.openapi.models.V2MetricIdentifier item);
 
   public interface CurrentNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<
-              io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent.CurrentNested<N>> {
+      extends Nested<N>, V2MetricValueStatusFluent<V2ExternalMetricStatusFluent.CurrentNested<N>> {
     public N and();
 
     public N endCurrent();
@@ -86,8 +84,7 @@ public interface V2ExternalMetricStatusFluent<
 
   public interface MetricNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2MetricIdentifierFluent<
-              io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent.MetricNested<N>> {
+          V2MetricIdentifierFluent<V2ExternalMetricStatusFluent.MetricNested<N>> {
     public N and();
 
     public N endMetric();

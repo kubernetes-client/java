@@ -12,13 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
 public interface V1RollingUpdateStatefulSetStrategyFluent<
-        A extends io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getPartition();
+        A extends V1RollingUpdateStatefulSetStrategyFluent<A>>
+    extends Fluent<A> {
+  public Integer getPartition();
 
   public A withPartition(java.lang.Integer partition);
 
-  public java.lang.Boolean hasPartition();
+  public Boolean hasPartition();
 }

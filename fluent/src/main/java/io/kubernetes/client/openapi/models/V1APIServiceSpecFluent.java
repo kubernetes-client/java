@@ -12,37 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+
 /** Generated */
-public interface V1APIServiceSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1APIServiceSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1APIServiceSpecFluent<A extends V1APIServiceSpecFluent<A>> extends Fluent<A> {
   public A withCaBundle(byte... caBundle);
 
   public byte[] getCaBundle();
 
-  public A addToCaBundle(java.lang.Integer index, java.lang.Byte item);
+  public A addToCaBundle(Integer index, Byte item);
 
   public A setToCaBundle(java.lang.Integer index, java.lang.Byte item);
 
   public A addToCaBundle(java.lang.Byte... items);
 
-  public A addAllToCaBundle(java.util.Collection<java.lang.Byte> items);
+  public A addAllToCaBundle(Collection<java.lang.Byte> items);
 
   public A removeFromCaBundle(java.lang.Byte... items);
 
   public A removeAllFromCaBundle(java.util.Collection<java.lang.Byte> items);
 
-  public java.lang.Boolean hasCaBundle();
+  public Boolean hasCaBundle();
 
-  public java.lang.String getGroup();
+  public String getGroup();
 
   public A withGroup(java.lang.String group);
 
   public java.lang.Boolean hasGroup();
-
-  /** Method is deprecated. use withGroup instead. */
-  @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original);
 
   public java.lang.Integer getGroupPriorityMinimum();
 
@@ -61,8 +59,8 @@ public interface V1APIServiceSpecFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference getService();
+  @Deprecated
+  public ApiregistrationV1ServiceReference getService();
 
   public io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference buildService();
 
@@ -71,8 +69,7 @@ public interface V1APIServiceSpecFluent<
 
   public java.lang.Boolean hasService();
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
-      withNewService();
+  public V1APIServiceSpecFluent.ServiceNested<A> withNewService();
 
   public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
       withNewServiceLike(
@@ -93,20 +90,17 @@ public interface V1APIServiceSpecFluent<
 
   public java.lang.Boolean hasVersion();
 
-  /** Method is deprecated. use withVersion instead. */
-  @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original);
-
   public java.lang.Integer getVersionPriority();
 
   public A withVersionPriority(java.lang.Integer versionPriority);
 
   public java.lang.Boolean hasVersionPriority();
 
+  public A withInsecureSkipTLSVerify();
+
   public interface ServiceNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceFluent<
-              io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<N>> {
+      extends Nested<N>,
+          ApiregistrationV1ServiceReferenceFluent<V1APIServiceSpecFluent.ServiceNested<N>> {
     public N and();
 
     public N endService();

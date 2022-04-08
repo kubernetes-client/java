@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1EnvFromSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1EnvFromSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1EnvFromSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1EnvFromSourceFluentImpl<A extends V1EnvFromSourceFluent<A>> extends BaseFluent<A>
+    implements V1EnvFromSourceFluent<A> {
   public V1EnvFromSourceFluentImpl() {}
 
   public V1EnvFromSourceFluentImpl(io.kubernetes.client.openapi.models.V1EnvFromSource instance) {
@@ -27,16 +29,16 @@ public class V1EnvFromSourceFluentImpl<
     this.withSecretRef(instance.getSecretRef());
   }
 
-  private io.kubernetes.client.openapi.models.V1ConfigMapEnvSourceBuilder configMapRef;
-  private java.lang.String prefix;
-  private io.kubernetes.client.openapi.models.V1SecretEnvSourceBuilder secretRef;
+  private V1ConfigMapEnvSourceBuilder configMapRef;
+  private String prefix;
+  private V1SecretEnvSourceBuilder secretRef;
 
   /**
    * This method has been deprecated, please use method buildConfigMapRef instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ConfigMapEnvSource getConfigMapRef() {
     return this.configMapRef != null ? this.configMapRef.build() : null;
   }
@@ -48,27 +50,23 @@ public class V1EnvFromSourceFluentImpl<
   public A withConfigMapRef(io.kubernetes.client.openapi.models.V1ConfigMapEnvSource configMapRef) {
     _visitables.get("configMapRef").remove(this.configMapRef);
     if (configMapRef != null) {
-      this.configMapRef =
-          new io.kubernetes.client.openapi.models.V1ConfigMapEnvSourceBuilder(configMapRef);
+      this.configMapRef = new V1ConfigMapEnvSourceBuilder(configMapRef);
       _visitables.get("configMapRef").add(this.configMapRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasConfigMapRef() {
+  public Boolean hasConfigMapRef() {
     return this.configMapRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<A>
-      withNewConfigMapRef() {
-    return new io.kubernetes.client.openapi.models.V1EnvFromSourceFluentImpl
-        .ConfigMapRefNestedImpl();
+  public V1EnvFromSourceFluent.ConfigMapRefNested<A> withNewConfigMapRef() {
+    return new V1EnvFromSourceFluentImpl.ConfigMapRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<A>
       withNewConfigMapRefLike(io.kubernetes.client.openapi.models.V1ConfigMapEnvSource item) {
-    return new io.kubernetes.client.openapi.models.V1EnvFromSourceFluentImpl.ConfigMapRefNestedImpl(
-        item);
+    return new V1EnvFromSourceFluentImpl.ConfigMapRefNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<A>
@@ -102,12 +100,6 @@ public class V1EnvFromSourceFluentImpl<
     return this.prefix != null;
   }
 
-  /** Method is deprecated. use withPrefix instead. */
-  @java.lang.Deprecated
-  public A withNewPrefix(java.lang.String original) {
-    return (A) withPrefix(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
    *
@@ -125,7 +117,7 @@ public class V1EnvFromSourceFluentImpl<
   public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretEnvSource secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);
     if (secretRef != null) {
-      this.secretRef = new io.kubernetes.client.openapi.models.V1SecretEnvSourceBuilder(secretRef);
+      this.secretRef = new V1SecretEnvSourceBuilder(secretRef);
       _visitables.get("secretRef").add(this.secretRef);
     }
     return (A) this;
@@ -135,9 +127,8 @@ public class V1EnvFromSourceFluentImpl<
     return this.secretRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.SecretRefNested<A>
-      withNewSecretRef() {
-    return new io.kubernetes.client.openapi.models.V1EnvFromSourceFluentImpl.SecretRefNestedImpl();
+  public V1EnvFromSourceFluent.SecretRefNested<A> withNewSecretRef() {
+    return new V1EnvFromSourceFluentImpl.SecretRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.SecretRefNested<A>
@@ -164,7 +155,7 @@ public class V1EnvFromSourceFluentImpl<
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1EnvFromSourceFluentImpl that = (V1EnvFromSourceFluentImpl) o;
@@ -180,14 +171,31 @@ public class V1EnvFromSourceFluentImpl<
     return java.util.Objects.hash(configMapRef, prefix, secretRef, super.hashCode());
   }
 
-  public class ConfigMapRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ConfigMapEnvSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (configMapRef != null) {
+      sb.append("configMapRef:");
+      sb.append(configMapRef + ",");
+    }
+    if (prefix != null) {
+      sb.append("prefix:");
+      sb.append(prefix + ",");
+    }
+    if (secretRef != null) {
+      sb.append("secretRef:");
+      sb.append(secretRef);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConfigMapRefNestedImpl<N>
+      extends V1ConfigMapEnvSourceFluentImpl<V1EnvFromSourceFluent.ConfigMapRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ConfigMapRefNestedImpl(io.kubernetes.client.openapi.models.V1ConfigMapEnvSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ConfigMapEnvSourceBuilder(this, item);
+      this.builder = new V1ConfigMapEnvSourceBuilder(this, item);
     }
 
     ConfigMapRefNestedImpl() {
@@ -205,13 +213,12 @@ public class V1EnvFromSourceFluentImpl<
     }
   }
 
-  public class SecretRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SecretEnvSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.SecretRefNested<N>>
+  class SecretRefNestedImpl<N>
+      extends V1SecretEnvSourceFluentImpl<V1EnvFromSourceFluent.SecretRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.SecretRefNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SecretRefNestedImpl(io.kubernetes.client.openapi.models.V1SecretEnvSource item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretEnvSourceBuilder(this, item);
+    SecretRefNestedImpl(V1SecretEnvSource item) {
+      this.builder = new V1SecretEnvSourceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {

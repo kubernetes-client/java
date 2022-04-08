@@ -12,17 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1PodIPFluentImpl<A extends io.kubernetes.client.openapi.models.V1PodIPFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PodIPFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PodIPFluentImpl<A extends V1PodIPFluent<A>> extends BaseFluent<A>
+    implements V1PodIPFluent<A> {
   public V1PodIPFluentImpl() {}
 
   public V1PodIPFluentImpl(io.kubernetes.client.openapi.models.V1PodIP instance) {
     this.withIp(instance.getIp());
   }
 
-  private java.lang.String ip;
+  private String ip;
 
   public java.lang.String getIp() {
     return this.ip;
@@ -33,17 +35,11 @@ public class V1PodIPFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     return (A) this;
   }
 
-  public java.lang.Boolean hasIp() {
+  public Boolean hasIp() {
     return this.ip != null;
   }
 
-  /** Method is deprecated. use withIp instead. */
-  @java.lang.Deprecated
-  public A withNewIp(java.lang.String original) {
-    return (A) withIp(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PodIPFluentImpl that = (V1PodIPFluentImpl) o;
@@ -53,5 +49,16 @@ public class V1PodIPFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
 
   public int hashCode() {
     return java.util.Objects.hash(ip, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (ip != null) {
+      sb.append("ip:");
+      sb.append(ip);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

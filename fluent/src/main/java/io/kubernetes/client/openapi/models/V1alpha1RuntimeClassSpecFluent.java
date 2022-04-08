@@ -12,27 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1alpha1RuntimeClassSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1alpha1RuntimeClassSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1alpha1RuntimeClassSpecFluent<A extends V1alpha1RuntimeClassSpecFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildOverhead instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1alpha1Overhead getOverhead();
+  @Deprecated
+  public V1alpha1Overhead getOverhead();
 
   public io.kubernetes.client.openapi.models.V1alpha1Overhead buildOverhead();
 
   public A withOverhead(io.kubernetes.client.openapi.models.V1alpha1Overhead overhead);
 
-  public java.lang.Boolean hasOverhead();
+  public Boolean hasOverhead();
 
-  public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassSpecFluent.OverheadNested<A>
-      withNewOverhead();
+  public V1alpha1RuntimeClassSpecFluent.OverheadNested<A> withNewOverhead();
 
   public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassSpecFluent.OverheadNested<A>
       withNewOverheadLike(io.kubernetes.client.openapi.models.V1alpha1Overhead item);
@@ -46,15 +47,11 @@ public interface V1alpha1RuntimeClassSpecFluent<
   public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassSpecFluent.OverheadNested<A>
       editOrNewOverheadLike(io.kubernetes.client.openapi.models.V1alpha1Overhead item);
 
-  public java.lang.String getRuntimeHandler();
+  public String getRuntimeHandler();
 
   public A withRuntimeHandler(java.lang.String runtimeHandler);
 
   public java.lang.Boolean hasRuntimeHandler();
-
-  /** Method is deprecated. use withRuntimeHandler instead. */
-  @java.lang.Deprecated
-  public A withNewRuntimeHandler(java.lang.String original);
 
   /**
    * This method has been deprecated, please use method buildScheduling instead.
@@ -62,7 +59,7 @@ public interface V1alpha1RuntimeClassSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1alpha1Scheduling getScheduling();
+  public V1alpha1Scheduling getScheduling();
 
   public io.kubernetes.client.openapi.models.V1alpha1Scheduling buildScheduling();
 
@@ -70,8 +67,7 @@ public interface V1alpha1RuntimeClassSpecFluent<
 
   public java.lang.Boolean hasScheduling();
 
-  public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassSpecFluent.SchedulingNested<A>
-      withNewScheduling();
+  public V1alpha1RuntimeClassSpecFluent.SchedulingNested<A> withNewScheduling();
 
   public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassSpecFluent.SchedulingNested<A>
       withNewSchedulingLike(io.kubernetes.client.openapi.models.V1alpha1Scheduling item);
@@ -86,10 +82,7 @@ public interface V1alpha1RuntimeClassSpecFluent<
       editOrNewSchedulingLike(io.kubernetes.client.openapi.models.V1alpha1Scheduling item);
 
   public interface OverheadNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1alpha1OverheadFluent<
-              io.kubernetes.client.openapi.models.V1alpha1RuntimeClassSpecFluent.OverheadNested<
-                  N>> {
+      extends Nested<N>, V1alpha1OverheadFluent<V1alpha1RuntimeClassSpecFluent.OverheadNested<N>> {
     public N and();
 
     public N endOverhead();
@@ -97,9 +90,7 @@ public interface V1alpha1RuntimeClassSpecFluent<
 
   public interface SchedulingNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent<
-              io.kubernetes.client.openapi.models.V1alpha1RuntimeClassSpecFluent.SchedulingNested<
-                  N>> {
+          V1alpha1SchedulingFluent<V1alpha1RuntimeClassSpecFluent.SchedulingNested<N>> {
     public N and();
 
     public N endScheduling();

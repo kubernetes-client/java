@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class StorageV1TokenRequestFluentImpl<
-        A extends io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class StorageV1TokenRequestFluentImpl<A extends StorageV1TokenRequestFluent<A>>
+    extends BaseFluent<A> implements StorageV1TokenRequestFluent<A> {
   public StorageV1TokenRequestFluentImpl() {}
 
   public StorageV1TokenRequestFluentImpl(
@@ -26,8 +27,8 @@ public class StorageV1TokenRequestFluentImpl<
     this.withExpirationSeconds(instance.getExpirationSeconds());
   }
 
-  private java.lang.String audience;
-  private java.lang.Long expirationSeconds;
+  private String audience;
+  private Long expirationSeconds;
 
   public java.lang.String getAudience() {
     return this.audience;
@@ -38,14 +39,8 @@ public class StorageV1TokenRequestFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAudience() {
+  public Boolean hasAudience() {
     return this.audience != null;
-  }
-
-  /** Method is deprecated. use withAudience instead. */
-  @java.lang.Deprecated
-  public A withNewAudience(java.lang.String original) {
-    return (A) withAudience(new String(original));
   }
 
   public java.lang.Long getExpirationSeconds() {
@@ -61,7 +56,7 @@ public class StorageV1TokenRequestFluentImpl<
     return this.expirationSeconds != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     StorageV1TokenRequestFluentImpl that = (StorageV1TokenRequestFluentImpl) o;
@@ -74,5 +69,20 @@ public class StorageV1TokenRequestFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(audience, expirationSeconds, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (audience != null) {
+      sb.append("audience:");
+      sb.append(audience + ",");
+    }
+    if (expirationSeconds != null) {
+      sb.append("expirationSeconds:");
+      sb.append(expirationSeconds);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

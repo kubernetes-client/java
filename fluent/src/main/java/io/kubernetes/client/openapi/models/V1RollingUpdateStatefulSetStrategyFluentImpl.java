@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1RollingUpdateStatefulSetStrategyFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<A> {
+        A extends V1RollingUpdateStatefulSetStrategyFluent<A>>
+    extends BaseFluent<A> implements V1RollingUpdateStatefulSetStrategyFluent<A> {
   public V1RollingUpdateStatefulSetStrategyFluentImpl() {}
 
   public V1RollingUpdateStatefulSetStrategyFluentImpl(
@@ -24,7 +26,7 @@ public class V1RollingUpdateStatefulSetStrategyFluentImpl<
     this.withPartition(instance.getPartition());
   }
 
-  private java.lang.Integer partition;
+  private Integer partition;
 
   public java.lang.Integer getPartition() {
     return this.partition;
@@ -35,11 +37,11 @@ public class V1RollingUpdateStatefulSetStrategyFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasPartition() {
+  public Boolean hasPartition() {
     return this.partition != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1RollingUpdateStatefulSetStrategyFluentImpl that =
@@ -51,5 +53,16 @@ public class V1RollingUpdateStatefulSetStrategyFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(partition, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (partition != null) {
+      sb.append("partition:");
+      sb.append(partition);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

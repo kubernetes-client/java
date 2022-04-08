@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1beta1SubjectFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1SubjectFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1SubjectFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1SubjectFluentImpl<A extends V1beta1SubjectFluent<A>> extends BaseFluent<A>
+    implements V1beta1SubjectFluent<A> {
   public V1beta1SubjectFluentImpl() {}
 
   public V1beta1SubjectFluentImpl(io.kubernetes.client.openapi.models.V1beta1Subject instance) {
@@ -29,18 +31,18 @@ public class V1beta1SubjectFluentImpl<
     this.withUser(instance.getUser());
   }
 
-  private io.kubernetes.client.openapi.models.V1beta1GroupSubjectBuilder group;
-  private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubjectBuilder serviceAccount;
-  private io.kubernetes.client.openapi.models.V1beta1UserSubjectBuilder user;
+  private V1beta1GroupSubjectBuilder group;
+  private String kind;
+  private V1beta1ServiceAccountSubjectBuilder serviceAccount;
+  private V1beta1UserSubjectBuilder user;
 
   /**
    * This method has been deprecated, please use method buildGroup instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1GroupSubject getGroup() {
+  @Deprecated
+  public V1beta1GroupSubject getGroup() {
     return this.group != null ? this.group.build() : null;
   }
 
@@ -57,17 +59,17 @@ public class V1beta1SubjectFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasGroup() {
+  public Boolean hasGroup() {
     return this.group != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1SubjectFluent.GroupNested<A> withNewGroup() {
-    return new io.kubernetes.client.openapi.models.V1beta1SubjectFluentImpl.GroupNestedImpl();
+  public V1beta1SubjectFluent.GroupNested<A> withNewGroup() {
+    return new V1beta1SubjectFluentImpl.GroupNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1SubjectFluent.GroupNested<A> withNewGroupLike(
       io.kubernetes.client.openapi.models.V1beta1GroupSubject item) {
-    return new io.kubernetes.client.openapi.models.V1beta1SubjectFluentImpl.GroupNestedImpl(item);
+    return new V1beta1SubjectFluentImpl.GroupNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1SubjectFluent.GroupNested<A> editGroup() {
@@ -99,19 +101,13 @@ public class V1beta1SubjectFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildServiceAccount instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject getServiceAccount() {
+  public V1beta1ServiceAccountSubject getServiceAccount() {
     return this.serviceAccount != null ? this.serviceAccount.build() : null;
   }
 
@@ -135,10 +131,8 @@ public class V1beta1SubjectFluentImpl<
     return this.serviceAccount != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1SubjectFluent.ServiceAccountNested<A>
-      withNewServiceAccount() {
-    return new io.kubernetes.client.openapi.models.V1beta1SubjectFluentImpl
-        .ServiceAccountNestedImpl();
+  public V1beta1SubjectFluent.ServiceAccountNested<A> withNewServiceAccount() {
+    return new V1beta1SubjectFluentImpl.ServiceAccountNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1SubjectFluent.ServiceAccountNested<A>
@@ -185,7 +179,7 @@ public class V1beta1SubjectFluentImpl<
   public A withUser(io.kubernetes.client.openapi.models.V1beta1UserSubject user) {
     _visitables.get("user").remove(this.user);
     if (user != null) {
-      this.user = new io.kubernetes.client.openapi.models.V1beta1UserSubjectBuilder(user);
+      this.user = new V1beta1UserSubjectBuilder(user);
       _visitables.get("user").add(this.user);
     }
     return (A) this;
@@ -195,8 +189,8 @@ public class V1beta1SubjectFluentImpl<
     return this.user != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1SubjectFluent.UserNested<A> withNewUser() {
-    return new io.kubernetes.client.openapi.models.V1beta1SubjectFluentImpl.UserNestedImpl();
+  public V1beta1SubjectFluent.UserNested<A> withNewUser() {
+    return new V1beta1SubjectFluentImpl.UserNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1SubjectFluent.UserNested<A> withNewUserLike(
@@ -220,7 +214,7 @@ public class V1beta1SubjectFluentImpl<
     return withNewUserLike(getUser() != null ? getUser() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1SubjectFluentImpl that = (V1beta1SubjectFluentImpl) o;
@@ -237,13 +231,35 @@ public class V1beta1SubjectFluentImpl<
     return java.util.Objects.hash(group, kind, serviceAccount, user, super.hashCode());
   }
 
-  public class GroupNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1GroupSubjectFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1SubjectFluent.GroupNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (group != null) {
+      sb.append("group:");
+      sb.append(group + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (serviceAccount != null) {
+      sb.append("serviceAccount:");
+      sb.append(serviceAccount + ",");
+    }
+    if (user != null) {
+      sb.append("user:");
+      sb.append(user);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class GroupNestedImpl<N>
+      extends V1beta1GroupSubjectFluentImpl<V1beta1SubjectFluent.GroupNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1SubjectFluent.GroupNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    GroupNestedImpl(io.kubernetes.client.openapi.models.V1beta1GroupSubject item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1GroupSubjectBuilder(this, item);
+          Nested<N> {
+    GroupNestedImpl(V1beta1GroupSubject item) {
+      this.builder = new V1beta1GroupSubjectBuilder(this, item);
     }
 
     GroupNestedImpl() {
@@ -261,15 +277,12 @@ public class V1beta1SubjectFluentImpl<
     }
   }
 
-  public class ServiceAccountNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubjectFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1SubjectFluent.ServiceAccountNested<N>>
+  class ServiceAccountNestedImpl<N>
+      extends V1beta1ServiceAccountSubjectFluentImpl<V1beta1SubjectFluent.ServiceAccountNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1SubjectFluent.ServiceAccountNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    ServiceAccountNestedImpl(
-        io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubjectBuilder(this, item);
+    ServiceAccountNestedImpl(V1beta1ServiceAccountSubject item) {
+      this.builder = new V1beta1ServiceAccountSubjectBuilder(this, item);
     }
 
     ServiceAccountNestedImpl() {
@@ -288,13 +301,11 @@ public class V1beta1SubjectFluentImpl<
     }
   }
 
-  public class UserNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1UserSubjectFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1SubjectFluent.UserNested<N>>
+  class UserNestedImpl<N> extends V1beta1UserSubjectFluentImpl<V1beta1SubjectFluent.UserNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1SubjectFluent.UserNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    UserNestedImpl(io.kubernetes.client.openapi.models.V1beta1UserSubject item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1UserSubjectBuilder(this, item);
+    UserNestedImpl(V1beta1UserSubject item) {
+      this.builder = new V1beta1UserSubjectBuilder(this, item);
     }
 
     UserNestedImpl() {

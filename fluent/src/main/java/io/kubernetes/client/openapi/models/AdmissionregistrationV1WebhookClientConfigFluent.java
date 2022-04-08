@@ -12,36 +12,39 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+
 /** Generated */
 public interface AdmissionregistrationV1WebhookClientConfigFluent<
-        A extends
-            io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+        A extends AdmissionregistrationV1WebhookClientConfigFluent<A>>
+    extends Fluent<A> {
   public A withCaBundle(byte... caBundle);
 
   public byte[] getCaBundle();
 
-  public A addToCaBundle(java.lang.Integer index, java.lang.Byte item);
+  public A addToCaBundle(Integer index, Byte item);
 
   public A setToCaBundle(java.lang.Integer index, java.lang.Byte item);
 
   public A addToCaBundle(java.lang.Byte... items);
 
-  public A addAllToCaBundle(java.util.Collection<java.lang.Byte> items);
+  public A addAllToCaBundle(Collection<java.lang.Byte> items);
 
   public A removeFromCaBundle(java.lang.Byte... items);
 
   public A removeAllFromCaBundle(java.util.Collection<java.lang.Byte> items);
 
-  public java.lang.Boolean hasCaBundle();
+  public Boolean hasCaBundle();
 
   /**
    * This method has been deprecated, please use method buildService instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference getService();
+  @Deprecated
+  public AdmissionregistrationV1ServiceReference getService();
 
   public io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference buildService();
 
@@ -50,10 +53,7 @@ public interface AdmissionregistrationV1WebhookClientConfigFluent<
 
   public java.lang.Boolean hasService();
 
-  public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent
-              .ServiceNested<
-          A>
-      withNewService();
+  public AdmissionregistrationV1WebhookClientConfigFluent.ServiceNested<A> withNewService();
 
   public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent
               .ServiceNested<
@@ -77,22 +77,16 @@ public interface AdmissionregistrationV1WebhookClientConfigFluent<
       editOrNewServiceLike(
           io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference item);
 
-  public java.lang.String getUrl();
+  public String getUrl();
 
   public A withUrl(java.lang.String url);
 
   public java.lang.Boolean hasUrl();
 
-  /** Method is deprecated. use withUrl instead. */
-  @java.lang.Deprecated
-  public A withNewUrl(java.lang.String original);
-
   public interface ServiceNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReferenceFluent<
-              io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent
-                      .ServiceNested<
-                  N>> {
+      extends Nested<N>,
+          AdmissionregistrationV1ServiceReferenceFluent<
+              AdmissionregistrationV1WebhookClientConfigFluent.ServiceNested<N>> {
     public N and();
 
     public N endService();

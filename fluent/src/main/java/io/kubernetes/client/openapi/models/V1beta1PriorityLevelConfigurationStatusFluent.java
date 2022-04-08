@@ -12,14 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1beta1PriorityLevelConfigurationStatusFluent<
-        A extends
-            io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationCondition item);
+        A extends V1beta1PriorityLevelConfigurationStatusFluent<A>>
+    extends Fluent<A> {
+  public A addToConditions(Integer index, V1beta1PriorityLevelConfigurationCondition item);
 
   public A setToConditions(
       java.lang.Integer index,
@@ -29,8 +32,7 @@ public interface V1beta1PriorityLevelConfigurationStatusFluent<
       io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationCondition>
+      Collection<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationCondition>
           items);
 
   public A removeFromConditions(
@@ -42,18 +44,15 @@ public interface V1beta1PriorityLevelConfigurationStatusFluent<
           items);
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationConditionBuilder>
-          predicate);
+      Predicate<V1beta1PriorityLevelConfigurationConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<
-          io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationCondition>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationCondition>
       getConditions();
 
   public java.util.List<
@@ -76,7 +75,7 @@ public interface V1beta1PriorityLevelConfigurationStatusFluent<
                       .V1beta1PriorityLevelConfigurationConditionBuilder>
               predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
+  public Boolean hasMatchingCondition(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationConditionBuilder>
           predicate);
@@ -90,10 +89,7 @@ public interface V1beta1PriorityLevelConfigurationStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationStatusFluent
-              .ConditionsNested<
-          A>
-      addNewCondition();
+  public V1beta1PriorityLevelConfigurationStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationStatusFluent
               .ConditionsNested<
@@ -133,11 +129,9 @@ public interface V1beta1PriorityLevelConfigurationStatusFluent<
               predicate);
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationConditionFluent<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationStatusFluent
-                      .ConditionsNested<
-                  N>> {
+      extends Nested<N>,
+          V1beta1PriorityLevelConfigurationConditionFluent<
+              V1beta1PriorityLevelConfigurationStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

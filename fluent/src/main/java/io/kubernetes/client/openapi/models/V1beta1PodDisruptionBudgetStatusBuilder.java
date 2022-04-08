@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta1PodDisruptionBudgetStatusBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetStatusFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetStatusBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetStatus,
+    extends V1beta1PodDisruptionBudgetStatusFluentImpl<V1beta1PodDisruptionBudgetStatusBuilder>
+    implements VisitableBuilder<
+        V1beta1PodDisruptionBudgetStatus,
         io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetStatusBuilder> {
   public V1beta1PodDisruptionBudgetStatusBuilder() {
     this(false);
   }
 
-  public V1beta1PodDisruptionBudgetStatusBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1PodDisruptionBudgetStatusBuilder(Boolean validationEnabled) {
     this(new V1beta1PodDisruptionBudgetStatus(), validationEnabled);
   }
 
@@ -104,24 +105,5 @@ public class V1beta1PodDisruptionBudgetStatusBuilder
     buildable.setExpectedPods(fluent.getExpectedPods());
     buildable.setObservedGeneration(fluent.getObservedGeneration());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1PodDisruptionBudgetStatusBuilder that = (V1beta1PodDisruptionBudgetStatusBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

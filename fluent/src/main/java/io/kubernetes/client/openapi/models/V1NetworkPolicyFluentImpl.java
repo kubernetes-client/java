@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1NetworkPolicyFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1NetworkPolicyFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NetworkPolicyFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NetworkPolicyFluentImpl<A extends V1NetworkPolicyFluent<A>> extends BaseFluent<A>
+    implements V1NetworkPolicyFluent<A> {
   public V1NetworkPolicyFluentImpl() {}
 
   public V1NetworkPolicyFluentImpl(io.kubernetes.client.openapi.models.V1NetworkPolicy instance) {
@@ -29,10 +31,10 @@ public class V1NetworkPolicyFluentImpl<
     this.withSpec(instance.getSpec());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1NetworkPolicySpecBuilder spec;
+  private V1ObjectMetaBuilder metadata;
+  private V1NetworkPolicySpecBuilder spec;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -43,14 +45,8 @@ public class V1NetworkPolicyFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -66,18 +62,12 @@ public class V1NetworkPolicyFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -89,7 +79,7 @@ public class V1NetworkPolicyFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -99,15 +89,13 @@ public class V1NetworkPolicyFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1NetworkPolicyFluentImpl.MetadataNestedImpl();
+  public V1NetworkPolicyFluent.MetadataNested<A> withNewMetadata() {
+    return new V1NetworkPolicyFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1NetworkPolicyFluentImpl.MetadataNestedImpl(
-        item);
+    return new V1NetworkPolicyFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.MetadataNested<A>
@@ -134,7 +122,7 @@ public class V1NetworkPolicyFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpec getSpec() {
+  public V1NetworkPolicySpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
@@ -155,8 +143,8 @@ public class V1NetworkPolicyFluentImpl<
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.SpecNested<A> withNewSpec() {
-    return new io.kubernetes.client.openapi.models.V1NetworkPolicyFluentImpl.SpecNestedImpl();
+  public V1NetworkPolicyFluent.SpecNested<A> withNewSpec() {
+    return new V1NetworkPolicyFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.SpecNested<A> withNewSpecLike(
@@ -180,7 +168,7 @@ public class V1NetworkPolicyFluentImpl<
     return withNewSpecLike(getSpec() != null ? getSpec() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NetworkPolicyFluentImpl that = (V1NetworkPolicyFluentImpl) o;
@@ -196,13 +184,35 @@ public class V1NetworkPolicyFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1NetworkPolicyFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -220,13 +230,11 @@ public class V1NetworkPolicyFluentImpl<
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.SpecNested<N>>
+  class SpecNestedImpl<N> extends V1NetworkPolicySpecFluentImpl<V1NetworkPolicyFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.SpecNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SpecNestedImpl(io.kubernetes.client.openapi.models.V1NetworkPolicySpec item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1NetworkPolicySpecBuilder(this, item);
+    SpecNestedImpl(V1NetworkPolicySpec item) {
+      this.builder = new V1NetworkPolicySpecBuilder(this, item);
     }
 
     SpecNestedImpl() {

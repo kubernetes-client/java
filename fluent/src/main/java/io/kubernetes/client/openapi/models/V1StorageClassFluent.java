@@ -12,18 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1StorageClassFluent<
-        A extends io.kubernetes.client.openapi.models.V1StorageClassFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Boolean getAllowVolumeExpansion();
+public interface V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends Fluent<A> {
+  public Boolean getAllowVolumeExpansion();
 
   public A withAllowVolumeExpansion(java.lang.Boolean allowVolumeExpansion);
 
   public java.lang.Boolean hasAllowVolumeExpansion();
 
-  public A addToAllowedTopologies(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1TopologySelectorTerm item);
+  public A addToAllowedTopologies(Integer index, V1TopologySelectorTerm item);
 
   public A setToAllowedTopologies(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1TopologySelectorTerm item);
@@ -32,7 +36,7 @@ public interface V1StorageClassFluent<
       io.kubernetes.client.openapi.models.V1TopologySelectorTerm... items);
 
   public A addAllToAllowedTopologies(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1TopologySelectorTerm> items);
+      Collection<io.kubernetes.client.openapi.models.V1TopologySelectorTerm> items);
 
   public A removeFromAllowedTopologies(
       io.kubernetes.client.openapi.models.V1TopologySelectorTerm... items);
@@ -40,19 +44,15 @@ public interface V1StorageClassFluent<
   public A removeAllFromAllowedTopologies(
       java.util.Collection<io.kubernetes.client.openapi.models.V1TopologySelectorTerm> items);
 
-  public A removeMatchingFromAllowedTopologies(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1TopologySelectorTermBuilder>
-          predicate);
+  public A removeMatchingFromAllowedTopologies(Predicate<V1TopologySelectorTermBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildAllowedTopologies instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1TopologySelectorTerm>
-      getAllowedTopologies();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1TopologySelectorTerm> getAllowedTopologies();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1TopologySelectorTerm>
       buildAllowedTopologies();
@@ -82,8 +82,7 @@ public interface V1StorageClassFluent<
 
   public java.lang.Boolean hasAllowedTopologies();
 
-  public io.kubernetes.client.openapi.models.V1StorageClassFluent.AllowedTopologiesNested<A>
-      addNewAllowedTopology();
+  public V1StorageClassFluent.AllowedTopologiesNested<A> addNewAllowedTopology();
 
   public io.kubernetes.client.openapi.models.V1StorageClassFluent.AllowedTopologiesNested<A>
       addNewAllowedTopologyLike(io.kubernetes.client.openapi.models.V1TopologySelectorTerm item);
@@ -107,15 +106,11 @@ public interface V1StorageClassFluent<
                   io.kubernetes.client.openapi.models.V1TopologySelectorTermBuilder>
               predicate);
 
-  public java.lang.String getApiVersion();
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
   public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
 
   public java.lang.String getKind();
 
@@ -123,17 +118,13 @@ public interface V1StorageClassFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -141,8 +132,7 @@ public interface V1StorageClassFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1StorageClassFluent.MetadataNested<A>
-      withNewMetadata();
+  public V1StorageClassFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1StorageClassFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -187,11 +177,9 @@ public interface V1StorageClassFluent<
 
   public java.lang.Boolean hasMountOptions();
 
-  public A addNewMountOption(java.lang.String original);
-
   public A addToParameters(java.lang.String key, java.lang.String value);
 
-  public A addToParameters(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToParameters(Map<java.lang.String, java.lang.String> map);
 
   public A removeFromParameters(java.lang.String key);
 
@@ -209,19 +197,11 @@ public interface V1StorageClassFluent<
 
   public java.lang.Boolean hasProvisioner();
 
-  /** Method is deprecated. use withProvisioner instead. */
-  @java.lang.Deprecated
-  public A withNewProvisioner(java.lang.String original);
-
   public java.lang.String getReclaimPolicy();
 
   public A withReclaimPolicy(java.lang.String reclaimPolicy);
 
   public java.lang.Boolean hasReclaimPolicy();
-
-  /** Method is deprecated. use withReclaimPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewReclaimPolicy(java.lang.String original);
 
   public java.lang.String getVolumeBindingMode();
 
@@ -229,14 +209,11 @@ public interface V1StorageClassFluent<
 
   public java.lang.Boolean hasVolumeBindingMode();
 
-  /** Method is deprecated. use withVolumeBindingMode instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeBindingMode(java.lang.String original);
+  public A withAllowVolumeExpansion();
 
   public interface AllowedTopologiesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent<
-              io.kubernetes.client.openapi.models.V1StorageClassFluent.AllowedTopologiesNested<N>> {
+      extends Nested<N>,
+          V1TopologySelectorTermFluent<V1StorageClassFluent.AllowedTopologiesNested<N>> {
     public N and();
 
     public N endAllowedTopology();
@@ -244,8 +221,7 @@ public interface V1StorageClassFluent<
 
   public interface MetadataNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1StorageClassFluent.MetadataNested<N>> {
+          V1ObjectMetaFluent<V1StorageClassFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

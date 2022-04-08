@@ -1,5 +1,5 @@
 /*
-Copyright 2021 The Kubernetes Authors.
+Copyright 2022 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,83 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.Objects;
 
 /** DeploymentStrategy describes how to replace existing pods with new ones. */
 @ApiModel(description = "DeploymentStrategy describes how to replace existing pods with new ones.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
+    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
 public class V1DeploymentStrategy {
   public static final String SERIALIZED_NAME_ROLLING_UPDATE = "rollingUpdate";
 
   @SerializedName(SERIALIZED_NAME_ROLLING_UPDATE)
   private V1RollingUpdateDeployment rollingUpdate;
 
-  /**
-   * Type of deployment. Can be \&quot;Recreate\&quot; or \&quot;RollingUpdate\&quot;. Default is
-   * RollingUpdate. Possible enum values: - &#x60;\&quot;Recreate\&quot;&#x60; Kill all existing
-   * pods before creating new ones. - &#x60;\&quot;RollingUpdate\&quot;&#x60; Replace the old
-   * ReplicaSets by new one using rolling update i.e gradually scale down the old ReplicaSets and
-   * scale up the new one.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    RECREATE("Recreate"),
-
-    ROLLINGUPDATE("RollingUpdate");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
-          throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
+  private String type;
 
   public V1DeploymentStrategy rollingUpdate(V1RollingUpdateDeployment rollingUpdate) {
 
@@ -111,7 +54,7 @@ public class V1DeploymentStrategy {
     this.rollingUpdate = rollingUpdate;
   }
 
-  public V1DeploymentStrategy type(TypeEnum type) {
+  public V1DeploymentStrategy type(String type) {
 
     this.type = type;
     return this;
@@ -119,22 +62,19 @@ public class V1DeploymentStrategy {
 
   /**
    * Type of deployment. Can be \&quot;Recreate\&quot; or \&quot;RollingUpdate\&quot;. Default is
-   * RollingUpdate. Possible enum values: - &#x60;\&quot;Recreate\&quot;&#x60; Kill all existing
-   * pods before creating new ones. - &#x60;\&quot;RollingUpdate\&quot;&#x60; Replace the old
-   * ReplicaSets by new one using rolling update i.e gradually scale down the old ReplicaSets and
-   * scale up the new one.
+   * RollingUpdate.
    *
    * @return type
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.  Possible enum values:  - `\"Recreate\"` Kill all existing pods before creating new ones.  - `\"RollingUpdate\"` Replace the old ReplicaSets by new one using rolling update i.e gradually scale down the old ReplicaSets and scale up the new one.")
-  public TypeEnum getType() {
+          "Type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.  ")
+  public String getType() {
     return type;
   }
 
-  public void setType(TypeEnum type) {
+  public void setType(String type) {
     this.type = type;
   }
 

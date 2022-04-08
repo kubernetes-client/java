@@ -12,15 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1DaemonSetSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getMinReadySeconds();
+public interface V1DaemonSetSpecFluent<A extends V1DaemonSetSpecFluent<A>> extends Fluent<A> {
+  public Integer getMinReadySeconds();
 
   public A withMinReadySeconds(java.lang.Integer minReadySeconds);
 
-  public java.lang.Boolean hasMinReadySeconds();
+  public Boolean hasMinReadySeconds();
 
   public java.lang.Integer getRevisionHistoryLimit();
 
@@ -33,8 +34,8 @@ public interface V1DaemonSetSpecFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector();
+  @Deprecated
+  public V1LabelSelector getSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector();
 
@@ -42,8 +43,7 @@ public interface V1DaemonSetSpecFluent<
 
   public java.lang.Boolean hasSelector();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.SelectorNested<A>
-      withNewSelector();
+  public V1DaemonSetSpecFluent.SelectorNested<A> withNewSelector();
 
   public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -62,7 +62,7 @@ public interface V1DaemonSetSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate();
+  public V1PodTemplateSpec getTemplate();
 
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate();
 
@@ -70,8 +70,7 @@ public interface V1DaemonSetSpecFluent<
 
   public java.lang.Boolean hasTemplate();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.TemplateNested<A>
-      withNewTemplate();
+  public V1DaemonSetSpecFluent.TemplateNested<A> withNewTemplate();
 
   public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.TemplateNested<A>
       withNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
@@ -90,7 +89,7 @@ public interface V1DaemonSetSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy getUpdateStrategy();
+  public V1DaemonSetUpdateStrategy getUpdateStrategy();
 
   public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy buildUpdateStrategy();
 
@@ -99,8 +98,7 @@ public interface V1DaemonSetSpecFluent<
 
   public java.lang.Boolean hasUpdateStrategy();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.UpdateStrategyNested<A>
-      withNewUpdateStrategy();
+  public V1DaemonSetSpecFluent.UpdateStrategyNested<A> withNewUpdateStrategy();
 
   public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.UpdateStrategyNested<A>
       withNewUpdateStrategyLike(io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy item);
@@ -116,9 +114,7 @@ public interface V1DaemonSetSpecFluent<
           io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy item);
 
   public interface SelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.SelectorNested<N>> {
+      extends Nested<N>, V1LabelSelectorFluent<V1DaemonSetSpecFluent.SelectorNested<N>> {
     public N and();
 
     public N endSelector();
@@ -126,8 +122,7 @@ public interface V1DaemonSetSpecFluent<
 
   public interface TemplateNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent<
-              io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.TemplateNested<N>> {
+          V1PodTemplateSpecFluent<V1DaemonSetSpecFluent.TemplateNested<N>> {
     public N and();
 
     public N endTemplate();
@@ -135,8 +130,7 @@ public interface V1DaemonSetSpecFluent<
 
   public interface UpdateStrategyNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent<
-              io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.UpdateStrategyNested<N>> {
+          V1DaemonSetUpdateStrategyFluent<V1DaemonSetSpecFluent.UpdateStrategyNested<N>> {
     public N and();
 
     public N endUpdateStrategy();

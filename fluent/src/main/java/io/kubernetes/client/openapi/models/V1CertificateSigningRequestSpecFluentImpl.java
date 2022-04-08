@@ -12,11 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1CertificateSigningRequestSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<A> {
+        A extends V1CertificateSigningRequestSpecFluent<A>>
+    extends BaseFluent<A> implements V1CertificateSigningRequestSpecFluent<A> {
   public V1CertificateSigningRequestSpecFluentImpl() {}
 
   public V1CertificateSigningRequestSpecFluentImpl(
@@ -38,10 +46,10 @@ public class V1CertificateSigningRequestSpecFluentImpl<
     this.withUsername(instance.getUsername());
   }
 
-  private java.lang.Integer expirationSeconds;
-  private java.util.Map<java.lang.String, java.util.List<java.lang.String>> extra;
+  private Integer expirationSeconds;
+  private Map<String, List<java.lang.String>> extra;
   private java.util.List<java.lang.String> groups;
-  private java.util.List<java.lang.Byte> request;
+  private java.util.List<Byte> request;
   private java.lang.String signerName;
   private java.lang.String uid;
   private java.util.List<java.lang.String> usages;
@@ -56,13 +64,13 @@ public class V1CertificateSigningRequestSpecFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasExpirationSeconds() {
+  public Boolean hasExpirationSeconds() {
     return this.expirationSeconds != null;
   }
 
   public A addToExtra(java.lang.String key, java.util.List<java.lang.String> value) {
     if (this.extra == null && key != null && value != null) {
-      this.extra = new java.util.LinkedHashMap();
+      this.extra = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.extra.put(key, value);
@@ -124,7 +132,7 @@ public class V1CertificateSigningRequestSpecFluentImpl<
 
   public A addToGroups(java.lang.Integer index, java.lang.String item) {
     if (this.groups == null) {
-      this.groups = new java.util.ArrayList<java.lang.String>();
+      this.groups = new ArrayList<java.lang.String>();
     }
     this.groups.add(index, item);
     return (A) this;
@@ -148,7 +156,7 @@ public class V1CertificateSigningRequestSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToGroups(java.util.Collection<java.lang.String> items) {
+  public A addAllToGroups(Collection<java.lang.String> items) {
     if (this.groups == null) {
       this.groups = new java.util.ArrayList<java.lang.String>();
     }
@@ -192,8 +200,7 @@ public class V1CertificateSigningRequestSpecFluentImpl<
     return this.groups.get(groups.size() - 1);
   }
 
-  public java.lang.String getMatchingGroup(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingGroup(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : groups) {
       if (predicate.test(item)) {
         return item;
@@ -238,10 +245,6 @@ public class V1CertificateSigningRequestSpecFluentImpl<
 
   public java.lang.Boolean hasGroups() {
     return groups != null && !groups.isEmpty();
-  }
-
-  public A addNewGroup(java.lang.String original) {
-    return (A) addToGroups(new String(original));
   }
 
   public A withRequest(byte... request) {
@@ -341,12 +344,6 @@ public class V1CertificateSigningRequestSpecFluentImpl<
     return this.signerName != null;
   }
 
-  /** Method is deprecated. use withSignerName instead. */
-  @java.lang.Deprecated
-  public A withNewSignerName(java.lang.String original) {
-    return (A) withSignerName(new String(original));
-  }
-
   public java.lang.String getUid() {
     return this.uid;
   }
@@ -358,12 +355,6 @@ public class V1CertificateSigningRequestSpecFluentImpl<
 
   public java.lang.Boolean hasUid() {
     return this.uid != null;
-  }
-
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A) withUid(new String(original));
   }
 
   public A addToUsages(java.lang.Integer index, java.lang.String item) {
@@ -484,10 +475,6 @@ public class V1CertificateSigningRequestSpecFluentImpl<
     return usages != null && !usages.isEmpty();
   }
 
-  public A addNewUsage(java.lang.String original) {
-    return (A) addToUsages(new String(original));
-  }
-
   public java.lang.String getUsername() {
     return this.username;
   }
@@ -501,13 +488,7 @@ public class V1CertificateSigningRequestSpecFluentImpl<
     return this.username != null;
   }
 
-  /** Method is deprecated. use withUsername instead. */
-  @java.lang.Deprecated
-  public A withNewUsername(java.lang.String original) {
-    return (A) withUsername(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CertificateSigningRequestSpecFluentImpl that = (V1CertificateSigningRequestSpecFluentImpl) o;
@@ -536,5 +517,44 @@ public class V1CertificateSigningRequestSpecFluentImpl<
         usages,
         username,
         super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (expirationSeconds != null) {
+      sb.append("expirationSeconds:");
+      sb.append(expirationSeconds + ",");
+    }
+    if (extra != null && !extra.isEmpty()) {
+      sb.append("extra:");
+      sb.append(extra + ",");
+    }
+    if (groups != null && !groups.isEmpty()) {
+      sb.append("groups:");
+      sb.append(groups + ",");
+    }
+    if (request != null && !request.isEmpty()) {
+      sb.append("request:");
+      sb.append(request + ",");
+    }
+    if (signerName != null) {
+      sb.append("signerName:");
+      sb.append(signerName + ",");
+    }
+    if (uid != null) {
+      sb.append("uid:");
+      sb.append(uid + ",");
+    }
+    if (usages != null && !usages.isEmpty()) {
+      sb.append("usages:");
+      sb.append(usages + ",");
+    }
+    if (username != null) {
+      sb.append("username:");
+      sb.append(username);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

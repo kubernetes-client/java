@@ -12,37 +12,37 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1ServiceStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1ServiceStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item);
+public interface V1ServiceStatusFluent<A extends V1ServiceStatusFluent<A>> extends Fluent<A> {
+  public A addToConditions(Integer index, V1Condition item);
 
   public A setToConditions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items);
 
-  public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Condition> items);
+  public A addAllToConditions(Collection<io.kubernetes.client.openapi.models.V1Condition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1Condition... items);
 
   public A removeAllFromConditions(
       java.util.Collection<io.kubernetes.client.openapi.models.V1Condition> items);
 
-  public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate);
+  public A removeMatchingFromConditions(Predicate<V1ConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Condition> getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1Condition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1Condition> buildConditions();
 
@@ -56,7 +56,7 @@ public interface V1ServiceStatusFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
+  public Boolean hasMatchingCondition(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
           predicate);
 
@@ -67,8 +67,7 @@ public interface V1ServiceStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1ServiceStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1Condition item);
@@ -97,7 +96,7 @@ public interface V1ServiceStatusFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LoadBalancerStatus getLoadBalancer();
+  public V1LoadBalancerStatus getLoadBalancer();
 
   public io.kubernetes.client.openapi.models.V1LoadBalancerStatus buildLoadBalancer();
 
@@ -105,8 +104,7 @@ public interface V1ServiceStatusFluent<
 
   public java.lang.Boolean hasLoadBalancer();
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.LoadBalancerNested<A>
-      withNewLoadBalancer();
+  public V1ServiceStatusFluent.LoadBalancerNested<A> withNewLoadBalancer();
 
   public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.LoadBalancerNested<A>
       withNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item);
@@ -121,9 +119,7 @@ public interface V1ServiceStatusFluent<
       editOrNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item);
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ConditionFluent<
-              io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<N>> {
+      extends Nested<N>, V1ConditionFluent<V1ServiceStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();
@@ -131,8 +127,7 @@ public interface V1ServiceStatusFluent<
 
   public interface LoadBalancerNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LoadBalancerStatusFluent<
-              io.kubernetes.client.openapi.models.V1ServiceStatusFluent.LoadBalancerNested<N>> {
+          V1LoadBalancerStatusFluent<V1ServiceStatusFluent.LoadBalancerNested<N>> {
     public N and();
 
     public N endLoadBalancer();

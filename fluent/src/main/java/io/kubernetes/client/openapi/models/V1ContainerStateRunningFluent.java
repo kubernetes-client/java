@@ -12,13 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public interface V1ContainerStateRunningFluent<
-        A extends io.kubernetes.client.openapi.models.V1ContainerStateRunningFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.time.OffsetDateTime getStartedAt();
+public interface V1ContainerStateRunningFluent<A extends V1ContainerStateRunningFluent<A>>
+    extends Fluent<A> {
+  public OffsetDateTime getStartedAt();
 
   public A withStartedAt(java.time.OffsetDateTime startedAt);
 
-  public java.lang.Boolean hasStartedAt();
+  public Boolean hasStartedAt();
 }

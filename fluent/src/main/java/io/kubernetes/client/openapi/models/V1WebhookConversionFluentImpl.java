@@ -12,11 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1WebhookConversionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1WebhookConversionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1WebhookConversionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1WebhookConversionFluentImpl<A extends V1WebhookConversionFluent<A>>
+    extends BaseFluent<A> implements V1WebhookConversionFluent<A> {
   public V1WebhookConversionFluentImpl() {}
 
   public V1WebhookConversionFluentImpl(
@@ -26,17 +32,16 @@ public class V1WebhookConversionFluentImpl<
     this.withConversionReviewVersions(instance.getConversionReviewVersions());
   }
 
-  private io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigBuilder
-      clientConfig;
-  private java.util.List<java.lang.String> conversionReviewVersions;
+  private ApiextensionsV1WebhookClientConfigBuilder clientConfig;
+  private List<String> conversionReviewVersions;
 
   /**
    * This method has been deprecated, please use method buildClientConfig instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig getClientConfig() {
+  @Deprecated
+  public ApiextensionsV1WebhookClientConfig getClientConfig() {
     return this.clientConfig != null ? this.clientConfig.build() : null;
   }
 
@@ -57,21 +62,18 @@ public class V1WebhookConversionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasClientConfig() {
+  public Boolean hasClientConfig() {
     return this.clientConfig != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1WebhookConversionFluent.ClientConfigNested<A>
-      withNewClientConfig() {
-    return new io.kubernetes.client.openapi.models.V1WebhookConversionFluentImpl
-        .ClientConfigNestedImpl();
+  public V1WebhookConversionFluent.ClientConfigNested<A> withNewClientConfig() {
+    return new V1WebhookConversionFluentImpl.ClientConfigNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1WebhookConversionFluent.ClientConfigNested<A>
       withNewClientConfigLike(
           io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig item) {
-    return new io.kubernetes.client.openapi.models.V1WebhookConversionFluentImpl
-        .ClientConfigNestedImpl(item);
+    return new V1WebhookConversionFluentImpl.ClientConfigNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1WebhookConversionFluent.ClientConfigNested<A>
@@ -94,9 +96,9 @@ public class V1WebhookConversionFluentImpl<
     return withNewClientConfigLike(getClientConfig() != null ? getClientConfig() : item);
   }
 
-  public A addToConversionReviewVersions(java.lang.Integer index, java.lang.String item) {
+  public A addToConversionReviewVersions(Integer index, java.lang.String item) {
     if (this.conversionReviewVersions == null) {
-      this.conversionReviewVersions = new java.util.ArrayList<java.lang.String>();
+      this.conversionReviewVersions = new ArrayList<java.lang.String>();
     }
     this.conversionReviewVersions.add(index, item);
     return (A) this;
@@ -120,7 +122,7 @@ public class V1WebhookConversionFluentImpl<
     return (A) this;
   }
 
-  public A addAllToConversionReviewVersions(java.util.Collection<java.lang.String> items) {
+  public A addAllToConversionReviewVersions(Collection<java.lang.String> items) {
     if (this.conversionReviewVersions == null) {
       this.conversionReviewVersions = new java.util.ArrayList<java.lang.String>();
     }
@@ -165,7 +167,7 @@ public class V1WebhookConversionFluentImpl<
   }
 
   public java.lang.String getMatchingConversionReviewVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
+      Predicate<java.lang.String> predicate) {
     for (java.lang.String item : conversionReviewVersions) {
       if (predicate.test(item)) {
         return item;
@@ -212,11 +214,7 @@ public class V1WebhookConversionFluentImpl<
     return conversionReviewVersions != null && !conversionReviewVersions.isEmpty();
   }
 
-  public A addNewConversionReviewVersion(java.lang.String original) {
-    return (A) addToConversionReviewVersions(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1WebhookConversionFluentImpl that = (V1WebhookConversionFluentImpl) o;
@@ -232,17 +230,30 @@ public class V1WebhookConversionFluentImpl<
     return java.util.Objects.hash(clientConfig, conversionReviewVersions, super.hashCode());
   }
 
-  public class ClientConfigNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluentImpl<
-          io.kubernetes.client.openapi.models.V1WebhookConversionFluent.ClientConfigNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (clientConfig != null) {
+      sb.append("clientConfig:");
+      sb.append(clientConfig + ",");
+    }
+    if (conversionReviewVersions != null && !conversionReviewVersions.isEmpty()) {
+      sb.append("conversionReviewVersions:");
+      sb.append(conversionReviewVersions);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ClientConfigNestedImpl<N>
+      extends ApiextensionsV1WebhookClientConfigFluentImpl<
+          V1WebhookConversionFluent.ClientConfigNested<N>>
       implements io.kubernetes.client.openapi.models.V1WebhookConversionFluent.ClientConfigNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ClientConfigNestedImpl(
         io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigBuilder(
-              this, item);
+      this.builder = new ApiextensionsV1WebhookClientConfigBuilder(this, item);
     }
 
     ClientConfigNestedImpl() {

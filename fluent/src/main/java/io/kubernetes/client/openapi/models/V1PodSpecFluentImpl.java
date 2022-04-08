@@ -12,13 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V1PodSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PodSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluent<A>
+    implements V1PodSpecFluent<A> {
   public V1PodSpecFluentImpl() {}
 
   public V1PodSpecFluentImpl(io.kubernetes.client.openapi.models.V1PodSpec instance) {
@@ -95,47 +103,42 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     this.withVolumes(instance.getVolumes());
   }
 
-  private java.lang.Long activeDeadlineSeconds;
-  private io.kubernetes.client.openapi.models.V1AffinityBuilder affinity;
-  private java.lang.Boolean automountServiceAccountToken;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerBuilder> containers;
-  private io.kubernetes.client.openapi.models.V1PodDNSConfigBuilder dnsConfig;
-  private io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum dnsPolicy;
+  private Long activeDeadlineSeconds;
+  private V1AffinityBuilder affinity;
+  private Boolean automountServiceAccountToken;
+  private ArrayList<V1ContainerBuilder> containers;
+  private V1PodDNSConfigBuilder dnsConfig;
+  private String dnsPolicy;
   private java.lang.Boolean enableServiceLinks;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EphemeralContainerBuilder>
-      ephemeralContainers;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1HostAliasBuilder> hostAliases;
+  private java.util.ArrayList<V1EphemeralContainerBuilder> ephemeralContainers;
+  private java.util.ArrayList<V1HostAliasBuilder> hostAliases;
   private java.lang.Boolean hostIPC;
   private java.lang.Boolean hostNetwork;
   private java.lang.Boolean hostPID;
   private java.lang.String hostname;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-      imagePullSecrets;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerBuilder>
-      initContainers;
+  private java.util.ArrayList<V1LocalObjectReferenceBuilder> imagePullSecrets;
+  private java.util.ArrayList<V1ContainerBuilder> initContainers;
   private java.lang.String nodeName;
-  private java.util.Map<java.lang.String, java.lang.String> nodeSelector;
-  private io.kubernetes.client.openapi.models.V1PodOSBuilder os;
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> overhead;
+  private Map<java.lang.String, java.lang.String> nodeSelector;
+  private V1PodOSBuilder os;
+  private java.util.Map<java.lang.String, Quantity> overhead;
   private java.lang.String preemptionPolicy;
-  private java.lang.Integer priority;
+  private Integer priority;
   private java.lang.String priorityClassName;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodReadinessGateBuilder>
-      readinessGates;
-  private io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum restartPolicy;
+  private java.util.ArrayList<V1PodReadinessGateBuilder> readinessGates;
+  private java.lang.String restartPolicy;
   private java.lang.String runtimeClassName;
   private java.lang.String schedulerName;
-  private io.kubernetes.client.openapi.models.V1PodSecurityContextBuilder securityContext;
+  private V1PodSecurityContextBuilder securityContext;
   private java.lang.String serviceAccount;
   private java.lang.String serviceAccountName;
   private java.lang.Boolean setHostnameAsFQDN;
   private java.lang.Boolean shareProcessNamespace;
   private java.lang.String subdomain;
   private java.lang.Long terminationGracePeriodSeconds;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1TolerationBuilder> tolerations;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1TopologySpreadConstraintBuilder>
-      topologySpreadConstraints;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeBuilder> volumes;
+  private java.util.ArrayList<V1TolerationBuilder> tolerations;
+  private java.util.ArrayList<V1TopologySpreadConstraintBuilder> topologySpreadConstraints;
+  private java.util.ArrayList<V1VolumeBuilder> volumes;
 
   public java.lang.Long getActiveDeadlineSeconds() {
     return this.activeDeadlineSeconds;
@@ -155,8 +158,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1Affinity getAffinity() {
+  @Deprecated
+  public V1Affinity getAffinity() {
     return this.affinity != null ? this.affinity.build() : null;
   }
 
@@ -177,13 +180,13 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.affinity != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<A> withNewAffinity() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.AffinityNestedImpl();
+  public V1PodSpecFluent.AffinityNested<A> withNewAffinity() {
+    return new V1PodSpecFluentImpl.AffinityNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<A> withNewAffinityLike(
       io.kubernetes.client.openapi.models.V1Affinity item) {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.AffinityNestedImpl(item);
+    return new V1PodSpecFluentImpl.AffinityNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<A> editAffinity() {
@@ -265,8 +268,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return (A) this;
   }
 
-  public A addAllToContainers(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Container> items) {
+  public A addAllToContainers(Collection<io.kubernetes.client.openapi.models.V1Container> items) {
     if (this.containers == null) {
       this.containers =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerBuilder>();
@@ -306,8 +308,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   }
 
   public A removeMatchingFromContainers(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1ContainerBuilder> predicate) {
     if (containers == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1ContainerBuilder> each =
         containers.iterator();
@@ -328,7 +329,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Container> getContainers() {
+  public List<io.kubernetes.client.openapi.models.V1Container> getContainers() {
     return containers != null ? build(containers) : null;
   }
 
@@ -402,8 +403,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return containers != null && !containers.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.ContainersNested<A> addNewContainer() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.ContainersNestedImpl();
+  public V1PodSpecFluent.ContainersNested<A> addNewContainer() {
+    return new V1PodSpecFluentImpl.ContainersNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ContainersNested<A>
@@ -461,7 +462,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodDNSConfig getDnsConfig() {
+  public V1PodDNSConfig getDnsConfig() {
     return this.dnsConfig != null ? this.dnsConfig.build() : null;
   }
 
@@ -482,8 +483,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.dnsConfig != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A> withNewDnsConfig() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.DnsConfigNestedImpl();
+  public V1PodSpecFluent.DnsConfigNested<A> withNewDnsConfig() {
+    return new V1PodSpecFluentImpl.DnsConfigNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A>
@@ -508,11 +509,11 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return withNewDnsConfigLike(getDnsConfig() != null ? getDnsConfig() : item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum getDnsPolicy() {
+  public java.lang.String getDnsPolicy() {
     return this.dnsPolicy;
   }
 
-  public A withDnsPolicy(io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum dnsPolicy) {
+  public A withDnsPolicy(java.lang.String dnsPolicy) {
     this.dnsPolicy = dnsPolicy;
     return (A) this;
   }
@@ -534,8 +535,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.enableServiceLinks != null;
   }
 
-  public A addToEphemeralContainers(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EphemeralContainer item) {
+  public A addToEphemeralContainers(java.lang.Integer index, V1EphemeralContainer item) {
     if (this.ephemeralContainers == null) {
       this.ephemeralContainers =
           new java.util.ArrayList<
@@ -734,10 +734,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return ephemeralContainers != null && !ephemeralContainers.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.EphemeralContainersNested<A>
-      addNewEphemeralContainer() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl
-        .EphemeralContainersNestedImpl();
+  public V1PodSpecFluent.EphemeralContainersNested<A> addNewEphemeralContainer() {
+    return new V1PodSpecFluentImpl.EphemeralContainersNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.EphemeralContainersNested<A>
@@ -795,8 +793,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   public A addToHostAliases(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1HostAlias item) {
     if (this.hostAliases == null) {
-      this.hostAliases =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1HostAliasBuilder>();
+      this.hostAliases = new java.util.ArrayList<V1HostAliasBuilder>();
     }
     io.kubernetes.client.openapi.models.V1HostAliasBuilder builder =
         new io.kubernetes.client.openapi.models.V1HostAliasBuilder(item);
@@ -979,9 +976,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return hostAliases != null && !hostAliases.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.HostAliasesNested<A>
-      addNewHostAlias() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.HostAliasesNestedImpl();
+  public V1PodSpecFluent.HostAliasesNested<A> addNewHostAlias() {
+    return new V1PodSpecFluentImpl.HostAliasesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.HostAliasesNested<A>
@@ -1085,14 +1081,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.hostname != null;
   }
 
-  /** Method is deprecated. use withHostname instead. */
-  @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original) {
-    return (A) withHostname(new String(original));
-  }
-
-  public A addToImagePullSecrets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public A addToImagePullSecrets(java.lang.Integer index, V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {
       this.imagePullSecrets =
           new java.util.ArrayList<
@@ -1293,9 +1282,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return imagePullSecrets != null && !imagePullSecrets.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.ImagePullSecretsNested<A>
-      addNewImagePullSecret() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.ImagePullSecretsNestedImpl();
+  public V1PodSpecFluent.ImagePullSecretsNested<A> addNewImagePullSecret() {
+    return new V1PodSpecFluentImpl.ImagePullSecretsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ImagePullSecretsNested<A>
@@ -1539,9 +1527,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return initContainers != null && !initContainers.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<A>
-      addNewInitContainer() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.InitContainersNestedImpl();
+  public V1PodSpecFluent.InitContainersNested<A> addNewInitContainer() {
+    return new V1PodSpecFluentImpl.InitContainersNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<A>
@@ -1607,15 +1594,9 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.nodeName != null;
   }
 
-  /** Method is deprecated. use withNodeName instead. */
-  @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original) {
-    return (A) withNodeName(new String(original));
-  }
-
   public A addToNodeSelector(java.lang.String key, java.lang.String value) {
     if (this.nodeSelector == null && key != null && value != null) {
-      this.nodeSelector = new java.util.LinkedHashMap();
+      this.nodeSelector = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.nodeSelector.put(key, value);
@@ -1691,7 +1672,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   public A withOs(io.kubernetes.client.openapi.models.V1PodOS os) {
     _visitables.get("os").remove(this.os);
     if (os != null) {
-      this.os = new io.kubernetes.client.openapi.models.V1PodOSBuilder(os);
+      this.os = new V1PodOSBuilder(os);
       _visitables.get("os").add(this.os);
     }
     return (A) this;
@@ -1701,8 +1682,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.os != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> withNewOs() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.OsNestedImpl();
+  public V1PodSpecFluent.OsNested<A> withNewOs() {
+    return new V1PodSpecFluentImpl.OsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> withNewOsLike(
@@ -1803,12 +1784,6 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.preemptionPolicy != null;
   }
 
-  /** Method is deprecated. use withPreemptionPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewPreemptionPolicy(java.lang.String original) {
-    return (A) withPreemptionPolicy(new String(original));
-  }
-
   public java.lang.Integer getPriority() {
     return this.priority;
   }
@@ -1835,14 +1810,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.priorityClassName != null;
   }
 
-  /** Method is deprecated. use withPriorityClassName instead. */
-  @java.lang.Deprecated
-  public A withNewPriorityClassName(java.lang.String original) {
-    return (A) withPriorityClassName(new String(original));
-  }
-
-  public A addToReadinessGates(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodReadinessGate item) {
+  public A addToReadinessGates(java.lang.Integer index, V1PodReadinessGate item) {
     if (this.readinessGates == null) {
       this.readinessGates =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodReadinessGateBuilder>();
@@ -2033,9 +2001,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return readinessGates != null && !readinessGates.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<A>
-      addNewReadinessGate() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.ReadinessGatesNestedImpl();
+  public V1PodSpecFluent.ReadinessGatesNested<A> addNewReadinessGate() {
+    return new V1PodSpecFluentImpl.ReadinessGatesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<A>
@@ -2089,12 +2056,11 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return setNewReadinessGateLike(index, buildReadinessGate(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum getRestartPolicy() {
+  public java.lang.String getRestartPolicy() {
     return this.restartPolicy;
   }
 
-  public A withRestartPolicy(
-      io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum restartPolicy) {
+  public A withRestartPolicy(java.lang.String restartPolicy) {
     this.restartPolicy = restartPolicy;
     return (A) this;
   }
@@ -2116,12 +2082,6 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.runtimeClassName != null;
   }
 
-  /** Method is deprecated. use withRuntimeClassName instead. */
-  @java.lang.Deprecated
-  public A withNewRuntimeClassName(java.lang.String original) {
-    return (A) withRuntimeClassName(new String(original));
-  }
-
   public java.lang.String getSchedulerName() {
     return this.schedulerName;
   }
@@ -2133,12 +2093,6 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasSchedulerName() {
     return this.schedulerName != null;
-  }
-
-  /** Method is deprecated. use withSchedulerName instead. */
-  @java.lang.Deprecated
-  public A withNewSchedulerName(java.lang.String original) {
-    return (A) withSchedulerName(new String(original));
   }
 
   /**
@@ -2159,8 +2113,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
       io.kubernetes.client.openapi.models.V1PodSecurityContext securityContext) {
     _visitables.get("securityContext").remove(this.securityContext);
     if (securityContext != null) {
-      this.securityContext =
-          new io.kubernetes.client.openapi.models.V1PodSecurityContextBuilder(securityContext);
+      this.securityContext = new V1PodSecurityContextBuilder(securityContext);
       _visitables.get("securityContext").add(this.securityContext);
     }
     return (A) this;
@@ -2170,9 +2123,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.securityContext != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.SecurityContextNested<A>
-      withNewSecurityContext() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.SecurityContextNestedImpl();
+  public V1PodSpecFluent.SecurityContextNested<A> withNewSecurityContext() {
+    return new V1PodSpecFluentImpl.SecurityContextNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.SecurityContextNested<A>
@@ -2212,12 +2164,6 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.serviceAccount != null;
   }
 
-  /** Method is deprecated. use withServiceAccount instead. */
-  @java.lang.Deprecated
-  public A withNewServiceAccount(java.lang.String original) {
-    return (A) withServiceAccount(new String(original));
-  }
-
   public java.lang.String getServiceAccountName() {
     return this.serviceAccountName;
   }
@@ -2229,12 +2175,6 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasServiceAccountName() {
     return this.serviceAccountName != null;
-  }
-
-  /** Method is deprecated. use withServiceAccountName instead. */
-  @java.lang.Deprecated
-  public A withNewServiceAccountName(java.lang.String original) {
-    return (A) withServiceAccountName(new String(original));
   }
 
   public java.lang.Boolean getSetHostnameAsFQDN() {
@@ -2276,12 +2216,6 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.subdomain != null;
   }
 
-  /** Method is deprecated. use withSubdomain instead. */
-  @java.lang.Deprecated
-  public A withNewSubdomain(java.lang.String original) {
-    return (A) withSubdomain(new String(original));
-  }
-
   public java.lang.Long getTerminationGracePeriodSeconds() {
     return this.terminationGracePeriodSeconds;
   }
@@ -2295,8 +2229,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.terminationGracePeriodSeconds != null;
   }
 
-  public A addToTolerations(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Toleration item) {
+  public A addToTolerations(java.lang.Integer index, V1Toleration item) {
     if (this.tolerations == null) {
       this.tolerations =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1TolerationBuilder>();
@@ -2482,9 +2415,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return tolerations != null && !tolerations.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.TolerationsNested<A>
-      addNewToleration() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.TolerationsNestedImpl();
+  public V1PodSpecFluent.TolerationsNested<A> addNewToleration() {
+    return new V1PodSpecFluentImpl.TolerationsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.TolerationsNested<A>
@@ -2537,8 +2469,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   }
 
   public A addToTopologySpreadConstraints(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1TopologySpreadConstraint item) {
+      java.lang.Integer index, V1TopologySpreadConstraint item) {
     if (this.topologySpreadConstraints == null) {
       this.topologySpreadConstraints =
           new java.util.ArrayList<
@@ -2747,10 +2678,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return topologySpreadConstraints != null && !topologySpreadConstraints.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.TopologySpreadConstraintsNested<A>
-      addNewTopologySpreadConstraint() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl
-        .TopologySpreadConstraintsNestedImpl();
+  public V1PodSpecFluent.TopologySpreadConstraintsNested<A> addNewTopologySpreadConstraint() {
+    return new V1PodSpecFluentImpl.TopologySpreadConstraintsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.TopologySpreadConstraintsNested<A>
@@ -2810,7 +2739,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
   public A addToVolumes(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1Volume item) {
     if (this.volumes == null) {
-      this.volumes = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeBuilder>();
+      this.volumes = new java.util.ArrayList<V1VolumeBuilder>();
     }
     io.kubernetes.client.openapi.models.V1VolumeBuilder builder =
         new io.kubernetes.client.openapi.models.V1VolumeBuilder(item);
@@ -2983,8 +2912,8 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return volumes != null && !volumes.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<A> addNewVolume() {
-    return new io.kubernetes.client.openapi.models.V1PodSpecFluentImpl.VolumesNestedImpl();
+  public V1PodSpecFluent.VolumesNested<A> addNewVolume() {
+    return new V1PodSpecFluentImpl.VolumesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<A> addNewVolumeLike(
@@ -3030,7 +2959,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return setNewVolumeLike(index, buildVolume(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PodSpecFluentImpl that = (V1PodSpecFluentImpl) o;
@@ -3160,13 +3089,189 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
         super.hashCode());
   }
 
-  public class AffinityNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1AffinityFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    AffinityNestedImpl(io.kubernetes.client.openapi.models.V1Affinity item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1AffinityBuilder(this, item);
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (activeDeadlineSeconds != null) {
+      sb.append("activeDeadlineSeconds:");
+      sb.append(activeDeadlineSeconds + ",");
+    }
+    if (affinity != null) {
+      sb.append("affinity:");
+      sb.append(affinity + ",");
+    }
+    if (automountServiceAccountToken != null) {
+      sb.append("automountServiceAccountToken:");
+      sb.append(automountServiceAccountToken + ",");
+    }
+    if (containers != null && !containers.isEmpty()) {
+      sb.append("containers:");
+      sb.append(containers + ",");
+    }
+    if (dnsConfig != null) {
+      sb.append("dnsConfig:");
+      sb.append(dnsConfig + ",");
+    }
+    if (dnsPolicy != null) {
+      sb.append("dnsPolicy:");
+      sb.append(dnsPolicy + ",");
+    }
+    if (enableServiceLinks != null) {
+      sb.append("enableServiceLinks:");
+      sb.append(enableServiceLinks + ",");
+    }
+    if (ephemeralContainers != null && !ephemeralContainers.isEmpty()) {
+      sb.append("ephemeralContainers:");
+      sb.append(ephemeralContainers + ",");
+    }
+    if (hostAliases != null && !hostAliases.isEmpty()) {
+      sb.append("hostAliases:");
+      sb.append(hostAliases + ",");
+    }
+    if (hostIPC != null) {
+      sb.append("hostIPC:");
+      sb.append(hostIPC + ",");
+    }
+    if (hostNetwork != null) {
+      sb.append("hostNetwork:");
+      sb.append(hostNetwork + ",");
+    }
+    if (hostPID != null) {
+      sb.append("hostPID:");
+      sb.append(hostPID + ",");
+    }
+    if (hostname != null) {
+      sb.append("hostname:");
+      sb.append(hostname + ",");
+    }
+    if (imagePullSecrets != null && !imagePullSecrets.isEmpty()) {
+      sb.append("imagePullSecrets:");
+      sb.append(imagePullSecrets + ",");
+    }
+    if (initContainers != null && !initContainers.isEmpty()) {
+      sb.append("initContainers:");
+      sb.append(initContainers + ",");
+    }
+    if (nodeName != null) {
+      sb.append("nodeName:");
+      sb.append(nodeName + ",");
+    }
+    if (nodeSelector != null && !nodeSelector.isEmpty()) {
+      sb.append("nodeSelector:");
+      sb.append(nodeSelector + ",");
+    }
+    if (os != null) {
+      sb.append("os:");
+      sb.append(os + ",");
+    }
+    if (overhead != null && !overhead.isEmpty()) {
+      sb.append("overhead:");
+      sb.append(overhead + ",");
+    }
+    if (preemptionPolicy != null) {
+      sb.append("preemptionPolicy:");
+      sb.append(preemptionPolicy + ",");
+    }
+    if (priority != null) {
+      sb.append("priority:");
+      sb.append(priority + ",");
+    }
+    if (priorityClassName != null) {
+      sb.append("priorityClassName:");
+      sb.append(priorityClassName + ",");
+    }
+    if (readinessGates != null && !readinessGates.isEmpty()) {
+      sb.append("readinessGates:");
+      sb.append(readinessGates + ",");
+    }
+    if (restartPolicy != null) {
+      sb.append("restartPolicy:");
+      sb.append(restartPolicy + ",");
+    }
+    if (runtimeClassName != null) {
+      sb.append("runtimeClassName:");
+      sb.append(runtimeClassName + ",");
+    }
+    if (schedulerName != null) {
+      sb.append("schedulerName:");
+      sb.append(schedulerName + ",");
+    }
+    if (securityContext != null) {
+      sb.append("securityContext:");
+      sb.append(securityContext + ",");
+    }
+    if (serviceAccount != null) {
+      sb.append("serviceAccount:");
+      sb.append(serviceAccount + ",");
+    }
+    if (serviceAccountName != null) {
+      sb.append("serviceAccountName:");
+      sb.append(serviceAccountName + ",");
+    }
+    if (setHostnameAsFQDN != null) {
+      sb.append("setHostnameAsFQDN:");
+      sb.append(setHostnameAsFQDN + ",");
+    }
+    if (shareProcessNamespace != null) {
+      sb.append("shareProcessNamespace:");
+      sb.append(shareProcessNamespace + ",");
+    }
+    if (subdomain != null) {
+      sb.append("subdomain:");
+      sb.append(subdomain + ",");
+    }
+    if (terminationGracePeriodSeconds != null) {
+      sb.append("terminationGracePeriodSeconds:");
+      sb.append(terminationGracePeriodSeconds + ",");
+    }
+    if (tolerations != null && !tolerations.isEmpty()) {
+      sb.append("tolerations:");
+      sb.append(tolerations + ",");
+    }
+    if (topologySpreadConstraints != null && !topologySpreadConstraints.isEmpty()) {
+      sb.append("topologySpreadConstraints:");
+      sb.append(topologySpreadConstraints + ",");
+    }
+    if (volumes != null && !volumes.isEmpty()) {
+      sb.append("volumes:");
+      sb.append(volumes);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withAutomountServiceAccountToken() {
+    return withAutomountServiceAccountToken(true);
+  }
+
+  public A withEnableServiceLinks() {
+    return withEnableServiceLinks(true);
+  }
+
+  public A withHostIPC() {
+    return withHostIPC(true);
+  }
+
+  public A withHostNetwork() {
+    return withHostNetwork(true);
+  }
+
+  public A withHostPID() {
+    return withHostPID(true);
+  }
+
+  public A withSetHostnameAsFQDN() {
+    return withSetHostnameAsFQDN(true);
+  }
+
+  public A withShareProcessNamespace() {
+    return withShareProcessNamespace(true);
+  }
+
+  class AffinityNestedImpl<N> extends V1AffinityFluentImpl<V1PodSpecFluent.AffinityNested<N>>
+      implements io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<N>, Nested<N> {
+    AffinityNestedImpl(V1Affinity item) {
+      this.builder = new V1AffinityBuilder(this, item);
     }
 
     AffinityNestedImpl() {
@@ -3184,15 +3289,13 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class ContainersNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ContainerFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.ContainersNested<N>>
+  class ContainersNestedImpl<N> extends V1ContainerFluentImpl<V1PodSpecFluent.ContainersNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.ContainersNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     ContainersNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1Container item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerBuilder(this, item);
+      this.builder = new V1ContainerBuilder(this, item);
     }
 
     ContainersNestedImpl() {
@@ -3212,13 +3315,11 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class DnsConfigNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PodDNSConfigFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<N>>
+  class DnsConfigNestedImpl<N> extends V1PodDNSConfigFluentImpl<V1PodSpecFluent.DnsConfigNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     DnsConfigNestedImpl(io.kubernetes.client.openapi.models.V1PodDNSConfig item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1PodDNSConfigBuilder(this, item);
+      this.builder = new V1PodDNSConfigBuilder(this, item);
     }
 
     DnsConfigNestedImpl() {
@@ -3236,16 +3337,13 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class EphemeralContainersNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.EphemeralContainersNested<N>>
+  class EphemeralContainersNestedImpl<N>
+      extends V1EphemeralContainerFluentImpl<V1PodSpecFluent.EphemeralContainersNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.EphemeralContainersNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    EphemeralContainersNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1EphemeralContainer item) {
+    EphemeralContainersNestedImpl(java.lang.Integer index, V1EphemeralContainer item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1EphemeralContainerBuilder(this, item);
+      this.builder = new V1EphemeralContainerBuilder(this, item);
     }
 
     EphemeralContainersNestedImpl() {
@@ -3265,15 +3363,13 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class HostAliasesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1HostAliasFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.HostAliasesNested<N>>
+  class HostAliasesNestedImpl<N> extends V1HostAliasFluentImpl<V1PodSpecFluent.HostAliasesNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.HostAliasesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     HostAliasesNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1HostAlias item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1HostAliasBuilder(this, item);
+      this.builder = new V1HostAliasBuilder(this, item);
     }
 
     HostAliasesNestedImpl() {
@@ -3293,16 +3389,13 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class ImagePullSecretsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.ImagePullSecretsNested<N>>
+  class ImagePullSecretsNestedImpl<N>
+      extends V1LocalObjectReferenceFluentImpl<V1PodSpecFluent.ImagePullSecretsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.ImagePullSecretsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    ImagePullSecretsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+    ImagePullSecretsNestedImpl(java.lang.Integer index, V1LocalObjectReference item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(this, item);
+      this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
 
     ImagePullSecretsNestedImpl() {
@@ -3322,15 +3415,14 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class InitContainersNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ContainerFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<N>>
+  class InitContainersNestedImpl<N>
+      extends V1ContainerFluentImpl<V1PodSpecFluent.InitContainersNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     InitContainersNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1Container item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerBuilder(this, item);
+      this.builder = new V1ContainerBuilder(this, item);
     }
 
     InitContainersNestedImpl() {
@@ -3350,13 +3442,11 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class OsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PodOSFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<N>>
+  class OsNestedImpl<N> extends V1PodOSFluentImpl<V1PodSpecFluent.OsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    OsNestedImpl(io.kubernetes.client.openapi.models.V1PodOS item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1PodOSBuilder(this, item);
+    OsNestedImpl(V1PodOS item) {
+      this.builder = new V1PodOSBuilder(this, item);
     }
 
     OsNestedImpl() {
@@ -3374,15 +3464,13 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class ReadinessGatesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PodReadinessGateFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<N>>
+  class ReadinessGatesNestedImpl<N>
+      extends V1PodReadinessGateFluentImpl<V1PodSpecFluent.ReadinessGatesNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    ReadinessGatesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodReadinessGate item) {
+    ReadinessGatesNestedImpl(java.lang.Integer index, V1PodReadinessGate item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1PodReadinessGateBuilder(this, item);
+      this.builder = new V1PodReadinessGateBuilder(this, item);
     }
 
     ReadinessGatesNestedImpl() {
@@ -3402,14 +3490,12 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class SecurityContextNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.SecurityContextNested<N>>
+  class SecurityContextNestedImpl<N>
+      extends V1PodSecurityContextFluentImpl<V1PodSpecFluent.SecurityContextNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.SecurityContextNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SecurityContextNestedImpl(io.kubernetes.client.openapi.models.V1PodSecurityContext item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1PodSecurityContextBuilder(this, item);
+    SecurityContextNestedImpl(V1PodSecurityContext item) {
+      this.builder = new V1PodSecurityContextBuilder(this, item);
     }
 
     SecurityContextNestedImpl() {
@@ -3427,15 +3513,14 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class TolerationsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TolerationFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.TolerationsNested<N>>
+  class TolerationsNestedImpl<N>
+      extends V1TolerationFluentImpl<V1PodSpecFluent.TolerationsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.TolerationsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     TolerationsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1Toleration item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1TolerationBuilder(this, item);
+      this.builder = new V1TolerationBuilder(this, item);
     }
 
     TolerationsNestedImpl() {
@@ -3455,9 +3540,9 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class TopologySpreadConstraintsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.TopologySpreadConstraintsNested<N>>
+  class TopologySpreadConstraintsNestedImpl<N>
+      extends V1TopologySpreadConstraintFluentImpl<
+          V1PodSpecFluent.TopologySpreadConstraintsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent
                   .TopologySpreadConstraintsNested<
               N>,
@@ -3466,8 +3551,7 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
         java.lang.Integer index,
         io.kubernetes.client.openapi.models.V1TopologySpreadConstraint item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1TopologySpreadConstraintBuilder(this, item);
+      this.builder = new V1TopologySpreadConstraintBuilder(this, item);
     }
 
     TopologySpreadConstraintsNestedImpl() {
@@ -3488,14 +3572,12 @@ public class V1PodSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V
     }
   }
 
-  public class VolumesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1VolumeFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<N>>
+  class VolumesNestedImpl<N> extends V1VolumeFluentImpl<V1PodSpecFluent.VolumesNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     VolumesNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Volume item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1VolumeBuilder(this, item);
+      this.builder = new V1VolumeBuilder(this, item);
     }
 
     VolumesNestedImpl() {

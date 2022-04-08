@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1ClusterRoleBindingFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ClusterRoleBindingFluentImpl<A extends V1ClusterRoleBindingFluent<A>>
+    extends BaseFluent<A> implements V1ClusterRoleBindingFluent<A> {
   public V1ClusterRoleBindingFluentImpl() {}
 
   public V1ClusterRoleBindingFluentImpl(
@@ -35,11 +39,11 @@ public class V1ClusterRoleBindingFluentImpl<
     this.withSubjects(instance.getSubjects());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1RoleRefBuilder roleRef;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1SubjectBuilder> subjects;
+  private V1ObjectMetaBuilder metadata;
+  private V1RoleRefBuilder roleRef;
+  private ArrayList<V1SubjectBuilder> subjects;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -50,14 +54,8 @@ public class V1ClusterRoleBindingFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -73,18 +71,12 @@ public class V1ClusterRoleBindingFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -96,7 +88,7 @@ public class V1ClusterRoleBindingFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -106,16 +98,13 @@ public class V1ClusterRoleBindingFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluentImpl
-        .MetadataNestedImpl();
+  public V1ClusterRoleBindingFluent.MetadataNested<A> withNewMetadata() {
+    return new V1ClusterRoleBindingFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluentImpl
-        .MetadataNestedImpl(item);
+    return new V1ClusterRoleBindingFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.MetadataNested<A>
@@ -153,7 +142,7 @@ public class V1ClusterRoleBindingFluentImpl<
   public A withRoleRef(io.kubernetes.client.openapi.models.V1RoleRef roleRef) {
     _visitables.get("roleRef").remove(this.roleRef);
     if (roleRef != null) {
-      this.roleRef = new io.kubernetes.client.openapi.models.V1RoleRefBuilder(roleRef);
+      this.roleRef = new V1RoleRefBuilder(roleRef);
       _visitables.get("roleRef").add(this.roleRef);
     }
     return (A) this;
@@ -163,10 +152,8 @@ public class V1ClusterRoleBindingFluentImpl<
     return this.roleRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.RoleRefNested<A>
-      withNewRoleRef() {
-    return new io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluentImpl
-        .RoleRefNestedImpl();
+  public V1ClusterRoleBindingFluent.RoleRefNested<A> withNewRoleRef() {
+    return new V1ClusterRoleBindingFluentImpl.RoleRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.RoleRefNested<A>
@@ -193,11 +180,9 @@ public class V1ClusterRoleBindingFluentImpl<
     return withNewRoleRefLike(getRoleRef() != null ? getRoleRef() : item);
   }
 
-  public A addToSubjects(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Subject item) {
+  public A addToSubjects(Integer index, io.kubernetes.client.openapi.models.V1Subject item) {
     if (this.subjects == null) {
-      this.subjects =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1SubjectBuilder>();
+      this.subjects = new java.util.ArrayList<V1SubjectBuilder>();
     }
     io.kubernetes.client.openapi.models.V1SubjectBuilder builder =
         new io.kubernetes.client.openapi.models.V1SubjectBuilder(item);
@@ -243,8 +228,7 @@ public class V1ClusterRoleBindingFluentImpl<
     return (A) this;
   }
 
-  public A addAllToSubjects(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Subject> items) {
+  public A addAllToSubjects(Collection<io.kubernetes.client.openapi.models.V1Subject> items) {
     if (this.subjects == null) {
       this.subjects =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1SubjectBuilder>();
@@ -284,8 +268,7 @@ public class V1ClusterRoleBindingFluentImpl<
   }
 
   public A removeMatchingFromSubjects(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1SubjectBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1SubjectBuilder> predicate) {
     if (subjects == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1SubjectBuilder> each = subjects.iterator();
     final List visitables = _visitables.get("subjects");
@@ -305,7 +288,7 @@ public class V1ClusterRoleBindingFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Subject> getSubjects() {
+  public List<io.kubernetes.client.openapi.models.V1Subject> getSubjects() {
     return subjects != null ? build(subjects) : null;
   }
 
@@ -378,10 +361,8 @@ public class V1ClusterRoleBindingFluentImpl<
     return subjects != null && !subjects.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.SubjectsNested<A>
-      addNewSubject() {
-    return new io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluentImpl
-        .SubjectsNestedImpl();
+  public V1ClusterRoleBindingFluent.SubjectsNested<A> addNewSubject() {
+    return new V1ClusterRoleBindingFluentImpl.SubjectsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.SubjectsNested<A>
@@ -433,7 +414,7 @@ public class V1ClusterRoleBindingFluentImpl<
     return setNewSubjectLike(index, buildSubject(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ClusterRoleBindingFluentImpl that = (V1ClusterRoleBindingFluentImpl) o;
@@ -450,13 +431,39 @@ public class V1ClusterRoleBindingFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, roleRef, subjects, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (roleRef != null) {
+      sb.append("roleRef:");
+      sb.append(roleRef + ",");
+    }
+    if (subjects != null && !subjects.isEmpty()) {
+      sb.append("subjects:");
+      sb.append(subjects);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1ClusterRoleBindingFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -474,13 +481,12 @@ public class V1ClusterRoleBindingFluentImpl<
     }
   }
 
-  public class RoleRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1RoleRefFluentImpl<
-          io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.RoleRefNested<N>>
+  class RoleRefNestedImpl<N>
+      extends V1RoleRefFluentImpl<V1ClusterRoleBindingFluent.RoleRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.RoleRefNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     RoleRefNestedImpl(io.kubernetes.client.openapi.models.V1RoleRef item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1RoleRefBuilder(this, item);
+      this.builder = new V1RoleRefBuilder(this, item);
     }
 
     RoleRefNestedImpl() {
@@ -498,15 +504,13 @@ public class V1ClusterRoleBindingFluentImpl<
     }
   }
 
-  public class SubjectsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SubjectFluentImpl<
-          io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.SubjectsNested<N>>
+  class SubjectsNestedImpl<N>
+      extends V1SubjectFluentImpl<V1ClusterRoleBindingFluent.SubjectsNested<N>>
       implements io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.SubjectsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SubjectsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1Subject item) {
+    SubjectsNestedImpl(java.lang.Integer index, V1Subject item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1SubjectBuilder(this, item);
+      this.builder = new V1SubjectBuilder(this, item);
     }
 
     SubjectsNestedImpl() {

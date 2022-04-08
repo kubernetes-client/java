@@ -12,11 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1HorizontalPodAutoscalerStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<A> {
+        A extends V1HorizontalPodAutoscalerStatusFluent<A>>
+    extends BaseFluent<A> implements V1HorizontalPodAutoscalerStatusFluent<A> {
   public V1HorizontalPodAutoscalerStatusFluentImpl() {}
 
   public V1HorizontalPodAutoscalerStatusFluentImpl(
@@ -32,11 +35,11 @@ public class V1HorizontalPodAutoscalerStatusFluentImpl<
     this.withObservedGeneration(instance.getObservedGeneration());
   }
 
-  private java.lang.Integer currentCPUUtilizationPercentage;
+  private Integer currentCPUUtilizationPercentage;
   private java.lang.Integer currentReplicas;
   private java.lang.Integer desiredReplicas;
-  private java.time.OffsetDateTime lastScaleTime;
-  private java.lang.Long observedGeneration;
+  private OffsetDateTime lastScaleTime;
+  private Long observedGeneration;
 
   public java.lang.Integer getCurrentCPUUtilizationPercentage() {
     return this.currentCPUUtilizationPercentage;
@@ -47,7 +50,7 @@ public class V1HorizontalPodAutoscalerStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasCurrentCPUUtilizationPercentage() {
+  public Boolean hasCurrentCPUUtilizationPercentage() {
     return this.currentCPUUtilizationPercentage != null;
   }
 
@@ -103,7 +106,7 @@ public class V1HorizontalPodAutoscalerStatusFluentImpl<
     return this.observedGeneration != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1HorizontalPodAutoscalerStatusFluentImpl that = (V1HorizontalPodAutoscalerStatusFluentImpl) o;
@@ -133,5 +136,32 @@ public class V1HorizontalPodAutoscalerStatusFluentImpl<
         lastScaleTime,
         observedGeneration,
         super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (currentCPUUtilizationPercentage != null) {
+      sb.append("currentCPUUtilizationPercentage:");
+      sb.append(currentCPUUtilizationPercentage + ",");
+    }
+    if (currentReplicas != null) {
+      sb.append("currentReplicas:");
+      sb.append(currentReplicas + ",");
+    }
+    if (desiredReplicas != null) {
+      sb.append("desiredReplicas:");
+      sb.append(desiredReplicas + ",");
+    }
+    if (lastScaleTime != null) {
+      sb.append("lastScaleTime:");
+      sb.append(lastScaleTime + ",");
+    }
+    if (observedGeneration != null) {
+      sb.append("observedGeneration:");
+      sb.append(observedGeneration);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

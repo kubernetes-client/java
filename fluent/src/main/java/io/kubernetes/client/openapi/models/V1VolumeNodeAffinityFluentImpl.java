@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1VolumeNodeAffinityFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1VolumeNodeAffinityFluentImpl<A extends V1VolumeNodeAffinityFluent<A>>
+    extends BaseFluent<A> implements V1VolumeNodeAffinityFluent<A> {
   public V1VolumeNodeAffinityFluentImpl() {}
 
   public V1VolumeNodeAffinityFluentImpl(
@@ -24,15 +26,15 @@ public class V1VolumeNodeAffinityFluentImpl<
     this.withRequired(instance.getRequired());
   }
 
-  private io.kubernetes.client.openapi.models.V1NodeSelectorBuilder required;
+  private V1NodeSelectorBuilder required;
 
   /**
    * This method has been deprecated, please use method buildRequired instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NodeSelector getRequired() {
+  @Deprecated
+  public V1NodeSelector getRequired() {
     return this.required != null ? this.required.build() : null;
   }
 
@@ -49,20 +51,17 @@ public class V1VolumeNodeAffinityFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasRequired() {
+  public Boolean hasRequired() {
     return this.required != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
-      withNewRequired() {
-    return new io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluentImpl
-        .RequiredNestedImpl();
+  public V1VolumeNodeAffinityFluent.RequiredNested<A> withNewRequired() {
+    return new V1VolumeNodeAffinityFluentImpl.RequiredNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
       withNewRequiredLike(io.kubernetes.client.openapi.models.V1NodeSelector item) {
-    return new io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluentImpl
-        .RequiredNestedImpl(item);
+    return new V1VolumeNodeAffinityFluentImpl.RequiredNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
@@ -83,7 +82,7 @@ public class V1VolumeNodeAffinityFluentImpl<
     return withNewRequiredLike(getRequired() != null ? getRequired() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1VolumeNodeAffinityFluentImpl that = (V1VolumeNodeAffinityFluentImpl) o;
@@ -95,13 +94,23 @@ public class V1VolumeNodeAffinityFluentImpl<
     return java.util.Objects.hash(required, super.hashCode());
   }
 
-  public class RequiredNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NodeSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (required != null) {
+      sb.append("required:");
+      sb.append(required);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class RequiredNestedImpl<N>
+      extends V1NodeSelectorFluentImpl<V1VolumeNodeAffinityFluent.RequiredNested<N>>
       implements io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    RequiredNestedImpl(io.kubernetes.client.openapi.models.V1NodeSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1NodeSelectorBuilder(this, item);
+          Nested<N> {
+    RequiredNestedImpl(V1NodeSelector item) {
+      this.builder = new V1NodeSelectorBuilder(this, item);
     }
 
     RequiredNestedImpl() {

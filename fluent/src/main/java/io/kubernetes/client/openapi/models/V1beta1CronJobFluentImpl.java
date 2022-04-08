@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1beta1CronJobFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1CronJobFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1CronJobFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1CronJobFluentImpl<A extends V1beta1CronJobFluent<A>> extends BaseFluent<A>
+    implements V1beta1CronJobFluent<A> {
   public V1beta1CronJobFluentImpl() {}
 
   public V1beta1CronJobFluentImpl(io.kubernetes.client.openapi.models.V1beta1CronJob instance) {
@@ -31,11 +33,11 @@ public class V1beta1CronJobFluentImpl<
     this.withStatus(instance.getStatus());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1beta1CronJobSpecBuilder spec;
-  private io.kubernetes.client.openapi.models.V1beta1CronJobStatusBuilder status;
+  private V1ObjectMetaBuilder metadata;
+  private V1beta1CronJobSpecBuilder spec;
+  private V1beta1CronJobStatusBuilder status;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -46,14 +48,8 @@ public class V1beta1CronJobFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -69,18 +65,12 @@ public class V1beta1CronJobFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -92,7 +82,7 @@ public class V1beta1CronJobFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -102,15 +92,13 @@ public class V1beta1CronJobFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1CronJobFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1beta1CronJobFluentImpl.MetadataNestedImpl();
+  public V1beta1CronJobFluent.MetadataNested<A> withNewMetadata() {
+    return new V1beta1CronJobFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1beta1CronJobFluentImpl.MetadataNestedImpl(
-        item);
+    return new V1beta1CronJobFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobFluent.MetadataNested<A> editMetadata() {
@@ -136,7 +124,7 @@ public class V1beta1CronJobFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1CronJobSpec getSpec() {
+  public V1beta1CronJobSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
@@ -157,8 +145,8 @@ public class V1beta1CronJobFluentImpl<
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1CronJobFluent.SpecNested<A> withNewSpec() {
-    return new io.kubernetes.client.openapi.models.V1beta1CronJobFluentImpl.SpecNestedImpl();
+  public V1beta1CronJobFluent.SpecNested<A> withNewSpec() {
+    return new V1beta1CronJobFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobFluent.SpecNested<A> withNewSpecLike(
@@ -199,7 +187,7 @@ public class V1beta1CronJobFluentImpl<
   public A withStatus(io.kubernetes.client.openapi.models.V1beta1CronJobStatus status) {
     _visitables.get("status").remove(this.status);
     if (status != null) {
-      this.status = new io.kubernetes.client.openapi.models.V1beta1CronJobStatusBuilder(status);
+      this.status = new V1beta1CronJobStatusBuilder(status);
       _visitables.get("status").add(this.status);
     }
     return (A) this;
@@ -209,8 +197,8 @@ public class V1beta1CronJobFluentImpl<
     return this.status != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1CronJobFluent.StatusNested<A> withNewStatus() {
-    return new io.kubernetes.client.openapi.models.V1beta1CronJobFluentImpl.StatusNestedImpl();
+  public V1beta1CronJobFluent.StatusNested<A> withNewStatus() {
+    return new V1beta1CronJobFluentImpl.StatusNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobFluent.StatusNested<A> withNewStatusLike(
@@ -235,7 +223,7 @@ public class V1beta1CronJobFluentImpl<
     return withNewStatusLike(getStatus() != null ? getStatus() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1CronJobFluentImpl that = (V1beta1CronJobFluentImpl) o;
@@ -252,13 +240,38 @@ public class V1beta1CronJobFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, status, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1CronJobFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1beta1CronJobFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1CronJobFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -276,13 +289,11 @@ public class V1beta1CronJobFluentImpl<
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1CronJobFluent.SpecNested<N>>
+  class SpecNestedImpl<N> extends V1beta1CronJobSpecFluentImpl<V1beta1CronJobFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1CronJobFluent.SpecNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     SpecNestedImpl(io.kubernetes.client.openapi.models.V1beta1CronJobSpec item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1CronJobSpecBuilder(this, item);
+      this.builder = new V1beta1CronJobSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
@@ -300,14 +311,12 @@ public class V1beta1CronJobFluentImpl<
     }
   }
 
-  public class StatusNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1CronJobFluent.StatusNested<N>>
+  class StatusNestedImpl<N>
+      extends V1beta1CronJobStatusFluentImpl<V1beta1CronJobFluent.StatusNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1CronJobFluent.StatusNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    StatusNestedImpl(io.kubernetes.client.openapi.models.V1beta1CronJobStatus item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1CronJobStatusBuilder(this, item);
+    StatusNestedImpl(V1beta1CronJobStatus item) {
+      this.builder = new V1beta1CronJobStatusBuilder(this, item);
     }
 
     StatusNestedImpl() {

@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1GroupVersionForDiscoveryFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1GroupVersionForDiscoveryFluentImpl<A extends V1GroupVersionForDiscoveryFluent<A>>
+    extends BaseFluent<A> implements V1GroupVersionForDiscoveryFluent<A> {
   public V1GroupVersionForDiscoveryFluentImpl() {}
 
   public V1GroupVersionForDiscoveryFluentImpl(
@@ -26,7 +27,7 @@ public class V1GroupVersionForDiscoveryFluentImpl<
     this.withVersion(instance.getVersion());
   }
 
-  private java.lang.String groupVersion;
+  private String groupVersion;
   private java.lang.String version;
 
   public java.lang.String getGroupVersion() {
@@ -38,14 +39,8 @@ public class V1GroupVersionForDiscoveryFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasGroupVersion() {
+  public Boolean hasGroupVersion() {
     return this.groupVersion != null;
-  }
-
-  /** Method is deprecated. use withGroupVersion instead. */
-  @java.lang.Deprecated
-  public A withNewGroupVersion(java.lang.String original) {
-    return (A) withGroupVersion(new String(original));
   }
 
   public java.lang.String getVersion() {
@@ -61,13 +56,7 @@ public class V1GroupVersionForDiscoveryFluentImpl<
     return this.version != null;
   }
 
-  /** Method is deprecated. use withVersion instead. */
-  @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original) {
-    return (A) withVersion(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1GroupVersionForDiscoveryFluentImpl that = (V1GroupVersionForDiscoveryFluentImpl) o;
@@ -79,5 +68,20 @@ public class V1GroupVersionForDiscoveryFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(groupVersion, version, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (groupVersion != null) {
+      sb.append("groupVersion:");
+      sb.append(groupVersion + ",");
+    }
+    if (version != null) {
+      sb.append("version:");
+      sb.append(version);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

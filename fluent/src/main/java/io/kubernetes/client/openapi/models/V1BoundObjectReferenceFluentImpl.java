@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1BoundObjectReferenceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1BoundObjectReferenceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1BoundObjectReferenceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1BoundObjectReferenceFluentImpl<A extends V1BoundObjectReferenceFluent<A>>
+    extends BaseFluent<A> implements V1BoundObjectReferenceFluent<A> {
   public V1BoundObjectReferenceFluentImpl() {}
 
   public V1BoundObjectReferenceFluentImpl(
@@ -30,7 +31,7 @@ public class V1BoundObjectReferenceFluentImpl<
     this.withUid(instance.getUid());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
   private java.lang.String name;
   private java.lang.String uid;
@@ -44,14 +45,8 @@ public class V1BoundObjectReferenceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -67,12 +62,6 @@ public class V1BoundObjectReferenceFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -84,12 +73,6 @@ public class V1BoundObjectReferenceFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.String getUid() {
@@ -105,13 +88,7 @@ public class V1BoundObjectReferenceFluentImpl<
     return this.uid != null;
   }
 
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A) withUid(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1BoundObjectReferenceFluentImpl that = (V1BoundObjectReferenceFluentImpl) o;
@@ -125,5 +102,28 @@ public class V1BoundObjectReferenceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(apiVersion, kind, name, uid, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (uid != null) {
+      sb.append("uid:");
+      sb.append(uid);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

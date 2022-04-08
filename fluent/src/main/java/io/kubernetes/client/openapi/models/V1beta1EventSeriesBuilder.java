@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta1EventSeriesBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1EventSeriesFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1EventSeriesBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1beta1EventSeriesFluentImpl<V1beta1EventSeriesBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1beta1EventSeries,
         io.kubernetes.client.openapi.models.V1beta1EventSeriesBuilder> {
   public V1beta1EventSeriesBuilder() {
     this(false);
   }
 
-  public V1beta1EventSeriesBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1EventSeriesBuilder(Boolean validationEnabled) {
     this(new V1beta1EventSeries(), validationEnabled);
   }
 
-  public V1beta1EventSeriesBuilder(
-      io.kubernetes.client.openapi.models.V1beta1EventSeriesFluent<?> fluent) {
+  public V1beta1EventSeriesBuilder(V1beta1EventSeriesFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -79,24 +79,5 @@ public class V1beta1EventSeriesBuilder
     buildable.setCount(fluent.getCount());
     buildable.setLastObservedTime(fluent.getLastObservedTime());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1EventSeriesBuilder that = (V1beta1EventSeriesBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

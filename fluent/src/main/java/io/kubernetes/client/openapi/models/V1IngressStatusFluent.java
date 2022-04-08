@@ -12,27 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1IngressStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1IngressStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1IngressStatusFluent<A extends V1IngressStatusFluent<A>> extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildLoadBalancer instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LoadBalancerStatus getLoadBalancer();
+  @Deprecated
+  public V1LoadBalancerStatus getLoadBalancer();
 
   public io.kubernetes.client.openapi.models.V1LoadBalancerStatus buildLoadBalancer();
 
   public A withLoadBalancer(io.kubernetes.client.openapi.models.V1LoadBalancerStatus loadBalancer);
 
-  public java.lang.Boolean hasLoadBalancer();
+  public Boolean hasLoadBalancer();
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      withNewLoadBalancer();
+  public V1IngressStatusFluent.LoadBalancerNested<A> withNewLoadBalancer();
 
   public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
       withNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item);
@@ -47,9 +47,7 @@ public interface V1IngressStatusFluent<
       editOrNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item);
 
   public interface LoadBalancerNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LoadBalancerStatusFluent<
-              io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<N>> {
+      extends Nested<N>, V1LoadBalancerStatusFluent<V1IngressStatusFluent.LoadBalancerNested<N>> {
     public N and();
 
     public N endLoadBalancer();

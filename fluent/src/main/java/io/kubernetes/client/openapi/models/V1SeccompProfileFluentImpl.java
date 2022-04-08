@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1SeccompProfileFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1SeccompProfileFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1SeccompProfileFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1SeccompProfileFluentImpl<A extends V1SeccompProfileFluent<A>> extends BaseFluent<A>
+    implements V1SeccompProfileFluent<A> {
   public V1SeccompProfileFluentImpl() {}
 
   public V1SeccompProfileFluentImpl(io.kubernetes.client.openapi.models.V1SeccompProfile instance) {
@@ -25,8 +26,8 @@ public class V1SeccompProfileFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.lang.String localhostProfile;
-  private io.kubernetes.client.openapi.models.V1SeccompProfile.TypeEnum type;
+  private String localhostProfile;
+  private java.lang.String type;
 
   public java.lang.String getLocalhostProfile() {
     return this.localhostProfile;
@@ -37,21 +38,15 @@ public class V1SeccompProfileFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasLocalhostProfile() {
+  public Boolean hasLocalhostProfile() {
     return this.localhostProfile != null;
   }
 
-  /** Method is deprecated. use withLocalhostProfile instead. */
-  @java.lang.Deprecated
-  public A withNewLocalhostProfile(java.lang.String original) {
-    return (A) withLocalhostProfile(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1SeccompProfile.TypeEnum getType() {
+  public java.lang.String getType() {
     return this.type;
   }
 
-  public A withType(io.kubernetes.client.openapi.models.V1SeccompProfile.TypeEnum type) {
+  public A withType(java.lang.String type) {
     this.type = type;
     return (A) this;
   }
@@ -60,7 +55,7 @@ public class V1SeccompProfileFluentImpl<
     return this.type != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1SeccompProfileFluentImpl that = (V1SeccompProfileFluentImpl) o;
@@ -73,5 +68,20 @@ public class V1SeccompProfileFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(localhostProfile, type, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (localhostProfile != null) {
+      sb.append("localhostProfile:");
+      sb.append(localhostProfile + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

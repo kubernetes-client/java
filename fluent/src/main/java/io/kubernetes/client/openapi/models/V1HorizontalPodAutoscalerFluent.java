@@ -12,19 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1HorizontalPodAutoscalerFluent<
-        A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface V1HorizontalPodAutoscalerFluent<A extends V1HorizontalPodAutoscalerFluent<A>>
+    extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public Boolean hasApiVersion();
 
   public java.lang.String getKind();
 
@@ -32,17 +30,13 @@ public interface V1HorizontalPodAutoscalerFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  @Deprecated
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -50,8 +44,7 @@ public interface V1HorizontalPodAutoscalerFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.MetadataNested<A>
-      withNewMetadata();
+  public V1HorizontalPodAutoscalerFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -71,7 +64,7 @@ public interface V1HorizontalPodAutoscalerFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpec getSpec();
+  public V1HorizontalPodAutoscalerSpec getSpec();
 
   public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpec buildSpec();
 
@@ -79,8 +72,7 @@ public interface V1HorizontalPodAutoscalerFluent<
 
   public java.lang.Boolean hasSpec();
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.SpecNested<A>
-      withNewSpec();
+  public V1HorizontalPodAutoscalerFluent.SpecNested<A> withNewSpec();
 
   public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.SpecNested<A>
       withNewSpecLike(io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpec item);
@@ -100,7 +92,7 @@ public interface V1HorizontalPodAutoscalerFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus getStatus();
+  public V1HorizontalPodAutoscalerStatus getStatus();
 
   public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus buildStatus();
 
@@ -108,8 +100,7 @@ public interface V1HorizontalPodAutoscalerFluent<
 
   public java.lang.Boolean hasStatus();
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.StatusNested<A>
-      withNewStatus();
+  public V1HorizontalPodAutoscalerFluent.StatusNested<A> withNewStatus();
 
   public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.StatusNested<A>
       withNewStatusLike(io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus item);
@@ -124,10 +115,7 @@ public interface V1HorizontalPodAutoscalerFluent<
       editOrNewStatusLike(io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus item);
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.MetadataNested<
-                  N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1HorizontalPodAutoscalerFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
@@ -135,8 +123,7 @@ public interface V1HorizontalPodAutoscalerFluent<
 
   public interface SpecNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent<
-              io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.SpecNested<N>> {
+          V1HorizontalPodAutoscalerSpecFluent<V1HorizontalPodAutoscalerFluent.SpecNested<N>> {
     public N and();
 
     public N endSpec();
@@ -144,8 +131,7 @@ public interface V1HorizontalPodAutoscalerFluent<
 
   public interface StatusNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<
-              io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent.StatusNested<N>> {
+          V1HorizontalPodAutoscalerStatusFluent<V1HorizontalPodAutoscalerFluent.StatusNested<N>> {
     public N and();
 
     public N endStatus();

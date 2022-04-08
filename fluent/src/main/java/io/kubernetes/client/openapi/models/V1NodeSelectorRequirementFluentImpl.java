@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1NodeSelectorRequirementFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NodeSelectorRequirementFluentImpl<A extends V1NodeSelectorRequirementFluent<A>>
+    extends BaseFluent<A> implements V1NodeSelectorRequirementFluent<A> {
   public V1NodeSelectorRequirementFluentImpl() {}
 
   public V1NodeSelectorRequirementFluentImpl(
@@ -28,9 +33,9 @@ public class V1NodeSelectorRequirementFluentImpl<
     this.withValues(instance.getValues());
   }
 
-  private java.lang.String key;
-  private io.kubernetes.client.openapi.models.V1NodeSelectorRequirement.OperatorEnum operator;
-  private java.util.List<java.lang.String> values;
+  private String key;
+  private java.lang.String operator;
+  private List<java.lang.String> values;
 
   public java.lang.String getKey() {
     return this.key;
@@ -41,22 +46,15 @@ public class V1NodeSelectorRequirementFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasKey() {
+  public Boolean hasKey() {
     return this.key != null;
   }
 
-  /** Method is deprecated. use withKey instead. */
-  @java.lang.Deprecated
-  public A withNewKey(java.lang.String original) {
-    return (A) withKey(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement.OperatorEnum getOperator() {
+  public java.lang.String getOperator() {
     return this.operator;
   }
 
-  public A withOperator(
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirement.OperatorEnum operator) {
+  public A withOperator(java.lang.String operator) {
     this.operator = operator;
     return (A) this;
   }
@@ -65,9 +63,9 @@ public class V1NodeSelectorRequirementFluentImpl<
     return this.operator != null;
   }
 
-  public A addToValues(java.lang.Integer index, java.lang.String item) {
+  public A addToValues(Integer index, java.lang.String item) {
     if (this.values == null) {
-      this.values = new java.util.ArrayList<java.lang.String>();
+      this.values = new ArrayList<java.lang.String>();
     }
     this.values.add(index, item);
     return (A) this;
@@ -91,7 +89,7 @@ public class V1NodeSelectorRequirementFluentImpl<
     return (A) this;
   }
 
-  public A addAllToValues(java.util.Collection<java.lang.String> items) {
+  public A addAllToValues(Collection<java.lang.String> items) {
     if (this.values == null) {
       this.values = new java.util.ArrayList<java.lang.String>();
     }
@@ -135,8 +133,7 @@ public class V1NodeSelectorRequirementFluentImpl<
     return this.values.get(values.size() - 1);
   }
 
-  public java.lang.String getMatchingValue(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingValue(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : values) {
       if (predicate.test(item)) {
         return item;
@@ -183,11 +180,7 @@ public class V1NodeSelectorRequirementFluentImpl<
     return values != null && !values.isEmpty();
   }
 
-  public A addNewValue(java.lang.String original) {
-    return (A) addToValues(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NodeSelectorRequirementFluentImpl that = (V1NodeSelectorRequirementFluentImpl) o;
@@ -199,5 +192,24 @@ public class V1NodeSelectorRequirementFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(key, operator, values, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (key != null) {
+      sb.append("key:");
+      sb.append(key + ",");
+    }
+    if (operator != null) {
+      sb.append("operator:");
+      sb.append(operator + ",");
+    }
+    if (values != null && !values.isEmpty()) {
+      sb.append("values:");
+      sb.append(values);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

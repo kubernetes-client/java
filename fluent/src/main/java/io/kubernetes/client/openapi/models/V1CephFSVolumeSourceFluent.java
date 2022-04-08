@@ -12,23 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1CephFSVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1CephFSVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToMonitors(java.lang.Integer index, java.lang.String item);
+public interface V1CephFSVolumeSourceFluent<A extends V1CephFSVolumeSourceFluent<A>>
+    extends Fluent<A> {
+  public A addToMonitors(Integer index, String item);
 
   public A setToMonitors(java.lang.Integer index, java.lang.String item);
 
   public A addToMonitors(java.lang.String... items);
 
-  public A addAllToMonitors(java.util.Collection<java.lang.String> items);
+  public A addAllToMonitors(Collection<java.lang.String> items);
 
   public A removeFromMonitors(java.lang.String... items);
 
   public A removeAllFromMonitors(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getMonitors();
+  public List<java.lang.String> getMonitors();
 
   public java.lang.String getMonitor(java.lang.Integer index);
 
@@ -36,11 +41,9 @@ public interface V1CephFSVolumeSourceFluent<
 
   public java.lang.String getLastMonitor();
 
-  public java.lang.String getMatchingMonitor(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingMonitor(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingMonitor(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingMonitor(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withMonitors(java.util.List<java.lang.String> monitors);
 
@@ -48,17 +51,11 @@ public interface V1CephFSVolumeSourceFluent<
 
   public java.lang.Boolean hasMonitors();
 
-  public A addNewMonitor(java.lang.String original);
-
   public java.lang.String getPath();
 
   public A withPath(java.lang.String path);
 
   public java.lang.Boolean hasPath();
-
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original);
 
   public java.lang.Boolean getReadOnly();
 
@@ -72,17 +69,13 @@ public interface V1CephFSVolumeSourceFluent<
 
   public java.lang.Boolean hasSecretFile();
 
-  /** Method is deprecated. use withSecretFile instead. */
-  @java.lang.Deprecated
-  public A withNewSecretFile(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef();
+  @Deprecated
+  public V1LocalObjectReference getSecretRef();
 
   public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef();
 
@@ -90,8 +83,7 @@ public interface V1CephFSVolumeSourceFluent<
 
   public java.lang.Boolean hasSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CephFSVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRef();
+  public V1CephFSVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
   public io.kubernetes.client.openapi.models.V1CephFSVolumeSourceFluent.SecretRefNested<A>
       withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
@@ -111,14 +103,11 @@ public interface V1CephFSVolumeSourceFluent<
 
   public java.lang.Boolean hasUser();
 
-  /** Method is deprecated. use withUser instead. */
-  @java.lang.Deprecated
-  public A withNewUser(java.lang.String original);
+  public A withReadOnly();
 
   public interface SecretRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1CephFSVolumeSourceFluent.SecretRefNested<N>> {
+      extends Nested<N>,
+          V1LocalObjectReferenceFluent<V1CephFSVolumeSourceFluent.SecretRefNested<N>> {
     public N and();
 
     public N endSecretRef();

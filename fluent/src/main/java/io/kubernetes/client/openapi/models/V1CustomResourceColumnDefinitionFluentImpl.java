@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1CustomResourceColumnDefinitionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<A> {
+        A extends V1CustomResourceColumnDefinitionFluent<A>>
+    extends BaseFluent<A> implements V1CustomResourceColumnDefinitionFluent<A> {
   public V1CustomResourceColumnDefinitionFluentImpl() {}
 
   public V1CustomResourceColumnDefinitionFluentImpl(
@@ -34,11 +36,11 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.lang.String description;
+  private String description;
   private java.lang.String format;
   private java.lang.String jsonPath;
   private java.lang.String name;
-  private java.lang.Integer priority;
+  private Integer priority;
   private java.lang.String type;
 
   public java.lang.String getDescription() {
@@ -50,14 +52,8 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasDescription() {
+  public Boolean hasDescription() {
     return this.description != null;
-  }
-
-  /** Method is deprecated. use withDescription instead. */
-  @java.lang.Deprecated
-  public A withNewDescription(java.lang.String original) {
-    return (A) withDescription(new String(original));
   }
 
   public java.lang.String getFormat() {
@@ -73,12 +69,6 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
     return this.format != null;
   }
 
-  /** Method is deprecated. use withFormat instead. */
-  @java.lang.Deprecated
-  public A withNewFormat(java.lang.String original) {
-    return (A) withFormat(new String(original));
-  }
-
   public java.lang.String getJsonPath() {
     return this.jsonPath;
   }
@@ -92,12 +82,6 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
     return this.jsonPath != null;
   }
 
-  /** Method is deprecated. use withJsonPath instead. */
-  @java.lang.Deprecated
-  public A withNewJsonPath(java.lang.String original) {
-    return (A) withJsonPath(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -109,12 +93,6 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.Integer getPriority() {
@@ -143,13 +121,7 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
     return this.type != null;
   }
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A) withType(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CustomResourceColumnDefinitionFluentImpl that =
@@ -167,5 +139,36 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         description, format, jsonPath, name, priority, type, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (description != null) {
+      sb.append("description:");
+      sb.append(description + ",");
+    }
+    if (format != null) {
+      sb.append("format:");
+      sb.append(format + ",");
+    }
+    if (jsonPath != null) {
+      sb.append("jsonPath:");
+      sb.append(jsonPath + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (priority != null) {
+      sb.append("priority:");
+      sb.append(priority + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

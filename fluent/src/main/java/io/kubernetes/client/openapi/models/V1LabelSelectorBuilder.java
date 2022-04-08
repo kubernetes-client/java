@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1LabelSelectorBuilder
-    extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-        io.kubernetes.client.openapi.models.V1LabelSelectorBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LabelSelector,
-        io.kubernetes.client.openapi.models.V1LabelSelectorBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1LabelSelectorBuilder extends V1LabelSelectorFluentImpl<V1LabelSelectorBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1LabelSelector, V1LabelSelectorBuilder> {
   public V1LabelSelectorBuilder() {
     this(false);
   }
 
-  public V1LabelSelectorBuilder(java.lang.Boolean validationEnabled) {
+  public V1LabelSelectorBuilder(Boolean validationEnabled) {
     this(new V1LabelSelector(), validationEnabled);
   }
 
@@ -78,24 +77,5 @@ public class V1LabelSelectorBuilder
     buildable.setMatchExpressions(fluent.getMatchExpressions());
     buildable.setMatchLabels(fluent.getMatchLabels());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1LabelSelectorBuilder that = (V1LabelSelectorBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

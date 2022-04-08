@@ -13,12 +13,13 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V2beta1ContainerResourceMetricStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta1ContainerResourceMetricStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta1ContainerResourceMetricStatusFluent<A> {
+        A extends V2beta1ContainerResourceMetricStatusFluent<A>>
+    extends BaseFluent<A> implements V2beta1ContainerResourceMetricStatusFluent<A> {
   public V2beta1ContainerResourceMetricStatusFluentImpl() {}
 
   public V2beta1ContainerResourceMetricStatusFluentImpl(
@@ -32,9 +33,9 @@ public class V2beta1ContainerResourceMetricStatusFluentImpl<
     this.withName(instance.getName());
   }
 
-  private java.lang.String container;
-  private java.lang.Integer currentAverageUtilization;
-  private io.kubernetes.client.custom.Quantity currentAverageValue;
+  private String container;
+  private Integer currentAverageUtilization;
+  private Quantity currentAverageValue;
   private java.lang.String name;
 
   public java.lang.String getContainer() {
@@ -46,14 +47,8 @@ public class V2beta1ContainerResourceMetricStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasContainer() {
+  public Boolean hasContainer() {
     return this.container != null;
-  }
-
-  /** Method is deprecated. use withContainer instead. */
-  @java.lang.Deprecated
-  public A withNewContainer(java.lang.String original) {
-    return (A) withContainer(new String(original));
   }
 
   public java.lang.Integer getCurrentAverageUtilization() {
@@ -99,13 +94,7 @@ public class V2beta1ContainerResourceMetricStatusFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta1ContainerResourceMetricStatusFluentImpl that =
@@ -125,5 +114,28 @@ public class V2beta1ContainerResourceMetricStatusFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         container, currentAverageUtilization, currentAverageValue, name, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (container != null) {
+      sb.append("container:");
+      sb.append(container + ",");
+    }
+    if (currentAverageUtilization != null) {
+      sb.append("currentAverageUtilization:");
+      sb.append(currentAverageUtilization + ",");
+    }
+    if (currentAverageValue != null) {
+      sb.append("currentAverageValue:");
+      sb.append(currentAverageValue + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

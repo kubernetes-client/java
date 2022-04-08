@@ -13,14 +13,18 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1HTTPGetActionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1HTTPGetActionFluentImpl<A extends V1HTTPGetActionFluent<A>> extends BaseFluent<A>
+    implements V1HTTPGetActionFluent<A> {
   public V1HTTPGetActionFluentImpl() {}
 
   public V1HTTPGetActionFluentImpl(io.kubernetes.client.openapi.models.V1HTTPGetAction instance) {
@@ -35,11 +39,11 @@ public class V1HTTPGetActionFluentImpl<
     this.withScheme(instance.getScheme());
   }
 
-  private java.lang.String host;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder> httpHeaders;
+  private String host;
+  private ArrayList<V1HTTPHeaderBuilder> httpHeaders;
   private java.lang.String path;
-  private io.kubernetes.client.custom.IntOrString port;
-  private io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum scheme;
+  private IntOrString port;
+  private java.lang.String scheme;
 
   public java.lang.String getHost() {
     return this.host;
@@ -50,21 +54,13 @@ public class V1HTTPGetActionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasHost() {
+  public Boolean hasHost() {
     return this.host != null;
   }
 
-  /** Method is deprecated. use withHost instead. */
-  @java.lang.Deprecated
-  public A withNewHost(java.lang.String original) {
-    return (A) withHost(new String(original));
-  }
-
-  public A addToHttpHeaders(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1HTTPHeader item) {
+  public A addToHttpHeaders(Integer index, io.kubernetes.client.openapi.models.V1HTTPHeader item) {
     if (this.httpHeaders == null) {
-      this.httpHeaders =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder>();
+      this.httpHeaders = new java.util.ArrayList<V1HTTPHeaderBuilder>();
     }
     io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder builder =
         new io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder(item);
@@ -110,8 +106,7 @@ public class V1HTTPGetActionFluentImpl<
     return (A) this;
   }
 
-  public A addAllToHttpHeaders(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1HTTPHeader> items) {
+  public A addAllToHttpHeaders(Collection<io.kubernetes.client.openapi.models.V1HTTPHeader> items) {
     if (this.httpHeaders == null) {
       this.httpHeaders =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder>();
@@ -151,8 +146,7 @@ public class V1HTTPGetActionFluentImpl<
   }
 
   public A removeMatchingFromHttpHeaders(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder> predicate) {
     if (httpHeaders == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder> each =
         httpHeaders.iterator();
@@ -172,8 +166,8 @@ public class V1HTTPGetActionFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1HTTPHeader> getHttpHeaders() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1HTTPHeader> getHttpHeaders() {
     return httpHeaders != null ? build(httpHeaders) : null;
   }
 
@@ -247,16 +241,13 @@ public class V1HTTPGetActionFluentImpl<
     return httpHeaders != null && !httpHeaders.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<A>
-      addNewHttpHeader() {
-    return new io.kubernetes.client.openapi.models.V1HTTPGetActionFluentImpl
-        .HttpHeadersNestedImpl();
+  public V1HTTPGetActionFluent.HttpHeadersNested<A> addNewHttpHeader() {
+    return new V1HTTPGetActionFluentImpl.HttpHeadersNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<A>
       addNewHttpHeaderLike(io.kubernetes.client.openapi.models.V1HTTPHeader item) {
-    return new io.kubernetes.client.openapi.models.V1HTTPGetActionFluentImpl.HttpHeadersNestedImpl(
-        -1, item);
+    return new V1HTTPGetActionFluentImpl.HttpHeadersNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<A>
@@ -315,12 +306,6 @@ public class V1HTTPGetActionFluentImpl<
     return this.path != null;
   }
 
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A) withPath(new String(original));
-  }
-
   public io.kubernetes.client.custom.IntOrString getPort() {
     return this.port;
   }
@@ -342,11 +327,11 @@ public class V1HTTPGetActionFluentImpl<
     return (A) withPort(new IntOrString(value));
   }
 
-  public io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum getScheme() {
+  public java.lang.String getScheme() {
     return this.scheme;
   }
 
-  public A withScheme(io.kubernetes.client.openapi.models.V1HTTPGetAction.SchemeEnum scheme) {
+  public A withScheme(java.lang.String scheme) {
     this.scheme = scheme;
     return (A) this;
   }
@@ -355,7 +340,7 @@ public class V1HTTPGetActionFluentImpl<
     return this.scheme != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1HTTPGetActionFluentImpl that = (V1HTTPGetActionFluentImpl) o;
@@ -372,15 +357,40 @@ public class V1HTTPGetActionFluentImpl<
     return java.util.Objects.hash(host, httpHeaders, path, port, scheme, super.hashCode());
   }
 
-  public class HttpHeadersNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1HTTPHeaderFluentImpl<
-          io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (host != null) {
+      sb.append("host:");
+      sb.append(host + ",");
+    }
+    if (httpHeaders != null && !httpHeaders.isEmpty()) {
+      sb.append("httpHeaders:");
+      sb.append(httpHeaders + ",");
+    }
+    if (path != null) {
+      sb.append("path:");
+      sb.append(path + ",");
+    }
+    if (port != null) {
+      sb.append("port:");
+      sb.append(port + ",");
+    }
+    if (scheme != null) {
+      sb.append("scheme:");
+      sb.append(scheme);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class HttpHeadersNestedImpl<N>
+      extends V1HTTPHeaderFluentImpl<V1HTTPGetActionFluent.HttpHeadersNested<N>>
       implements io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    HttpHeadersNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1HTTPHeader item) {
+          Nested<N> {
+    HttpHeadersNestedImpl(java.lang.Integer index, V1HTTPHeader item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder(this, item);
+      this.builder = new V1HTTPHeaderBuilder(this, item);
     }
 
     HttpHeadersNestedImpl() {

@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1LimitRangeSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1LimitRangeSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1LimitRangeSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LimitRangeSpec,
-        io.kubernetes.client.openapi.models.V1LimitRangeSpecBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1LimitRangeSpecBuilder extends V1LimitRangeSpecFluentImpl<V1LimitRangeSpecBuilder>
+    implements VisitableBuilder<
+        V1LimitRangeSpec, io.kubernetes.client.openapi.models.V1LimitRangeSpecBuilder> {
   public V1LimitRangeSpecBuilder() {
     this(false);
   }
 
-  public V1LimitRangeSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1LimitRangeSpecBuilder(Boolean validationEnabled) {
     this(new V1LimitRangeSpec(), validationEnabled);
   }
 
@@ -73,24 +72,5 @@ public class V1LimitRangeSpecBuilder
     V1LimitRangeSpec buildable = new V1LimitRangeSpec();
     buildable.setLimits(fluent.getLimits());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1LimitRangeSpecBuilder that = (V1LimitRangeSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

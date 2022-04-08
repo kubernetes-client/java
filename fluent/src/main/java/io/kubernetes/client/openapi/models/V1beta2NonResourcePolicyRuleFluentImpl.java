@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1beta2NonResourcePolicyRuleFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta2NonResourcePolicyRuleFluentImpl<A extends V1beta2NonResourcePolicyRuleFluent<A>>
+    extends BaseFluent<A> implements V1beta2NonResourcePolicyRuleFluent<A> {
   public V1beta2NonResourcePolicyRuleFluentImpl() {}
 
   public V1beta2NonResourcePolicyRuleFluentImpl(
@@ -26,12 +31,12 @@ public class V1beta2NonResourcePolicyRuleFluentImpl<
     this.withVerbs(instance.getVerbs());
   }
 
-  private java.util.List<java.lang.String> nonResourceURLs;
+  private List<String> nonResourceURLs;
   private java.util.List<java.lang.String> verbs;
 
-  public A addToNonResourceURLs(java.lang.Integer index, java.lang.String item) {
+  public A addToNonResourceURLs(Integer index, java.lang.String item) {
     if (this.nonResourceURLs == null) {
-      this.nonResourceURLs = new java.util.ArrayList<java.lang.String>();
+      this.nonResourceURLs = new ArrayList<java.lang.String>();
     }
     this.nonResourceURLs.add(index, item);
     return (A) this;
@@ -55,7 +60,7 @@ public class V1beta2NonResourcePolicyRuleFluentImpl<
     return (A) this;
   }
 
-  public A addAllToNonResourceURLs(java.util.Collection<java.lang.String> items) {
+  public A addAllToNonResourceURLs(Collection<java.lang.String> items) {
     if (this.nonResourceURLs == null) {
       this.nonResourceURLs = new java.util.ArrayList<java.lang.String>();
     }
@@ -99,8 +104,7 @@ public class V1beta2NonResourcePolicyRuleFluentImpl<
     return this.nonResourceURLs.get(nonResourceURLs.size() - 1);
   }
 
-  public java.lang.String getMatchingNonResourceURL(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingNonResourceURL(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : nonResourceURLs) {
       if (predicate.test(item)) {
         return item;
@@ -109,7 +113,7 @@ public class V1beta2NonResourcePolicyRuleFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingNonResourceURL(
+  public Boolean hasMatchingNonResourceURL(
       java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : nonResourceURLs) {
       if (predicate.test(item)) {
@@ -145,10 +149,6 @@ public class V1beta2NonResourcePolicyRuleFluentImpl<
 
   public java.lang.Boolean hasNonResourceURLs() {
     return nonResourceURLs != null && !nonResourceURLs.isEmpty();
-  }
-
-  public A addNewNonResourceURL(java.lang.String original) {
-    return (A) addToNonResourceURLs(new String(original));
   }
 
   public A addToVerbs(java.lang.Integer index, java.lang.String item) {
@@ -269,11 +269,7 @@ public class V1beta2NonResourcePolicyRuleFluentImpl<
     return verbs != null && !verbs.isEmpty();
   }
 
-  public A addNewVerb(java.lang.String original) {
-    return (A) addToVerbs(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta2NonResourcePolicyRuleFluentImpl that = (V1beta2NonResourcePolicyRuleFluentImpl) o;
@@ -286,5 +282,20 @@ public class V1beta2NonResourcePolicyRuleFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(nonResourceURLs, verbs, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (nonResourceURLs != null && !nonResourceURLs.isEmpty()) {
+      sb.append("nonResourceURLs:");
+      sb.append(nonResourceURLs + ",");
+    }
+    if (verbs != null && !verbs.isEmpty()) {
+      sb.append("verbs:");
+      sb.append(verbs);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

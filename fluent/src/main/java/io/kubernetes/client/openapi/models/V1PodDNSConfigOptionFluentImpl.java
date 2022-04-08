@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1PodDNSConfigOptionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PodDNSConfigOptionFluentImpl<A extends V1PodDNSConfigOptionFluent<A>>
+    extends BaseFluent<A> implements V1PodDNSConfigOptionFluent<A> {
   public V1PodDNSConfigOptionFluentImpl() {}
 
   public V1PodDNSConfigOptionFluentImpl(
@@ -26,7 +27,7 @@ public class V1PodDNSConfigOptionFluentImpl<
     this.withValue(instance.getValue());
   }
 
-  private java.lang.String name;
+  private String name;
   private java.lang.String value;
 
   public java.lang.String getName() {
@@ -38,14 +39,8 @@ public class V1PodDNSConfigOptionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.String getValue() {
@@ -61,13 +56,7 @@ public class V1PodDNSConfigOptionFluentImpl<
     return this.value != null;
   }
 
-  /** Method is deprecated. use withValue instead. */
-  @java.lang.Deprecated
-  public A withNewValue(java.lang.String original) {
-    return (A) withValue(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PodDNSConfigOptionFluentImpl that = (V1PodDNSConfigOptionFluentImpl) o;
@@ -78,5 +67,20 @@ public class V1PodDNSConfigOptionFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(name, value, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (value != null) {
+      sb.append("value:");
+      sb.append(value);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

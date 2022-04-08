@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **automountServiceAccountToken** | **Boolean** | AutomountServiceAccountToken indicates whether a service account token should be automatically mounted. |  [optional]
 **containers** | [**List&lt;V1Container&gt;**](V1Container.md) | List of containers belonging to the pod. Containers cannot currently be added or removed. There must be at least one container in a Pod. Cannot be updated. | 
 **dnsConfig** | [**V1PodDNSConfig**](V1PodDNSConfig.md) |  |  [optional]
-**dnsPolicy** | [**DnsPolicyEnum**](#DnsPolicyEnum) | Set DNS policy for the pod. Defaults to \&quot;ClusterFirst\&quot;. Valid values are &#39;ClusterFirstWithHostNet&#39;, &#39;ClusterFirst&#39;, &#39;Default&#39; or &#39;None&#39;. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to &#39;ClusterFirstWithHostNet&#39;.  Possible enum values:  - &#x60;\&quot;ClusterFirst\&quot;&#x60; indicates that the pod should use cluster DNS first unless hostNetwork is true, if it is available, then fall back on the default (as determined by kubelet) DNS settings.  - &#x60;\&quot;ClusterFirstWithHostNet\&quot;&#x60; indicates that the pod should use cluster DNS first, if it is available, then fall back on the default (as determined by kubelet) DNS settings.  - &#x60;\&quot;Default\&quot;&#x60; indicates that the pod should use the default (as determined by kubelet) DNS settings.  - &#x60;\&quot;None\&quot;&#x60; indicates that the pod should use empty DNS settings. DNS parameters such as nameservers and search paths should be defined via DNSConfig. |  [optional]
+**dnsPolicy** | **String** | Set DNS policy for the pod. Defaults to \&quot;ClusterFirst\&quot;. Valid values are &#39;ClusterFirstWithHostNet&#39;, &#39;ClusterFirst&#39;, &#39;Default&#39; or &#39;None&#39;. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to &#39;ClusterFirstWithHostNet&#39;.   |  [optional]
 **enableServiceLinks** | **Boolean** | EnableServiceLinks indicates whether information about services should be injected into pod&#39;s environment variables, matching the syntax of Docker links. Optional: Defaults to true. |  [optional]
 **ephemeralContainers** | [**List&lt;V1EphemeralContainer&gt;**](V1EphemeralContainer.md) | List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod&#39;s ephemeralcontainers subresource. This field is beta-level and available on clusters that haven&#39;t disabled the EphemeralContainers feature gate. |  [optional]
 **hostAliases** | [**List&lt;V1HostAlias&gt;**](V1HostAlias.md) | HostAliases is an optional list of hosts and IPs that will be injected into the pod&#39;s hosts file if specified. This is only valid for non-hostNetwork pods. |  [optional]
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **priority** | **Integer** | The priority value. Various system components use this field to find the priority of the pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. |  [optional]
 **priorityClassName** | **String** | If specified, indicates the pod&#39;s priority. \&quot;system-node-critical\&quot; and \&quot;system-cluster-critical\&quot; are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default. |  [optional]
 **readinessGates** | [**List&lt;V1PodReadinessGate&gt;**](V1PodReadinessGate.md) | If specified, all readiness gates will be evaluated for pod readiness. A pod is ready when all its containers are ready AND all conditions specified in the readiness gates have status equal to \&quot;True\&quot; More info: https://git.k8s.io/enhancements/keps/sig-network/580-pod-readiness-gates |  [optional]
-**restartPolicy** | [**RestartPolicyEnum**](#RestartPolicyEnum) | Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy  Possible enum values:  - &#x60;\&quot;Always\&quot;&#x60;  - &#x60;\&quot;Never\&quot;&#x60;  - &#x60;\&quot;OnFailure\&quot;&#x60; |  [optional]
+**restartPolicy** | **String** | Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy   |  [optional]
 **runtimeClassName** | **String** | RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \&quot;legacy\&quot; RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class This is a beta feature as of Kubernetes v1.14. |  [optional]
 **schedulerName** | **String** | If specified, the pod will be dispatched by specified scheduler. If not specified, the pod will be dispatched by default scheduler. |  [optional]
 **securityContext** | [**V1PodSecurityContext**](V1PodSecurityContext.md) |  |  [optional]
@@ -43,27 +43,6 @@ Name | Type | Description | Notes
 **tolerations** | [**List&lt;V1Toleration&gt;**](V1Toleration.md) | If specified, the pod&#39;s tolerations. |  [optional]
 **topologySpreadConstraints** | [**List&lt;V1TopologySpreadConstraint&gt;**](V1TopologySpreadConstraint.md) | TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. All topologySpreadConstraints are ANDed. |  [optional]
 **volumes** | [**List&lt;V1Volume&gt;**](V1Volume.md) | List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes |  [optional]
-
-
-
-## Enum: DnsPolicyEnum
-
-Name | Value
----- | -----
-CLUSTERFIRST | &quot;ClusterFirst&quot;
-CLUSTERFIRSTWITHHOSTNET | &quot;ClusterFirstWithHostNet&quot;
-DEFAULT | &quot;Default&quot;
-NONE | &quot;None&quot;
-
-
-
-## Enum: RestartPolicyEnum
-
-Name | Value
----- | -----
-ALWAYS | &quot;Always&quot;
-NEVER | &quot;Never&quot;
-ONFAILURE | &quot;OnFailure&quot;
 
 
 

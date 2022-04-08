@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1NFSVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NFSVolumeSourceFluentImpl<A extends V1NFSVolumeSourceFluent<A>> extends BaseFluent<A>
+    implements V1NFSVolumeSourceFluent<A> {
   public V1NFSVolumeSourceFluentImpl() {}
 
   public V1NFSVolumeSourceFluentImpl(
@@ -28,8 +29,8 @@ public class V1NFSVolumeSourceFluentImpl<
     this.withServer(instance.getServer());
   }
 
-  private java.lang.String path;
-  private java.lang.Boolean readOnly;
+  private String path;
+  private Boolean readOnly;
   private java.lang.String server;
 
   public java.lang.String getPath() {
@@ -43,12 +44,6 @@ public class V1NFSVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasPath() {
     return this.path != null;
-  }
-
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A) withPath(new String(original));
   }
 
   public java.lang.Boolean getReadOnly() {
@@ -77,13 +72,7 @@ public class V1NFSVolumeSourceFluentImpl<
     return this.server != null;
   }
 
-  /** Method is deprecated. use withServer instead. */
-  @java.lang.Deprecated
-  public A withNewServer(java.lang.String original) {
-    return (A) withServer(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NFSVolumeSourceFluentImpl that = (V1NFSVolumeSourceFluentImpl) o;
@@ -95,5 +84,28 @@ public class V1NFSVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(path, readOnly, server, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (path != null) {
+      sb.append("path:");
+      sb.append(path + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (server != null) {
+      sb.append("server:");
+      sb.append(server);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

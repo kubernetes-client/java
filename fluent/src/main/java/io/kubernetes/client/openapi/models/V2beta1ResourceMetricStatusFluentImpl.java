@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
-public class V2beta1ResourceMetricStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta1ResourceMetricStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta1ResourceMetricStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2beta1ResourceMetricStatusFluentImpl<A extends V2beta1ResourceMetricStatusFluent<A>>
+    extends BaseFluent<A> implements V2beta1ResourceMetricStatusFluent<A> {
   public V2beta1ResourceMetricStatusFluentImpl() {}
 
   public V2beta1ResourceMetricStatusFluentImpl(
@@ -30,9 +30,9 @@ public class V2beta1ResourceMetricStatusFluentImpl<
     this.withName(instance.getName());
   }
 
-  private java.lang.Integer currentAverageUtilization;
-  private io.kubernetes.client.custom.Quantity currentAverageValue;
-  private java.lang.String name;
+  private Integer currentAverageUtilization;
+  private Quantity currentAverageValue;
+  private String name;
 
   public java.lang.Integer getCurrentAverageUtilization() {
     return this.currentAverageUtilization;
@@ -43,7 +43,7 @@ public class V2beta1ResourceMetricStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasCurrentAverageUtilization() {
+  public Boolean hasCurrentAverageUtilization() {
     return this.currentAverageUtilization != null;
   }
 
@@ -77,13 +77,7 @@ public class V2beta1ResourceMetricStatusFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta1ResourceMetricStatusFluentImpl that = (V2beta1ResourceMetricStatusFluentImpl) o;
@@ -100,5 +94,24 @@ public class V2beta1ResourceMetricStatusFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         currentAverageUtilization, currentAverageValue, name, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (currentAverageUtilization != null) {
+      sb.append("currentAverageUtilization:");
+      sb.append(currentAverageUtilization + ",");
+    }
+    if (currentAverageValue != null) {
+      sb.append("currentAverageValue:");
+      sb.append(currentAverageValue + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

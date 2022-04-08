@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1TolerationFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1TolerationFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1TolerationFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1TolerationFluentImpl<A extends V1TolerationFluent<A>> extends BaseFluent<A>
+    implements V1TolerationFluent<A> {
   public V1TolerationFluentImpl() {}
 
   public V1TolerationFluentImpl(io.kubernetes.client.openapi.models.V1Toleration instance) {
@@ -31,22 +32,22 @@ public class V1TolerationFluentImpl<
     this.withValue(instance.getValue());
   }
 
-  private io.kubernetes.client.openapi.models.V1Toleration.EffectEnum effect;
+  private String effect;
   private java.lang.String key;
-  private io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum operator;
-  private java.lang.Long tolerationSeconds;
+  private java.lang.String operator;
+  private Long tolerationSeconds;
   private java.lang.String value;
 
-  public io.kubernetes.client.openapi.models.V1Toleration.EffectEnum getEffect() {
+  public java.lang.String getEffect() {
     return this.effect;
   }
 
-  public A withEffect(io.kubernetes.client.openapi.models.V1Toleration.EffectEnum effect) {
+  public A withEffect(java.lang.String effect) {
     this.effect = effect;
     return (A) this;
   }
 
-  public java.lang.Boolean hasEffect() {
+  public Boolean hasEffect() {
     return this.effect != null;
   }
 
@@ -63,17 +64,11 @@ public class V1TolerationFluentImpl<
     return this.key != null;
   }
 
-  /** Method is deprecated. use withKey instead. */
-  @java.lang.Deprecated
-  public A withNewKey(java.lang.String original) {
-    return (A) withKey(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum getOperator() {
+  public java.lang.String getOperator() {
     return this.operator;
   }
 
-  public A withOperator(io.kubernetes.client.openapi.models.V1Toleration.OperatorEnum operator) {
+  public A withOperator(java.lang.String operator) {
     this.operator = operator;
     return (A) this;
   }
@@ -108,13 +103,7 @@ public class V1TolerationFluentImpl<
     return this.value != null;
   }
 
-  /** Method is deprecated. use withValue instead. */
-  @java.lang.Deprecated
-  public A withNewValue(java.lang.String original) {
-    return (A) withValue(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1TolerationFluentImpl that = (V1TolerationFluentImpl) o;
@@ -131,5 +120,32 @@ public class V1TolerationFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         effect, key, operator, tolerationSeconds, value, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (effect != null) {
+      sb.append("effect:");
+      sb.append(effect + ",");
+    }
+    if (key != null) {
+      sb.append("key:");
+      sb.append(key + ",");
+    }
+    if (operator != null) {
+      sb.append("operator:");
+      sb.append(operator + ",");
+    }
+    if (tolerationSeconds != null) {
+      sb.append("tolerationSeconds:");
+      sb.append(tolerationSeconds + ",");
+    }
+    if (value != null) {
+      sb.append("value:");
+      sb.append(value);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

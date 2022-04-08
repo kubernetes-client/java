@@ -12,27 +12,30 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1IngressSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1IngressSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildDefaultBackend instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1IngressBackend getDefaultBackend();
+  @Deprecated
+  public V1IngressBackend getDefaultBackend();
 
   public io.kubernetes.client.openapi.models.V1IngressBackend buildDefaultBackend();
 
   public A withDefaultBackend(io.kubernetes.client.openapi.models.V1IngressBackend defaultBackend);
 
-  public java.lang.Boolean hasDefaultBackend();
+  public Boolean hasDefaultBackend();
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
-      withNewDefaultBackend();
+  public V1IngressSpecFluent.DefaultBackendNested<A> withNewDefaultBackend();
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
       withNewDefaultBackendLike(io.kubernetes.client.openapi.models.V1IngressBackend item);
@@ -46,35 +49,27 @@ public interface V1IngressSpecFluent<
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
       editOrNewDefaultBackendLike(io.kubernetes.client.openapi.models.V1IngressBackend item);
 
-  public java.lang.String getIngressClassName();
+  public String getIngressClassName();
 
   public A withIngressClassName(java.lang.String ingressClassName);
 
   public java.lang.Boolean hasIngressClassName();
 
-  /** Method is deprecated. use withIngressClassName instead. */
-  @java.lang.Deprecated
-  public A withNewIngressClassName(java.lang.String original);
-
-  public A addToRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressRule item);
+  public A addToRules(Integer index, V1IngressRule item);
 
   public A setToRules(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressRule item);
 
   public A addToRules(io.kubernetes.client.openapi.models.V1IngressRule... items);
 
-  public A addAllToRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1IngressRule> items);
+  public A addAllToRules(Collection<io.kubernetes.client.openapi.models.V1IngressRule> items);
 
   public A removeFromRules(io.kubernetes.client.openapi.models.V1IngressRule... items);
 
   public A removeAllFromRules(
       java.util.Collection<io.kubernetes.client.openapi.models.V1IngressRule> items);
 
-  public A removeMatchingFromRules(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>
-          predicate);
+  public A removeMatchingFromRules(Predicate<V1IngressRuleBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildRules instead.
@@ -82,7 +77,7 @@ public interface V1IngressSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1IngressRule> getRules();
+  public List<io.kubernetes.client.openapi.models.V1IngressRule> getRules();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1IngressRule> buildRules();
 
@@ -106,7 +101,7 @@ public interface V1IngressSpecFluent<
 
   public java.lang.Boolean hasRules();
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> addNewRule();
+  public V1IngressSpecFluent.RulesNested<A> addNewRule();
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> addNewRuleLike(
       io.kubernetes.client.openapi.models.V1IngressRule item);
@@ -125,7 +120,7 @@ public interface V1IngressSpecFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>
           predicate);
 
-  public A addToTls(java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressTLS item);
+  public A addToTls(java.lang.Integer index, V1IngressTLS item);
 
   public A setToTls(java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressTLS item);
 
@@ -139,9 +134,7 @@ public interface V1IngressSpecFluent<
   public A removeAllFromTls(
       java.util.Collection<io.kubernetes.client.openapi.models.V1IngressTLS> items);
 
-  public A removeMatchingFromTls(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>
-          predicate);
+  public A removeMatchingFromTls(java.util.function.Predicate<V1IngressTLSBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildTls instead.
@@ -173,7 +166,7 @@ public interface V1IngressSpecFluent<
 
   public java.lang.Boolean hasTls();
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> addNewTl();
+  public V1IngressSpecFluent.TlsNested<A> addNewTl();
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> addNewTlLike(
       io.kubernetes.client.openapi.models.V1IngressTLS item);
@@ -193,9 +186,7 @@ public interface V1IngressSpecFluent<
           predicate);
 
   public interface DefaultBackendNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1IngressBackendFluent<
-              io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<N>> {
+      extends Nested<N>, V1IngressBackendFluent<V1IngressSpecFluent.DefaultBackendNested<N>> {
     public N and();
 
     public N endDefaultBackend();
@@ -203,8 +194,7 @@ public interface V1IngressSpecFluent<
 
   public interface RulesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1IngressRuleFluent<
-              io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<N>> {
+          V1IngressRuleFluent<V1IngressSpecFluent.RulesNested<N>> {
     public N and();
 
     public N endRule();
@@ -212,8 +202,7 @@ public interface V1IngressSpecFluent<
 
   public interface TlsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1IngressTLSFluent<
-              io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<N>> {
+          V1IngressTLSFluent<V1IngressSpecFluent.TlsNested<N>> {
     public N and();
 
     public N endTl();

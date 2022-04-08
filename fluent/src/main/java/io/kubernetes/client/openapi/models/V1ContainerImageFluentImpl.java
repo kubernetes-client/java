@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1ContainerImageFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ContainerImageFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ContainerImageFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> extends BaseFluent<A>
+    implements V1ContainerImageFluent<A> {
   public V1ContainerImageFluentImpl() {}
 
   public V1ContainerImageFluentImpl(io.kubernetes.client.openapi.models.V1ContainerImage instance) {
@@ -25,12 +30,12 @@ public class V1ContainerImageFluentImpl<
     this.withSizeBytes(instance.getSizeBytes());
   }
 
-  private java.util.List<java.lang.String> names;
-  private java.lang.Long sizeBytes;
+  private List<String> names;
+  private Long sizeBytes;
 
-  public A addToNames(java.lang.Integer index, java.lang.String item) {
+  public A addToNames(Integer index, java.lang.String item) {
     if (this.names == null) {
-      this.names = new java.util.ArrayList<java.lang.String>();
+      this.names = new ArrayList<java.lang.String>();
     }
     this.names.add(index, item);
     return (A) this;
@@ -54,7 +59,7 @@ public class V1ContainerImageFluentImpl<
     return (A) this;
   }
 
-  public A addAllToNames(java.util.Collection<java.lang.String> items) {
+  public A addAllToNames(Collection<java.lang.String> items) {
     if (this.names == null) {
       this.names = new java.util.ArrayList<java.lang.String>();
     }
@@ -98,8 +103,7 @@ public class V1ContainerImageFluentImpl<
     return this.names.get(names.size() - 1);
   }
 
-  public java.lang.String getMatchingName(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingName(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : names) {
       if (predicate.test(item)) {
         return item;
@@ -108,8 +112,7 @@ public class V1ContainerImageFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingName(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingName(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : names) {
       if (predicate.test(item)) {
         return true;
@@ -146,10 +149,6 @@ public class V1ContainerImageFluentImpl<
     return names != null && !names.isEmpty();
   }
 
-  public A addNewName(java.lang.String original) {
-    return (A) addToNames(new String(original));
-  }
-
   public java.lang.Long getSizeBytes() {
     return this.sizeBytes;
   }
@@ -163,7 +162,7 @@ public class V1ContainerImageFluentImpl<
     return this.sizeBytes != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ContainerImageFluentImpl that = (V1ContainerImageFluentImpl) o;
@@ -175,5 +174,20 @@ public class V1ContainerImageFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(names, sizeBytes, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (names != null && !names.isEmpty()) {
+      sb.append("names:");
+      sb.append(names + ",");
+    }
+    if (sizeBytes != null) {
+      sb.append("sizeBytes:");
+      sb.append(sizeBytes);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

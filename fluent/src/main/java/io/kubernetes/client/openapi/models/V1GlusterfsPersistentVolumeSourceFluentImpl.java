@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1GlusterfsPersistentVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<A> {
+        A extends V1GlusterfsPersistentVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1GlusterfsPersistentVolumeSourceFluent<A> {
   public V1GlusterfsPersistentVolumeSourceFluentImpl() {}
 
   public V1GlusterfsPersistentVolumeSourceFluentImpl(
@@ -30,10 +32,10 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
     this.withReadOnly(instance.getReadOnly());
   }
 
-  private java.lang.String endpoints;
+  private String endpoints;
   private java.lang.String endpointsNamespace;
   private java.lang.String path;
-  private java.lang.Boolean readOnly;
+  private Boolean readOnly;
 
   public java.lang.String getEndpoints() {
     return this.endpoints;
@@ -46,12 +48,6 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasEndpoints() {
     return this.endpoints != null;
-  }
-
-  /** Method is deprecated. use withEndpoints instead. */
-  @java.lang.Deprecated
-  public A withNewEndpoints(java.lang.String original) {
-    return (A) withEndpoints(new String(original));
   }
 
   public java.lang.String getEndpointsNamespace() {
@@ -67,12 +63,6 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
     return this.endpointsNamespace != null;
   }
 
-  /** Method is deprecated. use withEndpointsNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewEndpointsNamespace(java.lang.String original) {
-    return (A) withEndpointsNamespace(new String(original));
-  }
-
   public java.lang.String getPath() {
     return this.path;
   }
@@ -84,12 +74,6 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasPath() {
     return this.path != null;
-  }
-
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A) withPath(new String(original));
   }
 
   public java.lang.Boolean getReadOnly() {
@@ -105,7 +89,7 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
     return this.readOnly != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1GlusterfsPersistentVolumeSourceFluentImpl that =
@@ -122,5 +106,32 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(endpoints, endpointsNamespace, path, readOnly, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (endpoints != null) {
+      sb.append("endpoints:");
+      sb.append(endpoints + ",");
+    }
+    if (endpointsNamespace != null) {
+      sb.append("endpointsNamespace:");
+      sb.append(endpointsNamespace + ",");
+    }
+    if (path != null) {
+      sb.append("path:");
+      sb.append(path + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

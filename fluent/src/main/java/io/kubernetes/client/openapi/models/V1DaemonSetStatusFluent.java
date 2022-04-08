@@ -12,18 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1DaemonSetStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getCollisionCount();
+public interface V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> extends Fluent<A> {
+  public Integer getCollisionCount();
 
   public A withCollisionCount(java.lang.Integer collisionCount);
 
-  public java.lang.Boolean hasCollisionCount();
+  public Boolean hasCollisionCount();
 
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1DaemonSetCondition item);
+  public A addToConditions(java.lang.Integer index, V1DaemonSetCondition item);
 
   public A setToConditions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1DaemonSetCondition item);
@@ -31,24 +34,22 @@ public interface V1DaemonSetStatusFluent<
   public A addToConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1DaemonSetCondition> items);
+      Collection<io.kubernetes.client.openapi.models.V1DaemonSetCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items);
 
   public A removeAllFromConditions(
       java.util.Collection<io.kubernetes.client.openapi.models.V1DaemonSetCondition> items);
 
-  public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1DaemonSetConditionBuilder>
-          predicate);
+  public A removeMatchingFromConditions(Predicate<V1DaemonSetConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1DaemonSetCondition> getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1DaemonSetCondition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1DaemonSetCondition> buildConditions();
 
@@ -74,8 +75,7 @@ public interface V1DaemonSetStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1DaemonSetStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1DaemonSetCondition item);
@@ -135,7 +135,7 @@ public interface V1DaemonSetStatusFluent<
 
   public java.lang.Boolean hasNumberUnavailable();
 
-  public java.lang.Long getObservedGeneration();
+  public Long getObservedGeneration();
 
   public A withObservedGeneration(java.lang.Long observedGeneration);
 
@@ -148,9 +148,7 @@ public interface V1DaemonSetStatusFluent<
   public java.lang.Boolean hasUpdatedNumberScheduled();
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1DaemonSetConditionFluent<
-              io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<N>> {
+      extends Nested<N>, V1DaemonSetConditionFluent<V1DaemonSetStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

@@ -12,11 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /** Generated */
-public class V1CSIPersistentVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1CSIPersistentVolumeSourceFluentImpl<A extends V1CSIPersistentVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1CSIPersistentVolumeSourceFluent<A> {
   public V1CSIPersistentVolumeSourceFluentImpl() {}
 
   public V1CSIPersistentVolumeSourceFluentImpl(
@@ -40,14 +44,14 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     this.withVolumeHandle(instance.getVolumeHandle());
   }
 
-  private io.kubernetes.client.openapi.models.V1SecretReferenceBuilder controllerExpandSecretRef;
-  private io.kubernetes.client.openapi.models.V1SecretReferenceBuilder controllerPublishSecretRef;
-  private java.lang.String driver;
+  private V1SecretReferenceBuilder controllerExpandSecretRef;
+  private V1SecretReferenceBuilder controllerPublishSecretRef;
+  private String driver;
   private java.lang.String fsType;
   private io.kubernetes.client.openapi.models.V1SecretReferenceBuilder nodePublishSecretRef;
   private io.kubernetes.client.openapi.models.V1SecretReferenceBuilder nodeStageSecretRef;
-  private java.lang.Boolean readOnly;
-  private java.util.Map<java.lang.String, java.lang.String> volumeAttributes;
+  private Boolean readOnly;
+  private Map<java.lang.String, java.lang.String> volumeAttributes;
   private java.lang.String volumeHandle;
 
   /**
@@ -55,7 +59,7 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1SecretReference getControllerExpandSecretRef() {
     return this.controllerExpandSecretRef != null ? this.controllerExpandSecretRef.build() : null;
   }
@@ -80,12 +84,9 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     return this.controllerExpandSecretRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
-              .ControllerExpandSecretRefNested<
-          A>
+  public V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<A>
       withNewControllerExpandSecretRef() {
-    return new io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluentImpl
-        .ControllerExpandSecretRefNestedImpl();
+    return new V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
@@ -93,8 +94,7 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
           A>
       withNewControllerExpandSecretRefLike(
           io.kubernetes.client.openapi.models.V1SecretReference item) {
-    return new io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluentImpl
-        .ControllerExpandSecretRefNestedImpl(item);
+    return new V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
@@ -153,12 +153,9 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     return this.controllerPublishSecretRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
-              .ControllerPublishSecretRefNested<
-          A>
+  public V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<A>
       withNewControllerPublishSecretRef() {
-    return new io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluentImpl
-        .ControllerPublishSecretRefNestedImpl();
+    return new V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
@@ -209,12 +206,6 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     return this.driver != null;
   }
 
-  /** Method is deprecated. use withDriver instead. */
-  @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original) {
-    return (A) withDriver(new String(original));
-  }
-
   public java.lang.String getFsType() {
     return this.fsType;
   }
@@ -226,12 +217,6 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasFsType() {
     return this.fsType != null;
-  }
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
   }
 
   /**
@@ -263,12 +248,9 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     return this.nodePublishSecretRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
-              .NodePublishSecretRefNested<
-          A>
+  public V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<A>
       withNewNodePublishSecretRef() {
-    return new io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluentImpl
-        .NodePublishSecretRefNestedImpl();
+    return new V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
@@ -334,12 +316,8 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     return this.nodeStageSecretRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
-              .NodeStageSecretRefNested<
-          A>
-      withNewNodeStageSecretRef() {
-    return new io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluentImpl
-        .NodeStageSecretRefNestedImpl();
+  public V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<A> withNewNodeStageSecretRef() {
+    return new V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
@@ -390,7 +368,7 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
 
   public A addToVolumeAttributes(java.lang.String key, java.lang.String value) {
     if (this.volumeAttributes == null && key != null && value != null) {
-      this.volumeAttributes = new java.util.LinkedHashMap();
+      this.volumeAttributes = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.volumeAttributes.put(key, value);
@@ -463,13 +441,7 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     return this.volumeHandle != null;
   }
 
-  /** Method is deprecated. use withVolumeHandle instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeHandle(java.lang.String original) {
-    return (A) withVolumeHandle(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CSIPersistentVolumeSourceFluentImpl that = (V1CSIPersistentVolumeSourceFluentImpl) o;
@@ -510,18 +482,62 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
         super.hashCode());
   }
 
-  public class ControllerExpandSecretRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SecretReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
-                  .ControllerExpandSecretRefNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (controllerExpandSecretRef != null) {
+      sb.append("controllerExpandSecretRef:");
+      sb.append(controllerExpandSecretRef + ",");
+    }
+    if (controllerPublishSecretRef != null) {
+      sb.append("controllerPublishSecretRef:");
+      sb.append(controllerPublishSecretRef + ",");
+    }
+    if (driver != null) {
+      sb.append("driver:");
+      sb.append(driver + ",");
+    }
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (nodePublishSecretRef != null) {
+      sb.append("nodePublishSecretRef:");
+      sb.append(nodePublishSecretRef + ",");
+    }
+    if (nodeStageSecretRef != null) {
+      sb.append("nodeStageSecretRef:");
+      sb.append(nodeStageSecretRef + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (volumeAttributes != null && !volumeAttributes.isEmpty()) {
+      sb.append("volumeAttributes:");
+      sb.append(volumeAttributes + ",");
+    }
+    if (volumeHandle != null) {
+      sb.append("volumeHandle:");
+      sb.append(volumeHandle);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
+  }
+
+  class ControllerExpandSecretRefNestedImpl<N>
+      extends V1SecretReferenceFluentImpl<
+          V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
                   .ControllerExpandSecretRefNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ControllerExpandSecretRefNestedImpl(
-        io.kubernetes.client.openapi.models.V1SecretReference item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(this, item);
+          Nested<N> {
+    ControllerExpandSecretRefNestedImpl(V1SecretReference item) {
+      this.builder = new V1SecretReferenceBuilder(this, item);
     }
 
     ControllerExpandSecretRefNestedImpl() {
@@ -540,18 +556,15 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     }
   }
 
-  public class ControllerPublishSecretRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SecretReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
-                  .ControllerPublishSecretRefNested<
-              N>>
+  class ControllerPublishSecretRefNestedImpl<N>
+      extends V1SecretReferenceFluentImpl<
+          V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
                   .ControllerPublishSecretRefNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    ControllerPublishSecretRefNestedImpl(
-        io.kubernetes.client.openapi.models.V1SecretReference item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(this, item);
+    ControllerPublishSecretRefNestedImpl(V1SecretReference item) {
+      this.builder = new V1SecretReferenceBuilder(this, item);
     }
 
     ControllerPublishSecretRefNestedImpl() {
@@ -571,17 +584,15 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     }
   }
 
-  public class NodePublishSecretRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SecretReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
-                  .NodePublishSecretRefNested<
-              N>>
+  class NodePublishSecretRefNestedImpl<N>
+      extends V1SecretReferenceFluentImpl<
+          V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
                   .NodePublishSecretRefNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    NodePublishSecretRefNestedImpl(io.kubernetes.client.openapi.models.V1SecretReference item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(this, item);
+    NodePublishSecretRefNestedImpl(V1SecretReference item) {
+      this.builder = new V1SecretReferenceBuilder(this, item);
     }
 
     NodePublishSecretRefNestedImpl() {
@@ -600,17 +611,15 @@ public class V1CSIPersistentVolumeSourceFluentImpl<
     }
   }
 
-  public class NodeStageSecretRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SecretReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
-                  .NodeStageSecretRefNested<
-              N>>
+  class NodeStageSecretRefNestedImpl<N>
+      extends V1SecretReferenceFluentImpl<
+          V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent
                   .NodeStageSecretRefNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    NodeStageSecretRefNestedImpl(io.kubernetes.client.openapi.models.V1SecretReference item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(this, item);
+    NodeStageSecretRefNestedImpl(V1SecretReference item) {
+      this.builder = new V1SecretReferenceBuilder(this, item);
     }
 
     NodeStageSecretRefNestedImpl() {

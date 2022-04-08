@@ -12,11 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /** Generated */
-public class V1LimitRangeItemFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1LimitRangeItemFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1LimitRangeItemFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1LimitRangeItemFluentImpl<A extends V1LimitRangeItemFluent<A>> extends BaseFluent<A>
+    implements V1LimitRangeItemFluent<A> {
   public V1LimitRangeItemFluentImpl() {}
 
   public V1LimitRangeItemFluentImpl(io.kubernetes.client.openapi.models.V1LimitRangeItem instance) {
@@ -33,17 +37,17 @@ public class V1LimitRangeItemFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> _default;
+  private Map<String, Quantity> _default;
   private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> defaultRequest;
   private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> max;
   private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity>
       maxLimitRequestRatio;
   private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> min;
-  private io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum type;
+  private java.lang.String type;
 
   public A addToDefault(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
     if (this._default == null && key != null && value != null) {
-      this._default = new java.util.LinkedHashMap();
+      this._default = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this._default.put(key, value);
@@ -100,7 +104,7 @@ public class V1LimitRangeItemFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasDefault() {
+  public Boolean hasDefault() {
     return this._default != null;
   }
 
@@ -360,11 +364,11 @@ public class V1LimitRangeItemFluentImpl<
     return this.min != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum getType() {
+  public java.lang.String getType() {
     return this.type;
   }
 
-  public A withType(io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum type) {
+  public A withType(java.lang.String type) {
     this.type = type;
     return (A) this;
   }
@@ -373,7 +377,7 @@ public class V1LimitRangeItemFluentImpl<
     return this.type != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1LimitRangeItemFluentImpl that = (V1LimitRangeItemFluentImpl) o;
@@ -393,5 +397,36 @@ public class V1LimitRangeItemFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         _default, defaultRequest, max, maxLimitRequestRatio, min, type, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (_default != null && !_default.isEmpty()) {
+      sb.append("_default:");
+      sb.append(_default + ",");
+    }
+    if (defaultRequest != null && !defaultRequest.isEmpty()) {
+      sb.append("defaultRequest:");
+      sb.append(defaultRequest + ",");
+    }
+    if (max != null && !max.isEmpty()) {
+      sb.append("max:");
+      sb.append(max + ",");
+    }
+    if (maxLimitRequestRatio != null && !maxLimitRequestRatio.isEmpty()) {
+      sb.append("maxLimitRequestRatio:");
+      sb.append(maxLimitRequestRatio + ",");
+    }
+    if (min != null && !min.isEmpty()) {
+      sb.append("min:");
+      sb.append(min + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

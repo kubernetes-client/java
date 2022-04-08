@@ -12,11 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1TokenReviewStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1TokenReviewStatusFluentImpl<A extends V1TokenReviewStatusFluent<A>>
+    extends BaseFluent<A> implements V1TokenReviewStatusFluent<A> {
   public V1TokenReviewStatusFluentImpl() {}
 
   public V1TokenReviewStatusFluentImpl(
@@ -30,14 +36,14 @@ public class V1TokenReviewStatusFluentImpl<
     this.withUser(instance.getUser());
   }
 
-  private java.util.List<java.lang.String> audiences;
-  private java.lang.Boolean authenticated;
+  private List<String> audiences;
+  private Boolean authenticated;
   private java.lang.String error;
-  private io.kubernetes.client.openapi.models.V1UserInfoBuilder user;
+  private V1UserInfoBuilder user;
 
-  public A addToAudiences(java.lang.Integer index, java.lang.String item) {
+  public A addToAudiences(Integer index, java.lang.String item) {
     if (this.audiences == null) {
-      this.audiences = new java.util.ArrayList<java.lang.String>();
+      this.audiences = new ArrayList<java.lang.String>();
     }
     this.audiences.add(index, item);
     return (A) this;
@@ -61,7 +67,7 @@ public class V1TokenReviewStatusFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAudiences(java.util.Collection<java.lang.String> items) {
+  public A addAllToAudiences(Collection<java.lang.String> items) {
     if (this.audiences == null) {
       this.audiences = new java.util.ArrayList<java.lang.String>();
     }
@@ -105,8 +111,7 @@ public class V1TokenReviewStatusFluentImpl<
     return this.audiences.get(audiences.size() - 1);
   }
 
-  public java.lang.String getMatchingAudience(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingAudience(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : audiences) {
       if (predicate.test(item)) {
         return item;
@@ -153,10 +158,6 @@ public class V1TokenReviewStatusFluentImpl<
     return audiences != null && !audiences.isEmpty();
   }
 
-  public A addNewAudience(java.lang.String original) {
-    return (A) addToAudiences(new String(original));
-  }
-
   public java.lang.Boolean getAuthenticated() {
     return this.authenticated;
   }
@@ -183,19 +184,13 @@ public class V1TokenReviewStatusFluentImpl<
     return this.error != null;
   }
 
-  /** Method is deprecated. use withError instead. */
-  @java.lang.Deprecated
-  public A withNewError(java.lang.String original) {
-    return (A) withError(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildUser instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1UserInfo getUser() {
+  @Deprecated
+  public V1UserInfo getUser() {
     return this.user != null ? this.user.build() : null;
   }
 
@@ -216,14 +211,13 @@ public class V1TokenReviewStatusFluentImpl<
     return this.user != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<A> withNewUser() {
-    return new io.kubernetes.client.openapi.models.V1TokenReviewStatusFluentImpl.UserNestedImpl();
+  public V1TokenReviewStatusFluent.UserNested<A> withNewUser() {
+    return new V1TokenReviewStatusFluentImpl.UserNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<A>
       withNewUserLike(io.kubernetes.client.openapi.models.V1UserInfo item) {
-    return new io.kubernetes.client.openapi.models.V1TokenReviewStatusFluentImpl.UserNestedImpl(
-        item);
+    return new V1TokenReviewStatusFluentImpl.UserNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<A> editUser() {
@@ -243,7 +237,7 @@ public class V1TokenReviewStatusFluentImpl<
     return withNewUserLike(getUser() != null ? getUser() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1TokenReviewStatusFluentImpl that = (V1TokenReviewStatusFluentImpl) o;
@@ -261,13 +255,38 @@ public class V1TokenReviewStatusFluentImpl<
     return java.util.Objects.hash(audiences, authenticated, error, user, super.hashCode());
   }
 
-  public class UserNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1UserInfoFluentImpl<
-          io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (audiences != null && !audiences.isEmpty()) {
+      sb.append("audiences:");
+      sb.append(audiences + ",");
+    }
+    if (authenticated != null) {
+      sb.append("authenticated:");
+      sb.append(authenticated + ",");
+    }
+    if (error != null) {
+      sb.append("error:");
+      sb.append(error + ",");
+    }
+    if (user != null) {
+      sb.append("user:");
+      sb.append(user);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withAuthenticated() {
+    return withAuthenticated(true);
+  }
+
+  class UserNestedImpl<N> extends V1UserInfoFluentImpl<V1TokenReviewStatusFluent.UserNested<N>>
       implements io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    UserNestedImpl(io.kubernetes.client.openapi.models.V1UserInfo item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1UserInfoBuilder(this, item);
+          Nested<N> {
+    UserNestedImpl(V1UserInfo item) {
+      this.builder = new V1UserInfoBuilder(this, item);
     }
 
     UserNestedImpl() {

@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1beta1AllowedFlexVolumeFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1AllowedFlexVolumeFluentImpl<A extends V1beta1AllowedFlexVolumeFluent<A>>
+    extends BaseFluent<A> implements V1beta1AllowedFlexVolumeFluent<A> {
   public V1beta1AllowedFlexVolumeFluentImpl() {}
 
   public V1beta1AllowedFlexVolumeFluentImpl(
@@ -24,7 +25,7 @@ public class V1beta1AllowedFlexVolumeFluentImpl<
     this.withDriver(instance.getDriver());
   }
 
-  private java.lang.String driver;
+  private String driver;
 
   public java.lang.String getDriver() {
     return this.driver;
@@ -35,17 +36,11 @@ public class V1beta1AllowedFlexVolumeFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasDriver() {
+  public Boolean hasDriver() {
     return this.driver != null;
   }
 
-  /** Method is deprecated. use withDriver instead. */
-  @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original) {
-    return (A) withDriver(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1AllowedFlexVolumeFluentImpl that = (V1beta1AllowedFlexVolumeFluentImpl) o;
@@ -55,5 +50,16 @@ public class V1beta1AllowedFlexVolumeFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(driver, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (driver != null) {
+      sb.append("driver:");
+      sb.append(driver);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

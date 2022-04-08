@@ -12,10 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1ScaleFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ScaleFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ScaleFluentImpl<A extends V1ScaleFluent<A>> extends BaseFluent<A>
+    implements V1ScaleFluent<A> {
   public V1ScaleFluentImpl() {}
 
   public V1ScaleFluentImpl(io.kubernetes.client.openapi.models.V1Scale instance) {
@@ -30,11 +33,11 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     this.withStatus(instance.getStatus());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1ScaleSpecBuilder spec;
-  private io.kubernetes.client.openapi.models.V1ScaleStatusBuilder status;
+  private V1ObjectMetaBuilder metadata;
+  private V1ScaleSpecBuilder spec;
+  private V1ScaleStatusBuilder status;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -45,14 +48,8 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -68,18 +65,12 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -91,7 +82,7 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -101,13 +92,13 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ScaleFluent.MetadataNested<A> withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1ScaleFluentImpl.MetadataNestedImpl();
+  public V1ScaleFluent.MetadataNested<A> withNewMetadata() {
+    return new V1ScaleFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ScaleFluent.MetadataNested<A> withNewMetadataLike(
       io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1ScaleFluentImpl.MetadataNestedImpl(item);
+    return new V1ScaleFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1ScaleFluent.MetadataNested<A> editMetadata() {
@@ -132,7 +123,7 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ScaleSpec getSpec() {
+  public V1ScaleSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
@@ -153,8 +144,8 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ScaleFluent.SpecNested<A> withNewSpec() {
-    return new io.kubernetes.client.openapi.models.V1ScaleFluentImpl.SpecNestedImpl();
+  public V1ScaleFluent.SpecNested<A> withNewSpec() {
+    return new V1ScaleFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ScaleFluent.SpecNested<A> withNewSpecLike(
@@ -195,7 +186,7 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
   public A withStatus(io.kubernetes.client.openapi.models.V1ScaleStatus status) {
     _visitables.get("status").remove(this.status);
     if (status != null) {
-      this.status = new io.kubernetes.client.openapi.models.V1ScaleStatusBuilder(status);
+      this.status = new V1ScaleStatusBuilder(status);
       _visitables.get("status").add(this.status);
     }
     return (A) this;
@@ -205,8 +196,8 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     return this.status != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ScaleFluent.StatusNested<A> withNewStatus() {
-    return new io.kubernetes.client.openapi.models.V1ScaleFluentImpl.StatusNestedImpl();
+  public V1ScaleFluent.StatusNested<A> withNewStatus() {
+    return new V1ScaleFluentImpl.StatusNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ScaleFluent.StatusNested<A> withNewStatusLike(
@@ -230,7 +221,7 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     return withNewStatusLike(getStatus() != null ? getStatus() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ScaleFluentImpl that = (V1ScaleFluentImpl) o;
@@ -247,13 +238,37 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, status, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1ScaleFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ScaleFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ScaleFluent.MetadataNested<N>>
+      implements io.kubernetes.client.openapi.models.V1ScaleFluent.MetadataNested<N>, Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -271,13 +286,11 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ScaleSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1ScaleFluent.SpecNested<N>>
+  class SpecNestedImpl<N> extends V1ScaleSpecFluentImpl<V1ScaleFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.V1ScaleFluent.SpecNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SpecNestedImpl(io.kubernetes.client.openapi.models.V1ScaleSpec item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ScaleSpecBuilder(this, item);
+    SpecNestedImpl(V1ScaleSpec item) {
+      this.builder = new V1ScaleSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
@@ -295,13 +308,11 @@ public class V1ScaleFluentImpl<A extends io.kubernetes.client.openapi.models.V1S
     }
   }
 
-  public class StatusNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ScaleStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1ScaleFluent.StatusNested<N>>
+  class StatusNestedImpl<N> extends V1ScaleStatusFluentImpl<V1ScaleFluent.StatusNested<N>>
       implements io.kubernetes.client.openapi.models.V1ScaleFluent.StatusNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    StatusNestedImpl(io.kubernetes.client.openapi.models.V1ScaleStatus item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ScaleStatusBuilder(this, item);
+    StatusNestedImpl(V1ScaleStatus item) {
+      this.builder = new V1ScaleStatusBuilder(this, item);
     }
 
     StatusNestedImpl() {

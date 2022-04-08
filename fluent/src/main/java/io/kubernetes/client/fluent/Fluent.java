@@ -12,4 +12,4 @@ limitations under the License.
 */
 package io.kubernetes.client.fluent;
 
-public interface Fluent<F extends io.kubernetes.client.fluent.Fluent<F>> {}
+public interface Fluent<F extends Fluent<F>> {}

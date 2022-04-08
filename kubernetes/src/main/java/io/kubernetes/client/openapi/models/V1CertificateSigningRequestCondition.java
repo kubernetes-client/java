@@ -1,5 +1,5 @@
 /*
-Copyright 2021 The Kubernetes Authors.
+Copyright 2022 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,14 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -31,7 +26,7 @@ import java.util.Objects;
         "CertificateSigningRequestCondition describes a condition of a CertificateSigningRequest object")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
+    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
 public class V1CertificateSigningRequestCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
 
@@ -58,71 +53,10 @@ public class V1CertificateSigningRequestCondition {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
-  /**
-   * type of the condition. Known conditions are \&quot;Approved\&quot;, \&quot;Denied\&quot;, and
-   * \&quot;Failed\&quot;. An \&quot;Approved\&quot; condition is added via the /approval
-   * subresource, indicating the request was approved and should be issued by the signer. A
-   * \&quot;Denied\&quot; condition is added via the /approval subresource, indicating the request
-   * was denied and should not be issued by the signer. A \&quot;Failed\&quot; condition is added
-   * via the /status subresource, indicating the signer failed to issue the certificate. Approved
-   * and Denied conditions are mutually exclusive. Approved, Denied, and Failed conditions cannot be
-   * removed once added. Only one condition of a given type is allowed. Possible enum values: -
-   * &#x60;\&quot;Approved\&quot;&#x60; Approved indicates the request was approved and should be
-   * issued by the signer. - &#x60;\&quot;Denied\&quot;&#x60; Denied indicates the request was
-   * denied and should not be issued by the signer. - &#x60;\&quot;Failed\&quot;&#x60; Failed
-   * indicates the signer failed to issue the certificate.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    APPROVED("Approved"),
-
-    DENIED("Denied"),
-
-    FAILED("Failed");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
-          throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
+  private String type;
 
   public V1CertificateSigningRequestCondition lastTransitionTime(
       OffsetDateTime lastTransitionTime) {
@@ -238,7 +172,7 @@ public class V1CertificateSigningRequestCondition {
     this.status = status;
   }
 
-  public V1CertificateSigningRequestCondition type(TypeEnum type) {
+  public V1CertificateSigningRequestCondition type(String type) {
 
     this.type = type;
     return this;
@@ -252,23 +186,19 @@ public class V1CertificateSigningRequestCondition {
    * was denied and should not be issued by the signer. A \&quot;Failed\&quot; condition is added
    * via the /status subresource, indicating the signer failed to issue the certificate. Approved
    * and Denied conditions are mutually exclusive. Approved, Denied, and Failed conditions cannot be
-   * removed once added. Only one condition of a given type is allowed. Possible enum values: -
-   * &#x60;\&quot;Approved\&quot;&#x60; Approved indicates the request was approved and should be
-   * issued by the signer. - &#x60;\&quot;Denied\&quot;&#x60; Denied indicates the request was
-   * denied and should not be issued by the signer. - &#x60;\&quot;Failed\&quot;&#x60; Failed
-   * indicates the signer failed to issue the certificate.
+   * removed once added. Only one condition of a given type is allowed.
    *
    * @return type
    */
   @ApiModelProperty(
       required = true,
       value =
-          "type of the condition. Known conditions are \"Approved\", \"Denied\", and \"Failed\".  An \"Approved\" condition is added via the /approval subresource, indicating the request was approved and should be issued by the signer.  A \"Denied\" condition is added via the /approval subresource, indicating the request was denied and should not be issued by the signer.  A \"Failed\" condition is added via the /status subresource, indicating the signer failed to issue the certificate.  Approved and Denied conditions are mutually exclusive. Approved, Denied, and Failed conditions cannot be removed once added.  Only one condition of a given type is allowed.  Possible enum values:  - `\"Approved\"` Approved indicates the request was approved and should be issued by the signer.  - `\"Denied\"` Denied indicates the request was denied and should not be issued by the signer.  - `\"Failed\"` Failed indicates the signer failed to issue the certificate.")
-  public TypeEnum getType() {
+          "type of the condition. Known conditions are \"Approved\", \"Denied\", and \"Failed\".  An \"Approved\" condition is added via the /approval subresource, indicating the request was approved and should be issued by the signer.  A \"Denied\" condition is added via the /approval subresource, indicating the request was denied and should not be issued by the signer.  A \"Failed\" condition is added via the /status subresource, indicating the signer failed to issue the certificate.  Approved and Denied conditions are mutually exclusive. Approved, Denied, and Failed conditions cannot be removed once added.  Only one condition of a given type is allowed.")
+  public String getType() {
     return type;
   }
 
-  public void setType(TypeEnum type) {
+  public void setType(String type) {
     this.type = type;
   }
 

@@ -12,15 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1beta1HostPortRangeFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1HostPortRangeFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getMax();
+public interface V1beta1HostPortRangeFluent<A extends V1beta1HostPortRangeFluent<A>>
+    extends Fluent<A> {
+  public Integer getMax();
 
   public A withMax(java.lang.Integer max);
 
-  public java.lang.Boolean hasMax();
+  public Boolean hasMax();
 
   public java.lang.Integer getMin();
 

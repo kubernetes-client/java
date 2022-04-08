@@ -12,11 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1DeleteOptionsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1DeleteOptionsFluentImpl<A extends V1DeleteOptionsFluent<A>> extends BaseFluent<A>
+    implements V1DeleteOptionsFluent<A> {
   public V1DeleteOptionsFluentImpl() {}
 
   public V1DeleteOptionsFluentImpl(io.kubernetes.client.openapi.models.V1DeleteOptions instance) {
@@ -35,12 +41,12 @@ public class V1DeleteOptionsFluentImpl<
     this.withPropagationPolicy(instance.getPropagationPolicy());
   }
 
-  private java.lang.String apiVersion;
-  private java.util.List<java.lang.String> dryRun;
-  private java.lang.Long gracePeriodSeconds;
+  private String apiVersion;
+  private List<java.lang.String> dryRun;
+  private Long gracePeriodSeconds;
   private java.lang.String kind;
-  private java.lang.Boolean orphanDependents;
-  private io.kubernetes.client.openapi.models.V1PreconditionsBuilder preconditions;
+  private Boolean orphanDependents;
+  private V1PreconditionsBuilder preconditions;
   private java.lang.String propagationPolicy;
 
   public java.lang.String getApiVersion() {
@@ -56,15 +62,9 @@ public class V1DeleteOptionsFluentImpl<
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
-  public A addToDryRun(java.lang.Integer index, java.lang.String item) {
+  public A addToDryRun(Integer index, java.lang.String item) {
     if (this.dryRun == null) {
-      this.dryRun = new java.util.ArrayList<java.lang.String>();
+      this.dryRun = new ArrayList<java.lang.String>();
     }
     this.dryRun.add(index, item);
     return (A) this;
@@ -88,7 +88,7 @@ public class V1DeleteOptionsFluentImpl<
     return (A) this;
   }
 
-  public A addAllToDryRun(java.util.Collection<java.lang.String> items) {
+  public A addAllToDryRun(Collection<java.lang.String> items) {
     if (this.dryRun == null) {
       this.dryRun = new java.util.ArrayList<java.lang.String>();
     }
@@ -132,8 +132,7 @@ public class V1DeleteOptionsFluentImpl<
     return this.dryRun.get(dryRun.size() - 1);
   }
 
-  public java.lang.String getMatchingDryRun(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingDryRun(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : dryRun) {
       if (predicate.test(item)) {
         return item;
@@ -180,10 +179,6 @@ public class V1DeleteOptionsFluentImpl<
     return dryRun != null && !dryRun.isEmpty();
   }
 
-  public A addNewDryRun(java.lang.String original) {
-    return (A) addToDryRun(new String(original));
-  }
-
   public java.lang.Long getGracePeriodSeconds() {
     return this.gracePeriodSeconds;
   }
@@ -210,12 +205,6 @@ public class V1DeleteOptionsFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   public java.lang.Boolean getOrphanDependents() {
     return this.orphanDependents;
   }
@@ -234,8 +223,8 @@ public class V1DeleteOptionsFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1Preconditions getPreconditions() {
+  @Deprecated
+  public V1Preconditions getPreconditions() {
     return this.preconditions != null ? this.preconditions.build() : null;
   }
 
@@ -257,16 +246,13 @@ public class V1DeleteOptionsFluentImpl<
     return this.preconditions != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<A>
-      withNewPreconditions() {
-    return new io.kubernetes.client.openapi.models.V1DeleteOptionsFluentImpl
-        .PreconditionsNestedImpl();
+  public V1DeleteOptionsFluent.PreconditionsNested<A> withNewPreconditions() {
+    return new V1DeleteOptionsFluentImpl.PreconditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<A>
       withNewPreconditionsLike(io.kubernetes.client.openapi.models.V1Preconditions item) {
-    return new io.kubernetes.client.openapi.models.V1DeleteOptionsFluentImpl
-        .PreconditionsNestedImpl(item);
+    return new V1DeleteOptionsFluentImpl.PreconditionsNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<A>
@@ -300,13 +286,7 @@ public class V1DeleteOptionsFluentImpl<
     return this.propagationPolicy != null;
   }
 
-  /** Method is deprecated. use withPropagationPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewPropagationPolicy(java.lang.String original) {
-    return (A) withPropagationPolicy(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1DeleteOptionsFluentImpl that = (V1DeleteOptionsFluentImpl) o;
@@ -341,13 +321,51 @@ public class V1DeleteOptionsFluentImpl<
         super.hashCode());
   }
 
-  public class PreconditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PreconditionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (dryRun != null && !dryRun.isEmpty()) {
+      sb.append("dryRun:");
+      sb.append(dryRun + ",");
+    }
+    if (gracePeriodSeconds != null) {
+      sb.append("gracePeriodSeconds:");
+      sb.append(gracePeriodSeconds + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (orphanDependents != null) {
+      sb.append("orphanDependents:");
+      sb.append(orphanDependents + ",");
+    }
+    if (preconditions != null) {
+      sb.append("preconditions:");
+      sb.append(preconditions + ",");
+    }
+    if (propagationPolicy != null) {
+      sb.append("propagationPolicy:");
+      sb.append(propagationPolicy);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withOrphanDependents() {
+    return withOrphanDependents(true);
+  }
+
+  class PreconditionsNestedImpl<N>
+      extends V1PreconditionsFluentImpl<V1DeleteOptionsFluent.PreconditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     PreconditionsNestedImpl(io.kubernetes.client.openapi.models.V1Preconditions item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1PreconditionsBuilder(this, item);
+      this.builder = new V1PreconditionsBuilder(this, item);
     }
 
     PreconditionsNestedImpl() {

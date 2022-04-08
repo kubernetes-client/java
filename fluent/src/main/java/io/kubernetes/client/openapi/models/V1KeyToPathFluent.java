@@ -12,21 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1KeyToPathFluent<
-        A extends io.kubernetes.client.openapi.models.V1KeyToPathFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getKey();
+public interface V1KeyToPathFluent<A extends V1KeyToPathFluent<A>> extends Fluent<A> {
+  public String getKey();
 
   public A withKey(java.lang.String key);
 
-  public java.lang.Boolean hasKey();
+  public Boolean hasKey();
 
-  /** Method is deprecated. use withKey instead. */
-  @java.lang.Deprecated
-  public A withNewKey(java.lang.String original);
-
-  public java.lang.Integer getMode();
+  public Integer getMode();
 
   public A withMode(java.lang.Integer mode);
 
@@ -37,8 +33,4 @@ public interface V1KeyToPathFluent<
   public A withPath(java.lang.String path);
 
   public java.lang.Boolean hasPath();
-
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original);
 }

@@ -12,11 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /** Generated */
-public class V1FlexPersistentVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1FlexPersistentVolumeSourceFluentImpl<A extends V1FlexPersistentVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1FlexPersistentVolumeSourceFluent<A> {
   public V1FlexPersistentVolumeSourceFluentImpl() {}
 
   public V1FlexPersistentVolumeSourceFluentImpl(
@@ -32,11 +36,11 @@ public class V1FlexPersistentVolumeSourceFluentImpl<
     this.withSecretRef(instance.getSecretRef());
   }
 
-  private java.lang.String driver;
+  private String driver;
   private java.lang.String fsType;
-  private java.util.Map<java.lang.String, java.lang.String> options;
-  private java.lang.Boolean readOnly;
-  private io.kubernetes.client.openapi.models.V1SecretReferenceBuilder secretRef;
+  private Map<java.lang.String, java.lang.String> options;
+  private Boolean readOnly;
+  private V1SecretReferenceBuilder secretRef;
 
   public java.lang.String getDriver() {
     return this.driver;
@@ -49,12 +53,6 @@ public class V1FlexPersistentVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasDriver() {
     return this.driver != null;
-  }
-
-  /** Method is deprecated. use withDriver instead. */
-  @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original) {
-    return (A) withDriver(new String(original));
   }
 
   public java.lang.String getFsType() {
@@ -70,15 +68,9 @@ public class V1FlexPersistentVolumeSourceFluentImpl<
     return this.fsType != null;
   }
 
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
-  }
-
   public A addToOptions(java.lang.String key, java.lang.String value) {
     if (this.options == null && key != null && value != null) {
-      this.options = new java.util.LinkedHashMap();
+      this.options = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.options.put(key, value);
@@ -155,8 +147,8 @@ public class V1FlexPersistentVolumeSourceFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SecretReference getSecretRef() {
+  @Deprecated
+  public V1SecretReference getSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
@@ -177,16 +169,13 @@ public class V1FlexPersistentVolumeSourceFluentImpl<
     return this.secretRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRef() {
-    return new io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluentImpl
-        .SecretRefNestedImpl();
+  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+    return new V1FlexPersistentVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
       withNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item) {
-    return new io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluentImpl
-        .SecretRefNestedImpl(item);
+    return new V1FlexPersistentVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
@@ -207,7 +196,7 @@ public class V1FlexPersistentVolumeSourceFluentImpl<
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1FlexPersistentVolumeSourceFluentImpl that = (V1FlexPersistentVolumeSourceFluentImpl) o;
@@ -224,15 +213,45 @@ public class V1FlexPersistentVolumeSourceFluentImpl<
     return java.util.Objects.hash(driver, fsType, options, readOnly, secretRef, super.hashCode());
   }
 
-  public class SecretRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SecretReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (driver != null) {
+      sb.append("driver:");
+      sb.append(driver + ",");
+    }
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (options != null && !options.isEmpty()) {
+      sb.append("options:");
+      sb.append(options + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (secretRef != null) {
+      sb.append("secretRef:");
+      sb.append(secretRef);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
+  }
+
+  class SecretRefNestedImpl<N>
+      extends V1SecretReferenceFluentImpl<V1FlexPersistentVolumeSourceFluent.SecretRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent
                   .SecretRefNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SecretRefNestedImpl(io.kubernetes.client.openapi.models.V1SecretReference item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(this, item);
+          Nested<N> {
+    SecretRefNestedImpl(V1SecretReference item) {
+      this.builder = new V1SecretReferenceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {

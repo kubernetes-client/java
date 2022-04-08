@@ -12,19 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1CinderVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getFsType();
+public interface V1CinderVolumeSourceFluent<A extends V1CinderVolumeSourceFluent<A>>
+    extends Fluent<A> {
+  public String getFsType();
 
   public A withFsType(java.lang.String fsType);
 
-  public java.lang.Boolean hasFsType();
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
+  public Boolean hasFsType();
 
   public java.lang.Boolean getReadOnly();
 
@@ -37,8 +35,8 @@ public interface V1CinderVolumeSourceFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef();
+  @Deprecated
+  public V1LocalObjectReference getSecretRef();
 
   public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef();
 
@@ -46,8 +44,7 @@ public interface V1CinderVolumeSourceFluent<
 
   public java.lang.Boolean hasSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRef();
+  public V1CinderVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
   public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
       withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
@@ -67,14 +64,11 @@ public interface V1CinderVolumeSourceFluent<
 
   public java.lang.Boolean hasVolumeID();
 
-  /** Method is deprecated. use withVolumeID instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeID(java.lang.String original);
+  public A withReadOnly();
 
   public interface SecretRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<N>> {
+      extends Nested<N>,
+          V1LocalObjectReferenceFluent<V1CinderVolumeSourceFluent.SecretRefNested<N>> {
     public N and();
 
     public N endSecretRef();

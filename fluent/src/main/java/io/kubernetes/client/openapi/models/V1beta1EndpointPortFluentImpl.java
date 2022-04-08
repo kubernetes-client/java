@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1beta1EndpointPortFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1EndpointPortFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1EndpointPortFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1EndpointPortFluentImpl<A extends V1beta1EndpointPortFluent<A>>
+    extends BaseFluent<A> implements V1beta1EndpointPortFluent<A> {
   public V1beta1EndpointPortFluentImpl() {}
 
   public V1beta1EndpointPortFluentImpl(
@@ -30,9 +31,9 @@ public class V1beta1EndpointPortFluentImpl<
     this.withProtocol(instance.getProtocol());
   }
 
-  private java.lang.String appProtocol;
+  private String appProtocol;
   private java.lang.String name;
-  private java.lang.Integer port;
+  private Integer port;
   private java.lang.String protocol;
 
   public java.lang.String getAppProtocol() {
@@ -44,14 +45,8 @@ public class V1beta1EndpointPortFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAppProtocol() {
+  public Boolean hasAppProtocol() {
     return this.appProtocol != null;
-  }
-
-  /** Method is deprecated. use withAppProtocol instead. */
-  @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String original) {
-    return (A) withAppProtocol(new String(original));
   }
 
   public java.lang.String getName() {
@@ -65,12 +60,6 @@ public class V1beta1EndpointPortFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.Integer getPort() {
@@ -99,13 +88,7 @@ public class V1beta1EndpointPortFluentImpl<
     return this.protocol != null;
   }
 
-  /** Method is deprecated. use withProtocol instead. */
-  @java.lang.Deprecated
-  public A withNewProtocol(java.lang.String original) {
-    return (A) withProtocol(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1EndpointPortFluentImpl that = (V1beta1EndpointPortFluentImpl) o;
@@ -119,5 +102,28 @@ public class V1beta1EndpointPortFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(appProtocol, name, port, protocol, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (appProtocol != null) {
+      sb.append("appProtocol:");
+      sb.append(appProtocol + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (port != null) {
+      sb.append("port:");
+      sb.append(port + ",");
+    }
+    if (protocol != null) {
+      sb.append("protocol:");
+      sb.append(protocol);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

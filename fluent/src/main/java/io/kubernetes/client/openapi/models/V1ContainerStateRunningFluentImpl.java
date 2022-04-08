@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public class V1ContainerStateRunningFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ContainerStateRunningFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ContainerStateRunningFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ContainerStateRunningFluentImpl<A extends V1ContainerStateRunningFluent<A>>
+    extends BaseFluent<A> implements V1ContainerStateRunningFluent<A> {
   public V1ContainerStateRunningFluentImpl() {}
 
   public V1ContainerStateRunningFluentImpl(
@@ -24,7 +26,7 @@ public class V1ContainerStateRunningFluentImpl<
     this.withStartedAt(instance.getStartedAt());
   }
 
-  private java.time.OffsetDateTime startedAt;
+  private OffsetDateTime startedAt;
 
   public java.time.OffsetDateTime getStartedAt() {
     return this.startedAt;
@@ -35,11 +37,11 @@ public class V1ContainerStateRunningFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasStartedAt() {
+  public Boolean hasStartedAt() {
     return this.startedAt != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ContainerStateRunningFluentImpl that = (V1ContainerStateRunningFluentImpl) o;
@@ -50,5 +52,16 @@ public class V1ContainerStateRunningFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(startedAt, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (startedAt != null) {
+      sb.append("startedAt:");
+      sb.append(startedAt);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

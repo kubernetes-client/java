@@ -12,21 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1AffinityBuilder
-    extends io.kubernetes.client.openapi.models.V1AffinityFluentImpl<
-        io.kubernetes.client.openapi.models.V1AffinityBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1Affinity,
-        io.kubernetes.client.openapi.models.V1AffinityBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1AffinityBuilder extends V1AffinityFluentImpl<V1AffinityBuilder>
+    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1Affinity, V1AffinityBuilder> {
   public V1AffinityBuilder() {
     this(false);
   }
 
-  public V1AffinityBuilder(java.lang.Boolean validationEnabled) {
+  public V1AffinityBuilder(Boolean validationEnabled) {
     this(new V1Affinity(), validationEnabled);
   }
 
-  public V1AffinityBuilder(io.kubernetes.client.openapi.models.V1AffinityFluent<?> fluent) {
+  public V1AffinityBuilder(V1AffinityFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -82,24 +80,5 @@ public class V1AffinityBuilder
     buildable.setPodAffinity(fluent.getPodAffinity());
     buildable.setPodAntiAffinity(fluent.getPodAntiAffinity());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1AffinityBuilder that = (V1AffinityBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1StatusCauseFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1StatusCauseFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1StatusCauseFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1StatusCauseFluentImpl<A extends V1StatusCauseFluent<A>> extends BaseFluent<A>
+    implements V1StatusCauseFluent<A> {
   public V1StatusCauseFluentImpl() {}
 
   public V1StatusCauseFluentImpl(io.kubernetes.client.openapi.models.V1StatusCause instance) {
@@ -27,7 +28,7 @@ public class V1StatusCauseFluentImpl<
     this.withReason(instance.getReason());
   }
 
-  private java.lang.String field;
+  private String field;
   private java.lang.String message;
   private java.lang.String reason;
 
@@ -40,14 +41,8 @@ public class V1StatusCauseFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasField() {
+  public Boolean hasField() {
     return this.field != null;
-  }
-
-  /** Method is deprecated. use withField instead. */
-  @java.lang.Deprecated
-  public A withNewField(java.lang.String original) {
-    return (A) withField(new String(original));
   }
 
   public java.lang.String getMessage() {
@@ -63,12 +58,6 @@ public class V1StatusCauseFluentImpl<
     return this.message != null;
   }
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A) withMessage(new String(original));
-  }
-
   public java.lang.String getReason() {
     return this.reason;
   }
@@ -82,13 +71,7 @@ public class V1StatusCauseFluentImpl<
     return this.reason != null;
   }
 
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A) withReason(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1StatusCauseFluentImpl that = (V1StatusCauseFluentImpl) o;
@@ -100,5 +83,24 @@ public class V1StatusCauseFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(field, message, reason, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (field != null) {
+      sb.append("field:");
+      sb.append(field + ",");
+    }
+    if (message != null) {
+      sb.append("message:");
+      sb.append(message + ",");
+    }
+    if (reason != null) {
+      sb.append("reason:");
+      sb.append(reason);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,23 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1beta2NonResourcePolicyRuleFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToNonResourceURLs(java.lang.Integer index, java.lang.String item);
+public interface V1beta2NonResourcePolicyRuleFluent<A extends V1beta2NonResourcePolicyRuleFluent<A>>
+    extends Fluent<A> {
+  public A addToNonResourceURLs(Integer index, String item);
 
   public A setToNonResourceURLs(java.lang.Integer index, java.lang.String item);
 
   public A addToNonResourceURLs(java.lang.String... items);
 
-  public A addAllToNonResourceURLs(java.util.Collection<java.lang.String> items);
+  public A addAllToNonResourceURLs(Collection<java.lang.String> items);
 
   public A removeFromNonResourceURLs(java.lang.String... items);
 
   public A removeAllFromNonResourceURLs(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getNonResourceURLs();
+  public List<java.lang.String> getNonResourceURLs();
 
   public java.lang.String getNonResourceURL(java.lang.Integer index);
 
@@ -36,10 +40,9 @@ public interface V1beta2NonResourcePolicyRuleFluent<
 
   public java.lang.String getLastNonResourceURL();
 
-  public java.lang.String getMatchingNonResourceURL(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingNonResourceURL(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingNonResourceURL(
+  public Boolean hasMatchingNonResourceURL(
       java.util.function.Predicate<java.lang.String> predicate);
 
   public A withNonResourceURLs(java.util.List<java.lang.String> nonResourceURLs);
@@ -47,8 +50,6 @@ public interface V1beta2NonResourcePolicyRuleFluent<
   public A withNonResourceURLs(java.lang.String... nonResourceURLs);
 
   public java.lang.Boolean hasNonResourceURLs();
-
-  public A addNewNonResourceURL(java.lang.String original);
 
   public A addToVerbs(java.lang.Integer index, java.lang.String item);
 
@@ -80,6 +81,4 @@ public interface V1beta2NonResourcePolicyRuleFluent<
   public A withVerbs(java.lang.String... verbs);
 
   public java.lang.Boolean hasVerbs();
-
-  public A addNewVerb(java.lang.String original);
 }

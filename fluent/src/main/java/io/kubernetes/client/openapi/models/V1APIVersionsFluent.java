@@ -12,19 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1APIVersionsFluent<
-        A extends io.kubernetes.client.openapi.models.V1APIVersionsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public Boolean hasApiVersion();
 
   public java.lang.String getKind();
 
@@ -32,13 +32,7 @@ public interface V1APIVersionsFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
-  public A addToServerAddressByClientCIDRs(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item);
+  public A addToServerAddressByClientCIDRs(Integer index, V1ServerAddressByClientCIDR item);
 
   public A setToServerAddressByClientCIDRs(
       java.lang.Integer index,
@@ -48,7 +42,7 @@ public interface V1APIVersionsFluent<
       io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items);
 
   public A addAllToServerAddressByClientCIDRs(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> items);
+      Collection<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> items);
 
   public A removeFromServerAddressByClientCIDRs(
       io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items);
@@ -57,17 +51,15 @@ public interface V1APIVersionsFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> items);
 
   public A removeMatchingFromServerAddressByClientCIDRs(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>
-          predicate);
+      Predicate<V1ServerAddressByClientCIDRBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildServerAddressByClientCIDRs instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
       getServerAddressByClientCIDRs();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
@@ -103,8 +95,7 @@ public interface V1APIVersionsFluent<
 
   public java.lang.Boolean hasServerAddressByClientCIDRs();
 
-  public io.kubernetes.client.openapi.models.V1APIVersionsFluent.ServerAddressByClientCIDRsNested<A>
-      addNewServerAddressByClientCIDR();
+  public V1APIVersionsFluent.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR();
 
   public io.kubernetes.client.openapi.models.V1APIVersionsFluent.ServerAddressByClientCIDRsNested<A>
       addNewServerAddressByClientCIDRLike(
@@ -162,14 +153,10 @@ public interface V1APIVersionsFluent<
 
   public java.lang.Boolean hasVersions();
 
-  public A addNewVersion(java.lang.String original);
-
   public interface ServerAddressByClientCIDRsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<
-              io.kubernetes.client.openapi.models.V1APIVersionsFluent
-                      .ServerAddressByClientCIDRsNested<
-                  N>> {
+      extends Nested<N>,
+          V1ServerAddressByClientCIDRFluent<
+              V1APIVersionsFluent.ServerAddressByClientCIDRsNested<N>> {
     public N and();
 
     public N endServerAddressByClientCIDR();

@@ -12,19 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
 public interface V1StorageOSPersistentVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getFsType();
+        A extends V1StorageOSPersistentVolumeSourceFluent<A>>
+    extends Fluent<A> {
+  public String getFsType();
 
   public A withFsType(java.lang.String fsType);
 
-  public java.lang.Boolean hasFsType();
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
+  public Boolean hasFsType();
 
   public java.lang.Boolean getReadOnly();
 
@@ -37,8 +36,8 @@ public interface V1StorageOSPersistentVolumeSourceFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getSecretRef();
+  @Deprecated
+  public V1ObjectReference getSecretRef();
 
   public io.kubernetes.client.openapi.models.V1ObjectReference buildSecretRef();
 
@@ -46,10 +45,7 @@ public interface V1StorageOSPersistentVolumeSourceFluent<
 
   public java.lang.Boolean hasSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent
-              .SecretRefNested<
-          A>
-      withNewSecretRef();
+  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
   public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent
               .SecretRefNested<
@@ -77,26 +73,17 @@ public interface V1StorageOSPersistentVolumeSourceFluent<
 
   public java.lang.Boolean hasVolumeName();
 
-  /** Method is deprecated. use withVolumeName instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String original);
-
   public java.lang.String getVolumeNamespace();
 
   public A withVolumeNamespace(java.lang.String volumeNamespace);
 
   public java.lang.Boolean hasVolumeNamespace();
 
-  /** Method is deprecated. use withVolumeNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeNamespace(java.lang.String original);
+  public A withReadOnly();
 
   public interface SecretRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent
-                      .SecretRefNested<
-                  N>> {
+      extends Nested<N>,
+          V1ObjectReferenceFluent<V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<N>> {
     public N and();
 
     public N endSecretRef();

@@ -12,22 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1SeccompProfileBuilder
-    extends io.kubernetes.client.openapi.models.V1SeccompProfileFluentImpl<
-        io.kubernetes.client.openapi.models.V1SeccompProfileBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1SeccompProfileBuilder extends V1SeccompProfileFluentImpl<V1SeccompProfileBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1SeccompProfile,
         io.kubernetes.client.openapi.models.V1SeccompProfileBuilder> {
   public V1SeccompProfileBuilder() {
     this(false);
   }
 
-  public V1SeccompProfileBuilder(java.lang.Boolean validationEnabled) {
+  public V1SeccompProfileBuilder(Boolean validationEnabled) {
     this(new V1SeccompProfile(), validationEnabled);
   }
 
-  public V1SeccompProfileBuilder(
-      io.kubernetes.client.openapi.models.V1SeccompProfileFluent<?> fluent) {
+  public V1SeccompProfileBuilder(V1SeccompProfileFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -78,24 +77,5 @@ public class V1SeccompProfileBuilder
     buildable.setLocalhostProfile(fluent.getLocalhostProfile());
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1SeccompProfileBuilder that = (V1SeccompProfileBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

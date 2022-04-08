@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
-public class V2MetricValueStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2MetricValueStatusFluentImpl<A extends V2MetricValueStatusFluent<A>>
+    extends BaseFluent<A> implements V2MetricValueStatusFluent<A> {
   public V2MetricValueStatusFluentImpl() {}
 
   public V2MetricValueStatusFluentImpl(
@@ -30,8 +30,8 @@ public class V2MetricValueStatusFluentImpl<
     this.withValue(instance.getValue());
   }
 
-  private java.lang.Integer averageUtilization;
-  private io.kubernetes.client.custom.Quantity averageValue;
+  private Integer averageUtilization;
+  private Quantity averageValue;
   private io.kubernetes.client.custom.Quantity value;
 
   public java.lang.Integer getAverageUtilization() {
@@ -43,7 +43,7 @@ public class V2MetricValueStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAverageUtilization() {
+  public Boolean hasAverageUtilization() {
     return this.averageUtilization != null;
   }
 
@@ -60,7 +60,7 @@ public class V2MetricValueStatusFluentImpl<
     return this.averageValue != null;
   }
 
-  public A withNewAverageValue(java.lang.String value) {
+  public A withNewAverageValue(String value) {
     return (A) withAverageValue(new Quantity(value));
   }
 
@@ -81,7 +81,7 @@ public class V2MetricValueStatusFluentImpl<
     return (A) withValue(new Quantity(value));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2MetricValueStatusFluentImpl that = (V2MetricValueStatusFluentImpl) o;
@@ -96,5 +96,24 @@ public class V2MetricValueStatusFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(averageUtilization, averageValue, value, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (averageUtilization != null) {
+      sb.append("averageUtilization:");
+      sb.append(averageUtilization + ",");
+    }
+    if (averageValue != null) {
+      sb.append("averageValue:");
+      sb.append(averageValue + ",");
+    }
+    if (value != null) {
+      sb.append("value:");
+      sb.append(value);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

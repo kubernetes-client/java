@@ -1,5 +1,5 @@
 /*
-Copyright 2021 The Kubernetes Authors.
+Copyright 2022 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,14 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.Objects;
 
 /**
@@ -31,74 +26,17 @@ import java.util.Objects;
         "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
+    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
 public class V1SeccompProfile {
   public static final String SERIALIZED_NAME_LOCALHOST_PROFILE = "localhostProfile";
 
   @SerializedName(SERIALIZED_NAME_LOCALHOST_PROFILE)
   private String localhostProfile;
 
-  /**
-   * type indicates which kind of seccomp profile will be applied. Valid options are: Localhost - a
-   * profile defined in a file on the node should be used. RuntimeDefault - the container runtime
-   * default profile should be used. Unconfined - no profile should be applied. Possible enum
-   * values: - &#x60;\&quot;Localhost\&quot;&#x60; indicates a profile defined in a file on the node
-   * should be used. The file&#39;s location relative to &lt;kubelet-root-dir&gt;/seccomp. -
-   * &#x60;\&quot;RuntimeDefault\&quot;&#x60; represents the default container runtime seccomp
-   * profile. - &#x60;\&quot;Unconfined\&quot;&#x60; indicates no seccomp profile is applied (A.K.A.
-   * unconfined).
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    LOCALHOST("Localhost"),
-
-    RUNTIMEDEFAULT("RuntimeDefault"),
-
-    UNCONFINED("Unconfined");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
-          throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
+  private String type;
 
   public V1SeccompProfile localhostProfile(String localhostProfile) {
 
@@ -126,7 +64,7 @@ public class V1SeccompProfile {
     this.localhostProfile = localhostProfile;
   }
 
-  public V1SeccompProfile type(TypeEnum type) {
+  public V1SeccompProfile type(String type) {
 
     this.type = type;
     return this;
@@ -135,24 +73,19 @@ public class V1SeccompProfile {
   /**
    * type indicates which kind of seccomp profile will be applied. Valid options are: Localhost - a
    * profile defined in a file on the node should be used. RuntimeDefault - the container runtime
-   * default profile should be used. Unconfined - no profile should be applied. Possible enum
-   * values: - &#x60;\&quot;Localhost\&quot;&#x60; indicates a profile defined in a file on the node
-   * should be used. The file&#39;s location relative to &lt;kubelet-root-dir&gt;/seccomp. -
-   * &#x60;\&quot;RuntimeDefault\&quot;&#x60; represents the default container runtime seccomp
-   * profile. - &#x60;\&quot;Unconfined\&quot;&#x60; indicates no seccomp profile is applied (A.K.A.
-   * unconfined).
+   * default profile should be used. Unconfined - no profile should be applied.
    *
    * @return type
    */
   @ApiModelProperty(
       required = true,
       value =
-          "type indicates which kind of seccomp profile will be applied. Valid options are:  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.  Possible enum values:  - `\"Localhost\"` indicates a profile defined in a file on the node should be used. The file's location relative to <kubelet-root-dir>/seccomp.  - `\"RuntimeDefault\"` represents the default container runtime seccomp profile.  - `\"Unconfined\"` indicates no seccomp profile is applied (A.K.A. unconfined).")
-  public TypeEnum getType() {
+          "type indicates which kind of seccomp profile will be applied. Valid options are:  Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.  ")
+  public String getType() {
     return type;
   }
 
-  public void setType(TypeEnum type) {
+  public void setType(String type) {
     this.type = type;
   }
 

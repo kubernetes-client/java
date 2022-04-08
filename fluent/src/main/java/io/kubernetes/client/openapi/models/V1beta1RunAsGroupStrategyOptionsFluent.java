@@ -12,37 +12,39 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1beta1RunAsGroupStrategyOptionsFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToRanges(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1IDRange item);
+        A extends V1beta1RunAsGroupStrategyOptionsFluent<A>>
+    extends Fluent<A> {
+  public A addToRanges(Integer index, V1beta1IDRange item);
 
   public A setToRanges(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1IDRange item);
 
   public A addToRanges(io.kubernetes.client.openapi.models.V1beta1IDRange... items);
 
-  public A addAllToRanges(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1IDRange> items);
+  public A addAllToRanges(Collection<io.kubernetes.client.openapi.models.V1beta1IDRange> items);
 
   public A removeFromRanges(io.kubernetes.client.openapi.models.V1beta1IDRange... items);
 
   public A removeAllFromRanges(
       java.util.Collection<io.kubernetes.client.openapi.models.V1beta1IDRange> items);
 
-  public A removeMatchingFromRanges(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>
-          predicate);
+  public A removeMatchingFromRanges(Predicate<V1beta1IDRangeBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildRanges instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1IDRange> getRanges();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1IDRange> getRanges();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1IDRange> buildRanges();
 
@@ -56,7 +58,7 @@ public interface V1beta1RunAsGroupStrategyOptionsFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingRange(
+  public Boolean hasMatchingRange(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>
           predicate);
 
@@ -66,8 +68,7 @@ public interface V1beta1RunAsGroupStrategyOptionsFluent<
 
   public java.lang.Boolean hasRanges();
 
-  public io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsFluent.RangesNested<A>
-      addNewRange();
+  public V1beta1RunAsGroupStrategyOptionsFluent.RangesNested<A> addNewRange();
 
   public io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsFluent.RangesNested<A>
       addNewRangeLike(io.kubernetes.client.openapi.models.V1beta1IDRange item);
@@ -90,22 +91,15 @@ public interface V1beta1RunAsGroupStrategyOptionsFluent<
           java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>
               predicate);
 
-  public java.lang.String getRule();
+  public String getRule();
 
   public A withRule(java.lang.String rule);
 
   public java.lang.Boolean hasRule();
 
-  /** Method is deprecated. use withRule instead. */
-  @java.lang.Deprecated
-  public A withNewRule(java.lang.String original);
-
   public interface RangesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1IDRangeFluent<
-              io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsFluent
-                      .RangesNested<
-                  N>> {
+      extends Nested<N>,
+          V1beta1IDRangeFluent<V1beta1RunAsGroupStrategyOptionsFluent.RangesNested<N>> {
     public N and();
 
     public N endRange();

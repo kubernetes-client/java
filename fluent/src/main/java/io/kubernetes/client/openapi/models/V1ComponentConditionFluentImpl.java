@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ComponentConditionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ComponentConditionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ComponentConditionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ComponentConditionFluentImpl<A extends V1ComponentConditionFluent<A>>
+    extends BaseFluent<A> implements V1ComponentConditionFluent<A> {
   public V1ComponentConditionFluentImpl() {}
 
   public V1ComponentConditionFluentImpl(
@@ -30,7 +31,7 @@ public class V1ComponentConditionFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.lang.String error;
+  private String error;
   private java.lang.String message;
   private java.lang.String status;
   private java.lang.String type;
@@ -44,14 +45,8 @@ public class V1ComponentConditionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasError() {
+  public Boolean hasError() {
     return this.error != null;
-  }
-
-  /** Method is deprecated. use withError instead. */
-  @java.lang.Deprecated
-  public A withNewError(java.lang.String original) {
-    return (A) withError(new String(original));
   }
 
   public java.lang.String getMessage() {
@@ -67,12 +62,6 @@ public class V1ComponentConditionFluentImpl<
     return this.message != null;
   }
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A) withMessage(new String(original));
-  }
-
   public java.lang.String getStatus() {
     return this.status;
   }
@@ -84,12 +73,6 @@ public class V1ComponentConditionFluentImpl<
 
   public java.lang.Boolean hasStatus() {
     return this.status != null;
-  }
-
-  /** Method is deprecated. use withStatus instead. */
-  @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original) {
-    return (A) withStatus(new String(original));
   }
 
   public java.lang.String getType() {
@@ -105,13 +88,7 @@ public class V1ComponentConditionFluentImpl<
     return this.type != null;
   }
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A) withType(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ComponentConditionFluentImpl that = (V1ComponentConditionFluentImpl) o;
@@ -124,5 +101,28 @@ public class V1ComponentConditionFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(error, message, status, type, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (error != null) {
+      sb.append("error:");
+      sb.append(error + ",");
+    }
+    if (message != null) {
+      sb.append("message:");
+      sb.append(message + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

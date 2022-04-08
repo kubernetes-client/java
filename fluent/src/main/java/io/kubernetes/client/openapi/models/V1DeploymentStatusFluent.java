@@ -12,15 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1DeploymentStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1DeploymentStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getAvailableReplicas();
+public interface V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>> extends Fluent<A> {
+  public Integer getAvailableReplicas();
 
   public A withAvailableReplicas(java.lang.Integer availableReplicas);
 
-  public java.lang.Boolean hasAvailableReplicas();
+  public Boolean hasAvailableReplicas();
 
   public java.lang.Integer getCollisionCount();
 
@@ -28,8 +32,7 @@ public interface V1DeploymentStatusFluent<
 
   public java.lang.Boolean hasCollisionCount();
 
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1DeploymentCondition item);
+  public A addToConditions(java.lang.Integer index, V1DeploymentCondition item);
 
   public A setToConditions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1DeploymentCondition item);
@@ -37,24 +40,22 @@ public interface V1DeploymentStatusFluent<
   public A addToConditions(io.kubernetes.client.openapi.models.V1DeploymentCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1DeploymentCondition> items);
+      Collection<io.kubernetes.client.openapi.models.V1DeploymentCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1DeploymentCondition... items);
 
   public A removeAllFromConditions(
       java.util.Collection<io.kubernetes.client.openapi.models.V1DeploymentCondition> items);
 
-  public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder>
-          predicate);
+  public A removeMatchingFromConditions(Predicate<V1DeploymentConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1DeploymentCondition> getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1DeploymentCondition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1DeploymentCondition>
       buildConditions();
@@ -81,8 +82,7 @@ public interface V1DeploymentStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1DeploymentStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1DeploymentCondition item);
@@ -106,7 +106,7 @@ public interface V1DeploymentStatusFluent<
                   io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder>
               predicate);
 
-  public java.lang.Long getObservedGeneration();
+  public Long getObservedGeneration();
 
   public A withObservedGeneration(java.lang.Long observedGeneration);
 
@@ -137,9 +137,7 @@ public interface V1DeploymentStatusFluent<
   public java.lang.Boolean hasUpdatedReplicas();
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1DeploymentConditionFluent<
-              io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<N>> {
+      extends Nested<N>, V1DeploymentConditionFluent<V1DeploymentStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

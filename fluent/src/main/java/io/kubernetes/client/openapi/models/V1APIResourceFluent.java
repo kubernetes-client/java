@@ -12,23 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1APIResourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1APIResourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToCategories(java.lang.Integer index, java.lang.String item);
+public interface V1APIResourceFluent<A extends V1APIResourceFluent<A>> extends Fluent<A> {
+  public A addToCategories(Integer index, String item);
 
   public A setToCategories(java.lang.Integer index, java.lang.String item);
 
   public A addToCategories(java.lang.String... items);
 
-  public A addAllToCategories(java.util.Collection<java.lang.String> items);
+  public A addAllToCategories(Collection<java.lang.String> items);
 
   public A removeFromCategories(java.lang.String... items);
 
   public A removeAllFromCategories(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getCategories();
+  public List<java.lang.String> getCategories();
 
   public java.lang.String getCategory(java.lang.Integer index);
 
@@ -36,11 +39,9 @@ public interface V1APIResourceFluent<
 
   public java.lang.String getLastCategory();
 
-  public java.lang.String getMatchingCategory(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingCategory(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingCategory(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingCategory(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withCategories(java.util.List<java.lang.String> categories);
 
@@ -48,17 +49,11 @@ public interface V1APIResourceFluent<
 
   public java.lang.Boolean hasCategories();
 
-  public A addNewCategory(java.lang.String original);
-
   public java.lang.String getGroup();
 
   public A withGroup(java.lang.String group);
 
   public java.lang.Boolean hasGroup();
-
-  /** Method is deprecated. use withGroup instead. */
-  @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original);
 
   public java.lang.String getKind();
 
@@ -66,19 +61,11 @@ public interface V1APIResourceFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   public java.lang.String getName();
 
   public A withName(java.lang.String name);
 
   public java.lang.Boolean hasName();
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
 
   public java.lang.Boolean getNamespaced();
 
@@ -118,27 +105,17 @@ public interface V1APIResourceFluent<
 
   public java.lang.Boolean hasShortNames();
 
-  public A addNewShortName(java.lang.String original);
-
   public java.lang.String getSingularName();
 
   public A withSingularName(java.lang.String singularName);
 
   public java.lang.Boolean hasSingularName();
 
-  /** Method is deprecated. use withSingularName instead. */
-  @java.lang.Deprecated
-  public A withNewSingularName(java.lang.String original);
-
   public java.lang.String getStorageVersionHash();
 
   public A withStorageVersionHash(java.lang.String storageVersionHash);
 
   public java.lang.Boolean hasStorageVersionHash();
-
-  /** Method is deprecated. use withStorageVersionHash instead. */
-  @java.lang.Deprecated
-  public A withNewStorageVersionHash(java.lang.String original);
 
   public A addToVerbs(java.lang.Integer index, java.lang.String item);
 
@@ -171,15 +148,11 @@ public interface V1APIResourceFluent<
 
   public java.lang.Boolean hasVerbs();
 
-  public A addNewVerb(java.lang.String original);
-
   public java.lang.String getVersion();
 
   public A withVersion(java.lang.String version);
 
   public java.lang.Boolean hasVersion();
 
-  /** Method is deprecated. use withVersion instead. */
-  @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original);
+  public A withNamespaced();
 }

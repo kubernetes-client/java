@@ -12,26 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1AffinityFluent<A extends io.kubernetes.client.openapi.models.V1AffinityFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1AffinityFluent<A extends V1AffinityFluent<A>> extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildNodeAffinity instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NodeAffinity getNodeAffinity();
+  @Deprecated
+  public V1NodeAffinity getNodeAffinity();
 
   public io.kubernetes.client.openapi.models.V1NodeAffinity buildNodeAffinity();
 
   public A withNodeAffinity(io.kubernetes.client.openapi.models.V1NodeAffinity nodeAffinity);
 
-  public java.lang.Boolean hasNodeAffinity();
+  public Boolean hasNodeAffinity();
 
-  public io.kubernetes.client.openapi.models.V1AffinityFluent.NodeAffinityNested<A>
-      withNewNodeAffinity();
+  public V1AffinityFluent.NodeAffinityNested<A> withNewNodeAffinity();
 
   public io.kubernetes.client.openapi.models.V1AffinityFluent.NodeAffinityNested<A>
       withNewNodeAffinityLike(io.kubernetes.client.openapi.models.V1NodeAffinity item);
@@ -51,7 +52,7 @@ public interface V1AffinityFluent<A extends io.kubernetes.client.openapi.models.
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodAffinity getPodAffinity();
+  public V1PodAffinity getPodAffinity();
 
   public io.kubernetes.client.openapi.models.V1PodAffinity buildPodAffinity();
 
@@ -59,8 +60,7 @@ public interface V1AffinityFluent<A extends io.kubernetes.client.openapi.models.
 
   public java.lang.Boolean hasPodAffinity();
 
-  public io.kubernetes.client.openapi.models.V1AffinityFluent.PodAffinityNested<A>
-      withNewPodAffinity();
+  public V1AffinityFluent.PodAffinityNested<A> withNewPodAffinity();
 
   public io.kubernetes.client.openapi.models.V1AffinityFluent.PodAffinityNested<A>
       withNewPodAffinityLike(io.kubernetes.client.openapi.models.V1PodAffinity item);
@@ -80,7 +80,7 @@ public interface V1AffinityFluent<A extends io.kubernetes.client.openapi.models.
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinity getPodAntiAffinity();
+  public V1PodAntiAffinity getPodAntiAffinity();
 
   public io.kubernetes.client.openapi.models.V1PodAntiAffinity buildPodAntiAffinity();
 
@@ -89,8 +89,7 @@ public interface V1AffinityFluent<A extends io.kubernetes.client.openapi.models.
 
   public java.lang.Boolean hasPodAntiAffinity();
 
-  public io.kubernetes.client.openapi.models.V1AffinityFluent.PodAntiAffinityNested<A>
-      withNewPodAntiAffinity();
+  public V1AffinityFluent.PodAntiAffinityNested<A> withNewPodAntiAffinity();
 
   public io.kubernetes.client.openapi.models.V1AffinityFluent.PodAntiAffinityNested<A>
       withNewPodAntiAffinityLike(io.kubernetes.client.openapi.models.V1PodAntiAffinity item);
@@ -105,9 +104,7 @@ public interface V1AffinityFluent<A extends io.kubernetes.client.openapi.models.
       editOrNewPodAntiAffinityLike(io.kubernetes.client.openapi.models.V1PodAntiAffinity item);
 
   public interface NodeAffinityNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NodeAffinityFluent<
-              io.kubernetes.client.openapi.models.V1AffinityFluent.NodeAffinityNested<N>> {
+      extends Nested<N>, V1NodeAffinityFluent<V1AffinityFluent.NodeAffinityNested<N>> {
     public N and();
 
     public N endNodeAffinity();
@@ -115,8 +112,7 @@ public interface V1AffinityFluent<A extends io.kubernetes.client.openapi.models.
 
   public interface PodAffinityNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodAffinityFluent<
-              io.kubernetes.client.openapi.models.V1AffinityFluent.PodAffinityNested<N>> {
+          V1PodAffinityFluent<V1AffinityFluent.PodAffinityNested<N>> {
     public N and();
 
     public N endPodAffinity();
@@ -124,8 +120,7 @@ public interface V1AffinityFluent<A extends io.kubernetes.client.openapi.models.
 
   public interface PodAntiAffinityNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent<
-              io.kubernetes.client.openapi.models.V1AffinityFluent.PodAntiAffinityNested<N>> {
+          V1PodAntiAffinityFluent<V1AffinityFluent.PodAntiAffinityNested<N>> {
     public N and();
 
     public N endPodAntiAffinity();

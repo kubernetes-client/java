@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1FlockerVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1FlockerVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1FlockerVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1FlockerVolumeSourceFluentImpl<A extends V1FlockerVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1FlockerVolumeSourceFluent<A> {
   public V1FlockerVolumeSourceFluentImpl() {}
 
   public V1FlockerVolumeSourceFluentImpl(
@@ -26,7 +27,7 @@ public class V1FlockerVolumeSourceFluentImpl<
     this.withDatasetUUID(instance.getDatasetUUID());
   }
 
-  private java.lang.String datasetName;
+  private String datasetName;
   private java.lang.String datasetUUID;
 
   public java.lang.String getDatasetName() {
@@ -38,14 +39,8 @@ public class V1FlockerVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasDatasetName() {
+  public Boolean hasDatasetName() {
     return this.datasetName != null;
-  }
-
-  /** Method is deprecated. use withDatasetName instead. */
-  @java.lang.Deprecated
-  public A withNewDatasetName(java.lang.String original) {
-    return (A) withDatasetName(new String(original));
   }
 
   public java.lang.String getDatasetUUID() {
@@ -61,13 +56,7 @@ public class V1FlockerVolumeSourceFluentImpl<
     return this.datasetUUID != null;
   }
 
-  /** Method is deprecated. use withDatasetUUID instead. */
-  @java.lang.Deprecated
-  public A withNewDatasetUUID(java.lang.String original) {
-    return (A) withDatasetUUID(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1FlockerVolumeSourceFluentImpl that = (V1FlockerVolumeSourceFluentImpl) o;
@@ -80,5 +69,20 @@ public class V1FlockerVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(datasetName, datasetUUID, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (datasetName != null) {
+      sb.append("datasetName:");
+      sb.append(datasetName + ",");
+    }
+    if (datasetUUID != null) {
+      sb.append("datasetUUID:");
+      sb.append(datasetUUID);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

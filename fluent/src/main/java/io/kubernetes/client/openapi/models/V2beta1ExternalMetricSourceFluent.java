@@ -12,27 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V2beta1ExternalMetricSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getMetricName();
+public interface V2beta1ExternalMetricSourceFluent<A extends V2beta1ExternalMetricSourceFluent<A>>
+    extends Fluent<A> {
+  public String getMetricName();
 
   public A withMetricName(java.lang.String metricName);
 
-  public java.lang.Boolean hasMetricName();
-
-  /** Method is deprecated. use withMetricName instead. */
-  @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original);
+  public Boolean hasMetricName();
 
   /**
    * This method has been deprecated, please use method buildMetricSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getMetricSelector();
+  @Deprecated
+  public V1LabelSelector getMetricSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildMetricSelector();
 
@@ -40,9 +39,7 @@ public interface V2beta1ExternalMetricSourceFluent<
 
   public java.lang.Boolean hasMetricSelector();
 
-  public io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent.MetricSelectorNested<
-          A>
-      withNewMetricSelector();
+  public V2beta1ExternalMetricSourceFluent.MetricSelectorNested<A> withNewMetricSelector();
 
   public io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent.MetricSelectorNested<
           A>
@@ -60,7 +57,7 @@ public interface V2beta1ExternalMetricSourceFluent<
           A>
       editOrNewMetricSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
 
-  public io.kubernetes.client.custom.Quantity getTargetAverageValue();
+  public Quantity getTargetAverageValue();
 
   public A withTargetAverageValue(io.kubernetes.client.custom.Quantity targetAverageValue);
 
@@ -77,11 +74,8 @@ public interface V2beta1ExternalMetricSourceFluent<
   public A withNewTargetValue(java.lang.String value);
 
   public interface MetricSelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V2beta1ExternalMetricSourceFluent
-                      .MetricSelectorNested<
-                  N>> {
+      extends Nested<N>,
+          V1LabelSelectorFluent<V2beta1ExternalMetricSourceFluent.MetricSelectorNested<N>> {
     public N and();
 
     public N endMetricSelector();

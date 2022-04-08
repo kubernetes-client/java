@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1CSIPersistentVolumeSourceBuilder
-    extends io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1CSIPersistentVolumeSourceFluentImpl<V1CSIPersistentVolumeSourceBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource,
         io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceBuilder> {
   public V1CSIPersistentVolumeSourceBuilder() {
     this(false);
   }
 
-  public V1CSIPersistentVolumeSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V1CSIPersistentVolumeSourceBuilder(Boolean validationEnabled) {
     this(new V1CSIPersistentVolumeSource(), validationEnabled);
   }
 
-  public V1CSIPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<?> fluent) {
+  public V1CSIPersistentVolumeSourceBuilder(V1CSIPersistentVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -114,24 +114,5 @@ public class V1CSIPersistentVolumeSourceBuilder
     buildable.setVolumeAttributes(fluent.getVolumeAttributes());
     buildable.setVolumeHandle(fluent.getVolumeHandle());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1CSIPersistentVolumeSourceBuilder that = (V1CSIPersistentVolumeSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }
