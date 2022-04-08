@@ -12,22 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V2beta1MetricSpecBuilder
-    extends io.kubernetes.client.openapi.models.V2beta1MetricSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V2beta1MetricSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2beta1MetricSpec,
-        io.kubernetes.client.openapi.models.V2beta1MetricSpecBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V2beta1MetricSpecBuilder extends V2beta1MetricSpecFluentImpl<V2beta1MetricSpecBuilder>
+    implements VisitableBuilder<
+        V2beta1MetricSpec, io.kubernetes.client.openapi.models.V2beta1MetricSpecBuilder> {
   public V2beta1MetricSpecBuilder() {
     this(false);
   }
 
-  public V2beta1MetricSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V2beta1MetricSpecBuilder(Boolean validationEnabled) {
     this(new V2beta1MetricSpec(), validationEnabled);
   }
 
-  public V2beta1MetricSpecBuilder(
-      io.kubernetes.client.openapi.models.V2beta1MetricSpecFluent<?> fluent) {
+  public V2beta1MetricSpecBuilder(V2beta1MetricSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -98,24 +96,5 @@ public class V2beta1MetricSpecBuilder
     buildable.setResource(fluent.getResource());
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V2beta1MetricSpecBuilder that = (V2beta1MetricSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

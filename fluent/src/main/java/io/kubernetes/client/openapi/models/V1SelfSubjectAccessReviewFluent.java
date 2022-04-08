@@ -12,19 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1SelfSubjectAccessReviewFluent<
-        A extends io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface V1SelfSubjectAccessReviewFluent<A extends V1SelfSubjectAccessReviewFluent<A>>
+    extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public Boolean hasApiVersion();
 
   public java.lang.String getKind();
 
@@ -32,17 +30,13 @@ public interface V1SelfSubjectAccessReviewFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  @Deprecated
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -50,8 +44,7 @@ public interface V1SelfSubjectAccessReviewFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.MetadataNested<A>
-      withNewMetadata();
+  public V1SelfSubjectAccessReviewFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -71,7 +64,7 @@ public interface V1SelfSubjectAccessReviewFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpec getSpec();
+  public V1SelfSubjectAccessReviewSpec getSpec();
 
   public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpec buildSpec();
 
@@ -79,8 +72,7 @@ public interface V1SelfSubjectAccessReviewFluent<
 
   public java.lang.Boolean hasSpec();
 
-  public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.SpecNested<A>
-      withNewSpec();
+  public V1SelfSubjectAccessReviewFluent.SpecNested<A> withNewSpec();
 
   public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.SpecNested<A>
       withNewSpecLike(io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpec item);
@@ -100,7 +92,7 @@ public interface V1SelfSubjectAccessReviewFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus getStatus();
+  public V1SubjectAccessReviewStatus getStatus();
 
   public io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus buildStatus();
 
@@ -108,8 +100,7 @@ public interface V1SelfSubjectAccessReviewFluent<
 
   public java.lang.Boolean hasStatus();
 
-  public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.StatusNested<A>
-      withNewStatus();
+  public V1SelfSubjectAccessReviewFluent.StatusNested<A> withNewStatus();
 
   public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.StatusNested<A>
       withNewStatusLike(io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus item);
@@ -124,10 +115,7 @@ public interface V1SelfSubjectAccessReviewFluent<
       editOrNewStatusLike(io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus item);
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.MetadataNested<
-                  N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1SelfSubjectAccessReviewFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
@@ -135,8 +123,7 @@ public interface V1SelfSubjectAccessReviewFluent<
 
   public interface SpecNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpecFluent<
-              io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.SpecNested<N>> {
+          V1SelfSubjectAccessReviewSpecFluent<V1SelfSubjectAccessReviewFluent.SpecNested<N>> {
     public N and();
 
     public N endSpec();
@@ -144,8 +131,7 @@ public interface V1SelfSubjectAccessReviewFluent<
 
   public interface StatusNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<
-              io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent.StatusNested<N>> {
+          V1SubjectAccessReviewStatusFluent<V1SelfSubjectAccessReviewFluent.StatusNested<N>> {
     public N and();
 
     public N endStatus();

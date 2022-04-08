@@ -13,12 +13,13 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V2beta1ContainerResourceMetricSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta1ContainerResourceMetricSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta1ContainerResourceMetricSourceFluent<A> {
+        A extends V2beta1ContainerResourceMetricSourceFluent<A>>
+    extends BaseFluent<A> implements V2beta1ContainerResourceMetricSourceFluent<A> {
   public V2beta1ContainerResourceMetricSourceFluentImpl() {}
 
   public V2beta1ContainerResourceMetricSourceFluentImpl(
@@ -32,10 +33,10 @@ public class V2beta1ContainerResourceMetricSourceFluentImpl<
     this.withTargetAverageValue(instance.getTargetAverageValue());
   }
 
-  private java.lang.String container;
+  private String container;
   private java.lang.String name;
-  private java.lang.Integer targetAverageUtilization;
-  private io.kubernetes.client.custom.Quantity targetAverageValue;
+  private Integer targetAverageUtilization;
+  private Quantity targetAverageValue;
 
   public java.lang.String getContainer() {
     return this.container;
@@ -46,14 +47,8 @@ public class V2beta1ContainerResourceMetricSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasContainer() {
+  public Boolean hasContainer() {
     return this.container != null;
-  }
-
-  /** Method is deprecated. use withContainer instead. */
-  @java.lang.Deprecated
-  public A withNewContainer(java.lang.String original) {
-    return (A) withContainer(new String(original));
   }
 
   public java.lang.String getName() {
@@ -67,12 +62,6 @@ public class V2beta1ContainerResourceMetricSourceFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.Integer getTargetAverageUtilization() {
@@ -105,7 +94,7 @@ public class V2beta1ContainerResourceMetricSourceFluentImpl<
     return (A) withTargetAverageValue(new Quantity(value));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta1ContainerResourceMetricSourceFluentImpl that =
@@ -125,5 +114,28 @@ public class V2beta1ContainerResourceMetricSourceFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         container, name, targetAverageUtilization, targetAverageValue, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (container != null) {
+      sb.append("container:");
+      sb.append(container + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (targetAverageUtilization != null) {
+      sb.append("targetAverageUtilization:");
+      sb.append(targetAverageUtilization + ",");
+    }
+    if (targetAverageValue != null) {
+      sb.append("targetAverageValue:");
+      sb.append(targetAverageValue);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

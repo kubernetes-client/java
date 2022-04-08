@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1StatefulSetUpdateStrategyFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1StatefulSetUpdateStrategyFluentImpl<A extends V1StatefulSetUpdateStrategyFluent<A>>
+    extends BaseFluent<A> implements V1StatefulSetUpdateStrategyFluent<A> {
   public V1StatefulSetUpdateStrategyFluentImpl() {}
 
   public V1StatefulSetUpdateStrategyFluentImpl(
@@ -26,16 +28,15 @@ public class V1StatefulSetUpdateStrategyFluentImpl<
     this.withType(instance.getType());
   }
 
-  private io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyBuilder
-      rollingUpdate;
-  private io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy.TypeEnum type;
+  private V1RollingUpdateStatefulSetStrategyBuilder rollingUpdate;
+  private String type;
 
   /**
    * This method has been deprecated, please use method buildRollingUpdate instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy getRollingUpdate() {
     return this.rollingUpdate != null ? this.rollingUpdate.build() : null;
   }
@@ -49,31 +50,25 @@ public class V1StatefulSetUpdateStrategyFluentImpl<
       io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy rollingUpdate) {
     _visitables.get("rollingUpdate").remove(this.rollingUpdate);
     if (rollingUpdate != null) {
-      this.rollingUpdate =
-          new io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyBuilder(
-              rollingUpdate);
+      this.rollingUpdate = new V1RollingUpdateStatefulSetStrategyBuilder(rollingUpdate);
       _visitables.get("rollingUpdate").add(this.rollingUpdate);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRollingUpdate() {
+  public Boolean hasRollingUpdate() {
     return this.rollingUpdate != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<
-          A>
-      withNewRollingUpdate() {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluentImpl
-        .RollingUpdateNestedImpl();
+  public V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> withNewRollingUpdate() {
+    return new V1StatefulSetUpdateStrategyFluentImpl.RollingUpdateNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<
           A>
       withNewRollingUpdateLike(
           io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy item) {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluentImpl
-        .RollingUpdateNestedImpl(item);
+    return new V1StatefulSetUpdateStrategyFluentImpl.RollingUpdateNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<
@@ -99,11 +94,11 @@ public class V1StatefulSetUpdateStrategyFluentImpl<
     return withNewRollingUpdateLike(getRollingUpdate() != null ? getRollingUpdate() : item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy.TypeEnum getType() {
+  public java.lang.String getType() {
     return this.type;
   }
 
-  public A withType(io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy.TypeEnum type) {
+  public A withType(java.lang.String type) {
     this.type = type;
     return (A) this;
   }
@@ -112,7 +107,7 @@ public class V1StatefulSetUpdateStrategyFluentImpl<
     return this.type != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1StatefulSetUpdateStrategyFluentImpl that = (V1StatefulSetUpdateStrategyFluentImpl) o;
@@ -127,19 +122,30 @@ public class V1StatefulSetUpdateStrategyFluentImpl<
     return java.util.Objects.hash(rollingUpdate, type, super.hashCode());
   }
 
-  public class RollingUpdateNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluentImpl<
-          io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (rollingUpdate != null) {
+      sb.append("rollingUpdate:");
+      sb.append(rollingUpdate + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class RollingUpdateNestedImpl<N>
+      extends V1RollingUpdateStatefulSetStrategyFluentImpl<
+          V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<N>>
       implements io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent
                   .RollingUpdateNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    RollingUpdateNestedImpl(
-        io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyBuilder(
-              this, item);
+          Nested<N> {
+    RollingUpdateNestedImpl(V1RollingUpdateStatefulSetStrategy item) {
+      this.builder = new V1RollingUpdateStatefulSetStrategyBuilder(this, item);
     }
 
     RollingUpdateNestedImpl() {

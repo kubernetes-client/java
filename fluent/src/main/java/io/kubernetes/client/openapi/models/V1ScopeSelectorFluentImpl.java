@@ -12,27 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1ScopeSelectorFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ScopeSelectorFluentImpl<A extends V1ScopeSelectorFluent<A>> extends BaseFluent<A>
+    implements V1ScopeSelectorFluent<A> {
   public V1ScopeSelectorFluentImpl() {}
 
   public V1ScopeSelectorFluentImpl(io.kubernetes.client.openapi.models.V1ScopeSelector instance) {
     this.withMatchExpressions(instance.getMatchExpressions());
   }
 
-  private java.util.ArrayList<
-          io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>
-      matchExpressions;
+  private ArrayList<V1ScopedResourceSelectorRequirementBuilder> matchExpressions;
 
-  public A addToMatchExpressions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement item) {
+  public A addToMatchExpressions(Integer index, V1ScopedResourceSelectorRequirement item) {
     if (this.matchExpressions == null) {
       this.matchExpressions =
           new java.util.ArrayList<
@@ -87,8 +87,7 @@ public class V1ScopeSelectorFluentImpl<
   }
 
   public A addAllToMatchExpressions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement>
-          items) {
+      Collection<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement> items) {
     if (this.matchExpressions == null) {
       this.matchExpressions =
           new java.util.ArrayList<
@@ -131,8 +130,7 @@ public class V1ScopeSelectorFluentImpl<
   }
 
   public A removeMatchingFromMatchExpressions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>
+      Predicate<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>
           predicate) {
     if (matchExpressions == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>
@@ -154,8 +152,8 @@ public class V1ScopeSelectorFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement>
       getMatchExpressions() {
     return matchExpressions != null ? build(matchExpressions) : null;
   }
@@ -194,7 +192,7 @@ public class V1ScopeSelectorFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingMatchExpression(
+  public Boolean hasMatchingMatchExpression(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>
           predicate) {
@@ -243,17 +241,14 @@ public class V1ScopeSelectorFluentImpl<
     return matchExpressions != null && !matchExpressions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<A>
-      addNewMatchExpression() {
-    return new io.kubernetes.client.openapi.models.V1ScopeSelectorFluentImpl
-        .MatchExpressionsNestedImpl();
+  public V1ScopeSelectorFluent.MatchExpressionsNested<A> addNewMatchExpression() {
+    return new V1ScopeSelectorFluentImpl.MatchExpressionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<A>
       addNewMatchExpressionLike(
           io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement item) {
-    return new io.kubernetes.client.openapi.models.V1ScopeSelectorFluentImpl
-        .MatchExpressionsNestedImpl(-1, item);
+    return new V1ScopeSelectorFluentImpl.MatchExpressionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<A>
@@ -303,7 +298,7 @@ public class V1ScopeSelectorFluentImpl<
     return setNewMatchExpressionLike(index, buildMatchExpression(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ScopeSelectorFluentImpl that = (V1ScopeSelectorFluentImpl) o;
@@ -317,19 +312,28 @@ public class V1ScopeSelectorFluentImpl<
     return java.util.Objects.hash(matchExpressions, super.hashCode());
   }
 
-  public class MatchExpressionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluentImpl<
-          io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (matchExpressions != null && !matchExpressions.isEmpty()) {
+      sb.append("matchExpressions:");
+      sb.append(matchExpressions);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MatchExpressionsNestedImpl<N>
+      extends V1ScopedResourceSelectorRequirementFluentImpl<
+          V1ScopeSelectorFluent.MatchExpressionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     MatchExpressionsNestedImpl(
         java.lang.Integer index,
         io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder(
-              this, item);
+      this.builder = new V1ScopedResourceSelectorRequirementBuilder(this, item);
     }
 
     MatchExpressionsNestedImpl() {

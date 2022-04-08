@@ -12,21 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
 public interface V1ServiceAccountTokenProjectionFluent<
-        A extends io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjectionFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getAudience();
+        A extends V1ServiceAccountTokenProjectionFluent<A>>
+    extends Fluent<A> {
+  public String getAudience();
 
   public A withAudience(java.lang.String audience);
 
-  public java.lang.Boolean hasAudience();
+  public Boolean hasAudience();
 
-  /** Method is deprecated. use withAudience instead. */
-  @java.lang.Deprecated
-  public A withNewAudience(java.lang.String original);
-
-  public java.lang.Long getExpirationSeconds();
+  public Long getExpirationSeconds();
 
   public A withExpirationSeconds(java.lang.Long expirationSeconds);
 
@@ -37,8 +35,4 @@ public interface V1ServiceAccountTokenProjectionFluent<
   public A withPath(java.lang.String path);
 
   public java.lang.Boolean hasPath();
-
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original);
 }

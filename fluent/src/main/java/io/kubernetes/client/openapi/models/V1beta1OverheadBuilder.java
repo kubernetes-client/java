@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1beta1OverheadBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1OverheadFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1OverheadBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1Overhead,
-        io.kubernetes.client.openapi.models.V1beta1OverheadBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1beta1OverheadBuilder extends V1beta1OverheadFluentImpl<V1beta1OverheadBuilder>
+    implements VisitableBuilder<
+        V1beta1Overhead, io.kubernetes.client.openapi.models.V1beta1OverheadBuilder> {
   public V1beta1OverheadBuilder() {
     this(false);
   }
 
-  public V1beta1OverheadBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1OverheadBuilder(Boolean validationEnabled) {
     this(new V1beta1Overhead(), validationEnabled);
   }
 
@@ -73,24 +72,5 @@ public class V1beta1OverheadBuilder
     V1beta1Overhead buildable = new V1beta1Overhead();
     buildable.setPodFixed(fluent.getPodFixed());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1OverheadBuilder that = (V1beta1OverheadBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

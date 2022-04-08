@@ -12,19 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Map;
+
 /** Generated */
-public interface V1FlexPersistentVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getDriver();
+public interface V1FlexPersistentVolumeSourceFluent<A extends V1FlexPersistentVolumeSourceFluent<A>>
+    extends Fluent<A> {
+  public String getDriver();
 
   public A withDriver(java.lang.String driver);
 
-  public java.lang.Boolean hasDriver();
-
-  /** Method is deprecated. use withDriver instead. */
-  @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original);
+  public Boolean hasDriver();
 
   public java.lang.String getFsType();
 
@@ -32,13 +31,9 @@ public interface V1FlexPersistentVolumeSourceFluent<
 
   public java.lang.Boolean hasFsType();
 
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
-
   public A addToOptions(java.lang.String key, java.lang.String value);
 
-  public A addToOptions(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToOptions(Map<java.lang.String, java.lang.String> map);
 
   public A removeFromOptions(java.lang.String key);
 
@@ -61,8 +56,8 @@ public interface V1FlexPersistentVolumeSourceFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SecretReference getSecretRef();
+  @Deprecated
+  public V1SecretReference getSecretRef();
 
   public io.kubernetes.client.openapi.models.V1SecretReference buildSecretRef();
 
@@ -70,8 +65,7 @@ public interface V1FlexPersistentVolumeSourceFluent<
 
   public java.lang.Boolean hasSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRef();
+  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
   public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
       withNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item);
@@ -85,12 +79,11 @@ public interface V1FlexPersistentVolumeSourceFluent<
   public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
       editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item);
 
+  public A withReadOnly();
+
   public interface SecretRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1SecretReferenceFluent<
-              io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent
-                      .SecretRefNested<
-                  N>> {
+      extends Nested<N>,
+          V1SecretReferenceFluent<V1FlexPersistentVolumeSourceFluent.SecretRefNested<N>> {
     public N and();
 
     public N endSecretRef();

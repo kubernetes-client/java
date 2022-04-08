@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1alpha1ServerStorageVersionBuilder
-    extends io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionFluentImpl<
-        io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion,
+    extends V1alpha1ServerStorageVersionFluentImpl<V1alpha1ServerStorageVersionBuilder>
+    implements VisitableBuilder<
+        V1alpha1ServerStorageVersion,
         io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionBuilder> {
   public V1alpha1ServerStorageVersionBuilder() {
     this(false);
   }
 
-  public V1alpha1ServerStorageVersionBuilder(java.lang.Boolean validationEnabled) {
+  public V1alpha1ServerStorageVersionBuilder(Boolean validationEnabled) {
     this(new V1alpha1ServerStorageVersion(), validationEnabled);
   }
 
@@ -84,24 +85,5 @@ public class V1alpha1ServerStorageVersionBuilder
     buildable.setDecodableVersions(fluent.getDecodableVersions());
     buildable.setEncodingVersion(fluent.getEncodingVersion());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1alpha1ServerStorageVersionBuilder that = (V1alpha1ServerStorageVersionBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

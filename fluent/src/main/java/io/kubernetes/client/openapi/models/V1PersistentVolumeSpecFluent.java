@@ -12,23 +12,30 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1PersistentVolumeSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToAccessModes(java.lang.Integer index, java.lang.String item);
+public interface V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent<A>>
+    extends Fluent<A> {
+  public A addToAccessModes(Integer index, String item);
 
   public A setToAccessModes(java.lang.Integer index, java.lang.String item);
 
   public A addToAccessModes(java.lang.String... items);
 
-  public A addAllToAccessModes(java.util.Collection<java.lang.String> items);
+  public A addAllToAccessModes(Collection<java.lang.String> items);
 
   public A removeFromAccessModes(java.lang.String... items);
 
   public A removeAllFromAccessModes(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getAccessModes();
+  public List<java.lang.String> getAccessModes();
 
   public java.lang.String getAccessMode(java.lang.Integer index);
 
@@ -36,11 +43,9 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.String getLastAccessMode();
 
-  public java.lang.String getMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingAccessMode(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingAccessMode(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withAccessModes(java.util.List<java.lang.String> accessModes);
 
@@ -48,16 +53,13 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasAccessModes();
 
-  public A addNewAccessMode(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildAwsElasticBlockStore instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource
-      getAwsElasticBlockStore();
+  @Deprecated
+  public V1AWSElasticBlockStoreVolumeSource getAwsElasticBlockStore();
 
   public io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource
       buildAwsElasticBlockStore();
@@ -67,10 +69,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasAwsElasticBlockStore();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-              .AwsElasticBlockStoreNested<
-          A>
-      withNewAwsElasticBlockStore();
+  public V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStore();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
               .AwsElasticBlockStoreNested<
@@ -100,7 +99,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource getAzureDisk();
+  public V1AzureDiskVolumeSource getAzureDisk();
 
   public io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource buildAzureDisk();
 
@@ -108,8 +107,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasAzureDisk();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureDiskNested<A>
-      withNewAzureDisk();
+  public V1PersistentVolumeSpecFluent.AzureDiskNested<A> withNewAzureDisk();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureDiskNested<A>
       withNewAzureDiskLike(io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource item);
@@ -129,7 +127,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource getAzureFile();
+  public V1AzureFilePersistentVolumeSource getAzureFile();
 
   public io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource buildAzureFile();
 
@@ -138,8 +136,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasAzureFile();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureFileNested<A>
-      withNewAzureFile();
+  public V1PersistentVolumeSpecFluent.AzureFileNested<A> withNewAzureFile();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureFileNested<A>
       withNewAzureFileLike(
@@ -155,9 +152,9 @@ public interface V1PersistentVolumeSpecFluent<
       editOrNewAzureFileLike(
           io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource item);
 
-  public A addToCapacity(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+  public A addToCapacity(java.lang.String key, Quantity value);
 
-  public A addToCapacity(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A addToCapacity(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
 
   public A removeFromCapacity(java.lang.String key);
 
@@ -177,7 +174,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource getCephfs();
+  public V1CephFSPersistentVolumeSource getCephfs();
 
   public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource buildCephfs();
 
@@ -185,8 +182,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasCephfs();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CephfsNested<A>
-      withNewCephfs();
+  public V1PersistentVolumeSpecFluent.CephfsNested<A> withNewCephfs();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CephfsNested<A>
       withNewCephfsLike(io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource item);
@@ -206,7 +202,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource getCinder();
+  public V1CinderPersistentVolumeSource getCinder();
 
   public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource buildCinder();
 
@@ -214,8 +210,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasCinder();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CinderNested<A>
-      withNewCinder();
+  public V1PersistentVolumeSpecFluent.CinderNested<A> withNewCinder();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CinderNested<A>
       withNewCinderLike(io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource item);
@@ -235,7 +230,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getClaimRef();
+  public V1ObjectReference getClaimRef();
 
   public io.kubernetes.client.openapi.models.V1ObjectReference buildClaimRef();
 
@@ -243,8 +238,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasClaimRef();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ClaimRefNested<A>
-      withNewClaimRef();
+  public V1PersistentVolumeSpecFluent.ClaimRefNested<A> withNewClaimRef();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ClaimRefNested<A>
       withNewClaimRefLike(io.kubernetes.client.openapi.models.V1ObjectReference item);
@@ -264,7 +258,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource getCsi();
+  public V1CSIPersistentVolumeSource getCsi();
 
   public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource buildCsi();
 
@@ -272,7 +266,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasCsi();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CsiNested<A> withNewCsi();
+  public V1PersistentVolumeSpecFluent.CsiNested<A> withNewCsi();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CsiNested<A>
       withNewCsiLike(io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource item);
@@ -291,7 +285,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1FCVolumeSource getFc();
+  public V1FCVolumeSource getFc();
 
   public io.kubernetes.client.openapi.models.V1FCVolumeSource buildFc();
 
@@ -299,7 +293,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasFc();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FcNested<A> withNewFc();
+  public V1PersistentVolumeSpecFluent.FcNested<A> withNewFc();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FcNested<A> withNewFcLike(
       io.kubernetes.client.openapi.models.V1FCVolumeSource item);
@@ -317,7 +311,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource getFlexVolume();
+  public V1FlexPersistentVolumeSource getFlexVolume();
 
   public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource buildFlexVolume();
 
@@ -326,8 +320,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasFlexVolume();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlexVolumeNested<A>
-      withNewFlexVolume();
+  public V1PersistentVolumeSpecFluent.FlexVolumeNested<A> withNewFlexVolume();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlexVolumeNested<A>
       withNewFlexVolumeLike(io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource item);
@@ -348,7 +341,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1FlockerVolumeSource getFlocker();
+  public V1FlockerVolumeSource getFlocker();
 
   public io.kubernetes.client.openapi.models.V1FlockerVolumeSource buildFlocker();
 
@@ -356,8 +349,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasFlocker();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlockerNested<A>
-      withNewFlocker();
+  public V1PersistentVolumeSpecFluent.FlockerNested<A> withNewFlocker();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlockerNested<A>
       withNewFlockerLike(io.kubernetes.client.openapi.models.V1FlockerVolumeSource item);
@@ -377,7 +369,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource getGcePersistentDisk();
+  public V1GCEPersistentDiskVolumeSource getGcePersistentDisk();
 
   public io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource
       buildGcePersistentDisk();
@@ -387,8 +379,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasGcePersistentDisk();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A>
-      withNewGcePersistentDisk();
+  public V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A> withNewGcePersistentDisk();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A>
       withNewGcePersistentDiskLike(
@@ -410,7 +401,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource getGlusterfs();
+  public V1GlusterfsPersistentVolumeSource getGlusterfs();
 
   public io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource buildGlusterfs();
 
@@ -419,8 +410,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasGlusterfs();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GlusterfsNested<A>
-      withNewGlusterfs();
+  public V1PersistentVolumeSpecFluent.GlusterfsNested<A> withNewGlusterfs();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GlusterfsNested<A>
       withNewGlusterfsLike(
@@ -442,7 +432,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1HostPathVolumeSource getHostPath();
+  public V1HostPathVolumeSource getHostPath();
 
   public io.kubernetes.client.openapi.models.V1HostPathVolumeSource buildHostPath();
 
@@ -450,8 +440,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasHostPath();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.HostPathNested<A>
-      withNewHostPath();
+  public V1PersistentVolumeSpecFluent.HostPathNested<A> withNewHostPath();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.HostPathNested<A>
       withNewHostPathLike(io.kubernetes.client.openapi.models.V1HostPathVolumeSource item);
@@ -471,7 +460,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource getIscsi();
+  public V1ISCSIPersistentVolumeSource getIscsi();
 
   public io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource buildIscsi();
 
@@ -479,8 +468,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasIscsi();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.IscsiNested<A>
-      withNewIscsi();
+  public V1PersistentVolumeSpecFluent.IscsiNested<A> withNewIscsi();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.IscsiNested<A>
       withNewIscsiLike(io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource item);
@@ -500,7 +488,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LocalVolumeSource getLocal();
+  public V1LocalVolumeSource getLocal();
 
   public io.kubernetes.client.openapi.models.V1LocalVolumeSource buildLocal();
 
@@ -508,8 +496,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasLocal();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.LocalNested<A>
-      withNewLocal();
+  public V1PersistentVolumeSpecFluent.LocalNested<A> withNewLocal();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.LocalNested<A>
       withNewLocalLike(io.kubernetes.client.openapi.models.V1LocalVolumeSource item);
@@ -555,15 +542,13 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasMountOptions();
 
-  public A addNewMountOption(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildNfs instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NFSVolumeSource getNfs();
+  public V1NFSVolumeSource getNfs();
 
   public io.kubernetes.client.openapi.models.V1NFSVolumeSource buildNfs();
 
@@ -571,7 +556,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasNfs();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NfsNested<A> withNewNfs();
+  public V1PersistentVolumeSpecFluent.NfsNested<A> withNewNfs();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NfsNested<A>
       withNewNfsLike(io.kubernetes.client.openapi.models.V1NFSVolumeSource item);
@@ -590,7 +575,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinity getNodeAffinity();
+  public V1VolumeNodeAffinity getNodeAffinity();
 
   public io.kubernetes.client.openapi.models.V1VolumeNodeAffinity buildNodeAffinity();
 
@@ -598,8 +583,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasNodeAffinity();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A>
-      withNewNodeAffinity();
+  public V1PersistentVolumeSpecFluent.NodeAffinityNested<A> withNewNodeAffinity();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A>
       withNewNodeAffinityLike(io.kubernetes.client.openapi.models.V1VolumeNodeAffinity item);
@@ -613,13 +597,9 @@ public interface V1PersistentVolumeSpecFluent<
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A>
       editOrNewNodeAffinityLike(io.kubernetes.client.openapi.models.V1VolumeNodeAffinity item);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec
-          .PersistentVolumeReclaimPolicyEnum
-      getPersistentVolumeReclaimPolicy();
+  public java.lang.String getPersistentVolumeReclaimPolicy();
 
-  public A withPersistentVolumeReclaimPolicy(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpec.PersistentVolumeReclaimPolicyEnum
-          persistentVolumeReclaimPolicy);
+  public A withPersistentVolumeReclaimPolicy(java.lang.String persistentVolumeReclaimPolicy);
 
   public java.lang.Boolean hasPersistentVolumeReclaimPolicy();
 
@@ -629,8 +609,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource
-      getPhotonPersistentDisk();
+  public V1PhotonPersistentDiskVolumeSource getPhotonPersistentDisk();
 
   public io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource
       buildPhotonPersistentDisk();
@@ -640,10 +619,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasPhotonPersistentDisk();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-              .PhotonPersistentDiskNested<
-          A>
-      withNewPhotonPersistentDisk();
+  public V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<A> withNewPhotonPersistentDisk();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
               .PhotonPersistentDiskNested<
@@ -673,7 +649,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PortworxVolumeSource getPortworxVolume();
+  public V1PortworxVolumeSource getPortworxVolume();
 
   public io.kubernetes.client.openapi.models.V1PortworxVolumeSource buildPortworxVolume();
 
@@ -682,8 +658,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasPortworxVolume();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.PortworxVolumeNested<A>
-      withNewPortworxVolume();
+  public V1PersistentVolumeSpecFluent.PortworxVolumeNested<A> withNewPortworxVolume();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.PortworxVolumeNested<A>
       withNewPortworxVolumeLike(io.kubernetes.client.openapi.models.V1PortworxVolumeSource item);
@@ -703,7 +678,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1QuobyteVolumeSource getQuobyte();
+  public V1QuobyteVolumeSource getQuobyte();
 
   public io.kubernetes.client.openapi.models.V1QuobyteVolumeSource buildQuobyte();
 
@@ -711,8 +686,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasQuobyte();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.QuobyteNested<A>
-      withNewQuobyte();
+  public V1PersistentVolumeSpecFluent.QuobyteNested<A> withNewQuobyte();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.QuobyteNested<A>
       withNewQuobyteLike(io.kubernetes.client.openapi.models.V1QuobyteVolumeSource item);
@@ -732,7 +706,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSource getRbd();
+  public V1RBDPersistentVolumeSource getRbd();
 
   public io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSource buildRbd();
 
@@ -740,7 +714,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasRbd();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.RbdNested<A> withNewRbd();
+  public V1PersistentVolumeSpecFluent.RbdNested<A> withNewRbd();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.RbdNested<A>
       withNewRbdLike(io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSource item);
@@ -759,7 +733,7 @@ public interface V1PersistentVolumeSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource getScaleIO();
+  public V1ScaleIOPersistentVolumeSource getScaleIO();
 
   public io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource buildScaleIO();
 
@@ -767,8 +741,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasScaleIO();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ScaleIONested<A>
-      withNewScaleIO();
+  public V1PersistentVolumeSpecFluent.ScaleIONested<A> withNewScaleIO();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ScaleIONested<A>
       withNewScaleIOLike(io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource item);
@@ -789,17 +762,13 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasStorageClassName();
 
-  /** Method is deprecated. use withStorageClassName instead. */
-  @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildStorageos instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSource getStorageos();
+  public V1StorageOSPersistentVolumeSource getStorageos();
 
   public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSource buildStorageos();
 
@@ -808,8 +777,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasStorageos();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.StorageosNested<A>
-      withNewStorageos();
+  public V1PersistentVolumeSpecFluent.StorageosNested<A> withNewStorageos();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.StorageosNested<A>
       withNewStorageosLike(
@@ -831,17 +799,13 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasVolumeMode();
 
-  /** Method is deprecated. use withVolumeMode instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildVsphereVolume instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource getVsphereVolume();
+  public V1VsphereVirtualDiskVolumeSource getVsphereVolume();
 
   public io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource buildVsphereVolume();
 
@@ -850,8 +814,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public java.lang.Boolean hasVsphereVolume();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.VsphereVolumeNested<A>
-      withNewVsphereVolume();
+  public V1PersistentVolumeSpecFluent.VsphereVolumeNested<A> withNewVsphereVolume();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.VsphereVolumeNested<A>
       withNewVsphereVolumeLike(
@@ -868,11 +831,9 @@ public interface V1PersistentVolumeSpecFluent<
           io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource item);
 
   public interface AwsElasticBlockStoreNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-                      .AwsElasticBlockStoreNested<
-                  N>> {
+      extends Nested<N>,
+          V1AWSElasticBlockStoreVolumeSourceFluent<
+              V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<N>> {
     public N and();
 
     public N endAwsElasticBlockStore();
@@ -880,8 +841,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface AzureDiskNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureDiskNested<N>> {
+          V1AzureDiskVolumeSourceFluent<V1PersistentVolumeSpecFluent.AzureDiskNested<N>> {
     public N and();
 
     public N endAzureDisk();
@@ -889,8 +849,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface AzureFileNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureFileNested<N>> {
+          V1AzureFilePersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.AzureFileNested<N>> {
     public N and();
 
     public N endAzureFile();
@@ -898,8 +857,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface CephfsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CephfsNested<N>> {
+          V1CephFSPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.CephfsNested<N>> {
     public N and();
 
     public N endCephfs();
@@ -907,8 +865,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface CinderNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CinderNested<N>> {
+          V1CinderPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.CinderNested<N>> {
     public N and();
 
     public N endCinder();
@@ -916,8 +873,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface ClaimRefNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ClaimRefNested<N>> {
+          V1ObjectReferenceFluent<V1PersistentVolumeSpecFluent.ClaimRefNested<N>> {
     public N and();
 
     public N endClaimRef();
@@ -925,8 +881,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface CsiNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CsiNested<N>> {
+          V1CSIPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.CsiNested<N>> {
     public N and();
 
     public N endCsi();
@@ -934,8 +889,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface FcNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1FCVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FcNested<N>> {
+          V1FCVolumeSourceFluent<V1PersistentVolumeSpecFluent.FcNested<N>> {
     public N and();
 
     public N endFc();
@@ -943,9 +897,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface FlexVolumeNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlexVolumeNested<
-                  N>> {
+          V1FlexPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.FlexVolumeNested<N>> {
     public N and();
 
     public N endFlexVolume();
@@ -953,8 +905,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface FlockerNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1FlockerVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlockerNested<N>> {
+          V1FlockerVolumeSourceFluent<V1PersistentVolumeSpecFluent.FlockerNested<N>> {
     public N and();
 
     public N endFlocker();
@@ -962,10 +913,8 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface GcePersistentDiskNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-                      .GcePersistentDiskNested<
-                  N>> {
+          V1GCEPersistentDiskVolumeSourceFluent<
+              V1PersistentVolumeSpecFluent.GcePersistentDiskNested<N>> {
     public N and();
 
     public N endGcePersistentDisk();
@@ -973,8 +922,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface GlusterfsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GlusterfsNested<N>> {
+          V1GlusterfsPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.GlusterfsNested<N>> {
     public N and();
 
     public N endGlusterfs();
@@ -982,8 +930,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface HostPathNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1HostPathVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.HostPathNested<N>> {
+          V1HostPathVolumeSourceFluent<V1PersistentVolumeSpecFluent.HostPathNested<N>> {
     public N and();
 
     public N endHostPath();
@@ -991,8 +938,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface IscsiNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.IscsiNested<N>> {
+          V1ISCSIPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.IscsiNested<N>> {
     public N and();
 
     public N endIscsi();
@@ -1000,8 +946,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface LocalNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.LocalNested<N>> {
+          V1LocalVolumeSourceFluent<V1PersistentVolumeSpecFluent.LocalNested<N>> {
     public N and();
 
     public N endLocal();
@@ -1009,8 +954,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface NfsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NfsNested<N>> {
+          V1NFSVolumeSourceFluent<V1PersistentVolumeSpecFluent.NfsNested<N>> {
     public N and();
 
     public N endNfs();
@@ -1018,9 +962,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface NodeAffinityNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<
-                  N>> {
+          V1VolumeNodeAffinityFluent<V1PersistentVolumeSpecFluent.NodeAffinityNested<N>> {
     public N and();
 
     public N endNodeAffinity();
@@ -1028,10 +970,8 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface PhotonPersistentDiskNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-                      .PhotonPersistentDiskNested<
-                  N>> {
+          V1PhotonPersistentDiskVolumeSourceFluent<
+              V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<N>> {
     public N and();
 
     public N endPhotonPersistentDisk();
@@ -1039,9 +979,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface PortworxVolumeNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.PortworxVolumeNested<
-                  N>> {
+          V1PortworxVolumeSourceFluent<V1PersistentVolumeSpecFluent.PortworxVolumeNested<N>> {
     public N and();
 
     public N endPortworxVolume();
@@ -1049,8 +987,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface QuobyteNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.QuobyteNested<N>> {
+          V1QuobyteVolumeSourceFluent<V1PersistentVolumeSpecFluent.QuobyteNested<N>> {
     public N and();
 
     public N endQuobyte();
@@ -1058,8 +995,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface RbdNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.RbdNested<N>> {
+          V1RBDPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.RbdNested<N>> {
     public N and();
 
     public N endRbd();
@@ -1067,8 +1003,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface ScaleIONested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ScaleIONested<N>> {
+          V1ScaleIOPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.ScaleIONested<N>> {
     public N and();
 
     public N endScaleIO();
@@ -1076,8 +1011,7 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface StorageosNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.StorageosNested<N>> {
+          V1StorageOSPersistentVolumeSourceFluent<V1PersistentVolumeSpecFluent.StorageosNested<N>> {
     public N and();
 
     public N endStorageos();
@@ -1085,9 +1019,8 @@ public interface V1PersistentVolumeSpecFluent<
 
   public interface VsphereVolumeNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSourceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.VsphereVolumeNested<
-                  N>> {
+          V1VsphereVirtualDiskVolumeSourceFluent<
+              V1PersistentVolumeSpecFluent.VsphereVolumeNested<N>> {
     public N and();
 
     public N endVsphereVolume();

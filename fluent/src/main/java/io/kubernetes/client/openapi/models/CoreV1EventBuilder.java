@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class CoreV1EventBuilder
-    extends io.kubernetes.client.openapi.models.CoreV1EventFluentImpl<
-        io.kubernetes.client.openapi.models.CoreV1EventBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.CoreV1Event,
-        io.kubernetes.client.openapi.models.CoreV1EventBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder>
+    implements VisitableBuilder<
+        CoreV1Event, io.kubernetes.client.openapi.models.CoreV1EventBuilder> {
   public CoreV1EventBuilder() {
     this(false);
   }
 
-  public CoreV1EventBuilder(java.lang.Boolean validationEnabled) {
+  public CoreV1EventBuilder(Boolean validationEnabled) {
     this(new CoreV1Event(), validationEnabled);
   }
 
@@ -152,24 +151,5 @@ public class CoreV1EventBuilder
     buildable.setSource(fluent.getSource());
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    CoreV1EventBuilder that = (CoreV1EventBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

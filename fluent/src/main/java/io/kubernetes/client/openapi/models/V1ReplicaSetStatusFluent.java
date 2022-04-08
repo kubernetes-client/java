@@ -12,18 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1ReplicaSetStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getAvailableReplicas();
+public interface V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>> extends Fluent<A> {
+  public Integer getAvailableReplicas();
 
   public A withAvailableReplicas(java.lang.Integer availableReplicas);
 
-  public java.lang.Boolean hasAvailableReplicas();
+  public Boolean hasAvailableReplicas();
 
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ReplicaSetCondition item);
+  public A addToConditions(java.lang.Integer index, V1ReplicaSetCondition item);
 
   public A setToConditions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1ReplicaSetCondition item);
@@ -31,24 +34,22 @@ public interface V1ReplicaSetStatusFluent<
   public A addToConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> items);
+      Collection<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... items);
 
   public A removeAllFromConditions(
       java.util.Collection<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> items);
 
-  public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ReplicaSetConditionBuilder>
-          predicate);
+  public A removeMatchingFromConditions(Predicate<V1ReplicaSetConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1ReplicaSetCondition>
       buildConditions();
@@ -75,8 +76,7 @@ public interface V1ReplicaSetStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1ReplicaSetCondition item);
@@ -106,7 +106,7 @@ public interface V1ReplicaSetStatusFluent<
 
   public java.lang.Boolean hasFullyLabeledReplicas();
 
-  public java.lang.Long getObservedGeneration();
+  public Long getObservedGeneration();
 
   public A withObservedGeneration(java.lang.Long observedGeneration);
 
@@ -125,9 +125,7 @@ public interface V1ReplicaSetStatusFluent<
   public java.lang.Boolean hasReplicas();
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ReplicaSetConditionFluent<
-              io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<N>> {
+      extends Nested<N>, V1ReplicaSetConditionFluent<V1ReplicaSetStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

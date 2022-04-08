@@ -12,22 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1RuntimeClassListBuilder
-    extends io.kubernetes.client.openapi.models.V1RuntimeClassListFluentImpl<
-        io.kubernetes.client.openapi.models.V1RuntimeClassListBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1RuntimeClassList,
-        io.kubernetes.client.openapi.models.V1RuntimeClassListBuilder> {
+    extends V1RuntimeClassListFluentImpl<V1RuntimeClassListBuilder>
+    implements VisitableBuilder<
+        V1RuntimeClassList, io.kubernetes.client.openapi.models.V1RuntimeClassListBuilder> {
   public V1RuntimeClassListBuilder() {
     this(false);
   }
 
-  public V1RuntimeClassListBuilder(java.lang.Boolean validationEnabled) {
+  public V1RuntimeClassListBuilder(Boolean validationEnabled) {
     this(new V1RuntimeClassList(), validationEnabled);
   }
 
-  public V1RuntimeClassListBuilder(
-      io.kubernetes.client.openapi.models.V1RuntimeClassListFluent<?> fluent) {
+  public V1RuntimeClassListBuilder(V1RuntimeClassListFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -89,24 +88,5 @@ public class V1RuntimeClassListBuilder
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.getMetadata());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1RuntimeClassListBuilder that = (V1RuntimeClassListBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

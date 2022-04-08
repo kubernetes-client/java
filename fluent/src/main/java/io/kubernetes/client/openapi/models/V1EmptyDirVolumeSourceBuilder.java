@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1EmptyDirVolumeSourceBuilder
-    extends io.kubernetes.client.openapi.models.V1EmptyDirVolumeSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V1EmptyDirVolumeSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1EmptyDirVolumeSource,
-        io.kubernetes.client.openapi.models.V1EmptyDirVolumeSourceBuilder> {
+    extends V1EmptyDirVolumeSourceFluentImpl<V1EmptyDirVolumeSourceBuilder>
+    implements VisitableBuilder<
+        V1EmptyDirVolumeSource, io.kubernetes.client.openapi.models.V1EmptyDirVolumeSourceBuilder> {
   public V1EmptyDirVolumeSourceBuilder() {
     this(false);
   }
 
-  public V1EmptyDirVolumeSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V1EmptyDirVolumeSourceBuilder(Boolean validationEnabled) {
     this(new V1EmptyDirVolumeSource(), validationEnabled);
   }
 
@@ -79,24 +79,5 @@ public class V1EmptyDirVolumeSourceBuilder
     buildable.setMedium(fluent.getMedium());
     buildable.setSizeLimit(fluent.getSizeLimit());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1EmptyDirVolumeSourceBuilder that = (V1EmptyDirVolumeSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,22 +12,23 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1PhotonPersistentDiskVolumeSourceBuilder
-    extends io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1PhotonPersistentDiskVolumeSourceFluentImpl<V1PhotonPersistentDiskVolumeSourceBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource,
         io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceBuilder> {
   public V1PhotonPersistentDiskVolumeSourceBuilder() {
     this(false);
   }
 
-  public V1PhotonPersistentDiskVolumeSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V1PhotonPersistentDiskVolumeSourceBuilder(Boolean validationEnabled) {
     this(new V1PhotonPersistentDiskVolumeSource(), validationEnabled);
   }
 
   public V1PhotonPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<?> fluent) {
+      V1PhotonPersistentDiskVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -79,24 +80,5 @@ public class V1PhotonPersistentDiskVolumeSourceBuilder
     buildable.setFsType(fluent.getFsType());
     buildable.setPdID(fluent.getPdID());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1PhotonPersistentDiskVolumeSourceBuilder that = (V1PhotonPersistentDiskVolumeSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

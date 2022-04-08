@@ -12,10 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V1RoleRefFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1RoleRefFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1RoleRefFluentImpl<A extends V1RoleRefFluent<A>> extends BaseFluent<A>
+    implements V1RoleRefFluent<A> {
   public V1RoleRefFluentImpl() {}
 
   public V1RoleRefFluentImpl(io.kubernetes.client.openapi.models.V1RoleRef instance) {
@@ -26,7 +28,7 @@ public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V
     this.withName(instance.getName());
   }
 
-  private java.lang.String apiGroup;
+  private String apiGroup;
   private java.lang.String kind;
   private java.lang.String name;
 
@@ -39,14 +41,8 @@ public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiGroup() {
+  public Boolean hasApiGroup() {
     return this.apiGroup != null;
-  }
-
-  /** Method is deprecated. use withApiGroup instead. */
-  @java.lang.Deprecated
-  public A withNewApiGroup(java.lang.String original) {
-    return (A) withApiGroup(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -62,12 +58,6 @@ public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -81,13 +71,7 @@ public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1RoleRefFluentImpl that = (V1RoleRefFluentImpl) o;
@@ -99,5 +83,24 @@ public class V1RoleRefFluentImpl<A extends io.kubernetes.client.openapi.models.V
 
   public int hashCode() {
     return java.util.Objects.hash(apiGroup, kind, name, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiGroup != null) {
+      sb.append("apiGroup:");
+      sb.append(apiGroup + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

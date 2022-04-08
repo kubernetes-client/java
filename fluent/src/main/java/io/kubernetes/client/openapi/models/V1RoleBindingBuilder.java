@@ -12,21 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1RoleBindingBuilder
-    extends io.kubernetes.client.openapi.models.V1RoleBindingFluentImpl<
-        io.kubernetes.client.openapi.models.V1RoleBindingBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1RoleBinding,
-        io.kubernetes.client.openapi.models.V1RoleBindingBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1RoleBindingBuilder extends V1RoleBindingFluentImpl<V1RoleBindingBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1RoleBinding, V1RoleBindingBuilder> {
   public V1RoleBindingBuilder() {
     this(false);
   }
 
-  public V1RoleBindingBuilder(java.lang.Boolean validationEnabled) {
+  public V1RoleBindingBuilder(Boolean validationEnabled) {
     this(new V1RoleBinding(), validationEnabled);
   }
 
-  public V1RoleBindingBuilder(io.kubernetes.client.openapi.models.V1RoleBindingFluent<?> fluent) {
+  public V1RoleBindingBuilder(V1RoleBindingFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -92,24 +91,5 @@ public class V1RoleBindingBuilder
     buildable.setRoleRef(fluent.getRoleRef());
     buildable.setSubjects(fluent.getSubjects());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1RoleBindingBuilder that = (V1RoleBindingBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

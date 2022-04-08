@@ -12,11 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1beta1EndpointFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1EndpointFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1EndpointFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1EndpointFluentImpl<A extends V1beta1EndpointFluent<A>> extends BaseFluent<A>
+    implements V1beta1EndpointFluent<A> {
   public V1beta1EndpointFluentImpl() {}
 
   public V1beta1EndpointFluentImpl(io.kubernetes.client.openapi.models.V1beta1Endpoint instance) {
@@ -35,17 +43,17 @@ public class V1beta1EndpointFluentImpl<
     this.withTopology(instance.getTopology());
   }
 
-  private java.util.List<java.lang.String> addresses;
-  private io.kubernetes.client.openapi.models.V1beta1EndpointConditionsBuilder conditions;
-  private io.kubernetes.client.openapi.models.V1beta1EndpointHintsBuilder hints;
+  private List<String> addresses;
+  private V1beta1EndpointConditionsBuilder conditions;
+  private V1beta1EndpointHintsBuilder hints;
   private java.lang.String hostname;
   private java.lang.String nodeName;
-  private io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder targetRef;
-  private java.util.Map<java.lang.String, java.lang.String> topology;
+  private V1ObjectReferenceBuilder targetRef;
+  private Map<java.lang.String, java.lang.String> topology;
 
-  public A addToAddresses(java.lang.Integer index, java.lang.String item) {
+  public A addToAddresses(Integer index, java.lang.String item) {
     if (this.addresses == null) {
-      this.addresses = new java.util.ArrayList<java.lang.String>();
+      this.addresses = new ArrayList<java.lang.String>();
     }
     this.addresses.add(index, item);
     return (A) this;
@@ -69,7 +77,7 @@ public class V1beta1EndpointFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAddresses(java.util.Collection<java.lang.String> items) {
+  public A addAllToAddresses(Collection<java.lang.String> items) {
     if (this.addresses == null) {
       this.addresses = new java.util.ArrayList<java.lang.String>();
     }
@@ -113,8 +121,7 @@ public class V1beta1EndpointFluentImpl<
     return this.addresses.get(addresses.size() - 1);
   }
 
-  public java.lang.String getMatchingAddress(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingAddress(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : addresses) {
       if (predicate.test(item)) {
         return item;
@@ -123,8 +130,7 @@ public class V1beta1EndpointFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAddress(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingAddress(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : addresses) {
       if (predicate.test(item)) {
         return true;
@@ -161,17 +167,13 @@ public class V1beta1EndpointFluentImpl<
     return addresses != null && !addresses.isEmpty();
   }
 
-  public A addNewAddress(java.lang.String original) {
-    return (A) addToAddresses(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1EndpointConditions getConditions() {
+  @Deprecated
+  public V1beta1EndpointConditions getConditions() {
     return this.conditions != null ? this.conditions.build() : null;
   }
 
@@ -194,15 +196,13 @@ public class V1beta1EndpointFluentImpl<
     return this.conditions != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.ConditionsNested<A>
-      withNewConditions() {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointFluentImpl.ConditionsNestedImpl();
+  public V1beta1EndpointFluent.ConditionsNested<A> withNewConditions() {
+    return new V1beta1EndpointFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.ConditionsNested<A>
       withNewConditionsLike(io.kubernetes.client.openapi.models.V1beta1EndpointConditions item) {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointFluentImpl.ConditionsNestedImpl(
-        item);
+    return new V1beta1EndpointFluentImpl.ConditionsNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.ConditionsNested<A>
@@ -229,7 +229,7 @@ public class V1beta1EndpointFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1EndpointHints getHints() {
+  public V1beta1EndpointHints getHints() {
     return this.hints != null ? this.hints.build() : null;
   }
 
@@ -250,8 +250,8 @@ public class V1beta1EndpointFluentImpl<
     return this.hints != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.HintsNested<A> withNewHints() {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointFluentImpl.HintsNestedImpl();
+  public V1beta1EndpointFluent.HintsNested<A> withNewHints() {
+    return new V1beta1EndpointFluentImpl.HintsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.HintsNested<A> withNewHintsLike(
@@ -288,12 +288,6 @@ public class V1beta1EndpointFluentImpl<
     return this.hostname != null;
   }
 
-  /** Method is deprecated. use withHostname instead. */
-  @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original) {
-    return (A) withHostname(new String(original));
-  }
-
   public java.lang.String getNodeName() {
     return this.nodeName;
   }
@@ -305,12 +299,6 @@ public class V1beta1EndpointFluentImpl<
 
   public java.lang.Boolean hasNodeName() {
     return this.nodeName != null;
-  }
-
-  /** Method is deprecated. use withNodeName instead. */
-  @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original) {
-    return (A) withNodeName(new String(original));
   }
 
   /**
@@ -330,7 +318,7 @@ public class V1beta1EndpointFluentImpl<
   public A withTargetRef(io.kubernetes.client.openapi.models.V1ObjectReference targetRef) {
     _visitables.get("targetRef").remove(this.targetRef);
     if (targetRef != null) {
-      this.targetRef = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(targetRef);
+      this.targetRef = new V1ObjectReferenceBuilder(targetRef);
       _visitables.get("targetRef").add(this.targetRef);
     }
     return (A) this;
@@ -340,9 +328,8 @@ public class V1beta1EndpointFluentImpl<
     return this.targetRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.TargetRefNested<A>
-      withNewTargetRef() {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointFluentImpl.TargetRefNestedImpl();
+  public V1beta1EndpointFluent.TargetRefNested<A> withNewTargetRef() {
+    return new V1beta1EndpointFluentImpl.TargetRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.TargetRefNested<A>
@@ -371,7 +358,7 @@ public class V1beta1EndpointFluentImpl<
 
   public A addToTopology(java.lang.String key, java.lang.String value) {
     if (this.topology == null && key != null && value != null) {
-      this.topology = new java.util.LinkedHashMap();
+      this.topology = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.topology.put(key, value);
@@ -430,7 +417,7 @@ public class V1beta1EndpointFluentImpl<
     return this.topology != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1EndpointFluentImpl that = (V1beta1EndpointFluentImpl) o;
@@ -452,14 +439,47 @@ public class V1beta1EndpointFluentImpl<
         addresses, conditions, hints, hostname, nodeName, targetRef, topology, super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1EndpointConditionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1EndpointFluent.ConditionsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (addresses != null && !addresses.isEmpty()) {
+      sb.append("addresses:");
+      sb.append(addresses + ",");
+    }
+    if (conditions != null) {
+      sb.append("conditions:");
+      sb.append(conditions + ",");
+    }
+    if (hints != null) {
+      sb.append("hints:");
+      sb.append(hints + ",");
+    }
+    if (hostname != null) {
+      sb.append("hostname:");
+      sb.append(hostname + ",");
+    }
+    if (nodeName != null) {
+      sb.append("nodeName:");
+      sb.append(nodeName + ",");
+    }
+    if (targetRef != null) {
+      sb.append("targetRef:");
+      sb.append(targetRef + ",");
+    }
+    if (topology != null && !topology.isEmpty()) {
+      sb.append("topology:");
+      sb.append(topology);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V1beta1EndpointConditionsFluentImpl<V1beta1EndpointFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1EndpointFluent.ConditionsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ConditionsNestedImpl(io.kubernetes.client.openapi.models.V1beta1EndpointConditions item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1EndpointConditionsBuilder(this, item);
+          Nested<N> {
+    ConditionsNestedImpl(V1beta1EndpointConditions item) {
+      this.builder = new V1beta1EndpointConditionsBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
@@ -477,14 +497,12 @@ public class V1beta1EndpointFluentImpl<
     }
   }
 
-  public class HintsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1EndpointFluent.HintsNested<N>>
+  class HintsNestedImpl<N>
+      extends V1beta1EndpointHintsFluentImpl<V1beta1EndpointFluent.HintsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1EndpointFluent.HintsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     HintsNestedImpl(io.kubernetes.client.openapi.models.V1beta1EndpointHints item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1EndpointHintsBuilder(this, item);
+      this.builder = new V1beta1EndpointHintsBuilder(this, item);
     }
 
     HintsNestedImpl() {
@@ -502,13 +520,12 @@ public class V1beta1EndpointFluentImpl<
     }
   }
 
-  public class TargetRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1EndpointFluent.TargetRefNested<N>>
+  class TargetRefNestedImpl<N>
+      extends V1ObjectReferenceFluentImpl<V1beta1EndpointFluent.TargetRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1EndpointFluent.TargetRefNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     TargetRefNestedImpl(io.kubernetes.client.openapi.models.V1ObjectReference item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this, item);
+      this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     TargetRefNestedImpl() {

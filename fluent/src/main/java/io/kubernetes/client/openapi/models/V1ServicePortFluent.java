@@ -12,19 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1ServicePortFluent<
-        A extends io.kubernetes.client.openapi.models.V1ServicePortFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getAppProtocol();
+public interface V1ServicePortFluent<A extends V1ServicePortFluent<A>> extends Fluent<A> {
+  public String getAppProtocol();
 
   public A withAppProtocol(java.lang.String appProtocol);
 
-  public java.lang.Boolean hasAppProtocol();
-
-  /** Method is deprecated. use withAppProtocol instead. */
-  @java.lang.Deprecated
-  public A withNewAppProtocol(java.lang.String original);
+  public Boolean hasAppProtocol();
 
   public java.lang.String getName();
 
@@ -32,11 +29,7 @@ public interface V1ServicePortFluent<
 
   public java.lang.Boolean hasName();
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
-
-  public java.lang.Integer getNodePort();
+  public Integer getNodePort();
 
   public A withNodePort(java.lang.Integer nodePort);
 
@@ -48,13 +41,13 @@ public interface V1ServicePortFluent<
 
   public java.lang.Boolean hasPort();
 
-  public io.kubernetes.client.openapi.models.V1ServicePort.ProtocolEnum getProtocol();
+  public java.lang.String getProtocol();
 
-  public A withProtocol(io.kubernetes.client.openapi.models.V1ServicePort.ProtocolEnum protocol);
+  public A withProtocol(java.lang.String protocol);
 
   public java.lang.Boolean hasProtocol();
 
-  public io.kubernetes.client.custom.IntOrString getTargetPort();
+  public IntOrString getTargetPort();
 
   public A withTargetPort(io.kubernetes.client.custom.IntOrString targetPort);
 

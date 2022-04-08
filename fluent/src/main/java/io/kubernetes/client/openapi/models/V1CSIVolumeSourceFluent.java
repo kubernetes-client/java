@@ -12,19 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Map;
+
 /** Generated */
-public interface V1CSIVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getDriver();
+public interface V1CSIVolumeSourceFluent<A extends V1CSIVolumeSourceFluent<A>> extends Fluent<A> {
+  public String getDriver();
 
   public A withDriver(java.lang.String driver);
 
-  public java.lang.Boolean hasDriver();
-
-  /** Method is deprecated. use withDriver instead. */
-  @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original);
+  public Boolean hasDriver();
 
   public java.lang.String getFsType();
 
@@ -32,17 +30,13 @@ public interface V1CSIVolumeSourceFluent<
 
   public java.lang.Boolean hasFsType();
 
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildNodePublishSecretRef instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference getNodePublishSecretRef();
+  @Deprecated
+  public V1LocalObjectReference getNodePublishSecretRef();
 
   public io.kubernetes.client.openapi.models.V1LocalObjectReference buildNodePublishSecretRef();
 
@@ -51,8 +45,7 @@ public interface V1CSIVolumeSourceFluent<
 
   public java.lang.Boolean hasNodePublishSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A>
-      withNewNodePublishSecretRef();
+  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> withNewNodePublishSecretRef();
 
   public io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A>
       withNewNodePublishSecretRefLike(
@@ -76,7 +69,7 @@ public interface V1CSIVolumeSourceFluent<
 
   public A addToVolumeAttributes(java.lang.String key, java.lang.String value);
 
-  public A addToVolumeAttributes(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToVolumeAttributes(Map<java.lang.String, java.lang.String> map);
 
   public A removeFromVolumeAttributes(java.lang.String key);
 
@@ -89,12 +82,11 @@ public interface V1CSIVolumeSourceFluent<
 
   public java.lang.Boolean hasVolumeAttributes();
 
+  public A withReadOnly();
+
   public interface NodePublishSecretRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent
-                      .NodePublishSecretRefNested<
-                  N>> {
+      extends Nested<N>,
+          V1LocalObjectReferenceFluent<V1CSIVolumeSourceFluent.NodePublishSecretRefNested<N>> {
     public N and();
 
     public N endNodePublishSecretRef();

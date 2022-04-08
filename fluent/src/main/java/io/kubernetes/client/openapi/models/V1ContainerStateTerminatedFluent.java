@@ -12,27 +12,25 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public interface V1ContainerStateTerminatedFluent<
-        A extends io.kubernetes.client.openapi.models.V1ContainerStateTerminatedFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getContainerID();
+public interface V1ContainerStateTerminatedFluent<A extends V1ContainerStateTerminatedFluent<A>>
+    extends Fluent<A> {
+  public String getContainerID();
 
   public A withContainerID(java.lang.String containerID);
 
-  public java.lang.Boolean hasContainerID();
+  public Boolean hasContainerID();
 
-  /** Method is deprecated. use withContainerID instead. */
-  @java.lang.Deprecated
-  public A withNewContainerID(java.lang.String original);
-
-  public java.lang.Integer getExitCode();
+  public Integer getExitCode();
 
   public A withExitCode(java.lang.Integer exitCode);
 
   public java.lang.Boolean hasExitCode();
 
-  public java.time.OffsetDateTime getFinishedAt();
+  public OffsetDateTime getFinishedAt();
 
   public A withFinishedAt(java.time.OffsetDateTime finishedAt);
 
@@ -44,19 +42,11 @@ public interface V1ContainerStateTerminatedFluent<
 
   public java.lang.Boolean hasMessage();
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
-
   public java.lang.String getReason();
 
   public A withReason(java.lang.String reason);
 
   public java.lang.Boolean hasReason();
-
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
 
   public java.lang.Integer getSignal();
 

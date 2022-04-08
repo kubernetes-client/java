@@ -12,22 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1DeploymentSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1DeploymentSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1DeploymentSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DeploymentSpec,
-        io.kubernetes.client.openapi.models.V1DeploymentSpecBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluentImpl<V1DeploymentSpecBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1DeploymentSpec, V1DeploymentSpecBuilder> {
   public V1DeploymentSpecBuilder() {
     this(false);
   }
 
-  public V1DeploymentSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1DeploymentSpecBuilder(Boolean validationEnabled) {
     this(new V1DeploymentSpec(), validationEnabled);
   }
 
-  public V1DeploymentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentSpecFluent<?> fluent) {
+  public V1DeploymentSpecBuilder(V1DeploymentSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -108,24 +106,5 @@ public class V1DeploymentSpecBuilder
     buildable.setStrategy(fluent.getStrategy());
     buildable.setTemplate(fluent.getTemplate());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1DeploymentSpecBuilder that = (V1DeploymentSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

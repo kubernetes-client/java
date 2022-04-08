@@ -12,16 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
-        A extends
-            io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsFluent<
-        A> {
+        A extends V1beta1SupplementalGroupsStrategyOptionsFluent<A>>
+    extends BaseFluent<A> implements V1beta1SupplementalGroupsStrategyOptionsFluent<A> {
   public V1beta1SupplementalGroupsStrategyOptionsFluentImpl() {}
 
   public V1beta1SupplementalGroupsStrategyOptionsFluentImpl(
@@ -31,11 +34,10 @@ public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
     this.withRule(instance.getRule());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder> ranges;
-  private java.lang.String rule;
+  private ArrayList<V1beta1IDRangeBuilder> ranges;
+  private String rule;
 
-  public A addToRanges(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1IDRange item) {
+  public A addToRanges(Integer index, V1beta1IDRange item) {
     if (this.ranges == null) {
       this.ranges =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>();
@@ -82,8 +84,7 @@ public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
     return (A) this;
   }
 
-  public A addAllToRanges(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1IDRange> items) {
+  public A addAllToRanges(Collection<io.kubernetes.client.openapi.models.V1beta1IDRange> items) {
     if (this.ranges == null) {
       this.ranges =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>();
@@ -123,8 +124,7 @@ public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
   }
 
   public A removeMatchingFromRanges(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder> predicate) {
     if (ranges == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder> each =
         ranges.iterator();
@@ -144,8 +144,8 @@ public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1IDRange> getRanges() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1IDRange> getRanges() {
     return ranges != null ? build(ranges) : null;
   }
 
@@ -176,7 +176,7 @@ public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingRange(
+  public Boolean hasMatchingRange(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>
           predicate) {
     for (io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder item : ranges) {
@@ -218,20 +218,15 @@ public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
     return ranges != null && !ranges.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsFluent
-              .RangesNested<
-          A>
-      addNewRange() {
-    return new io.kubernetes.client.openapi.models
-        .V1beta1SupplementalGroupsStrategyOptionsFluentImpl.RangesNestedImpl();
+  public V1beta1SupplementalGroupsStrategyOptionsFluent.RangesNested<A> addNewRange() {
+    return new V1beta1SupplementalGroupsStrategyOptionsFluentImpl.RangesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsFluent
               .RangesNested<
           A>
       addNewRangeLike(io.kubernetes.client.openapi.models.V1beta1IDRange item) {
-    return new io.kubernetes.client.openapi.models
-        .V1beta1SupplementalGroupsStrategyOptionsFluentImpl.RangesNestedImpl(-1, item);
+    return new V1beta1SupplementalGroupsStrategyOptionsFluentImpl.RangesNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsFluent
@@ -300,13 +295,7 @@ public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
     return this.rule != null;
   }
 
-  /** Method is deprecated. use withRule instead. */
-  @java.lang.Deprecated
-  public A withNewRule(java.lang.String original) {
-    return (A) withRule(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1SupplementalGroupsStrategyOptionsFluentImpl that =
@@ -320,19 +309,31 @@ public class V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
     return java.util.Objects.hash(ranges, rule, super.hashCode());
   }
 
-  public class RangesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1IDRangeFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsFluent
-                  .RangesNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (ranges != null && !ranges.isEmpty()) {
+      sb.append("ranges:");
+      sb.append(ranges + ",");
+    }
+    if (rule != null) {
+      sb.append("rule:");
+      sb.append(rule);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class RangesNestedImpl<N>
+      extends V1beta1IDRangeFluentImpl<
+          V1beta1SupplementalGroupsStrategyOptionsFluent.RangesNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsFluent
                   .RangesNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    RangesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1IDRange item) {
+          Nested<N> {
+    RangesNestedImpl(java.lang.Integer index, V1beta1IDRange item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder(this, item);
+      this.builder = new V1beta1IDRangeBuilder(this, item);
     }
 
     RangesNestedImpl() {

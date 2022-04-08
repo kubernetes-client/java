@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1GlusterfsVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1GlusterfsVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1GlusterfsVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1GlusterfsVolumeSourceFluentImpl<A extends V1GlusterfsVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1GlusterfsVolumeSourceFluent<A> {
   public V1GlusterfsVolumeSourceFluentImpl() {}
 
   public V1GlusterfsVolumeSourceFluentImpl(
@@ -28,9 +29,9 @@ public class V1GlusterfsVolumeSourceFluentImpl<
     this.withReadOnly(instance.getReadOnly());
   }
 
-  private java.lang.String endpoints;
+  private String endpoints;
   private java.lang.String path;
-  private java.lang.Boolean readOnly;
+  private Boolean readOnly;
 
   public java.lang.String getEndpoints() {
     return this.endpoints;
@@ -43,12 +44,6 @@ public class V1GlusterfsVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasEndpoints() {
     return this.endpoints != null;
-  }
-
-  /** Method is deprecated. use withEndpoints instead. */
-  @java.lang.Deprecated
-  public A withNewEndpoints(java.lang.String original) {
-    return (A) withEndpoints(new String(original));
   }
 
   public java.lang.String getPath() {
@@ -64,12 +59,6 @@ public class V1GlusterfsVolumeSourceFluentImpl<
     return this.path != null;
   }
 
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A) withPath(new String(original));
-  }
-
   public java.lang.Boolean getReadOnly() {
     return this.readOnly;
   }
@@ -83,7 +72,7 @@ public class V1GlusterfsVolumeSourceFluentImpl<
     return this.readOnly != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1GlusterfsVolumeSourceFluentImpl that = (V1GlusterfsVolumeSourceFluentImpl) o;
@@ -96,5 +85,28 @@ public class V1GlusterfsVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(endpoints, path, readOnly, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (endpoints != null) {
+      sb.append("endpoints:");
+      sb.append(endpoints + ",");
+    }
+    if (path != null) {
+      sb.append("path:");
+      sb.append(path + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

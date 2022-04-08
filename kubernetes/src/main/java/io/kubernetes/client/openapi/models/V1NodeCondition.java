@@ -1,5 +1,5 @@
 /*
-Copyright 2021 The Kubernetes Authors.
+Copyright 2022 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,14 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -27,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "NodeCondition contains condition information for a node.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
+    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
 public class V1NodeCondition {
   public static final String SERIALIZED_NAME_LAST_HEARTBEAT_TIME = "lastHeartbeatTime";
 
@@ -54,70 +49,10 @@ public class V1NodeCondition {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
-  /**
-   * Type of node condition. Possible enum values: - &#x60;\&quot;DiskPressure\&quot;&#x60; means
-   * the kubelet is under pressure due to insufficient available disk. -
-   * &#x60;\&quot;MemoryPressure\&quot;&#x60; means the kubelet is under pressure due to
-   * insufficient available memory. - &#x60;\&quot;NetworkUnavailable\&quot;&#x60; means that
-   * network for the node is not correctly configured. - &#x60;\&quot;PIDPressure\&quot;&#x60; means
-   * the kubelet is under pressure due to insufficient available PID. -
-   * &#x60;\&quot;Ready\&quot;&#x60; means kubelet is healthy and ready to accept pods.
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    DISKPRESSURE("DiskPressure"),
-
-    MEMORYPRESSURE("MemoryPressure"),
-
-    NETWORKUNAVAILABLE("NetworkUnavailable"),
-
-    PIDPRESSURE("PIDPressure"),
-
-    READY("Ready");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
-          throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_TYPE = "type";
 
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private TypeEnum type;
+  private String type;
 
   public V1NodeCondition lastHeartbeatTime(OffsetDateTime lastHeartbeatTime) {
 
@@ -225,32 +160,23 @@ public class V1NodeCondition {
     this.status = status;
   }
 
-  public V1NodeCondition type(TypeEnum type) {
+  public V1NodeCondition type(String type) {
 
     this.type = type;
     return this;
   }
 
   /**
-   * Type of node condition. Possible enum values: - &#x60;\&quot;DiskPressure\&quot;&#x60; means
-   * the kubelet is under pressure due to insufficient available disk. -
-   * &#x60;\&quot;MemoryPressure\&quot;&#x60; means the kubelet is under pressure due to
-   * insufficient available memory. - &#x60;\&quot;NetworkUnavailable\&quot;&#x60; means that
-   * network for the node is not correctly configured. - &#x60;\&quot;PIDPressure\&quot;&#x60; means
-   * the kubelet is under pressure due to insufficient available PID. -
-   * &#x60;\&quot;Ready\&quot;&#x60; means kubelet is healthy and ready to accept pods.
+   * Type of node condition.
    *
    * @return type
    */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Type of node condition.  Possible enum values:  - `\"DiskPressure\"` means the kubelet is under pressure due to insufficient available disk.  - `\"MemoryPressure\"` means the kubelet is under pressure due to insufficient available memory.  - `\"NetworkUnavailable\"` means that network for the node is not correctly configured.  - `\"PIDPressure\"` means the kubelet is under pressure due to insufficient available PID.  - `\"Ready\"` means kubelet is healthy and ready to accept pods.")
-  public TypeEnum getType() {
+  @ApiModelProperty(required = true, value = "Type of node condition.")
+  public String getType() {
     return type;
   }
 
-  public void setType(TypeEnum type) {
+  public void setType(String type) {
     this.type = type;
   }
 

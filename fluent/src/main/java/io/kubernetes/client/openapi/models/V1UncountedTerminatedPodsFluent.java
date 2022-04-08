@@ -12,23 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1UncountedTerminatedPodsFluent<
-        A extends io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToFailed(java.lang.Integer index, java.lang.String item);
+public interface V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminatedPodsFluent<A>>
+    extends Fluent<A> {
+  public A addToFailed(Integer index, String item);
 
   public A setToFailed(java.lang.Integer index, java.lang.String item);
 
   public A addToFailed(java.lang.String... items);
 
-  public A addAllToFailed(java.util.Collection<java.lang.String> items);
+  public A addAllToFailed(Collection<java.lang.String> items);
 
   public A removeFromFailed(java.lang.String... items);
 
   public A removeAllFromFailed(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getFailed();
+  public List<java.lang.String> getFailed();
 
   public java.lang.String getFailed(java.lang.Integer index);
 
@@ -36,19 +40,15 @@ public interface V1UncountedTerminatedPodsFluent<
 
   public java.lang.String getLastFailed();
 
-  public java.lang.String getMatchingFailed(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingFailed(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingFailed(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingFailed(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withFailed(java.util.List<java.lang.String> failed);
 
   public A withFailed(java.lang.String... failed);
 
   public java.lang.Boolean hasFailed();
-
-  public A addNewFailed(java.lang.String original);
 
   public A addToSucceeded(java.lang.Integer index, java.lang.String item);
 
@@ -81,6 +81,4 @@ public interface V1UncountedTerminatedPodsFluent<
   public A withSucceeded(java.lang.String... succeeded);
 
   public java.lang.Boolean hasSucceeded();
-
-  public A addNewSucceeded(java.lang.String original);
 }

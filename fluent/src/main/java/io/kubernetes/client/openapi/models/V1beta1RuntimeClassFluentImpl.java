@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1beta1RuntimeClassFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1RuntimeClassFluentImpl<A extends V1beta1RuntimeClassFluent<A>>
+    extends BaseFluent<A> implements V1beta1RuntimeClassFluent<A> {
   public V1beta1RuntimeClassFluentImpl() {}
 
   public V1beta1RuntimeClassFluentImpl(
@@ -34,12 +36,12 @@ public class V1beta1RuntimeClassFluentImpl<
     this.withScheduling(instance.getScheduling());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String handler;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1beta1OverheadBuilder overhead;
-  private io.kubernetes.client.openapi.models.V1beta1SchedulingBuilder scheduling;
+  private V1ObjectMetaBuilder metadata;
+  private V1beta1OverheadBuilder overhead;
+  private V1beta1SchedulingBuilder scheduling;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -50,14 +52,8 @@ public class V1beta1RuntimeClassFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getHandler() {
@@ -73,12 +69,6 @@ public class V1beta1RuntimeClassFluentImpl<
     return this.handler != null;
   }
 
-  /** Method is deprecated. use withHandler instead. */
-  @java.lang.Deprecated
-  public A withNewHandler(java.lang.String original) {
-    return (A) withHandler(new String(original));
-  }
-
   public java.lang.String getKind() {
     return this.kind;
   }
@@ -92,18 +82,12 @@ public class V1beta1RuntimeClassFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -115,7 +99,7 @@ public class V1beta1RuntimeClassFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -125,16 +109,13 @@ public class V1beta1RuntimeClassFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluentImpl
-        .MetadataNestedImpl();
+  public V1beta1RuntimeClassFluent.MetadataNested<A> withNewMetadata() {
+    return new V1beta1RuntimeClassFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluentImpl.MetadataNestedImpl(
-        item);
+    return new V1beta1RuntimeClassFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.MetadataNested<A>
@@ -161,7 +142,7 @@ public class V1beta1RuntimeClassFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1Overhead getOverhead() {
+  public V1beta1Overhead getOverhead() {
     return this.overhead != null ? this.overhead.build() : null;
   }
 
@@ -182,10 +163,8 @@ public class V1beta1RuntimeClassFluentImpl<
     return this.overhead != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.OverheadNested<A>
-      withNewOverhead() {
-    return new io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluentImpl
-        .OverheadNestedImpl();
+  public V1beta1RuntimeClassFluent.OverheadNested<A> withNewOverhead() {
+    return new V1beta1RuntimeClassFluentImpl.OverheadNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.OverheadNested<A>
@@ -229,8 +208,7 @@ public class V1beta1RuntimeClassFluentImpl<
   public A withScheduling(io.kubernetes.client.openapi.models.V1beta1Scheduling scheduling) {
     _visitables.get("scheduling").remove(this.scheduling);
     if (scheduling != null) {
-      this.scheduling =
-          new io.kubernetes.client.openapi.models.V1beta1SchedulingBuilder(scheduling);
+      this.scheduling = new V1beta1SchedulingBuilder(scheduling);
       _visitables.get("scheduling").add(this.scheduling);
     }
     return (A) this;
@@ -240,10 +218,8 @@ public class V1beta1RuntimeClassFluentImpl<
     return this.scheduling != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.SchedulingNested<A>
-      withNewScheduling() {
-    return new io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluentImpl
-        .SchedulingNestedImpl();
+  public V1beta1RuntimeClassFluent.SchedulingNested<A> withNewScheduling() {
+    return new V1beta1RuntimeClassFluentImpl.SchedulingNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.SchedulingNested<A>
@@ -270,7 +246,7 @@ public class V1beta1RuntimeClassFluentImpl<
     return withNewSchedulingLike(getScheduling() != null ? getScheduling() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1RuntimeClassFluentImpl that = (V1beta1RuntimeClassFluentImpl) o;
@@ -290,13 +266,43 @@ public class V1beta1RuntimeClassFluentImpl<
         apiVersion, handler, kind, metadata, overhead, scheduling, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (handler != null) {
+      sb.append("handler:");
+      sb.append(handler + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (overhead != null) {
+      sb.append("overhead:");
+      sb.append(overhead + ",");
+    }
+    if (scheduling != null) {
+      sb.append("scheduling:");
+      sb.append(scheduling);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1beta1RuntimeClassFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -314,13 +320,12 @@ public class V1beta1RuntimeClassFluentImpl<
     }
   }
 
-  public class OverheadNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1OverheadFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.OverheadNested<N>>
+  class OverheadNestedImpl<N>
+      extends V1beta1OverheadFluentImpl<V1beta1RuntimeClassFluent.OverheadNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.OverheadNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    OverheadNestedImpl(io.kubernetes.client.openapi.models.V1beta1Overhead item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1OverheadBuilder(this, item);
+    OverheadNestedImpl(V1beta1Overhead item) {
+      this.builder = new V1beta1OverheadBuilder(this, item);
     }
 
     OverheadNestedImpl() {
@@ -338,13 +343,12 @@ public class V1beta1RuntimeClassFluentImpl<
     }
   }
 
-  public class SchedulingNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1SchedulingFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.SchedulingNested<N>>
+  class SchedulingNestedImpl<N>
+      extends V1beta1SchedulingFluentImpl<V1beta1RuntimeClassFluent.SchedulingNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1RuntimeClassFluent.SchedulingNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SchedulingNestedImpl(io.kubernetes.client.openapi.models.V1beta1Scheduling item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1SchedulingBuilder(this, item);
+    SchedulingNestedImpl(V1beta1Scheduling item) {
+      this.builder = new V1beta1SchedulingBuilder(this, item);
     }
 
     SchedulingNestedImpl() {

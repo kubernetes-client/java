@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1IngressTLSFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1IngressTLSFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1IngressTLSFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends BaseFluent<A>
+    implements V1IngressTLSFluent<A> {
   public V1IngressTLSFluentImpl() {}
 
   public V1IngressTLSFluentImpl(io.kubernetes.client.openapi.models.V1IngressTLS instance) {
@@ -25,12 +30,12 @@ public class V1IngressTLSFluentImpl<
     this.withSecretName(instance.getSecretName());
   }
 
-  private java.util.List<java.lang.String> hosts;
+  private List<String> hosts;
   private java.lang.String secretName;
 
-  public A addToHosts(java.lang.Integer index, java.lang.String item) {
+  public A addToHosts(Integer index, java.lang.String item) {
     if (this.hosts == null) {
-      this.hosts = new java.util.ArrayList<java.lang.String>();
+      this.hosts = new ArrayList<java.lang.String>();
     }
     this.hosts.add(index, item);
     return (A) this;
@@ -54,7 +59,7 @@ public class V1IngressTLSFluentImpl<
     return (A) this;
   }
 
-  public A addAllToHosts(java.util.Collection<java.lang.String> items) {
+  public A addAllToHosts(Collection<java.lang.String> items) {
     if (this.hosts == null) {
       this.hosts = new java.util.ArrayList<java.lang.String>();
     }
@@ -98,8 +103,7 @@ public class V1IngressTLSFluentImpl<
     return this.hosts.get(hosts.size() - 1);
   }
 
-  public java.lang.String getMatchingHost(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingHost(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : hosts) {
       if (predicate.test(item)) {
         return item;
@@ -108,8 +112,7 @@ public class V1IngressTLSFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingHost(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingHost(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : hosts) {
       if (predicate.test(item)) {
         return true;
@@ -146,10 +149,6 @@ public class V1IngressTLSFluentImpl<
     return hosts != null && !hosts.isEmpty();
   }
 
-  public A addNewHost(java.lang.String original) {
-    return (A) addToHosts(new String(original));
-  }
-
   public java.lang.String getSecretName() {
     return this.secretName;
   }
@@ -163,13 +162,7 @@ public class V1IngressTLSFluentImpl<
     return this.secretName != null;
   }
 
-  /** Method is deprecated. use withSecretName instead. */
-  @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String original) {
-    return (A) withSecretName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1IngressTLSFluentImpl that = (V1IngressTLSFluentImpl) o;
@@ -181,5 +174,20 @@ public class V1IngressTLSFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(hosts, secretName, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (hosts != null && !hosts.isEmpty()) {
+      sb.append("hosts:");
+      sb.append(hosts + ",");
+    }
+    if (secretName != null) {
+      sb.append("secretName:");
+      sb.append(secretName);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

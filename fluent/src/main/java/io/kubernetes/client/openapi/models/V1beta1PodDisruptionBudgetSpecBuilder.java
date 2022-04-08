@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta1PodDisruptionBudgetSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1beta1PodDisruptionBudgetSpecFluentImpl<V1beta1PodDisruptionBudgetSpecBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetSpec,
         io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetSpecBuilder> {
   public V1beta1PodDisruptionBudgetSpecBuilder() {
     this(false);
   }
 
-  public V1beta1PodDisruptionBudgetSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1PodDisruptionBudgetSpecBuilder(Boolean validationEnabled) {
     this(new V1beta1PodDisruptionBudgetSpec(), validationEnabled);
   }
 
-  public V1beta1PodDisruptionBudgetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PodDisruptionBudgetSpecFluent<?> fluent) {
+  public V1beta1PodDisruptionBudgetSpecBuilder(V1beta1PodDisruptionBudgetSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -84,24 +84,5 @@ public class V1beta1PodDisruptionBudgetSpecBuilder
     buildable.setMinAvailable(fluent.getMinAvailable());
     buildable.setSelector(fluent.getSelector());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1PodDisruptionBudgetSpecBuilder that = (V1beta1PodDisruptionBudgetSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

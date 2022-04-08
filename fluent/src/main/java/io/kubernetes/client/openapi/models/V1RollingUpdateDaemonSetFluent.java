@@ -12,19 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1RollingUpdateDaemonSetFluent<
-        A extends io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public io.kubernetes.client.custom.IntOrString getMaxSurge();
+public interface V1RollingUpdateDaemonSetFluent<A extends V1RollingUpdateDaemonSetFluent<A>>
+    extends Fluent<A> {
+  public IntOrString getMaxSurge();
 
   public A withMaxSurge(io.kubernetes.client.custom.IntOrString maxSurge);
 
-  public java.lang.Boolean hasMaxSurge();
+  public Boolean hasMaxSurge();
 
   public A withNewMaxSurge(int value);
 
-  public A withNewMaxSurge(java.lang.String value);
+  public A withNewMaxSurge(String value);
 
   public io.kubernetes.client.custom.IntOrString getMaxUnavailable();
 

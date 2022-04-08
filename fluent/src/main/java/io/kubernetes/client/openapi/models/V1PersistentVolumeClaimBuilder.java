@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1PersistentVolumeClaimBuilder
-    extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluentImpl<
-        io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1PersistentVolumeClaimFluentImpl<V1PersistentVolumeClaimBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1PersistentVolumeClaim,
         io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder> {
   public V1PersistentVolumeClaimBuilder() {
     this(false);
   }
 
-  public V1PersistentVolumeClaimBuilder(java.lang.Boolean validationEnabled) {
+  public V1PersistentVolumeClaimBuilder(Boolean validationEnabled) {
     this(new V1PersistentVolumeClaim(), validationEnabled);
   }
 
-  public V1PersistentVolumeClaimBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent<?> fluent) {
+  public V1PersistentVolumeClaimBuilder(V1PersistentVolumeClaimFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -94,24 +94,5 @@ public class V1PersistentVolumeClaimBuilder
     buildable.setSpec(fluent.getSpec());
     buildable.setStatus(fluent.getStatus());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1PersistentVolumeClaimBuilder that = (V1PersistentVolumeClaimBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

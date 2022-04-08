@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1ConfigMapProjectionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ConfigMapProjectionFluentImpl<A extends V1ConfigMapProjectionFluent<A>>
+    extends BaseFluent<A> implements V1ConfigMapProjectionFluent<A> {
   public V1ConfigMapProjectionFluentImpl() {}
 
   public V1ConfigMapProjectionFluentImpl(
@@ -31,12 +35,11 @@ public class V1ConfigMapProjectionFluentImpl<
     this.withOptional(instance.getOptional());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1KeyToPathBuilder> items;
-  private java.lang.String name;
-  private java.lang.Boolean optional;
+  private ArrayList<V1KeyToPathBuilder> items;
+  private String name;
+  private Boolean optional;
 
-  public A addToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1KeyToPath item) {
+  public A addToItems(Integer index, V1KeyToPath item) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1KeyToPathBuilder>();
@@ -83,8 +86,7 @@ public class V1ConfigMapProjectionFluentImpl<
     return (A) this;
   }
 
-  public A addAllToItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1KeyToPath> items) {
+  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1KeyToPath> items) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1KeyToPathBuilder>();
@@ -124,8 +126,7 @@ public class V1ConfigMapProjectionFluentImpl<
   }
 
   public A removeMatchingFromItems(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1KeyToPathBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1KeyToPathBuilder> predicate) {
     if (items == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1KeyToPathBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
@@ -144,8 +145,8 @@ public class V1ConfigMapProjectionFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1KeyToPath> getItems() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1KeyToPath> getItems() {
     return items != null ? build(items) : null;
   }
 
@@ -218,16 +219,13 @@ public class V1ConfigMapProjectionFluentImpl<
     return items != null && !items.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluent.ItemsNested<A>
-      addNewItem() {
-    return new io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluentImpl
-        .ItemsNestedImpl();
+  public V1ConfigMapProjectionFluent.ItemsNested<A> addNewItem() {
+    return new V1ConfigMapProjectionFluentImpl.ItemsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluent.ItemsNested<A>
       addNewItemLike(io.kubernetes.client.openapi.models.V1KeyToPath item) {
-    return new io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluentImpl.ItemsNestedImpl(
-        -1, item);
+    return new V1ConfigMapProjectionFluentImpl.ItemsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluent.ItemsNested<A>
@@ -284,12 +282,6 @@ public class V1ConfigMapProjectionFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
   public java.lang.Boolean getOptional() {
     return this.optional;
   }
@@ -303,7 +295,7 @@ public class V1ConfigMapProjectionFluentImpl<
     return this.optional != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ConfigMapProjectionFluentImpl that = (V1ConfigMapProjectionFluentImpl) o;
@@ -317,14 +309,35 @@ public class V1ConfigMapProjectionFluentImpl<
     return java.util.Objects.hash(items, name, optional, super.hashCode());
   }
 
-  public class ItemsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1KeyToPathFluentImpl<
-          io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluent.ItemsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (items != null && !items.isEmpty()) {
+      sb.append("items:");
+      sb.append(items + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (optional != null) {
+      sb.append("optional:");
+      sb.append(optional);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withOptional() {
+    return withOptional(true);
+  }
+
+  class ItemsNestedImpl<N> extends V1KeyToPathFluentImpl<V1ConfigMapProjectionFluent.ItemsNested<N>>
       implements io.kubernetes.client.openapi.models.V1ConfigMapProjectionFluent.ItemsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ItemsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1KeyToPath item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1KeyToPathBuilder(this, item);
+      this.builder = new V1KeyToPathBuilder(this, item);
     }
 
     ItemsNestedImpl() {

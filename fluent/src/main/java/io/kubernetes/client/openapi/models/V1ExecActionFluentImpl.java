@@ -12,22 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1ExecActionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ExecActionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ExecActionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends BaseFluent<A>
+    implements V1ExecActionFluent<A> {
   public V1ExecActionFluentImpl() {}
 
   public V1ExecActionFluentImpl(io.kubernetes.client.openapi.models.V1ExecAction instance) {
     this.withCommand(instance.getCommand());
   }
 
-  private java.util.List<java.lang.String> command;
+  private List<String> command;
 
-  public A addToCommand(java.lang.Integer index, java.lang.String item) {
+  public A addToCommand(Integer index, java.lang.String item) {
     if (this.command == null) {
-      this.command = new java.util.ArrayList<java.lang.String>();
+      this.command = new ArrayList<java.lang.String>();
     }
     this.command.add(index, item);
     return (A) this;
@@ -51,7 +56,7 @@ public class V1ExecActionFluentImpl<
     return (A) this;
   }
 
-  public A addAllToCommand(java.util.Collection<java.lang.String> items) {
+  public A addAllToCommand(Collection<java.lang.String> items) {
     if (this.command == null) {
       this.command = new java.util.ArrayList<java.lang.String>();
     }
@@ -95,8 +100,7 @@ public class V1ExecActionFluentImpl<
     return this.command.get(command.size() - 1);
   }
 
-  public java.lang.String getMatchingCommand(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingCommand(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : command) {
       if (predicate.test(item)) {
         return item;
@@ -105,8 +109,7 @@ public class V1ExecActionFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingCommand(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingCommand(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : command) {
       if (predicate.test(item)) {
         return true;
@@ -143,11 +146,7 @@ public class V1ExecActionFluentImpl<
     return command != null && !command.isEmpty();
   }
 
-  public A addNewCommand(java.lang.String original) {
-    return (A) addToCommand(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ExecActionFluentImpl that = (V1ExecActionFluentImpl) o;
@@ -157,5 +156,16 @@ public class V1ExecActionFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(command, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (command != null && !command.isEmpty()) {
+      sb.append("command:");
+      sb.append(command);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

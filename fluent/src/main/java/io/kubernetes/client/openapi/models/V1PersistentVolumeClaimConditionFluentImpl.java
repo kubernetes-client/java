@@ -12,11 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1PersistentVolumeClaimConditionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionFluent<A> {
+        A extends V1PersistentVolumeClaimConditionFluent<A>>
+    extends BaseFluent<A> implements V1PersistentVolumeClaimConditionFluent<A> {
   public V1PersistentVolumeClaimConditionFluentImpl() {}
 
   public V1PersistentVolumeClaimConditionFluentImpl(
@@ -34,12 +37,12 @@ public class V1PersistentVolumeClaimConditionFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.time.OffsetDateTime lastProbeTime;
+  private OffsetDateTime lastProbeTime;
   private java.time.OffsetDateTime lastTransitionTime;
-  private java.lang.String message;
+  private String message;
   private java.lang.String reason;
   private java.lang.String status;
-  private io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition.TypeEnum type;
+  private java.lang.String type;
 
   public java.time.OffsetDateTime getLastProbeTime() {
     return this.lastProbeTime;
@@ -50,7 +53,7 @@ public class V1PersistentVolumeClaimConditionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasLastProbeTime() {
+  public Boolean hasLastProbeTime() {
     return this.lastProbeTime != null;
   }
 
@@ -80,12 +83,6 @@ public class V1PersistentVolumeClaimConditionFluentImpl<
     return this.message != null;
   }
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A) withMessage(new String(original));
-  }
-
   public java.lang.String getReason() {
     return this.reason;
   }
@@ -97,12 +94,6 @@ public class V1PersistentVolumeClaimConditionFluentImpl<
 
   public java.lang.Boolean hasReason() {
     return this.reason != null;
-  }
-
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A) withReason(new String(original));
   }
 
   public java.lang.String getStatus() {
@@ -118,18 +109,11 @@ public class V1PersistentVolumeClaimConditionFluentImpl<
     return this.status != null;
   }
 
-  /** Method is deprecated. use withStatus instead. */
-  @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original) {
-    return (A) withStatus(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition.TypeEnum getType() {
+  public java.lang.String getType() {
     return this.type;
   }
 
-  public A withType(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition.TypeEnum type) {
+  public A withType(java.lang.String type) {
     this.type = type;
     return (A) this;
   }
@@ -138,7 +122,7 @@ public class V1PersistentVolumeClaimConditionFluentImpl<
     return this.type != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PersistentVolumeClaimConditionFluentImpl that =
@@ -159,5 +143,36 @@ public class V1PersistentVolumeClaimConditionFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         lastProbeTime, lastTransitionTime, message, reason, status, type, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (lastProbeTime != null) {
+      sb.append("lastProbeTime:");
+      sb.append(lastProbeTime + ",");
+    }
+    if (lastTransitionTime != null) {
+      sb.append("lastTransitionTime:");
+      sb.append(lastTransitionTime + ",");
+    }
+    if (message != null) {
+      sb.append("message:");
+      sb.append(message + ",");
+    }
+    if (reason != null) {
+      sb.append("reason:");
+      sb.append(reason + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1alpha1RuntimeClassListFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1alpha1RuntimeClassListFluentImpl<A extends V1alpha1RuntimeClassListFluent<A>>
+    extends BaseFluent<A> implements V1alpha1RuntimeClassListFluent<A> {
   public V1alpha1RuntimeClassListFluentImpl() {}
 
   public V1alpha1RuntimeClassListFluentImpl(
@@ -33,11 +37,10 @@ public class V1alpha1RuntimeClassListFluentImpl<
     this.withMetadata(instance.getMetadata());
   }
 
-  private java.lang.String apiVersion;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1alpha1RuntimeClassBuilder>
-      items;
+  private String apiVersion;
+  private ArrayList<V1alpha1RuntimeClassBuilder> items;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ListMetaBuilder metadata;
+  private V1ListMetaBuilder metadata;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -48,18 +51,12 @@ public class V1alpha1RuntimeClassListFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
   public A addToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1alpha1RuntimeClass item) {
+      Integer index, io.kubernetes.client.openapi.models.V1alpha1RuntimeClass item) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<
@@ -110,7 +107,7 @@ public class V1alpha1RuntimeClassListFluentImpl<
   }
 
   public A addAllToItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1alpha1RuntimeClass> items) {
+      Collection<io.kubernetes.client.openapi.models.V1alpha1RuntimeClass> items) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<
@@ -151,8 +148,7 @@ public class V1alpha1RuntimeClassListFluentImpl<
   }
 
   public A removeMatchingFromItems(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1alpha1RuntimeClassBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1alpha1RuntimeClassBuilder> predicate) {
     if (items == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1alpha1RuntimeClassBuilder> each =
         items.iterator();
@@ -172,8 +168,8 @@ public class V1alpha1RuntimeClassListFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1alpha1RuntimeClass> getItems() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1alpha1RuntimeClass> getItems() {
     return items != null ? build(items) : null;
   }
 
@@ -248,16 +244,13 @@ public class V1alpha1RuntimeClassListFluentImpl<
     return items != null && !items.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.ItemsNested<A>
-      addNewItem() {
-    return new io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluentImpl
-        .ItemsNestedImpl();
+  public V1alpha1RuntimeClassListFluent.ItemsNested<A> addNewItem() {
+    return new V1alpha1RuntimeClassListFluentImpl.ItemsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1alpha1RuntimeClass item) {
-    return new io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluentImpl
-        .ItemsNestedImpl(-1, item);
+  public V1alpha1RuntimeClassListFluent.ItemsNested<A> addNewItemLike(
+      io.kubernetes.client.openapi.models.V1alpha1RuntimeClass item) {
+    return new V1alpha1RuntimeClassListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.ItemsNested<A>
@@ -315,12 +308,6 @@ public class V1alpha1RuntimeClassListFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
@@ -338,7 +325,7 @@ public class V1alpha1RuntimeClassListFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(metadata);
+      this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -348,10 +335,8 @@ public class V1alpha1RuntimeClassListFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluentImpl
-        .MetadataNestedImpl();
+  public V1alpha1RuntimeClassListFluent.MetadataNested<A> withNewMetadata() {
+    return new V1alpha1RuntimeClassListFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.MetadataNested<A>
@@ -378,7 +363,7 @@ public class V1alpha1RuntimeClassListFluentImpl<
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1alpha1RuntimeClassListFluentImpl that = (V1alpha1RuntimeClassListFluentImpl) o;
@@ -394,16 +379,36 @@ public class V1alpha1RuntimeClassListFluentImpl<
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public class ItemsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1alpha1RuntimeClassFluentImpl<
-          io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.ItemsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (items != null && !items.isEmpty()) {
+      sb.append("items:");
+      sb.append(items + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ItemsNestedImpl<N>
+      extends V1alpha1RuntimeClassFluentImpl<V1alpha1RuntimeClassListFluent.ItemsNested<N>>
+      implements V1alpha1RuntimeClassListFluent.ItemsNested<N>, Nested<N> {
     ItemsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1alpha1RuntimeClass item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1alpha1RuntimeClassBuilder(this, item);
+      this.builder = new V1alpha1RuntimeClassBuilder(this, item);
     }
 
     ItemsNestedImpl() {
@@ -423,14 +428,13 @@ public class V1alpha1RuntimeClassListFluentImpl<
     }
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ListMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.MetadataNested<N>>
+  class MetadataNestedImpl<N>
+      extends V1ListMetaFluentImpl<V1alpha1RuntimeClassListFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1alpha1RuntimeClassListFluent.MetadataNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ListMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this, item);
+    MetadataNestedImpl(V1ListMeta item) {
+      this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {

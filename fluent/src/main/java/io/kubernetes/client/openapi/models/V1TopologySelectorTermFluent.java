@@ -12,13 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1TopologySelectorTermFluent<
-        A extends io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToMatchLabelExpressions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement item);
+public interface V1TopologySelectorTermFluent<A extends V1TopologySelectorTermFluent<A>>
+    extends Fluent<A> {
+  public A addToMatchLabelExpressions(Integer index, V1TopologySelectorLabelRequirement item);
 
   public A setToMatchLabelExpressions(
       java.lang.Integer index,
@@ -28,8 +31,7 @@ public interface V1TopologySelectorTermFluent<
       io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement... items);
 
   public A addAllToMatchLabelExpressions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement>
-          items);
+      Collection<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement> items);
 
   public A removeFromMatchLabelExpressions(
       io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement... items);
@@ -39,17 +41,15 @@ public interface V1TopologySelectorTermFluent<
           items);
 
   public A removeMatchingFromMatchLabelExpressions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementBuilder>
-          predicate);
+      Predicate<V1TopologySelectorLabelRequirementBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildMatchLabelExpressions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement>
       getMatchLabelExpressions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement>
@@ -70,7 +70,7 @@ public interface V1TopologySelectorTermFluent<
                   io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementBuilder>
               predicate);
 
-  public java.lang.Boolean hasMatchingMatchLabelExpression(
+  public Boolean hasMatchingMatchLabelExpression(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementBuilder>
           predicate);
@@ -85,10 +85,7 @@ public interface V1TopologySelectorTermFluent<
 
   public java.lang.Boolean hasMatchLabelExpressions();
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
-              .MatchLabelExpressionsNested<
-          A>
-      addNewMatchLabelExpression();
+  public V1TopologySelectorTermFluent.MatchLabelExpressionsNested<A> addNewMatchLabelExpression();
 
   public io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
               .MatchLabelExpressionsNested<
@@ -127,11 +124,9 @@ public interface V1TopologySelectorTermFluent<
               predicate);
 
   public interface MatchLabelExpressionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementFluent<
-              io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
-                      .MatchLabelExpressionsNested<
-                  N>> {
+      extends Nested<N>,
+          V1TopologySelectorLabelRequirementFluent<
+              V1TopologySelectorTermFluent.MatchLabelExpressionsNested<N>> {
     public N and();
 
     public N endMatchLabelExpression();

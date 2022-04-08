@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1SubjectAccessReviewBuilder
-    extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewFluentImpl<
-        io.kubernetes.client.openapi.models.V1SubjectAccessReviewBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1SubjectAccessReview,
-        io.kubernetes.client.openapi.models.V1SubjectAccessReviewBuilder> {
+    extends V1SubjectAccessReviewFluentImpl<V1SubjectAccessReviewBuilder>
+    implements VisitableBuilder<
+        V1SubjectAccessReview, io.kubernetes.client.openapi.models.V1SubjectAccessReviewBuilder> {
   public V1SubjectAccessReviewBuilder() {
     this(false);
   }
 
-  public V1SubjectAccessReviewBuilder(java.lang.Boolean validationEnabled) {
+  public V1SubjectAccessReviewBuilder(Boolean validationEnabled) {
     this(new V1SubjectAccessReview(), validationEnabled);
   }
 
@@ -94,24 +94,5 @@ public class V1SubjectAccessReviewBuilder
     buildable.setSpec(fluent.getSpec());
     buildable.setStatus(fluent.getStatus());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1SubjectAccessReviewBuilder that = (V1SubjectAccessReviewBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

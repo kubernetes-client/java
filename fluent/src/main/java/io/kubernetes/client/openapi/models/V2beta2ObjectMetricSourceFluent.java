@@ -12,19 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V2beta2ObjectMetricSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V2beta2ObjectMetricSourceFluent<A extends V2beta2ObjectMetricSourceFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildDescribedObject instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference
-      getDescribedObject();
+  @Deprecated
+  public V2beta2CrossVersionObjectReference getDescribedObject();
 
   public io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference
       buildDescribedObject();
@@ -32,11 +33,9 @@ public interface V2beta2ObjectMetricSourceFluent<
   public A withDescribedObject(
       io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReference describedObject);
 
-  public java.lang.Boolean hasDescribedObject();
+  public Boolean hasDescribedObject();
 
-  public io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent.DescribedObjectNested<
-          A>
-      withNewDescribedObject();
+  public V2beta2ObjectMetricSourceFluent.DescribedObjectNested<A> withNewDescribedObject();
 
   public io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent.DescribedObjectNested<
           A>
@@ -62,7 +61,7 @@ public interface V2beta2ObjectMetricSourceFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier getMetric();
+  public V2beta2MetricIdentifier getMetric();
 
   public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier buildMetric();
 
@@ -70,8 +69,7 @@ public interface V2beta2ObjectMetricSourceFluent<
 
   public java.lang.Boolean hasMetric();
 
-  public io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent.MetricNested<A>
-      withNewMetric();
+  public V2beta2ObjectMetricSourceFluent.MetricNested<A> withNewMetric();
 
   public io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent.MetricNested<A>
       withNewMetricLike(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item);
@@ -91,7 +89,7 @@ public interface V2beta2ObjectMetricSourceFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta2MetricTarget getTarget();
+  public V2beta2MetricTarget getTarget();
 
   public io.kubernetes.client.openapi.models.V2beta2MetricTarget buildTarget();
 
@@ -99,8 +97,7 @@ public interface V2beta2ObjectMetricSourceFluent<
 
   public java.lang.Boolean hasTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent.TargetNested<A>
-      withNewTarget();
+  public V2beta2ObjectMetricSourceFluent.TargetNested<A> withNewTarget();
 
   public io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent.TargetNested<A>
       withNewTargetLike(io.kubernetes.client.openapi.models.V2beta2MetricTarget item);
@@ -115,11 +112,9 @@ public interface V2beta2ObjectMetricSourceFluent<
       editOrNewTargetLike(io.kubernetes.client.openapi.models.V2beta2MetricTarget item);
 
   public interface DescribedObjectNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent
-                      .DescribedObjectNested<
-                  N>> {
+      extends Nested<N>,
+          V2beta2CrossVersionObjectReferenceFluent<
+              V2beta2ObjectMetricSourceFluent.DescribedObjectNested<N>> {
     public N and();
 
     public N endDescribedObject();
@@ -127,8 +122,7 @@ public interface V2beta2ObjectMetricSourceFluent<
 
   public interface MetricNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2beta2MetricIdentifierFluent<
-              io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent.MetricNested<N>> {
+          V2beta2MetricIdentifierFluent<V2beta2ObjectMetricSourceFluent.MetricNested<N>> {
     public N and();
 
     public N endMetric();
@@ -136,8 +130,7 @@ public interface V2beta2ObjectMetricSourceFluent<
 
   public interface TargetNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2beta2MetricTargetFluent<
-              io.kubernetes.client.openapi.models.V2beta2ObjectMetricSourceFluent.TargetNested<N>> {
+          V2beta2MetricTargetFluent<V2beta2ObjectMetricSourceFluent.TargetNested<N>> {
     public N and();
 
     public N endTarget();

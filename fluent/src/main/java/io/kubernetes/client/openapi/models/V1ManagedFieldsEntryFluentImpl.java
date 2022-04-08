@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public class V1ManagedFieldsEntryFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ManagedFieldsEntryFluentImpl<A extends V1ManagedFieldsEntryFluent<A>>
+    extends BaseFluent<A> implements V1ManagedFieldsEntryFluent<A> {
   public V1ManagedFieldsEntryFluentImpl() {}
 
   public V1ManagedFieldsEntryFluentImpl(
@@ -36,13 +38,13 @@ public class V1ManagedFieldsEntryFluentImpl<
     this.withTime(instance.getTime());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String fieldsType;
-  private java.lang.Object fieldsV1;
+  private Object fieldsV1;
   private java.lang.String manager;
   private java.lang.String operation;
   private java.lang.String subresource;
-  private java.time.OffsetDateTime time;
+  private OffsetDateTime time;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -53,14 +55,8 @@ public class V1ManagedFieldsEntryFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getFieldsType() {
@@ -74,12 +70,6 @@ public class V1ManagedFieldsEntryFluentImpl<
 
   public java.lang.Boolean hasFieldsType() {
     return this.fieldsType != null;
-  }
-
-  /** Method is deprecated. use withFieldsType instead. */
-  @java.lang.Deprecated
-  public A withNewFieldsType(java.lang.String original) {
-    return (A) withFieldsType(new String(original));
   }
 
   public java.lang.Object getFieldsV1() {
@@ -108,12 +98,6 @@ public class V1ManagedFieldsEntryFluentImpl<
     return this.manager != null;
   }
 
-  /** Method is deprecated. use withManager instead. */
-  @java.lang.Deprecated
-  public A withNewManager(java.lang.String original) {
-    return (A) withManager(new String(original));
-  }
-
   public java.lang.String getOperation() {
     return this.operation;
   }
@@ -127,12 +111,6 @@ public class V1ManagedFieldsEntryFluentImpl<
     return this.operation != null;
   }
 
-  /** Method is deprecated. use withOperation instead. */
-  @java.lang.Deprecated
-  public A withNewOperation(java.lang.String original) {
-    return (A) withOperation(new String(original));
-  }
-
   public java.lang.String getSubresource() {
     return this.subresource;
   }
@@ -144,12 +122,6 @@ public class V1ManagedFieldsEntryFluentImpl<
 
   public java.lang.Boolean hasSubresource() {
     return this.subresource != null;
-  }
-
-  /** Method is deprecated. use withSubresource instead. */
-  @java.lang.Deprecated
-  public A withNewSubresource(java.lang.String original) {
-    return (A) withSubresource(new String(original));
   }
 
   public java.time.OffsetDateTime getTime() {
@@ -186,5 +158,40 @@ public class V1ManagedFieldsEntryFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         apiVersion, fieldsType, fieldsV1, manager, operation, subresource, time, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (fieldsType != null) {
+      sb.append("fieldsType:");
+      sb.append(fieldsType + ",");
+    }
+    if (fieldsV1 != null) {
+      sb.append("fieldsV1:");
+      sb.append(fieldsV1 + ",");
+    }
+    if (manager != null) {
+      sb.append("manager:");
+      sb.append(manager + ",");
+    }
+    if (operation != null) {
+      sb.append("operation:");
+      sb.append(operation + ",");
+    }
+    if (subresource != null) {
+      sb.append("subresource:");
+      sb.append(subresource + ",");
+    }
+    if (time != null) {
+      sb.append("time:");
+      sb.append(time);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

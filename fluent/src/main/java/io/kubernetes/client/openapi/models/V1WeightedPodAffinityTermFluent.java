@@ -12,29 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1WeightedPodAffinityTermFluent<
-        A extends io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1WeightedPodAffinityTermFluent<A extends V1WeightedPodAffinityTermFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildPodAffinityTerm instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodAffinityTerm getPodAffinityTerm();
+  @Deprecated
+  public V1PodAffinityTerm getPodAffinityTerm();
 
   public io.kubernetes.client.openapi.models.V1PodAffinityTerm buildPodAffinityTerm();
 
   public A withPodAffinityTerm(
       io.kubernetes.client.openapi.models.V1PodAffinityTerm podAffinityTerm);
 
-  public java.lang.Boolean hasPodAffinityTerm();
+  public Boolean hasPodAffinityTerm();
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      withNewPodAffinityTerm();
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> withNewPodAffinityTerm();
 
   public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
           A>
@@ -52,18 +52,15 @@ public interface V1WeightedPodAffinityTermFluent<
           A>
       editOrNewPodAffinityTermLike(io.kubernetes.client.openapi.models.V1PodAffinityTerm item);
 
-  public java.lang.Integer getWeight();
+  public Integer getWeight();
 
   public A withWeight(java.lang.Integer weight);
 
   public java.lang.Boolean hasWeight();
 
   public interface PodAffinityTermNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodAffinityTermFluent<
-              io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent
-                      .PodAffinityTermNested<
-                  N>> {
+      extends Nested<N>,
+          V1PodAffinityTermFluent<V1WeightedPodAffinityTermFluent.PodAffinityTermNested<N>> {
     public N and();
 
     public N endPodAffinityTerm();

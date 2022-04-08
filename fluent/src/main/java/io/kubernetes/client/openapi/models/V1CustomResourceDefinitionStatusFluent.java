@@ -12,30 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1CustomResourceDefinitionStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+        A extends V1CustomResourceDefinitionStatusFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildAcceptedNames instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames getAcceptedNames();
+  @Deprecated
+  public V1CustomResourceDefinitionNames getAcceptedNames();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames buildAcceptedNames();
 
   public A withAcceptedNames(
       io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames acceptedNames);
 
-  public java.lang.Boolean hasAcceptedNames();
+  public Boolean hasAcceptedNames();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .AcceptedNamesNested<
-          A>
-      withNewAcceptedNames();
+  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> withNewAcceptedNames();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
               .AcceptedNamesNested<
@@ -59,9 +62,7 @@ public interface V1CustomResourceDefinitionStatusFluent<
       editOrNewAcceptedNamesLike(
           io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames item);
 
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item);
+  public A addToConditions(Integer index, V1CustomResourceDefinitionCondition item);
 
   public A setToConditions(
       java.lang.Integer index,
@@ -71,8 +72,7 @@ public interface V1CustomResourceDefinitionStatusFluent<
       io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
-          items);
+      Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition> items);
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition... items);
@@ -82,9 +82,7 @@ public interface V1CustomResourceDefinitionStatusFluent<
           items);
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
-          predicate);
+      Predicate<V1CustomResourceDefinitionConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
@@ -92,7 +90,7 @@ public interface V1CustomResourceDefinitionStatusFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
+  public List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
       getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
@@ -127,10 +125,7 @@ public interface V1CustomResourceDefinitionStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .ConditionsNested<
-          A>
-      addNewCondition();
+  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
               .ConditionsNested<
@@ -168,7 +163,7 @@ public interface V1CustomResourceDefinitionStatusFluent<
                   io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
               predicate);
 
-  public A addToStoredVersions(java.lang.Integer index, java.lang.String item);
+  public A addToStoredVersions(java.lang.Integer index, String item);
 
   public A setToStoredVersions(java.lang.Integer index, java.lang.String item);
 
@@ -200,14 +195,10 @@ public interface V1CustomResourceDefinitionStatusFluent<
 
   public java.lang.Boolean hasStoredVersions();
 
-  public A addNewStoredVersion(java.lang.String original);
-
   public interface AcceptedNamesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-                      .AcceptedNamesNested<
-                  N>> {
+      extends Nested<N>,
+          V1CustomResourceDefinitionNamesFluent<
+              V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<N>> {
     public N and();
 
     public N endAcceptedNames();
@@ -215,10 +206,8 @@ public interface V1CustomResourceDefinitionStatusFluent<
 
   public interface ConditionsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-                      .ConditionsNested<
-                  N>> {
+          V1CustomResourceDefinitionConditionFluent<
+              V1CustomResourceDefinitionStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

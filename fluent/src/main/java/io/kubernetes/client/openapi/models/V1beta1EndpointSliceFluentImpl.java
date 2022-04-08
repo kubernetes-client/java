@@ -12,18 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1beta1EndpointSliceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1EndpointSliceFluentImpl<A extends V1beta1EndpointSliceFluent<A>>
+    extends BaseFluent<A> implements V1beta1EndpointSliceFluent<A> {
   public V1beta1EndpointSliceFluentImpl() {}
 
-  public V1beta1EndpointSliceFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta1EndpointSlice instance) {
+  public V1beta1EndpointSliceFluentImpl(V1beta1EndpointSlice instance) {
     this.withAddressType(instance.getAddressType());
 
     this.withApiVersion(instance.getApiVersion());
@@ -37,12 +40,12 @@ public class V1beta1EndpointSliceFluentImpl<
     this.withPorts(instance.getPorts());
   }
 
-  private java.lang.String addressType;
+  private String addressType;
   private java.lang.String apiVersion;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> endpoints;
+  private ArrayList<V1beta1EndpointBuilder> endpoints;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder> ports;
+  private V1ObjectMetaBuilder metadata;
+  private java.util.ArrayList<V1beta1EndpointPortBuilder> ports;
 
   public java.lang.String getAddressType() {
     return this.addressType;
@@ -53,14 +56,8 @@ public class V1beta1EndpointSliceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAddressType() {
+  public Boolean hasAddressType() {
     return this.addressType != null;
-  }
-
-  /** Method is deprecated. use withAddressType instead. */
-  @java.lang.Deprecated
-  public A withNewAddressType(java.lang.String original) {
-    return (A) withAddressType(new String(original));
   }
 
   public java.lang.String getApiVersion() {
@@ -76,14 +73,7 @@ public class V1beta1EndpointSliceFluentImpl<
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
-  public A addToEndpoints(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
+  public A addToEndpoints(Integer index, io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
     if (this.endpoints == null) {
       this.endpoints =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>();
@@ -133,7 +123,7 @@ public class V1beta1EndpointSliceFluentImpl<
   }
 
   public A addAllToEndpoints(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1Endpoint> items) {
+      Collection<io.kubernetes.client.openapi.models.V1beta1Endpoint> items) {
     if (this.endpoints == null) {
       this.endpoints =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>();
@@ -173,8 +163,7 @@ public class V1beta1EndpointSliceFluentImpl<
   }
 
   public A removeMatchingFromEndpoints(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> predicate) {
     if (endpoints == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1beta1EndpointBuilder> each =
         endpoints.iterator();
@@ -194,8 +183,8 @@ public class V1beta1EndpointSliceFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1Endpoint> getEndpoints() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1Endpoint> getEndpoints() {
     return endpoints != null ? build(endpoints) : null;
   }
 
@@ -270,16 +259,13 @@ public class V1beta1EndpointSliceFluentImpl<
     return endpoints != null && !endpoints.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A>
-      addNewEndpoint() {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl
-        .EndpointsNestedImpl();
+  public V1beta1EndpointSliceFluent.EndpointsNested<A> addNewEndpoint() {
+    return new V1beta1EndpointSliceFluentImpl.EndpointsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A>
       addNewEndpointLike(io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl
-        .EndpointsNestedImpl(-1, item);
+    return new V1beta1EndpointSliceFluentImpl.EndpointsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<A>
@@ -338,12 +324,6 @@ public class V1beta1EndpointSliceFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
@@ -361,7 +341,7 @@ public class V1beta1EndpointSliceFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -371,10 +351,8 @@ public class V1beta1EndpointSliceFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl
-        .MetadataNestedImpl();
+  public V1beta1EndpointSliceFluent.MetadataNested<A> withNewMetadata() {
+    return new V1beta1EndpointSliceFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<A>
@@ -404,8 +382,7 @@ public class V1beta1EndpointSliceFluentImpl<
   public A addToPorts(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1EndpointPort item) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder>();
+      this.ports = new java.util.ArrayList<V1beta1EndpointPortBuilder>();
     }
     io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder builder =
         new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(item);
@@ -587,9 +564,8 @@ public class V1beta1EndpointSliceFluentImpl<
     return ports != null && !ports.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A>
-      addNewPort() {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluentImpl.PortsNestedImpl();
+  public V1beta1EndpointSliceFluent.PortsNested<A> addNewPort() {
+    return new V1beta1EndpointSliceFluentImpl.PortsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<A>
@@ -640,7 +616,7 @@ public class V1beta1EndpointSliceFluentImpl<
     return setNewPortLike(index, buildPort(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1EndpointSliceFluentImpl that = (V1beta1EndpointSliceFluentImpl) o;
@@ -661,15 +637,44 @@ public class V1beta1EndpointSliceFluentImpl<
         addressType, apiVersion, endpoints, kind, metadata, ports, super.hashCode());
   }
 
-  public class EndpointsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1EndpointFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.EndpointsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (addressType != null) {
+      sb.append("addressType:");
+      sb.append(addressType + ",");
+    }
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (endpoints != null && !endpoints.isEmpty()) {
+      sb.append("endpoints:");
+      sb.append(endpoints + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (ports != null && !ports.isEmpty()) {
+      sb.append("ports:");
+      sb.append(ports);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class EndpointsNestedImpl<N>
+      extends V1beta1EndpointFluentImpl<V1beta1EndpointSliceFluent.EndpointsNested<N>>
+      implements V1beta1EndpointSliceFluent.EndpointsNested<N>, Nested<N> {
     EndpointsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1Endpoint item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1EndpointBuilder(this, item);
+      this.builder = new V1beta1EndpointBuilder(this, item);
     }
 
     EndpointsNestedImpl() {
@@ -689,13 +694,12 @@ public class V1beta1EndpointSliceFluentImpl<
     }
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<N>>
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1beta1EndpointSliceFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.MetadataNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -713,15 +717,14 @@ public class V1beta1EndpointSliceFluentImpl<
     }
   }
 
-  public class PortsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1EndpointPortFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<N>>
+  class PortsNestedImpl<N>
+      extends V1beta1EndpointPortFluentImpl<V1beta1EndpointSliceFluent.PortsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1EndpointSliceFluent.PortsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     PortsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1EndpointPort item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1EndpointPortBuilder(this, item);
+      this.builder = new V1beta1EndpointPortBuilder(this, item);
     }
 
     PortsNestedImpl() {

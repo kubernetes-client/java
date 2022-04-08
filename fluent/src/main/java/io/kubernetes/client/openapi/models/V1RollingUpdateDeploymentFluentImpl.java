@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
-public class V1RollingUpdateDeploymentFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1RollingUpdateDeploymentFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1RollingUpdateDeploymentFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1RollingUpdateDeploymentFluentImpl<A extends V1RollingUpdateDeploymentFluent<A>>
+    extends BaseFluent<A> implements V1RollingUpdateDeploymentFluent<A> {
   public V1RollingUpdateDeploymentFluentImpl() {}
 
   public V1RollingUpdateDeploymentFluentImpl(
@@ -28,7 +28,7 @@ public class V1RollingUpdateDeploymentFluentImpl<
     this.withMaxUnavailable(instance.getMaxUnavailable());
   }
 
-  private io.kubernetes.client.custom.IntOrString maxSurge;
+  private IntOrString maxSurge;
   private io.kubernetes.client.custom.IntOrString maxUnavailable;
 
   public io.kubernetes.client.custom.IntOrString getMaxSurge() {
@@ -40,7 +40,7 @@ public class V1RollingUpdateDeploymentFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasMaxSurge() {
+  public Boolean hasMaxSurge() {
     return this.maxSurge != null;
   }
 
@@ -48,7 +48,7 @@ public class V1RollingUpdateDeploymentFluentImpl<
     return (A) withMaxSurge(new IntOrString(value));
   }
 
-  public A withNewMaxSurge(java.lang.String value) {
+  public A withNewMaxSurge(String value) {
     return (A) withMaxSurge(new IntOrString(value));
   }
 
@@ -73,7 +73,7 @@ public class V1RollingUpdateDeploymentFluentImpl<
     return (A) withMaxUnavailable(new IntOrString(value));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1RollingUpdateDeploymentFluentImpl that = (V1RollingUpdateDeploymentFluentImpl) o;
@@ -86,5 +86,20 @@ public class V1RollingUpdateDeploymentFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(maxSurge, maxUnavailable, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (maxSurge != null) {
+      sb.append("maxSurge:");
+      sb.append(maxSurge + ",");
+    }
+    if (maxUnavailable != null) {
+      sb.append("maxUnavailable:");
+      sb.append(maxUnavailable);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

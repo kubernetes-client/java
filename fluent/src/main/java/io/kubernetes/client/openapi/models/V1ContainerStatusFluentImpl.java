@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1ContainerStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ContainerStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ContainerStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ContainerStatusFluentImpl<A extends V1ContainerStatusFluent<A>> extends BaseFluent<A>
+    implements V1ContainerStatusFluent<A> {
   public V1ContainerStatusFluentImpl() {}
 
   public V1ContainerStatusFluentImpl(
@@ -40,15 +42,15 @@ public class V1ContainerStatusFluentImpl<
     this.withState(instance.getState());
   }
 
-  private java.lang.String containerID;
+  private String containerID;
   private java.lang.String image;
   private java.lang.String imageID;
-  private io.kubernetes.client.openapi.models.V1ContainerStateBuilder lastState;
+  private V1ContainerStateBuilder lastState;
   private java.lang.String name;
-  private java.lang.Boolean ready;
-  private java.lang.Integer restartCount;
+  private Boolean ready;
+  private Integer restartCount;
   private java.lang.Boolean started;
-  private io.kubernetes.client.openapi.models.V1ContainerStateBuilder state;
+  private V1ContainerStateBuilder state;
 
   public java.lang.String getContainerID() {
     return this.containerID;
@@ -61,12 +63,6 @@ public class V1ContainerStatusFluentImpl<
 
   public java.lang.Boolean hasContainerID() {
     return this.containerID != null;
-  }
-
-  /** Method is deprecated. use withContainerID instead. */
-  @java.lang.Deprecated
-  public A withNewContainerID(java.lang.String original) {
-    return (A) withContainerID(new String(original));
   }
 
   public java.lang.String getImage() {
@@ -82,12 +78,6 @@ public class V1ContainerStatusFluentImpl<
     return this.image != null;
   }
 
-  /** Method is deprecated. use withImage instead. */
-  @java.lang.Deprecated
-  public A withNewImage(java.lang.String original) {
-    return (A) withImage(new String(original));
-  }
-
   public java.lang.String getImageID() {
     return this.imageID;
   }
@@ -101,18 +91,12 @@ public class V1ContainerStatusFluentImpl<
     return this.imageID != null;
   }
 
-  /** Method is deprecated. use withImageID instead. */
-  @java.lang.Deprecated
-  public A withNewImageID(java.lang.String original) {
-    return (A) withImageID(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildLastState instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ContainerState getLastState() {
     return this.lastState != null ? this.lastState.build() : null;
   }
@@ -134,16 +118,13 @@ public class V1ContainerStatusFluentImpl<
     return this.lastState != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatusFluent.LastStateNested<A>
-      withNewLastState() {
-    return new io.kubernetes.client.openapi.models.V1ContainerStatusFluentImpl
-        .LastStateNestedImpl();
+  public V1ContainerStatusFluent.LastStateNested<A> withNewLastState() {
+    return new V1ContainerStatusFluentImpl.LastStateNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ContainerStatusFluent.LastStateNested<A>
       withNewLastStateLike(io.kubernetes.client.openapi.models.V1ContainerState item) {
-    return new io.kubernetes.client.openapi.models.V1ContainerStatusFluentImpl.LastStateNestedImpl(
-        item);
+    return new V1ContainerStatusFluentImpl.LastStateNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1ContainerStatusFluent.LastStateNested<A>
@@ -175,12 +156,6 @@ public class V1ContainerStatusFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.Boolean getReady() {
@@ -249,8 +224,8 @@ public class V1ContainerStatusFluentImpl<
     return this.state != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatusFluent.StateNested<A> withNewState() {
-    return new io.kubernetes.client.openapi.models.V1ContainerStatusFluentImpl.StateNestedImpl();
+  public V1ContainerStatusFluent.StateNested<A> withNewState() {
+    return new V1ContainerStatusFluentImpl.StateNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ContainerStatusFluent.StateNested<A>
@@ -276,7 +251,7 @@ public class V1ContainerStatusFluentImpl<
     return withNewStateLike(getState() != null ? getState() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ContainerStatusFluentImpl that = (V1ContainerStatusFluentImpl) o;
@@ -309,13 +284,63 @@ public class V1ContainerStatusFluentImpl<
         super.hashCode());
   }
 
-  public class LastStateNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ContainerStateFluentImpl<
-          io.kubernetes.client.openapi.models.V1ContainerStatusFluent.LastStateNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (containerID != null) {
+      sb.append("containerID:");
+      sb.append(containerID + ",");
+    }
+    if (image != null) {
+      sb.append("image:");
+      sb.append(image + ",");
+    }
+    if (imageID != null) {
+      sb.append("imageID:");
+      sb.append(imageID + ",");
+    }
+    if (lastState != null) {
+      sb.append("lastState:");
+      sb.append(lastState + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (ready != null) {
+      sb.append("ready:");
+      sb.append(ready + ",");
+    }
+    if (restartCount != null) {
+      sb.append("restartCount:");
+      sb.append(restartCount + ",");
+    }
+    if (started != null) {
+      sb.append("started:");
+      sb.append(started + ",");
+    }
+    if (state != null) {
+      sb.append("state:");
+      sb.append(state);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReady() {
+    return withReady(true);
+  }
+
+  public A withStarted() {
+    return withStarted(true);
+  }
+
+  class LastStateNestedImpl<N>
+      extends V1ContainerStateFluentImpl<V1ContainerStatusFluent.LastStateNested<N>>
       implements io.kubernetes.client.openapi.models.V1ContainerStatusFluent.LastStateNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     LastStateNestedImpl(io.kubernetes.client.openapi.models.V1ContainerState item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerStateBuilder(this, item);
+      this.builder = new V1ContainerStateBuilder(this, item);
     }
 
     LastStateNestedImpl() {
@@ -333,13 +358,12 @@ public class V1ContainerStatusFluentImpl<
     }
   }
 
-  public class StateNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ContainerStateFluentImpl<
-          io.kubernetes.client.openapi.models.V1ContainerStatusFluent.StateNested<N>>
+  class StateNestedImpl<N>
+      extends V1ContainerStateFluentImpl<V1ContainerStatusFluent.StateNested<N>>
       implements io.kubernetes.client.openapi.models.V1ContainerStatusFluent.StateNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     StateNestedImpl(io.kubernetes.client.openapi.models.V1ContainerState item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerStateBuilder(this, item);
+      this.builder = new V1ContainerStateBuilder(this, item);
     }
 
     StateNestedImpl() {

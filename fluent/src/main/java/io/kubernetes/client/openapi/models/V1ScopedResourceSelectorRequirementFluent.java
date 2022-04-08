@@ -12,41 +12,40 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1ScopedResourceSelectorRequirementFluent<
-        A extends io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.OperatorEnum
-      getOperator();
+        A extends V1ScopedResourceSelectorRequirementFluent<A>>
+    extends Fluent<A> {
+  public String getOperator();
 
-  public A withOperator(
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.OperatorEnum
-          operator);
+  public A withOperator(java.lang.String operator);
 
-  public java.lang.Boolean hasOperator();
+  public Boolean hasOperator();
 
-  public io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.ScopeNameEnum
-      getScopeName();
+  public java.lang.String getScopeName();
 
-  public A withScopeName(
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement.ScopeNameEnum
-          scopeName);
+  public A withScopeName(java.lang.String scopeName);
 
   public java.lang.Boolean hasScopeName();
 
-  public A addToValues(java.lang.Integer index, java.lang.String item);
+  public A addToValues(Integer index, java.lang.String item);
 
   public A setToValues(java.lang.Integer index, java.lang.String item);
 
   public A addToValues(java.lang.String... items);
 
-  public A addAllToValues(java.util.Collection<java.lang.String> items);
+  public A addAllToValues(Collection<java.lang.String> items);
 
   public A removeFromValues(java.lang.String... items);
 
   public A removeAllFromValues(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getValues();
+  public List<java.lang.String> getValues();
 
   public java.lang.String getValue(java.lang.Integer index);
 
@@ -54,8 +53,7 @@ public interface V1ScopedResourceSelectorRequirementFluent<
 
   public java.lang.String getLastValue();
 
-  public java.lang.String getMatchingValue(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingValue(Predicate<java.lang.String> predicate);
 
   public java.lang.Boolean hasMatchingValue(
       java.util.function.Predicate<java.lang.String> predicate);
@@ -65,6 +63,4 @@ public interface V1ScopedResourceSelectorRequirementFluent<
   public A withValues(java.lang.String... values);
 
   public java.lang.Boolean hasValues();
-
-  public A addNewValue(java.lang.String original);
 }

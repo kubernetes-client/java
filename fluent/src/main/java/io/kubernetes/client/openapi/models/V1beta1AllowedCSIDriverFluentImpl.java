@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1beta1AllowedCSIDriverFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1AllowedCSIDriverFluentImpl<A extends V1beta1AllowedCSIDriverFluent<A>>
+    extends BaseFluent<A> implements V1beta1AllowedCSIDriverFluent<A> {
   public V1beta1AllowedCSIDriverFluentImpl() {}
 
   public V1beta1AllowedCSIDriverFluentImpl(
@@ -24,7 +25,7 @@ public class V1beta1AllowedCSIDriverFluentImpl<
     this.withName(instance.getName());
   }
 
-  private java.lang.String name;
+  private String name;
 
   public java.lang.String getName() {
     return this.name;
@@ -35,17 +36,11 @@ public class V1beta1AllowedCSIDriverFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1AllowedCSIDriverFluentImpl that = (V1beta1AllowedCSIDriverFluentImpl) o;
@@ -55,5 +50,16 @@ public class V1beta1AllowedCSIDriverFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(name, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

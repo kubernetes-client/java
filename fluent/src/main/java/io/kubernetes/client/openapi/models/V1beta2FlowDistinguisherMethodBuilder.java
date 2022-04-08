@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta2FlowDistinguisherMethodBuilder
-    extends io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethodFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethodBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1beta2FlowDistinguisherMethodFluentImpl<V1beta2FlowDistinguisherMethodBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethod,
         io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethodBuilder> {
   public V1beta2FlowDistinguisherMethodBuilder() {
     this(false);
   }
 
-  public V1beta2FlowDistinguisherMethodBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta2FlowDistinguisherMethodBuilder(Boolean validationEnabled) {
     this(new V1beta2FlowDistinguisherMethod(), validationEnabled);
   }
 
-  public V1beta2FlowDistinguisherMethodBuilder(
-      io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethodFluent<?> fluent) {
+  public V1beta2FlowDistinguisherMethodBuilder(V1beta2FlowDistinguisherMethodFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -74,24 +74,5 @@ public class V1beta2FlowDistinguisherMethodBuilder
     V1beta2FlowDistinguisherMethod buildable = new V1beta2FlowDistinguisherMethod();
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta2FlowDistinguisherMethodBuilder that = (V1beta2FlowDistinguisherMethodBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

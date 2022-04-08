@@ -12,15 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
 public interface V1PersistentVolumeClaimConditionFluent<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.time.OffsetDateTime getLastProbeTime();
+        A extends V1PersistentVolumeClaimConditionFluent<A>>
+    extends Fluent<A> {
+  public OffsetDateTime getLastProbeTime();
 
   public A withLastProbeTime(java.time.OffsetDateTime lastProbeTime);
 
-  public java.lang.Boolean hasLastProbeTime();
+  public Boolean hasLastProbeTime();
 
   public java.time.OffsetDateTime getLastTransitionTime();
 
@@ -28,15 +31,11 @@ public interface V1PersistentVolumeClaimConditionFluent<
 
   public java.lang.Boolean hasLastTransitionTime();
 
-  public java.lang.String getMessage();
+  public String getMessage();
 
   public A withMessage(java.lang.String message);
 
   public java.lang.Boolean hasMessage();
-
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
 
   public java.lang.String getReason();
 
@@ -44,24 +43,15 @@ public interface V1PersistentVolumeClaimConditionFluent<
 
   public java.lang.Boolean hasReason();
 
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
-
   public java.lang.String getStatus();
 
   public A withStatus(java.lang.String status);
 
   public java.lang.Boolean hasStatus();
 
-  /** Method is deprecated. use withStatus instead. */
-  @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original);
+  public java.lang.String getType();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition.TypeEnum getType();
-
-  public A withType(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition.TypeEnum type);
+  public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
 }

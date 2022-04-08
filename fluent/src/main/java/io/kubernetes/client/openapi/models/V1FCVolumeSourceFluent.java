@@ -12,21 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1FCVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1FCVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getFsType();
+public interface V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends Fluent<A> {
+  public String getFsType();
 
   public A withFsType(java.lang.String fsType);
 
-  public java.lang.Boolean hasFsType();
+  public Boolean hasFsType();
 
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
-
-  public java.lang.Integer getLun();
+  public Integer getLun();
 
   public A withLun(java.lang.Integer lun);
 
@@ -44,13 +43,13 @@ public interface V1FCVolumeSourceFluent<
 
   public A addToTargetWWNs(java.lang.String... items);
 
-  public A addAllToTargetWWNs(java.util.Collection<java.lang.String> items);
+  public A addAllToTargetWWNs(Collection<java.lang.String> items);
 
   public A removeFromTargetWWNs(java.lang.String... items);
 
   public A removeAllFromTargetWWNs(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getTargetWWNs();
+  public List<java.lang.String> getTargetWWNs();
 
   public java.lang.String getTargetWWN(java.lang.Integer index);
 
@@ -58,8 +57,7 @@ public interface V1FCVolumeSourceFluent<
 
   public java.lang.String getLastTargetWWN();
 
-  public java.lang.String getMatchingTargetWWN(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingTargetWWN(Predicate<java.lang.String> predicate);
 
   public java.lang.Boolean hasMatchingTargetWWN(
       java.util.function.Predicate<java.lang.String> predicate);
@@ -69,8 +67,6 @@ public interface V1FCVolumeSourceFluent<
   public A withTargetWWNs(java.lang.String... targetWWNs);
 
   public java.lang.Boolean hasTargetWWNs();
-
-  public A addNewTargetWWN(java.lang.String original);
 
   public A addToWwids(java.lang.Integer index, java.lang.String item);
 
@@ -103,5 +99,5 @@ public interface V1FCVolumeSourceFluent<
 
   public java.lang.Boolean hasWwids();
 
-  public A addNewWwid(java.lang.String original);
+  public A withReadOnly();
 }

@@ -12,28 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V2HorizontalPodAutoscalerSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+        A extends V2HorizontalPodAutoscalerSpecFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildBehavior instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior getBehavior();
+  @Deprecated
+  public V2HorizontalPodAutoscalerBehavior getBehavior();
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior buildBehavior();
 
   public A withBehavior(
       io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior behavior);
 
-  public java.lang.Boolean hasBehavior();
+  public Boolean hasBehavior();
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<A>
-      withNewBehavior();
+  public V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<A> withNewBehavior();
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<A>
       withNewBehaviorLike(
@@ -49,31 +54,27 @@ public interface V2HorizontalPodAutoscalerSpecFluent<
       editOrNewBehaviorLike(
           io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior item);
 
-  public java.lang.Integer getMaxReplicas();
+  public Integer getMaxReplicas();
 
   public A withMaxReplicas(java.lang.Integer maxReplicas);
 
   public java.lang.Boolean hasMaxReplicas();
 
-  public A addToMetrics(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V2MetricSpec item);
+  public A addToMetrics(java.lang.Integer index, V2MetricSpec item);
 
   public A setToMetrics(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V2MetricSpec item);
 
   public A addToMetrics(io.kubernetes.client.openapi.models.V2MetricSpec... items);
 
-  public A addAllToMetrics(
-      java.util.Collection<io.kubernetes.client.openapi.models.V2MetricSpec> items);
+  public A addAllToMetrics(Collection<io.kubernetes.client.openapi.models.V2MetricSpec> items);
 
   public A removeFromMetrics(io.kubernetes.client.openapi.models.V2MetricSpec... items);
 
   public A removeAllFromMetrics(
       java.util.Collection<io.kubernetes.client.openapi.models.V2MetricSpec> items);
 
-  public A removeMatchingFromMetrics(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V2MetricSpecBuilder>
-          predicate);
+  public A removeMatchingFromMetrics(Predicate<V2MetricSpecBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildMetrics instead.
@@ -81,7 +82,7 @@ public interface V2HorizontalPodAutoscalerSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V2MetricSpec> getMetrics();
+  public List<io.kubernetes.client.openapi.models.V2MetricSpec> getMetrics();
 
   public java.util.List<io.kubernetes.client.openapi.models.V2MetricSpec> buildMetrics();
 
@@ -105,8 +106,7 @@ public interface V2HorizontalPodAutoscalerSpecFluent<
 
   public java.lang.Boolean hasMetrics();
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A>
-      addNewMetric();
+  public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> addNewMetric();
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A>
       addNewMetricLike(io.kubernetes.client.openapi.models.V2MetricSpec item);
@@ -141,7 +141,7 @@ public interface V2HorizontalPodAutoscalerSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2CrossVersionObjectReference getScaleTargetRef();
+  public V2CrossVersionObjectReference getScaleTargetRef();
 
   public io.kubernetes.client.openapi.models.V2CrossVersionObjectReference buildScaleTargetRef();
 
@@ -150,10 +150,7 @@ public interface V2HorizontalPodAutoscalerSpecFluent<
 
   public java.lang.Boolean hasScaleTargetRef();
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
-              .ScaleTargetRefNested<
-          A>
-      withNewScaleTargetRef();
+  public V2HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> withNewScaleTargetRef();
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
               .ScaleTargetRefNested<
@@ -178,11 +175,9 @@ public interface V2HorizontalPodAutoscalerSpecFluent<
           io.kubernetes.client.openapi.models.V2CrossVersionObjectReference item);
 
   public interface BehaviorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent<
-              io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
-                      .BehaviorNested<
-                  N>> {
+      extends Nested<N>,
+          V2HorizontalPodAutoscalerBehaviorFluent<
+              V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<N>> {
     public N and();
 
     public N endBehavior();
@@ -190,9 +185,7 @@ public interface V2HorizontalPodAutoscalerSpecFluent<
 
   public interface MetricsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2MetricSpecFluent<
-              io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.MetricsNested<
-                  N>> {
+          V2MetricSpecFluent<V2HorizontalPodAutoscalerSpecFluent.MetricsNested<N>> {
     public N and();
 
     public N endMetric();
@@ -200,10 +193,8 @@ public interface V2HorizontalPodAutoscalerSpecFluent<
 
   public interface ScaleTargetRefNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
-                      .ScaleTargetRefNested<
-                  N>> {
+          V2CrossVersionObjectReferenceFluent<
+              V2HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<N>> {
     public N and();
 
     public N endScaleTargetRef();

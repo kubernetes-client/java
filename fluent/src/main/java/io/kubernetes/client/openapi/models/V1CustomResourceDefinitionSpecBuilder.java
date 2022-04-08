@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1CustomResourceDefinitionSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpec,
+    extends V1CustomResourceDefinitionSpecFluentImpl<V1CustomResourceDefinitionSpecBuilder>
+    implements VisitableBuilder<
+        V1CustomResourceDefinitionSpec,
         io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecBuilder> {
   public V1CustomResourceDefinitionSpecBuilder() {
     this(false);
   }
 
-  public V1CustomResourceDefinitionSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1CustomResourceDefinitionSpecBuilder(Boolean validationEnabled) {
     this(new V1CustomResourceDefinitionSpec(), validationEnabled);
   }
 
-  public V1CustomResourceDefinitionSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent<?> fluent) {
+  public V1CustomResourceDefinitionSpecBuilder(V1CustomResourceDefinitionSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -99,24 +99,5 @@ public class V1CustomResourceDefinitionSpecBuilder
     buildable.setScope(fluent.getScope());
     buildable.setVersions(fluent.getVersions());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1CustomResourceDefinitionSpecBuilder that = (V1CustomResourceDefinitionSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

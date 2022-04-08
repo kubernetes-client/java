@@ -12,14 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1ObjectMetaFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ObjectMetaFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ObjectMetaFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ObjectMetaFluentImpl<A extends V1ObjectMetaFluent<A>> extends BaseFluent<A>
+    implements V1ObjectMetaFluent<A> {
   public V1ObjectMetaFluentImpl() {}
 
   public V1ObjectMetaFluentImpl(io.kubernetes.client.openapi.models.V1ObjectMeta instance) {
@@ -56,28 +63,26 @@ public class V1ObjectMetaFluentImpl<
     this.withUid(instance.getUid());
   }
 
-  private java.util.Map<java.lang.String, java.lang.String> annotations;
+  private Map<String, java.lang.String> annotations;
   private java.lang.String clusterName;
-  private java.time.OffsetDateTime creationTimestamp;
-  private java.lang.Long deletionGracePeriodSeconds;
+  private OffsetDateTime creationTimestamp;
+  private Long deletionGracePeriodSeconds;
   private java.time.OffsetDateTime deletionTimestamp;
-  private java.util.List<java.lang.String> finalizers;
+  private List<java.lang.String> finalizers;
   private java.lang.String generateName;
   private java.lang.Long generation;
   private java.util.Map<java.lang.String, java.lang.String> labels;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ManagedFieldsEntryBuilder>
-      managedFields;
+  private ArrayList<V1ManagedFieldsEntryBuilder> managedFields;
   private java.lang.String name;
   private java.lang.String namespace;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder>
-      ownerReferences;
+  private java.util.ArrayList<V1OwnerReferenceBuilder> ownerReferences;
   private java.lang.String resourceVersion;
   private java.lang.String selfLink;
   private java.lang.String uid;
 
   public A addToAnnotations(java.lang.String key, java.lang.String value) {
     if (this.annotations == null && key != null && value != null) {
-      this.annotations = new java.util.LinkedHashMap();
+      this.annotations = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.annotations.put(key, value);
@@ -132,7 +137,7 @@ public class V1ObjectMetaFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAnnotations() {
+  public Boolean hasAnnotations() {
     return this.annotations != null;
   }
 
@@ -147,12 +152,6 @@ public class V1ObjectMetaFluentImpl<
 
   public java.lang.Boolean hasClusterName() {
     return this.clusterName != null;
-  }
-
-  /** Method is deprecated. use withClusterName instead. */
-  @java.lang.Deprecated
-  public A withNewClusterName(java.lang.String original) {
-    return (A) withClusterName(new String(original));
   }
 
   public java.time.OffsetDateTime getCreationTimestamp() {
@@ -194,7 +193,7 @@ public class V1ObjectMetaFluentImpl<
     return this.deletionTimestamp != null;
   }
 
-  public A addToFinalizers(java.lang.Integer index, java.lang.String item) {
+  public A addToFinalizers(Integer index, java.lang.String item) {
     if (this.finalizers == null) {
       this.finalizers = new java.util.ArrayList<java.lang.String>();
     }
@@ -220,7 +219,7 @@ public class V1ObjectMetaFluentImpl<
     return (A) this;
   }
 
-  public A addAllToFinalizers(java.util.Collection<java.lang.String> items) {
+  public A addAllToFinalizers(Collection<java.lang.String> items) {
     if (this.finalizers == null) {
       this.finalizers = new java.util.ArrayList<java.lang.String>();
     }
@@ -264,8 +263,7 @@ public class V1ObjectMetaFluentImpl<
     return this.finalizers.get(finalizers.size() - 1);
   }
 
-  public java.lang.String getMatchingFinalizer(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingFinalizer(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : finalizers) {
       if (predicate.test(item)) {
         return item;
@@ -312,10 +310,6 @@ public class V1ObjectMetaFluentImpl<
     return finalizers != null && !finalizers.isEmpty();
   }
 
-  public A addNewFinalizer(java.lang.String original) {
-    return (A) addToFinalizers(new String(original));
-  }
-
   public java.lang.String getGenerateName() {
     return this.generateName;
   }
@@ -327,12 +321,6 @@ public class V1ObjectMetaFluentImpl<
 
   public java.lang.Boolean hasGenerateName() {
     return this.generateName != null;
-  }
-
-  /** Method is deprecated. use withGenerateName instead. */
-  @java.lang.Deprecated
-  public A withNewGenerateName(java.lang.String original) {
-    return (A) withGenerateName(new String(original));
   }
 
   public java.lang.Long getGeneration() {
@@ -409,8 +397,7 @@ public class V1ObjectMetaFluentImpl<
     return this.labels != null;
   }
 
-  public A addToManagedFields(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ManagedFieldsEntry item) {
+  public A addToManagedFields(java.lang.Integer index, V1ManagedFieldsEntry item) {
     if (this.managedFields == null) {
       this.managedFields =
           new java.util.ArrayList<
@@ -526,7 +513,7 @@ public class V1ObjectMetaFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ManagedFieldsEntry>
       getManagedFields() {
     return managedFields != null ? build(managedFields) : null;
@@ -605,15 +592,13 @@ public class V1ObjectMetaFluentImpl<
     return managedFields != null && !managedFields.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
-      addNewManagedField() {
-    return new io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl.ManagedFieldsNestedImpl();
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> addNewManagedField() {
+    return new V1ObjectMetaFluentImpl.ManagedFieldsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
       addNewManagedFieldLike(io.kubernetes.client.openapi.models.V1ManagedFieldsEntry item) {
-    return new io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl.ManagedFieldsNestedImpl(
-        -1, item);
+    return new V1ObjectMetaFluentImpl.ManagedFieldsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
@@ -673,12 +658,6 @@ public class V1ObjectMetaFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
   public java.lang.String getNamespace() {
     return this.namespace;
   }
@@ -692,14 +671,7 @@ public class V1ObjectMetaFluentImpl<
     return this.namespace != null;
   }
 
-  /** Method is deprecated. use withNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A) withNamespace(new String(original));
-  }
-
-  public A addToOwnerReferences(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1OwnerReference item) {
+  public A addToOwnerReferences(java.lang.Integer index, V1OwnerReference item) {
     if (this.ownerReferences == null) {
       this.ownerReferences =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder>();
@@ -889,10 +861,8 @@ public class V1ObjectMetaFluentImpl<
     return ownerReferences != null && !ownerReferences.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<A>
-      addNewOwnerReference() {
-    return new io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl
-        .OwnerReferencesNestedImpl();
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> addNewOwnerReference() {
+    return new V1ObjectMetaFluentImpl.OwnerReferencesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<A>
@@ -959,12 +929,6 @@ public class V1ObjectMetaFluentImpl<
     return this.resourceVersion != null;
   }
 
-  /** Method is deprecated. use withResourceVersion instead. */
-  @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original) {
-    return (A) withResourceVersion(new String(original));
-  }
-
   public java.lang.String getSelfLink() {
     return this.selfLink;
   }
@@ -976,12 +940,6 @@ public class V1ObjectMetaFluentImpl<
 
   public java.lang.Boolean hasSelfLink() {
     return this.selfLink != null;
-  }
-
-  /** Method is deprecated. use withSelfLink instead. */
-  @java.lang.Deprecated
-  public A withNewSelfLink(java.lang.String original) {
-    return (A) withSelfLink(new String(original));
   }
 
   public java.lang.String getUid() {
@@ -997,13 +955,7 @@ public class V1ObjectMetaFluentImpl<
     return this.uid != null;
   }
 
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A) withUid(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ObjectMetaFluentImpl that = (V1ObjectMetaFluentImpl) o;
@@ -1065,16 +1017,85 @@ public class V1ObjectMetaFluentImpl<
         super.hashCode());
   }
 
-  public class ManagedFieldsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluentImpl<
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (annotations != null && !annotations.isEmpty()) {
+      sb.append("annotations:");
+      sb.append(annotations + ",");
+    }
+    if (clusterName != null) {
+      sb.append("clusterName:");
+      sb.append(clusterName + ",");
+    }
+    if (creationTimestamp != null) {
+      sb.append("creationTimestamp:");
+      sb.append(creationTimestamp + ",");
+    }
+    if (deletionGracePeriodSeconds != null) {
+      sb.append("deletionGracePeriodSeconds:");
+      sb.append(deletionGracePeriodSeconds + ",");
+    }
+    if (deletionTimestamp != null) {
+      sb.append("deletionTimestamp:");
+      sb.append(deletionTimestamp + ",");
+    }
+    if (finalizers != null && !finalizers.isEmpty()) {
+      sb.append("finalizers:");
+      sb.append(finalizers + ",");
+    }
+    if (generateName != null) {
+      sb.append("generateName:");
+      sb.append(generateName + ",");
+    }
+    if (generation != null) {
+      sb.append("generation:");
+      sb.append(generation + ",");
+    }
+    if (labels != null && !labels.isEmpty()) {
+      sb.append("labels:");
+      sb.append(labels + ",");
+    }
+    if (managedFields != null && !managedFields.isEmpty()) {
+      sb.append("managedFields:");
+      sb.append(managedFields + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespace != null) {
+      sb.append("namespace:");
+      sb.append(namespace + ",");
+    }
+    if (ownerReferences != null && !ownerReferences.isEmpty()) {
+      sb.append("ownerReferences:");
+      sb.append(ownerReferences + ",");
+    }
+    if (resourceVersion != null) {
+      sb.append("resourceVersion:");
+      sb.append(resourceVersion + ",");
+    }
+    if (selfLink != null) {
+      sb.append("selfLink:");
+      sb.append(selfLink + ",");
+    }
+    if (uid != null) {
+      sb.append("uid:");
+      sb.append(uid);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ManagedFieldsNestedImpl<N>
+      extends V1ManagedFieldsEntryFluentImpl<V1ObjectMetaFluent.ManagedFieldsNested<N>>
       implements io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ManagedFieldsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1ManagedFieldsEntry item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ManagedFieldsEntryBuilder(this, item);
+      this.builder = new V1ManagedFieldsEntryBuilder(this, item);
     }
 
     ManagedFieldsNestedImpl() {
@@ -1094,15 +1115,14 @@ public class V1ObjectMetaFluentImpl<
     }
   }
 
-  public class OwnerReferencesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1OwnerReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<N>>
+  class OwnerReferencesNestedImpl<N>
+      extends V1OwnerReferenceFluentImpl<V1ObjectMetaFluent.OwnerReferencesNested<N>>
       implements io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     OwnerReferencesNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1OwnerReference item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder(this, item);
+      this.builder = new V1OwnerReferenceBuilder(this, item);
     }
 
     OwnerReferencesNestedImpl() {

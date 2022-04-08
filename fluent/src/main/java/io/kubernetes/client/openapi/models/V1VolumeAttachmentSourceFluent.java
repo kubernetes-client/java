@@ -12,29 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1VolumeAttachmentSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1VolumeAttachmentSourceFluent<A extends V1VolumeAttachmentSourceFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildInlineVolumeSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec getInlineVolumeSpec();
+  @Deprecated
+  public V1PersistentVolumeSpec getInlineVolumeSpec();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec buildInlineVolumeSpec();
 
   public A withInlineVolumeSpec(
       io.kubernetes.client.openapi.models.V1PersistentVolumeSpec inlineVolumeSpec);
 
-  public java.lang.Boolean hasInlineVolumeSpec();
+  public Boolean hasInlineVolumeSpec();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      withNewInlineVolumeSpec();
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> withNewInlineVolumeSpec();
 
   public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
           A>
@@ -53,22 +53,15 @@ public interface V1VolumeAttachmentSourceFluent<
       editOrNewInlineVolumeSpecLike(
           io.kubernetes.client.openapi.models.V1PersistentVolumeSpec item);
 
-  public java.lang.String getPersistentVolumeName();
+  public String getPersistentVolumeName();
 
   public A withPersistentVolumeName(java.lang.String persistentVolumeName);
 
   public java.lang.Boolean hasPersistentVolumeName();
 
-  /** Method is deprecated. use withPersistentVolumeName instead. */
-  @java.lang.Deprecated
-  public A withNewPersistentVolumeName(java.lang.String original);
-
   public interface InlineVolumeSpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<
-              io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent
-                      .InlineVolumeSpecNested<
-                  N>> {
+      extends Nested<N>,
+          V1PersistentVolumeSpecFluent<V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<N>> {
     public N and();
 
     public N endInlineVolumeSpec();

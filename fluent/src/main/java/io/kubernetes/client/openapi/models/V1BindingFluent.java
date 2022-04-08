@@ -12,18 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1BindingFluent<A extends io.kubernetes.client.openapi.models.V1BindingFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface V1BindingFluent<A extends V1BindingFluent<A>> extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public Boolean hasApiVersion();
 
   public java.lang.String getKind();
 
@@ -31,17 +29,13 @@ public interface V1BindingFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  @Deprecated
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -49,7 +43,7 @@ public interface V1BindingFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A> withNewMetadata();
+  public V1BindingFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A> withNewMetadataLike(
       io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -67,7 +61,7 @@ public interface V1BindingFluent<A extends io.kubernetes.client.openapi.models.V
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getTarget();
+  public V1ObjectReference getTarget();
 
   public io.kubernetes.client.openapi.models.V1ObjectReference buildTarget();
 
@@ -75,7 +69,7 @@ public interface V1BindingFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasTarget();
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> withNewTarget();
+  public V1BindingFluent.TargetNested<A> withNewTarget();
 
   public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> withNewTargetLike(
       io.kubernetes.client.openapi.models.V1ObjectReference item);
@@ -88,9 +82,7 @@ public interface V1BindingFluent<A extends io.kubernetes.client.openapi.models.V
       io.kubernetes.client.openapi.models.V1ObjectReference item);
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1BindingFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
@@ -98,8 +90,7 @@ public interface V1BindingFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface TargetNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<N>> {
+          V1ObjectReferenceFluent<V1BindingFluent.TargetNested<N>> {
     public N and();
 
     public N endTarget();

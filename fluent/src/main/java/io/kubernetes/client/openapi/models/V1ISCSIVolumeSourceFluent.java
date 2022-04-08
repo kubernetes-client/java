@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1ISCSIVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Boolean getChapAuthDiscovery();
+public interface V1ISCSIVolumeSourceFluent<A extends V1ISCSIVolumeSourceFluent<A>>
+    extends Fluent<A> {
+  public Boolean getChapAuthDiscovery();
 
   public A withChapAuthDiscovery(java.lang.Boolean chapAuthDiscovery);
 
@@ -28,15 +33,11 @@ public interface V1ISCSIVolumeSourceFluent<
 
   public java.lang.Boolean hasChapAuthSession();
 
-  public java.lang.String getFsType();
+  public String getFsType();
 
   public A withFsType(java.lang.String fsType);
 
   public java.lang.Boolean hasFsType();
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original);
 
   public java.lang.String getInitiatorName();
 
@@ -44,19 +45,11 @@ public interface V1ISCSIVolumeSourceFluent<
 
   public java.lang.Boolean hasInitiatorName();
 
-  /** Method is deprecated. use withInitiatorName instead. */
-  @java.lang.Deprecated
-  public A withNewInitiatorName(java.lang.String original);
-
   public java.lang.String getIqn();
 
   public A withIqn(java.lang.String iqn);
 
   public java.lang.Boolean hasIqn();
-
-  /** Method is deprecated. use withIqn instead. */
-  @java.lang.Deprecated
-  public A withNewIqn(java.lang.String original);
 
   public java.lang.String getIscsiInterface();
 
@@ -64,11 +57,7 @@ public interface V1ISCSIVolumeSourceFluent<
 
   public java.lang.Boolean hasIscsiInterface();
 
-  /** Method is deprecated. use withIscsiInterface instead. */
-  @java.lang.Deprecated
-  public A withNewIscsiInterface(java.lang.String original);
-
-  public java.lang.Integer getLun();
+  public Integer getLun();
 
   public A withLun(java.lang.Integer lun);
 
@@ -80,13 +69,13 @@ public interface V1ISCSIVolumeSourceFluent<
 
   public A addToPortals(java.lang.String... items);
 
-  public A addAllToPortals(java.util.Collection<java.lang.String> items);
+  public A addAllToPortals(Collection<java.lang.String> items);
 
   public A removeFromPortals(java.lang.String... items);
 
   public A removeAllFromPortals(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getPortals();
+  public List<java.lang.String> getPortals();
 
   public java.lang.String getPortal(java.lang.Integer index);
 
@@ -94,8 +83,7 @@ public interface V1ISCSIVolumeSourceFluent<
 
   public java.lang.String getLastPortal();
 
-  public java.lang.String getMatchingPortal(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingPortal(Predicate<java.lang.String> predicate);
 
   public java.lang.Boolean hasMatchingPortal(
       java.util.function.Predicate<java.lang.String> predicate);
@@ -105,8 +93,6 @@ public interface V1ISCSIVolumeSourceFluent<
   public A withPortals(java.lang.String... portals);
 
   public java.lang.Boolean hasPortals();
-
-  public A addNewPortal(java.lang.String original);
 
   public java.lang.Boolean getReadOnly();
 
@@ -119,8 +105,8 @@ public interface V1ISCSIVolumeSourceFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef();
+  @Deprecated
+  public V1LocalObjectReference getSecretRef();
 
   public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef();
 
@@ -128,8 +114,7 @@ public interface V1ISCSIVolumeSourceFluent<
 
   public java.lang.Boolean hasSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRef();
+  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
   public io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent.SecretRefNested<A>
       withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
@@ -149,14 +134,15 @@ public interface V1ISCSIVolumeSourceFluent<
 
   public java.lang.Boolean hasTargetPortal();
 
-  /** Method is deprecated. use withTargetPortal instead. */
-  @java.lang.Deprecated
-  public A withNewTargetPortal(java.lang.String original);
+  public A withChapAuthDiscovery();
+
+  public A withChapAuthSession();
+
+  public A withReadOnly();
 
   public interface SecretRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent.SecretRefNested<N>> {
+      extends Nested<N>,
+          V1LocalObjectReferenceFluent<V1ISCSIVolumeSourceFluent.SecretRefNested<N>> {
     public N and();
 
     public N endSecretRef();

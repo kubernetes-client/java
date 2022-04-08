@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta1PodSecurityPolicySpecBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpec,
+    extends V1beta1PodSecurityPolicySpecFluentImpl<V1beta1PodSecurityPolicySpecBuilder>
+    implements VisitableBuilder<
+        V1beta1PodSecurityPolicySpec,
         io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecBuilder> {
   public V1beta1PodSecurityPolicySpecBuilder() {
     this(false);
   }
 
-  public V1beta1PodSecurityPolicySpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1PodSecurityPolicySpecBuilder(Boolean validationEnabled) {
     this(new V1beta1PodSecurityPolicySpec(), validationEnabled);
   }
 
-  public V1beta1PodSecurityPolicySpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent<?> fluent) {
+  public V1beta1PodSecurityPolicySpecBuilder(V1beta1PodSecurityPolicySpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -189,24 +189,5 @@ public class V1beta1PodSecurityPolicySpecBuilder
     buildable.setSupplementalGroups(fluent.getSupplementalGroups());
     buildable.setVolumes(fluent.getVolumes());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1PodSecurityPolicySpecBuilder that = (V1beta1PodSecurityPolicySpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

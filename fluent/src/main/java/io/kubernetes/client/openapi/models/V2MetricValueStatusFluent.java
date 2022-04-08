@@ -12,23 +12,25 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V2MetricValueStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getAverageUtilization();
+public interface V2MetricValueStatusFluent<A extends V2MetricValueStatusFluent<A>>
+    extends Fluent<A> {
+  public Integer getAverageUtilization();
 
   public A withAverageUtilization(java.lang.Integer averageUtilization);
 
-  public java.lang.Boolean hasAverageUtilization();
+  public Boolean hasAverageUtilization();
 
-  public io.kubernetes.client.custom.Quantity getAverageValue();
+  public Quantity getAverageValue();
 
   public A withAverageValue(io.kubernetes.client.custom.Quantity averageValue);
 
   public java.lang.Boolean hasAverageValue();
 
-  public A withNewAverageValue(java.lang.String value);
+  public A withNewAverageValue(String value);
 
   public io.kubernetes.client.custom.Quantity getValue();
 

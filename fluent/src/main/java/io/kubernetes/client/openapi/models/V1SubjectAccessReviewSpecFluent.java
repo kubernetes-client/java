@@ -12,13 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-/** Generated */
-public interface V1SubjectAccessReviewSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToExtra(java.lang.String key, java.util.List<java.lang.String> value);
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
-  public A addToExtra(java.util.Map<java.lang.String, java.util.List<java.lang.String>> map);
+/** Generated */
+public interface V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpecFluent<A>>
+    extends Fluent<A> {
+  public A addToExtra(String key, List<java.lang.String> value);
+
+  public A addToExtra(Map<java.lang.String, java.util.List<java.lang.String>> map);
 
   public A removeFromExtra(java.lang.String key);
 
@@ -29,15 +35,15 @@ public interface V1SubjectAccessReviewSpecFluent<
   public <K, V> A withExtra(
       java.util.Map<java.lang.String, java.util.List<java.lang.String>> extra);
 
-  public java.lang.Boolean hasExtra();
+  public Boolean hasExtra();
 
-  public A addToGroups(java.lang.Integer index, java.lang.String item);
+  public A addToGroups(Integer index, java.lang.String item);
 
   public A setToGroups(java.lang.Integer index, java.lang.String item);
 
   public A addToGroups(java.lang.String... items);
 
-  public A addAllToGroups(java.util.Collection<java.lang.String> items);
+  public A addAllToGroups(Collection<java.lang.String> items);
 
   public A removeFromGroups(java.lang.String... items);
 
@@ -51,8 +57,7 @@ public interface V1SubjectAccessReviewSpecFluent<
 
   public java.lang.String getLastGroup();
 
-  public java.lang.String getMatchingGroup(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingGroup(Predicate<java.lang.String> predicate);
 
   public java.lang.Boolean hasMatchingGroup(
       java.util.function.Predicate<java.lang.String> predicate);
@@ -63,15 +68,13 @@ public interface V1SubjectAccessReviewSpecFluent<
 
   public java.lang.Boolean hasGroups();
 
-  public A addNewGroup(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildNonResourceAttributes instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NonResourceAttributes getNonResourceAttributes();
+  @Deprecated
+  public V1NonResourceAttributes getNonResourceAttributes();
 
   public io.kubernetes.client.openapi.models.V1NonResourceAttributes buildNonResourceAttributes();
 
@@ -80,9 +83,7 @@ public interface V1SubjectAccessReviewSpecFluent<
 
   public java.lang.Boolean hasNonResourceAttributes();
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .NonResourceAttributesNested<
-          A>
+  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A>
       withNewNonResourceAttributes();
 
   public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
@@ -113,7 +114,7 @@ public interface V1SubjectAccessReviewSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ResourceAttributes getResourceAttributes();
+  public V1ResourceAttributes getResourceAttributes();
 
   public io.kubernetes.client.openapi.models.V1ResourceAttributes buildResourceAttributes();
 
@@ -122,10 +123,7 @@ public interface V1SubjectAccessReviewSpecFluent<
 
   public java.lang.Boolean hasResourceAttributes();
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .ResourceAttributesNested<
-          A>
-      withNewResourceAttributes();
+  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> withNewResourceAttributes();
 
   public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
               .ResourceAttributesNested<
@@ -154,26 +152,16 @@ public interface V1SubjectAccessReviewSpecFluent<
 
   public java.lang.Boolean hasUid();
 
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original);
-
   public java.lang.String getUser();
 
   public A withUser(java.lang.String user);
 
   public java.lang.Boolean hasUser();
 
-  /** Method is deprecated. use withUser instead. */
-  @java.lang.Deprecated
-  public A withNewUser(java.lang.String original);
-
   public interface NonResourceAttributesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NonResourceAttributesFluent<
-              io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-                      .NonResourceAttributesNested<
-                  N>> {
+      extends Nested<N>,
+          V1NonResourceAttributesFluent<
+              V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<N>> {
     public N and();
 
     public N endNonResourceAttributes();
@@ -181,10 +169,7 @@ public interface V1SubjectAccessReviewSpecFluent<
 
   public interface ResourceAttributesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<
-              io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-                      .ResourceAttributesNested<
-                  N>> {
+          V1ResourceAttributesFluent<V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<N>> {
     public N and();
 
     public N endResourceAttributes();

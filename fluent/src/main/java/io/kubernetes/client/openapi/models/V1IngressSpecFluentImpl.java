@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1IngressSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1IngressSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1IngressSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends BaseFluent<A>
+    implements V1IngressSpecFluent<A> {
   public V1IngressSpecFluentImpl() {}
 
   public V1IngressSpecFluentImpl(io.kubernetes.client.openapi.models.V1IngressSpec instance) {
@@ -32,17 +36,17 @@ public class V1IngressSpecFluentImpl<
     this.withTls(instance.getTls());
   }
 
-  private io.kubernetes.client.openapi.models.V1IngressBackendBuilder defaultBackend;
-  private java.lang.String ingressClassName;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressRuleBuilder> rules;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressTLSBuilder> tls;
+  private V1IngressBackendBuilder defaultBackend;
+  private String ingressClassName;
+  private ArrayList<V1IngressRuleBuilder> rules;
+  private java.util.ArrayList<V1IngressTLSBuilder> tls;
 
   /**
    * This method has been deprecated, please use method buildDefaultBackend instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1IngressBackend getDefaultBackend() {
     return this.defaultBackend != null ? this.defaultBackend.build() : null;
   }
@@ -54,27 +58,23 @@ public class V1IngressSpecFluentImpl<
   public A withDefaultBackend(io.kubernetes.client.openapi.models.V1IngressBackend defaultBackend) {
     _visitables.get("defaultBackend").remove(this.defaultBackend);
     if (defaultBackend != null) {
-      this.defaultBackend =
-          new io.kubernetes.client.openapi.models.V1IngressBackendBuilder(defaultBackend);
+      this.defaultBackend = new V1IngressBackendBuilder(defaultBackend);
       _visitables.get("defaultBackend").add(this.defaultBackend);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDefaultBackend() {
+  public Boolean hasDefaultBackend() {
     return this.defaultBackend != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
-      withNewDefaultBackend() {
-    return new io.kubernetes.client.openapi.models.V1IngressSpecFluentImpl
-        .DefaultBackendNestedImpl();
+  public V1IngressSpecFluent.DefaultBackendNested<A> withNewDefaultBackend() {
+    return new V1IngressSpecFluentImpl.DefaultBackendNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
       withNewDefaultBackendLike(io.kubernetes.client.openapi.models.V1IngressBackend item) {
-    return new io.kubernetes.client.openapi.models.V1IngressSpecFluentImpl.DefaultBackendNestedImpl(
-        item);
+    return new V1IngressSpecFluentImpl.DefaultBackendNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
@@ -108,17 +108,9 @@ public class V1IngressSpecFluentImpl<
     return this.ingressClassName != null;
   }
 
-  /** Method is deprecated. use withIngressClassName instead. */
-  @java.lang.Deprecated
-  public A withNewIngressClassName(java.lang.String original) {
-    return (A) withIngressClassName(new String(original));
-  }
-
-  public A addToRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressRule item) {
+  public A addToRules(Integer index, io.kubernetes.client.openapi.models.V1IngressRule item) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>();
+      this.rules = new java.util.ArrayList<V1IngressRuleBuilder>();
     }
     io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder =
         new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(item);
@@ -162,8 +154,7 @@ public class V1IngressSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1IngressRule> items) {
+  public A addAllToRules(Collection<io.kubernetes.client.openapi.models.V1IngressRule> items) {
     if (this.rules == null) {
       this.rules =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>();
@@ -203,8 +194,7 @@ public class V1IngressSpecFluentImpl<
   }
 
   public A removeMatchingFromRules(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1IngressRuleBuilder> predicate) {
     if (rules == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1IngressRuleBuilder> each =
         rules.iterator();
@@ -225,7 +215,7 @@ public class V1IngressSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1IngressRule> getRules() {
+  public List<io.kubernetes.client.openapi.models.V1IngressRule> getRules() {
     return rules != null ? build(rules) : null;
   }
 
@@ -298,8 +288,8 @@ public class V1IngressSpecFluentImpl<
     return rules != null && !rules.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> addNewRule() {
-    return new io.kubernetes.client.openapi.models.V1IngressSpecFluentImpl.RulesNestedImpl();
+  public V1IngressSpecFluent.RulesNested<A> addNewRule() {
+    return new V1IngressSpecFluentImpl.RulesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> addNewRuleLike(
@@ -348,7 +338,7 @@ public class V1IngressSpecFluentImpl<
   public A addToTls(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressTLS item) {
     if (this.tls == null) {
-      this.tls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>();
+      this.tls = new java.util.ArrayList<V1IngressTLSBuilder>();
     }
     io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder =
         new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(item);
@@ -524,8 +514,8 @@ public class V1IngressSpecFluentImpl<
     return tls != null && !tls.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> addNewTl() {
-    return new io.kubernetes.client.openapi.models.V1IngressSpecFluentImpl.TlsNestedImpl();
+  public V1IngressSpecFluent.TlsNested<A> addNewTl() {
+    return new V1IngressSpecFluentImpl.TlsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> addNewTlLike(
@@ -570,7 +560,7 @@ public class V1IngressSpecFluentImpl<
     return setNewTlLike(index, buildTl(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1IngressSpecFluentImpl that = (V1IngressSpecFluentImpl) o;
@@ -589,13 +579,35 @@ public class V1IngressSpecFluentImpl<
     return java.util.Objects.hash(defaultBackend, ingressClassName, rules, tls, super.hashCode());
   }
 
-  public class DefaultBackendNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1IngressBackendFluentImpl<
-          io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (defaultBackend != null) {
+      sb.append("defaultBackend:");
+      sb.append(defaultBackend + ",");
+    }
+    if (ingressClassName != null) {
+      sb.append("ingressClassName:");
+      sb.append(ingressClassName + ",");
+    }
+    if (rules != null && !rules.isEmpty()) {
+      sb.append("rules:");
+      sb.append(rules + ",");
+    }
+    if (tls != null && !tls.isEmpty()) {
+      sb.append("tls:");
+      sb.append(tls);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class DefaultBackendNestedImpl<N>
+      extends V1IngressBackendFluentImpl<V1IngressSpecFluent.DefaultBackendNested<N>>
       implements io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    DefaultBackendNestedImpl(io.kubernetes.client.openapi.models.V1IngressBackend item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1IngressBackendBuilder(this, item);
+          Nested<N> {
+    DefaultBackendNestedImpl(V1IngressBackend item) {
+      this.builder = new V1IngressBackendBuilder(this, item);
     }
 
     DefaultBackendNestedImpl() {
@@ -613,15 +625,13 @@ public class V1IngressSpecFluentImpl<
     }
   }
 
-  public class RulesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1IngressRuleFluentImpl<
-          io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<N>>
+  class RulesNestedImpl<N> extends V1IngressRuleFluentImpl<V1IngressSpecFluent.RulesNested<N>>
       implements io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     RulesNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressRule item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(this, item);
+      this.builder = new V1IngressRuleBuilder(this, item);
     }
 
     RulesNestedImpl() {
@@ -641,14 +651,12 @@ public class V1IngressSpecFluentImpl<
     }
   }
 
-  public class TlsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1IngressTLSFluentImpl<
-          io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<N>>
+  class TlsNestedImpl<N> extends V1IngressTLSFluentImpl<V1IngressSpecFluent.TlsNested<N>>
       implements io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     TlsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressTLS item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(this, item);
+      this.builder = new V1IngressTLSBuilder(this, item);
     }
 
     TlsNestedImpl() {

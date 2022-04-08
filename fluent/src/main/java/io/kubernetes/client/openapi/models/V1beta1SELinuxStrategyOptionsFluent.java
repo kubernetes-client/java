@@ -12,27 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
 public interface V1beta1SELinuxStrategyOptionsFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getRule();
+        A extends V1beta1SELinuxStrategyOptionsFluent<A>>
+    extends Fluent<A> {
+  public String getRule();
 
   public A withRule(java.lang.String rule);
 
-  public java.lang.Boolean hasRule();
-
-  /** Method is deprecated. use withRule instead. */
-  @java.lang.Deprecated
-  public A withNewRule(java.lang.String original);
+  public Boolean hasRule();
 
   /**
    * This method has been deprecated, please use method buildSeLinuxOptions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SELinuxOptions getSeLinuxOptions();
+  @Deprecated
+  public V1SELinuxOptions getSeLinuxOptions();
 
   public io.kubernetes.client.openapi.models.V1SELinuxOptions buildSeLinuxOptions();
 
@@ -40,10 +39,7 @@ public interface V1beta1SELinuxStrategyOptionsFluent<
 
   public java.lang.Boolean hasSeLinuxOptions();
 
-  public io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent
-              .SeLinuxOptionsNested<
-          A>
-      withNewSeLinuxOptions();
+  public V1beta1SELinuxStrategyOptionsFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptions();
 
   public io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent
               .SeLinuxOptionsNested<
@@ -66,11 +62,8 @@ public interface V1beta1SELinuxStrategyOptionsFluent<
       editOrNewSeLinuxOptionsLike(io.kubernetes.client.openapi.models.V1SELinuxOptions item);
 
   public interface SeLinuxOptionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<
-              io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent
-                      .SeLinuxOptionsNested<
-                  N>> {
+      extends Nested<N>,
+          V1SELinuxOptionsFluent<V1beta1SELinuxStrategyOptionsFluent.SeLinuxOptionsNested<N>> {
     public N and();
 
     public N endSeLinuxOptions();

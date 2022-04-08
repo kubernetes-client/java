@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public class V1beta1EventSeriesFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1EventSeriesFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1EventSeriesFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1EventSeriesFluentImpl<A extends V1beta1EventSeriesFluent<A>>
+    extends BaseFluent<A> implements V1beta1EventSeriesFluent<A> {
   public V1beta1EventSeriesFluentImpl() {}
 
   public V1beta1EventSeriesFluentImpl(
@@ -26,8 +28,8 @@ public class V1beta1EventSeriesFluentImpl<
     this.withLastObservedTime(instance.getLastObservedTime());
   }
 
-  private java.lang.Integer count;
-  private java.time.OffsetDateTime lastObservedTime;
+  private Integer count;
+  private OffsetDateTime lastObservedTime;
 
   public java.lang.Integer getCount() {
     return this.count;
@@ -38,7 +40,7 @@ public class V1beta1EventSeriesFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasCount() {
+  public Boolean hasCount() {
     return this.count != null;
   }
 
@@ -55,7 +57,7 @@ public class V1beta1EventSeriesFluentImpl<
     return this.lastObservedTime != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1EventSeriesFluentImpl that = (V1beta1EventSeriesFluentImpl) o;
@@ -68,5 +70,20 @@ public class V1beta1EventSeriesFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(count, lastObservedTime, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (count != null) {
+      sb.append("count:");
+      sb.append(count + ",");
+    }
+    if (lastObservedTime != null) {
+      sb.append("lastObservedTime:");
+      sb.append(lastObservedTime);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

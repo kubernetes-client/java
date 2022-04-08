@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1KeyToPathFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1KeyToPathFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1KeyToPathFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1KeyToPathFluentImpl<A extends V1KeyToPathFluent<A>> extends BaseFluent<A>
+    implements V1KeyToPathFluent<A> {
   public V1KeyToPathFluentImpl() {}
 
   public V1KeyToPathFluentImpl(io.kubernetes.client.openapi.models.V1KeyToPath instance) {
@@ -27,8 +28,8 @@ public class V1KeyToPathFluentImpl<
     this.withPath(instance.getPath());
   }
 
-  private java.lang.String key;
-  private java.lang.Integer mode;
+  private String key;
+  private Integer mode;
   private java.lang.String path;
 
   public java.lang.String getKey() {
@@ -40,14 +41,8 @@ public class V1KeyToPathFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasKey() {
+  public Boolean hasKey() {
     return this.key != null;
-  }
-
-  /** Method is deprecated. use withKey instead. */
-  @java.lang.Deprecated
-  public A withNewKey(java.lang.String original) {
-    return (A) withKey(new String(original));
   }
 
   public java.lang.Integer getMode() {
@@ -76,13 +71,7 @@ public class V1KeyToPathFluentImpl<
     return this.path != null;
   }
 
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A) withPath(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1KeyToPathFluentImpl that = (V1KeyToPathFluentImpl) o;
@@ -94,5 +83,24 @@ public class V1KeyToPathFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(key, mode, path, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (key != null) {
+      sb.append("key:");
+      sb.append(key + ",");
+    }
+    if (mode != null) {
+      sb.append("mode:");
+      sb.append(mode + ",");
+    }
+    if (path != null) {
+      sb.append("path:");
+      sb.append(path);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

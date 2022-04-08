@@ -12,18 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1beta1PodSecurityPolicyListFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1PodSecurityPolicyListFluentImpl<A extends V1beta1PodSecurityPolicyListFluent<A>>
+    extends BaseFluent<A> implements V1beta1PodSecurityPolicyListFluent<A> {
   public V1beta1PodSecurityPolicyListFluentImpl() {}
 
-  public V1beta1PodSecurityPolicyListFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyList instance) {
+  public V1beta1PodSecurityPolicyListFluentImpl(V1beta1PodSecurityPolicyList instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withItems(instance.getItems());
@@ -33,11 +36,10 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
     this.withMetadata(instance.getMetadata());
   }
 
-  private java.lang.String apiVersion;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyBuilder>
-      items;
+  private String apiVersion;
+  private ArrayList<V1beta1PodSecurityPolicyBuilder> items;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ListMetaBuilder metadata;
+  private V1ListMetaBuilder metadata;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -48,18 +50,12 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
   public A addToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy item) {
+      Integer index, io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy item) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<
@@ -110,7 +106,7 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
   }
 
   public A addAllToItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy> items) {
+      Collection<io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy> items) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<
@@ -151,9 +147,7 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
   }
 
   public A removeMatchingFromItems(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyBuilder> predicate) {
     if (items == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyBuilder> each =
         items.iterator();
@@ -173,8 +167,8 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy> getItems() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy> getItems() {
     return items != null ? build(items) : null;
   }
 
@@ -251,16 +245,13 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
     return items != null && !items.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent.ItemsNested<A>
-      addNewItem() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluentImpl
-        .ItemsNestedImpl();
+  public V1beta1PodSecurityPolicyListFluent.ItemsNested<A> addNewItem() {
+    return new V1beta1PodSecurityPolicyListFluentImpl.ItemsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent.ItemsNested<A>
       addNewItemLike(io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy item) {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluentImpl
-        .ItemsNestedImpl(-1, item);
+    return new V1beta1PodSecurityPolicyListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent.ItemsNested<A>
@@ -319,12 +310,6 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
@@ -342,7 +327,7 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(metadata);
+      this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -352,10 +337,8 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluentImpl
-        .MetadataNestedImpl();
+  public V1beta1PodSecurityPolicyListFluent.MetadataNested<A> withNewMetadata() {
+    return new V1beta1PodSecurityPolicyListFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent.MetadataNested<A>
@@ -382,7 +365,7 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1PodSecurityPolicyListFluentImpl that = (V1beta1PodSecurityPolicyListFluentImpl) o;
@@ -398,18 +381,37 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public class ItemsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent.ItemsNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (items != null && !items.isEmpty()) {
+      sb.append("items:");
+      sb.append(items + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ItemsNestedImpl<N>
+      extends V1beta1PodSecurityPolicyFluentImpl<V1beta1PodSecurityPolicyListFluent.ItemsNested<N>>
+      implements V1beta1PodSecurityPolicyListFluent.ItemsNested<N>, Nested<N> {
     ItemsNestedImpl(
         java.lang.Integer index,
         io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicy item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyBuilder(this, item);
+      this.builder = new V1beta1PodSecurityPolicyBuilder(this, item);
     }
 
     ItemsNestedImpl() {
@@ -429,15 +431,14 @@ public class V1beta1PodSecurityPolicyListFluentImpl<
     }
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ListMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent.MetadataNested<N>>
+  class MetadataNestedImpl<N>
+      extends V1ListMetaFluentImpl<V1beta1PodSecurityPolicyListFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicyListFluent
                   .MetadataNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ListMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this, item);
+    MetadataNestedImpl(V1ListMeta item) {
+      this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {

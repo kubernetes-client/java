@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
-public class V2beta1ResourceMetricSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta1ResourceMetricSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta1ResourceMetricSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2beta1ResourceMetricSourceFluentImpl<A extends V2beta1ResourceMetricSourceFluent<A>>
+    extends BaseFluent<A> implements V2beta1ResourceMetricSourceFluent<A> {
   public V2beta1ResourceMetricSourceFluentImpl() {}
 
   public V2beta1ResourceMetricSourceFluentImpl(
@@ -30,9 +30,9 @@ public class V2beta1ResourceMetricSourceFluentImpl<
     this.withTargetAverageValue(instance.getTargetAverageValue());
   }
 
-  private java.lang.String name;
-  private java.lang.Integer targetAverageUtilization;
-  private io.kubernetes.client.custom.Quantity targetAverageValue;
+  private String name;
+  private Integer targetAverageUtilization;
+  private Quantity targetAverageValue;
 
   public java.lang.String getName() {
     return this.name;
@@ -43,14 +43,8 @@ public class V2beta1ResourceMetricSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.Integer getTargetAverageUtilization() {
@@ -83,7 +77,7 @@ public class V2beta1ResourceMetricSourceFluentImpl<
     return (A) withTargetAverageValue(new Quantity(value));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta1ResourceMetricSourceFluentImpl that = (V2beta1ResourceMetricSourceFluentImpl) o;
@@ -100,5 +94,24 @@ public class V2beta1ResourceMetricSourceFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         name, targetAverageUtilization, targetAverageValue, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (targetAverageUtilization != null) {
+      sb.append("targetAverageUtilization:");
+      sb.append(targetAverageUtilization + ",");
+    }
+    if (targetAverageValue != null) {
+      sb.append("targetAverageValue:");
+      sb.append(targetAverageValue);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,23 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1ContainerImageFluent<
-        A extends io.kubernetes.client.openapi.models.V1ContainerImageFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToNames(java.lang.Integer index, java.lang.String item);
+public interface V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends Fluent<A> {
+  public A addToNames(Integer index, String item);
 
   public A setToNames(java.lang.Integer index, java.lang.String item);
 
   public A addToNames(java.lang.String... items);
 
-  public A addAllToNames(java.util.Collection<java.lang.String> items);
+  public A addAllToNames(Collection<java.lang.String> items);
 
   public A removeFromNames(java.lang.String... items);
 
   public A removeAllFromNames(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getNames();
+  public List<java.lang.String> getNames();
 
   public java.lang.String getName(java.lang.Integer index);
 
@@ -36,10 +39,9 @@ public interface V1ContainerImageFluent<
 
   public java.lang.String getLastName();
 
-  public java.lang.String getMatchingName(java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingName(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingName(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingName(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withNames(java.util.List<java.lang.String> names);
 
@@ -47,9 +49,7 @@ public interface V1ContainerImageFluent<
 
   public java.lang.Boolean hasNames();
 
-  public A addNewName(java.lang.String original);
-
-  public java.lang.Long getSizeBytes();
+  public Long getSizeBytes();
 
   public A withSizeBytes(java.lang.Long sizeBytes);
 

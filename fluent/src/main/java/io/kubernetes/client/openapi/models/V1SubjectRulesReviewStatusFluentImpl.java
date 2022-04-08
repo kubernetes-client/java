@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1SubjectRulesReviewStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1SubjectRulesReviewStatusFluentImpl<A extends V1SubjectRulesReviewStatusFluent<A>>
+    extends BaseFluent<A> implements V1SubjectRulesReviewStatusFluent<A> {
   public V1SubjectRulesReviewStatusFluentImpl() {}
 
   public V1SubjectRulesReviewStatusFluentImpl(
@@ -33,12 +37,10 @@ public class V1SubjectRulesReviewStatusFluentImpl<
     this.withResourceRules(instance.getResourceRules());
   }
 
-  private java.lang.String evaluationError;
-  private java.lang.Boolean incomplete;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder>
-      nonResourceRules;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ResourceRuleBuilder>
-      resourceRules;
+  private String evaluationError;
+  private Boolean incomplete;
+  private ArrayList<V1NonResourceRuleBuilder> nonResourceRules;
+  private java.util.ArrayList<V1ResourceRuleBuilder> resourceRules;
 
   public java.lang.String getEvaluationError() {
     return this.evaluationError;
@@ -51,12 +53,6 @@ public class V1SubjectRulesReviewStatusFluentImpl<
 
   public java.lang.Boolean hasEvaluationError() {
     return this.evaluationError != null;
-  }
-
-  /** Method is deprecated. use withEvaluationError instead. */
-  @java.lang.Deprecated
-  public A withNewEvaluationError(java.lang.String original) {
-    return (A) withEvaluationError(new String(original));
   }
 
   public java.lang.Boolean getIncomplete() {
@@ -73,10 +69,9 @@ public class V1SubjectRulesReviewStatusFluentImpl<
   }
 
   public A addToNonResourceRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NonResourceRule item) {
+      Integer index, io.kubernetes.client.openapi.models.V1NonResourceRule item) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder>();
+      this.nonResourceRules = new java.util.ArrayList<V1NonResourceRuleBuilder>();
     }
     io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder builder =
         new io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder(item);
@@ -123,7 +118,7 @@ public class V1SubjectRulesReviewStatusFluentImpl<
   }
 
   public A addAllToNonResourceRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NonResourceRule> items) {
+      Collection<io.kubernetes.client.openapi.models.V1NonResourceRule> items) {
     if (this.nonResourceRules == null) {
       this.nonResourceRules =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder>();
@@ -164,8 +159,7 @@ public class V1SubjectRulesReviewStatusFluentImpl<
   }
 
   public A removeMatchingFromNonResourceRules(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder> predicate) {
     if (nonResourceRules == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder> each =
         nonResourceRules.iterator();
@@ -185,9 +179,8 @@ public class V1SubjectRulesReviewStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1NonResourceRule>
-      getNonResourceRules() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1NonResourceRule> getNonResourceRules() {
     return nonResourceRules != null ? build(nonResourceRules) : null;
   }
 
@@ -264,20 +257,15 @@ public class V1SubjectRulesReviewStatusFluentImpl<
     return nonResourceRules != null && !nonResourceRules.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent
-              .NonResourceRulesNested<
-          A>
-      addNewNonResourceRule() {
-    return new io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluentImpl
-        .NonResourceRulesNestedImpl();
+  public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> addNewNonResourceRule() {
+    return new V1SubjectRulesReviewStatusFluentImpl.NonResourceRulesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent
               .NonResourceRulesNested<
           A>
       addNewNonResourceRuleLike(io.kubernetes.client.openapi.models.V1NonResourceRule item) {
-    return new io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluentImpl
-        .NonResourceRulesNestedImpl(-1, item);
+    return new V1SubjectRulesReviewStatusFluentImpl.NonResourceRulesNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent
@@ -338,8 +326,7 @@ public class V1SubjectRulesReviewStatusFluentImpl<
   public A addToResourceRules(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1ResourceRule item) {
     if (this.resourceRules == null) {
-      this.resourceRules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ResourceRuleBuilder>();
+      this.resourceRules = new java.util.ArrayList<V1ResourceRuleBuilder>();
     }
     io.kubernetes.client.openapi.models.V1ResourceRuleBuilder builder =
         new io.kubernetes.client.openapi.models.V1ResourceRuleBuilder(item);
@@ -523,10 +510,8 @@ public class V1SubjectRulesReviewStatusFluentImpl<
     return resourceRules != null && !resourceRules.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A>
-      addNewResourceRule() {
-    return new io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluentImpl
-        .ResourceRulesNestedImpl();
+  public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> addNewResourceRule() {
+    return new V1SubjectRulesReviewStatusFluentImpl.ResourceRulesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A>
@@ -578,7 +563,7 @@ public class V1SubjectRulesReviewStatusFluentImpl<
     return setNewResourceRuleLike(index, buildResourceRule(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1SubjectRulesReviewStatusFluentImpl that = (V1SubjectRulesReviewStatusFluentImpl) o;
@@ -601,19 +586,44 @@ public class V1SubjectRulesReviewStatusFluentImpl<
         evaluationError, incomplete, nonResourceRules, resourceRules, super.hashCode());
   }
 
-  public class NonResourceRulesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NonResourceRuleFluentImpl<
-          io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent
-                  .NonResourceRulesNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (evaluationError != null) {
+      sb.append("evaluationError:");
+      sb.append(evaluationError + ",");
+    }
+    if (incomplete != null) {
+      sb.append("incomplete:");
+      sb.append(incomplete + ",");
+    }
+    if (nonResourceRules != null && !nonResourceRules.isEmpty()) {
+      sb.append("nonResourceRules:");
+      sb.append(nonResourceRules + ",");
+    }
+    if (resourceRules != null && !resourceRules.isEmpty()) {
+      sb.append("resourceRules:");
+      sb.append(resourceRules);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withIncomplete() {
+    return withIncomplete(true);
+  }
+
+  class NonResourceRulesNestedImpl<N>
+      extends V1NonResourceRuleFluentImpl<
+          V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<N>>
       implements io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent
                   .NonResourceRulesNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     NonResourceRulesNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1NonResourceRule item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1NonResourceRuleBuilder(this, item);
+      this.builder = new V1NonResourceRuleBuilder(this, item);
     }
 
     NonResourceRulesNestedImpl() {
@@ -634,10 +644,8 @@ public class V1SubjectRulesReviewStatusFluentImpl<
     }
   }
 
-  public class ResourceRulesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ResourceRuleFluentImpl<
-          io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent.ResourceRulesNested<
-              N>>
+  class ResourceRulesNestedImpl<N>
+      extends V1ResourceRuleFluentImpl<V1SubjectRulesReviewStatusFluent.ResourceRulesNested<N>>
       implements io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent
                   .ResourceRulesNested<
               N>,
@@ -645,7 +653,7 @@ public class V1SubjectRulesReviewStatusFluentImpl<
     ResourceRulesNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1ResourceRule item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ResourceRuleBuilder(this, item);
+      this.builder = new V1ResourceRuleBuilder(this, item);
     }
 
     ResourceRulesNestedImpl() {

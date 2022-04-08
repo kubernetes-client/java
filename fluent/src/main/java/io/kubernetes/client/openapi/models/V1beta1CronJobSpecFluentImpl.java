@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1beta1CronJobSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1CronJobSpecFluentImpl<A extends V1beta1CronJobSpecFluent<A>>
+    extends BaseFluent<A> implements V1beta1CronJobSpecFluent<A> {
   public V1beta1CronJobSpecFluentImpl() {}
 
   public V1beta1CronJobSpecFluentImpl(
@@ -36,13 +38,13 @@ public class V1beta1CronJobSpecFluentImpl<
     this.withSuspend(instance.getSuspend());
   }
 
-  private java.lang.String concurrencyPolicy;
-  private java.lang.Integer failedJobsHistoryLimit;
-  private io.kubernetes.client.openapi.models.V1beta1JobTemplateSpecBuilder jobTemplate;
+  private String concurrencyPolicy;
+  private Integer failedJobsHistoryLimit;
+  private V1beta1JobTemplateSpecBuilder jobTemplate;
   private java.lang.String schedule;
-  private java.lang.Long startingDeadlineSeconds;
+  private Long startingDeadlineSeconds;
   private java.lang.Integer successfulJobsHistoryLimit;
-  private java.lang.Boolean suspend;
+  private Boolean suspend;
 
   public java.lang.String getConcurrencyPolicy() {
     return this.concurrencyPolicy;
@@ -55,12 +57,6 @@ public class V1beta1CronJobSpecFluentImpl<
 
   public java.lang.Boolean hasConcurrencyPolicy() {
     return this.concurrencyPolicy != null;
-  }
-
-  /** Method is deprecated. use withConcurrencyPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewConcurrencyPolicy(java.lang.String original) {
-    return (A) withConcurrencyPolicy(new String(original));
   }
 
   public java.lang.Integer getFailedJobsHistoryLimit() {
@@ -81,8 +77,8 @@ public class V1beta1CronJobSpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec getJobTemplate() {
+  @Deprecated
+  public V1beta1JobTemplateSpec getJobTemplate() {
     return this.jobTemplate != null ? this.jobTemplate.build() : null;
   }
 
@@ -104,16 +100,13 @@ public class V1beta1CronJobSpecFluentImpl<
     return this.jobTemplate != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent.JobTemplateNested<A>
-      withNewJobTemplate() {
-    return new io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluentImpl
-        .JobTemplateNestedImpl();
+  public V1beta1CronJobSpecFluent.JobTemplateNested<A> withNewJobTemplate() {
+    return new V1beta1CronJobSpecFluentImpl.JobTemplateNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent.JobTemplateNested<A>
       withNewJobTemplateLike(io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec item) {
-    return new io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluentImpl
-        .JobTemplateNestedImpl(item);
+    return new V1beta1CronJobSpecFluentImpl.JobTemplateNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent.JobTemplateNested<A>
@@ -145,12 +138,6 @@ public class V1beta1CronJobSpecFluentImpl<
 
   public java.lang.Boolean hasSchedule() {
     return this.schedule != null;
-  }
-
-  /** Method is deprecated. use withSchedule instead. */
-  @java.lang.Deprecated
-  public A withNewSchedule(java.lang.String original) {
-    return (A) withSchedule(new String(original));
   }
 
   public java.lang.Long getStartingDeadlineSeconds() {
@@ -192,7 +179,7 @@ public class V1beta1CronJobSpecFluentImpl<
     return this.suspend != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1CronJobSpecFluentImpl that = (V1beta1CronJobSpecFluentImpl) o;
@@ -227,14 +214,51 @@ public class V1beta1CronJobSpecFluentImpl<
         super.hashCode());
   }
 
-  public class JobTemplateNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1JobTemplateSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent.JobTemplateNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (concurrencyPolicy != null) {
+      sb.append("concurrencyPolicy:");
+      sb.append(concurrencyPolicy + ",");
+    }
+    if (failedJobsHistoryLimit != null) {
+      sb.append("failedJobsHistoryLimit:");
+      sb.append(failedJobsHistoryLimit + ",");
+    }
+    if (jobTemplate != null) {
+      sb.append("jobTemplate:");
+      sb.append(jobTemplate + ",");
+    }
+    if (schedule != null) {
+      sb.append("schedule:");
+      sb.append(schedule + ",");
+    }
+    if (startingDeadlineSeconds != null) {
+      sb.append("startingDeadlineSeconds:");
+      sb.append(startingDeadlineSeconds + ",");
+    }
+    if (successfulJobsHistoryLimit != null) {
+      sb.append("successfulJobsHistoryLimit:");
+      sb.append(successfulJobsHistoryLimit + ",");
+    }
+    if (suspend != null) {
+      sb.append("suspend:");
+      sb.append(suspend);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withSuspend() {
+    return withSuspend(true);
+  }
+
+  class JobTemplateNestedImpl<N>
+      extends V1beta1JobTemplateSpecFluentImpl<V1beta1CronJobSpecFluent.JobTemplateNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent.JobTemplateNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    JobTemplateNestedImpl(io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1JobTemplateSpecBuilder(this, item);
+          Nested<N> {
+    JobTemplateNestedImpl(V1beta1JobTemplateSpec item) {
+      this.builder = new V1beta1JobTemplateSpecBuilder(this, item);
     }
 
     JobTemplateNestedImpl() {

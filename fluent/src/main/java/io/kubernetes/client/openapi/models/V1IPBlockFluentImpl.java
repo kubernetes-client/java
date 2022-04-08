@@ -12,10 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V1IPBlockFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1IPBlockFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluent<A>
+    implements V1IPBlockFluent<A> {
   public V1IPBlockFluentImpl() {}
 
   public V1IPBlockFluentImpl(io.kubernetes.client.openapi.models.V1IPBlock instance) {
@@ -24,8 +30,8 @@ public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V
     this.withExcept(instance.getExcept());
   }
 
-  private java.lang.String cidr;
-  private java.util.List<java.lang.String> except;
+  private String cidr;
+  private List<java.lang.String> except;
 
   public java.lang.String getCidr() {
     return this.cidr;
@@ -36,19 +42,13 @@ public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return (A) this;
   }
 
-  public java.lang.Boolean hasCidr() {
+  public Boolean hasCidr() {
     return this.cidr != null;
   }
 
-  /** Method is deprecated. use withCidr instead. */
-  @java.lang.Deprecated
-  public A withNewCidr(java.lang.String original) {
-    return (A) withCidr(new String(original));
-  }
-
-  public A addToExcept(java.lang.Integer index, java.lang.String item) {
+  public A addToExcept(Integer index, java.lang.String item) {
     if (this.except == null) {
-      this.except = new java.util.ArrayList<java.lang.String>();
+      this.except = new ArrayList<java.lang.String>();
     }
     this.except.add(index, item);
     return (A) this;
@@ -72,7 +72,7 @@ public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return (A) this;
   }
 
-  public A addAllToExcept(java.util.Collection<java.lang.String> items) {
+  public A addAllToExcept(Collection<java.lang.String> items) {
     if (this.except == null) {
       this.except = new java.util.ArrayList<java.lang.String>();
     }
@@ -116,8 +116,7 @@ public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.except.get(except.size() - 1);
   }
 
-  public java.lang.String getMatchingExcept(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingExcept(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : except) {
       if (predicate.test(item)) {
         return item;
@@ -164,11 +163,7 @@ public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return except != null && !except.isEmpty();
   }
 
-  public A addNewExcept(java.lang.String original) {
-    return (A) addToExcept(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1IPBlockFluentImpl that = (V1IPBlockFluentImpl) o;
@@ -179,5 +174,20 @@ public class V1IPBlockFluentImpl<A extends io.kubernetes.client.openapi.models.V
 
   public int hashCode() {
     return java.util.Objects.hash(cidr, except, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (cidr != null) {
+      sb.append("cidr:");
+      sb.append(cidr + ",");
+    }
+    if (except != null && !except.isEmpty()) {
+      sb.append("except:");
+      sb.append(except);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

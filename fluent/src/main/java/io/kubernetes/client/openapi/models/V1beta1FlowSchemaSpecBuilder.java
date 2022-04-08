@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta1FlowSchemaSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1beta1FlowSchemaSpecFluentImpl<V1beta1FlowSchemaSpecBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpec,
         io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecBuilder> {
   public V1beta1FlowSchemaSpecBuilder() {
     this(false);
   }
 
-  public V1beta1FlowSchemaSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1FlowSchemaSpecBuilder(Boolean validationEnabled) {
     this(new V1beta1FlowSchemaSpec(), validationEnabled);
   }
 
-  public V1beta1FlowSchemaSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent<?> fluent) {
+  public V1beta1FlowSchemaSpecBuilder(V1beta1FlowSchemaSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -89,24 +89,5 @@ public class V1beta1FlowSchemaSpecBuilder
     buildable.setPriorityLevelConfiguration(fluent.getPriorityLevelConfiguration());
     buildable.setRules(fluent.getRules());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1FlowSchemaSpecBuilder that = (V1beta1FlowSchemaSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

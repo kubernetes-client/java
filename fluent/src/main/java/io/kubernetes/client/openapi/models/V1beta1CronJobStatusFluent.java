@@ -12,37 +12,39 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.time.OffsetDateTime;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1beta1CronJobStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToActive(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item);
+public interface V1beta1CronJobStatusFluent<A extends V1beta1CronJobStatusFluent<A>>
+    extends Fluent<A> {
+  public A addToActive(Integer index, V1ObjectReference item);
 
   public A setToActive(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item);
 
   public A addToActive(io.kubernetes.client.openapi.models.V1ObjectReference... items);
 
-  public A addAllToActive(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items);
+  public A addAllToActive(Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items);
 
   public A removeFromActive(io.kubernetes.client.openapi.models.V1ObjectReference... items);
 
   public A removeAllFromActive(
       java.util.Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items);
 
-  public A removeMatchingFromActive(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-          predicate);
+  public A removeMatchingFromActive(Predicate<V1ObjectReferenceBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildActive instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> getActive();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1ObjectReference> getActive();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> buildActive();
 
@@ -56,7 +58,7 @@ public interface V1beta1CronJobStatusFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingActive(
+  public Boolean hasMatchingActive(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
           predicate);
 
@@ -66,8 +68,7 @@ public interface V1beta1CronJobStatusFluent<
 
   public java.lang.Boolean hasActive();
 
-  public io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<A>
-      addNewActive();
+  public V1beta1CronJobStatusFluent.ActiveNested<A> addNewActive();
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<A>
       addNewActiveLike(io.kubernetes.client.openapi.models.V1ObjectReference item);
@@ -90,7 +91,7 @@ public interface V1beta1CronJobStatusFluent<
           java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
               predicate);
 
-  public java.time.OffsetDateTime getLastScheduleTime();
+  public OffsetDateTime getLastScheduleTime();
 
   public A withLastScheduleTime(java.time.OffsetDateTime lastScheduleTime);
 
@@ -103,9 +104,7 @@ public interface V1beta1CronJobStatusFluent<
   public java.lang.Boolean hasLastSuccessfulTime();
 
   public interface ActiveNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<N>> {
+      extends Nested<N>, V1ObjectReferenceFluent<V1beta1CronJobStatusFluent.ActiveNested<N>> {
     public N and();
 
     public N endActive();

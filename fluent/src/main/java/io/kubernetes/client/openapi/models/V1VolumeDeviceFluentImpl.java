@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1VolumeDeviceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1VolumeDeviceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1VolumeDeviceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1VolumeDeviceFluentImpl<A extends V1VolumeDeviceFluent<A>> extends BaseFluent<A>
+    implements V1VolumeDeviceFluent<A> {
   public V1VolumeDeviceFluentImpl() {}
 
   public V1VolumeDeviceFluentImpl(io.kubernetes.client.openapi.models.V1VolumeDevice instance) {
@@ -25,7 +26,7 @@ public class V1VolumeDeviceFluentImpl<
     this.withName(instance.getName());
   }
 
-  private java.lang.String devicePath;
+  private String devicePath;
   private java.lang.String name;
 
   public java.lang.String getDevicePath() {
@@ -37,14 +38,8 @@ public class V1VolumeDeviceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasDevicePath() {
+  public Boolean hasDevicePath() {
     return this.devicePath != null;
-  }
-
-  /** Method is deprecated. use withDevicePath instead. */
-  @java.lang.Deprecated
-  public A withNewDevicePath(java.lang.String original) {
-    return (A) withDevicePath(new String(original));
   }
 
   public java.lang.String getName() {
@@ -60,13 +55,7 @@ public class V1VolumeDeviceFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1VolumeDeviceFluentImpl that = (V1VolumeDeviceFluentImpl) o;
@@ -78,5 +67,20 @@ public class V1VolumeDeviceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(devicePath, name, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (devicePath != null) {
+      sb.append("devicePath:");
+      sb.append(devicePath + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,29 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1CustomResourceValidationFluent<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1CustomResourceValidationFluent<A extends V1CustomResourceValidationFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildOpenAPIV3Schema instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps getOpenAPIV3Schema();
+  @Deprecated
+  public V1JSONSchemaProps getOpenAPIV3Schema();
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildOpenAPIV3Schema();
 
   public A withOpenAPIV3Schema(
       io.kubernetes.client.openapi.models.V1JSONSchemaProps openAPIV3Schema);
 
-  public java.lang.Boolean hasOpenAPIV3Schema();
+  public Boolean hasOpenAPIV3Schema();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<
-          A>
-      withNewOpenAPIV3Schema();
+  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> withNewOpenAPIV3Schema();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<
           A>
@@ -53,11 +53,8 @@ public interface V1CustomResourceValidationFluent<
       editOrNewOpenAPIV3SchemaLike(io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
 
   public interface OpenAPIV3SchemaNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent
-                      .OpenAPIV3SchemaNested<
-                  N>> {
+      extends Nested<N>,
+          V1JSONSchemaPropsFluent<V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<N>> {
     public N and();
 
     public N endOpenAPIV3Schema();

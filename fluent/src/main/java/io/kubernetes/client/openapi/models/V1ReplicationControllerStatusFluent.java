@@ -12,19 +12,23 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1ReplicationControllerStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getAvailableReplicas();
+        A extends V1ReplicationControllerStatusFluent<A>>
+    extends Fluent<A> {
+  public Integer getAvailableReplicas();
 
   public A withAvailableReplicas(java.lang.Integer availableReplicas);
 
-  public java.lang.Boolean hasAvailableReplicas();
+  public Boolean hasAvailableReplicas();
 
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item);
+  public A addToConditions(java.lang.Integer index, V1ReplicationControllerCondition item);
 
   public A setToConditions(
       java.lang.Integer index,
@@ -34,8 +38,7 @@ public interface V1ReplicationControllerStatusFluent<
       io.kubernetes.client.openapi.models.V1ReplicationControllerCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition>
-          items);
+      Collection<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition> items);
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1ReplicationControllerCondition... items);
@@ -45,18 +48,15 @@ public interface V1ReplicationControllerStatusFluent<
           items);
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>
-          predicate);
+      Predicate<V1ReplicationControllerConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition>
-      getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition>
       buildConditions();
@@ -88,8 +88,7 @@ public interface V1ReplicationControllerStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent.ConditionsNested<A>
       addNewConditionLike(
@@ -121,7 +120,7 @@ public interface V1ReplicationControllerStatusFluent<
 
   public java.lang.Boolean hasFullyLabeledReplicas();
 
-  public java.lang.Long getObservedGeneration();
+  public Long getObservedGeneration();
 
   public A withObservedGeneration(java.lang.Long observedGeneration);
 
@@ -140,11 +139,9 @@ public interface V1ReplicationControllerStatusFluent<
   public java.lang.Boolean hasReplicas();
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ReplicationControllerConditionFluent<
-              io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent
-                      .ConditionsNested<
-                  N>> {
+      extends Nested<N>,
+          V1ReplicationControllerConditionFluent<
+              V1ReplicationControllerStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

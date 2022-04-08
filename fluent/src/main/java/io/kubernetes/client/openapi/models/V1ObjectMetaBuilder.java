@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1ObjectMetaBuilder
-    extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-        io.kubernetes.client.openapi.models.V1ObjectMetaBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ObjectMeta,
-        io.kubernetes.client.openapi.models.V1ObjectMetaBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1ObjectMetaBuilder extends V1ObjectMetaFluentImpl<V1ObjectMetaBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1ObjectMeta, V1ObjectMetaBuilder> {
   public V1ObjectMetaBuilder() {
     this(false);
   }
 
-  public V1ObjectMetaBuilder(java.lang.Boolean validationEnabled) {
+  public V1ObjectMetaBuilder(Boolean validationEnabled) {
     this(new V1ObjectMeta(), validationEnabled);
   }
 
@@ -147,24 +146,5 @@ public class V1ObjectMetaBuilder
     buildable.setSelfLink(fluent.getSelfLink());
     buildable.setUid(fluent.getUid());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1ObjectMetaBuilder that = (V1ObjectMetaBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

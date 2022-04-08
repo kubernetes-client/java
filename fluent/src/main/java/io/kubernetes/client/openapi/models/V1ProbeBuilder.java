@@ -12,17 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1ProbeBuilder
-    extends io.kubernetes.client.openapi.models.V1ProbeFluentImpl<
-        io.kubernetes.client.openapi.models.V1ProbeBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1Probe,
-        io.kubernetes.client.openapi.models.V1ProbeBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1ProbeBuilder extends V1ProbeFluentImpl<V1ProbeBuilder>
+    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1Probe, V1ProbeBuilder> {
   public V1ProbeBuilder() {
     this(false);
   }
 
-  public V1ProbeBuilder(java.lang.Boolean validationEnabled) {
+  public V1ProbeBuilder(Boolean validationEnabled) {
     this(new V1Probe(), validationEnabled);
   }
 
@@ -116,24 +114,5 @@ public class V1ProbeBuilder
     buildable.setTerminationGracePeriodSeconds(fluent.getTerminationGracePeriodSeconds());
     buildable.setTimeoutSeconds(fluent.getTimeoutSeconds());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1ProbeBuilder that = (V1ProbeBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

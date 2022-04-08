@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1ResourceAttributesBuilder
-    extends io.kubernetes.client.openapi.models.V1ResourceAttributesFluentImpl<
-        io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1ResourceAttributesFluentImpl<V1ResourceAttributesBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1ResourceAttributes,
         io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder> {
   public V1ResourceAttributesBuilder() {
     this(false);
   }
 
-  public V1ResourceAttributesBuilder(java.lang.Boolean validationEnabled) {
+  public V1ResourceAttributesBuilder(Boolean validationEnabled) {
     this(new V1ResourceAttributes(), validationEnabled);
   }
 
-  public V1ResourceAttributesBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<?> fluent) {
+  public V1ResourceAttributesBuilder(V1ResourceAttributesFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -104,24 +104,5 @@ public class V1ResourceAttributesBuilder
     buildable.setVerb(fluent.getVerb());
     buildable.setVersion(fluent.getVersion());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1ResourceAttributesBuilder that = (V1ResourceAttributesBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

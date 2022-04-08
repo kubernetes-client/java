@@ -12,10 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1JobFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1JobFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1JobFluentImpl<A extends V1JobFluent<A>> extends BaseFluent<A>
+    implements V1JobFluent<A> {
   public V1JobFluentImpl() {}
 
   public V1JobFluentImpl(io.kubernetes.client.openapi.models.V1Job instance) {
@@ -30,11 +33,11 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     this.withStatus(instance.getStatus());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1JobSpecBuilder spec;
-  private io.kubernetes.client.openapi.models.V1JobStatusBuilder status;
+  private V1ObjectMetaBuilder metadata;
+  private V1JobSpecBuilder spec;
+  private V1JobStatusBuilder status;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -45,14 +48,8 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -68,18 +65,12 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -91,7 +82,7 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -101,13 +92,13 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JobFluent.MetadataNested<A> withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1JobFluentImpl.MetadataNestedImpl();
+  public V1JobFluent.MetadataNested<A> withNewMetadata() {
+    return new V1JobFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JobFluent.MetadataNested<A> withNewMetadataLike(
       io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1JobFluentImpl.MetadataNestedImpl(item);
+    return new V1JobFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1JobFluent.MetadataNested<A> editMetadata() {
@@ -132,7 +123,7 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1JobSpec getSpec() {
+  public V1JobSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
@@ -153,8 +144,8 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JobFluent.SpecNested<A> withNewSpec() {
-    return new io.kubernetes.client.openapi.models.V1JobFluentImpl.SpecNestedImpl();
+  public V1JobFluent.SpecNested<A> withNewSpec() {
+    return new V1JobFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JobFluent.SpecNested<A> withNewSpecLike(
@@ -184,7 +175,7 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1JobStatus getStatus() {
+  public V1JobStatus getStatus() {
     return this.status != null ? this.status.build() : null;
   }
 
@@ -205,8 +196,8 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     return this.status != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JobFluent.StatusNested<A> withNewStatus() {
-    return new io.kubernetes.client.openapi.models.V1JobFluentImpl.StatusNestedImpl();
+  public V1JobFluent.StatusNested<A> withNewStatus() {
+    return new V1JobFluentImpl.StatusNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JobFluent.StatusNested<A> withNewStatusLike(
@@ -230,7 +221,7 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     return withNewStatusLike(getStatus() != null ? getStatus() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1JobFluentImpl that = (V1JobFluentImpl) o;
@@ -247,13 +238,37 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, status, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1JobFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JobFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1JobFluent.MetadataNested<N>>
+      implements io.kubernetes.client.openapi.models.V1JobFluent.MetadataNested<N>, Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -271,13 +286,11 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1JobSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1JobFluent.SpecNested<N>>
+  class SpecNestedImpl<N> extends V1JobSpecFluentImpl<V1JobFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.V1JobFluent.SpecNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     SpecNestedImpl(io.kubernetes.client.openapi.models.V1JobSpec item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1JobSpecBuilder(this, item);
+      this.builder = new V1JobSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
@@ -295,13 +308,11 @@ public class V1JobFluentImpl<A extends io.kubernetes.client.openapi.models.V1Job
     }
   }
 
-  public class StatusNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1JobStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1JobFluent.StatusNested<N>>
+  class StatusNestedImpl<N> extends V1JobStatusFluentImpl<V1JobFluent.StatusNested<N>>
       implements io.kubernetes.client.openapi.models.V1JobFluent.StatusNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     StatusNestedImpl(io.kubernetes.client.openapi.models.V1JobStatus item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1JobStatusBuilder(this, item);
+      this.builder = new V1JobStatusBuilder(this, item);
     }
 
     StatusNestedImpl() {

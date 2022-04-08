@@ -12,14 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1alpha1SchedulingFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1alpha1SchedulingFluentImpl<A extends V1alpha1SchedulingFluent<A>>
+    extends BaseFluent<A> implements V1alpha1SchedulingFluent<A> {
   public V1alpha1SchedulingFluentImpl() {}
 
   public V1alpha1SchedulingFluentImpl(
@@ -29,12 +35,12 @@ public class V1alpha1SchedulingFluentImpl<
     this.withTolerations(instance.getTolerations());
   }
 
-  private java.util.Map<java.lang.String, java.lang.String> nodeSelector;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1TolerationBuilder> tolerations;
+  private Map<String, java.lang.String> nodeSelector;
+  private ArrayList<V1TolerationBuilder> tolerations;
 
   public A addToNodeSelector(java.lang.String key, java.lang.String value) {
     if (this.nodeSelector == null && key != null && value != null) {
-      this.nodeSelector = new java.util.LinkedHashMap();
+      this.nodeSelector = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.nodeSelector.put(key, value);
@@ -89,12 +95,11 @@ public class V1alpha1SchedulingFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasNodeSelector() {
+  public Boolean hasNodeSelector() {
     return this.nodeSelector != null;
   }
 
-  public A addToTolerations(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Toleration item) {
+  public A addToTolerations(Integer index, V1Toleration item) {
     if (this.tolerations == null) {
       this.tolerations =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1TolerationBuilder>();
@@ -143,8 +148,7 @@ public class V1alpha1SchedulingFluentImpl<
     return (A) this;
   }
 
-  public A addAllToTolerations(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Toleration> items) {
+  public A addAllToTolerations(Collection<io.kubernetes.client.openapi.models.V1Toleration> items) {
     if (this.tolerations == null) {
       this.tolerations =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1TolerationBuilder>();
@@ -184,8 +188,7 @@ public class V1alpha1SchedulingFluentImpl<
   }
 
   public A removeMatchingFromTolerations(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1TolerationBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1TolerationBuilder> predicate) {
     if (tolerations == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1TolerationBuilder> each =
         tolerations.iterator();
@@ -205,8 +208,8 @@ public class V1alpha1SchedulingFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Toleration> getTolerations() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1Toleration> getTolerations() {
     return tolerations != null ? build(tolerations) : null;
   }
 
@@ -280,16 +283,13 @@ public class V1alpha1SchedulingFluentImpl<
     return tolerations != null && !tolerations.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent.TolerationsNested<A>
-      addNewToleration() {
-    return new io.kubernetes.client.openapi.models.V1alpha1SchedulingFluentImpl
-        .TolerationsNestedImpl();
+  public V1alpha1SchedulingFluent.TolerationsNested<A> addNewToleration() {
+    return new V1alpha1SchedulingFluentImpl.TolerationsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent.TolerationsNested<A>
       addNewTolerationLike(io.kubernetes.client.openapi.models.V1Toleration item) {
-    return new io.kubernetes.client.openapi.models.V1alpha1SchedulingFluentImpl
-        .TolerationsNestedImpl(-1, item);
+    return new V1alpha1SchedulingFluentImpl.TolerationsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent.TolerationsNested<A>
@@ -335,7 +335,7 @@ public class V1alpha1SchedulingFluentImpl<
     return setNewTolerationLike(index, buildToleration(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1alpha1SchedulingFluentImpl that = (V1alpha1SchedulingFluentImpl) o;
@@ -350,15 +350,29 @@ public class V1alpha1SchedulingFluentImpl<
     return java.util.Objects.hash(nodeSelector, tolerations, super.hashCode());
   }
 
-  public class TolerationsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TolerationFluentImpl<
-          io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent.TolerationsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (nodeSelector != null && !nodeSelector.isEmpty()) {
+      sb.append("nodeSelector:");
+      sb.append(nodeSelector + ",");
+    }
+    if (tolerations != null && !tolerations.isEmpty()) {
+      sb.append("tolerations:");
+      sb.append(tolerations);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class TolerationsNestedImpl<N>
+      extends V1TolerationFluentImpl<V1alpha1SchedulingFluent.TolerationsNested<N>>
       implements io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent.TolerationsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     TolerationsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1Toleration item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1TolerationBuilder(this, item);
+      this.builder = new V1TolerationBuilder(this, item);
     }
 
     TolerationsNestedImpl() {

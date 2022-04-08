@@ -12,22 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V1PodSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Long getActiveDeadlineSeconds();
+public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A> {
+  public Long getActiveDeadlineSeconds();
 
   public A withActiveDeadlineSeconds(java.lang.Long activeDeadlineSeconds);
 
-  public java.lang.Boolean hasActiveDeadlineSeconds();
+  public Boolean hasActiveDeadlineSeconds();
 
   /**
    * This method has been deprecated, please use method buildAffinity instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1Affinity getAffinity();
+  @Deprecated
+  public V1Affinity getAffinity();
 
   public io.kubernetes.client.openapi.models.V1Affinity buildAffinity();
 
@@ -35,7 +42,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasAffinity();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<A> withNewAffinity();
+  public V1PodSpecFluent.AffinityNested<A> withNewAffinity();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<A> withNewAffinityLike(
       io.kubernetes.client.openapi.models.V1Affinity item);
@@ -53,25 +60,21 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasAutomountServiceAccountToken();
 
-  public A addToContainers(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Container item);
+  public A addToContainers(Integer index, V1Container item);
 
   public A setToContainers(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1Container item);
 
   public A addToContainers(io.kubernetes.client.openapi.models.V1Container... items);
 
-  public A addAllToContainers(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Container> items);
+  public A addAllToContainers(Collection<io.kubernetes.client.openapi.models.V1Container> items);
 
   public A removeFromContainers(io.kubernetes.client.openapi.models.V1Container... items);
 
   public A removeAllFromContainers(
       java.util.Collection<io.kubernetes.client.openapi.models.V1Container> items);
 
-  public A removeMatchingFromContainers(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerBuilder>
-          predicate);
+  public A removeMatchingFromContainers(Predicate<V1ContainerBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildContainers instead.
@@ -79,7 +82,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Container> getContainers();
+  public List<io.kubernetes.client.openapi.models.V1Container> getContainers();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1Container> buildContainers();
 
@@ -104,7 +107,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasContainers();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.ContainersNested<A> addNewContainer();
+  public V1PodSpecFluent.ContainersNested<A> addNewContainer();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ContainersNested<A>
       addNewContainerLike(io.kubernetes.client.openapi.models.V1Container item);
@@ -133,7 +136,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodDNSConfig getDnsConfig();
+  public V1PodDNSConfig getDnsConfig();
 
   public io.kubernetes.client.openapi.models.V1PodDNSConfig buildDnsConfig();
 
@@ -141,7 +144,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasDnsConfig();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A> withNewDnsConfig();
+  public V1PodSpecFluent.DnsConfigNested<A> withNewDnsConfig();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A>
       withNewDnsConfigLike(io.kubernetes.client.openapi.models.V1PodDNSConfig item);
@@ -154,9 +157,9 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<A>
       editOrNewDnsConfigLike(io.kubernetes.client.openapi.models.V1PodDNSConfig item);
 
-  public io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum getDnsPolicy();
+  public String getDnsPolicy();
 
-  public A withDnsPolicy(io.kubernetes.client.openapi.models.V1PodSpec.DnsPolicyEnum dnsPolicy);
+  public A withDnsPolicy(java.lang.String dnsPolicy);
 
   public java.lang.Boolean hasDnsPolicy();
 
@@ -166,8 +169,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasEnableServiceLinks();
 
-  public A addToEphemeralContainers(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EphemeralContainer item);
+  public A addToEphemeralContainers(java.lang.Integer index, V1EphemeralContainer item);
 
   public A setToEphemeralContainers(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1EphemeralContainer item);
@@ -185,8 +187,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
       java.util.Collection<io.kubernetes.client.openapi.models.V1EphemeralContainer> items);
 
   public A removeMatchingFromEphemeralContainers(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EphemeralContainerBuilder>
-          predicate);
+      java.util.function.Predicate<V1EphemeralContainerBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildEphemeralContainers instead.
@@ -223,8 +224,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasEphemeralContainers();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.EphemeralContainersNested<A>
-      addNewEphemeralContainer();
+  public V1PodSpecFluent.EphemeralContainersNested<A> addNewEphemeralContainer();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.EphemeralContainersNested<A>
       addNewEphemeralContainerLike(io.kubernetes.client.openapi.models.V1EphemeralContainer item);
@@ -248,8 +248,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
                   io.kubernetes.client.openapi.models.V1EphemeralContainerBuilder>
               predicate);
 
-  public A addToHostAliases(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1HostAlias item);
+  public A addToHostAliases(java.lang.Integer index, V1HostAlias item);
 
   public A setToHostAliases(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1HostAlias item);
@@ -265,8 +264,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
       java.util.Collection<io.kubernetes.client.openapi.models.V1HostAlias> items);
 
   public A removeMatchingFromHostAliases(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1HostAliasBuilder>
-          predicate);
+      java.util.function.Predicate<V1HostAliasBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildHostAliases instead.
@@ -299,7 +297,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasHostAliases();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.HostAliasesNested<A> addNewHostAlias();
+  public V1PodSpecFluent.HostAliasesNested<A> addNewHostAlias();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.HostAliasesNested<A>
       addNewHostAliasLike(io.kubernetes.client.openapi.models.V1HostAlias item);
@@ -346,12 +344,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasHostname();
 
-  /** Method is deprecated. use withHostname instead. */
-  @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original);
-
-  public A addToImagePullSecrets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public A addToImagePullSecrets(java.lang.Integer index, V1LocalObjectReference item);
 
   public A setToImagePullSecrets(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item);
@@ -369,9 +362,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
       java.util.Collection<io.kubernetes.client.openapi.models.V1LocalObjectReference> items);
 
   public A removeMatchingFromImagePullSecrets(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-          predicate);
+      java.util.function.Predicate<V1LocalObjectReferenceBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildImagePullSecrets instead.
@@ -410,8 +401,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasImagePullSecrets();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.ImagePullSecretsNested<A>
-      addNewImagePullSecret();
+  public V1PodSpecFluent.ImagePullSecretsNested<A> addNewImagePullSecret();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ImagePullSecretsNested<A>
       addNewImagePullSecretLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
@@ -487,8 +477,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasInitContainers();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<A>
-      addNewInitContainer();
+  public V1PodSpecFluent.InitContainersNested<A> addNewInitContainer();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<A>
       addNewInitContainerLike(io.kubernetes.client.openapi.models.V1Container item);
@@ -517,13 +506,9 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasNodeName();
 
-  /** Method is deprecated. use withNodeName instead. */
-  @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original);
-
   public A addToNodeSelector(java.lang.String key, java.lang.String value);
 
-  public A addToNodeSelector(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToNodeSelector(Map<java.lang.String, java.lang.String> map);
 
   public A removeFromNodeSelector(java.lang.String key);
 
@@ -541,7 +526,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodOS getOs();
+  public V1PodOS getOs();
 
   public io.kubernetes.client.openapi.models.V1PodOS buildOs();
 
@@ -549,7 +534,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasOs();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> withNewOs();
+  public V1PodSpecFluent.OsNested<A> withNewOs();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> withNewOsLike(
       io.kubernetes.client.openapi.models.V1PodOS item);
@@ -561,7 +546,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<A> editOrNewOsLike(
       io.kubernetes.client.openapi.models.V1PodOS item);
 
-  public A addToOverhead(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+  public A addToOverhead(java.lang.String key, Quantity value);
 
   public A addToOverhead(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
 
@@ -583,10 +568,6 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasPreemptionPolicy();
 
-  /** Method is deprecated. use withPreemptionPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewPreemptionPolicy(java.lang.String original);
-
   public java.lang.Integer getPriority();
 
   public A withPriority(java.lang.Integer priority);
@@ -599,12 +580,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasPriorityClassName();
 
-  /** Method is deprecated. use withPriorityClassName instead. */
-  @java.lang.Deprecated
-  public A withNewPriorityClassName(java.lang.String original);
-
-  public A addToReadinessGates(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodReadinessGate item);
+  public A addToReadinessGates(java.lang.Integer index, V1PodReadinessGate item);
 
   public A setToReadinessGates(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodReadinessGate item);
@@ -621,8 +597,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
       java.util.Collection<io.kubernetes.client.openapi.models.V1PodReadinessGate> items);
 
   public A removeMatchingFromReadinessGates(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodReadinessGateBuilder>
-          predicate);
+      java.util.function.Predicate<V1PodReadinessGateBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildReadinessGates instead.
@@ -658,8 +633,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasReadinessGates();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<A>
-      addNewReadinessGate();
+  public V1PodSpecFluent.ReadinessGatesNested<A> addNewReadinessGate();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<A>
       addNewReadinessGateLike(io.kubernetes.client.openapi.models.V1PodReadinessGate item);
@@ -683,10 +657,9 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
                   io.kubernetes.client.openapi.models.V1PodReadinessGateBuilder>
               predicate);
 
-  public io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum getRestartPolicy();
+  public java.lang.String getRestartPolicy();
 
-  public A withRestartPolicy(
-      io.kubernetes.client.openapi.models.V1PodSpec.RestartPolicyEnum restartPolicy);
+  public A withRestartPolicy(java.lang.String restartPolicy);
 
   public java.lang.Boolean hasRestartPolicy();
 
@@ -696,19 +669,11 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasRuntimeClassName();
 
-  /** Method is deprecated. use withRuntimeClassName instead. */
-  @java.lang.Deprecated
-  public A withNewRuntimeClassName(java.lang.String original);
-
   public java.lang.String getSchedulerName();
 
   public A withSchedulerName(java.lang.String schedulerName);
 
   public java.lang.Boolean hasSchedulerName();
-
-  /** Method is deprecated. use withSchedulerName instead. */
-  @java.lang.Deprecated
-  public A withNewSchedulerName(java.lang.String original);
 
   /**
    * This method has been deprecated, please use method buildSecurityContext instead.
@@ -716,7 +681,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodSecurityContext getSecurityContext();
+  public V1PodSecurityContext getSecurityContext();
 
   public io.kubernetes.client.openapi.models.V1PodSecurityContext buildSecurityContext();
 
@@ -725,8 +690,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasSecurityContext();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.SecurityContextNested<A>
-      withNewSecurityContext();
+  public V1PodSpecFluent.SecurityContextNested<A> withNewSecurityContext();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.SecurityContextNested<A>
       withNewSecurityContextLike(io.kubernetes.client.openapi.models.V1PodSecurityContext item);
@@ -746,19 +710,11 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasServiceAccount();
 
-  /** Method is deprecated. use withServiceAccount instead. */
-  @java.lang.Deprecated
-  public A withNewServiceAccount(java.lang.String original);
-
   public java.lang.String getServiceAccountName();
 
   public A withServiceAccountName(java.lang.String serviceAccountName);
 
   public java.lang.Boolean hasServiceAccountName();
-
-  /** Method is deprecated. use withServiceAccountName instead. */
-  @java.lang.Deprecated
-  public A withNewServiceAccountName(java.lang.String original);
 
   public java.lang.Boolean getSetHostnameAsFQDN();
 
@@ -778,18 +734,13 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasSubdomain();
 
-  /** Method is deprecated. use withSubdomain instead. */
-  @java.lang.Deprecated
-  public A withNewSubdomain(java.lang.String original);
-
   public java.lang.Long getTerminationGracePeriodSeconds();
 
   public A withTerminationGracePeriodSeconds(java.lang.Long terminationGracePeriodSeconds);
 
   public java.lang.Boolean hasTerminationGracePeriodSeconds();
 
-  public A addToTolerations(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Toleration item);
+  public A addToTolerations(java.lang.Integer index, V1Toleration item);
 
   public A setToTolerations(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1Toleration item);
@@ -805,8 +756,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
       java.util.Collection<io.kubernetes.client.openapi.models.V1Toleration> items);
 
   public A removeMatchingFromTolerations(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1TolerationBuilder>
-          predicate);
+      java.util.function.Predicate<V1TolerationBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildTolerations instead.
@@ -839,8 +789,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasTolerations();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.TolerationsNested<A>
-      addNewToleration();
+  public V1PodSpecFluent.TolerationsNested<A> addNewToleration();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.TolerationsNested<A>
       addNewTolerationLike(io.kubernetes.client.openapi.models.V1Toleration item);
@@ -863,8 +812,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
           java.util.function.Predicate<io.kubernetes.client.openapi.models.V1TolerationBuilder>
               predicate);
 
-  public A addToTopologySpreadConstraints(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1TopologySpreadConstraint item);
+  public A addToTopologySpreadConstraints(java.lang.Integer index, V1TopologySpreadConstraint item);
 
   public A setToTopologySpreadConstraints(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1TopologySpreadConstraint item);
@@ -882,9 +830,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
       java.util.Collection<io.kubernetes.client.openapi.models.V1TopologySpreadConstraint> items);
 
   public A removeMatchingFromTopologySpreadConstraints(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1TopologySpreadConstraintBuilder>
-          predicate);
+      java.util.function.Predicate<V1TopologySpreadConstraintBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildTopologySpreadConstraints instead.
@@ -927,8 +873,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasTopologySpreadConstraints();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.TopologySpreadConstraintsNested<A>
-      addNewTopologySpreadConstraint();
+  public V1PodSpecFluent.TopologySpreadConstraintsNested<A> addNewTopologySpreadConstraint();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.TopologySpreadConstraintsNested<A>
       addNewTopologySpreadConstraintLike(
@@ -954,7 +899,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
                   io.kubernetes.client.openapi.models.V1TopologySpreadConstraintBuilder>
               predicate);
 
-  public A addToVolumes(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Volume item);
+  public A addToVolumes(java.lang.Integer index, V1Volume item);
 
   public A setToVolumes(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Volume item);
 
@@ -968,8 +913,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
   public A removeAllFromVolumes(
       java.util.Collection<io.kubernetes.client.openapi.models.V1Volume> items);
 
-  public A removeMatchingFromVolumes(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeBuilder> predicate);
+  public A removeMatchingFromVolumes(java.util.function.Predicate<V1VolumeBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildVolumes instead.
@@ -999,7 +943,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasVolumes();
 
-  public io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<A> addNewVolume();
+  public V1PodSpecFluent.VolumesNested<A> addNewVolume();
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<A> addNewVolumeLike(
       io.kubernetes.client.openapi.models.V1Volume item);
@@ -1017,10 +961,22 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<A> editMatchingVolume(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeBuilder> predicate);
 
+  public A withAutomountServiceAccountToken();
+
+  public A withEnableServiceLinks();
+
+  public A withHostIPC();
+
+  public A withHostNetwork();
+
+  public A withHostPID();
+
+  public A withSetHostnameAsFQDN();
+
+  public A withShareProcessNamespace();
+
   public interface AffinityNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1AffinityFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.AffinityNested<N>> {
+      extends Nested<N>, V1AffinityFluent<V1PodSpecFluent.AffinityNested<N>> {
     public N and();
 
     public N endAffinity();
@@ -1028,8 +984,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface ContainersNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ContainerFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.ContainersNested<N>> {
+          V1ContainerFluent<V1PodSpecFluent.ContainersNested<N>> {
     public N and();
 
     public N endContainer();
@@ -1037,8 +992,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface DnsConfigNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodDNSConfigFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.DnsConfigNested<N>> {
+          V1PodDNSConfigFluent<V1PodSpecFluent.DnsConfigNested<N>> {
     public N and();
 
     public N endDnsConfig();
@@ -1046,8 +1000,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface EphemeralContainersNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.EphemeralContainersNested<N>> {
+          V1EphemeralContainerFluent<V1PodSpecFluent.EphemeralContainersNested<N>> {
     public N and();
 
     public N endEphemeralContainer();
@@ -1055,8 +1008,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface HostAliasesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1HostAliasFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.HostAliasesNested<N>> {
+          V1HostAliasFluent<V1PodSpecFluent.HostAliasesNested<N>> {
     public N and();
 
     public N endHostAlias();
@@ -1064,8 +1016,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface ImagePullSecretsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.ImagePullSecretsNested<N>> {
+          V1LocalObjectReferenceFluent<V1PodSpecFluent.ImagePullSecretsNested<N>> {
     public N and();
 
     public N endImagePullSecret();
@@ -1073,17 +1024,14 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface InitContainersNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ContainerFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<N>> {
+          V1ContainerFluent<V1PodSpecFluent.InitContainersNested<N>> {
     public N and();
 
     public N endInitContainer();
   }
 
   public interface OsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodOSFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.OsNested<N>> {
+      extends io.kubernetes.client.fluent.Nested<N>, V1PodOSFluent<V1PodSpecFluent.OsNested<N>> {
     public N and();
 
     public N endOs();
@@ -1091,8 +1039,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface ReadinessGatesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<N>> {
+          V1PodReadinessGateFluent<V1PodSpecFluent.ReadinessGatesNested<N>> {
     public N and();
 
     public N endReadinessGate();
@@ -1100,8 +1047,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface SecurityContextNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodSecurityContextFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.SecurityContextNested<N>> {
+          V1PodSecurityContextFluent<V1PodSpecFluent.SecurityContextNested<N>> {
     public N and();
 
     public N endSecurityContext();
@@ -1109,8 +1055,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface TolerationsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TolerationFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.TolerationsNested<N>> {
+          V1TolerationFluent<V1PodSpecFluent.TolerationsNested<N>> {
     public N and();
 
     public N endToleration();
@@ -1118,9 +1063,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface TopologySpreadConstraintsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.TopologySpreadConstraintsNested<
-                  N>> {
+          V1TopologySpreadConstraintFluent<V1PodSpecFluent.TopologySpreadConstraintsNested<N>> {
     public N and();
 
     public N endTopologySpreadConstraint();
@@ -1128,8 +1071,7 @@ public interface V1PodSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public interface VolumesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1VolumeFluent<
-              io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<N>> {
+          V1VolumeFluent<V1PodSpecFluent.VolumesNested<N>> {
     public N and();
 
     public N endVolume();

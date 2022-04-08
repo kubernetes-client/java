@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1CustomResourceSubresourcesFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1CustomResourceSubresourcesFluentImpl<A extends V1CustomResourceSubresourcesFluent<A>>
+    extends BaseFluent<A> implements V1CustomResourceSubresourcesFluent<A> {
   public V1CustomResourceSubresourcesFluentImpl() {}
 
   public V1CustomResourceSubresourcesFluentImpl(
@@ -26,16 +28,16 @@ public class V1CustomResourceSubresourcesFluentImpl<
     this.withStatus(instance.getStatus());
   }
 
-  private io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleBuilder scale;
-  private java.lang.Object status;
+  private V1CustomResourceSubresourceScaleBuilder scale;
+  private Object status;
 
   /**
    * This method has been deprecated, please use method buildScale instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale getScale() {
+  @Deprecated
+  public V1CustomResourceSubresourceScale getScale() {
     return this.scale != null ? this.scale.build() : null;
   }
 
@@ -53,20 +55,17 @@ public class V1CustomResourceSubresourcesFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasScale() {
+  public Boolean hasScale() {
     return this.scale != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
-      withNewScale() {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluentImpl
-        .ScaleNestedImpl();
+  public V1CustomResourceSubresourcesFluent.ScaleNested<A> withNewScale() {
+    return new V1CustomResourceSubresourcesFluentImpl.ScaleNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
       withNewScaleLike(io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale item) {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluentImpl
-        .ScaleNestedImpl(item);
+    return new V1CustomResourceSubresourcesFluentImpl.ScaleNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
@@ -115,16 +114,29 @@ public class V1CustomResourceSubresourcesFluentImpl<
     return java.util.Objects.hash(scale, status, super.hashCode());
   }
 
-  public class ScaleNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluentImpl<
-          io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (scale != null) {
+      sb.append("scale:");
+      sb.append(scale + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ScaleNestedImpl<N>
+      extends V1CustomResourceSubresourceScaleFluentImpl<
+          V1CustomResourceSubresourcesFluent.ScaleNested<N>>
       implements io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ScaleNestedImpl(io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleBuilder(
-              this, item);
+          Nested<N> {
+    ScaleNestedImpl(V1CustomResourceSubresourceScale item) {
+      this.builder = new V1CustomResourceSubresourceScaleBuilder(this, item);
     }
 
     ScaleNestedImpl() {

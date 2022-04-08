@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1DeploymentConditionBuilder
-    extends io.kubernetes.client.openapi.models.V1DeploymentConditionFluentImpl<
-        io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DeploymentCondition,
-        io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder> {
+    extends V1DeploymentConditionFluentImpl<V1DeploymentConditionBuilder>
+    implements VisitableBuilder<
+        V1DeploymentCondition, io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder> {
   public V1DeploymentConditionBuilder() {
     this(false);
   }
 
-  public V1DeploymentConditionBuilder(java.lang.Boolean validationEnabled) {
+  public V1DeploymentConditionBuilder(Boolean validationEnabled) {
     this(new V1DeploymentCondition(), validationEnabled);
   }
 
@@ -99,24 +99,5 @@ public class V1DeploymentConditionBuilder
     buildable.setStatus(fluent.getStatus());
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1DeploymentConditionBuilder that = (V1DeploymentConditionBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

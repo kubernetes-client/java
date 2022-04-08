@@ -12,15 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1PodReadinessGateFluent<
-        A extends io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public io.kubernetes.client.openapi.models.V1PodReadinessGate.ConditionTypeEnum
-      getConditionType();
+public interface V1PodReadinessGateFluent<A extends V1PodReadinessGateFluent<A>> extends Fluent<A> {
+  public String getConditionType();
 
-  public A withConditionType(
-      io.kubernetes.client.openapi.models.V1PodReadinessGate.ConditionTypeEnum conditionType);
+  public A withConditionType(java.lang.String conditionType);
 
-  public java.lang.Boolean hasConditionType();
+  public Boolean hasConditionType();
 }

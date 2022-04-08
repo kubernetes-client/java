@@ -12,22 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V2beta2MetricSpecBuilder
-    extends io.kubernetes.client.openapi.models.V2beta2MetricSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V2beta2MetricSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V2beta2MetricSpecBuilder extends V2beta2MetricSpecFluentImpl<V2beta2MetricSpecBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V2beta2MetricSpec,
         io.kubernetes.client.openapi.models.V2beta2MetricSpecBuilder> {
   public V2beta2MetricSpecBuilder() {
     this(false);
   }
 
-  public V2beta2MetricSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V2beta2MetricSpecBuilder(Boolean validationEnabled) {
     this(new V2beta2MetricSpec(), validationEnabled);
   }
 
-  public V2beta2MetricSpecBuilder(
-      io.kubernetes.client.openapi.models.V2beta2MetricSpecFluent<?> fluent) {
+  public V2beta2MetricSpecBuilder(V2beta2MetricSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -98,24 +97,5 @@ public class V2beta2MetricSpecBuilder
     buildable.setResource(fluent.getResource());
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V2beta2MetricSpecBuilder that = (V2beta2MetricSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1StatefulSetStatusBuilder
-    extends io.kubernetes.client.openapi.models.V1StatefulSetStatusFluentImpl<
-        io.kubernetes.client.openapi.models.V1StatefulSetStatusBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1StatefulSetStatusFluentImpl<V1StatefulSetStatusBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1StatefulSetStatus,
         io.kubernetes.client.openapi.models.V1StatefulSetStatusBuilder> {
   public V1StatefulSetStatusBuilder() {
     this(false);
   }
 
-  public V1StatefulSetStatusBuilder(java.lang.Boolean validationEnabled) {
+  public V1StatefulSetStatusBuilder(Boolean validationEnabled) {
     this(new V1StatefulSetStatus(), validationEnabled);
   }
 
-  public V1StatefulSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent<?> fluent) {
+  public V1StatefulSetStatusBuilder(V1StatefulSetStatusFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -119,24 +119,5 @@ public class V1StatefulSetStatusBuilder
     buildable.setUpdateRevision(fluent.getUpdateRevision());
     buildable.setUpdatedReplicas(fluent.getUpdatedReplicas());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1StatefulSetStatusBuilder that = (V1StatefulSetStatusBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

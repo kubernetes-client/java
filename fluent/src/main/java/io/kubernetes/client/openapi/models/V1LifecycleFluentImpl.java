@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1LifecycleFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1LifecycleFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1LifecycleFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1LifecycleFluentImpl<A extends V1LifecycleFluent<A>> extends BaseFluent<A>
+    implements V1LifecycleFluent<A> {
   public V1LifecycleFluentImpl() {}
 
   public V1LifecycleFluentImpl(io.kubernetes.client.openapi.models.V1Lifecycle instance) {
@@ -25,15 +27,15 @@ public class V1LifecycleFluentImpl<
     this.withPreStop(instance.getPreStop());
   }
 
-  private io.kubernetes.client.openapi.models.V1LifecycleHandlerBuilder postStart;
-  private io.kubernetes.client.openapi.models.V1LifecycleHandlerBuilder preStop;
+  private V1LifecycleHandlerBuilder postStart;
+  private V1LifecycleHandlerBuilder preStop;
 
   /**
    * This method has been deprecated, please use method buildPostStart instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1LifecycleHandler getPostStart() {
     return this.postStart != null ? this.postStart.build() : null;
   }
@@ -51,18 +53,17 @@ public class V1LifecycleFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasPostStart() {
+  public Boolean hasPostStart() {
     return this.postStart != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LifecycleFluent.PostStartNested<A>
-      withNewPostStart() {
-    return new io.kubernetes.client.openapi.models.V1LifecycleFluentImpl.PostStartNestedImpl();
+  public V1LifecycleFluent.PostStartNested<A> withNewPostStart() {
+    return new V1LifecycleFluentImpl.PostStartNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1LifecycleFluent.PostStartNested<A>
       withNewPostStartLike(io.kubernetes.client.openapi.models.V1LifecycleHandler item) {
-    return new io.kubernetes.client.openapi.models.V1LifecycleFluentImpl.PostStartNestedImpl(item);
+    return new V1LifecycleFluentImpl.PostStartNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1LifecycleFluent.PostStartNested<A> editPostStart() {
@@ -109,8 +110,8 @@ public class V1LifecycleFluentImpl<
     return this.preStop != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LifecycleFluent.PreStopNested<A> withNewPreStop() {
-    return new io.kubernetes.client.openapi.models.V1LifecycleFluentImpl.PreStopNestedImpl();
+  public V1LifecycleFluent.PreStopNested<A> withNewPreStop() {
+    return new V1LifecycleFluentImpl.PreStopNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1LifecycleFluent.PreStopNested<A> withNewPreStopLike(
@@ -134,7 +135,7 @@ public class V1LifecycleFluentImpl<
     return withNewPreStopLike(getPreStop() != null ? getPreStop() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1LifecycleFluentImpl that = (V1LifecycleFluentImpl) o;
@@ -148,13 +149,27 @@ public class V1LifecycleFluentImpl<
     return java.util.Objects.hash(postStart, preStop, super.hashCode());
   }
 
-  public class PostStartNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LifecycleHandlerFluentImpl<
-          io.kubernetes.client.openapi.models.V1LifecycleFluent.PostStartNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (postStart != null) {
+      sb.append("postStart:");
+      sb.append(postStart + ",");
+    }
+    if (preStop != null) {
+      sb.append("preStop:");
+      sb.append(preStop);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class PostStartNestedImpl<N>
+      extends V1LifecycleHandlerFluentImpl<V1LifecycleFluent.PostStartNested<N>>
       implements io.kubernetes.client.openapi.models.V1LifecycleFluent.PostStartNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     PostStartNestedImpl(io.kubernetes.client.openapi.models.V1LifecycleHandler item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LifecycleHandlerBuilder(this, item);
+      this.builder = new V1LifecycleHandlerBuilder(this, item);
     }
 
     PostStartNestedImpl() {
@@ -172,13 +187,12 @@ public class V1LifecycleFluentImpl<
     }
   }
 
-  public class PreStopNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LifecycleHandlerFluentImpl<
-          io.kubernetes.client.openapi.models.V1LifecycleFluent.PreStopNested<N>>
+  class PreStopNestedImpl<N>
+      extends V1LifecycleHandlerFluentImpl<V1LifecycleFluent.PreStopNested<N>>
       implements io.kubernetes.client.openapi.models.V1LifecycleFluent.PreStopNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     PreStopNestedImpl(io.kubernetes.client.openapi.models.V1LifecycleHandler item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LifecycleHandlerBuilder(this, item);
+      this.builder = new V1LifecycleHandlerBuilder(this, item);
     }
 
     PreStopNestedImpl() {

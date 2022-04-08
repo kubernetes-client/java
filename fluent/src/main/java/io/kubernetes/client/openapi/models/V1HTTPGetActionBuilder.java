@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1HTTPGetActionBuilder
-    extends io.kubernetes.client.openapi.models.V1HTTPGetActionFluentImpl<
-        io.kubernetes.client.openapi.models.V1HTTPGetActionBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1HTTPGetAction,
-        io.kubernetes.client.openapi.models.V1HTTPGetActionBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluentImpl<V1HTTPGetActionBuilder>
+    implements VisitableBuilder<
+        V1HTTPGetAction, io.kubernetes.client.openapi.models.V1HTTPGetActionBuilder> {
   public V1HTTPGetActionBuilder() {
     this(false);
   }
 
-  public V1HTTPGetActionBuilder(java.lang.Boolean validationEnabled) {
+  public V1HTTPGetActionBuilder(Boolean validationEnabled) {
     this(new V1HTTPGetAction(), validationEnabled);
   }
 
@@ -93,24 +92,5 @@ public class V1HTTPGetActionBuilder
     buildable.setPort(fluent.getPort());
     buildable.setScheme(fluent.getScheme());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1HTTPGetActionBuilder that = (V1HTTPGetActionBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

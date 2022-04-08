@@ -12,11 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1beta1SELinuxStrategyOptionsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent<A> {
+        A extends V1beta1SELinuxStrategyOptionsFluent<A>>
+    extends BaseFluent<A> implements V1beta1SELinuxStrategyOptionsFluent<A> {
   public V1beta1SELinuxStrategyOptionsFluentImpl() {}
 
   public V1beta1SELinuxStrategyOptionsFluentImpl(
@@ -26,8 +29,8 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<
     this.withSeLinuxOptions(instance.getSeLinuxOptions());
   }
 
-  private java.lang.String rule;
-  private io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder seLinuxOptions;
+  private String rule;
+  private V1SELinuxOptionsBuilder seLinuxOptions;
 
   public java.lang.String getRule() {
     return this.rule;
@@ -38,14 +41,8 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasRule() {
+  public Boolean hasRule() {
     return this.rule != null;
-  }
-
-  /** Method is deprecated. use withRule instead. */
-  @java.lang.Deprecated
-  public A withNewRule(java.lang.String original) {
-    return (A) withRule(new String(original));
   }
 
   /**
@@ -53,7 +50,7 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1SELinuxOptions getSeLinuxOptions() {
     return this.seLinuxOptions != null ? this.seLinuxOptions.build() : null;
   }
@@ -65,8 +62,7 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<
   public A withSeLinuxOptions(io.kubernetes.client.openapi.models.V1SELinuxOptions seLinuxOptions) {
     _visitables.get("seLinuxOptions").remove(this.seLinuxOptions);
     if (seLinuxOptions != null) {
-      this.seLinuxOptions =
-          new io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder(seLinuxOptions);
+      this.seLinuxOptions = new V1SELinuxOptionsBuilder(seLinuxOptions);
       _visitables.get("seLinuxOptions").add(this.seLinuxOptions);
     }
     return (A) this;
@@ -76,20 +72,15 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<
     return this.seLinuxOptions != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent
-              .SeLinuxOptionsNested<
-          A>
-      withNewSeLinuxOptions() {
-    return new io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluentImpl
-        .SeLinuxOptionsNestedImpl();
+  public V1beta1SELinuxStrategyOptionsFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
+    return new V1beta1SELinuxStrategyOptionsFluentImpl.SeLinuxOptionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent
               .SeLinuxOptionsNested<
           A>
       withNewSeLinuxOptionsLike(io.kubernetes.client.openapi.models.V1SELinuxOptions item) {
-    return new io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluentImpl
-        .SeLinuxOptionsNestedImpl(item);
+    return new V1beta1SELinuxStrategyOptionsFluentImpl.SeLinuxOptionsNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent
@@ -116,7 +107,7 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<
     return withNewSeLinuxOptionsLike(getSeLinuxOptions() != null ? getSeLinuxOptions() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1SELinuxStrategyOptionsFluentImpl that = (V1beta1SELinuxStrategyOptionsFluentImpl) o;
@@ -131,17 +122,30 @@ public class V1beta1SELinuxStrategyOptionsFluentImpl<
     return java.util.Objects.hash(rule, seLinuxOptions, super.hashCode());
   }
 
-  public class SeLinuxOptionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SELinuxOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent
-                  .SeLinuxOptionsNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (rule != null) {
+      sb.append("rule:");
+      sb.append(rule + ",");
+    }
+    if (seLinuxOptions != null) {
+      sb.append("seLinuxOptions:");
+      sb.append(seLinuxOptions);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class SeLinuxOptionsNestedImpl<N>
+      extends V1SELinuxOptionsFluentImpl<
+          V1beta1SELinuxStrategyOptionsFluent.SeLinuxOptionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluent
                   .SeLinuxOptionsNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     SeLinuxOptionsNestedImpl(io.kubernetes.client.openapi.models.V1SELinuxOptions item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder(this, item);
+      this.builder = new V1SELinuxOptionsBuilder(this, item);
     }
 
     SeLinuxOptionsNestedImpl() {

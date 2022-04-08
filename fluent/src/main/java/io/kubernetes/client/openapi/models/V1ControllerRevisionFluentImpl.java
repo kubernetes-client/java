@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1ControllerRevisionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ControllerRevisionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ControllerRevisionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ControllerRevisionFluentImpl<A extends V1ControllerRevisionFluent<A>>
+    extends BaseFluent<A> implements V1ControllerRevisionFluent<A> {
   public V1ControllerRevisionFluentImpl() {}
 
   public V1ControllerRevisionFluentImpl(
@@ -32,11 +34,11 @@ public class V1ControllerRevisionFluentImpl<
     this.withRevision(instance.getRevision());
   }
 
-  private java.lang.String apiVersion;
-  private java.lang.Object data;
+  private String apiVersion;
+  private Object data;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private java.lang.Long revision;
+  private V1ObjectMetaBuilder metadata;
+  private Long revision;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -47,14 +49,8 @@ public class V1ControllerRevisionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.Object getData() {
@@ -83,18 +79,12 @@ public class V1ControllerRevisionFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -106,7 +96,7 @@ public class V1ControllerRevisionFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -116,16 +106,13 @@ public class V1ControllerRevisionFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1ControllerRevisionFluentImpl
-        .MetadataNestedImpl();
+  public V1ControllerRevisionFluent.MetadataNested<A> withNewMetadata() {
+    return new V1ControllerRevisionFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1ControllerRevisionFluentImpl
-        .MetadataNestedImpl(item);
+    return new V1ControllerRevisionFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<A>
@@ -176,13 +163,39 @@ public class V1ControllerRevisionFluentImpl<
     return java.util.Objects.hash(apiVersion, data, kind, metadata, revision, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (data != null) {
+      sb.append("data:");
+      sb.append(data + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (revision != null) {
+      sb.append("revision:");
+      sb.append(revision);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1ControllerRevisionFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {

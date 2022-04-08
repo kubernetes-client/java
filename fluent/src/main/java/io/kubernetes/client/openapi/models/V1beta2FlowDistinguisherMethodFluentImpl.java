@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1beta2FlowDistinguisherMethodFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethodFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethodFluent<A> {
+        A extends V1beta2FlowDistinguisherMethodFluent<A>>
+    extends BaseFluent<A> implements V1beta2FlowDistinguisherMethodFluent<A> {
   public V1beta2FlowDistinguisherMethodFluentImpl() {}
 
   public V1beta2FlowDistinguisherMethodFluentImpl(
@@ -24,7 +26,7 @@ public class V1beta2FlowDistinguisherMethodFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.lang.String type;
+  private String type;
 
   public java.lang.String getType() {
     return this.type;
@@ -35,17 +37,11 @@ public class V1beta2FlowDistinguisherMethodFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A) withType(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta2FlowDistinguisherMethodFluentImpl that = (V1beta2FlowDistinguisherMethodFluentImpl) o;
@@ -55,5 +51,16 @@ public class V1beta2FlowDistinguisherMethodFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(type, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

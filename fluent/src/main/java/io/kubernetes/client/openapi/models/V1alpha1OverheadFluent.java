@@ -12,13 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-/** Generated */
-public interface V1alpha1OverheadFluent<
-        A extends io.kubernetes.client.openapi.models.V1alpha1OverheadFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToPodFixed(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Map;
 
-  public A addToPodFixed(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+/** Generated */
+public interface V1alpha1OverheadFluent<A extends V1alpha1OverheadFluent<A>> extends Fluent<A> {
+  public A addToPodFixed(String key, Quantity value);
+
+  public A addToPodFixed(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
 
   public A removeFromPodFixed(java.lang.String key);
 
@@ -30,5 +32,5 @@ public interface V1alpha1OverheadFluent<
   public <K, V> A withPodFixed(
       java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> podFixed);
 
-  public java.lang.Boolean hasPodFixed();
+  public Boolean hasPodFixed();
 }

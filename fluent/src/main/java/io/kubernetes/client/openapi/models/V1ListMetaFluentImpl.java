@@ -12,10 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.V1ListMetaFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ListMetaFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ListMetaFluentImpl<A extends V1ListMetaFluent<A>> extends BaseFluent<A>
+    implements V1ListMetaFluent<A> {
   public V1ListMetaFluentImpl() {}
 
   public V1ListMetaFluentImpl(io.kubernetes.client.openapi.models.V1ListMeta instance) {
@@ -28,8 +30,8 @@ public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.
     this.withSelfLink(instance.getSelfLink());
   }
 
-  private java.lang.String _continue;
-  private java.lang.Long remainingItemCount;
+  private String _continue;
+  private Long remainingItemCount;
   private java.lang.String resourceVersion;
   private java.lang.String selfLink;
 
@@ -42,14 +44,8 @@ public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.
     return (A) this;
   }
 
-  public java.lang.Boolean hasContinue() {
+  public Boolean hasContinue() {
     return this._continue != null;
-  }
-
-  /** Method is deprecated. use withContinue instead. */
-  @java.lang.Deprecated
-  public A withNewContinue(java.lang.String original) {
-    return (A) withContinue(new String(original));
   }
 
   public java.lang.Long getRemainingItemCount() {
@@ -78,12 +74,6 @@ public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.
     return this.resourceVersion != null;
   }
 
-  /** Method is deprecated. use withResourceVersion instead. */
-  @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original) {
-    return (A) withResourceVersion(new String(original));
-  }
-
   public java.lang.String getSelfLink() {
     return this.selfLink;
   }
@@ -97,13 +87,7 @@ public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.
     return this.selfLink != null;
   }
 
-  /** Method is deprecated. use withSelfLink instead. */
-  @java.lang.Deprecated
-  public A withNewSelfLink(java.lang.String original) {
-    return (A) withSelfLink(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ListMetaFluentImpl that = (V1ListMetaFluentImpl) o;
@@ -122,5 +106,28 @@ public class V1ListMetaFluentImpl<A extends io.kubernetes.client.openapi.models.
   public int hashCode() {
     return java.util.Objects.hash(
         _continue, remainingItemCount, resourceVersion, selfLink, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (_continue != null) {
+      sb.append("_continue:");
+      sb.append(_continue + ",");
+    }
+    if (remainingItemCount != null) {
+      sb.append("remainingItemCount:");
+      sb.append(remainingItemCount + ",");
+    }
+    if (resourceVersion != null) {
+      sb.append("resourceVersion:");
+      sb.append(resourceVersion + ",");
+    }
+    if (selfLink != null) {
+      sb.append("selfLink:");
+      sb.append(selfLink);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

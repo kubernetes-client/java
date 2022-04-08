@@ -13,12 +13,13 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
 
 /** Generated */
-public class V2beta1ObjectMetricStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2beta1ObjectMetricStatusFluentImpl<A extends V2beta1ObjectMetricStatusFluent<A>>
+    extends BaseFluent<A> implements V2beta1ObjectMetricStatusFluent<A> {
   public V2beta1ObjectMetricStatusFluentImpl() {}
 
   public V2beta1ObjectMetricStatusFluentImpl(
@@ -34,11 +35,11 @@ public class V2beta1ObjectMetricStatusFluentImpl<
     this.withTarget(instance.getTarget());
   }
 
-  private io.kubernetes.client.custom.Quantity averageValue;
+  private Quantity averageValue;
   private io.kubernetes.client.custom.Quantity currentValue;
-  private java.lang.String metricName;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder selector;
-  private io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReferenceBuilder target;
+  private String metricName;
+  private V1LabelSelectorBuilder selector;
+  private V2beta1CrossVersionObjectReferenceBuilder target;
 
   public io.kubernetes.client.custom.Quantity getAverageValue() {
     return this.averageValue;
@@ -49,7 +50,7 @@ public class V2beta1ObjectMetricStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAverageValue() {
+  public Boolean hasAverageValue() {
     return this.averageValue != null;
   }
 
@@ -87,18 +88,12 @@ public class V2beta1ObjectMetricStatusFluentImpl<
     return this.metricName != null;
   }
 
-  /** Method is deprecated. use withMetricName instead. */
-  @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original) {
-    return (A) withMetricName(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
@@ -110,7 +105,7 @@ public class V2beta1ObjectMetricStatusFluentImpl<
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
-      this.selector = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(selector);
+      this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
     }
     return (A) this;
@@ -120,16 +115,13 @@ public class V2beta1ObjectMetricStatusFluentImpl<
     return this.selector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.SelectorNested<A>
-      withNewSelector() {
-    return new io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluentImpl
-        .SelectorNestedImpl();
+  public V2beta1ObjectMetricStatusFluent.SelectorNested<A> withNewSelector() {
+    return new V2beta1ObjectMetricStatusFluentImpl.SelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluentImpl
-        .SelectorNestedImpl(item);
+    return new V2beta1ObjectMetricStatusFluentImpl.SelectorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.SelectorNested<A>
@@ -156,7 +148,7 @@ public class V2beta1ObjectMetricStatusFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference getTarget() {
+  public V2beta1CrossVersionObjectReference getTarget() {
     return this.target != null ? this.target.build() : null;
   }
 
@@ -179,10 +171,8 @@ public class V2beta1ObjectMetricStatusFluentImpl<
     return this.target != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.TargetNested<A>
-      withNewTarget() {
-    return new io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluentImpl
-        .TargetNestedImpl();
+  public V2beta1ObjectMetricStatusFluent.TargetNested<A> withNewTarget() {
+    return new V2beta1ObjectMetricStatusFluentImpl.TargetNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.TargetNested<A>
@@ -212,7 +202,7 @@ public class V2beta1ObjectMetricStatusFluentImpl<
     return withNewTargetLike(getTarget() != null ? getTarget() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta1ObjectMetricStatusFluentImpl that = (V2beta1ObjectMetricStatusFluentImpl) o;
@@ -232,14 +222,40 @@ public class V2beta1ObjectMetricStatusFluentImpl<
         averageValue, currentValue, metricName, selector, target, super.hashCode());
   }
 
-  public class SelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.SelectorNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (averageValue != null) {
+      sb.append("averageValue:");
+      sb.append(averageValue + ",");
+    }
+    if (currentValue != null) {
+      sb.append("currentValue:");
+      sb.append(currentValue + ",");
+    }
+    if (metricName != null) {
+      sb.append("metricName:");
+      sb.append(metricName + ",");
+    }
+    if (selector != null) {
+      sb.append("selector:");
+      sb.append(selector + ",");
+    }
+    if (target != null) {
+      sb.append("target:");
+      sb.append(target);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class SelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V2beta1ObjectMetricStatusFluent.SelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.SelectorNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+          Nested<N> {
+    SelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {
@@ -257,16 +273,14 @@ public class V2beta1ObjectMetricStatusFluentImpl<
     }
   }
 
-  public class TargetNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.TargetNested<N>>
+  class TargetNestedImpl<N>
+      extends V2beta1CrossVersionObjectReferenceFluentImpl<
+          V2beta1ObjectMetricStatusFluent.TargetNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.TargetNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    TargetNestedImpl(io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReferenceBuilder(
-              this, item);
+    TargetNestedImpl(V2beta1CrossVersionObjectReference item) {
+      this.builder = new V2beta1CrossVersionObjectReferenceBuilder(this, item);
     }
 
     TargetNestedImpl() {

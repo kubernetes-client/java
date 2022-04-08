@@ -12,13 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-/** Generated */
-public interface V1LimitRangeItemFluent<
-        A extends io.kubernetes.client.openapi.models.V1LimitRangeItemFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToDefault(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Map;
 
-  public A addToDefault(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+/** Generated */
+public interface V1LimitRangeItemFluent<A extends V1LimitRangeItemFluent<A>> extends Fluent<A> {
+  public A addToDefault(String key, Quantity value);
+
+  public A addToDefault(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
 
   public A removeFromDefault(java.lang.String key);
 
@@ -30,7 +32,7 @@ public interface V1LimitRangeItemFluent<
   public <K, V> A withDefault(
       java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> _default);
 
-  public java.lang.Boolean hasDefault();
+  public Boolean hasDefault();
 
   public A addToDefaultRequest(java.lang.String key, io.kubernetes.client.custom.Quantity value);
 
@@ -98,9 +100,9 @@ public interface V1LimitRangeItemFluent<
 
   public java.lang.Boolean hasMin();
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum getType();
+  public java.lang.String getType();
 
-  public A withType(io.kubernetes.client.openapi.models.V1LimitRangeItem.TypeEnum type);
+  public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
 }

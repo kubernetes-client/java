@@ -12,27 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1CustomResourceSubresourcesFluent<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1CustomResourceSubresourcesFluent<A extends V1CustomResourceSubresourcesFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildScale instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale getScale();
+  @Deprecated
+  public V1CustomResourceSubresourceScale getScale();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale buildScale();
 
   public A withScale(io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale scale);
 
-  public java.lang.Boolean hasScale();
+  public Boolean hasScale();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
-      withNewScale();
+  public V1CustomResourceSubresourcesFluent.ScaleNested<A> withNewScale();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
       withNewScaleLike(io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale item);
@@ -46,17 +47,16 @@ public interface V1CustomResourceSubresourcesFluent<
   public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
       editOrNewScaleLike(io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale item);
 
-  public java.lang.Object getStatus();
+  public Object getStatus();
 
   public A withStatus(java.lang.Object status);
 
   public java.lang.Boolean hasStatus();
 
   public interface ScaleNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<
-                  N>> {
+      extends Nested<N>,
+          V1CustomResourceSubresourceScaleFluent<
+              V1CustomResourceSubresourcesFluent.ScaleNested<N>> {
     public N and();
 
     public N endScale();

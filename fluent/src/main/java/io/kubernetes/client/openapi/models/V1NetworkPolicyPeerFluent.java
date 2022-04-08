@@ -12,27 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1NetworkPolicyPeerFluent<
-        A extends io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildIpBlock instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1IPBlock getIpBlock();
+  @Deprecated
+  public V1IPBlock getIpBlock();
 
   public io.kubernetes.client.openapi.models.V1IPBlock buildIpBlock();
 
   public A withIpBlock(io.kubernetes.client.openapi.models.V1IPBlock ipBlock);
 
-  public java.lang.Boolean hasIpBlock();
+  public Boolean hasIpBlock();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.IpBlockNested<A>
-      withNewIpBlock();
+  public V1NetworkPolicyPeerFluent.IpBlockNested<A> withNewIpBlock();
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.IpBlockNested<A>
       withNewIpBlockLike(io.kubernetes.client.openapi.models.V1IPBlock item);
@@ -52,7 +53,7 @@ public interface V1NetworkPolicyPeerFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getNamespaceSelector();
+  public V1LabelSelector getNamespaceSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildNamespaceSelector();
 
@@ -61,8 +62,7 @@ public interface V1NetworkPolicyPeerFluent<
 
   public java.lang.Boolean hasNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A>
-      withNewNamespaceSelector();
+  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> withNewNamespaceSelector();
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A>
       withNewNamespaceSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -90,8 +90,7 @@ public interface V1NetworkPolicyPeerFluent<
 
   public java.lang.Boolean hasPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.PodSelectorNested<A>
-      withNewPodSelector();
+  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> withNewPodSelector();
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.PodSelectorNested<A>
       withNewPodSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -106,9 +105,7 @@ public interface V1NetworkPolicyPeerFluent<
       editOrNewPodSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
 
   public interface IpBlockNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1IPBlockFluent<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.IpBlockNested<N>> {
+      extends Nested<N>, V1IPBlockFluent<V1NetworkPolicyPeerFluent.IpBlockNested<N>> {
     public N and();
 
     public N endIpBlock();
@@ -116,9 +113,7 @@ public interface V1NetworkPolicyPeerFluent<
 
   public interface NamespaceSelectorNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.NamespaceSelectorNested<
-                  N>> {
+          V1LabelSelectorFluent<V1NetworkPolicyPeerFluent.NamespaceSelectorNested<N>> {
     public N and();
 
     public N endNamespaceSelector();
@@ -126,8 +121,7 @@ public interface V1NetworkPolicyPeerFluent<
 
   public interface PodSelectorNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.PodSelectorNested<N>> {
+          V1LabelSelectorFluent<V1NetworkPolicyPeerFluent.PodSelectorNested<N>> {
     public N and();
 
     public N endPodSelector();

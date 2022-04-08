@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /** Generated */
-public class V1APIServiceSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1APIServiceSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1APIServiceSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> extends BaseFluent<A>
+    implements V1APIServiceSpecFluent<A> {
   public V1APIServiceSpecFluentImpl() {}
 
   public V1APIServiceSpecFluentImpl(io.kubernetes.client.openapi.models.V1APIServiceSpec instance) {
@@ -35,11 +40,11 @@ public class V1APIServiceSpecFluentImpl<
     this.withVersionPriority(instance.getVersionPriority());
   }
 
-  private java.util.List<java.lang.Byte> caBundle;
-  private java.lang.String group;
-  private java.lang.Integer groupPriorityMinimum;
-  private java.lang.Boolean insecureSkipTLSVerify;
-  private io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceBuilder service;
+  private List<Byte> caBundle;
+  private String group;
+  private Integer groupPriorityMinimum;
+  private Boolean insecureSkipTLSVerify;
+  private ApiregistrationV1ServiceReferenceBuilder service;
   private java.lang.String version;
   private java.lang.Integer versionPriority;
 
@@ -71,7 +76,7 @@ public class V1APIServiceSpecFluentImpl<
 
   public A addToCaBundle(java.lang.Integer index, java.lang.Byte item) {
     if (this.caBundle == null) {
-      this.caBundle = new java.util.ArrayList<java.lang.Byte>();
+      this.caBundle = new ArrayList<java.lang.Byte>();
     }
     this.caBundle.add(index, item);
     return (A) this;
@@ -95,7 +100,7 @@ public class V1APIServiceSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToCaBundle(java.util.Collection<java.lang.Byte> items) {
+  public A addAllToCaBundle(Collection<java.lang.Byte> items) {
     if (this.caBundle == null) {
       this.caBundle = new java.util.ArrayList<java.lang.Byte>();
     }
@@ -140,12 +145,6 @@ public class V1APIServiceSpecFluentImpl<
     return this.group != null;
   }
 
-  /** Method is deprecated. use withGroup instead. */
-  @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original) {
-    return (A) withGroup(new String(original));
-  }
-
   public java.lang.Integer getGroupPriorityMinimum() {
     return this.groupPriorityMinimum;
   }
@@ -177,8 +176,8 @@ public class V1APIServiceSpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference getService() {
+  @Deprecated
+  public ApiregistrationV1ServiceReference getService() {
     return this.service != null ? this.service.build() : null;
   }
 
@@ -201,16 +200,14 @@ public class V1APIServiceSpecFluentImpl<
     return this.service != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
-      withNewService() {
-    return new io.kubernetes.client.openapi.models.V1APIServiceSpecFluentImpl.ServiceNestedImpl();
+  public V1APIServiceSpecFluent.ServiceNested<A> withNewService() {
+    return new V1APIServiceSpecFluentImpl.ServiceNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
       withNewServiceLike(
           io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference item) {
-    return new io.kubernetes.client.openapi.models.V1APIServiceSpecFluentImpl.ServiceNestedImpl(
-        item);
+    return new V1APIServiceSpecFluentImpl.ServiceNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A> editService() {
@@ -245,12 +242,6 @@ public class V1APIServiceSpecFluentImpl<
     return this.version != null;
   }
 
-  /** Method is deprecated. use withVersion instead. */
-  @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original) {
-    return (A) withVersion(new String(original));
-  }
-
   public java.lang.Integer getVersionPriority() {
     return this.versionPriority;
   }
@@ -264,7 +255,7 @@ public class V1APIServiceSpecFluentImpl<
     return this.versionPriority != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1APIServiceSpecFluentImpl that = (V1APIServiceSpecFluentImpl) o;
@@ -296,15 +287,51 @@ public class V1APIServiceSpecFluentImpl<
         super.hashCode());
   }
 
-  public class ServiceNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (caBundle != null && !caBundle.isEmpty()) {
+      sb.append("caBundle:");
+      sb.append(caBundle + ",");
+    }
+    if (group != null) {
+      sb.append("group:");
+      sb.append(group + ",");
+    }
+    if (groupPriorityMinimum != null) {
+      sb.append("groupPriorityMinimum:");
+      sb.append(groupPriorityMinimum + ",");
+    }
+    if (insecureSkipTLSVerify != null) {
+      sb.append("insecureSkipTLSVerify:");
+      sb.append(insecureSkipTLSVerify + ",");
+    }
+    if (service != null) {
+      sb.append("service:");
+      sb.append(service + ",");
+    }
+    if (version != null) {
+      sb.append("version:");
+      sb.append(version + ",");
+    }
+    if (versionPriority != null) {
+      sb.append("versionPriority:");
+      sb.append(versionPriority);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withInsecureSkipTLSVerify() {
+    return withInsecureSkipTLSVerify(true);
+  }
+
+  class ServiceNestedImpl<N>
+      extends ApiregistrationV1ServiceReferenceFluentImpl<V1APIServiceSpecFluent.ServiceNested<N>>
       implements io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ServiceNestedImpl(io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceBuilder(
-              this, item);
+      this.builder = new ApiregistrationV1ServiceReferenceBuilder(this, item);
     }
 
     ServiceNestedImpl() {

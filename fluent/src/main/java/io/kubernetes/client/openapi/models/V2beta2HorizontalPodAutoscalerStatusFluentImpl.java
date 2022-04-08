@@ -12,14 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent<A> {
+        A extends V2beta2HorizontalPodAutoscalerStatusFluent<A>>
+    extends BaseFluent<A> implements V2beta2HorizontalPodAutoscalerStatusFluent<A> {
   public V2beta2HorizontalPodAutoscalerStatusFluentImpl() {}
 
   public V2beta2HorizontalPodAutoscalerStatusFluentImpl(
@@ -37,19 +43,14 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
     this.withObservedGeneration(instance.getObservedGeneration());
   }
 
-  private java.util.ArrayList<
-          io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerConditionBuilder>
-      conditions;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V2beta2MetricStatusBuilder>
-      currentMetrics;
-  private java.lang.Integer currentReplicas;
+  private ArrayList<V2beta2HorizontalPodAutoscalerConditionBuilder> conditions;
+  private java.util.ArrayList<V2beta2MetricStatusBuilder> currentMetrics;
+  private Integer currentReplicas;
   private java.lang.Integer desiredReplicas;
-  private java.time.OffsetDateTime lastScaleTime;
-  private java.lang.Long observedGeneration;
+  private OffsetDateTime lastScaleTime;
+  private Long observedGeneration;
 
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerCondition item) {
+  public A addToConditions(java.lang.Integer index, V2beta2HorizontalPodAutoscalerCondition item) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -107,8 +108,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
   }
 
   public A addAllToConditions(
-      java.util.Collection<
-              io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerCondition>
+      Collection<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerCondition>
           items) {
     if (this.conditions == null) {
       this.conditions =
@@ -156,8 +156,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerConditionBuilder>
+      Predicate<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerConditionBuilder>
           predicate) {
     if (conditions == null) return (A) this;
     final Iterator<
@@ -180,8 +179,8 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerCondition>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerCondition>
       getConditions() {
     return conditions != null ? build(conditions) : null;
   }
@@ -221,7 +220,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingCondition(
+  public Boolean hasMatchingCondition(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerConditionBuilder>
           predicate) {
@@ -270,12 +269,8 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
-              .ConditionsNested<
-          A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluentImpl
-        .ConditionsNestedImpl();
+  public V2beta2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V2beta2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
@@ -283,8 +278,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
           A>
       addNewConditionLike(
           io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerCondition item) {
-    return new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluentImpl
-        .ConditionsNestedImpl(-1, item);
+    return new V2beta2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
@@ -346,8 +340,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
   public A addToCurrentMetrics(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V2beta2MetricStatus item) {
     if (this.currentMetrics == null) {
-      this.currentMetrics =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V2beta2MetricStatusBuilder>();
+      this.currentMetrics = new java.util.ArrayList<V2beta2MetricStatusBuilder>();
     }
     io.kubernetes.client.openapi.models.V2beta2MetricStatusBuilder builder =
         new io.kubernetes.client.openapi.models.V2beta2MetricStatusBuilder(item);
@@ -535,12 +528,8 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
     return currentMetrics != null && !currentMetrics.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
-              .CurrentMetricsNested<
-          A>
-      addNewCurrentMetric() {
-    return new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluentImpl
-        .CurrentMetricsNestedImpl();
+  public V2beta2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> addNewCurrentMetric() {
+    return new V2beta2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
@@ -658,7 +647,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
     return this.observedGeneration != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta2HorizontalPodAutoscalerStatusFluentImpl that =
@@ -694,22 +683,47 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
         super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
-                  .ConditionsNested<
-              N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions + ",");
+    }
+    if (currentMetrics != null && !currentMetrics.isEmpty()) {
+      sb.append("currentMetrics:");
+      sb.append(currentMetrics + ",");
+    }
+    if (currentReplicas != null) {
+      sb.append("currentReplicas:");
+      sb.append(currentReplicas + ",");
+    }
+    if (desiredReplicas != null) {
+      sb.append("desiredReplicas:");
+      sb.append(desiredReplicas + ",");
+    }
+    if (lastScaleTime != null) {
+      sb.append("lastScaleTime:");
+      sb.append(lastScaleTime + ",");
+    }
+    if (observedGeneration != null) {
+      sb.append("observedGeneration:");
+      sb.append(observedGeneration);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V2beta2HorizontalPodAutoscalerConditionFluentImpl<
+          V2beta2HorizontalPodAutoscalerStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
                   .ConditionsNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ConditionsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerCondition item) {
+          Nested<N> {
+    ConditionsNestedImpl(java.lang.Integer index, V2beta2HorizontalPodAutoscalerCondition item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerConditionBuilder(
-              this, item);
+      this.builder = new V2beta2HorizontalPodAutoscalerConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
@@ -733,11 +747,9 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
     }
   }
 
-  public class CurrentMetricsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2beta2MetricStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
-                  .CurrentMetricsNested<
-              N>>
+  class CurrentMetricsNestedImpl<N>
+      extends V2beta2MetricStatusFluentImpl<
+          V2beta2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatusFluent
                   .CurrentMetricsNested<
               N>,
@@ -745,7 +757,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
     CurrentMetricsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V2beta2MetricStatus item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V2beta2MetricStatusBuilder(this, item);
+      this.builder = new V2beta2MetricStatusBuilder(this, item);
     }
 
     CurrentMetricsNestedImpl() {

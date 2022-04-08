@@ -12,13 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-/** Generated */
-public interface V1alpha1SchedulingFluent<
-        A extends io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToNodeSelector(java.lang.String key, java.lang.String value);
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
-  public A addToNodeSelector(java.util.Map<java.lang.String, java.lang.String> map);
+/** Generated */
+public interface V1alpha1SchedulingFluent<A extends V1alpha1SchedulingFluent<A>> extends Fluent<A> {
+  public A addToNodeSelector(String key, java.lang.String value);
+
+  public A addToNodeSelector(Map<java.lang.String, java.lang.String> map);
 
   public A removeFromNodeSelector(java.lang.String key);
 
@@ -28,35 +33,31 @@ public interface V1alpha1SchedulingFluent<
 
   public <K, V> A withNodeSelector(java.util.Map<java.lang.String, java.lang.String> nodeSelector);
 
-  public java.lang.Boolean hasNodeSelector();
+  public Boolean hasNodeSelector();
 
-  public A addToTolerations(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Toleration item);
+  public A addToTolerations(Integer index, V1Toleration item);
 
   public A setToTolerations(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1Toleration item);
 
   public A addToTolerations(io.kubernetes.client.openapi.models.V1Toleration... items);
 
-  public A addAllToTolerations(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Toleration> items);
+  public A addAllToTolerations(Collection<io.kubernetes.client.openapi.models.V1Toleration> items);
 
   public A removeFromTolerations(io.kubernetes.client.openapi.models.V1Toleration... items);
 
   public A removeAllFromTolerations(
       java.util.Collection<io.kubernetes.client.openapi.models.V1Toleration> items);
 
-  public A removeMatchingFromTolerations(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1TolerationBuilder>
-          predicate);
+  public A removeMatchingFromTolerations(Predicate<V1TolerationBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildTolerations instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Toleration> getTolerations();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1Toleration> getTolerations();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1Toleration> buildTolerations();
 
@@ -81,8 +82,7 @@ public interface V1alpha1SchedulingFluent<
 
   public java.lang.Boolean hasTolerations();
 
-  public io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent.TolerationsNested<A>
-      addNewToleration();
+  public V1alpha1SchedulingFluent.TolerationsNested<A> addNewToleration();
 
   public io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent.TolerationsNested<A>
       addNewTolerationLike(io.kubernetes.client.openapi.models.V1Toleration item);
@@ -106,9 +106,7 @@ public interface V1alpha1SchedulingFluent<
               predicate);
 
   public interface TolerationsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TolerationFluent<
-              io.kubernetes.client.openapi.models.V1alpha1SchedulingFluent.TolerationsNested<N>> {
+      extends Nested<N>, V1TolerationFluent<V1alpha1SchedulingFluent.TolerationsNested<N>> {
     public N and();
 
     public N endToleration();

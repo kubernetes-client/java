@@ -12,16 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
-        A extends
-            io.kubernetes.client.openapi.models
-                        .V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<
-                    A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models
-            .V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<
-        A> {
+        A extends V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A>>
+    extends BaseFluent<A> implements V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A> {
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl() {}
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl(
@@ -32,7 +29,7 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
     this.withWhenScaled(instance.getWhenScaled());
   }
 
-  private java.lang.String whenDeleted;
+  private String whenDeleted;
   private java.lang.String whenScaled;
 
   public java.lang.String getWhenDeleted() {
@@ -44,14 +41,8 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasWhenDeleted() {
+  public Boolean hasWhenDeleted() {
     return this.whenDeleted != null;
-  }
-
-  /** Method is deprecated. use withWhenDeleted instead. */
-  @java.lang.Deprecated
-  public A withNewWhenDeleted(java.lang.String original) {
-    return (A) withWhenDeleted(new String(original));
   }
 
   public java.lang.String getWhenScaled() {
@@ -67,13 +58,7 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
     return this.whenScaled != null;
   }
 
-  /** Method is deprecated. use withWhenScaled instead. */
-  @java.lang.Deprecated
-  public A withNewWhenScaled(java.lang.String original) {
-    return (A) withWhenScaled(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl that =
@@ -87,5 +72,20 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(whenDeleted, whenScaled, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (whenDeleted != null) {
+      sb.append("whenDeleted:");
+      sb.append(whenDeleted + ",");
+    }
+    if (whenScaled != null) {
+      sb.append("whenScaled:");
+      sb.append(whenScaled);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,17 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1IngressBuilder
-    extends io.kubernetes.client.openapi.models.V1IngressFluentImpl<
-        io.kubernetes.client.openapi.models.V1IngressBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1Ingress,
-        io.kubernetes.client.openapi.models.V1IngressBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1IngressBuilder extends V1IngressFluentImpl<V1IngressBuilder>
+    implements VisitableBuilder<V1Ingress, io.kubernetes.client.openapi.models.V1IngressBuilder> {
   public V1IngressBuilder() {
     this(false);
   }
 
-  public V1IngressBuilder(java.lang.Boolean validationEnabled) {
+  public V1IngressBuilder(Boolean validationEnabled) {
     this(new V1Ingress(), validationEnabled);
   }
 
@@ -91,24 +89,5 @@ public class V1IngressBuilder
     buildable.setSpec(fluent.getSpec());
     buildable.setStatus(fluent.getStatus());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1IngressBuilder that = (V1IngressBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

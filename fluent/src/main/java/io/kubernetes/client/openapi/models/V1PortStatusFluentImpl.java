@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1PortStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PortStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PortStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PortStatusFluentImpl<A extends V1PortStatusFluent<A>> extends BaseFluent<A>
+    implements V1PortStatusFluent<A> {
   public V1PortStatusFluentImpl() {}
 
   public V1PortStatusFluentImpl(io.kubernetes.client.openapi.models.V1PortStatus instance) {
@@ -27,9 +28,9 @@ public class V1PortStatusFluentImpl<
     this.withProtocol(instance.getProtocol());
   }
 
-  private java.lang.String error;
-  private java.lang.Integer port;
-  private io.kubernetes.client.openapi.models.V1PortStatus.ProtocolEnum protocol;
+  private String error;
+  private Integer port;
+  private java.lang.String protocol;
 
   public java.lang.String getError() {
     return this.error;
@@ -40,14 +41,8 @@ public class V1PortStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasError() {
+  public Boolean hasError() {
     return this.error != null;
-  }
-
-  /** Method is deprecated. use withError instead. */
-  @java.lang.Deprecated
-  public A withNewError(java.lang.String original) {
-    return (A) withError(new String(original));
   }
 
   public java.lang.Integer getPort() {
@@ -63,11 +58,11 @@ public class V1PortStatusFluentImpl<
     return this.port != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PortStatus.ProtocolEnum getProtocol() {
+  public java.lang.String getProtocol() {
     return this.protocol;
   }
 
-  public A withProtocol(io.kubernetes.client.openapi.models.V1PortStatus.ProtocolEnum protocol) {
+  public A withProtocol(java.lang.String protocol) {
     this.protocol = protocol;
     return (A) this;
   }
@@ -76,7 +71,7 @@ public class V1PortStatusFluentImpl<
     return this.protocol != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PortStatusFluentImpl that = (V1PortStatusFluentImpl) o;
@@ -88,5 +83,24 @@ public class V1PortStatusFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(error, port, protocol, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (error != null) {
+      sb.append("error:");
+      sb.append(error + ",");
+    }
+    if (port != null) {
+      sb.append("port:");
+      sb.append(port + ",");
+    }
+    if (protocol != null) {
+      sb.append("protocol:");
+      sb.append(protocol);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

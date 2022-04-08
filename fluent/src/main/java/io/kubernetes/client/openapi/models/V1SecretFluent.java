@@ -12,22 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Map;
+
 /** Generated */
-public interface V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1SecretFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface V1SecretFluent<A extends V1SecretFluent<A>> extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public Boolean hasApiVersion();
 
   public A addToData(java.lang.String key, byte[] value);
 
-  public A addToData(java.util.Map<java.lang.String, byte[]> map);
+  public A addToData(Map<java.lang.String, byte[]> map);
 
   public A removeFromData(java.lang.String key);
 
@@ -51,17 +50,13 @@ public interface V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  @Deprecated
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -69,7 +64,7 @@ public interface V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> withNewMetadata();
+  public V1SecretFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> withNewMetadataLike(
       io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -101,14 +96,10 @@ public interface V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public java.lang.Boolean hasType();
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public A withImmutable();
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1SecretFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

@@ -12,15 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1ReplicaSetSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getMinReadySeconds();
+public interface V1ReplicaSetSpecFluent<A extends V1ReplicaSetSpecFluent<A>> extends Fluent<A> {
+  public Integer getMinReadySeconds();
 
   public A withMinReadySeconds(java.lang.Integer minReadySeconds);
 
-  public java.lang.Boolean hasMinReadySeconds();
+  public Boolean hasMinReadySeconds();
 
   public java.lang.Integer getReplicas();
 
@@ -33,8 +34,8 @@ public interface V1ReplicaSetSpecFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector();
+  @Deprecated
+  public V1LabelSelector getSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector();
 
@@ -42,8 +43,7 @@ public interface V1ReplicaSetSpecFluent<
 
   public java.lang.Boolean hasSelector();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent.SelectorNested<A>
-      withNewSelector();
+  public V1ReplicaSetSpecFluent.SelectorNested<A> withNewSelector();
 
   public io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -63,7 +63,7 @@ public interface V1ReplicaSetSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate();
+  public V1PodTemplateSpec getTemplate();
 
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate();
 
@@ -71,8 +71,7 @@ public interface V1ReplicaSetSpecFluent<
 
   public java.lang.Boolean hasTemplate();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent.TemplateNested<A>
-      withNewTemplate();
+  public V1ReplicaSetSpecFluent.TemplateNested<A> withNewTemplate();
 
   public io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent.TemplateNested<A>
       withNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
@@ -87,9 +86,7 @@ public interface V1ReplicaSetSpecFluent<
       editOrNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
 
   public interface SelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent.SelectorNested<N>> {
+      extends Nested<N>, V1LabelSelectorFluent<V1ReplicaSetSpecFluent.SelectorNested<N>> {
     public N and();
 
     public N endSelector();
@@ -97,8 +94,7 @@ public interface V1ReplicaSetSpecFluent<
 
   public interface TemplateNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent<
-              io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent.TemplateNested<N>> {
+          V1PodTemplateSpecFluent<V1ReplicaSetSpecFluent.TemplateNested<N>> {
     public N and();
 
     public N endTemplate();

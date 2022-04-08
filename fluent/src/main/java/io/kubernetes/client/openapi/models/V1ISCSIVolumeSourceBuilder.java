@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1ISCSIVolumeSourceBuilder
-    extends io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1ISCSIVolumeSourceFluentImpl<V1ISCSIVolumeSourceBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1ISCSIVolumeSource,
         io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceBuilder> {
   public V1ISCSIVolumeSourceBuilder() {
     this(false);
   }
 
-  public V1ISCSIVolumeSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V1ISCSIVolumeSourceBuilder(Boolean validationEnabled) {
     this(new V1ISCSIVolumeSource(), validationEnabled);
   }
 
-  public V1ISCSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent<?> fluent) {
+  public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -124,24 +124,5 @@ public class V1ISCSIVolumeSourceBuilder
     buildable.setSecretRef(fluent.getSecretRef());
     buildable.setTargetPortal(fluent.getTargetPortal());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1ISCSIVolumeSourceBuilder that = (V1ISCSIVolumeSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

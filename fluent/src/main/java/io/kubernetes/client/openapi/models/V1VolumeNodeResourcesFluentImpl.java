@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1VolumeNodeResourcesFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1VolumeNodeResourcesFluentImpl<A extends V1VolumeNodeResourcesFluent<A>>
+    extends BaseFluent<A> implements V1VolumeNodeResourcesFluent<A> {
   public V1VolumeNodeResourcesFluentImpl() {}
 
   public V1VolumeNodeResourcesFluentImpl(
@@ -24,7 +25,7 @@ public class V1VolumeNodeResourcesFluentImpl<
     this.withCount(instance.getCount());
   }
 
-  private java.lang.Integer count;
+  private Integer count;
 
   public java.lang.Integer getCount() {
     return this.count;
@@ -35,11 +36,11 @@ public class V1VolumeNodeResourcesFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasCount() {
+  public Boolean hasCount() {
     return this.count != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1VolumeNodeResourcesFluentImpl that = (V1VolumeNodeResourcesFluentImpl) o;
@@ -49,5 +50,16 @@ public class V1VolumeNodeResourcesFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(count, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (count != null) {
+      sb.append("count:");
+      sb.append(count);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1PodSecurityContextFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PodSecurityContextFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent<A>>
+    extends BaseFluent<A> implements V1PodSecurityContextFluent<A> {
   public V1PodSecurityContextFluentImpl() {}
 
   public V1PodSecurityContextFluentImpl(
@@ -45,16 +49,16 @@ public class V1PodSecurityContextFluentImpl<
     this.withWindowsOptions(instance.getWindowsOptions());
   }
 
-  private java.lang.Long fsGroup;
-  private java.lang.String fsGroupChangePolicy;
+  private Long fsGroup;
+  private String fsGroupChangePolicy;
   private java.lang.Long runAsGroup;
-  private java.lang.Boolean runAsNonRoot;
+  private Boolean runAsNonRoot;
   private java.lang.Long runAsUser;
-  private io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder seLinuxOptions;
-  private io.kubernetes.client.openapi.models.V1SeccompProfileBuilder seccompProfile;
-  private java.util.List<java.lang.Long> supplementalGroups;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1SysctlBuilder> sysctls;
-  private io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsBuilder windowsOptions;
+  private V1SELinuxOptionsBuilder seLinuxOptions;
+  private V1SeccompProfileBuilder seccompProfile;
+  private List<java.lang.Long> supplementalGroups;
+  private ArrayList<V1SysctlBuilder> sysctls;
+  private V1WindowsSecurityContextOptionsBuilder windowsOptions;
 
   public java.lang.Long getFsGroup() {
     return this.fsGroup;
@@ -80,12 +84,6 @@ public class V1PodSecurityContextFluentImpl<
 
   public java.lang.Boolean hasFsGroupChangePolicy() {
     return this.fsGroupChangePolicy != null;
-  }
-
-  /** Method is deprecated. use withFsGroupChangePolicy instead. */
-  @java.lang.Deprecated
-  public A withNewFsGroupChangePolicy(java.lang.String original) {
-    return (A) withFsGroupChangePolicy(new String(original));
   }
 
   public java.lang.Long getRunAsGroup() {
@@ -132,8 +130,8 @@ public class V1PodSecurityContextFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SELinuxOptions getSeLinuxOptions() {
+  @Deprecated
+  public V1SELinuxOptions getSeLinuxOptions() {
     return this.seLinuxOptions != null ? this.seLinuxOptions.build() : null;
   }
 
@@ -155,16 +153,13 @@ public class V1PodSecurityContextFluentImpl<
     return this.seLinuxOptions != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeLinuxOptionsNested<A>
-      withNewSeLinuxOptions() {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl
-        .SeLinuxOptionsNestedImpl();
+  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
+    return new V1PodSecurityContextFluentImpl.SeLinuxOptionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeLinuxOptionsNested<A>
       withNewSeLinuxOptionsLike(io.kubernetes.client.openapi.models.V1SELinuxOptions item) {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl
-        .SeLinuxOptionsNestedImpl(item);
+    return new V1PodSecurityContextFluentImpl.SeLinuxOptionsNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeLinuxOptionsNested<A>
@@ -202,8 +197,7 @@ public class V1PodSecurityContextFluentImpl<
   public A withSeccompProfile(io.kubernetes.client.openapi.models.V1SeccompProfile seccompProfile) {
     _visitables.get("seccompProfile").remove(this.seccompProfile);
     if (seccompProfile != null) {
-      this.seccompProfile =
-          new io.kubernetes.client.openapi.models.V1SeccompProfileBuilder(seccompProfile);
+      this.seccompProfile = new V1SeccompProfileBuilder(seccompProfile);
       _visitables.get("seccompProfile").add(this.seccompProfile);
     }
     return (A) this;
@@ -213,10 +207,8 @@ public class V1PodSecurityContextFluentImpl<
     return this.seccompProfile != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeccompProfileNested<A>
-      withNewSeccompProfile() {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl
-        .SeccompProfileNestedImpl();
+  public V1PodSecurityContextFluent.SeccompProfileNested<A> withNewSeccompProfile() {
+    return new V1PodSecurityContextFluentImpl.SeccompProfileNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeccompProfileNested<A>
@@ -243,7 +235,7 @@ public class V1PodSecurityContextFluentImpl<
     return withNewSeccompProfileLike(getSeccompProfile() != null ? getSeccompProfile() : item);
   }
 
-  public A addToSupplementalGroups(java.lang.Integer index, java.lang.Long item) {
+  public A addToSupplementalGroups(Integer index, java.lang.Long item) {
     if (this.supplementalGroups == null) {
       this.supplementalGroups = new java.util.ArrayList<java.lang.Long>();
     }
@@ -269,7 +261,7 @@ public class V1PodSecurityContextFluentImpl<
     return (A) this;
   }
 
-  public A addAllToSupplementalGroups(java.util.Collection<java.lang.Long> items) {
+  public A addAllToSupplementalGroups(Collection<java.lang.Long> items) {
     if (this.supplementalGroups == null) {
       this.supplementalGroups = new java.util.ArrayList<java.lang.Long>();
     }
@@ -313,8 +305,7 @@ public class V1PodSecurityContextFluentImpl<
     return this.supplementalGroups.get(supplementalGroups.size() - 1);
   }
 
-  public java.lang.Long getMatchingSupplementalGroup(
-      java.util.function.Predicate<java.lang.Long> predicate) {
+  public java.lang.Long getMatchingSupplementalGroup(Predicate<java.lang.Long> predicate) {
     for (java.lang.Long item : supplementalGroups) {
       if (predicate.test(item)) {
         return item;
@@ -361,8 +352,7 @@ public class V1PodSecurityContextFluentImpl<
     return supplementalGroups != null && !supplementalGroups.isEmpty();
   }
 
-  public A addToSysctls(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Sysctl item) {
+  public A addToSysctls(java.lang.Integer index, V1Sysctl item) {
     if (this.sysctls == null) {
       this.sysctls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1SysctlBuilder>();
     }
@@ -537,10 +527,8 @@ public class V1PodSecurityContextFluentImpl<
     return sysctls != null && !sysctls.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<A>
-      addNewSysctl() {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl
-        .SysctlsNestedImpl();
+  public V1PodSecurityContextFluent.SysctlsNested<A> addNewSysctl() {
+    return new V1PodSecurityContextFluentImpl.SysctlsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<A>
@@ -597,7 +585,7 @@ public class V1PodSecurityContextFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions getWindowsOptions() {
+  public V1WindowsSecurityContextOptions getWindowsOptions() {
     return this.windowsOptions != null ? this.windowsOptions.build() : null;
   }
 
@@ -621,10 +609,8 @@ public class V1PodSecurityContextFluentImpl<
     return this.windowsOptions != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.WindowsOptionsNested<A>
-      withNewWindowsOptions() {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl
-        .WindowsOptionsNestedImpl();
+  public V1PodSecurityContextFluent.WindowsOptionsNested<A> withNewWindowsOptions() {
+    return new V1PodSecurityContextFluentImpl.WindowsOptionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.WindowsOptionsNested<A>
@@ -654,7 +640,7 @@ public class V1PodSecurityContextFluentImpl<
     return withNewWindowsOptionsLike(getWindowsOptions() != null ? getWindowsOptions() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PodSecurityContextFluentImpl that = (V1PodSecurityContextFluentImpl) o;
@@ -699,15 +685,65 @@ public class V1PodSecurityContextFluentImpl<
         super.hashCode());
   }
 
-  public class SeLinuxOptionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SELinuxOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeLinuxOptionsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (fsGroup != null) {
+      sb.append("fsGroup:");
+      sb.append(fsGroup + ",");
+    }
+    if (fsGroupChangePolicy != null) {
+      sb.append("fsGroupChangePolicy:");
+      sb.append(fsGroupChangePolicy + ",");
+    }
+    if (runAsGroup != null) {
+      sb.append("runAsGroup:");
+      sb.append(runAsGroup + ",");
+    }
+    if (runAsNonRoot != null) {
+      sb.append("runAsNonRoot:");
+      sb.append(runAsNonRoot + ",");
+    }
+    if (runAsUser != null) {
+      sb.append("runAsUser:");
+      sb.append(runAsUser + ",");
+    }
+    if (seLinuxOptions != null) {
+      sb.append("seLinuxOptions:");
+      sb.append(seLinuxOptions + ",");
+    }
+    if (seccompProfile != null) {
+      sb.append("seccompProfile:");
+      sb.append(seccompProfile + ",");
+    }
+    if (supplementalGroups != null && !supplementalGroups.isEmpty()) {
+      sb.append("supplementalGroups:");
+      sb.append(supplementalGroups + ",");
+    }
+    if (sysctls != null && !sysctls.isEmpty()) {
+      sb.append("sysctls:");
+      sb.append(sysctls + ",");
+    }
+    if (windowsOptions != null) {
+      sb.append("windowsOptions:");
+      sb.append(windowsOptions);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withRunAsNonRoot() {
+    return withRunAsNonRoot(true);
+  }
+
+  class SeLinuxOptionsNestedImpl<N>
+      extends V1SELinuxOptionsFluentImpl<V1PodSecurityContextFluent.SeLinuxOptionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent
                   .SeLinuxOptionsNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     SeLinuxOptionsNestedImpl(io.kubernetes.client.openapi.models.V1SELinuxOptions item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder(this, item);
+      this.builder = new V1SELinuxOptionsBuilder(this, item);
     }
 
     SeLinuxOptionsNestedImpl() {
@@ -725,15 +761,14 @@ public class V1PodSecurityContextFluentImpl<
     }
   }
 
-  public class SeccompProfileNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SeccompProfileFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeccompProfileNested<N>>
+  class SeccompProfileNestedImpl<N>
+      extends V1SeccompProfileFluentImpl<V1PodSecurityContextFluent.SeccompProfileNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent
                   .SeccompProfileNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     SeccompProfileNestedImpl(io.kubernetes.client.openapi.models.V1SeccompProfile item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SeccompProfileBuilder(this, item);
+      this.builder = new V1SeccompProfileBuilder(this, item);
     }
 
     SeccompProfileNestedImpl() {
@@ -751,14 +786,12 @@ public class V1PodSecurityContextFluentImpl<
     }
   }
 
-  public class SysctlsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SysctlFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<N>>
+  class SysctlsNestedImpl<N> extends V1SysctlFluentImpl<V1PodSecurityContextFluent.SysctlsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     SysctlsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Sysctl item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1SysctlBuilder(this, item);
+      this.builder = new V1SysctlBuilder(this, item);
     }
 
     SysctlsNestedImpl() {
@@ -778,18 +811,15 @@ public class V1PodSecurityContextFluentImpl<
     }
   }
 
-  public class WindowsOptionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.WindowsOptionsNested<N>>
+  class WindowsOptionsNestedImpl<N>
+      extends V1WindowsSecurityContextOptionsFluentImpl<
+          V1PodSecurityContextFluent.WindowsOptionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent
                   .WindowsOptionsNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    WindowsOptionsNestedImpl(
-        io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsBuilder(
-              this, item);
+    WindowsOptionsNestedImpl(V1WindowsSecurityContextOptions item) {
+      this.builder = new V1WindowsSecurityContextOptionsBuilder(this, item);
     }
 
     WindowsOptionsNestedImpl() {

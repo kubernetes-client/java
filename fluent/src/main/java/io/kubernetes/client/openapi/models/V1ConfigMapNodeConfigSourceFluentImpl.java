@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ConfigMapNodeConfigSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ConfigMapNodeConfigSourceFluentImpl<A extends V1ConfigMapNodeConfigSourceFluent<A>>
+    extends BaseFluent<A> implements V1ConfigMapNodeConfigSourceFluent<A> {
   public V1ConfigMapNodeConfigSourceFluentImpl() {}
 
   public V1ConfigMapNodeConfigSourceFluentImpl(
@@ -32,7 +33,7 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<
     this.withUid(instance.getUid());
   }
 
-  private java.lang.String kubeletConfigKey;
+  private String kubeletConfigKey;
   private java.lang.String name;
   private java.lang.String namespace;
   private java.lang.String resourceVersion;
@@ -47,14 +48,8 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasKubeletConfigKey() {
+  public Boolean hasKubeletConfigKey() {
     return this.kubeletConfigKey != null;
-  }
-
-  /** Method is deprecated. use withKubeletConfigKey instead. */
-  @java.lang.Deprecated
-  public A withNewKubeletConfigKey(java.lang.String original) {
-    return (A) withKubeletConfigKey(new String(original));
   }
 
   public java.lang.String getName() {
@@ -70,12 +65,6 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
   public java.lang.String getNamespace() {
     return this.namespace;
   }
@@ -87,12 +76,6 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<
 
   public java.lang.Boolean hasNamespace() {
     return this.namespace != null;
-  }
-
-  /** Method is deprecated. use withNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A) withNamespace(new String(original));
   }
 
   public java.lang.String getResourceVersion() {
@@ -108,12 +91,6 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<
     return this.resourceVersion != null;
   }
 
-  /** Method is deprecated. use withResourceVersion instead. */
-  @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original) {
-    return (A) withResourceVersion(new String(original));
-  }
-
   public java.lang.String getUid() {
     return this.uid;
   }
@@ -127,13 +104,7 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<
     return this.uid != null;
   }
 
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A) withUid(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ConfigMapNodeConfigSourceFluentImpl that = (V1ConfigMapNodeConfigSourceFluentImpl) o;
@@ -153,5 +124,32 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         kubeletConfigKey, name, namespace, resourceVersion, uid, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (kubeletConfigKey != null) {
+      sb.append("kubeletConfigKey:");
+      sb.append(kubeletConfigKey + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespace != null) {
+      sb.append("namespace:");
+      sb.append(namespace + ",");
+    }
+    if (resourceVersion != null) {
+      sb.append("resourceVersion:");
+      sb.append(resourceVersion + ",");
+    }
+    if (uid != null) {
+      sb.append("uid:");
+      sb.append(uid);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

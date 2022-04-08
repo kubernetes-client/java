@@ -12,15 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public interface V1DeploymentConditionFluent<
-        A extends io.kubernetes.client.openapi.models.V1DeploymentConditionFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.time.OffsetDateTime getLastTransitionTime();
+public interface V1DeploymentConditionFluent<A extends V1DeploymentConditionFluent<A>>
+    extends Fluent<A> {
+  public OffsetDateTime getLastTransitionTime();
 
   public A withLastTransitionTime(java.time.OffsetDateTime lastTransitionTime);
 
-  public java.lang.Boolean hasLastTransitionTime();
+  public Boolean hasLastTransitionTime();
 
   public java.time.OffsetDateTime getLastUpdateTime();
 
@@ -28,15 +30,11 @@ public interface V1DeploymentConditionFluent<
 
   public java.lang.Boolean hasLastUpdateTime();
 
-  public java.lang.String getMessage();
+  public String getMessage();
 
   public A withMessage(java.lang.String message);
 
   public java.lang.Boolean hasMessage();
-
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
 
   public java.lang.String getReason();
 
@@ -44,27 +42,15 @@ public interface V1DeploymentConditionFluent<
 
   public java.lang.Boolean hasReason();
 
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
-
   public java.lang.String getStatus();
 
   public A withStatus(java.lang.String status);
 
   public java.lang.Boolean hasStatus();
 
-  /** Method is deprecated. use withStatus instead. */
-  @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original);
-
   public java.lang.String getType();
 
   public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
-
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
 }
