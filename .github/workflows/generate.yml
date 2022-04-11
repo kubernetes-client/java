@@ -9,8 +9,14 @@ on:
         description: 'The remote kubernetes release branch to fetch openapi spec. .e.g. "release-1.23"'
 
 
+permissions:
+  contents: read
+
 jobs:
   generate:
+    permissions:
+      contents: write  # for Git to git push
+      pull-requests: write  # for repo-sync/pull-request to create pull requests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Java
