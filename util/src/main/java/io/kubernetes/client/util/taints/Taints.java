@@ -39,7 +39,7 @@ public class Taints {
 
   public static V1Taint findTaint(V1Node node, String key, Effect effect) {
     for (V1Taint taint : node.getSpec().getTaints()) {
-      if (taint.getKey().equals(key) && taint.getEffect().equals(effect)) {
+      if (taint.getKey().equals(key) && taint.getEffect().equals(effect.toString())) {
         return taint;
       }
     }
@@ -129,7 +129,7 @@ public class Taints {
       Iterator<V1Taint> taints = node.getSpec().getTaints().iterator();
       while (taints.hasNext()) {
         V1Taint taint = taints.next();
-        if (taint.getKey().equals(key) && taint.getEffect().equals(effect)) {
+        if (taint.getKey().equals(key) && taint.getEffect().equals(effect.toString())) {
           taints.remove();
         }
       }
