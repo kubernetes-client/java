@@ -12,15 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.kubectl;
 
-import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.NOEXECUTE;
-import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.NOSCHEDULE;
-import static io.kubernetes.client.openapi.models.V1Taint.EffectEnum.PREFERNOSCHEDULE;
-
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Node;
-import io.kubernetes.client.openapi.models.V1Taint;
 import io.kubernetes.client.util.taints.Taints;
 import io.kubernetes.client.util.taints.Taints.TaintsBuilder;
 import java.io.IOException;
@@ -89,15 +84,15 @@ public class KubectlTaint extends Kubectl.ResourceBuilder<V1Node, KubectlTaint>
     return v1.replaceNode(name, node, null, null, null, null);
   }
 
-  private V1Taint.EffectEnum makeEffect(String effect) throws KubectlException {
-    if (effect.equals(NOSCHEDULE.toString())) {
-      return NOSCHEDULE;
+  private Taints.Effect makeEffect(String effect) throws KubectlException {
+    if (effect.equals(Taints.Effect.NO_SCHEDULE.toString())) {
+      return Taints.Effect.NO_SCHEDULE;
     }
-    if (effect.equals(PREFERNOSCHEDULE.toString())) {
-      return PREFERNOSCHEDULE;
+    if (effect.equals(Taints.Effect.PREFER_NO_SCHEDULE.toString())) {
+      return Taints.Effect.PREFER_NO_SCHEDULE;
     }
-    if (effect.equals(NOEXECUTE.toString())) {
-      return NOEXECUTE;
+    if (effect.equals(Taints.Effect.NO_EXECUTE.toString())) {
+      return Taints.Effect.NO_EXECUTE;
     }
     throw new KubectlException("Unknown effect: " + effect);
   }

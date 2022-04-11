@@ -16,7 +16,6 @@ import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.IntOrString;
 import io.kubernetes.client.custom.Quantity;
-import io.kubernetes.client.openapi.models.V1Container;
 import io.kubernetes.client.openapi.models.V1JSONSchemaProps;
 import java.io.File;
 import java.io.FileReader;
@@ -275,15 +274,6 @@ public class Yaml {
       this.representers.put(byte[].class, new RepresentByteArray());
       this.representers.put(Quantity.class, new RepresentQuantity());
       this.representers.put(OffsetDateTime.class, new RepresentDateTime());
-      this.representers.put(V1Container.ImagePullPolicyEnum.class, new RepresentImagePull());
-    }
-
-    private class RepresentImagePull implements Represent {
-      @Override
-      public Node representData(Object data) {
-        return CustomRepresenter.this.representData(
-            ((V1Container.ImagePullPolicyEnum) data).getValue());
-      }
     }
 
     private class RepresentDateTime implements Represent {
