@@ -304,7 +304,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
               .ConditionsNested<
           A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
@@ -562,7 +562,7 @@ public class V2beta2HorizontalPodAutoscalerStatusFluentImpl<
               .CurrentMetricsNested<
           A>
       editFirstCurrentMetric() {
-    if (currentMetrics.size() == 0)
+    if (currentMetrics.isEmpty())
       throw new RuntimeException("Can't edit first currentMetrics. The list is empty.");
     return setNewCurrentMetricLike(0, buildCurrentMetric(0));
   }

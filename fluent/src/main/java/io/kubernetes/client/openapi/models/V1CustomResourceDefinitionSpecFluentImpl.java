@@ -434,7 +434,7 @@ public class V1CustomResourceDefinitionSpecFluentImpl<
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent.VersionsNested<A>
       editFirstVersion() {
-    if (versions.size() == 0)
+    if (versions.isEmpty())
       throw new RuntimeException("Can't edit first versions. The list is empty.");
     return setNewVersionLike(0, buildVersion(0));
   }

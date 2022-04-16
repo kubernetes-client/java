@@ -246,7 +246,7 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
 
   public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
       editFirstNodeSelectorTerm() {
-    if (nodeSelectorTerms.size() == 0)
+    if (nodeSelectorTerms.isEmpty())
       throw new RuntimeException("Can't edit first nodeSelectorTerms. The list is empty.");
     return setNewNodeSelectorTermLike(0, buildNodeSelectorTerm(0));
   }

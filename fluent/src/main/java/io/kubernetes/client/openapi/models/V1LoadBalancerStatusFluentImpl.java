@@ -245,7 +245,7 @@ public class V1LoadBalancerStatusFluentImpl<A extends V1LoadBalancerStatusFluent
 
   public io.kubernetes.client.openapi.models.V1LoadBalancerStatusFluent.IngressNested<A>
       editFirstIngress() {
-    if (ingress.size() == 0)
+    if (ingress.isEmpty())
       throw new RuntimeException("Can't edit first ingress. The list is empty.");
     return setNewIngressLike(0, buildIngress(0));
   }

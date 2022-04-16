@@ -616,7 +616,7 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A>
       editFirstVolumeClaimTemplate() {
-    if (volumeClaimTemplates.size() == 0)
+    if (volumeClaimTemplates.isEmpty())
       throw new RuntimeException("Can't edit first volumeClaimTemplates. The list is empty.");
     return setNewVolumeClaimTemplateLike(0, buildVolumeClaimTemplate(0));
   }

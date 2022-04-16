@@ -319,7 +319,7 @@ public class V1RoleFluentImpl<A extends V1RoleFluent<A>> extends BaseFluent<A>
   }
 
   public io.kubernetes.client.openapi.models.V1RoleFluent.RulesNested<A> editFirstRule() {
-    if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
+    if (rules.isEmpty()) throw new RuntimeException("Can't edit first rules. The list is empty.");
     return setNewRuleLike(0, buildRule(0));
   }
 

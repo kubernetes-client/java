@@ -881,7 +881,7 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
   }
 
   public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editFirstPort() {
-    if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
+    if (ports.isEmpty()) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
 

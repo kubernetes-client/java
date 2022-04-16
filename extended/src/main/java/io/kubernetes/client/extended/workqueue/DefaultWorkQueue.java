@@ -72,10 +72,10 @@ public class DefaultWorkQueue<T> implements WorkQueue<T> {
 
   @Override
   public synchronized T get() throws InterruptedException {
-    while (queue.size() == 0 && !shuttingDown) {
+    while (queue.isEmpty() && !shuttingDown) {
       this.wait();
     }
-    if (queue.size() == 0) {
+    if (queue.isEmpty()) {
       // We must be shutting down
       return null;
     }

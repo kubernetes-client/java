@@ -260,7 +260,7 @@ public class V1beta2FlowSchemaListFluentImpl<A extends V1beta2FlowSchemaListFlue
 
   public io.kubernetes.client.openapi.models.V1beta2FlowSchemaListFluent.ItemsNested<A>
       editFirstItem() {
-    if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
+    if (items.isEmpty()) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 

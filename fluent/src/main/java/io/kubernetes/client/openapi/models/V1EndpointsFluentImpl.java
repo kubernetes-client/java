@@ -326,7 +326,7 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
   }
 
   public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> editFirstSubset() {
-    if (subsets.size() == 0)
+    if (subsets.isEmpty())
       throw new RuntimeException("Can't edit first subsets. The list is empty.");
     return setNewSubsetLike(0, buildSubset(0));
   }

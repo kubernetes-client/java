@@ -297,7 +297,7 @@ public class V1DeploymentStatusFluentImpl<A extends V1DeploymentStatusFluent<A>>
 
   public io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }

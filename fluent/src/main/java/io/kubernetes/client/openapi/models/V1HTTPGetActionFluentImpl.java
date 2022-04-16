@@ -266,7 +266,7 @@ public class V1HTTPGetActionFluentImpl<A extends V1HTTPGetActionFluent<A>> exten
 
   public io.kubernetes.client.openapi.models.V1HTTPGetActionFluent.HttpHeadersNested<A>
       editFirstHttpHeader() {
-    if (httpHeaders.size() == 0)
+    if (httpHeaders.isEmpty())
       throw new RuntimeException("Can't edit first httpHeaders. The list is empty.");
     return setNewHttpHeaderLike(0, buildHttpHeader(0));
   }

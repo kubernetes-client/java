@@ -252,7 +252,7 @@ public class V1NamespaceStatusFluentImpl<A extends V1NamespaceStatusFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V1NamespaceStatusFluent.ConditionsNested<A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }

@@ -66,7 +66,7 @@ public class EndpointsLoadBalancer implements LoadBalancer {
   @Override
   public String getTargetIP() throws NoAvailableAddressException {
     List<String> availableIPs = getAllAvailableIPs();
-    if (availableIPs.size() == 0) {
+    if (availableIPs.isEmpty()) {
       throw new NoAvailableAddressException();
     }
     return this.strategy.chooseIP(availableIPs);
@@ -79,7 +79,7 @@ public class EndpointsLoadBalancer implements LoadBalancer {
       throw new NoAvailableAddressException();
     }
     List<String> availableIPs = getAllAvailableIPs(port);
-    if (availableIPs.size() == 0) {
+    if (availableIPs.isEmpty()) {
       throw new NoAvailableAddressException();
     }
     return this.strategy.chooseIP(availableIPs);

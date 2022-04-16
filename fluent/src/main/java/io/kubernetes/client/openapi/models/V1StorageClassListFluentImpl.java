@@ -259,7 +259,7 @@ public class V1StorageClassListFluentImpl<A extends V1StorageClassListFluent<A>>
 
   public io.kubernetes.client.openapi.models.V1StorageClassListFluent.ItemsNested<A>
       editFirstItem() {
-    if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
+    if (items.isEmpty()) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 

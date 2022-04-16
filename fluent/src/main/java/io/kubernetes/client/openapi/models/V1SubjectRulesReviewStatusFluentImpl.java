@@ -290,7 +290,7 @@ public class V1SubjectRulesReviewStatusFluentImpl<A extends V1SubjectRulesReview
               .NonResourceRulesNested<
           A>
       editFirstNonResourceRule() {
-    if (nonResourceRules.size() == 0)
+    if (nonResourceRules.isEmpty())
       throw new RuntimeException("Can't edit first nonResourceRules. The list is empty.");
     return setNewNonResourceRuleLike(0, buildNonResourceRule(0));
   }
@@ -536,7 +536,7 @@ public class V1SubjectRulesReviewStatusFluentImpl<A extends V1SubjectRulesReview
 
   public io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A>
       editFirstResourceRule() {
-    if (resourceRules.size() == 0)
+    if (resourceRules.isEmpty())
       throw new RuntimeException("Can't edit first resourceRules. The list is empty.");
     return setNewResourceRuleLike(0, buildResourceRule(0));
   }

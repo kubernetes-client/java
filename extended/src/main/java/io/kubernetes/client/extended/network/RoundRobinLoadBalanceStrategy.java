@@ -21,7 +21,7 @@ public class RoundRobinLoadBalanceStrategy implements LoadBalanceStrategy {
 
   @Override
   public String chooseIP(List<String> availableIPs) {
-    if (availableIPs == null || availableIPs.size() == 0) {
+    if (availableIPs == null || availableIPs.isEmpty()) {
       throw new IllegalArgumentException("failed choosing IP target: empty candidates");
     }
     int len = availableIPs.size();

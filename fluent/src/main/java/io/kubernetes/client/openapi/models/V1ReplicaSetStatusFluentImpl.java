@@ -277,7 +277,7 @@ public class V1ReplicaSetStatusFluentImpl<A extends V1ReplicaSetStatusFluent<A>>
 
   public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }

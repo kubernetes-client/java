@@ -620,7 +620,7 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A>
       editFirstRule() {
-    if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
+    if (rules.isEmpty()) throw new RuntimeException("Can't edit first rules. The list is empty.");
     return setNewRuleLike(0, buildRule(0));
   }
 

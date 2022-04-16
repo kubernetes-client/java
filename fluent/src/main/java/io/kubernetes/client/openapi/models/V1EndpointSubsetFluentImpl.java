@@ -250,7 +250,7 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A>
       editFirstAddress() {
-    if (addresses.size() == 0)
+    if (addresses.isEmpty())
       throw new RuntimeException("Can't edit first addresses. The list is empty.");
     return setNewAddressLike(0, buildAddress(0));
   }
@@ -495,7 +495,7 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
       editFirstNotReadyAddress() {
-    if (notReadyAddresses.size() == 0)
+    if (notReadyAddresses.isEmpty())
       throw new RuntimeException("Can't edit first notReadyAddresses. The list is empty.");
     return setNewNotReadyAddressLike(0, buildNotReadyAddress(0));
   }
@@ -730,7 +730,7 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
   }
 
   public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> editFirstPort() {
-    if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
+    if (ports.isEmpty()) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
 

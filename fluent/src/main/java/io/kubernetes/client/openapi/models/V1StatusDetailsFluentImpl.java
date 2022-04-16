@@ -252,8 +252,7 @@ public class V1StatusDetailsFluentImpl<A extends V1StatusDetailsFluent<A>> exten
 
   public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A>
       editFirstCause() {
-    if (causes.size() == 0)
-      throw new RuntimeException("Can't edit first causes. The list is empty.");
+    if (causes.isEmpty()) throw new RuntimeException("Can't edit first causes. The list is empty.");
     return setNewCauseLike(0, buildCause(0));
   }
 

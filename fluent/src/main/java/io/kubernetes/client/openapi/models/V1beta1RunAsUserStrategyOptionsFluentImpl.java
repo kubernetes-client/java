@@ -243,8 +243,7 @@ public class V1beta1RunAsUserStrategyOptionsFluentImpl<
 
   public io.kubernetes.client.openapi.models.V1beta1RunAsUserStrategyOptionsFluent.RangesNested<A>
       editFirstRange() {
-    if (ranges.size() == 0)
-      throw new RuntimeException("Can't edit first ranges. The list is empty.");
+    if (ranges.isEmpty()) throw new RuntimeException("Can't edit first ranges. The list is empty.");
     return setNewRangeLike(0, buildRange(0));
   }
 

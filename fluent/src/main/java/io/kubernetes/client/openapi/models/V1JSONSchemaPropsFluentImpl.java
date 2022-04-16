@@ -401,7 +401,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A>
       editFirstAllOf() {
-    if (allOf.size() == 0) throw new RuntimeException("Can't edit first allOf. The list is empty.");
+    if (allOf.isEmpty()) throw new RuntimeException("Can't edit first allOf. The list is empty.");
     return setNewAllOfLike(0, buildAllOf(0));
   }
 
@@ -635,7 +635,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A>
       editFirstAnyOf() {
-    if (anyOf.size() == 0) throw new RuntimeException("Can't edit first anyOf. The list is empty.");
+    if (anyOf.isEmpty()) throw new RuntimeException("Can't edit first anyOf. The list is empty.");
     return setNewAnyOfLike(0, buildAnyOf(0));
   }
 
@@ -1457,7 +1457,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A>
       editFirstOneOf() {
-    if (oneOf.size() == 0) throw new RuntimeException("Can't edit first oneOf. The list is empty.");
+    if (oneOf.isEmpty()) throw new RuntimeException("Can't edit first oneOf. The list is empty.");
     return setNewOneOfLike(0, buildOneOf(0));
   }
 

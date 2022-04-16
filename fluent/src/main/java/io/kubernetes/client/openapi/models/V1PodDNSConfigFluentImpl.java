@@ -366,7 +366,7 @@ public class V1PodDNSConfigFluentImpl<A extends V1PodDNSConfigFluent<A>> extends
 
   public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A>
       editFirstOption() {
-    if (options.size() == 0)
+    if (options.isEmpty())
       throw new RuntimeException("Can't edit first options. The list is empty.");
     return setNewOptionLike(0, buildOption(0));
   }

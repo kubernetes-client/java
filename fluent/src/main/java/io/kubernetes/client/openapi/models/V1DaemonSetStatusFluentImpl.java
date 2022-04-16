@@ -288,7 +288,7 @@ public class V1DaemonSetStatusFluentImpl<A extends V1DaemonSetStatusFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }

@@ -387,7 +387,7 @@ public class V1ClusterRoleBindingFluentImpl<A extends V1ClusterRoleBindingFluent
 
   public io.kubernetes.client.openapi.models.V1ClusterRoleBindingFluent.SubjectsNested<A>
       editFirstSubject() {
-    if (subjects.size() == 0)
+    if (subjects.isEmpty())
       throw new RuntimeException("Can't edit first subjects. The list is empty.");
     return setNewSubjectLike(0, buildSubject(0));
   }

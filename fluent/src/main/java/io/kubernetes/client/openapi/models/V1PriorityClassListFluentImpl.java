@@ -259,7 +259,7 @@ public class V1PriorityClassListFluentImpl<A extends V1PriorityClassListFluent<A
 
   public io.kubernetes.client.openapi.models.V1PriorityClassListFluent.ItemsNested<A>
       editFirstItem() {
-    if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
+    if (items.isEmpty()) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 

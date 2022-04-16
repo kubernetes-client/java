@@ -303,7 +303,7 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
               .AdditionalPrinterColumnsNested<
           A>
       editFirstAdditionalPrinterColumn() {
-    if (additionalPrinterColumns.size() == 0)
+    if (additionalPrinterColumns.isEmpty())
       throw new RuntimeException("Can't edit first additionalPrinterColumns. The list is empty.");
     return setNewAdditionalPrinterColumnLike(0, buildAdditionalPrinterColumn(0));
   }

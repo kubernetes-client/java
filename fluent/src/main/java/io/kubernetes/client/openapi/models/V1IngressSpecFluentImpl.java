@@ -311,7 +311,7 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
   }
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> editFirstRule() {
-    if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
+    if (rules.isEmpty()) throw new RuntimeException("Can't edit first rules. The list is empty.");
     return setNewRuleLike(0, buildRule(0));
   }
 
@@ -536,7 +536,7 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
   }
 
   public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> editFirstTl() {
-    if (tls.size() == 0) throw new RuntimeException("Can't edit first tls. The list is empty.");
+    if (tls.isEmpty()) throw new RuntimeException("Can't edit first tls. The list is empty.");
     return setNewTlLike(0, buildTl(0));
   }
 

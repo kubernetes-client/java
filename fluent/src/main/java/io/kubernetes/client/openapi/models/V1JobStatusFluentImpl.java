@@ -307,7 +307,7 @@ public class V1JobStatusFluentImpl<A extends V1JobStatusFluent<A>> extends BaseF
 
   public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }

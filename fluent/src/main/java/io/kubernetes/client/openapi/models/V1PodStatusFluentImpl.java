@@ -281,7 +281,7 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
@@ -526,7 +526,7 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
       editFirstContainerStatus() {
-    if (containerStatuses.size() == 0)
+    if (containerStatuses.isEmpty())
       throw new RuntimeException("Can't edit first containerStatuses. The list is empty.");
     return setNewContainerStatusLike(0, buildContainerStatus(0));
   }
@@ -783,7 +783,7 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
       editFirstEphemeralContainerStatus() {
-    if (ephemeralContainerStatuses.size() == 0)
+    if (ephemeralContainerStatuses.isEmpty())
       throw new RuntimeException("Can't edit first ephemeralContainerStatuses. The list is empty.");
     return setNewEphemeralContainerStatusLike(0, buildEphemeralContainerStatus(0));
   }
@@ -1046,7 +1046,7 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
       editFirstInitContainerStatus() {
-    if (initContainerStatuses.size() == 0)
+    if (initContainerStatuses.isEmpty())
       throw new RuntimeException("Can't edit first initContainerStatuses. The list is empty.");
     return setNewInitContainerStatusLike(0, buildInitContainerStatus(0));
   }
@@ -1323,8 +1323,7 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
   }
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> editFirstPodIP() {
-    if (podIPs.size() == 0)
-      throw new RuntimeException("Can't edit first podIPs. The list is empty.");
+    if (podIPs.isEmpty()) throw new RuntimeException("Can't edit first podIPs. The list is empty.");
     return setNewPodIPLike(0, buildPodIP(0));
   }
 

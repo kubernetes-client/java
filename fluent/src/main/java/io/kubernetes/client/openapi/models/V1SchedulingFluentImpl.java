@@ -307,7 +307,7 @@ public class V1SchedulingFluentImpl<A extends V1SchedulingFluent<A>> extends Bas
 
   public io.kubernetes.client.openapi.models.V1SchedulingFluent.TolerationsNested<A>
       editFirstToleration() {
-    if (tolerations.size() == 0)
+    if (tolerations.isEmpty())
       throw new RuntimeException("Can't edit first tolerations. The list is empty.");
     return setNewTolerationLike(0, buildToleration(0));
   }

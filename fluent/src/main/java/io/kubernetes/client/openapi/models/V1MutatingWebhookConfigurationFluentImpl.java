@@ -335,7 +335,7 @@ public class V1MutatingWebhookConfigurationFluentImpl<
 
   public io.kubernetes.client.openapi.models.V1MutatingWebhookConfigurationFluent.WebhooksNested<A>
       editFirstWebhook() {
-    if (webhooks.size() == 0)
+    if (webhooks.isEmpty())
       throw new RuntimeException("Can't edit first webhooks. The list is empty.");
     return setNewWebhookLike(0, buildWebhook(0));
   }

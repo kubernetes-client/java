@@ -303,7 +303,7 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
               .PreferredDuringSchedulingIgnoredDuringExecutionNested<
           A>
       editFirstPreferredDuringSchedulingIgnoredDuringExecution() {
-    if (preferredDuringSchedulingIgnoredDuringExecution.size() == 0)
+    if (preferredDuringSchedulingIgnoredDuringExecution.isEmpty())
       throw new RuntimeException(
           "Can't edit first preferredDuringSchedulingIgnoredDuringExecution. The list is empty.");
     return setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(
@@ -600,7 +600,7 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
               .RequiredDuringSchedulingIgnoredDuringExecutionNested<
           A>
       editFirstRequiredDuringSchedulingIgnoredDuringExecution() {
-    if (requiredDuringSchedulingIgnoredDuringExecution.size() == 0)
+    if (requiredDuringSchedulingIgnoredDuringExecution.isEmpty())
       throw new RuntimeException(
           "Can't edit first requiredDuringSchedulingIgnoredDuringExecution. The list is empty.");
     return setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(

@@ -383,7 +383,7 @@ public class V1RoleBindingFluentImpl<A extends V1RoleBindingFluent<A>> extends B
 
   public io.kubernetes.client.openapi.models.V1RoleBindingFluent.SubjectsNested<A>
       editFirstSubject() {
-    if (subjects.size() == 0)
+    if (subjects.isEmpty())
       throw new RuntimeException("Can't edit first subjects. The list is empty.");
     return setNewSubjectLike(0, buildSubject(0));
   }

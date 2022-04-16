@@ -242,7 +242,7 @@ public class V1NetworkPolicyIngressRuleFluentImpl<A extends V1NetworkPolicyIngre
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.FromNested<A>
       editFirstFrom() {
-    if (from.size() == 0) throw new RuntimeException("Can't edit first from. The list is empty.");
+    if (from.isEmpty()) throw new RuntimeException("Can't edit first from. The list is empty.");
     return setNewFromLike(0, buildFrom(0));
   }
 
@@ -479,7 +479,7 @@ public class V1NetworkPolicyIngressRuleFluentImpl<A extends V1NetworkPolicyIngre
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.PortsNested<A>
       editFirstPort() {
-    if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
+    if (ports.isEmpty()) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
 

@@ -268,7 +268,7 @@ public class V1ScopeSelectorFluentImpl<A extends V1ScopeSelectorFluent<A>> exten
 
   public io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<A>
       editFirstMatchExpression() {
-    if (matchExpressions.size() == 0)
+    if (matchExpressions.isEmpty())
       throw new RuntimeException("Can't edit first matchExpressions. The list is empty.");
     return setNewMatchExpressionLike(0, buildMatchExpression(0));
   }

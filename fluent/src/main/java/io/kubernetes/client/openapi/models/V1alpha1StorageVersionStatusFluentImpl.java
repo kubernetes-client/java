@@ -282,7 +282,7 @@ public class V1alpha1StorageVersionStatusFluentImpl<A extends V1alpha1StorageVer
 
   public io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent.ConditionsNested<A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
@@ -556,7 +556,7 @@ public class V1alpha1StorageVersionStatusFluentImpl<A extends V1alpha1StorageVer
               .StorageVersionsNested<
           A>
       editFirstStorageVersion() {
-    if (storageVersions.size() == 0)
+    if (storageVersions.isEmpty())
       throw new RuntimeException("Can't edit first storageVersions. The list is empty.");
     return setNewStorageVersionLike(0, buildStorageVersion(0));
   }

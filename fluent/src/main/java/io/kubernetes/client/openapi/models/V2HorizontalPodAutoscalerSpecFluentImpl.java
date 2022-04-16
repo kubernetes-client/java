@@ -324,7 +324,7 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A>
       editFirstMetric() {
-    if (metrics.size() == 0)
+    if (metrics.isEmpty())
       throw new RuntimeException("Can't edit first metrics. The list is empty.");
     return setNewMetricLike(0, buildMetric(0));
   }

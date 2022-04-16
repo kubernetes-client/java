@@ -385,7 +385,7 @@ public class DeltaFIFO {
     if (obj instanceof Deque) {
       Deque<MutablePair<DeltaType, KubernetesObject>> deltas =
           (Deque<MutablePair<DeltaType, KubernetesObject>>) obj;
-      if (deltas.size() == 0) {
+      if (deltas.isEmpty()) {
         throw new NoSuchElementException("0 length Deltas object; can't get key");
       }
       innerObj = deltas.peekLast().getRight();

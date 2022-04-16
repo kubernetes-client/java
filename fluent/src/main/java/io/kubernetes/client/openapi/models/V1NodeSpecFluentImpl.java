@@ -456,8 +456,7 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
   }
 
   public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> editFirstTaint() {
-    if (taints.size() == 0)
-      throw new RuntimeException("Can't edit first taints. The list is empty.");
+    if (taints.isEmpty()) throw new RuntimeException("Can't edit first taints. The list is empty.");
     return setNewTaintLike(0, buildTaint(0));
   }
 

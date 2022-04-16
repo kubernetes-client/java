@@ -244,7 +244,7 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
 
   public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
       editFirstCondition() {
-    if (conditions.size() == 0)
+    if (conditions.isEmpty())
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }

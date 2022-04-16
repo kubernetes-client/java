@@ -260,7 +260,7 @@ public class V1ServiceAccountListFluentImpl<A extends V1ServiceAccountListFluent
 
   public io.kubernetes.client.openapi.models.V1ServiceAccountListFluent.ItemsNested<A>
       editFirstItem() {
-    if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
+    if (items.isEmpty()) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 

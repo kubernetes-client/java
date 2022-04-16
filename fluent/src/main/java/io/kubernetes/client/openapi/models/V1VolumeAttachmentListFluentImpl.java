@@ -260,7 +260,7 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
 
   public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.ItemsNested<A>
       editFirstItem() {
-    if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
+    if (items.isEmpty()) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 

@@ -281,7 +281,7 @@ public class V1EndpointSliceFluentImpl<A extends V1EndpointSliceFluent<A>> exten
 
   public io.kubernetes.client.openapi.models.V1EndpointSliceFluent.EndpointsNested<A>
       editFirstEndpoint() {
-    if (endpoints.size() == 0)
+    if (endpoints.isEmpty())
       throw new RuntimeException("Can't edit first endpoints. The list is empty.");
     return setNewEndpointLike(0, buildEndpoint(0));
   }
@@ -590,7 +590,7 @@ public class V1EndpointSliceFluentImpl<A extends V1EndpointSliceFluent<A>> exten
   }
 
   public io.kubernetes.client.openapi.models.V1EndpointSliceFluent.PortsNested<A> editFirstPort() {
-    if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
+    if (ports.isEmpty()) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
 

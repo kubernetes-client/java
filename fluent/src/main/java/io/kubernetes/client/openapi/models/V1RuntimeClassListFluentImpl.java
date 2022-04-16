@@ -258,7 +258,7 @@ public class V1RuntimeClassListFluentImpl<A extends V1RuntimeClassListFluent<A>>
 
   public io.kubernetes.client.openapi.models.V1RuntimeClassListFluent.ItemsNested<A>
       editFirstItem() {
-    if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
+    if (items.isEmpty()) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 

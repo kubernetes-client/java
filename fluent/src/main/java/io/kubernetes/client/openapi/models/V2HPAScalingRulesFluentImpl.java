@@ -250,7 +250,7 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
       editFirstPolicy() {
-    if (policies.size() == 0)
+    if (policies.isEmpty())
       throw new RuntimeException("Can't edit first policies. The list is empty.");
     return setNewPolicyLike(0, buildPolicy(0));
   }

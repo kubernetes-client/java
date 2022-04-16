@@ -237,7 +237,7 @@ public class V1HTTPIngressRuleValueFluentImpl<A extends V1HTTPIngressRuleValueFl
 
   public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<A>
       editFirstPath() {
-    if (paths.size() == 0) throw new RuntimeException("Can't edit first paths. The list is empty.");
+    if (paths.isEmpty()) throw new RuntimeException("Can't edit first paths. The list is empty.");
     return setNewPathLike(0, buildPath(0));
   }
 

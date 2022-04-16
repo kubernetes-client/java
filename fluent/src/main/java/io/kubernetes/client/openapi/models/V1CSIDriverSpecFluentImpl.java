@@ -334,7 +334,7 @@ public class V1CSIDriverSpecFluentImpl<A extends V1CSIDriverSpecFluent<A>> exten
 
   public io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent.TokenRequestsNested<A>
       editFirstTokenRequest() {
-    if (tokenRequests.size() == 0)
+    if (tokenRequests.isEmpty())
       throw new RuntimeException("Can't edit first tokenRequests. The list is empty.");
     return setNewTokenRequestLike(0, buildTokenRequest(0));
   }

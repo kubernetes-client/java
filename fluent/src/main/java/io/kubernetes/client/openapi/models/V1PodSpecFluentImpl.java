@@ -429,7 +429,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ContainersNested<A>
       editFirstContainer() {
-    if (containers.size() == 0)
+    if (containers.isEmpty())
       throw new RuntimeException("Can't edit first containers. The list is empty.");
     return setNewContainerLike(0, buildContainer(0));
   }
@@ -760,7 +760,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.EphemeralContainersNested<A>
       editFirstEphemeralContainer() {
-    if (ephemeralContainers.size() == 0)
+    if (ephemeralContainers.isEmpty())
       throw new RuntimeException("Can't edit first ephemeralContainers. The list is empty.");
     return setNewEphemeralContainerLike(0, buildEphemeralContainer(0));
   }
@@ -1002,7 +1002,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.HostAliasesNested<A>
       editFirstHostAlias() {
-    if (hostAliases.size() == 0)
+    if (hostAliases.isEmpty())
       throw new RuntimeException("Can't edit first hostAliases. The list is empty.");
     return setNewHostAliasLike(0, buildHostAlias(0));
   }
@@ -1309,7 +1309,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ImagePullSecretsNested<A>
       editFirstImagePullSecret() {
-    if (imagePullSecrets.size() == 0)
+    if (imagePullSecrets.isEmpty())
       throw new RuntimeException("Can't edit first imagePullSecrets. The list is empty.");
     return setNewImagePullSecretLike(0, buildImagePullSecret(0));
   }
@@ -1553,7 +1553,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.InitContainersNested<A>
       editFirstInitContainer() {
-    if (initContainers.size() == 0)
+    if (initContainers.isEmpty())
       throw new RuntimeException("Can't edit first initContainers. The list is empty.");
     return setNewInitContainerLike(0, buildInitContainer(0));
   }
@@ -2027,7 +2027,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.ReadinessGatesNested<A>
       editFirstReadinessGate() {
-    if (readinessGates.size() == 0)
+    if (readinessGates.isEmpty())
       throw new RuntimeException("Can't edit first readinessGates. The list is empty.");
     return setNewReadinessGateLike(0, buildReadinessGate(0));
   }
@@ -2441,7 +2441,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.TolerationsNested<A>
       editFirstToleration() {
-    if (tolerations.size() == 0)
+    if (tolerations.isEmpty())
       throw new RuntimeException("Can't edit first tolerations. The list is empty.");
     return setNewTolerationLike(0, buildToleration(0));
   }
@@ -2706,7 +2706,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.TopologySpreadConstraintsNested<A>
       editFirstTopologySpreadConstraint() {
-    if (topologySpreadConstraints.size() == 0)
+    if (topologySpreadConstraints.isEmpty())
       throw new RuntimeException("Can't edit first topologySpreadConstraints. The list is empty.");
     return setNewTopologySpreadConstraintLike(0, buildTopologySpreadConstraint(0));
   }
@@ -2935,7 +2935,7 @@ public class V1PodSpecFluentImpl<A extends V1PodSpecFluent<A>> extends BaseFluen
   }
 
   public io.kubernetes.client.openapi.models.V1PodSpecFluent.VolumesNested<A> editFirstVolume() {
-    if (volumes.size() == 0)
+    if (volumes.isEmpty())
       throw new RuntimeException("Can't edit first volumes. The list is empty.");
     return setNewVolumeLike(0, buildVolume(0));
   }

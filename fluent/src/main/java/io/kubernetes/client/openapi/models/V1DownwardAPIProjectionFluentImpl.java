@@ -247,7 +247,7 @@ public class V1DownwardAPIProjectionFluentImpl<A extends V1DownwardAPIProjection
 
   public io.kubernetes.client.openapi.models.V1DownwardAPIProjectionFluent.ItemsNested<A>
       editFirstItem() {
-    if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
+    if (items.isEmpty()) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 

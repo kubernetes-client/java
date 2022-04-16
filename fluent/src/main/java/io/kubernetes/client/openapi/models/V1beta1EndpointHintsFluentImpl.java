@@ -241,7 +241,7 @@ public class V1beta1EndpointHintsFluentImpl<A extends V1beta1EndpointHintsFluent
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<A>
       editFirstForZone() {
-    if (forZones.size() == 0)
+    if (forZones.isEmpty())
       throw new RuntimeException("Can't edit first forZones. The list is empty.");
     return setNewForZoneLike(0, buildForZone(0));
   }

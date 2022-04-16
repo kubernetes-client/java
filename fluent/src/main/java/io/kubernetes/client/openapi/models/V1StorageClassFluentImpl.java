@@ -300,7 +300,7 @@ public class V1StorageClassFluentImpl<A extends V1StorageClassFluent<A>> extends
 
   public io.kubernetes.client.openapi.models.V1StorageClassFluent.AllowedTopologiesNested<A>
       editFirstAllowedTopology() {
-    if (allowedTopologies.size() == 0)
+    if (allowedTopologies.isEmpty())
       throw new RuntimeException("Can't edit first allowedTopologies. The list is empty.");
     return setNewAllowedTopologyLike(0, buildAllowedTopology(0));
   }

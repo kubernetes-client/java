@@ -247,7 +247,7 @@ public class V1AggregationRuleFluentImpl<A extends V1AggregationRuleFluent<A>> e
 
   public io.kubernetes.client.openapi.models.V1AggregationRuleFluent.ClusterRoleSelectorsNested<A>
       editFirstClusterRoleSelector() {
-    if (clusterRoleSelectors.size() == 0)
+    if (clusterRoleSelectors.isEmpty())
       throw new RuntimeException("Can't edit first clusterRoleSelectors. The list is empty.");
     return setNewClusterRoleSelectorLike(0, buildClusterRoleSelector(0));
   }

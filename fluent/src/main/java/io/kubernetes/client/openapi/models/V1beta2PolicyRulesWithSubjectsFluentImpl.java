@@ -283,7 +283,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
               .NonResourceRulesNested<
           A>
       editFirstNonResourceRule() {
-    if (nonResourceRules.size() == 0)
+    if (nonResourceRules.isEmpty())
       throw new RuntimeException("Can't edit first nonResourceRules. The list is empty.");
     return setNewNonResourceRuleLike(0, buildNonResourceRule(0));
   }
@@ -552,7 +552,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
               .ResourceRulesNested<
           A>
       editFirstResourceRule() {
-    if (resourceRules.size() == 0)
+    if (resourceRules.isEmpty())
       throw new RuntimeException("Can't edit first resourceRules. The list is empty.");
     return setNewResourceRuleLike(0, buildResourceRule(0));
   }
@@ -796,7 +796,7 @@ public class V1beta2PolicyRulesWithSubjectsFluentImpl<
 
   public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A>
       editFirstSubject() {
-    if (subjects.size() == 0)
+    if (subjects.isEmpty())
       throw new RuntimeException("Can't edit first subjects. The list is empty.");
     return setNewSubjectLike(0, buildSubject(0));
   }

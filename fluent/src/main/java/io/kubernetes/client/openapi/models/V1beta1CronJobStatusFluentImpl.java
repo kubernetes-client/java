@@ -247,8 +247,7 @@ public class V1beta1CronJobStatusFluentImpl<A extends V1beta1CronJobStatusFluent
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<A>
       editFirstActive() {
-    if (active.size() == 0)
-      throw new RuntimeException("Can't edit first active. The list is empty.");
+    if (active.isEmpty()) throw new RuntimeException("Can't edit first active. The list is empty.");
     return setNewActiveLike(0, buildActive(0));
   }
 
