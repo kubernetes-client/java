@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1PodReadinessGateFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PodReadinessGateFluentImpl<A extends V1PodReadinessGateFluent<A>>
+    extends BaseFluent<A> implements V1PodReadinessGateFluent<A> {
   public V1PodReadinessGateFluentImpl() {}
 
   public V1PodReadinessGateFluentImpl(
@@ -24,24 +25,22 @@ public class V1PodReadinessGateFluentImpl<
     this.withConditionType(instance.getConditionType());
   }
 
-  private io.kubernetes.client.openapi.models.V1PodReadinessGate.ConditionTypeEnum conditionType;
+  private String conditionType;
 
-  public io.kubernetes.client.openapi.models.V1PodReadinessGate.ConditionTypeEnum
-      getConditionType() {
+  public java.lang.String getConditionType() {
     return this.conditionType;
   }
 
-  public A withConditionType(
-      io.kubernetes.client.openapi.models.V1PodReadinessGate.ConditionTypeEnum conditionType) {
+  public A withConditionType(java.lang.String conditionType) {
     this.conditionType = conditionType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasConditionType() {
+  public Boolean hasConditionType() {
     return this.conditionType != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PodReadinessGateFluentImpl that = (V1PodReadinessGateFluentImpl) o;
@@ -53,5 +52,16 @@ public class V1PodReadinessGateFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(conditionType, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (conditionType != null) {
+      sb.append("conditionType:");
+      sb.append(conditionType);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

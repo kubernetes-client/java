@@ -12,22 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1CronJobStatusBuilder
-    extends io.kubernetes.client.openapi.models.V1CronJobStatusFluentImpl<
-        io.kubernetes.client.openapi.models.V1CronJobStatusBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1CronJobStatusBuilder extends V1CronJobStatusFluentImpl<V1CronJobStatusBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1CronJobStatus,
         io.kubernetes.client.openapi.models.V1CronJobStatusBuilder> {
   public V1CronJobStatusBuilder() {
     this(false);
   }
 
-  public V1CronJobStatusBuilder(java.lang.Boolean validationEnabled) {
+  public V1CronJobStatusBuilder(Boolean validationEnabled) {
     this(new V1CronJobStatus(), validationEnabled);
   }
 
-  public V1CronJobStatusBuilder(
-      io.kubernetes.client.openapi.models.V1CronJobStatusFluent<?> fluent) {
+  public V1CronJobStatusBuilder(V1CronJobStatusFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -83,24 +82,5 @@ public class V1CronJobStatusBuilder
     buildable.setLastScheduleTime(fluent.getLastScheduleTime());
     buildable.setLastSuccessfulTime(fluent.getLastSuccessfulTime());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1CronJobStatusBuilder that = (V1CronJobStatusBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

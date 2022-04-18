@@ -12,19 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1JSONSchemaPropsFluent<
-        A extends io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getRef();
+public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> extends Fluent<A> {
+  public String getRef();
 
   public A withRef(java.lang.String $ref);
 
-  public java.lang.Boolean hasRef();
-
-  /** Method is deprecated. use withRef instead. */
-  @java.lang.Deprecated
-  public A withNewRef(java.lang.String original);
+  public Boolean hasRef();
 
   public java.lang.String getSchema();
 
@@ -32,11 +33,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasSchema();
 
-  /** Method is deprecated. use withSchema instead. */
-  @java.lang.Deprecated
-  public A withNewSchema(java.lang.String original);
-
-  public java.lang.Object getAdditionalItems();
+  public Object getAdditionalItems();
 
   public A withAdditionalItems(java.lang.Object additionalItems);
 
@@ -48,33 +45,29 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasAdditionalProperties();
 
-  public A addToAllOf(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
+  public A addToAllOf(Integer index, V1JSONSchemaProps item);
 
   public A setToAllOf(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
 
   public A addToAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items);
 
-  public A addAllToAllOf(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items);
+  public A addAllToAllOf(Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items);
 
   public A removeFromAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items);
 
   public A removeAllFromAllOf(
       java.util.Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items);
 
-  public A removeMatchingFromAllOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate);
+  public A removeMatchingFromAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildAllOf instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getAllOf();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getAllOf();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> buildAllOf();
 
@@ -98,7 +91,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasAllOf();
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOf();
+  public V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOf();
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOfLike(
       io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
@@ -169,7 +162,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasAnyOf();
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOf();
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOf();
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOfLike(
       io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
@@ -200,7 +193,7 @@ public interface V1JSONSchemaPropsFluent<
       java.lang.String key, io.kubernetes.client.openapi.models.V1JSONSchemaProps value);
 
   public A addToDefinitions(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> map);
+      Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> map);
 
   public A removeFromDefinitions(java.lang.String key);
 
@@ -235,10 +228,6 @@ public interface V1JSONSchemaPropsFluent<
   public A withDescription(java.lang.String description);
 
   public java.lang.Boolean hasDescription();
-
-  /** Method is deprecated. use withDescription instead. */
-  @java.lang.Deprecated
-  public A withNewDescription(java.lang.String original);
 
   public A addToEnum(java.lang.Integer index, java.lang.Object item);
 
@@ -295,7 +284,7 @@ public interface V1JSONSchemaPropsFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ExternalDocumentation getExternalDocs();
+  public V1ExternalDocumentation getExternalDocs();
 
   public io.kubernetes.client.openapi.models.V1ExternalDocumentation buildExternalDocs();
 
@@ -304,8 +293,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasExternalDocs();
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<A>
-      withNewExternalDocs();
+  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> withNewExternalDocs();
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<A>
       withNewExternalDocsLike(io.kubernetes.client.openapi.models.V1ExternalDocumentation item);
@@ -325,19 +313,11 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasFormat();
 
-  /** Method is deprecated. use withFormat instead. */
-  @java.lang.Deprecated
-  public A withNewFormat(java.lang.String original);
-
   public java.lang.String getId();
 
   public A withId(java.lang.String id);
 
   public java.lang.Boolean hasId();
-
-  /** Method is deprecated. use withId instead. */
-  @java.lang.Deprecated
-  public A withNewId(java.lang.String original);
 
   public java.lang.Object getItems();
 
@@ -345,7 +325,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasItems();
 
-  public java.lang.Long getMaxItems();
+  public Long getMaxItems();
 
   public A withMaxItems(java.lang.Long maxItems);
 
@@ -363,7 +343,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasMaxProperties();
 
-  public java.lang.Double getMaximum();
+  public Double getMaximum();
 
   public A withMaximum(java.lang.Double maximum);
 
@@ -413,7 +393,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasNot();
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<A> withNewNot();
+  public V1JSONSchemaPropsFluent.NotNested<A> withNewNot();
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<A> withNewNotLike(
       io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
@@ -481,7 +461,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasOneOf();
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOf();
+  public V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOf();
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOfLike(
       io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
@@ -507,10 +487,6 @@ public interface V1JSONSchemaPropsFluent<
   public A withPattern(java.lang.String pattern);
 
   public java.lang.Boolean hasPattern();
-
-  /** Method is deprecated. use withPattern instead. */
-  @java.lang.Deprecated
-  public A withNewPattern(java.lang.String original);
 
   public A addToPatternProperties(
       java.lang.String key, io.kubernetes.client.openapi.models.V1JSONSchemaProps value);
@@ -584,17 +560,11 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasRequired();
 
-  public A addNewRequired(java.lang.String original);
-
   public java.lang.String getTitle();
 
   public A withTitle(java.lang.String title);
 
   public java.lang.Boolean hasTitle();
-
-  /** Method is deprecated. use withTitle instead. */
-  @java.lang.Deprecated
-  public A withNewTitle(java.lang.String original);
 
   public java.lang.String getType();
 
@@ -602,20 +572,22 @@ public interface V1JSONSchemaPropsFluent<
 
   public java.lang.Boolean hasType();
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
-
   public java.lang.Boolean getUniqueItems();
 
   public A withUniqueItems(java.lang.Boolean uniqueItems);
 
   public java.lang.Boolean hasUniqueItems();
 
+  public A withExclusiveMaximum();
+
+  public A withExclusiveMinimum();
+
+  public A withNullable();
+
+  public A withUniqueItems();
+
   public interface AllOfNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<
-              io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<N>> {
+      extends Nested<N>, V1JSONSchemaPropsFluent<V1JSONSchemaPropsFluent.AllOfNested<N>> {
     public N and();
 
     public N endAllOf();
@@ -623,8 +595,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public interface AnyOfNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<
-              io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<N>> {
+          V1JSONSchemaPropsFluent<V1JSONSchemaPropsFluent.AnyOfNested<N>> {
     public N and();
 
     public N endAnyOf();
@@ -632,8 +603,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public interface ExternalDocsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ExternalDocumentationFluent<
-              io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<N>> {
+          V1ExternalDocumentationFluent<V1JSONSchemaPropsFluent.ExternalDocsNested<N>> {
     public N and();
 
     public N endExternalDocs();
@@ -641,8 +611,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public interface NotNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<
-              io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<N>> {
+          V1JSONSchemaPropsFluent<V1JSONSchemaPropsFluent.NotNested<N>> {
     public N and();
 
     public N endNot();
@@ -650,8 +619,7 @@ public interface V1JSONSchemaPropsFluent<
 
   public interface OneOfNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<
-              io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<N>> {
+          V1JSONSchemaPropsFluent<V1JSONSchemaPropsFluent.OneOfNested<N>> {
     public N and();
 
     public N endOneOf();

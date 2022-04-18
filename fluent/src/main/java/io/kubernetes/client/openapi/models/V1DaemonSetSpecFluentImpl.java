@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1DaemonSetSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1DaemonSetSpecFluentImpl<A extends V1DaemonSetSpecFluent<A>> extends BaseFluent<A>
+    implements V1DaemonSetSpecFluent<A> {
   public V1DaemonSetSpecFluentImpl() {}
 
   public V1DaemonSetSpecFluentImpl(io.kubernetes.client.openapi.models.V1DaemonSetSpec instance) {
@@ -31,11 +33,11 @@ public class V1DaemonSetSpecFluentImpl<
     this.withUpdateStrategy(instance.getUpdateStrategy());
   }
 
-  private java.lang.Integer minReadySeconds;
+  private Integer minReadySeconds;
   private java.lang.Integer revisionHistoryLimit;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder selector;
-  private io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder template;
-  private io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyBuilder updateStrategy;
+  private V1LabelSelectorBuilder selector;
+  private V1PodTemplateSpecBuilder template;
+  private V1DaemonSetUpdateStrategyBuilder updateStrategy;
 
   public java.lang.Integer getMinReadySeconds() {
     return this.minReadySeconds;
@@ -46,7 +48,7 @@ public class V1DaemonSetSpecFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasMinReadySeconds() {
+  public Boolean hasMinReadySeconds() {
     return this.minReadySeconds != null;
   }
 
@@ -68,7 +70,7 @@ public class V1DaemonSetSpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
@@ -80,7 +82,7 @@ public class V1DaemonSetSpecFluentImpl<
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
-      this.selector = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(selector);
+      this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
     }
     return (A) this;
@@ -90,15 +92,13 @@ public class V1DaemonSetSpecFluentImpl<
     return this.selector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.SelectorNested<A>
-      withNewSelector() {
-    return new io.kubernetes.client.openapi.models.V1DaemonSetSpecFluentImpl.SelectorNestedImpl();
+  public V1DaemonSetSpecFluent.SelectorNested<A> withNewSelector() {
+    return new V1DaemonSetSpecFluentImpl.SelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V1DaemonSetSpecFluentImpl.SelectorNestedImpl(
-        item);
+    return new V1DaemonSetSpecFluentImpl.SelectorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.SelectorNested<A>
@@ -136,7 +136,7 @@ public class V1DaemonSetSpecFluentImpl<
   public A withTemplate(io.kubernetes.client.openapi.models.V1PodTemplateSpec template) {
     _visitables.get("template").remove(this.template);
     if (template != null) {
-      this.template = new io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder(template);
+      this.template = new V1PodTemplateSpecBuilder(template);
       _visitables.get("template").add(this.template);
     }
     return (A) this;
@@ -146,9 +146,8 @@ public class V1DaemonSetSpecFluentImpl<
     return this.template != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.TemplateNested<A>
-      withNewTemplate() {
-    return new io.kubernetes.client.openapi.models.V1DaemonSetSpecFluentImpl.TemplateNestedImpl();
+  public V1DaemonSetSpecFluent.TemplateNested<A> withNewTemplate() {
+    return new V1DaemonSetSpecFluentImpl.TemplateNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.TemplateNested<A>
@@ -181,7 +180,7 @@ public class V1DaemonSetSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy getUpdateStrategy() {
+  public V1DaemonSetUpdateStrategy getUpdateStrategy() {
     return this.updateStrategy != null ? this.updateStrategy.build() : null;
   }
 
@@ -204,10 +203,8 @@ public class V1DaemonSetSpecFluentImpl<
     return this.updateStrategy != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.UpdateStrategyNested<A>
-      withNewUpdateStrategy() {
-    return new io.kubernetes.client.openapi.models.V1DaemonSetSpecFluentImpl
-        .UpdateStrategyNestedImpl();
+  public V1DaemonSetSpecFluent.UpdateStrategyNested<A> withNewUpdateStrategy() {
+    return new V1DaemonSetSpecFluentImpl.UpdateStrategyNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.UpdateStrategyNested<A>
@@ -236,7 +233,7 @@ public class V1DaemonSetSpecFluentImpl<
     return withNewUpdateStrategyLike(getUpdateStrategy() != null ? getUpdateStrategy() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1DaemonSetSpecFluentImpl that = (V1DaemonSetSpecFluentImpl) o;
@@ -264,13 +261,39 @@ public class V1DaemonSetSpecFluentImpl<
         super.hashCode());
   }
 
-  public class SelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.SelectorNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (minReadySeconds != null) {
+      sb.append("minReadySeconds:");
+      sb.append(minReadySeconds + ",");
+    }
+    if (revisionHistoryLimit != null) {
+      sb.append("revisionHistoryLimit:");
+      sb.append(revisionHistoryLimit + ",");
+    }
+    if (selector != null) {
+      sb.append("selector:");
+      sb.append(selector + ",");
+    }
+    if (template != null) {
+      sb.append("template:");
+      sb.append(template + ",");
+    }
+    if (updateStrategy != null) {
+      sb.append("updateStrategy:");
+      sb.append(updateStrategy);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class SelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V1DaemonSetSpecFluent.SelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.SelectorNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+          Nested<N> {
+    SelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {
@@ -288,13 +311,12 @@ public class V1DaemonSetSpecFluentImpl<
     }
   }
 
-  public class TemplateNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PodTemplateSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.TemplateNested<N>>
+  class TemplateNestedImpl<N>
+      extends V1PodTemplateSpecFluentImpl<V1DaemonSetSpecFluent.TemplateNested<N>>
       implements io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.TemplateNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    TemplateNestedImpl(io.kubernetes.client.openapi.models.V1PodTemplateSpec item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder(this, item);
+    TemplateNestedImpl(V1PodTemplateSpec item) {
+      this.builder = new V1PodTemplateSpecBuilder(this, item);
     }
 
     TemplateNestedImpl() {
@@ -312,14 +334,12 @@ public class V1DaemonSetSpecFluentImpl<
     }
   }
 
-  public class UpdateStrategyNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluentImpl<
-          io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.UpdateStrategyNested<N>>
+  class UpdateStrategyNestedImpl<N>
+      extends V1DaemonSetUpdateStrategyFluentImpl<V1DaemonSetSpecFluent.UpdateStrategyNested<N>>
       implements io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent.UpdateStrategyNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     UpdateStrategyNestedImpl(io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyBuilder(this, item);
+      this.builder = new V1DaemonSetUpdateStrategyBuilder(this, item);
     }
 
     UpdateStrategyNestedImpl() {

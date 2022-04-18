@@ -1,5 +1,5 @@
 /*
-Copyright 2021 The Kubernetes Authors.
+Copyright 2022 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,15 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +27,7 @@ import java.util.Objects;
     description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
+    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
 
@@ -54,65 +49,10 @@ public class V1PersistentVolumeClaimStatus {
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private List<V1PersistentVolumeClaimCondition> conditions = null;
 
-  /**
-   * Phase represents the current phase of PersistentVolumeClaim. Possible enum values: -
-   * &#x60;\&quot;Bound\&quot;&#x60; used for PersistentVolumeClaims that are bound -
-   * &#x60;\&quot;Lost\&quot;&#x60; used for PersistentVolumeClaims that lost their underlying
-   * PersistentVolume. The claim was bound to a PersistentVolume and this volume does not exist any
-   * longer and all data on it was lost. - &#x60;\&quot;Pending\&quot;&#x60; used for
-   * PersistentVolumeClaims that are not yet bound
-   */
-  @JsonAdapter(PhaseEnum.Adapter.class)
-  public enum PhaseEnum {
-    BOUND("Bound"),
-
-    LOST("Lost"),
-
-    PENDING("Pending");
-
-    private String value;
-
-    PhaseEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static PhaseEnum fromValue(String value) {
-      for (PhaseEnum b : PhaseEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<PhaseEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PhaseEnum enumeration)
-          throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public PhaseEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return PhaseEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_PHASE = "phase";
 
   @SerializedName(SERIALIZED_NAME_PHASE)
-  private PhaseEnum phase;
+  private String phase;
 
   public static final String SERIALIZED_NAME_RESIZE_STATUS = "resizeStatus";
 
@@ -254,31 +194,24 @@ public class V1PersistentVolumeClaimStatus {
     this.conditions = conditions;
   }
 
-  public V1PersistentVolumeClaimStatus phase(PhaseEnum phase) {
+  public V1PersistentVolumeClaimStatus phase(String phase) {
 
     this.phase = phase;
     return this;
   }
 
   /**
-   * Phase represents the current phase of PersistentVolumeClaim. Possible enum values: -
-   * &#x60;\&quot;Bound\&quot;&#x60; used for PersistentVolumeClaims that are bound -
-   * &#x60;\&quot;Lost\&quot;&#x60; used for PersistentVolumeClaims that lost their underlying
-   * PersistentVolume. The claim was bound to a PersistentVolume and this volume does not exist any
-   * longer and all data on it was lost. - &#x60;\&quot;Pending\&quot;&#x60; used for
-   * PersistentVolumeClaims that are not yet bound
+   * Phase represents the current phase of PersistentVolumeClaim.
    *
    * @return phase
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Phase represents the current phase of PersistentVolumeClaim.  Possible enum values:  - `\"Bound\"` used for PersistentVolumeClaims that are bound  - `\"Lost\"` used for PersistentVolumeClaims that lost their underlying PersistentVolume. The claim was bound to a PersistentVolume and this volume does not exist any longer and all data on it was lost.  - `\"Pending\"` used for PersistentVolumeClaims that are not yet bound")
-  public PhaseEnum getPhase() {
+  @ApiModelProperty(value = "Phase represents the current phase of PersistentVolumeClaim.  ")
+  public String getPhase() {
     return phase;
   }
 
-  public void setPhase(PhaseEnum phase) {
+  public void setPhase(String phase) {
     this.phase = phase;
   }
 

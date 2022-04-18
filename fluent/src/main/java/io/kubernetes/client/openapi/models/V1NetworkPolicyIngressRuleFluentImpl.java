@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1NetworkPolicyIngressRuleFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NetworkPolicyIngressRuleFluentImpl<A extends V1NetworkPolicyIngressRuleFluent<A>>
+    extends BaseFluent<A> implements V1NetworkPolicyIngressRuleFluent<A> {
   public V1NetworkPolicyIngressRuleFluentImpl() {}
 
   public V1NetworkPolicyIngressRuleFluentImpl(
@@ -29,11 +33,10 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
     this.withPorts(instance.getPorts());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder> from;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder> ports;
+  private ArrayList<V1NetworkPolicyPeerBuilder> from;
+  private java.util.ArrayList<V1NetworkPolicyPortBuilder> ports;
 
-  public A addToFrom(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyPeer item) {
+  public A addToFrom(Integer index, V1NetworkPolicyPeer item) {
     if (this.from == null) {
       this.from =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder>();
@@ -80,8 +83,7 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
     return (A) this;
   }
 
-  public A addAllToFrom(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyPeer> items) {
+  public A addAllToFrom(Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyPeer> items) {
     if (this.from == null) {
       this.from =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder>();
@@ -121,8 +123,7 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
   }
 
   public A removeMatchingFromFrom(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder> predicate) {
     if (from == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder> each =
         from.iterator();
@@ -142,8 +143,8 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyPeer> getFrom() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1NetworkPolicyPeer> getFrom() {
     return from != null ? build(from) : null;
   }
 
@@ -175,7 +176,7 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingFrom(
+  public Boolean hasMatchingFrom(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder>
           predicate) {
     for (io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder item : from) {
@@ -217,16 +218,13 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
     return from != null && !from.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.FromNested<A>
-      addNewFrom() {
-    return new io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluentImpl
-        .FromNestedImpl();
+  public V1NetworkPolicyIngressRuleFluent.FromNested<A> addNewFrom() {
+    return new V1NetworkPolicyIngressRuleFluentImpl.FromNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.FromNested<A>
       addNewFromLike(io.kubernetes.client.openapi.models.V1NetworkPolicyPeer item) {
-    return new io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluentImpl
-        .FromNestedImpl(-1, item);
+    return new V1NetworkPolicyIngressRuleFluentImpl.FromNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.FromNested<A>
@@ -274,8 +272,7 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
   public A addToPorts(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyPort item) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder>();
+      this.ports = new java.util.ArrayList<V1NetworkPolicyPortBuilder>();
     }
     io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder builder =
         new io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder(item);
@@ -457,10 +454,8 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
     return ports != null && !ports.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.PortsNested<A>
-      addNewPort() {
-    return new io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluentImpl
-        .PortsNestedImpl();
+  public V1NetworkPolicyIngressRuleFluent.PortsNested<A> addNewPort() {
+    return new V1NetworkPolicyIngressRuleFluentImpl.PortsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.PortsNested<A>
@@ -511,7 +506,7 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
     return setNewPortLike(index, buildPort(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NetworkPolicyIngressRuleFluentImpl that = (V1NetworkPolicyIngressRuleFluentImpl) o;
@@ -524,15 +519,28 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
     return java.util.Objects.hash(from, ports, super.hashCode());
   }
 
-  public class FromNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluentImpl<
-          io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.FromNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (from != null && !from.isEmpty()) {
+      sb.append("from:");
+      sb.append(from + ",");
+    }
+    if (ports != null && !ports.isEmpty()) {
+      sb.append("ports:");
+      sb.append(ports);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class FromNestedImpl<N>
+      extends V1NetworkPolicyPeerFluentImpl<V1NetworkPolicyIngressRuleFluent.FromNested<N>>
       implements io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.FromNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    FromNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyPeer item) {
+          Nested<N> {
+    FromNestedImpl(java.lang.Integer index, V1NetworkPolicyPeer item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder(this, item);
+      this.builder = new V1NetworkPolicyPeerBuilder(this, item);
     }
 
     FromNestedImpl() {
@@ -552,16 +560,14 @@ public class V1NetworkPolicyIngressRuleFluentImpl<
     }
   }
 
-  public class PortsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NetworkPolicyPortFluentImpl<
-          io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.PortsNested<N>>
+  class PortsNestedImpl<N>
+      extends V1NetworkPolicyPortFluentImpl<V1NetworkPolicyIngressRuleFluent.PortsNested<N>>
       implements io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleFluent.PortsNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    PortsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyPort item) {
+    PortsNestedImpl(java.lang.Integer index, V1NetworkPolicyPort item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder(this, item);
+      this.builder = new V1NetworkPolicyPortBuilder(this, item);
     }
 
     PortsNestedImpl() {

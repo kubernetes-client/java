@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V2HorizontalPodAutoscalerConditionBuilder
-    extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionFluentImpl<
-        io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V2HorizontalPodAutoscalerConditionFluentImpl<V2HorizontalPodAutoscalerConditionBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition,
-        io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionBuilder> {
+        V2HorizontalPodAutoscalerConditionBuilder> {
   public V2HorizontalPodAutoscalerConditionBuilder() {
     this(false);
   }
 
-  public V2HorizontalPodAutoscalerConditionBuilder(java.lang.Boolean validationEnabled) {
+  public V2HorizontalPodAutoscalerConditionBuilder(Boolean validationEnabled) {
     this(new V2HorizontalPodAutoscalerCondition(), validationEnabled);
   }
 
@@ -94,24 +95,5 @@ public class V2HorizontalPodAutoscalerConditionBuilder
     buildable.setStatus(fluent.getStatus());
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V2HorizontalPodAutoscalerConditionBuilder that = (V2HorizontalPodAutoscalerConditionBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1beta1EndpointHintsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1EndpointHintsFluentImpl<A extends V1beta1EndpointHintsFluent<A>>
+    extends BaseFluent<A> implements V1beta1EndpointHintsFluent<A> {
   public V1beta1EndpointHintsFluentImpl() {}
 
   public V1beta1EndpointHintsFluentImpl(
@@ -27,13 +31,11 @@ public class V1beta1EndpointHintsFluentImpl<
     this.withForZones(instance.getForZones());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder> forZones;
+  private ArrayList<V1beta1ForZoneBuilder> forZones;
 
-  public A addToForZones(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1ForZone item) {
+  public A addToForZones(Integer index, io.kubernetes.client.openapi.models.V1beta1ForZone item) {
     if (this.forZones == null) {
-      this.forZones =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder>();
+      this.forZones = new java.util.ArrayList<V1beta1ForZoneBuilder>();
     }
     io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder builder =
         new io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder(item);
@@ -79,8 +81,7 @@ public class V1beta1EndpointHintsFluentImpl<
     return (A) this;
   }
 
-  public A addAllToForZones(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1ForZone> items) {
+  public A addAllToForZones(Collection<io.kubernetes.client.openapi.models.V1beta1ForZone> items) {
     if (this.forZones == null) {
       this.forZones =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder>();
@@ -120,8 +121,7 @@ public class V1beta1EndpointHintsFluentImpl<
   }
 
   public A removeMatchingFromForZones(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder> predicate) {
     if (forZones == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder> each =
         forZones.iterator();
@@ -141,8 +141,8 @@ public class V1beta1EndpointHintsFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1ForZone> getForZones() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1ForZone> getForZones() {
     return forZones != null ? build(forZones) : null;
   }
 
@@ -173,7 +173,7 @@ public class V1beta1EndpointHintsFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingForZone(
+  public Boolean hasMatchingForZone(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder>
           predicate) {
     for (io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder item : forZones) {
@@ -216,16 +216,13 @@ public class V1beta1EndpointHintsFluentImpl<
     return forZones != null && !forZones.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<A>
-      addNewForZone() {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluentImpl
-        .ForZonesNestedImpl();
+  public V1beta1EndpointHintsFluent.ForZonesNested<A> addNewForZone() {
+    return new V1beta1EndpointHintsFluentImpl.ForZonesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<A>
       addNewForZoneLike(io.kubernetes.client.openapi.models.V1beta1ForZone item) {
-    return new io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluentImpl
-        .ForZonesNestedImpl(-1, item);
+    return new V1beta1EndpointHintsFluentImpl.ForZonesNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<A>
@@ -271,7 +268,7 @@ public class V1beta1EndpointHintsFluentImpl<
     return setNewForZoneLike(index, buildForZone(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1EndpointHintsFluentImpl that = (V1beta1EndpointHintsFluentImpl) o;
@@ -283,15 +280,25 @@ public class V1beta1EndpointHintsFluentImpl<
     return java.util.Objects.hash(forZones, super.hashCode());
   }
 
-  public class ForZonesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1ForZoneFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (forZones != null && !forZones.isEmpty()) {
+      sb.append("forZones:");
+      sb.append(forZones);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ForZonesNestedImpl<N>
+      extends V1beta1ForZoneFluentImpl<V1beta1EndpointHintsFluent.ForZonesNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent.ForZonesNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ForZonesNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1ForZone item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1beta1ForZoneBuilder(this, item);
+      this.builder = new V1beta1ForZoneBuilder(this, item);
     }
 
     ForZonesNestedImpl() {

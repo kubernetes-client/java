@@ -12,17 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V2beta1ObjectMetricStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public io.kubernetes.client.custom.Quantity getAverageValue();
+public interface V2beta1ObjectMetricStatusFluent<A extends V2beta1ObjectMetricStatusFluent<A>>
+    extends Fluent<A> {
+  public Quantity getAverageValue();
 
   public A withAverageValue(io.kubernetes.client.custom.Quantity averageValue);
 
-  public java.lang.Boolean hasAverageValue();
+  public Boolean hasAverageValue();
 
-  public A withNewAverageValue(java.lang.String value);
+  public A withNewAverageValue(String value);
 
   public io.kubernetes.client.custom.Quantity getCurrentValue();
 
@@ -38,17 +41,13 @@ public interface V2beta1ObjectMetricStatusFluent<
 
   public java.lang.Boolean hasMetricName();
 
-  /** Method is deprecated. use withMetricName instead. */
-  @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector();
+  @Deprecated
+  public V1LabelSelector getSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector();
 
@@ -56,8 +55,7 @@ public interface V2beta1ObjectMetricStatusFluent<
 
   public java.lang.Boolean hasSelector();
 
-  public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.SelectorNested<A>
-      withNewSelector();
+  public V2beta1ObjectMetricStatusFluent.SelectorNested<A> withNewSelector();
 
   public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -77,7 +75,7 @@ public interface V2beta1ObjectMetricStatusFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference getTarget();
+  public V2beta1CrossVersionObjectReference getTarget();
 
   public io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference buildTarget();
 
@@ -86,8 +84,7 @@ public interface V2beta1ObjectMetricStatusFluent<
 
   public java.lang.Boolean hasTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.TargetNested<A>
-      withNewTarget();
+  public V2beta1ObjectMetricStatusFluent.TargetNested<A> withNewTarget();
 
   public io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.TargetNested<A>
       withNewTargetLike(
@@ -104,10 +101,7 @@ public interface V2beta1ObjectMetricStatusFluent<
           io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReference item);
 
   public interface SelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.SelectorNested<
-                  N>> {
+      extends Nested<N>, V1LabelSelectorFluent<V2beta1ObjectMetricStatusFluent.SelectorNested<N>> {
     public N and();
 
     public N endSelector();
@@ -115,8 +109,8 @@ public interface V2beta1ObjectMetricStatusFluent<
 
   public interface TargetNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2beta1CrossVersionObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V2beta1ObjectMetricStatusFluent.TargetNested<N>> {
+          V2beta1CrossVersionObjectReferenceFluent<
+              V2beta1ObjectMetricStatusFluent.TargetNested<N>> {
     public N and();
 
     public N endTarget();

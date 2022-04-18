@@ -12,19 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1EndpointsFluent<
-        A extends io.kubernetes.client.openapi.models.V1EndpointsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface V1EndpointsFluent<A extends V1EndpointsFluent<A>> extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public Boolean hasApiVersion();
 
   public java.lang.String getKind();
 
@@ -32,17 +32,13 @@ public interface V1EndpointsFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  @Deprecated
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -50,7 +46,7 @@ public interface V1EndpointsFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<A> withNewMetadata();
+  public V1EndpointsFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -63,25 +59,21 @@ public interface V1EndpointsFluent<
   public io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<A>
       editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
 
-  public A addToSubsets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointSubset item);
+  public A addToSubsets(Integer index, V1EndpointSubset item);
 
   public A setToSubsets(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointSubset item);
 
   public A addToSubsets(io.kubernetes.client.openapi.models.V1EndpointSubset... items);
 
-  public A addAllToSubsets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointSubset> items);
+  public A addAllToSubsets(Collection<io.kubernetes.client.openapi.models.V1EndpointSubset> items);
 
   public A removeFromSubsets(io.kubernetes.client.openapi.models.V1EndpointSubset... items);
 
   public A removeAllFromSubsets(
       java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointSubset> items);
 
-  public A removeMatchingFromSubsets(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder>
-          predicate);
+  public A removeMatchingFromSubsets(Predicate<V1EndpointSubsetBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildSubsets instead.
@@ -89,7 +81,7 @@ public interface V1EndpointsFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1EndpointSubset> getSubsets();
+  public List<io.kubernetes.client.openapi.models.V1EndpointSubset> getSubsets();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1EndpointSubset> buildSubsets();
 
@@ -114,7 +106,7 @@ public interface V1EndpointsFluent<
 
   public java.lang.Boolean hasSubsets();
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> addNewSubset();
+  public V1EndpointsFluent.SubsetsNested<A> addNewSubset();
 
   public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> addNewSubsetLike(
       io.kubernetes.client.openapi.models.V1EndpointSubset item);
@@ -134,9 +126,7 @@ public interface V1EndpointsFluent<
           predicate);
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1EndpointsFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
@@ -144,8 +134,7 @@ public interface V1EndpointsFluent<
 
   public interface SubsetsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1EndpointSubsetFluent<
-              io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<N>> {
+          V1EndpointSubsetFluent<V1EndpointsFluent.SubsetsNested<N>> {
     public N and();
 
     public N endSubset();

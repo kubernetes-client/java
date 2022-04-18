@@ -12,13 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-/** Generated */
-public interface V1ResourceRequirementsFluent<
-        A extends io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToLimits(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Map;
 
-  public A addToLimits(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+/** Generated */
+public interface V1ResourceRequirementsFluent<A extends V1ResourceRequirementsFluent<A>>
+    extends Fluent<A> {
+  public A addToLimits(String key, Quantity value);
+
+  public A addToLimits(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
 
   public A removeFromLimits(java.lang.String key);
 
@@ -30,7 +33,7 @@ public interface V1ResourceRequirementsFluent<
   public <K, V> A withLimits(
       java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> limits);
 
-  public java.lang.Boolean hasLimits();
+  public Boolean hasLimits();
 
   public A addToRequests(java.lang.String key, io.kubernetes.client.custom.Quantity value);
 

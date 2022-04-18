@@ -12,21 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public interface V1VolumeErrorFluent<
-        A extends io.kubernetes.client.openapi.models.V1VolumeErrorFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getMessage();
+public interface V1VolumeErrorFluent<A extends V1VolumeErrorFluent<A>> extends Fluent<A> {
+  public String getMessage();
 
   public A withMessage(java.lang.String message);
 
-  public java.lang.Boolean hasMessage();
+  public Boolean hasMessage();
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original);
-
-  public java.time.OffsetDateTime getTime();
+  public OffsetDateTime getTime();
 
   public A withTime(java.time.OffsetDateTime time);
 

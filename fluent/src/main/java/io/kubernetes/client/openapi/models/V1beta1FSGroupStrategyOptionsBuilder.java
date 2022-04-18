@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta1FSGroupStrategyOptionsBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptionsFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptionsBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptions,
+    extends V1beta1FSGroupStrategyOptionsFluentImpl<V1beta1FSGroupStrategyOptionsBuilder>
+    implements VisitableBuilder<
+        V1beta1FSGroupStrategyOptions,
         io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptionsBuilder> {
   public V1beta1FSGroupStrategyOptionsBuilder() {
     this(false);
   }
 
-  public V1beta1FSGroupStrategyOptionsBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1FSGroupStrategyOptionsBuilder(Boolean validationEnabled) {
     this(new V1beta1FSGroupStrategyOptions(), validationEnabled);
   }
 
-  public V1beta1FSGroupStrategyOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptionsFluent<?> fluent) {
+  public V1beta1FSGroupStrategyOptionsBuilder(V1beta1FSGroupStrategyOptionsFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -79,24 +79,5 @@ public class V1beta1FSGroupStrategyOptionsBuilder
     buildable.setRanges(fluent.getRanges());
     buildable.setRule(fluent.getRule());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1FSGroupStrategyOptionsBuilder that = (V1beta1FSGroupStrategyOptionsBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

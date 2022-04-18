@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1SELinuxOptionsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1SELinuxOptionsFluentImpl<A extends V1SELinuxOptionsFluent<A>> extends BaseFluent<A>
+    implements V1SELinuxOptionsFluent<A> {
   public V1SELinuxOptionsFluentImpl() {}
 
   public V1SELinuxOptionsFluentImpl(io.kubernetes.client.openapi.models.V1SELinuxOptions instance) {
@@ -29,7 +30,7 @@ public class V1SELinuxOptionsFluentImpl<
     this.withUser(instance.getUser());
   }
 
-  private java.lang.String level;
+  private String level;
   private java.lang.String role;
   private java.lang.String type;
   private java.lang.String user;
@@ -43,14 +44,8 @@ public class V1SELinuxOptionsFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasLevel() {
+  public Boolean hasLevel() {
     return this.level != null;
-  }
-
-  /** Method is deprecated. use withLevel instead. */
-  @java.lang.Deprecated
-  public A withNewLevel(java.lang.String original) {
-    return (A) withLevel(new String(original));
   }
 
   public java.lang.String getRole() {
@@ -66,12 +61,6 @@ public class V1SELinuxOptionsFluentImpl<
     return this.role != null;
   }
 
-  /** Method is deprecated. use withRole instead. */
-  @java.lang.Deprecated
-  public A withNewRole(java.lang.String original) {
-    return (A) withRole(new String(original));
-  }
-
   public java.lang.String getType() {
     return this.type;
   }
@@ -83,12 +72,6 @@ public class V1SELinuxOptionsFluentImpl<
 
   public java.lang.Boolean hasType() {
     return this.type != null;
-  }
-
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A) withType(new String(original));
   }
 
   public java.lang.String getUser() {
@@ -104,13 +87,7 @@ public class V1SELinuxOptionsFluentImpl<
     return this.user != null;
   }
 
-  /** Method is deprecated. use withUser instead. */
-  @java.lang.Deprecated
-  public A withNewUser(java.lang.String original) {
-    return (A) withUser(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1SELinuxOptionsFluentImpl that = (V1SELinuxOptionsFluentImpl) o;
@@ -123,5 +100,28 @@ public class V1SELinuxOptionsFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(level, role, type, user, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (level != null) {
+      sb.append("level:");
+      sb.append(level + ",");
+    }
+    if (role != null) {
+      sb.append("role:");
+      sb.append(role + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type + ",");
+    }
+    if (user != null) {
+      sb.append("user:");
+      sb.append(user);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

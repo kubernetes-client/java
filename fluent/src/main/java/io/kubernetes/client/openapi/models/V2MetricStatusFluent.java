@@ -12,18 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V2MetricStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V2MetricStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V2MetricStatusFluent<A extends V2MetricStatusFluent<A>> extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildContainerResource instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2ContainerResourceMetricStatus getContainerResource();
+  @Deprecated
+  public V2ContainerResourceMetricStatus getContainerResource();
 
   public io.kubernetes.client.openapi.models.V2ContainerResourceMetricStatus
       buildContainerResource();
@@ -31,10 +32,9 @@ public interface V2MetricStatusFluent<
   public A withContainerResource(
       io.kubernetes.client.openapi.models.V2ContainerResourceMetricStatus containerResource);
 
-  public java.lang.Boolean hasContainerResource();
+  public Boolean hasContainerResource();
 
-  public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ContainerResourceNested<A>
-      withNewContainerResource();
+  public V2MetricStatusFluent.ContainerResourceNested<A> withNewContainerResource();
 
   public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ContainerResourceNested<A>
       withNewContainerResourceLike(
@@ -56,7 +56,7 @@ public interface V2MetricStatusFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2ExternalMetricStatus getExternal();
+  public V2ExternalMetricStatus getExternal();
 
   public io.kubernetes.client.openapi.models.V2ExternalMetricStatus buildExternal();
 
@@ -64,8 +64,7 @@ public interface V2MetricStatusFluent<
 
   public java.lang.Boolean hasExternal();
 
-  public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ExternalNested<A>
-      withNewExternal();
+  public V2MetricStatusFluent.ExternalNested<A> withNewExternal();
 
   public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ExternalNested<A>
       withNewExternalLike(io.kubernetes.client.openapi.models.V2ExternalMetricStatus item);
@@ -84,7 +83,7 @@ public interface V2MetricStatusFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatus getObject();
+  public V2ObjectMetricStatus getObject();
 
   public io.kubernetes.client.openapi.models.V2ObjectMetricStatus buildObject();
 
@@ -92,7 +91,7 @@ public interface V2MetricStatusFluent<
 
   public java.lang.Boolean hasObject();
 
-  public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ObjectNested<A> withNewObject();
+  public V2MetricStatusFluent.ObjectNested<A> withNewObject();
 
   public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ObjectNested<A> withNewObjectLike(
       io.kubernetes.client.openapi.models.V2ObjectMetricStatus item);
@@ -110,7 +109,7 @@ public interface V2MetricStatusFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2PodsMetricStatus getPods();
+  public V2PodsMetricStatus getPods();
 
   public io.kubernetes.client.openapi.models.V2PodsMetricStatus buildPods();
 
@@ -118,7 +117,7 @@ public interface V2MetricStatusFluent<
 
   public java.lang.Boolean hasPods();
 
-  public io.kubernetes.client.openapi.models.V2MetricStatusFluent.PodsNested<A> withNewPods();
+  public V2MetricStatusFluent.PodsNested<A> withNewPods();
 
   public io.kubernetes.client.openapi.models.V2MetricStatusFluent.PodsNested<A> withNewPodsLike(
       io.kubernetes.client.openapi.models.V2PodsMetricStatus item);
@@ -136,7 +135,7 @@ public interface V2MetricStatusFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2ResourceMetricStatus getResource();
+  public V2ResourceMetricStatus getResource();
 
   public io.kubernetes.client.openapi.models.V2ResourceMetricStatus buildResource();
 
@@ -144,8 +143,7 @@ public interface V2MetricStatusFluent<
 
   public java.lang.Boolean hasResource();
 
-  public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ResourceNested<A>
-      withNewResource();
+  public V2MetricStatusFluent.ResourceNested<A> withNewResource();
 
   public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ResourceNested<A>
       withNewResourceLike(io.kubernetes.client.openapi.models.V2ResourceMetricStatus item);
@@ -158,20 +156,15 @@ public interface V2MetricStatusFluent<
   public io.kubernetes.client.openapi.models.V2MetricStatusFluent.ResourceNested<A>
       editOrNewResourceLike(io.kubernetes.client.openapi.models.V2ResourceMetricStatus item);
 
-  public java.lang.String getType();
+  public String getType();
 
   public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
-
   public interface ContainerResourceNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2ContainerResourceMetricStatusFluent<
-              io.kubernetes.client.openapi.models.V2MetricStatusFluent.ContainerResourceNested<N>> {
+      extends Nested<N>,
+          V2ContainerResourceMetricStatusFluent<V2MetricStatusFluent.ContainerResourceNested<N>> {
     public N and();
 
     public N endContainerResource();
@@ -179,8 +172,7 @@ public interface V2MetricStatusFluent<
 
   public interface ExternalNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent<
-              io.kubernetes.client.openapi.models.V2MetricStatusFluent.ExternalNested<N>> {
+          V2ExternalMetricStatusFluent<V2MetricStatusFluent.ExternalNested<N>> {
     public N and();
 
     public N endExternal();
@@ -188,8 +180,7 @@ public interface V2MetricStatusFluent<
 
   public interface ObjectNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent<
-              io.kubernetes.client.openapi.models.V2MetricStatusFluent.ObjectNested<N>> {
+          V2ObjectMetricStatusFluent<V2MetricStatusFluent.ObjectNested<N>> {
     public N and();
 
     public N endObject();
@@ -197,8 +188,7 @@ public interface V2MetricStatusFluent<
 
   public interface PodsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2PodsMetricStatusFluent<
-              io.kubernetes.client.openapi.models.V2MetricStatusFluent.PodsNested<N>> {
+          V2PodsMetricStatusFluent<V2MetricStatusFluent.PodsNested<N>> {
     public N and();
 
     public N endPods();
@@ -206,8 +196,7 @@ public interface V2MetricStatusFluent<
 
   public interface ResourceNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2ResourceMetricStatusFluent<
-              io.kubernetes.client.openapi.models.V2MetricStatusFluent.ResourceNested<N>> {
+          V2ResourceMetricStatusFluent<V2MetricStatusFluent.ResourceNested<N>> {
     public N and();
 
     public N endResource();

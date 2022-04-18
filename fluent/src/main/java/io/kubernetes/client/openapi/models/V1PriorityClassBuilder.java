@@ -12,22 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1PriorityClassBuilder
-    extends io.kubernetes.client.openapi.models.V1PriorityClassFluentImpl<
-        io.kubernetes.client.openapi.models.V1PriorityClassBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PriorityClass,
-        io.kubernetes.client.openapi.models.V1PriorityClassBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1PriorityClassBuilder extends V1PriorityClassFluentImpl<V1PriorityClassBuilder>
+    implements VisitableBuilder<
+        V1PriorityClass, io.kubernetes.client.openapi.models.V1PriorityClassBuilder> {
   public V1PriorityClassBuilder() {
     this(false);
   }
 
-  public V1PriorityClassBuilder(java.lang.Boolean validationEnabled) {
+  public V1PriorityClassBuilder(Boolean validationEnabled) {
     this(new V1PriorityClass(), validationEnabled);
   }
 
-  public V1PriorityClassBuilder(
-      io.kubernetes.client.openapi.models.V1PriorityClassFluent<?> fluent) {
+  public V1PriorityClassBuilder(V1PriorityClassFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -103,24 +101,5 @@ public class V1PriorityClassBuilder
     buildable.setPreemptionPolicy(fluent.getPreemptionPolicy());
     buildable.setValue(fluent.getValue());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1PriorityClassBuilder that = (V1PriorityClassBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

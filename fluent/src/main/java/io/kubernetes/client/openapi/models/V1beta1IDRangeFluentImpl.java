@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1beta1IDRangeFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1IDRangeFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1IDRangeFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1IDRangeFluentImpl<A extends V1beta1IDRangeFluent<A>> extends BaseFluent<A>
+    implements V1beta1IDRangeFluent<A> {
   public V1beta1IDRangeFluentImpl() {}
 
   public V1beta1IDRangeFluentImpl(io.kubernetes.client.openapi.models.V1beta1IDRange instance) {
@@ -25,7 +26,7 @@ public class V1beta1IDRangeFluentImpl<
     this.withMin(instance.getMin());
   }
 
-  private java.lang.Long max;
+  private Long max;
   private java.lang.Long min;
 
   public java.lang.Long getMax() {
@@ -37,7 +38,7 @@ public class V1beta1IDRangeFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasMax() {
+  public Boolean hasMax() {
     return this.max != null;
   }
 
@@ -54,7 +55,7 @@ public class V1beta1IDRangeFluentImpl<
     return this.min != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1IDRangeFluentImpl that = (V1beta1IDRangeFluentImpl) o;
@@ -65,5 +66,20 @@ public class V1beta1IDRangeFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(max, min, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (max != null) {
+      sb.append("max:");
+      sb.append(max + ",");
+    }
+    if (min != null) {
+      sb.append("min:");
+      sb.append(min);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

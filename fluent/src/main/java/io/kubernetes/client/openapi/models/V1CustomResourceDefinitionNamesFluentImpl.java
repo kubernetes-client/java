@@ -12,11 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1CustomResourceDefinitionNamesFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<A> {
+        A extends V1CustomResourceDefinitionNamesFluent<A>>
+    extends BaseFluent<A> implements V1CustomResourceDefinitionNamesFluent<A> {
   public V1CustomResourceDefinitionNamesFluentImpl() {}
 
   public V1CustomResourceDefinitionNamesFluentImpl(
@@ -34,16 +40,16 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
     this.withSingular(instance.getSingular());
   }
 
-  private java.util.List<java.lang.String> categories;
+  private List<String> categories;
   private java.lang.String kind;
   private java.lang.String listKind;
   private java.lang.String plural;
   private java.util.List<java.lang.String> shortNames;
   private java.lang.String singular;
 
-  public A addToCategories(java.lang.Integer index, java.lang.String item) {
+  public A addToCategories(Integer index, java.lang.String item) {
     if (this.categories == null) {
-      this.categories = new java.util.ArrayList<java.lang.String>();
+      this.categories = new ArrayList<java.lang.String>();
     }
     this.categories.add(index, item);
     return (A) this;
@@ -67,7 +73,7 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
     return (A) this;
   }
 
-  public A addAllToCategories(java.util.Collection<java.lang.String> items) {
+  public A addAllToCategories(Collection<java.lang.String> items) {
     if (this.categories == null) {
       this.categories = new java.util.ArrayList<java.lang.String>();
     }
@@ -111,8 +117,7 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
     return this.categories.get(categories.size() - 1);
   }
 
-  public java.lang.String getMatchingCategory(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingCategory(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : categories) {
       if (predicate.test(item)) {
         return item;
@@ -121,8 +126,7 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingCategory(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingCategory(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : categories) {
       if (predicate.test(item)) {
         return true;
@@ -159,10 +163,6 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
     return categories != null && !categories.isEmpty();
   }
 
-  public A addNewCategory(java.lang.String original) {
-    return (A) addToCategories(new String(original));
-  }
-
   public java.lang.String getKind() {
     return this.kind;
   }
@@ -174,12 +174,6 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
 
   public java.lang.Boolean hasKind() {
     return this.kind != null;
-  }
-
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
   }
 
   public java.lang.String getListKind() {
@@ -195,12 +189,6 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
     return this.listKind != null;
   }
 
-  /** Method is deprecated. use withListKind instead. */
-  @java.lang.Deprecated
-  public A withNewListKind(java.lang.String original) {
-    return (A) withListKind(new String(original));
-  }
-
   public java.lang.String getPlural() {
     return this.plural;
   }
@@ -212,12 +200,6 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
 
   public java.lang.Boolean hasPlural() {
     return this.plural != null;
-  }
-
-  /** Method is deprecated. use withPlural instead. */
-  @java.lang.Deprecated
-  public A withNewPlural(java.lang.String original) {
-    return (A) withPlural(new String(original));
   }
 
   public A addToShortNames(java.lang.Integer index, java.lang.String item) {
@@ -338,10 +320,6 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
     return shortNames != null && !shortNames.isEmpty();
   }
 
-  public A addNewShortName(java.lang.String original) {
-    return (A) addToShortNames(new String(original));
-  }
-
   public java.lang.String getSingular() {
     return this.singular;
   }
@@ -355,13 +333,7 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
     return this.singular != null;
   }
 
-  /** Method is deprecated. use withSingular instead. */
-  @java.lang.Deprecated
-  public A withNewSingular(java.lang.String original) {
-    return (A) withSingular(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CustomResourceDefinitionNamesFluentImpl that = (V1CustomResourceDefinitionNamesFluentImpl) o;
@@ -379,5 +351,36 @@ public class V1CustomResourceDefinitionNamesFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         categories, kind, listKind, plural, shortNames, singular, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (categories != null && !categories.isEmpty()) {
+      sb.append("categories:");
+      sb.append(categories + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (listKind != null) {
+      sb.append("listKind:");
+      sb.append(listKind + ",");
+    }
+    if (plural != null) {
+      sb.append("plural:");
+      sb.append(plural + ",");
+    }
+    if (shortNames != null && !shortNames.isEmpty()) {
+      sb.append("shortNames:");
+      sb.append(shortNames + ",");
+    }
+    if (singular != null) {
+      sb.append("singular:");
+      sb.append(singular);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,23 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1RuleWithOperationsFluent<
-        A extends io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToApiGroups(java.lang.Integer index, java.lang.String item);
+public interface V1RuleWithOperationsFluent<A extends V1RuleWithOperationsFluent<A>>
+    extends Fluent<A> {
+  public A addToApiGroups(Integer index, String item);
 
   public A setToApiGroups(java.lang.Integer index, java.lang.String item);
 
   public A addToApiGroups(java.lang.String... items);
 
-  public A addAllToApiGroups(java.util.Collection<java.lang.String> items);
+  public A addAllToApiGroups(Collection<java.lang.String> items);
 
   public A removeFromApiGroups(java.lang.String... items);
 
   public A removeAllFromApiGroups(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getApiGroups();
+  public List<java.lang.String> getApiGroups();
 
   public java.lang.String getApiGroup(java.lang.Integer index);
 
@@ -36,19 +40,15 @@ public interface V1RuleWithOperationsFluent<
 
   public java.lang.String getLastApiGroup();
 
-  public java.lang.String getMatchingApiGroup(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingApiGroup(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingApiGroup(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingApiGroup(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withApiGroups(java.util.List<java.lang.String> apiGroups);
 
   public A withApiGroups(java.lang.String... apiGroups);
 
   public java.lang.Boolean hasApiGroups();
-
-  public A addNewApiGroup(java.lang.String original);
 
   public A addToApiVersions(java.lang.Integer index, java.lang.String item);
 
@@ -82,8 +82,6 @@ public interface V1RuleWithOperationsFluent<
 
   public java.lang.Boolean hasApiVersions();
 
-  public A addNewApiVersion(java.lang.String original);
-
   public A addToOperations(java.lang.Integer index, java.lang.String item);
 
   public A setToOperations(java.lang.Integer index, java.lang.String item);
@@ -115,8 +113,6 @@ public interface V1RuleWithOperationsFluent<
   public A withOperations(java.lang.String... operations);
 
   public java.lang.Boolean hasOperations();
-
-  public A addNewOperation(java.lang.String original);
 
   public A addToResources(java.lang.Integer index, java.lang.String item);
 
@@ -150,15 +146,9 @@ public interface V1RuleWithOperationsFluent<
 
   public java.lang.Boolean hasResources();
 
-  public A addNewResource(java.lang.String original);
-
   public java.lang.String getScope();
 
   public A withScope(java.lang.String scope);
 
   public java.lang.Boolean hasScope();
-
-  /** Method is deprecated. use withScope instead. */
-  @java.lang.Deprecated
-  public A withNewScope(java.lang.String original);
 }

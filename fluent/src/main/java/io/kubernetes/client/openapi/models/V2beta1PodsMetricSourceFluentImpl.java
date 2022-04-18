@@ -13,12 +13,13 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
 
 /** Generated */
-public class V2beta1PodsMetricSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2beta1PodsMetricSourceFluentImpl<A extends V2beta1PodsMetricSourceFluent<A>>
+    extends BaseFluent<A> implements V2beta1PodsMetricSourceFluent<A> {
   public V2beta1PodsMetricSourceFluentImpl() {}
 
   public V2beta1PodsMetricSourceFluentImpl(
@@ -30,9 +31,9 @@ public class V2beta1PodsMetricSourceFluentImpl<
     this.withTargetAverageValue(instance.getTargetAverageValue());
   }
 
-  private java.lang.String metricName;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder selector;
-  private io.kubernetes.client.custom.Quantity targetAverageValue;
+  private String metricName;
+  private V1LabelSelectorBuilder selector;
+  private Quantity targetAverageValue;
 
   public java.lang.String getMetricName() {
     return this.metricName;
@@ -43,14 +44,8 @@ public class V2beta1PodsMetricSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetricName() {
+  public Boolean hasMetricName() {
     return this.metricName != null;
-  }
-
-  /** Method is deprecated. use withMetricName instead. */
-  @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original) {
-    return (A) withMetricName(new String(original));
   }
 
   /**
@@ -58,7 +53,7 @@ public class V2beta1PodsMetricSourceFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
@@ -70,7 +65,7 @@ public class V2beta1PodsMetricSourceFluentImpl<
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
-      this.selector = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(selector);
+      this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
     }
     return (A) this;
@@ -80,16 +75,13 @@ public class V2beta1PodsMetricSourceFluentImpl<
     return this.selector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<A>
-      withNewSelector() {
-    return new io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluentImpl
-        .SelectorNestedImpl();
+  public V2beta1PodsMetricSourceFluent.SelectorNested<A> withNewSelector() {
+    return new V2beta1PodsMetricSourceFluentImpl.SelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluentImpl
-        .SelectorNestedImpl(item);
+    return new V2beta1PodsMetricSourceFluentImpl.SelectorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<A>
@@ -127,7 +119,7 @@ public class V2beta1PodsMetricSourceFluentImpl<
     return (A) withTargetAverageValue(new Quantity(value));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta1PodsMetricSourceFluentImpl that = (V2beta1PodsMetricSourceFluentImpl) o;
@@ -144,14 +136,32 @@ public class V2beta1PodsMetricSourceFluentImpl<
     return java.util.Objects.hash(metricName, selector, targetAverageValue, super.hashCode());
   }
 
-  public class SelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (metricName != null) {
+      sb.append("metricName:");
+      sb.append(metricName + ",");
+    }
+    if (selector != null) {
+      sb.append("selector:");
+      sb.append(selector + ",");
+    }
+    if (targetAverageValue != null) {
+      sb.append("targetAverageValue:");
+      sb.append(targetAverageValue);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class SelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V2beta1PodsMetricSourceFluent.SelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+          Nested<N> {
+    SelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {

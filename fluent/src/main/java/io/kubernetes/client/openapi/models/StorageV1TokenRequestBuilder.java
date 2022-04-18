@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class StorageV1TokenRequestBuilder
-    extends io.kubernetes.client.openapi.models.StorageV1TokenRequestFluentImpl<
-        io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends StorageV1TokenRequestFluentImpl<StorageV1TokenRequestBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.StorageV1TokenRequest,
         io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder> {
   public StorageV1TokenRequestBuilder() {
     this(false);
   }
 
-  public StorageV1TokenRequestBuilder(java.lang.Boolean validationEnabled) {
+  public StorageV1TokenRequestBuilder(Boolean validationEnabled) {
     this(new StorageV1TokenRequest(), validationEnabled);
   }
 
-  public StorageV1TokenRequestBuilder(
-      io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<?> fluent) {
+  public StorageV1TokenRequestBuilder(StorageV1TokenRequestFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -79,24 +79,5 @@ public class StorageV1TokenRequestBuilder
     buildable.setAudience(fluent.getAudience());
     buildable.setExpirationSeconds(fluent.getExpirationSeconds());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    StorageV1TokenRequestBuilder that = (StorageV1TokenRequestBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

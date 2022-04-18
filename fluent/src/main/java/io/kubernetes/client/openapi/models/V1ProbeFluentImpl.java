@@ -12,10 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1ProbeFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ProbeFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ProbeFluentImpl<A extends V1ProbeFluent<A>> extends BaseFluent<A>
+    implements V1ProbeFluent<A> {
   public V1ProbeFluentImpl() {}
 
   public V1ProbeFluentImpl(io.kubernetes.client.openapi.models.V1Probe instance) {
@@ -40,15 +43,15 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     this.withTimeoutSeconds(instance.getTimeoutSeconds());
   }
 
-  private io.kubernetes.client.openapi.models.V1ExecActionBuilder exec;
-  private java.lang.Integer failureThreshold;
-  private io.kubernetes.client.openapi.models.V1GRPCActionBuilder grpc;
-  private io.kubernetes.client.openapi.models.V1HTTPGetActionBuilder httpGet;
+  private V1ExecActionBuilder exec;
+  private Integer failureThreshold;
+  private V1GRPCActionBuilder grpc;
+  private V1HTTPGetActionBuilder httpGet;
   private java.lang.Integer initialDelaySeconds;
   private java.lang.Integer periodSeconds;
   private java.lang.Integer successThreshold;
-  private io.kubernetes.client.openapi.models.V1TCPSocketActionBuilder tcpSocket;
-  private java.lang.Long terminationGracePeriodSeconds;
+  private V1TCPSocketActionBuilder tcpSocket;
+  private Long terminationGracePeriodSeconds;
   private java.lang.Integer timeoutSeconds;
 
   /**
@@ -56,8 +59,8 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ExecAction getExec() {
+  @Deprecated
+  public V1ExecAction getExec() {
     return this.exec != null ? this.exec.build() : null;
   }
 
@@ -74,17 +77,17 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     return (A) this;
   }
 
-  public java.lang.Boolean hasExec() {
+  public Boolean hasExec() {
     return this.exec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<A> withNewExec() {
-    return new io.kubernetes.client.openapi.models.V1ProbeFluentImpl.ExecNestedImpl();
+  public V1ProbeFluent.ExecNested<A> withNewExec() {
+    return new V1ProbeFluentImpl.ExecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<A> withNewExecLike(
       io.kubernetes.client.openapi.models.V1ExecAction item) {
-    return new io.kubernetes.client.openapi.models.V1ProbeFluentImpl.ExecNestedImpl(item);
+    return new V1ProbeFluentImpl.ExecNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<A> editExec() {
@@ -122,7 +125,7 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1GRPCAction getGrpc() {
+  public V1GRPCAction getGrpc() {
     return this.grpc != null ? this.grpc.build() : null;
   }
 
@@ -143,8 +146,8 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     return this.grpc != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> withNewGrpc() {
-    return new io.kubernetes.client.openapi.models.V1ProbeFluentImpl.GrpcNestedImpl();
+  public V1ProbeFluent.GrpcNested<A> withNewGrpc() {
+    return new V1ProbeFluentImpl.GrpcNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> withNewGrpcLike(
@@ -185,7 +188,7 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
   public A withHttpGet(io.kubernetes.client.openapi.models.V1HTTPGetAction httpGet) {
     _visitables.get("httpGet").remove(this.httpGet);
     if (httpGet != null) {
-      this.httpGet = new io.kubernetes.client.openapi.models.V1HTTPGetActionBuilder(httpGet);
+      this.httpGet = new V1HTTPGetActionBuilder(httpGet);
       _visitables.get("httpGet").add(this.httpGet);
     }
     return (A) this;
@@ -195,8 +198,8 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     return this.httpGet != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ProbeFluent.HttpGetNested<A> withNewHttpGet() {
-    return new io.kubernetes.client.openapi.models.V1ProbeFluentImpl.HttpGetNestedImpl();
+  public V1ProbeFluent.HttpGetNested<A> withNewHttpGet() {
+    return new V1ProbeFluentImpl.HttpGetNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.HttpGetNested<A> withNewHttpGetLike(
@@ -276,7 +279,7 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
   public A withTcpSocket(io.kubernetes.client.openapi.models.V1TCPSocketAction tcpSocket) {
     _visitables.get("tcpSocket").remove(this.tcpSocket);
     if (tcpSocket != null) {
-      this.tcpSocket = new io.kubernetes.client.openapi.models.V1TCPSocketActionBuilder(tcpSocket);
+      this.tcpSocket = new V1TCPSocketActionBuilder(tcpSocket);
       _visitables.get("tcpSocket").add(this.tcpSocket);
     }
     return (A) this;
@@ -286,8 +289,8 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     return this.tcpSocket != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ProbeFluent.TcpSocketNested<A> withNewTcpSocket() {
-    return new io.kubernetes.client.openapi.models.V1ProbeFluentImpl.TcpSocketNestedImpl();
+  public V1ProbeFluent.TcpSocketNested<A> withNewTcpSocket() {
+    return new V1ProbeFluentImpl.TcpSocketNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.TcpSocketNested<A> withNewTcpSocketLike(
@@ -337,7 +340,7 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     return this.timeoutSeconds != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ProbeFluentImpl that = (V1ProbeFluentImpl) o;
@@ -382,13 +385,57 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
         super.hashCode());
   }
 
-  public class ExecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ExecActionFluentImpl<
-          io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (exec != null) {
+      sb.append("exec:");
+      sb.append(exec + ",");
+    }
+    if (failureThreshold != null) {
+      sb.append("failureThreshold:");
+      sb.append(failureThreshold + ",");
+    }
+    if (grpc != null) {
+      sb.append("grpc:");
+      sb.append(grpc + ",");
+    }
+    if (httpGet != null) {
+      sb.append("httpGet:");
+      sb.append(httpGet + ",");
+    }
+    if (initialDelaySeconds != null) {
+      sb.append("initialDelaySeconds:");
+      sb.append(initialDelaySeconds + ",");
+    }
+    if (periodSeconds != null) {
+      sb.append("periodSeconds:");
+      sb.append(periodSeconds + ",");
+    }
+    if (successThreshold != null) {
+      sb.append("successThreshold:");
+      sb.append(successThreshold + ",");
+    }
+    if (tcpSocket != null) {
+      sb.append("tcpSocket:");
+      sb.append(tcpSocket + ",");
+    }
+    if (terminationGracePeriodSeconds != null) {
+      sb.append("terminationGracePeriodSeconds:");
+      sb.append(terminationGracePeriodSeconds + ",");
+    }
+    if (timeoutSeconds != null) {
+      sb.append("timeoutSeconds:");
+      sb.append(timeoutSeconds);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ExecNestedImpl<N> extends V1ExecActionFluentImpl<V1ProbeFluent.ExecNested<N>>
+      implements io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<N>, Nested<N> {
     ExecNestedImpl(io.kubernetes.client.openapi.models.V1ExecAction item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ExecActionBuilder(this, item);
+      this.builder = new V1ExecActionBuilder(this, item);
     }
 
     ExecNestedImpl() {
@@ -406,13 +453,11 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     }
   }
 
-  public class GrpcNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1GRPCActionFluentImpl<
-          io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<N>>
+  class GrpcNestedImpl<N> extends V1GRPCActionFluentImpl<V1ProbeFluent.GrpcNested<N>>
       implements io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    GrpcNestedImpl(io.kubernetes.client.openapi.models.V1GRPCAction item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1GRPCActionBuilder(this, item);
+    GrpcNestedImpl(V1GRPCAction item) {
+      this.builder = new V1GRPCActionBuilder(this, item);
     }
 
     GrpcNestedImpl() {
@@ -430,13 +475,11 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     }
   }
 
-  public class HttpGetNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1HTTPGetActionFluentImpl<
-          io.kubernetes.client.openapi.models.V1ProbeFluent.HttpGetNested<N>>
+  class HttpGetNestedImpl<N> extends V1HTTPGetActionFluentImpl<V1ProbeFluent.HttpGetNested<N>>
       implements io.kubernetes.client.openapi.models.V1ProbeFluent.HttpGetNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    HttpGetNestedImpl(io.kubernetes.client.openapi.models.V1HTTPGetAction item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1HTTPGetActionBuilder(this, item);
+    HttpGetNestedImpl(V1HTTPGetAction item) {
+      this.builder = new V1HTTPGetActionBuilder(this, item);
     }
 
     HttpGetNestedImpl() {
@@ -454,13 +497,11 @@ public class V1ProbeFluentImpl<A extends io.kubernetes.client.openapi.models.V1P
     }
   }
 
-  public class TcpSocketNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TCPSocketActionFluentImpl<
-          io.kubernetes.client.openapi.models.V1ProbeFluent.TcpSocketNested<N>>
+  class TcpSocketNestedImpl<N> extends V1TCPSocketActionFluentImpl<V1ProbeFluent.TcpSocketNested<N>>
       implements io.kubernetes.client.openapi.models.V1ProbeFluent.TcpSocketNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     TcpSocketNestedImpl(io.kubernetes.client.openapi.models.V1TCPSocketAction item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1TCPSocketActionBuilder(this, item);
+      this.builder = new V1TCPSocketActionBuilder(this, item);
     }
 
     TcpSocketNestedImpl() {

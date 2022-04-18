@@ -12,14 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1beta1CronJobStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1CronJobStatusFluentImpl<A extends V1beta1CronJobStatusFluent<A>>
+    extends BaseFluent<A> implements V1beta1CronJobStatusFluent<A> {
   public V1beta1CronJobStatusFluentImpl() {}
 
   public V1beta1CronJobStatusFluentImpl(
@@ -31,15 +36,13 @@ public class V1beta1CronJobStatusFluentImpl<
     this.withLastSuccessfulTime(instance.getLastSuccessfulTime());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> active;
-  private java.time.OffsetDateTime lastScheduleTime;
+  private ArrayList<V1ObjectReferenceBuilder> active;
+  private OffsetDateTime lastScheduleTime;
   private java.time.OffsetDateTime lastSuccessfulTime;
 
-  public A addToActive(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public A addToActive(Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
     if (this.active == null) {
-      this.active =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>();
+      this.active = new java.util.ArrayList<V1ObjectReferenceBuilder>();
     }
     io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder =
         new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(item);
@@ -83,8 +86,7 @@ public class V1beta1CronJobStatusFluentImpl<
     return (A) this;
   }
 
-  public A addAllToActive(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items) {
+  public A addAllToActive(Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items) {
     if (this.active == null) {
       this.active =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>();
@@ -124,8 +126,7 @@ public class V1beta1CronJobStatusFluentImpl<
   }
 
   public A removeMatchingFromActive(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> predicate) {
     if (active == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> each =
         active.iterator();
@@ -145,8 +146,8 @@ public class V1beta1CronJobStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> getActive() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1ObjectReference> getActive() {
     return active != null ? build(active) : null;
   }
 
@@ -178,7 +179,7 @@ public class V1beta1CronJobStatusFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingActive(
+  public Boolean hasMatchingActive(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
           predicate) {
     for (io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder item : active) {
@@ -221,16 +222,13 @@ public class V1beta1CronJobStatusFluentImpl<
     return active != null && !active.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<A>
-      addNewActive() {
-    return new io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluentImpl
-        .ActiveNestedImpl();
+  public V1beta1CronJobStatusFluent.ActiveNested<A> addNewActive() {
+    return new V1beta1CronJobStatusFluentImpl.ActiveNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<A>
       addNewActiveLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluentImpl.ActiveNestedImpl(
-        -1, item);
+    return new V1beta1CronJobStatusFluentImpl.ActiveNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<A>
@@ -302,7 +300,7 @@ public class V1beta1CronJobStatusFluentImpl<
     return this.lastSuccessfulTime != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1CronJobStatusFluentImpl that = (V1beta1CronJobStatusFluentImpl) o;
@@ -320,15 +318,33 @@ public class V1beta1CronJobStatusFluentImpl<
     return java.util.Objects.hash(active, lastScheduleTime, lastSuccessfulTime, super.hashCode());
   }
 
-  public class ActiveNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (active != null && !active.isEmpty()) {
+      sb.append("active:");
+      sb.append(active + ",");
+    }
+    if (lastScheduleTime != null) {
+      sb.append("lastScheduleTime:");
+      sb.append(lastScheduleTime + ",");
+    }
+    if (lastSuccessfulTime != null) {
+      sb.append("lastSuccessfulTime:");
+      sb.append(lastSuccessfulTime);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ActiveNestedImpl<N>
+      extends V1ObjectReferenceFluentImpl<V1beta1CronJobStatusFluent.ActiveNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1CronJobStatusFluent.ActiveNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ActiveNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this, item);
+      this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     ActiveNestedImpl() {

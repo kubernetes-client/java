@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1AWSElasticBlockStoreVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<A> {
+        A extends V1AWSElasticBlockStoreVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1AWSElasticBlockStoreVolumeSourceFluent<A> {
   public V1AWSElasticBlockStoreVolumeSourceFluentImpl() {}
 
   public V1AWSElasticBlockStoreVolumeSourceFluentImpl(
@@ -30,9 +32,9 @@ public class V1AWSElasticBlockStoreVolumeSourceFluentImpl<
     this.withVolumeID(instance.getVolumeID());
   }
 
-  private java.lang.String fsType;
-  private java.lang.Integer partition;
-  private java.lang.Boolean readOnly;
+  private String fsType;
+  private Integer partition;
+  private Boolean readOnly;
   private java.lang.String volumeID;
 
   public java.lang.String getFsType() {
@@ -46,12 +48,6 @@ public class V1AWSElasticBlockStoreVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasFsType() {
     return this.fsType != null;
-  }
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
   }
 
   public java.lang.Integer getPartition() {
@@ -93,13 +89,7 @@ public class V1AWSElasticBlockStoreVolumeSourceFluentImpl<
     return this.volumeID != null;
   }
 
-  /** Method is deprecated. use withVolumeID instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeID(java.lang.String original) {
-    return (A) withVolumeID(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1AWSElasticBlockStoreVolumeSourceFluentImpl that =
@@ -114,5 +104,32 @@ public class V1AWSElasticBlockStoreVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(fsType, partition, readOnly, volumeID, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (partition != null) {
+      sb.append("partition:");
+      sb.append(partition + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (volumeID != null) {
+      sb.append("volumeID:");
+      sb.append(volumeID);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

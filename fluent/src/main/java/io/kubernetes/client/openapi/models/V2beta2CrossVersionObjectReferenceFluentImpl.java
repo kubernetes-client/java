@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V2beta2CrossVersionObjectReferenceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta2CrossVersionObjectReferenceFluent<A> {
+        A extends V2beta2CrossVersionObjectReferenceFluent<A>>
+    extends BaseFluent<A> implements V2beta2CrossVersionObjectReferenceFluent<A> {
   public V2beta2CrossVersionObjectReferenceFluentImpl() {}
 
   public V2beta2CrossVersionObjectReferenceFluentImpl(
@@ -28,7 +30,7 @@ public class V2beta2CrossVersionObjectReferenceFluentImpl<
     this.withName(instance.getName());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
   private java.lang.String name;
 
@@ -41,14 +43,8 @@ public class V2beta2CrossVersionObjectReferenceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -64,12 +60,6 @@ public class V2beta2CrossVersionObjectReferenceFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -83,13 +73,7 @@ public class V2beta2CrossVersionObjectReferenceFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta2CrossVersionObjectReferenceFluentImpl that =
@@ -103,5 +87,24 @@ public class V2beta2CrossVersionObjectReferenceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(apiVersion, kind, name, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

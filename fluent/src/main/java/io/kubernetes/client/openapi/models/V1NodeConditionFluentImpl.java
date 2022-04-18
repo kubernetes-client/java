@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public class V1NodeConditionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1NodeConditionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NodeConditionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NodeConditionFluentImpl<A extends V1NodeConditionFluent<A>> extends BaseFluent<A>
+    implements V1NodeConditionFluent<A> {
   public V1NodeConditionFluentImpl() {}
 
   public V1NodeConditionFluentImpl(io.kubernetes.client.openapi.models.V1NodeCondition instance) {
@@ -33,12 +35,12 @@ public class V1NodeConditionFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.time.OffsetDateTime lastHeartbeatTime;
+  private OffsetDateTime lastHeartbeatTime;
   private java.time.OffsetDateTime lastTransitionTime;
-  private java.lang.String message;
+  private String message;
   private java.lang.String reason;
   private java.lang.String status;
-  private io.kubernetes.client.openapi.models.V1NodeCondition.TypeEnum type;
+  private java.lang.String type;
 
   public java.time.OffsetDateTime getLastHeartbeatTime() {
     return this.lastHeartbeatTime;
@@ -49,7 +51,7 @@ public class V1NodeConditionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasLastHeartbeatTime() {
+  public Boolean hasLastHeartbeatTime() {
     return this.lastHeartbeatTime != null;
   }
 
@@ -79,12 +81,6 @@ public class V1NodeConditionFluentImpl<
     return this.message != null;
   }
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A) withMessage(new String(original));
-  }
-
   public java.lang.String getReason() {
     return this.reason;
   }
@@ -96,12 +92,6 @@ public class V1NodeConditionFluentImpl<
 
   public java.lang.Boolean hasReason() {
     return this.reason != null;
-  }
-
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A) withReason(new String(original));
   }
 
   public java.lang.String getStatus() {
@@ -117,17 +107,11 @@ public class V1NodeConditionFluentImpl<
     return this.status != null;
   }
 
-  /** Method is deprecated. use withStatus instead. */
-  @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original) {
-    return (A) withStatus(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1NodeCondition.TypeEnum getType() {
+  public java.lang.String getType() {
     return this.type;
   }
 
-  public A withType(io.kubernetes.client.openapi.models.V1NodeCondition.TypeEnum type) {
+  public A withType(java.lang.String type) {
     this.type = type;
     return (A) this;
   }
@@ -136,7 +120,7 @@ public class V1NodeConditionFluentImpl<
     return this.type != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NodeConditionFluentImpl that = (V1NodeConditionFluentImpl) o;
@@ -156,5 +140,36 @@ public class V1NodeConditionFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         lastHeartbeatTime, lastTransitionTime, message, reason, status, type, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (lastHeartbeatTime != null) {
+      sb.append("lastHeartbeatTime:");
+      sb.append(lastHeartbeatTime + ",");
+    }
+    if (lastTransitionTime != null) {
+      sb.append("lastTransitionTime:");
+      sb.append(lastTransitionTime + ",");
+    }
+    if (message != null) {
+      sb.append("message:");
+      sb.append(message + ",");
+    }
+    if (reason != null) {
+      sb.append("reason:");
+      sb.append(reason + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

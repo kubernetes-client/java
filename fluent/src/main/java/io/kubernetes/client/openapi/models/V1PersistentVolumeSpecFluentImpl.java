@@ -12,11 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1PersistentVolumeSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PersistentVolumeSpecFluentImpl<A extends V1PersistentVolumeSpecFluent<A>>
+    extends BaseFluent<A> implements V1PersistentVolumeSpecFluent<A> {
   public V1PersistentVolumeSpecFluentImpl() {}
 
   public V1PersistentVolumeSpecFluentImpl(
@@ -82,45 +91,40 @@ public class V1PersistentVolumeSpecFluentImpl<
     this.withVsphereVolume(instance.getVsphereVolume());
   }
 
-  private java.util.List<java.lang.String> accessModes;
-  private io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceBuilder
-      awsElasticBlockStore;
-  private io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceBuilder azureDisk;
-  private io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceBuilder azureFile;
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> capacity;
-  private io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceBuilder cephfs;
-  private io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceBuilder cinder;
-  private io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder claimRef;
-  private io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceBuilder csi;
-  private io.kubernetes.client.openapi.models.V1FCVolumeSourceBuilder fc;
-  private io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceBuilder flexVolume;
-  private io.kubernetes.client.openapi.models.V1FlockerVolumeSourceBuilder flocker;
-  private io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceBuilder
-      gcePersistentDisk;
-  private io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceBuilder glusterfs;
-  private io.kubernetes.client.openapi.models.V1HostPathVolumeSourceBuilder hostPath;
-  private io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSourceBuilder iscsi;
-  private io.kubernetes.client.openapi.models.V1LocalVolumeSourceBuilder local;
+  private List<String> accessModes;
+  private V1AWSElasticBlockStoreVolumeSourceBuilder awsElasticBlockStore;
+  private V1AzureDiskVolumeSourceBuilder azureDisk;
+  private V1AzureFilePersistentVolumeSourceBuilder azureFile;
+  private Map<java.lang.String, Quantity> capacity;
+  private V1CephFSPersistentVolumeSourceBuilder cephfs;
+  private V1CinderPersistentVolumeSourceBuilder cinder;
+  private V1ObjectReferenceBuilder claimRef;
+  private V1CSIPersistentVolumeSourceBuilder csi;
+  private V1FCVolumeSourceBuilder fc;
+  private V1FlexPersistentVolumeSourceBuilder flexVolume;
+  private V1FlockerVolumeSourceBuilder flocker;
+  private V1GCEPersistentDiskVolumeSourceBuilder gcePersistentDisk;
+  private V1GlusterfsPersistentVolumeSourceBuilder glusterfs;
+  private V1HostPathVolumeSourceBuilder hostPath;
+  private V1ISCSIPersistentVolumeSourceBuilder iscsi;
+  private V1LocalVolumeSourceBuilder local;
   private java.util.List<java.lang.String> mountOptions;
-  private io.kubernetes.client.openapi.models.V1NFSVolumeSourceBuilder nfs;
-  private io.kubernetes.client.openapi.models.V1VolumeNodeAffinityBuilder nodeAffinity;
-  private io.kubernetes.client.openapi.models.V1PersistentVolumeSpec
-          .PersistentVolumeReclaimPolicyEnum
-      persistentVolumeReclaimPolicy;
-  private io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceBuilder
-      photonPersistentDisk;
-  private io.kubernetes.client.openapi.models.V1PortworxVolumeSourceBuilder portworxVolume;
-  private io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceBuilder quobyte;
-  private io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSourceBuilder rbd;
-  private io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceBuilder scaleIO;
+  private V1NFSVolumeSourceBuilder nfs;
+  private V1VolumeNodeAffinityBuilder nodeAffinity;
+  private java.lang.String persistentVolumeReclaimPolicy;
+  private V1PhotonPersistentDiskVolumeSourceBuilder photonPersistentDisk;
+  private V1PortworxVolumeSourceBuilder portworxVolume;
+  private V1QuobyteVolumeSourceBuilder quobyte;
+  private V1RBDPersistentVolumeSourceBuilder rbd;
+  private V1ScaleIOPersistentVolumeSourceBuilder scaleIO;
   private java.lang.String storageClassName;
-  private io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceBuilder storageos;
+  private V1StorageOSPersistentVolumeSourceBuilder storageos;
   private java.lang.String volumeMode;
-  private io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSourceBuilder vsphereVolume;
+  private V1VsphereVirtualDiskVolumeSourceBuilder vsphereVolume;
 
-  public A addToAccessModes(java.lang.Integer index, java.lang.String item) {
+  public A addToAccessModes(Integer index, java.lang.String item) {
     if (this.accessModes == null) {
-      this.accessModes = new java.util.ArrayList<java.lang.String>();
+      this.accessModes = new ArrayList<java.lang.String>();
     }
     this.accessModes.add(index, item);
     return (A) this;
@@ -144,7 +148,7 @@ public class V1PersistentVolumeSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAccessModes(java.util.Collection<java.lang.String> items) {
+  public A addAllToAccessModes(Collection<java.lang.String> items) {
     if (this.accessModes == null) {
       this.accessModes = new java.util.ArrayList<java.lang.String>();
     }
@@ -188,8 +192,7 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.accessModes.get(accessModes.size() - 1);
   }
 
-  public java.lang.String getMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingAccessMode(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : accessModes) {
       if (predicate.test(item)) {
         return item;
@@ -198,8 +201,7 @@ public class V1PersistentVolumeSpecFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingAccessMode(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : accessModes) {
       if (predicate.test(item)) {
         return true;
@@ -236,18 +238,13 @@ public class V1PersistentVolumeSpecFluentImpl<
     return accessModes != null && !accessModes.isEmpty();
   }
 
-  public A addNewAccessMode(java.lang.String original) {
-    return (A) addToAccessModes(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildAwsElasticBlockStore instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource
-      getAwsElasticBlockStore() {
+  @Deprecated
+  public V1AWSElasticBlockStoreVolumeSource getAwsElasticBlockStore() {
     return this.awsElasticBlockStore != null ? this.awsElasticBlockStore.build() : null;
   }
 
@@ -272,12 +269,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.awsElasticBlockStore != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-              .AwsElasticBlockStoreNested<
-          A>
-      withNewAwsElasticBlockStore() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .AwsElasticBlockStoreNestedImpl();
+  public V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStore() {
+    return new V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
@@ -285,8 +278,7 @@ public class V1PersistentVolumeSpecFluentImpl<
           A>
       withNewAwsElasticBlockStoreLike(
           io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource item) {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .AwsElasticBlockStoreNestedImpl(item);
+    return new V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
@@ -333,8 +325,7 @@ public class V1PersistentVolumeSpecFluentImpl<
   public A withAzureDisk(io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource azureDisk) {
     _visitables.get("azureDisk").remove(this.azureDisk);
     if (azureDisk != null) {
-      this.azureDisk =
-          new io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceBuilder(azureDisk);
+      this.azureDisk = new V1AzureDiskVolumeSourceBuilder(azureDisk);
       _visitables.get("azureDisk").add(this.azureDisk);
     }
     return (A) this;
@@ -344,10 +335,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.azureDisk != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureDiskNested<A>
-      withNewAzureDisk() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .AzureDiskNestedImpl();
+  public V1PersistentVolumeSpecFluent.AzureDiskNested<A> withNewAzureDisk() {
+    return new V1PersistentVolumeSpecFluentImpl.AzureDiskNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureDiskNested<A>
@@ -392,9 +381,7 @@ public class V1PersistentVolumeSpecFluentImpl<
       io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource azureFile) {
     _visitables.get("azureFile").remove(this.azureFile);
     if (azureFile != null) {
-      this.azureFile =
-          new io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceBuilder(
-              azureFile);
+      this.azureFile = new V1AzureFilePersistentVolumeSourceBuilder(azureFile);
       _visitables.get("azureFile").add(this.azureFile);
     }
     return (A) this;
@@ -404,10 +391,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.azureFile != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureFileNested<A>
-      withNewAzureFile() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .AzureFileNestedImpl();
+  public V1PersistentVolumeSpecFluent.AzureFileNested<A> withNewAzureFile() {
+    return new V1PersistentVolumeSpecFluentImpl.AzureFileNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureFileNested<A>
@@ -439,7 +424,7 @@ public class V1PersistentVolumeSpecFluentImpl<
 
   public A addToCapacity(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
     if (this.capacity == null && key != null && value != null) {
-      this.capacity = new java.util.LinkedHashMap();
+      this.capacity = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.capacity.put(key, value);
@@ -518,8 +503,7 @@ public class V1PersistentVolumeSpecFluentImpl<
   public A withCephfs(io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource cephfs) {
     _visitables.get("cephfs").remove(this.cephfs);
     if (cephfs != null) {
-      this.cephfs =
-          new io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceBuilder(cephfs);
+      this.cephfs = new V1CephFSPersistentVolumeSourceBuilder(cephfs);
       _visitables.get("cephfs").add(this.cephfs);
     }
     return (A) this;
@@ -529,10 +513,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.cephfs != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CephfsNested<A>
-      withNewCephfs() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .CephfsNestedImpl();
+  public V1PersistentVolumeSpecFluent.CephfsNested<A> withNewCephfs() {
+    return new V1PersistentVolumeSpecFluentImpl.CephfsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CephfsNested<A>
@@ -566,7 +548,7 @@ public class V1PersistentVolumeSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource getCinder() {
+  public V1CinderPersistentVolumeSource getCinder() {
     return this.cinder != null ? this.cinder.build() : null;
   }
 
@@ -588,10 +570,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.cinder != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CinderNested<A>
-      withNewCinder() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .CinderNestedImpl();
+  public V1PersistentVolumeSpecFluent.CinderNested<A> withNewCinder() {
+    return new V1PersistentVolumeSpecFluentImpl.CinderNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CinderNested<A>
@@ -636,7 +616,7 @@ public class V1PersistentVolumeSpecFluentImpl<
   public A withClaimRef(io.kubernetes.client.openapi.models.V1ObjectReference claimRef) {
     _visitables.get("claimRef").remove(this.claimRef);
     if (claimRef != null) {
-      this.claimRef = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(claimRef);
+      this.claimRef = new V1ObjectReferenceBuilder(claimRef);
       _visitables.get("claimRef").add(this.claimRef);
     }
     return (A) this;
@@ -646,10 +626,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.claimRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ClaimRefNested<A>
-      withNewClaimRef() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .ClaimRefNestedImpl();
+  public V1PersistentVolumeSpecFluent.ClaimRefNested<A> withNewClaimRef() {
+    return new V1PersistentVolumeSpecFluentImpl.ClaimRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ClaimRefNested<A>
@@ -693,7 +671,7 @@ public class V1PersistentVolumeSpecFluentImpl<
   public A withCsi(io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource csi) {
     _visitables.get("csi").remove(this.csi);
     if (csi != null) {
-      this.csi = new io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceBuilder(csi);
+      this.csi = new V1CSIPersistentVolumeSourceBuilder(csi);
       _visitables.get("csi").add(this.csi);
     }
     return (A) this;
@@ -703,9 +681,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.csi != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CsiNested<A>
-      withNewCsi() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl.CsiNestedImpl();
+  public V1PersistentVolumeSpecFluent.CsiNested<A> withNewCsi() {
+    return new V1PersistentVolumeSpecFluentImpl.CsiNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CsiNested<A>
@@ -748,7 +725,7 @@ public class V1PersistentVolumeSpecFluentImpl<
   public A withFc(io.kubernetes.client.openapi.models.V1FCVolumeSource fc) {
     _visitables.get("fc").remove(this.fc);
     if (fc != null) {
-      this.fc = new io.kubernetes.client.openapi.models.V1FCVolumeSourceBuilder(fc);
+      this.fc = new V1FCVolumeSourceBuilder(fc);
       _visitables.get("fc").add(this.fc);
     }
     return (A) this;
@@ -758,8 +735,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.fc != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FcNested<A> withNewFc() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl.FcNestedImpl();
+  public V1PersistentVolumeSpecFluent.FcNested<A> withNewFc() {
+    return new V1PersistentVolumeSpecFluentImpl.FcNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FcNested<A> withNewFcLike(
@@ -803,8 +780,7 @@ public class V1PersistentVolumeSpecFluentImpl<
       io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource flexVolume) {
     _visitables.get("flexVolume").remove(this.flexVolume);
     if (flexVolume != null) {
-      this.flexVolume =
-          new io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceBuilder(flexVolume);
+      this.flexVolume = new V1FlexPersistentVolumeSourceBuilder(flexVolume);
       _visitables.get("flexVolume").add(this.flexVolume);
     }
     return (A) this;
@@ -814,10 +790,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.flexVolume != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlexVolumeNested<A>
-      withNewFlexVolume() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .FlexVolumeNestedImpl();
+  public V1PersistentVolumeSpecFluent.FlexVolumeNested<A> withNewFlexVolume() {
+    return new V1PersistentVolumeSpecFluentImpl.FlexVolumeNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlexVolumeNested<A>
@@ -852,7 +826,7 @@ public class V1PersistentVolumeSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1FlockerVolumeSource getFlocker() {
+  public V1FlockerVolumeSource getFlocker() {
     return this.flocker != null ? this.flocker.build() : null;
   }
 
@@ -873,10 +847,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.flocker != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlockerNested<A>
-      withNewFlocker() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .FlockerNestedImpl();
+  public V1PersistentVolumeSpecFluent.FlockerNested<A> withNewFlocker() {
+    return new V1PersistentVolumeSpecFluentImpl.FlockerNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlockerNested<A>
@@ -923,9 +895,7 @@ public class V1PersistentVolumeSpecFluentImpl<
       io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource gcePersistentDisk) {
     _visitables.get("gcePersistentDisk").remove(this.gcePersistentDisk);
     if (gcePersistentDisk != null) {
-      this.gcePersistentDisk =
-          new io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceBuilder(
-              gcePersistentDisk);
+      this.gcePersistentDisk = new V1GCEPersistentDiskVolumeSourceBuilder(gcePersistentDisk);
       _visitables.get("gcePersistentDisk").add(this.gcePersistentDisk);
     }
     return (A) this;
@@ -935,10 +905,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.gcePersistentDisk != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A>
-      withNewGcePersistentDisk() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .GcePersistentDiskNestedImpl();
+  public V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A> withNewGcePersistentDisk() {
+    return new V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A>
@@ -987,9 +955,7 @@ public class V1PersistentVolumeSpecFluentImpl<
       io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource glusterfs) {
     _visitables.get("glusterfs").remove(this.glusterfs);
     if (glusterfs != null) {
-      this.glusterfs =
-          new io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceBuilder(
-              glusterfs);
+      this.glusterfs = new V1GlusterfsPersistentVolumeSourceBuilder(glusterfs);
       _visitables.get("glusterfs").add(this.glusterfs);
     }
     return (A) this;
@@ -999,10 +965,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.glusterfs != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GlusterfsNested<A>
-      withNewGlusterfs() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .GlusterfsNestedImpl();
+  public V1PersistentVolumeSpecFluent.GlusterfsNested<A> withNewGlusterfs() {
+    return new V1PersistentVolumeSpecFluentImpl.GlusterfsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GlusterfsNested<A>
@@ -1038,7 +1002,7 @@ public class V1PersistentVolumeSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1HostPathVolumeSource getHostPath() {
+  public V1HostPathVolumeSource getHostPath() {
     return this.hostPath != null ? this.hostPath.build() : null;
   }
 
@@ -1060,10 +1024,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.hostPath != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.HostPathNested<A>
-      withNewHostPath() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .HostPathNestedImpl();
+  public V1PersistentVolumeSpecFluent.HostPathNested<A> withNewHostPath() {
+    return new V1PersistentVolumeSpecFluentImpl.HostPathNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.HostPathNested<A>
@@ -1107,8 +1069,7 @@ public class V1PersistentVolumeSpecFluentImpl<
   public A withIscsi(io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource iscsi) {
     _visitables.get("iscsi").remove(this.iscsi);
     if (iscsi != null) {
-      this.iscsi =
-          new io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSourceBuilder(iscsi);
+      this.iscsi = new V1ISCSIPersistentVolumeSourceBuilder(iscsi);
       _visitables.get("iscsi").add(this.iscsi);
     }
     return (A) this;
@@ -1118,10 +1079,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.iscsi != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.IscsiNested<A>
-      withNewIscsi() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .IscsiNestedImpl();
+  public V1PersistentVolumeSpecFluent.IscsiNested<A> withNewIscsi() {
+    return new V1PersistentVolumeSpecFluentImpl.IscsiNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.IscsiNested<A>
@@ -1166,7 +1125,7 @@ public class V1PersistentVolumeSpecFluentImpl<
   public A withLocal(io.kubernetes.client.openapi.models.V1LocalVolumeSource local) {
     _visitables.get("local").remove(this.local);
     if (local != null) {
-      this.local = new io.kubernetes.client.openapi.models.V1LocalVolumeSourceBuilder(local);
+      this.local = new V1LocalVolumeSourceBuilder(local);
       _visitables.get("local").add(this.local);
     }
     return (A) this;
@@ -1176,10 +1135,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.local != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.LocalNested<A>
-      withNewLocal() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .LocalNestedImpl();
+  public V1PersistentVolumeSpecFluent.LocalNested<A> withNewLocal() {
+    return new V1PersistentVolumeSpecFluentImpl.LocalNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.LocalNested<A>
@@ -1324,17 +1281,13 @@ public class V1PersistentVolumeSpecFluentImpl<
     return mountOptions != null && !mountOptions.isEmpty();
   }
 
-  public A addNewMountOption(java.lang.String original) {
-    return (A) addToMountOptions(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildNfs instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NFSVolumeSource getNfs() {
+  public V1NFSVolumeSource getNfs() {
     return this.nfs != null ? this.nfs.build() : null;
   }
 
@@ -1355,9 +1308,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.nfs != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NfsNested<A>
-      withNewNfs() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl.NfsNestedImpl();
+  public V1PersistentVolumeSpecFluent.NfsNested<A> withNewNfs() {
+    return new V1PersistentVolumeSpecFluentImpl.NfsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NfsNested<A>
@@ -1389,7 +1341,7 @@ public class V1PersistentVolumeSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinity getNodeAffinity() {
+  public V1VolumeNodeAffinity getNodeAffinity() {
     return this.nodeAffinity != null ? this.nodeAffinity.build() : null;
   }
 
@@ -1411,10 +1363,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.nodeAffinity != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A>
-      withNewNodeAffinity() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .NodeAffinityNestedImpl();
+  public V1PersistentVolumeSpecFluent.NodeAffinityNested<A> withNewNodeAffinity() {
+    return new V1PersistentVolumeSpecFluentImpl.NodeAffinityNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<A>
@@ -1441,15 +1391,11 @@ public class V1PersistentVolumeSpecFluentImpl<
     return withNewNodeAffinityLike(getNodeAffinity() != null ? getNodeAffinity() : item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec
-          .PersistentVolumeReclaimPolicyEnum
-      getPersistentVolumeReclaimPolicy() {
+  public java.lang.String getPersistentVolumeReclaimPolicy() {
     return this.persistentVolumeReclaimPolicy;
   }
 
-  public A withPersistentVolumeReclaimPolicy(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpec.PersistentVolumeReclaimPolicyEnum
-          persistentVolumeReclaimPolicy) {
+  public A withPersistentVolumeReclaimPolicy(java.lang.String persistentVolumeReclaimPolicy) {
     this.persistentVolumeReclaimPolicy = persistentVolumeReclaimPolicy;
     return (A) this;
   }
@@ -1464,8 +1410,7 @@ public class V1PersistentVolumeSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource
-      getPhotonPersistentDisk() {
+  public V1PhotonPersistentDiskVolumeSource getPhotonPersistentDisk() {
     return this.photonPersistentDisk != null ? this.photonPersistentDisk.build() : null;
   }
 
@@ -1490,12 +1435,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.photonPersistentDisk != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-              .PhotonPersistentDiskNested<
-          A>
-      withNewPhotonPersistentDisk() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .PhotonPersistentDiskNestedImpl();
+  public V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<A> withNewPhotonPersistentDisk() {
+    return new V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
@@ -1540,7 +1481,7 @@ public class V1PersistentVolumeSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PortworxVolumeSource getPortworxVolume() {
+  public V1PortworxVolumeSource getPortworxVolume() {
     return this.portworxVolume != null ? this.portworxVolume.build() : null;
   }
 
@@ -1563,10 +1504,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.portworxVolume != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.PortworxVolumeNested<A>
-      withNewPortworxVolume() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .PortworxVolumeNestedImpl();
+  public V1PersistentVolumeSpecFluent.PortworxVolumeNested<A> withNewPortworxVolume() {
+    return new V1PersistentVolumeSpecFluentImpl.PortworxVolumeNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.PortworxVolumeNested<A>
@@ -1610,7 +1549,7 @@ public class V1PersistentVolumeSpecFluentImpl<
   public A withQuobyte(io.kubernetes.client.openapi.models.V1QuobyteVolumeSource quobyte) {
     _visitables.get("quobyte").remove(this.quobyte);
     if (quobyte != null) {
-      this.quobyte = new io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceBuilder(quobyte);
+      this.quobyte = new V1QuobyteVolumeSourceBuilder(quobyte);
       _visitables.get("quobyte").add(this.quobyte);
     }
     return (A) this;
@@ -1620,10 +1559,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.quobyte != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.QuobyteNested<A>
-      withNewQuobyte() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .QuobyteNestedImpl();
+  public V1PersistentVolumeSpecFluent.QuobyteNested<A> withNewQuobyte() {
+    return new V1PersistentVolumeSpecFluentImpl.QuobyteNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.QuobyteNested<A>
@@ -1656,7 +1593,7 @@ public class V1PersistentVolumeSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSource getRbd() {
+  public V1RBDPersistentVolumeSource getRbd() {
     return this.rbd != null ? this.rbd.build() : null;
   }
 
@@ -1677,9 +1614,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.rbd != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.RbdNested<A>
-      withNewRbd() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl.RbdNestedImpl();
+  public V1PersistentVolumeSpecFluent.RbdNested<A> withNewRbd() {
+    return new V1PersistentVolumeSpecFluentImpl.RbdNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.RbdNested<A>
@@ -1723,8 +1659,7 @@ public class V1PersistentVolumeSpecFluentImpl<
       io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource scaleIO) {
     _visitables.get("scaleIO").remove(this.scaleIO);
     if (scaleIO != null) {
-      this.scaleIO =
-          new io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceBuilder(scaleIO);
+      this.scaleIO = new V1ScaleIOPersistentVolumeSourceBuilder(scaleIO);
       _visitables.get("scaleIO").add(this.scaleIO);
     }
     return (A) this;
@@ -1734,10 +1669,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.scaleIO != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ScaleIONested<A>
-      withNewScaleIO() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .ScaleIONestedImpl();
+  public V1PersistentVolumeSpecFluent.ScaleIONested<A> withNewScaleIO() {
+    return new V1PersistentVolumeSpecFluentImpl.ScaleIONestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ScaleIONested<A>
@@ -1779,19 +1712,13 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.storageClassName != null;
   }
 
-  /** Method is deprecated. use withStorageClassName instead. */
-  @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original) {
-    return (A) withStorageClassName(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildStorageos instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSource getStorageos() {
+  public V1StorageOSPersistentVolumeSource getStorageos() {
     return this.storageos != null ? this.storageos.build() : null;
   }
 
@@ -1815,10 +1742,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.storageos != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.StorageosNested<A>
-      withNewStorageos() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .StorageosNestedImpl();
+  public V1PersistentVolumeSpecFluent.StorageosNested<A> withNewStorageos() {
+    return new V1PersistentVolumeSpecFluentImpl.StorageosNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.StorageosNested<A>
@@ -1861,19 +1786,13 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.volumeMode != null;
   }
 
-  /** Method is deprecated. use withVolumeMode instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String original) {
-    return (A) withVolumeMode(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildVsphereVolume instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource getVsphereVolume() {
+  public V1VsphereVirtualDiskVolumeSource getVsphereVolume() {
     return this.vsphereVolume != null ? this.vsphereVolume.build() : null;
   }
 
@@ -1897,10 +1816,8 @@ public class V1PersistentVolumeSpecFluentImpl<
     return this.vsphereVolume != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.VsphereVolumeNested<A>
-      withNewVsphereVolume() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl
-        .VsphereVolumeNestedImpl();
+  public V1PersistentVolumeSpecFluent.VsphereVolumeNested<A> withNewVsphereVolume() {
+    return new V1PersistentVolumeSpecFluentImpl.VsphereVolumeNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.VsphereVolumeNested<A>
@@ -1930,7 +1847,7 @@ public class V1PersistentVolumeSpecFluentImpl<
     return withNewVsphereVolumeLike(getVsphereVolume() != null ? getVsphereVolume() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PersistentVolumeSpecFluentImpl that = (V1PersistentVolumeSpecFluentImpl) o;
@@ -2025,20 +1942,142 @@ public class V1PersistentVolumeSpecFluentImpl<
         super.hashCode());
   }
 
-  public class AwsElasticBlockStoreNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-                  .AwsElasticBlockStoreNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (accessModes != null && !accessModes.isEmpty()) {
+      sb.append("accessModes:");
+      sb.append(accessModes + ",");
+    }
+    if (awsElasticBlockStore != null) {
+      sb.append("awsElasticBlockStore:");
+      sb.append(awsElasticBlockStore + ",");
+    }
+    if (azureDisk != null) {
+      sb.append("azureDisk:");
+      sb.append(azureDisk + ",");
+    }
+    if (azureFile != null) {
+      sb.append("azureFile:");
+      sb.append(azureFile + ",");
+    }
+    if (capacity != null && !capacity.isEmpty()) {
+      sb.append("capacity:");
+      sb.append(capacity + ",");
+    }
+    if (cephfs != null) {
+      sb.append("cephfs:");
+      sb.append(cephfs + ",");
+    }
+    if (cinder != null) {
+      sb.append("cinder:");
+      sb.append(cinder + ",");
+    }
+    if (claimRef != null) {
+      sb.append("claimRef:");
+      sb.append(claimRef + ",");
+    }
+    if (csi != null) {
+      sb.append("csi:");
+      sb.append(csi + ",");
+    }
+    if (fc != null) {
+      sb.append("fc:");
+      sb.append(fc + ",");
+    }
+    if (flexVolume != null) {
+      sb.append("flexVolume:");
+      sb.append(flexVolume + ",");
+    }
+    if (flocker != null) {
+      sb.append("flocker:");
+      sb.append(flocker + ",");
+    }
+    if (gcePersistentDisk != null) {
+      sb.append("gcePersistentDisk:");
+      sb.append(gcePersistentDisk + ",");
+    }
+    if (glusterfs != null) {
+      sb.append("glusterfs:");
+      sb.append(glusterfs + ",");
+    }
+    if (hostPath != null) {
+      sb.append("hostPath:");
+      sb.append(hostPath + ",");
+    }
+    if (iscsi != null) {
+      sb.append("iscsi:");
+      sb.append(iscsi + ",");
+    }
+    if (local != null) {
+      sb.append("local:");
+      sb.append(local + ",");
+    }
+    if (mountOptions != null && !mountOptions.isEmpty()) {
+      sb.append("mountOptions:");
+      sb.append(mountOptions + ",");
+    }
+    if (nfs != null) {
+      sb.append("nfs:");
+      sb.append(nfs + ",");
+    }
+    if (nodeAffinity != null) {
+      sb.append("nodeAffinity:");
+      sb.append(nodeAffinity + ",");
+    }
+    if (persistentVolumeReclaimPolicy != null) {
+      sb.append("persistentVolumeReclaimPolicy:");
+      sb.append(persistentVolumeReclaimPolicy + ",");
+    }
+    if (photonPersistentDisk != null) {
+      sb.append("photonPersistentDisk:");
+      sb.append(photonPersistentDisk + ",");
+    }
+    if (portworxVolume != null) {
+      sb.append("portworxVolume:");
+      sb.append(portworxVolume + ",");
+    }
+    if (quobyte != null) {
+      sb.append("quobyte:");
+      sb.append(quobyte + ",");
+    }
+    if (rbd != null) {
+      sb.append("rbd:");
+      sb.append(rbd + ",");
+    }
+    if (scaleIO != null) {
+      sb.append("scaleIO:");
+      sb.append(scaleIO + ",");
+    }
+    if (storageClassName != null) {
+      sb.append("storageClassName:");
+      sb.append(storageClassName + ",");
+    }
+    if (storageos != null) {
+      sb.append("storageos:");
+      sb.append(storageos + ",");
+    }
+    if (volumeMode != null) {
+      sb.append("volumeMode:");
+      sb.append(volumeMode + ",");
+    }
+    if (vsphereVolume != null) {
+      sb.append("vsphereVolume:");
+      sb.append(vsphereVolume);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class AwsElasticBlockStoreNestedImpl<N>
+      extends V1AWSElasticBlockStoreVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
                   .AwsElasticBlockStoreNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    AwsElasticBlockStoreNestedImpl(
-        io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceBuilder(
-              this, item);
+          Nested<N> {
+    AwsElasticBlockStoreNestedImpl(V1AWSElasticBlockStoreVolumeSource item) {
+      this.builder = new V1AWSElasticBlockStoreVolumeSourceBuilder(this, item);
     }
 
     AwsElasticBlockStoreNestedImpl() {
@@ -2057,15 +2096,13 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class AzureDiskNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureDiskNested<N>>
+  class AzureDiskNestedImpl<N>
+      extends V1AzureDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.AzureDiskNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureDiskNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    AzureDiskNestedImpl(io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceBuilder(this, item);
+    AzureDiskNestedImpl(V1AzureDiskVolumeSource item) {
+      this.builder = new V1AzureDiskVolumeSourceBuilder(this, item);
     }
 
     AzureDiskNestedImpl() {
@@ -2083,17 +2120,14 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class AzureFileNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureFileNested<N>>
+  class AzureFileNestedImpl<N>
+      extends V1AzureFilePersistentVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.AzureFileNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.AzureFileNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    AzureFileNestedImpl(
-        io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceBuilder(
-              this, item);
+    AzureFileNestedImpl(V1AzureFilePersistentVolumeSource item) {
+      this.builder = new V1AzureFilePersistentVolumeSourceBuilder(this, item);
     }
 
     AzureFileNestedImpl() {
@@ -2112,14 +2146,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class CephfsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CephfsNested<N>>
+  class CephfsNestedImpl<N>
+      extends V1CephFSPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.CephfsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CephfsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     CephfsNestedImpl(io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceBuilder(this, item);
+      this.builder = new V1CephFSPersistentVolumeSourceBuilder(this, item);
     }
 
     CephfsNestedImpl() {
@@ -2138,14 +2170,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class CinderNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CinderNested<N>>
+  class CinderNestedImpl<N>
+      extends V1CinderPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.CinderNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CinderNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     CinderNestedImpl(io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceBuilder(this, item);
+      this.builder = new V1CinderPersistentVolumeSourceBuilder(this, item);
     }
 
     CinderNestedImpl() {
@@ -2164,13 +2194,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class ClaimRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ClaimRefNested<N>>
+  class ClaimRefNestedImpl<N>
+      extends V1ObjectReferenceFluentImpl<V1PersistentVolumeSpecFluent.ClaimRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ClaimRefNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     ClaimRefNestedImpl(io.kubernetes.client.openapi.models.V1ObjectReference item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this, item);
+      this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     ClaimRefNestedImpl() {
@@ -2188,14 +2217,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class CsiNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CsiNested<N>>
+  class CsiNestedImpl<N>
+      extends V1CSIPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.CsiNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.CsiNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     CsiNestedImpl(io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceBuilder(this, item);
+      this.builder = new V1CSIPersistentVolumeSourceBuilder(this, item);
     }
 
     CsiNestedImpl() {
@@ -2214,13 +2241,11 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class FcNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1FCVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FcNested<N>>
+  class FcNestedImpl<N> extends V1FCVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.FcNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FcNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    FcNestedImpl(io.kubernetes.client.openapi.models.V1FCVolumeSource item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1FCVolumeSourceBuilder(this, item);
+    FcNestedImpl(V1FCVolumeSource item) {
+      this.builder = new V1FCVolumeSourceBuilder(this, item);
     }
 
     FcNestedImpl() {
@@ -2238,15 +2263,14 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class FlexVolumeNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlexVolumeNested<N>>
+  class FlexVolumeNestedImpl<N>
+      extends V1FlexPersistentVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.FlexVolumeNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlexVolumeNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    FlexVolumeNestedImpl(io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceBuilder(this, item);
+    FlexVolumeNestedImpl(V1FlexPersistentVolumeSource item) {
+      this.builder = new V1FlexPersistentVolumeSourceBuilder(this, item);
     }
 
     FlexVolumeNestedImpl() {
@@ -2265,14 +2289,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class FlockerNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1FlockerVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlockerNested<N>>
+  class FlockerNestedImpl<N>
+      extends V1FlockerVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.FlockerNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.FlockerNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    FlockerNestedImpl(io.kubernetes.client.openapi.models.V1FlockerVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1FlockerVolumeSourceBuilder(this, item);
+    FlockerNestedImpl(V1FlockerVolumeSource item) {
+      this.builder = new V1FlockerVolumeSourceBuilder(this, item);
     }
 
     FlockerNestedImpl() {
@@ -2290,19 +2312,16 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class GcePersistentDiskNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GcePersistentDiskNested<
-              N>>
+  class GcePersistentDiskNestedImpl<N>
+      extends V1GCEPersistentDiskVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.GcePersistentDiskNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
                   .GcePersistentDiskNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     GcePersistentDiskNestedImpl(
         io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceBuilder(
-              this, item);
+      this.builder = new V1GCEPersistentDiskVolumeSourceBuilder(this, item);
     }
 
     GcePersistentDiskNestedImpl() {
@@ -2321,17 +2340,15 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class GlusterfsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GlusterfsNested<N>>
+  class GlusterfsNestedImpl<N>
+      extends V1GlusterfsPersistentVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.GlusterfsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.GlusterfsNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     GlusterfsNestedImpl(
         io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceBuilder(
-              this, item);
+      this.builder = new V1GlusterfsPersistentVolumeSourceBuilder(this, item);
     }
 
     GlusterfsNestedImpl() {
@@ -2350,14 +2367,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class HostPathNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1HostPathVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.HostPathNested<N>>
+  class HostPathNestedImpl<N>
+      extends V1HostPathVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.HostPathNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.HostPathNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    HostPathNestedImpl(io.kubernetes.client.openapi.models.V1HostPathVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1HostPathVolumeSourceBuilder(this, item);
+    HostPathNestedImpl(V1HostPathVolumeSource item) {
+      this.builder = new V1HostPathVolumeSourceBuilder(this, item);
     }
 
     HostPathNestedImpl() {
@@ -2375,14 +2390,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class IscsiNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.IscsiNested<N>>
+  class IscsiNestedImpl<N>
+      extends V1ISCSIPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.IscsiNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.IscsiNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     IscsiNestedImpl(io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ISCSIPersistentVolumeSourceBuilder(this, item);
+      this.builder = new V1ISCSIPersistentVolumeSourceBuilder(this, item);
     }
 
     IscsiNestedImpl() {
@@ -2401,13 +2414,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class LocalNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.LocalNested<N>>
+  class LocalNestedImpl<N>
+      extends V1LocalVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.LocalNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.LocalNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     LocalNestedImpl(io.kubernetes.client.openapi.models.V1LocalVolumeSource item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LocalVolumeSourceBuilder(this, item);
+      this.builder = new V1LocalVolumeSourceBuilder(this, item);
     }
 
     LocalNestedImpl() {
@@ -2425,13 +2437,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class NfsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NfsNested<N>>
+  class NfsNestedImpl<N>
+      extends V1NFSVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.NfsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NfsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    NfsNestedImpl(io.kubernetes.client.openapi.models.V1NFSVolumeSource item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1NFSVolumeSourceBuilder(this, item);
+    NfsNestedImpl(V1NFSVolumeSource item) {
+      this.builder = new V1NFSVolumeSourceBuilder(this, item);
     }
 
     NfsNestedImpl() {
@@ -2449,16 +2460,14 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class NodeAffinityNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.NodeAffinityNested<N>>
+  class NodeAffinityNestedImpl<N>
+      extends V1VolumeNodeAffinityFluentImpl<V1PersistentVolumeSpecFluent.NodeAffinityNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
                   .NodeAffinityNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    NodeAffinityNestedImpl(io.kubernetes.client.openapi.models.V1VolumeNodeAffinity item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1VolumeNodeAffinityBuilder(this, item);
+    NodeAffinityNestedImpl(V1VolumeNodeAffinity item) {
+      this.builder = new V1VolumeNodeAffinityBuilder(this, item);
     }
 
     NodeAffinityNestedImpl() {
@@ -2476,20 +2485,16 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class PhotonPersistentDiskNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
-                  .PhotonPersistentDiskNested<
-              N>>
+  class PhotonPersistentDiskNestedImpl<N>
+      extends V1PhotonPersistentDiskVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
                   .PhotonPersistentDiskNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     PhotonPersistentDiskNestedImpl(
         io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceBuilder(
-              this, item);
+      this.builder = new V1PhotonPersistentDiskVolumeSourceBuilder(this, item);
     }
 
     PhotonPersistentDiskNestedImpl() {
@@ -2508,16 +2513,14 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class PortworxVolumeNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.PortworxVolumeNested<N>>
+  class PortworxVolumeNestedImpl<N>
+      extends V1PortworxVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.PortworxVolumeNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
                   .PortworxVolumeNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    PortworxVolumeNestedImpl(io.kubernetes.client.openapi.models.V1PortworxVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1PortworxVolumeSourceBuilder(this, item);
+    PortworxVolumeNestedImpl(V1PortworxVolumeSource item) {
+      this.builder = new V1PortworxVolumeSourceBuilder(this, item);
     }
 
     PortworxVolumeNestedImpl() {
@@ -2535,14 +2538,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class QuobyteNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.QuobyteNested<N>>
+  class QuobyteNestedImpl<N>
+      extends V1QuobyteVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.QuobyteNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.QuobyteNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     QuobyteNestedImpl(io.kubernetes.client.openapi.models.V1QuobyteVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceBuilder(this, item);
+      this.builder = new V1QuobyteVolumeSourceBuilder(this, item);
     }
 
     QuobyteNestedImpl() {
@@ -2560,14 +2561,12 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class RbdNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.RbdNested<N>>
+  class RbdNestedImpl<N>
+      extends V1RBDPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.RbdNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.RbdNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    RbdNestedImpl(io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1RBDPersistentVolumeSourceBuilder(this, item);
+    RbdNestedImpl(V1RBDPersistentVolumeSource item) {
+      this.builder = new V1RBDPersistentVolumeSourceBuilder(this, item);
     }
 
     RbdNestedImpl() {
@@ -2586,15 +2585,13 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class ScaleIONestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ScaleIONested<N>>
+  class ScaleIONestedImpl<N>
+      extends V1ScaleIOPersistentVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.ScaleIONested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.ScaleIONested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    ScaleIONestedImpl(io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceBuilder(
-              this, item);
+    ScaleIONestedImpl(V1ScaleIOPersistentVolumeSource item) {
+      this.builder = new V1ScaleIOPersistentVolumeSourceBuilder(this, item);
     }
 
     ScaleIONestedImpl() {
@@ -2613,17 +2610,15 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class StorageosNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.StorageosNested<N>>
+  class StorageosNestedImpl<N>
+      extends V1StorageOSPersistentVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.StorageosNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.StorageosNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     StorageosNestedImpl(
         io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceBuilder(
-              this, item);
+      this.builder = new V1StorageOSPersistentVolumeSourceBuilder(this, item);
     }
 
     StorageosNestedImpl() {
@@ -2642,18 +2637,16 @@ public class V1PersistentVolumeSpecFluentImpl<
     }
   }
 
-  public class VsphereVolumeNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent.VsphereVolumeNested<N>>
+  class VsphereVolumeNestedImpl<N>
+      extends V1VsphereVirtualDiskVolumeSourceFluentImpl<
+          V1PersistentVolumeSpecFluent.VsphereVolumeNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent
                   .VsphereVolumeNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     VsphereVolumeNestedImpl(
         io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSourceBuilder(
-              this, item);
+      this.builder = new V1VsphereVirtualDiskVolumeSourceBuilder(this, item);
     }
 
     VsphereVolumeNestedImpl() {

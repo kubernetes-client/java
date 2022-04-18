@@ -12,23 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1alpha1StorageVersionStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getCommonEncodingVersion();
+public interface V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVersionStatusFluent<A>>
+    extends Fluent<A> {
+  public String getCommonEncodingVersion();
 
   public A withCommonEncodingVersion(java.lang.String commonEncodingVersion);
 
-  public java.lang.Boolean hasCommonEncodingVersion();
+  public Boolean hasCommonEncodingVersion();
 
-  /** Method is deprecated. use withCommonEncodingVersion instead. */
-  @java.lang.Deprecated
-  public A withNewCommonEncodingVersion(java.lang.String original);
-
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition item);
+  public A addToConditions(Integer index, V1alpha1StorageVersionCondition item);
 
   public A setToConditions(
       java.lang.Integer index,
@@ -38,8 +37,7 @@ public interface V1alpha1StorageVersionStatusFluent<
       io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition>
-          items);
+      Collection<io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition> items);
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition... items);
@@ -49,18 +47,15 @@ public interface V1alpha1StorageVersionStatusFluent<
           items);
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionBuilder>
-          predicate);
+      Predicate<V1alpha1StorageVersionConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition>
-      getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition>
       buildConditions();
@@ -91,8 +86,7 @@ public interface V1alpha1StorageVersionStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition item);
@@ -117,9 +111,7 @@ public interface V1alpha1StorageVersionStatusFluent<
                   io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionBuilder>
               predicate);
 
-  public A addToStorageVersions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion item);
+  public A addToStorageVersions(java.lang.Integer index, V1alpha1ServerStorageVersion item);
 
   public A setToStorageVersions(
       java.lang.Integer index,
@@ -138,9 +130,7 @@ public interface V1alpha1StorageVersionStatusFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion> items);
 
   public A removeMatchingFromStorageVersions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionBuilder>
-          predicate);
+      java.util.function.Predicate<V1alpha1ServerStorageVersionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildStorageVersions instead.
@@ -182,10 +172,7 @@ public interface V1alpha1StorageVersionStatusFluent<
 
   public java.lang.Boolean hasStorageVersions();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent
-              .StorageVersionsNested<
-          A>
-      addNewStorageVersion();
+  public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> addNewStorageVersion();
 
   public io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent
               .StorageVersionsNested<
@@ -224,11 +211,9 @@ public interface V1alpha1StorageVersionStatusFluent<
               predicate);
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionFluent<
-              io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent
-                      .ConditionsNested<
-                  N>> {
+      extends Nested<N>,
+          V1alpha1StorageVersionConditionFluent<
+              V1alpha1StorageVersionStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();
@@ -236,10 +221,8 @@ public interface V1alpha1StorageVersionStatusFluent<
 
   public interface StorageVersionsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionFluent<
-              io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent
-                      .StorageVersionsNested<
-                  N>> {
+          V1alpha1ServerStorageVersionFluent<
+              V1alpha1StorageVersionStatusFluent.StorageVersionsNested<N>> {
     public N and();
 
     public N endStorageVersion();

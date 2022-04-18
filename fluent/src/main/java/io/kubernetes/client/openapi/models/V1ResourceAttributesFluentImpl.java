@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ResourceAttributesFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ResourceAttributesFluentImpl<A extends V1ResourceAttributesFluent<A>>
+    extends BaseFluent<A> implements V1ResourceAttributesFluent<A> {
   public V1ResourceAttributesFluentImpl() {}
 
   public V1ResourceAttributesFluentImpl(
@@ -36,7 +37,7 @@ public class V1ResourceAttributesFluentImpl<
     this.withVersion(instance.getVersion());
   }
 
-  private java.lang.String group;
+  private String group;
   private java.lang.String name;
   private java.lang.String namespace;
   private java.lang.String resource;
@@ -53,14 +54,8 @@ public class V1ResourceAttributesFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasGroup() {
+  public Boolean hasGroup() {
     return this.group != null;
-  }
-
-  /** Method is deprecated. use withGroup instead. */
-  @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original) {
-    return (A) withGroup(new String(original));
   }
 
   public java.lang.String getName() {
@@ -76,12 +71,6 @@ public class V1ResourceAttributesFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
   public java.lang.String getNamespace() {
     return this.namespace;
   }
@@ -93,12 +82,6 @@ public class V1ResourceAttributesFluentImpl<
 
   public java.lang.Boolean hasNamespace() {
     return this.namespace != null;
-  }
-
-  /** Method is deprecated. use withNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A) withNamespace(new String(original));
   }
 
   public java.lang.String getResource() {
@@ -114,12 +97,6 @@ public class V1ResourceAttributesFluentImpl<
     return this.resource != null;
   }
 
-  /** Method is deprecated. use withResource instead. */
-  @java.lang.Deprecated
-  public A withNewResource(java.lang.String original) {
-    return (A) withResource(new String(original));
-  }
-
   public java.lang.String getSubresource() {
     return this.subresource;
   }
@@ -131,12 +108,6 @@ public class V1ResourceAttributesFluentImpl<
 
   public java.lang.Boolean hasSubresource() {
     return this.subresource != null;
-  }
-
-  /** Method is deprecated. use withSubresource instead. */
-  @java.lang.Deprecated
-  public A withNewSubresource(java.lang.String original) {
-    return (A) withSubresource(new String(original));
   }
 
   public java.lang.String getVerb() {
@@ -152,12 +123,6 @@ public class V1ResourceAttributesFluentImpl<
     return this.verb != null;
   }
 
-  /** Method is deprecated. use withVerb instead. */
-  @java.lang.Deprecated
-  public A withNewVerb(java.lang.String original) {
-    return (A) withVerb(new String(original));
-  }
-
   public java.lang.String getVersion() {
     return this.version;
   }
@@ -171,13 +136,7 @@ public class V1ResourceAttributesFluentImpl<
     return this.version != null;
   }
 
-  /** Method is deprecated. use withVersion instead. */
-  @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original) {
-    return (A) withVersion(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ResourceAttributesFluentImpl that = (V1ResourceAttributesFluentImpl) o;
@@ -196,5 +155,40 @@ public class V1ResourceAttributesFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         group, name, namespace, resource, subresource, verb, version, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (group != null) {
+      sb.append("group:");
+      sb.append(group + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespace != null) {
+      sb.append("namespace:");
+      sb.append(namespace + ",");
+    }
+    if (resource != null) {
+      sb.append("resource:");
+      sb.append(resource + ",");
+    }
+    if (subresource != null) {
+      sb.append("subresource:");
+      sb.append(subresource + ",");
+    }
+    if (verb != null) {
+      sb.append("verb:");
+      sb.append(verb + ",");
+    }
+    if (version != null) {
+      sb.append("version:");
+      sb.append(version);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

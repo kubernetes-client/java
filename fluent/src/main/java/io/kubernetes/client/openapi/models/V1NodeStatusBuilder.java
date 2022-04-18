@@ -12,21 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1NodeStatusBuilder
-    extends io.kubernetes.client.openapi.models.V1NodeStatusFluentImpl<
-        io.kubernetes.client.openapi.models.V1NodeStatusBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1NodeStatus,
         io.kubernetes.client.openapi.models.V1NodeStatusBuilder> {
   public V1NodeStatusBuilder() {
     this(false);
   }
 
-  public V1NodeStatusBuilder(java.lang.Boolean validationEnabled) {
+  public V1NodeStatusBuilder(Boolean validationEnabled) {
     this(new V1NodeStatus(), validationEnabled);
   }
 
-  public V1NodeStatusBuilder(io.kubernetes.client.openapi.models.V1NodeStatusFluent<?> fluent) {
+  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -122,24 +122,5 @@ public class V1NodeStatusBuilder
     buildable.setVolumesAttached(fluent.getVolumesAttached());
     buildable.setVolumesInUse(fluent.getVolumesInUse());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1NodeStatusBuilder that = (V1NodeStatusBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

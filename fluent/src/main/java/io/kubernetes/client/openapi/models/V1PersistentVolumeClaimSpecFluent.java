@@ -12,23 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1PersistentVolumeClaimSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToAccessModes(java.lang.Integer index, java.lang.String item);
+public interface V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaimSpecFluent<A>>
+    extends Fluent<A> {
+  public A addToAccessModes(Integer index, String item);
 
   public A setToAccessModes(java.lang.Integer index, java.lang.String item);
 
   public A addToAccessModes(java.lang.String... items);
 
-  public A addAllToAccessModes(java.util.Collection<java.lang.String> items);
+  public A addAllToAccessModes(Collection<java.lang.String> items);
 
   public A removeFromAccessModes(java.lang.String... items);
 
   public A removeAllFromAccessModes(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getAccessModes();
+  public List<java.lang.String> getAccessModes();
 
   public java.lang.String getAccessMode(java.lang.Integer index);
 
@@ -36,11 +41,9 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public java.lang.String getLastAccessMode();
 
-  public java.lang.String getMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingAccessMode(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingAccessMode(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withAccessModes(java.util.List<java.lang.String> accessModes);
 
@@ -48,15 +51,13 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public java.lang.Boolean hasAccessModes();
 
-  public A addNewAccessMode(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildDataSource instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference getDataSource();
+  @Deprecated
+  public V1TypedLocalObjectReference getDataSource();
 
   public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference buildDataSource();
 
@@ -65,8 +66,7 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public java.lang.Boolean hasDataSource();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceNested<A>
-      withNewDataSource();
+  public V1PersistentVolumeClaimSpecFluent.DataSourceNested<A> withNewDataSource();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceNested<A>
       withNewDataSourceLike(io.kubernetes.client.openapi.models.V1TypedLocalObjectReference item);
@@ -95,9 +95,7 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public java.lang.Boolean hasDataSourceRef();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<
-          A>
-      withNewDataSourceRef();
+  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> withNewDataSourceRef();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<
           A>
@@ -123,7 +121,7 @@ public interface V1PersistentVolumeClaimSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ResourceRequirements getResources();
+  public V1ResourceRequirements getResources();
 
   public io.kubernetes.client.openapi.models.V1ResourceRequirements buildResources();
 
@@ -131,8 +129,7 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public java.lang.Boolean hasResources();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.ResourcesNested<A>
-      withNewResources();
+  public V1PersistentVolumeClaimSpecFluent.ResourcesNested<A> withNewResources();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.ResourcesNested<A>
       withNewResourcesLike(io.kubernetes.client.openapi.models.V1ResourceRequirements item);
@@ -152,7 +149,7 @@ public interface V1PersistentVolumeClaimSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector();
+  public V1LabelSelector getSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector();
 
@@ -160,8 +157,7 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public java.lang.Boolean hasSelector();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.SelectorNested<A>
-      withNewSelector();
+  public V1PersistentVolumeClaimSpecFluent.SelectorNested<A> withNewSelector();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -181,19 +177,11 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public java.lang.Boolean hasStorageClassName();
 
-  /** Method is deprecated. use withStorageClassName instead. */
-  @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original);
-
   public java.lang.String getVolumeMode();
 
   public A withVolumeMode(java.lang.String volumeMode);
 
   public java.lang.Boolean hasVolumeMode();
-
-  /** Method is deprecated. use withVolumeMode instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String original);
 
   public java.lang.String getVolumeName();
 
@@ -201,16 +189,9 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public java.lang.Boolean hasVolumeName();
 
-  /** Method is deprecated. use withVolumeName instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String original);
-
   public interface DataSourceNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent
-                      .DataSourceNested<
-                  N>> {
+      extends Nested<N>,
+          V1TypedLocalObjectReferenceFluent<V1PersistentVolumeClaimSpecFluent.DataSourceNested<N>> {
     public N and();
 
     public N endDataSource();
@@ -218,10 +199,8 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public interface DataSourceRefNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent
-                      .DataSourceRefNested<
-                  N>> {
+          V1TypedLocalObjectReferenceFluent<
+              V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<N>> {
     public N and();
 
     public N endDataSourceRef();
@@ -229,9 +208,7 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public interface ResourcesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.ResourcesNested<
-                  N>> {
+          V1ResourceRequirementsFluent<V1PersistentVolumeClaimSpecFluent.ResourcesNested<N>> {
     public N and();
 
     public N endResources();
@@ -239,9 +216,7 @@ public interface V1PersistentVolumeClaimSpecFluent<
 
   public interface SelectorNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.SelectorNested<
-                  N>> {
+          V1LabelSelectorFluent<V1PersistentVolumeClaimSpecFluent.SelectorNested<N>> {
     public N and();
 
     public N endSelector();

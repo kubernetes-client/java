@@ -12,23 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1NodeAddressFluent<
-        A extends io.kubernetes.client.openapi.models.V1NodeAddressFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getAddress();
+public interface V1NodeAddressFluent<A extends V1NodeAddressFluent<A>> extends Fluent<A> {
+  public String getAddress();
 
   public A withAddress(java.lang.String address);
 
-  public java.lang.Boolean hasAddress();
+  public Boolean hasAddress();
 
-  /** Method is deprecated. use withAddress instead. */
-  @java.lang.Deprecated
-  public A withNewAddress(java.lang.String original);
+  public java.lang.String getType();
 
-  public io.kubernetes.client.openapi.models.V1NodeAddress.TypeEnum getType();
-
-  public A withType(io.kubernetes.client.openapi.models.V1NodeAddress.TypeEnum type);
+  public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
 }

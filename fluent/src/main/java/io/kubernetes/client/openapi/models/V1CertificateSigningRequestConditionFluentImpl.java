@@ -12,11 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1CertificateSigningRequestConditionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluent<A> {
+        A extends V1CertificateSigningRequestConditionFluent<A>>
+    extends BaseFluent<A> implements V1CertificateSigningRequestConditionFluent<A> {
   public V1CertificateSigningRequestConditionFluentImpl() {}
 
   public V1CertificateSigningRequestConditionFluentImpl(
@@ -34,12 +37,12 @@ public class V1CertificateSigningRequestConditionFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.time.OffsetDateTime lastTransitionTime;
+  private OffsetDateTime lastTransitionTime;
   private java.time.OffsetDateTime lastUpdateTime;
-  private java.lang.String message;
+  private String message;
   private java.lang.String reason;
   private java.lang.String status;
-  private io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition.TypeEnum type;
+  private java.lang.String type;
 
   public java.time.OffsetDateTime getLastTransitionTime() {
     return this.lastTransitionTime;
@@ -50,7 +53,7 @@ public class V1CertificateSigningRequestConditionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasLastTransitionTime() {
+  public Boolean hasLastTransitionTime() {
     return this.lastTransitionTime != null;
   }
 
@@ -80,12 +83,6 @@ public class V1CertificateSigningRequestConditionFluentImpl<
     return this.message != null;
   }
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A) withMessage(new String(original));
-  }
-
   public java.lang.String getReason() {
     return this.reason;
   }
@@ -97,12 +94,6 @@ public class V1CertificateSigningRequestConditionFluentImpl<
 
   public java.lang.Boolean hasReason() {
     return this.reason != null;
-  }
-
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A) withReason(new String(original));
   }
 
   public java.lang.String getStatus() {
@@ -118,19 +109,11 @@ public class V1CertificateSigningRequestConditionFluentImpl<
     return this.status != null;
   }
 
-  /** Method is deprecated. use withStatus instead. */
-  @java.lang.Deprecated
-  public A withNewStatus(java.lang.String original) {
-    return (A) withStatus(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition.TypeEnum
-      getType() {
+  public java.lang.String getType() {
     return this.type;
   }
 
-  public A withType(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition.TypeEnum type) {
+  public A withType(java.lang.String type) {
     this.type = type;
     return (A) this;
   }
@@ -139,7 +122,7 @@ public class V1CertificateSigningRequestConditionFluentImpl<
     return this.type != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CertificateSigningRequestConditionFluentImpl that =
@@ -160,5 +143,36 @@ public class V1CertificateSigningRequestConditionFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         lastTransitionTime, lastUpdateTime, message, reason, status, type, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (lastTransitionTime != null) {
+      sb.append("lastTransitionTime:");
+      sb.append(lastTransitionTime + ",");
+    }
+    if (lastUpdateTime != null) {
+      sb.append("lastUpdateTime:");
+      sb.append(lastUpdateTime + ",");
+    }
+    if (message != null) {
+      sb.append("message:");
+      sb.append(message + ",");
+    }
+    if (reason != null) {
+      sb.append("reason:");
+      sb.append(reason + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

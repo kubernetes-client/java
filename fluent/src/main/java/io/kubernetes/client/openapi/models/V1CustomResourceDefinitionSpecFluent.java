@@ -12,29 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1CustomResourceDefinitionSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+        A extends V1CustomResourceDefinitionSpecFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildConversion instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversion getConversion();
+  @Deprecated
+  public V1CustomResourceConversion getConversion();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceConversion buildConversion();
 
   public A withConversion(
       io.kubernetes.client.openapi.models.V1CustomResourceConversion conversion);
 
-  public java.lang.Boolean hasConversion();
+  public Boolean hasConversion();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent.ConversionNested<
-          A>
-      withNewConversion();
+  public V1CustomResourceDefinitionSpecFluent.ConversionNested<A> withNewConversion();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent.ConversionNested<
           A>
@@ -52,15 +56,11 @@ public interface V1CustomResourceDefinitionSpecFluent<
           A>
       editOrNewConversionLike(io.kubernetes.client.openapi.models.V1CustomResourceConversion item);
 
-  public java.lang.String getGroup();
+  public String getGroup();
 
   public A withGroup(java.lang.String group);
 
   public java.lang.Boolean hasGroup();
-
-  /** Method is deprecated. use withGroup instead. */
-  @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original);
 
   /**
    * This method has been deprecated, please use method buildNames instead.
@@ -68,7 +68,7 @@ public interface V1CustomResourceDefinitionSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames getNames();
+  public V1CustomResourceDefinitionNames getNames();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames buildNames();
 
@@ -76,8 +76,7 @@ public interface V1CustomResourceDefinitionSpecFluent<
 
   public java.lang.Boolean hasNames();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent.NamesNested<A>
-      withNewNames();
+  public V1CustomResourceDefinitionSpecFluent.NamesNested<A> withNewNames();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent.NamesNested<A>
       withNewNamesLike(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames item);
@@ -103,13 +102,7 @@ public interface V1CustomResourceDefinitionSpecFluent<
 
   public java.lang.Boolean hasScope();
 
-  /** Method is deprecated. use withScope instead. */
-  @java.lang.Deprecated
-  public A withNewScope(java.lang.String original);
-
-  public A addToVersions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion item);
+  public A addToVersions(Integer index, V1CustomResourceDefinitionVersion item);
 
   public A setToVersions(
       java.lang.Integer index,
@@ -119,8 +112,7 @@ public interface V1CustomResourceDefinitionSpecFluent<
       io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion... items);
 
   public A addAllToVersions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion>
-          items);
+      Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion> items);
 
   public A removeFromVersions(
       io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion... items);
@@ -130,9 +122,7 @@ public interface V1CustomResourceDefinitionSpecFluent<
           items);
 
   public A removeMatchingFromVersions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionBuilder>
-          predicate);
+      Predicate<V1CustomResourceDefinitionVersionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildVersions instead.
@@ -140,8 +130,7 @@ public interface V1CustomResourceDefinitionSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion>
-      getVersions();
+  public List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion> getVersions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion>
       buildVersions();
@@ -172,8 +161,7 @@ public interface V1CustomResourceDefinitionSpecFluent<
 
   public java.lang.Boolean hasVersions();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent.VersionsNested<A>
-      addNewVersion();
+  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> addNewVersion();
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent.VersionsNested<A>
       addNewVersionLike(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion item);
@@ -198,12 +186,12 @@ public interface V1CustomResourceDefinitionSpecFluent<
                   io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionBuilder>
               predicate);
 
+  public A withPreserveUnknownFields();
+
   public interface ConversionNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent
-                      .ConversionNested<
-                  N>> {
+      extends Nested<N>,
+          V1CustomResourceConversionFluent<
+              V1CustomResourceDefinitionSpecFluent.ConversionNested<N>> {
     public N and();
 
     public N endConversion();
@@ -211,9 +199,8 @@ public interface V1CustomResourceDefinitionSpecFluent<
 
   public interface NamesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent.NamesNested<
-                  N>> {
+          V1CustomResourceDefinitionNamesFluent<
+              V1CustomResourceDefinitionSpecFluent.NamesNested<N>> {
     public N and();
 
     public N endNames();
@@ -221,10 +208,8 @@ public interface V1CustomResourceDefinitionSpecFluent<
 
   public interface VersionsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent
-                      .VersionsNested<
-                  N>> {
+          V1CustomResourceDefinitionVersionFluent<
+              V1CustomResourceDefinitionSpecFluent.VersionsNested<N>> {
     public N and();
 
     public N endVersion();

@@ -12,14 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1JSONSchemaPropsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> extends BaseFluent<A>
+    implements V1JSONSchemaPropsFluent<A> {
   public V1JSONSchemaPropsFluentImpl() {}
 
   public V1JSONSchemaPropsFluentImpl(
@@ -99,29 +105,28 @@ public class V1JSONSchemaPropsFluentImpl<
     this.withUniqueItems(instance.getUniqueItems());
   }
 
-  private java.lang.String $ref;
+  private String $ref;
   private java.lang.String $schema;
-  private java.lang.Object additionalItems;
+  private Object additionalItems;
   private java.lang.Object additionalProperties;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> allOf;
+  private ArrayList<V1JSONSchemaPropsBuilder> allOf;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> anyOf;
   private java.lang.Object _default;
-  private java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-      definitions;
+  private Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> definitions;
   private java.util.Map<java.lang.String, java.lang.Object> dependencies;
   private java.lang.String description;
-  private java.util.List<java.lang.Object> _enum;
+  private List<java.lang.Object> _enum;
   private java.lang.Object example;
-  private java.lang.Boolean exclusiveMaximum;
+  private Boolean exclusiveMaximum;
   private java.lang.Boolean exclusiveMinimum;
-  private io.kubernetes.client.openapi.models.V1ExternalDocumentationBuilder externalDocs;
+  private V1ExternalDocumentationBuilder externalDocs;
   private java.lang.String format;
   private java.lang.String id;
   private java.lang.Object items;
-  private java.lang.Long maxItems;
+  private Long maxItems;
   private java.lang.Long maxLength;
   private java.lang.Long maxProperties;
-  private java.lang.Double maximum;
+  private Double maximum;
   private java.lang.Long minItems;
   private java.lang.Long minLength;
   private java.lang.Long minProperties;
@@ -153,12 +158,6 @@ public class V1JSONSchemaPropsFluentImpl<
     return this.$ref != null;
   }
 
-  /** Method is deprecated. use withRef instead. */
-  @java.lang.Deprecated
-  public A withNewRef(java.lang.String original) {
-    return (A) withRef(new String(original));
-  }
-
   public java.lang.String getSchema() {
     return this.$schema;
   }
@@ -170,12 +169,6 @@ public class V1JSONSchemaPropsFluentImpl<
 
   public java.lang.Boolean hasSchema() {
     return this.$schema != null;
-  }
-
-  /** Method is deprecated. use withSchema instead. */
-  @java.lang.Deprecated
-  public A withNewSchema(java.lang.String original) {
-    return (A) withSchema(new String(original));
   }
 
   public java.lang.Object getAdditionalItems() {
@@ -204,8 +197,7 @@ public class V1JSONSchemaPropsFluentImpl<
     return this.additionalProperties != null;
   }
 
-  public A addToAllOf(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public A addToAllOf(Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
     if (this.allOf == null) {
       this.allOf =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
@@ -252,8 +244,7 @@ public class V1JSONSchemaPropsFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAllOf(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items) {
+  public A addAllToAllOf(Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items) {
     if (this.allOf == null) {
       this.allOf =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
@@ -293,8 +284,7 @@ public class V1JSONSchemaPropsFluentImpl<
   }
 
   public A removeMatchingFromAllOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> predicate) {
     if (allOf == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> each =
         allOf.iterator();
@@ -314,7 +304,7 @@ public class V1JSONSchemaPropsFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getAllOf() {
     return allOf != null ? build(allOf) : null;
   }
@@ -388,14 +378,13 @@ public class V1JSONSchemaPropsFluentImpl<
     return allOf != null && !allOf.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOf() {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.AllOfNestedImpl();
+  public V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOf() {
+    return new V1JSONSchemaPropsFluentImpl.AllOfNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOfLike(
       io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.AllOfNestedImpl(
-        -1, item);
+    return new V1JSONSchemaPropsFluentImpl.AllOfNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A> setNewAllOfLike(
@@ -622,8 +611,8 @@ public class V1JSONSchemaPropsFluentImpl<
     return anyOf != null && !anyOf.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOf() {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl();
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOf() {
+    return new V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOfLike(
@@ -688,7 +677,7 @@ public class V1JSONSchemaPropsFluentImpl<
   public A addToDefinitions(
       java.lang.String key, io.kubernetes.client.openapi.models.V1JSONSchemaProps value) {
     if (this.definitions == null && key != null && value != null) {
-      this.definitions = new java.util.LinkedHashMap();
+      this.definitions = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.definitions.put(key, value);
@@ -824,12 +813,6 @@ public class V1JSONSchemaPropsFluentImpl<
 
   public java.lang.Boolean hasDescription() {
     return this.description != null;
-  }
-
-  /** Method is deprecated. use withDescription instead. */
-  @java.lang.Deprecated
-  public A withNewDescription(java.lang.String original) {
-    return (A) withDescription(new String(original));
   }
 
   public A addToEnum(java.lang.Integer index, java.lang.Object item) {
@@ -1007,8 +990,7 @@ public class V1JSONSchemaPropsFluentImpl<
       io.kubernetes.client.openapi.models.V1ExternalDocumentation externalDocs) {
     _visitables.get("externalDocs").remove(this.externalDocs);
     if (externalDocs != null) {
-      this.externalDocs =
-          new io.kubernetes.client.openapi.models.V1ExternalDocumentationBuilder(externalDocs);
+      this.externalDocs = new V1ExternalDocumentationBuilder(externalDocs);
       _visitables.get("externalDocs").add(this.externalDocs);
     }
     return (A) this;
@@ -1018,10 +1000,8 @@ public class V1JSONSchemaPropsFluentImpl<
     return this.externalDocs != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<A>
-      withNewExternalDocs() {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl
-        .ExternalDocsNestedImpl();
+  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> withNewExternalDocs() {
+    return new V1JSONSchemaPropsFluentImpl.ExternalDocsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<A>
@@ -1061,12 +1041,6 @@ public class V1JSONSchemaPropsFluentImpl<
     return this.format != null;
   }
 
-  /** Method is deprecated. use withFormat instead. */
-  @java.lang.Deprecated
-  public A withNewFormat(java.lang.String original) {
-    return (A) withFormat(new String(original));
-  }
-
   public java.lang.String getId() {
     return this.id;
   }
@@ -1078,12 +1052,6 @@ public class V1JSONSchemaPropsFluentImpl<
 
   public java.lang.Boolean hasId() {
     return this.id != null;
-  }
-
-  /** Method is deprecated. use withId instead. */
-  @java.lang.Deprecated
-  public A withNewId(java.lang.String original) {
-    return (A) withId(new String(original));
   }
 
   public java.lang.Object getItems() {
@@ -1243,8 +1211,8 @@ public class V1JSONSchemaPropsFluentImpl<
     return this.not != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<A> withNewNot() {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.NotNestedImpl();
+  public V1JSONSchemaPropsFluent.NotNested<A> withNewNot() {
+    return new V1JSONSchemaPropsFluentImpl.NotNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<A> withNewNotLike(
@@ -1465,8 +1433,8 @@ public class V1JSONSchemaPropsFluentImpl<
     return oneOf != null && !oneOf.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOf() {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.OneOfNestedImpl();
+  public V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOf() {
+    return new V1JSONSchemaPropsFluentImpl.OneOfNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOfLike(
@@ -1526,12 +1494,6 @@ public class V1JSONSchemaPropsFluentImpl<
 
   public java.lang.Boolean hasPattern() {
     return this.pattern != null;
-  }
-
-  /** Method is deprecated. use withPattern instead. */
-  @java.lang.Deprecated
-  public A withNewPattern(java.lang.String original) {
-    return (A) withPattern(new String(original));
   }
 
   public A addToPatternProperties(
@@ -1786,10 +1748,6 @@ public class V1JSONSchemaPropsFluentImpl<
     return required != null && !required.isEmpty();
   }
 
-  public A addNewRequired(java.lang.String original) {
-    return (A) addToRequired(new String(original));
-  }
-
   public java.lang.String getTitle() {
     return this.title;
   }
@@ -1803,12 +1761,6 @@ public class V1JSONSchemaPropsFluentImpl<
     return this.title != null;
   }
 
-  /** Method is deprecated. use withTitle instead. */
-  @java.lang.Deprecated
-  public A withNewTitle(java.lang.String original) {
-    return (A) withTitle(new String(original));
-  }
-
   public java.lang.String getType() {
     return this.type;
   }
@@ -1820,12 +1772,6 @@ public class V1JSONSchemaPropsFluentImpl<
 
   public java.lang.Boolean hasType() {
     return this.type != null;
-  }
-
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A) withType(new String(original));
   }
 
   public java.lang.Boolean getUniqueItems() {
@@ -1950,15 +1896,184 @@ public class V1JSONSchemaPropsFluentImpl<
         super.hashCode());
   }
 
-  public class AllOfNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl<
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if ($ref != null) {
+      sb.append("$ref:");
+      sb.append($ref + ",");
+    }
+    if ($schema != null) {
+      sb.append("$schema:");
+      sb.append($schema + ",");
+    }
+    if (additionalItems != null) {
+      sb.append("additionalItems:");
+      sb.append(additionalItems + ",");
+    }
+    if (additionalProperties != null) {
+      sb.append("additionalProperties:");
+      sb.append(additionalProperties + ",");
+    }
+    if (allOf != null && !allOf.isEmpty()) {
+      sb.append("allOf:");
+      sb.append(allOf + ",");
+    }
+    if (anyOf != null && !anyOf.isEmpty()) {
+      sb.append("anyOf:");
+      sb.append(anyOf + ",");
+    }
+    if (_default != null) {
+      sb.append("_default:");
+      sb.append(_default + ",");
+    }
+    if (definitions != null && !definitions.isEmpty()) {
+      sb.append("definitions:");
+      sb.append(definitions + ",");
+    }
+    if (dependencies != null && !dependencies.isEmpty()) {
+      sb.append("dependencies:");
+      sb.append(dependencies + ",");
+    }
+    if (description != null) {
+      sb.append("description:");
+      sb.append(description + ",");
+    }
+    if (_enum != null && !_enum.isEmpty()) {
+      sb.append("_enum:");
+      sb.append(_enum + ",");
+    }
+    if (example != null) {
+      sb.append("example:");
+      sb.append(example + ",");
+    }
+    if (exclusiveMaximum != null) {
+      sb.append("exclusiveMaximum:");
+      sb.append(exclusiveMaximum + ",");
+    }
+    if (exclusiveMinimum != null) {
+      sb.append("exclusiveMinimum:");
+      sb.append(exclusiveMinimum + ",");
+    }
+    if (externalDocs != null) {
+      sb.append("externalDocs:");
+      sb.append(externalDocs + ",");
+    }
+    if (format != null) {
+      sb.append("format:");
+      sb.append(format + ",");
+    }
+    if (id != null) {
+      sb.append("id:");
+      sb.append(id + ",");
+    }
+    if (items != null) {
+      sb.append("items:");
+      sb.append(items + ",");
+    }
+    if (maxItems != null) {
+      sb.append("maxItems:");
+      sb.append(maxItems + ",");
+    }
+    if (maxLength != null) {
+      sb.append("maxLength:");
+      sb.append(maxLength + ",");
+    }
+    if (maxProperties != null) {
+      sb.append("maxProperties:");
+      sb.append(maxProperties + ",");
+    }
+    if (maximum != null) {
+      sb.append("maximum:");
+      sb.append(maximum + ",");
+    }
+    if (minItems != null) {
+      sb.append("minItems:");
+      sb.append(minItems + ",");
+    }
+    if (minLength != null) {
+      sb.append("minLength:");
+      sb.append(minLength + ",");
+    }
+    if (minProperties != null) {
+      sb.append("minProperties:");
+      sb.append(minProperties + ",");
+    }
+    if (minimum != null) {
+      sb.append("minimum:");
+      sb.append(minimum + ",");
+    }
+    if (multipleOf != null) {
+      sb.append("multipleOf:");
+      sb.append(multipleOf + ",");
+    }
+    if (not != null) {
+      sb.append("not:");
+      sb.append(not + ",");
+    }
+    if (nullable != null) {
+      sb.append("nullable:");
+      sb.append(nullable + ",");
+    }
+    if (oneOf != null && !oneOf.isEmpty()) {
+      sb.append("oneOf:");
+      sb.append(oneOf + ",");
+    }
+    if (pattern != null) {
+      sb.append("pattern:");
+      sb.append(pattern + ",");
+    }
+    if (patternProperties != null && !patternProperties.isEmpty()) {
+      sb.append("patternProperties:");
+      sb.append(patternProperties + ",");
+    }
+    if (properties != null && !properties.isEmpty()) {
+      sb.append("properties:");
+      sb.append(properties + ",");
+    }
+    if (required != null && !required.isEmpty()) {
+      sb.append("required:");
+      sb.append(required + ",");
+    }
+    if (title != null) {
+      sb.append("title:");
+      sb.append(title + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type + ",");
+    }
+    if (uniqueItems != null) {
+      sb.append("uniqueItems:");
+      sb.append(uniqueItems);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withExclusiveMaximum() {
+    return withExclusiveMaximum(true);
+  }
+
+  public A withExclusiveMinimum() {
+    return withExclusiveMinimum(true);
+  }
+
+  public A withNullable() {
+    return withNullable(true);
+  }
+
+  public A withUniqueItems() {
+    return withUniqueItems(true);
+  }
+
+  class AllOfNestedImpl<N>
+      extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.AllOfNested<N>>
+      implements V1JSONSchemaPropsFluent.AllOfNested<N>, Nested<N> {
     AllOfNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(this, item);
+      this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
 
     AllOfNestedImpl() {
@@ -1978,15 +2093,13 @@ public class V1JSONSchemaPropsFluentImpl<
     }
   }
 
-  public class AnyOfNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl<
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  class AnyOfNestedImpl<N>
+      extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.AnyOfNested<N>>
+      implements V1JSONSchemaPropsFluent.AnyOfNested<N>, io.kubernetes.client.fluent.Nested<N> {
     AnyOfNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(this, item);
+      this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
 
     AnyOfNestedImpl() {
@@ -2006,14 +2119,12 @@ public class V1JSONSchemaPropsFluentImpl<
     }
   }
 
-  public class ExternalDocsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ExternalDocumentationFluentImpl<
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<N>>
+  class ExternalDocsNestedImpl<N>
+      extends V1ExternalDocumentationFluentImpl<V1JSONSchemaPropsFluent.ExternalDocsNested<N>>
       implements io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     ExternalDocsNestedImpl(io.kubernetes.client.openapi.models.V1ExternalDocumentation item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ExternalDocumentationBuilder(this, item);
+      this.builder = new V1ExternalDocumentationBuilder(this, item);
     }
 
     ExternalDocsNestedImpl() {
@@ -2031,13 +2142,10 @@ public class V1JSONSchemaPropsFluentImpl<
     }
   }
 
-  public class NotNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl<
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  class NotNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.NotNested<N>>
+      implements V1JSONSchemaPropsFluent.NotNested<N>, io.kubernetes.client.fluent.Nested<N> {
     NotNestedImpl(io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(this, item);
+      this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
 
     NotNestedImpl() {
@@ -2055,15 +2163,13 @@ public class V1JSONSchemaPropsFluentImpl<
     }
   }
 
-  public class OneOfNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl<
-          io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  class OneOfNestedImpl<N>
+      extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.OneOfNested<N>>
+      implements V1JSONSchemaPropsFluent.OneOfNested<N>, io.kubernetes.client.fluent.Nested<N> {
     OneOfNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(this, item);
+      this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
 
     OneOfNestedImpl() {

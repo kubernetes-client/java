@@ -12,13 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-/** Generated */
-public interface V1ResourceQuotaStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1ResourceQuotaStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToHard(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Map;
 
-  public A addToHard(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+/** Generated */
+public interface V1ResourceQuotaStatusFluent<A extends V1ResourceQuotaStatusFluent<A>>
+    extends Fluent<A> {
+  public A addToHard(String key, Quantity value);
+
+  public A addToHard(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
 
   public A removeFromHard(java.lang.String key);
 
@@ -30,7 +33,7 @@ public interface V1ResourceQuotaStatusFluent<
   public <K, V> A withHard(
       java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> hard);
 
-  public java.lang.Boolean hasHard();
+  public Boolean hasHard();
 
   public A addToUsed(java.lang.String key, io.kubernetes.client.custom.Quantity value);
 

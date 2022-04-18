@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1PersistentVolumeListBuilder
-    extends io.kubernetes.client.openapi.models.V1PersistentVolumeListFluentImpl<
-        io.kubernetes.client.openapi.models.V1PersistentVolumeListBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PersistentVolumeList,
-        io.kubernetes.client.openapi.models.V1PersistentVolumeListBuilder> {
+    extends V1PersistentVolumeListFluentImpl<V1PersistentVolumeListBuilder>
+    implements VisitableBuilder<
+        V1PersistentVolumeList, io.kubernetes.client.openapi.models.V1PersistentVolumeListBuilder> {
   public V1PersistentVolumeListBuilder() {
     this(false);
   }
 
-  public V1PersistentVolumeListBuilder(java.lang.Boolean validationEnabled) {
+  public V1PersistentVolumeListBuilder(Boolean validationEnabled) {
     this(new V1PersistentVolumeList(), validationEnabled);
   }
 
@@ -89,24 +89,5 @@ public class V1PersistentVolumeListBuilder
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.getMetadata());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1PersistentVolumeListBuilder that = (V1PersistentVolumeListBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

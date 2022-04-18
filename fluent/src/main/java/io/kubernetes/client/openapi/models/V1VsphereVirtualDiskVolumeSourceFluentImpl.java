@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSourceFluent<A> {
+        A extends V1VsphereVirtualDiskVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1VsphereVirtualDiskVolumeSourceFluent<A> {
   public V1VsphereVirtualDiskVolumeSourceFluentImpl() {}
 
   public V1VsphereVirtualDiskVolumeSourceFluentImpl(
@@ -30,7 +32,7 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
     this.withVolumePath(instance.getVolumePath());
   }
 
-  private java.lang.String fsType;
+  private String fsType;
   private java.lang.String storagePolicyID;
   private java.lang.String storagePolicyName;
   private java.lang.String volumePath;
@@ -44,14 +46,8 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
-  }
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
   }
 
   public java.lang.String getStoragePolicyID() {
@@ -67,12 +63,6 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
     return this.storagePolicyID != null;
   }
 
-  /** Method is deprecated. use withStoragePolicyID instead. */
-  @java.lang.Deprecated
-  public A withNewStoragePolicyID(java.lang.String original) {
-    return (A) withStoragePolicyID(new String(original));
-  }
-
   public java.lang.String getStoragePolicyName() {
     return this.storagePolicyName;
   }
@@ -84,12 +74,6 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasStoragePolicyName() {
     return this.storagePolicyName != null;
-  }
-
-  /** Method is deprecated. use withStoragePolicyName instead. */
-  @java.lang.Deprecated
-  public A withNewStoragePolicyName(java.lang.String original) {
-    return (A) withStoragePolicyName(new String(original));
   }
 
   public java.lang.String getVolumePath() {
@@ -105,13 +89,7 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
     return this.volumePath != null;
   }
 
-  /** Method is deprecated. use withVolumePath instead. */
-  @java.lang.Deprecated
-  public A withNewVolumePath(java.lang.String original) {
-    return (A) withVolumePath(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1VsphereVirtualDiskVolumeSourceFluentImpl that =
@@ -131,5 +109,28 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         fsType, storagePolicyID, storagePolicyName, volumePath, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (storagePolicyID != null) {
+      sb.append("storagePolicyID:");
+      sb.append(storagePolicyID + ",");
+    }
+    if (storagePolicyName != null) {
+      sb.append("storagePolicyName:");
+      sb.append(storagePolicyName + ",");
+    }
+    if (volumePath != null) {
+      sb.append("volumePath:");
+      sb.append(volumePath);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

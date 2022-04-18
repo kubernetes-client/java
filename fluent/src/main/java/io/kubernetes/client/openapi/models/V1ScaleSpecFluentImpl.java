@@ -12,18 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ScaleSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ScaleSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ScaleSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ScaleSpecFluentImpl<A extends V1ScaleSpecFluent<A>> extends BaseFluent<A>
+    implements V1ScaleSpecFluent<A> {
   public V1ScaleSpecFluentImpl() {}
 
   public V1ScaleSpecFluentImpl(io.kubernetes.client.openapi.models.V1ScaleSpec instance) {
     this.withReplicas(instance.getReplicas());
   }
 
-  private java.lang.Integer replicas;
+  private Integer replicas;
 
   public java.lang.Integer getReplicas() {
     return this.replicas;
@@ -34,11 +35,11 @@ public class V1ScaleSpecFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasReplicas() {
+  public Boolean hasReplicas() {
     return this.replicas != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ScaleSpecFluentImpl that = (V1ScaleSpecFluentImpl) o;
@@ -48,5 +49,16 @@ public class V1ScaleSpecFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(replicas, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (replicas != null) {
+      sb.append("replicas:");
+      sb.append(replicas);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

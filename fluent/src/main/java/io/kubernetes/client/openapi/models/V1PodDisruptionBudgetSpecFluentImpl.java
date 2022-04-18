@@ -13,12 +13,13 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
 
 /** Generated */
-public class V1PodDisruptionBudgetSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudgetSpecFluent<A>>
+    extends BaseFluent<A> implements V1PodDisruptionBudgetSpecFluent<A> {
   public V1PodDisruptionBudgetSpecFluentImpl() {}
 
   public V1PodDisruptionBudgetSpecFluentImpl(
@@ -30,9 +31,9 @@ public class V1PodDisruptionBudgetSpecFluentImpl<
     this.withSelector(instance.getSelector());
   }
 
-  private io.kubernetes.client.custom.IntOrString maxUnavailable;
+  private IntOrString maxUnavailable;
   private io.kubernetes.client.custom.IntOrString minAvailable;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder selector;
+  private V1LabelSelectorBuilder selector;
 
   public io.kubernetes.client.custom.IntOrString getMaxUnavailable() {
     return this.maxUnavailable;
@@ -43,7 +44,7 @@ public class V1PodDisruptionBudgetSpecFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasMaxUnavailable() {
+  public Boolean hasMaxUnavailable() {
     return this.maxUnavailable != null;
   }
 
@@ -51,7 +52,7 @@ public class V1PodDisruptionBudgetSpecFluentImpl<
     return (A) withMaxUnavailable(new IntOrString(value));
   }
 
-  public A withNewMaxUnavailable(java.lang.String value) {
+  public A withNewMaxUnavailable(String value) {
     return (A) withMaxUnavailable(new IntOrString(value));
   }
 
@@ -81,7 +82,7 @@ public class V1PodDisruptionBudgetSpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
@@ -93,7 +94,7 @@ public class V1PodDisruptionBudgetSpecFluentImpl<
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
-      this.selector = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(selector);
+      this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
     }
     return (A) this;
@@ -103,16 +104,13 @@ public class V1PodDisruptionBudgetSpecFluentImpl<
     return this.selector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<A>
-      withNewSelector() {
-    return new io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluentImpl
-        .SelectorNestedImpl();
+  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> withNewSelector() {
+    return new V1PodDisruptionBudgetSpecFluentImpl.SelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluentImpl
-        .SelectorNestedImpl(item);
+    return new V1PodDisruptionBudgetSpecFluentImpl.SelectorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<A>
@@ -133,7 +131,7 @@ public class V1PodDisruptionBudgetSpecFluentImpl<
     return withNewSelectorLike(getSelector() != null ? getSelector() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PodDisruptionBudgetSpecFluentImpl that = (V1PodDisruptionBudgetSpecFluentImpl) o;
@@ -150,14 +148,32 @@ public class V1PodDisruptionBudgetSpecFluentImpl<
     return java.util.Objects.hash(maxUnavailable, minAvailable, selector, super.hashCode());
   }
 
-  public class SelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (maxUnavailable != null) {
+      sb.append("maxUnavailable:");
+      sb.append(maxUnavailable + ",");
+    }
+    if (minAvailable != null) {
+      sb.append("minAvailable:");
+      sb.append(minAvailable + ",");
+    }
+    if (selector != null) {
+      sb.append("selector:");
+      sb.append(selector);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class SelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V1PodDisruptionBudgetSpecFluent.SelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+          Nested<N> {
+    SelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {

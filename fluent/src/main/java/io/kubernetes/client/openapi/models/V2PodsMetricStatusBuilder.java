@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V2PodsMetricStatusBuilder
-    extends io.kubernetes.client.openapi.models.V2PodsMetricStatusFluentImpl<
-        io.kubernetes.client.openapi.models.V2PodsMetricStatusBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2PodsMetricStatus,
-        io.kubernetes.client.openapi.models.V2PodsMetricStatusBuilder> {
+    extends V2PodsMetricStatusFluentImpl<V2PodsMetricStatusBuilder>
+    implements VisitableBuilder<
+        V2PodsMetricStatus, io.kubernetes.client.openapi.models.V2PodsMetricStatusBuilder> {
   public V2PodsMetricStatusBuilder() {
     this(false);
   }
 
-  public V2PodsMetricStatusBuilder(java.lang.Boolean validationEnabled) {
+  public V2PodsMetricStatusBuilder(Boolean validationEnabled) {
     this(new V2PodsMetricStatus(), validationEnabled);
   }
 
@@ -79,24 +79,5 @@ public class V2PodsMetricStatusBuilder
     buildable.setCurrent(fluent.getCurrent());
     buildable.setMetric(fluent.getMetric());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V2PodsMetricStatusBuilder that = (V2PodsMetricStatusBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

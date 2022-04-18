@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1PriorityClassFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PriorityClassFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PriorityClassFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PriorityClassFluentImpl<A extends V1PriorityClassFluent<A>> extends BaseFluent<A>
+    implements V1PriorityClassFluent<A> {
   public V1PriorityClassFluentImpl() {}
 
   public V1PriorityClassFluentImpl(io.kubernetes.client.openapi.models.V1PriorityClass instance) {
@@ -35,13 +37,13 @@ public class V1PriorityClassFluentImpl<
     this.withValue(instance.getValue());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String description;
-  private java.lang.Boolean globalDefault;
+  private Boolean globalDefault;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
+  private V1ObjectMetaBuilder metadata;
   private java.lang.String preemptionPolicy;
-  private java.lang.Integer value;
+  private Integer value;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -56,12 +58,6 @@ public class V1PriorityClassFluentImpl<
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
   public java.lang.String getDescription() {
     return this.description;
   }
@@ -73,12 +69,6 @@ public class V1PriorityClassFluentImpl<
 
   public java.lang.Boolean hasDescription() {
     return this.description != null;
-  }
-
-  /** Method is deprecated. use withDescription instead. */
-  @java.lang.Deprecated
-  public A withNewDescription(java.lang.String original) {
-    return (A) withDescription(new String(original));
   }
 
   public java.lang.Boolean getGlobalDefault() {
@@ -107,18 +97,12 @@ public class V1PriorityClassFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -130,7 +114,7 @@ public class V1PriorityClassFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -140,15 +124,13 @@ public class V1PriorityClassFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1PriorityClassFluentImpl.MetadataNestedImpl();
+  public V1PriorityClassFluent.MetadataNested<A> withNewMetadata() {
+    return new V1PriorityClassFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1PriorityClassFluentImpl.MetadataNestedImpl(
-        item);
+    return new V1PriorityClassFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<A>
@@ -182,12 +164,6 @@ public class V1PriorityClassFluentImpl<
     return this.preemptionPolicy != null;
   }
 
-  /** Method is deprecated. use withPreemptionPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewPreemptionPolicy(java.lang.String original) {
-    return (A) withPreemptionPolicy(new String(original));
-  }
-
   public java.lang.Integer getValue() {
     return this.value;
   }
@@ -201,7 +177,7 @@ public class V1PriorityClassFluentImpl<
     return this.value != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PriorityClassFluentImpl that = (V1PriorityClassFluentImpl) o;
@@ -233,13 +209,51 @@ public class V1PriorityClassFluentImpl<
         super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (description != null) {
+      sb.append("description:");
+      sb.append(description + ",");
+    }
+    if (globalDefault != null) {
+      sb.append("globalDefault:");
+      sb.append(globalDefault + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (preemptionPolicy != null) {
+      sb.append("preemptionPolicy:");
+      sb.append(preemptionPolicy + ",");
+    }
+    if (value != null) {
+      sb.append("value:");
+      sb.append(value);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withGlobalDefault() {
+    return withGlobalDefault(true);
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1PriorityClassFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {

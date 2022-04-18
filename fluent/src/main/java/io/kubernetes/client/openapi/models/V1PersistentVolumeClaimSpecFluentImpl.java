@@ -12,11 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1PersistentVolumeClaimSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PersistentVolumeClaimSpecFluentImpl<A extends V1PersistentVolumeClaimSpecFluent<A>>
+    extends BaseFluent<A> implements V1PersistentVolumeClaimSpecFluent<A> {
   public V1PersistentVolumeClaimSpecFluentImpl() {}
 
   public V1PersistentVolumeClaimSpecFluentImpl(
@@ -38,18 +44,18 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     this.withVolumeName(instance.getVolumeName());
   }
 
-  private java.util.List<java.lang.String> accessModes;
-  private io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceBuilder dataSource;
-  private io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceBuilder dataSourceRef;
-  private io.kubernetes.client.openapi.models.V1ResourceRequirementsBuilder resources;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder selector;
+  private List<String> accessModes;
+  private V1TypedLocalObjectReferenceBuilder dataSource;
+  private V1TypedLocalObjectReferenceBuilder dataSourceRef;
+  private V1ResourceRequirementsBuilder resources;
+  private V1LabelSelectorBuilder selector;
   private java.lang.String storageClassName;
   private java.lang.String volumeMode;
   private java.lang.String volumeName;
 
-  public A addToAccessModes(java.lang.Integer index, java.lang.String item) {
+  public A addToAccessModes(Integer index, java.lang.String item) {
     if (this.accessModes == null) {
-      this.accessModes = new java.util.ArrayList<java.lang.String>();
+      this.accessModes = new ArrayList<java.lang.String>();
     }
     this.accessModes.add(index, item);
     return (A) this;
@@ -73,7 +79,7 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAccessModes(java.util.Collection<java.lang.String> items) {
+  public A addAllToAccessModes(Collection<java.lang.String> items) {
     if (this.accessModes == null) {
       this.accessModes = new java.util.ArrayList<java.lang.String>();
     }
@@ -117,8 +123,7 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return this.accessModes.get(accessModes.size() - 1);
   }
 
-  public java.lang.String getMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingAccessMode(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : accessModes) {
       if (predicate.test(item)) {
         return item;
@@ -127,8 +132,7 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingAccessMode(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : accessModes) {
       if (predicate.test(item)) {
         return true;
@@ -165,16 +169,12 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return accessModes != null && !accessModes.isEmpty();
   }
 
-  public A addNewAccessMode(java.lang.String original) {
-    return (A) addToAccessModes(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildDataSource instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1TypedLocalObjectReference getDataSource() {
     return this.dataSource != null ? this.dataSource.build() : null;
   }
@@ -198,16 +198,13 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return this.dataSource != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceNested<A>
-      withNewDataSource() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluentImpl
-        .DataSourceNestedImpl();
+  public V1PersistentVolumeClaimSpecFluent.DataSourceNested<A> withNewDataSource() {
+    return new V1PersistentVolumeClaimSpecFluentImpl.DataSourceNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceNested<A>
       withNewDataSourceLike(io.kubernetes.client.openapi.models.V1TypedLocalObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluentImpl
-        .DataSourceNestedImpl(item);
+    return new V1PersistentVolumeClaimSpecFluentImpl.DataSourceNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceNested<A>
@@ -258,11 +255,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return this.dataSourceRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<
-          A>
-      withNewDataSourceRef() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluentImpl
-        .DataSourceRefNestedImpl();
+  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> withNewDataSourceRef() {
+    return new V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<
@@ -301,7 +295,7 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ResourceRequirements getResources() {
+  public V1ResourceRequirements getResources() {
     return this.resources != null ? this.resources.build() : null;
   }
 
@@ -323,10 +317,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return this.resources != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.ResourcesNested<A>
-      withNewResources() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluentImpl
-        .ResourcesNestedImpl();
+  public V1PersistentVolumeClaimSpecFluent.ResourcesNested<A> withNewResources() {
+    return new V1PersistentVolumeClaimSpecFluentImpl.ResourcesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.ResourcesNested<A>
@@ -370,7 +362,7 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
   public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
-      this.selector = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(selector);
+      this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
     }
     return (A) this;
@@ -380,10 +372,8 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return this.selector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.SelectorNested<A>
-      withNewSelector() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluentImpl
-        .SelectorNestedImpl();
+  public V1PersistentVolumeClaimSpecFluent.SelectorNested<A> withNewSelector() {
+    return new V1PersistentVolumeClaimSpecFluentImpl.SelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.SelectorNested<A>
@@ -423,12 +413,6 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return this.storageClassName != null;
   }
 
-  /** Method is deprecated. use withStorageClassName instead. */
-  @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original) {
-    return (A) withStorageClassName(new String(original));
-  }
-
   public java.lang.String getVolumeMode() {
     return this.volumeMode;
   }
@@ -440,12 +424,6 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
 
   public java.lang.Boolean hasVolumeMode() {
     return this.volumeMode != null;
-  }
-
-  /** Method is deprecated. use withVolumeMode instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeMode(java.lang.String original) {
-    return (A) withVolumeMode(new String(original));
   }
 
   public java.lang.String getVolumeName() {
@@ -461,13 +439,7 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     return this.volumeName != null;
   }
 
-  /** Method is deprecated. use withVolumeName instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeName(java.lang.String original) {
-    return (A) withVolumeName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PersistentVolumeClaimSpecFluentImpl that = (V1PersistentVolumeClaimSpecFluentImpl) o;
@@ -504,16 +476,54 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
         super.hashCode());
   }
 
-  public class DataSourceNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (accessModes != null && !accessModes.isEmpty()) {
+      sb.append("accessModes:");
+      sb.append(accessModes + ",");
+    }
+    if (dataSource != null) {
+      sb.append("dataSource:");
+      sb.append(dataSource + ",");
+    }
+    if (dataSourceRef != null) {
+      sb.append("dataSourceRef:");
+      sb.append(dataSourceRef + ",");
+    }
+    if (resources != null) {
+      sb.append("resources:");
+      sb.append(resources + ",");
+    }
+    if (selector != null) {
+      sb.append("selector:");
+      sb.append(selector + ",");
+    }
+    if (storageClassName != null) {
+      sb.append("storageClassName:");
+      sb.append(storageClassName + ",");
+    }
+    if (volumeMode != null) {
+      sb.append("volumeMode:");
+      sb.append(volumeMode + ",");
+    }
+    if (volumeName != null) {
+      sb.append("volumeName:");
+      sb.append(volumeName);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class DataSourceNestedImpl<N>
+      extends V1TypedLocalObjectReferenceFluentImpl<
+          V1PersistentVolumeClaimSpecFluent.DataSourceNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent
                   .DataSourceNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    DataSourceNestedImpl(io.kubernetes.client.openapi.models.V1TypedLocalObjectReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceBuilder(this, item);
+          Nested<N> {
+    DataSourceNestedImpl(V1TypedLocalObjectReference item) {
+      this.builder = new V1TypedLocalObjectReferenceBuilder(this, item);
     }
 
     DataSourceNestedImpl() {
@@ -532,17 +542,15 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     }
   }
 
-  public class DataSourceRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<
-              N>>
+  class DataSourceRefNestedImpl<N>
+      extends V1TypedLocalObjectReferenceFluentImpl<
+          V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent
                   .DataSourceRefNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    DataSourceRefNestedImpl(io.kubernetes.client.openapi.models.V1TypedLocalObjectReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceBuilder(this, item);
+    DataSourceRefNestedImpl(V1TypedLocalObjectReference item) {
+      this.builder = new V1TypedLocalObjectReferenceBuilder(this, item);
     }
 
     DataSourceRefNestedImpl() {
@@ -561,16 +569,14 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     }
   }
 
-  public class ResourcesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ResourceRequirementsFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.ResourcesNested<N>>
+  class ResourcesNestedImpl<N>
+      extends V1ResourceRequirementsFluentImpl<V1PersistentVolumeClaimSpecFluent.ResourcesNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent
                   .ResourcesNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     ResourcesNestedImpl(io.kubernetes.client.openapi.models.V1ResourceRequirements item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ResourceRequirementsBuilder(this, item);
+      this.builder = new V1ResourceRequirementsBuilder(this, item);
     }
 
     ResourcesNestedImpl() {
@@ -588,15 +594,14 @@ public class V1PersistentVolumeClaimSpecFluentImpl<
     }
   }
 
-  public class SelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent.SelectorNested<N>>
+  class SelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V1PersistentVolumeClaimSpecFluent.SelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent
                   .SelectorNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+    SelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {

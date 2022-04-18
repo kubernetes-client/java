@@ -12,14 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V2HorizontalPodAutoscalerSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent<A> {
+        A extends V2HorizontalPodAutoscalerSpecFluent<A>>
+    extends BaseFluent<A> implements V2HorizontalPodAutoscalerSpecFluent<A> {
   public V2HorizontalPodAutoscalerSpecFluentImpl() {}
 
   public V2HorizontalPodAutoscalerSpecFluentImpl(
@@ -35,18 +40,18 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
     this.withScaleTargetRef(instance.getScaleTargetRef());
   }
 
-  private io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorBuilder behavior;
-  private java.lang.Integer maxReplicas;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V2MetricSpecBuilder> metrics;
+  private V2HorizontalPodAutoscalerBehaviorBuilder behavior;
+  private Integer maxReplicas;
+  private ArrayList<V2MetricSpecBuilder> metrics;
   private java.lang.Integer minReplicas;
-  private io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceBuilder scaleTargetRef;
+  private V2CrossVersionObjectReferenceBuilder scaleTargetRef;
 
   /**
    * This method has been deprecated, please use method buildBehavior instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior getBehavior() {
     return this.behavior != null ? this.behavior.build() : null;
   }
@@ -59,29 +64,24 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
       io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior behavior) {
     _visitables.get("behavior").remove(this.behavior);
     if (behavior != null) {
-      this.behavior =
-          new io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorBuilder(
-              behavior);
+      this.behavior = new V2HorizontalPodAutoscalerBehaviorBuilder(behavior);
       _visitables.get("behavior").add(this.behavior);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasBehavior() {
+  public Boolean hasBehavior() {
     return this.behavior != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<A>
-      withNewBehavior() {
-    return new io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluentImpl
-        .BehaviorNestedImpl();
+  public V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<A> withNewBehavior() {
+    return new V2HorizontalPodAutoscalerSpecFluentImpl.BehaviorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<A>
       withNewBehaviorLike(
           io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior item) {
-    return new io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluentImpl
-        .BehaviorNestedImpl(item);
+    return new V2HorizontalPodAutoscalerSpecFluentImpl.BehaviorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<A>
@@ -120,8 +120,7 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
   public A addToMetrics(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V2MetricSpec item) {
     if (this.metrics == null) {
-      this.metrics =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V2MetricSpecBuilder>();
+      this.metrics = new java.util.ArrayList<V2MetricSpecBuilder>();
     }
     io.kubernetes.client.openapi.models.V2MetricSpecBuilder builder =
         new io.kubernetes.client.openapi.models.V2MetricSpecBuilder(item);
@@ -165,8 +164,7 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToMetrics(
-      java.util.Collection<io.kubernetes.client.openapi.models.V2MetricSpec> items) {
+  public A addAllToMetrics(Collection<io.kubernetes.client.openapi.models.V2MetricSpec> items) {
     if (this.metrics == null) {
       this.metrics =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V2MetricSpecBuilder>();
@@ -206,8 +204,7 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
   }
 
   public A removeMatchingFromMetrics(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V2MetricSpecBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V2MetricSpecBuilder> predicate) {
     if (metrics == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V2MetricSpecBuilder> each =
         metrics.iterator();
@@ -228,7 +225,7 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V2MetricSpec> getMetrics() {
+  public List<io.kubernetes.client.openapi.models.V2MetricSpec> getMetrics() {
     return metrics != null ? build(metrics) : null;
   }
 
@@ -301,10 +298,8 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
     return metrics != null && !metrics.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A>
-      addNewMetric() {
-    return new io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluentImpl
-        .MetricsNestedImpl();
+  public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> addNewMetric() {
+    return new V2HorizontalPodAutoscalerSpecFluentImpl.MetricsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A>
@@ -375,7 +370,7 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2CrossVersionObjectReference getScaleTargetRef() {
+  public V2CrossVersionObjectReference getScaleTargetRef() {
     return this.scaleTargetRef != null ? this.scaleTargetRef.build() : null;
   }
 
@@ -399,12 +394,8 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
     return this.scaleTargetRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
-              .ScaleTargetRefNested<
-          A>
-      withNewScaleTargetRef() {
-    return new io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluentImpl
-        .ScaleTargetRefNestedImpl();
+  public V2HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> withNewScaleTargetRef() {
+    return new V2HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
@@ -442,7 +433,7 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
     return withNewScaleTargetRefLike(getScaleTargetRef() != null ? getScaleTargetRef() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2HorizontalPodAutoscalerSpecFluentImpl that = (V2HorizontalPodAutoscalerSpecFluentImpl) o;
@@ -463,17 +454,42 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
         behavior, maxReplicas, metrics, minReplicas, scaleTargetRef, super.hashCode());
   }
 
-  public class BehaviorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluentImpl<
-          io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (behavior != null) {
+      sb.append("behavior:");
+      sb.append(behavior + ",");
+    }
+    if (maxReplicas != null) {
+      sb.append("maxReplicas:");
+      sb.append(maxReplicas + ",");
+    }
+    if (metrics != null && !metrics.isEmpty()) {
+      sb.append("metrics:");
+      sb.append(metrics + ",");
+    }
+    if (minReplicas != null) {
+      sb.append("minReplicas:");
+      sb.append(minReplicas + ",");
+    }
+    if (scaleTargetRef != null) {
+      sb.append("scaleTargetRef:");
+      sb.append(scaleTargetRef);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class BehaviorNestedImpl<N>
+      extends V2HorizontalPodAutoscalerBehaviorFluentImpl<
+          V2HorizontalPodAutoscalerSpecFluent.BehaviorNested<N>>
       implements io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
                   .BehaviorNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     BehaviorNestedImpl(io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehavior item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorBuilder(
-              this, item);
+      this.builder = new V2HorizontalPodAutoscalerBehaviorBuilder(this, item);
     }
 
     BehaviorNestedImpl() {
@@ -492,9 +508,8 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
     }
   }
 
-  public class MetricsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2MetricSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent.MetricsNested<N>>
+  class MetricsNestedImpl<N>
+      extends V2MetricSpecFluentImpl<V2HorizontalPodAutoscalerSpecFluent.MetricsNested<N>>
       implements io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
                   .MetricsNested<
               N>,
@@ -502,7 +517,7 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
     MetricsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V2MetricSpec item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V2MetricSpecBuilder(this, item);
+      this.builder = new V2MetricSpecBuilder(this, item);
     }
 
     MetricsNestedImpl() {
@@ -522,19 +537,16 @@ public class V2HorizontalPodAutoscalerSpecFluentImpl<
     }
   }
 
-  public class ScaleTargetRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
-                  .ScaleTargetRefNested<
-              N>>
+  class ScaleTargetRefNestedImpl<N>
+      extends V2CrossVersionObjectReferenceFluentImpl<
+          V2HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<N>>
       implements io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent
                   .ScaleTargetRefNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     ScaleTargetRefNestedImpl(
         io.kubernetes.client.openapi.models.V2CrossVersionObjectReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceBuilder(this, item);
+      this.builder = new V2CrossVersionObjectReferenceBuilder(this, item);
     }
 
     ScaleTargetRefNestedImpl() {

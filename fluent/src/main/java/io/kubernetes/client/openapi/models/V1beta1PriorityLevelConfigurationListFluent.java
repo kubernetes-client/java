@@ -12,24 +12,24 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1beta1PriorityLevelConfigurationListFluent<
-        A extends
-            io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+        A extends V1beta1PriorityLevelConfigurationListFluent<A>>
+    extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
+  public Boolean hasApiVersion();
 
   public A addToItems(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item);
+      Integer index, io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item);
 
   public A setToItems(
       java.lang.Integer index,
@@ -39,8 +39,7 @@ public interface V1beta1PriorityLevelConfigurationListFluent<
       io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration... items);
 
   public A addAllToItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration>
-          items);
+      Collection<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration> items);
 
   public A removeFromItems(
       io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration... items);
@@ -49,19 +48,15 @@ public interface V1beta1PriorityLevelConfigurationListFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration>
           items);
 
-  public A removeMatchingFromItems(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>
-          predicate);
+  public A removeMatchingFromItems(Predicate<V1beta1PriorityLevelConfigurationBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildItems instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration>
-      getItems();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration> getItems();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration>
       buildItems();
@@ -91,15 +86,10 @@ public interface V1beta1PriorityLevelConfigurationListFluent<
 
   public java.lang.Boolean hasItems();
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .ItemsNested<
-          A>
-      addNewItem();
+  public V1beta1PriorityLevelConfigurationListFluent.ItemsNested<A> addNewItem();
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .ItemsNested<
-          A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item);
+  public V1beta1PriorityLevelConfigurationListFluent.ItemsNested<A> addNewItemLike(
+      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item);
 
   public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
               .ItemsNested<
@@ -137,17 +127,13 @@ public interface V1beta1PriorityLevelConfigurationListFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata();
+  public V1ListMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
 
@@ -155,10 +141,7 @@ public interface V1beta1PriorityLevelConfigurationListFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .MetadataNested<
-          A>
-      withNewMetadata();
+  public V1beta1PriorityLevelConfigurationListFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
               .MetadataNested<
@@ -181,11 +164,9 @@ public interface V1beta1PriorityLevelConfigurationListFluent<
       editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
 
   public interface ItemsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationFluent<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-                      .ItemsNested<
-                  N>> {
+      extends Nested<N>,
+          V1beta1PriorityLevelConfigurationFluent<
+              V1beta1PriorityLevelConfigurationListFluent.ItemsNested<N>> {
     public N and();
 
     public N endItem();
@@ -193,10 +174,7 @@ public interface V1beta1PriorityLevelConfigurationListFluent<
 
   public interface MetadataNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ListMetaFluent<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-                      .MetadataNested<
-                  N>> {
+          V1ListMetaFluent<V1beta1PriorityLevelConfigurationListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

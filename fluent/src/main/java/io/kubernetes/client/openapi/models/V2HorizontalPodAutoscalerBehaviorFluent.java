@@ -12,29 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
 public interface V2HorizontalPodAutoscalerBehaviorFluent<
-        A extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+        A extends V2HorizontalPodAutoscalerBehaviorFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildScaleDown instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2HPAScalingRules getScaleDown();
+  @Deprecated
+  public V2HPAScalingRules getScaleDown();
 
   public io.kubernetes.client.openapi.models.V2HPAScalingRules buildScaleDown();
 
   public A withScaleDown(io.kubernetes.client.openapi.models.V2HPAScalingRules scaleDown);
 
-  public java.lang.Boolean hasScaleDown();
+  public Boolean hasScaleDown();
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleDownNested<
-          A>
-      withNewScaleDown();
+  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> withNewScaleDown();
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent
               .ScaleDownNested<
@@ -70,9 +70,7 @@ public interface V2HorizontalPodAutoscalerBehaviorFluent<
 
   public java.lang.Boolean hasScaleUp();
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<
-          A>
-      withNewScaleUp();
+  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> withNewScaleUp();
 
   public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<
           A>
@@ -91,11 +89,8 @@ public interface V2HorizontalPodAutoscalerBehaviorFluent<
       editOrNewScaleUpLike(io.kubernetes.client.openapi.models.V2HPAScalingRules item);
 
   public interface ScaleDownNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent<
-              io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent
-                      .ScaleDownNested<
-                  N>> {
+      extends Nested<N>,
+          V2HPAScalingRulesFluent<V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<N>> {
     public N and();
 
     public N endScaleDown();
@@ -103,10 +98,7 @@ public interface V2HorizontalPodAutoscalerBehaviorFluent<
 
   public interface ScaleUpNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent<
-              io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerBehaviorFluent
-                      .ScaleUpNested<
-                  N>> {
+          V2HPAScalingRulesFluent<V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<N>> {
     public N and();
 
     public N endScaleUp();

@@ -12,23 +12,23 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
 public interface V1PersistentVolumeClaimVolumeSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getClaimName();
+        A extends V1PersistentVolumeClaimVolumeSourceFluent<A>>
+    extends Fluent<A> {
+  public String getClaimName();
 
   public A withClaimName(java.lang.String claimName);
 
-  public java.lang.Boolean hasClaimName();
-
-  /** Method is deprecated. use withClaimName instead. */
-  @java.lang.Deprecated
-  public A withNewClaimName(java.lang.String original);
+  public Boolean hasClaimName();
 
   public java.lang.Boolean getReadOnly();
 
   public A withReadOnly(java.lang.Boolean readOnly);
 
   public java.lang.Boolean hasReadOnly();
+
+  public A withReadOnly();
 }

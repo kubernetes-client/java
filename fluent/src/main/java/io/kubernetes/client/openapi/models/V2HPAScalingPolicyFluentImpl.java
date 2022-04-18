@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V2HPAScalingPolicyFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2HPAScalingPolicyFluentImpl<A extends V2HPAScalingPolicyFluent<A>>
+    extends BaseFluent<A> implements V2HPAScalingPolicyFluent<A> {
   public V2HPAScalingPolicyFluentImpl() {}
 
   public V2HPAScalingPolicyFluentImpl(
@@ -28,8 +29,8 @@ public class V2HPAScalingPolicyFluentImpl<
     this.withValue(instance.getValue());
   }
 
-  private java.lang.Integer periodSeconds;
-  private java.lang.String type;
+  private Integer periodSeconds;
+  private String type;
   private java.lang.Integer value;
 
   public java.lang.Integer getPeriodSeconds() {
@@ -41,7 +42,7 @@ public class V2HPAScalingPolicyFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasPeriodSeconds() {
+  public Boolean hasPeriodSeconds() {
     return this.periodSeconds != null;
   }
 
@@ -58,12 +59,6 @@ public class V2HPAScalingPolicyFluentImpl<
     return this.type != null;
   }
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A) withType(new String(original));
-  }
-
   public java.lang.Integer getValue() {
     return this.value;
   }
@@ -77,7 +72,7 @@ public class V2HPAScalingPolicyFluentImpl<
     return this.value != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2HPAScalingPolicyFluentImpl that = (V2HPAScalingPolicyFluentImpl) o;
@@ -91,5 +86,24 @@ public class V2HPAScalingPolicyFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(periodSeconds, type, value, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (periodSeconds != null) {
+      sb.append("periodSeconds:");
+      sb.append(periodSeconds + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type + ",");
+    }
+    if (value != null) {
+      sb.append("value:");
+      sb.append(value);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

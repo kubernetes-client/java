@@ -12,17 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1JobSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1JobSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1JobSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1JobSpec,
-        io.kubernetes.client.openapi.models.V1JobSpecBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder>
+    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1JobSpec, V1JobSpecBuilder> {
   public V1JobSpecBuilder() {
     this(false);
   }
 
-  public V1JobSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1JobSpecBuilder(Boolean validationEnabled) {
     this(new V1JobSpec(), validationEnabled);
   }
 
@@ -116,24 +114,5 @@ public class V1JobSpecBuilder
     buildable.setTemplate(fluent.getTemplate());
     buildable.setTtlSecondsAfterFinished(fluent.getTtlSecondsAfterFinished());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1JobSpecBuilder that = (V1JobSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

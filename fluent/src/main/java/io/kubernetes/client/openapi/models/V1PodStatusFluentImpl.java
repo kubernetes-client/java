@@ -12,14 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1PodStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PodStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PodStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseFluent<A>
+    implements V1PodStatusFluent<A> {
   public V1PodStatusFluentImpl() {}
 
   public V1PodStatusFluentImpl(io.kubernetes.client.openapi.models.V1PodStatus instance) {
@@ -50,25 +55,22 @@ public class V1PodStatusFluentImpl<
     this.withStartTime(instance.getStartTime());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodConditionBuilder> conditions;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-      containerStatuses;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-      ephemeralContainerStatuses;
-  private java.lang.String hostIP;
+  private ArrayList<V1PodConditionBuilder> conditions;
+  private java.util.ArrayList<V1ContainerStatusBuilder> containerStatuses;
+  private java.util.ArrayList<V1ContainerStatusBuilder> ephemeralContainerStatuses;
+  private String hostIP;
   private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
       initContainerStatuses;
   private java.lang.String message;
   private java.lang.String nominatedNodeName;
-  private io.kubernetes.client.openapi.models.V1PodStatus.PhaseEnum phase;
+  private java.lang.String phase;
   private java.lang.String podIP;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodIPBuilder> podIPs;
-  private io.kubernetes.client.openapi.models.V1PodStatus.QosClassEnum qosClass;
+  private java.util.ArrayList<V1PodIPBuilder> podIPs;
+  private java.lang.String qosClass;
   private java.lang.String reason;
-  private java.time.OffsetDateTime startTime;
+  private OffsetDateTime startTime;
 
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodCondition item) {
+  public A addToConditions(Integer index, V1PodCondition item) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodConditionBuilder>();
@@ -118,7 +120,7 @@ public class V1PodStatusFluentImpl<
   }
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodCondition> items) {
+      Collection<io.kubernetes.client.openapi.models.V1PodCondition> items) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodConditionBuilder>();
@@ -158,8 +160,7 @@ public class V1PodStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodConditionBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1PodConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1PodConditionBuilder> each =
         conditions.iterator();
@@ -179,8 +180,8 @@ public class V1PodStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodCondition> getConditions() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1PodCondition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
@@ -212,7 +213,7 @@ public class V1PodStatusFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingCondition(
+  public Boolean hasMatchingCondition(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodConditionBuilder>
           predicate) {
     for (io.kubernetes.client.openapi.models.V1PodConditionBuilder item : conditions) {
@@ -255,15 +256,13 @@ public class V1PodStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl.ConditionsNestedImpl();
+  public V1PodStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V1PodStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1PodCondition item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl.ConditionsNestedImpl(
-        -1, item);
+    return new V1PodStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
@@ -501,10 +500,8 @@ public class V1PodStatusFluentImpl<
     return containerStatuses != null && !containerStatuses.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
-      addNewContainerStatus() {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .ContainerStatusesNestedImpl();
+  public V1PodStatusFluent.ContainerStatusesNested<A> addNewContainerStatus() {
+    return new V1PodStatusFluentImpl.ContainerStatusesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
@@ -759,10 +756,8 @@ public class V1PodStatusFluentImpl<
     return ephemeralContainerStatuses != null && !ephemeralContainerStatuses.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
-      addNewEphemeralContainerStatus() {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .EphemeralContainerStatusesNestedImpl();
+  public V1PodStatusFluent.EphemeralContainerStatusesNested<A> addNewEphemeralContainerStatus() {
+    return new V1PodStatusFluentImpl.EphemeralContainerStatusesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
@@ -828,12 +823,6 @@ public class V1PodStatusFluentImpl<
 
   public java.lang.Boolean hasHostIP() {
     return this.hostIP != null;
-  }
-
-  /** Method is deprecated. use withHostIP instead. */
-  @java.lang.Deprecated
-  public A withNewHostIP(java.lang.String original) {
-    return (A) withHostIP(new String(original));
   }
 
   public A addToInitContainerStatuses(
@@ -1031,10 +1020,8 @@ public class V1PodStatusFluentImpl<
     return initContainerStatuses != null && !initContainerStatuses.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
-      addNewInitContainerStatus() {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .InitContainerStatusesNestedImpl();
+  public V1PodStatusFluent.InitContainerStatusesNested<A> addNewInitContainerStatus() {
+    return new V1PodStatusFluentImpl.InitContainerStatusesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
@@ -1101,12 +1088,6 @@ public class V1PodStatusFluentImpl<
     return this.message != null;
   }
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A) withMessage(new String(original));
-  }
-
   public java.lang.String getNominatedNodeName() {
     return this.nominatedNodeName;
   }
@@ -1120,17 +1101,11 @@ public class V1PodStatusFluentImpl<
     return this.nominatedNodeName != null;
   }
 
-  /** Method is deprecated. use withNominatedNodeName instead. */
-  @java.lang.Deprecated
-  public A withNewNominatedNodeName(java.lang.String original) {
-    return (A) withNominatedNodeName(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1PodStatus.PhaseEnum getPhase() {
+  public java.lang.String getPhase() {
     return this.phase;
   }
 
-  public A withPhase(io.kubernetes.client.openapi.models.V1PodStatus.PhaseEnum phase) {
+  public A withPhase(java.lang.String phase) {
     this.phase = phase;
     return (A) this;
   }
@@ -1152,15 +1127,9 @@ public class V1PodStatusFluentImpl<
     return this.podIP != null;
   }
 
-  /** Method is deprecated. use withPodIP instead. */
-  @java.lang.Deprecated
-  public A withNewPodIP(java.lang.String original) {
-    return (A) withPodIP(new String(original));
-  }
-
   public A addToPodIPs(java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodIP item) {
     if (this.podIPs == null) {
-      this.podIPs = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodIPBuilder>();
+      this.podIPs = new java.util.ArrayList<V1PodIPBuilder>();
     }
     io.kubernetes.client.openapi.models.V1PodIPBuilder builder =
         new io.kubernetes.client.openapi.models.V1PodIPBuilder(item);
@@ -1331,8 +1300,8 @@ public class V1PodStatusFluentImpl<
     return podIPs != null && !podIPs.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> addNewPodIP() {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl.PodIPsNestedImpl();
+  public V1PodStatusFluent.PodIPsNested<A> addNewPodIP() {
+    return new V1PodStatusFluentImpl.PodIPsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> addNewPodIPLike(
@@ -1378,11 +1347,11 @@ public class V1PodStatusFluentImpl<
     return setNewPodIPLike(index, buildPodIP(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatus.QosClassEnum getQosClass() {
+  public java.lang.String getQosClass() {
     return this.qosClass;
   }
 
-  public A withQosClass(io.kubernetes.client.openapi.models.V1PodStatus.QosClassEnum qosClass) {
+  public A withQosClass(java.lang.String qosClass) {
     this.qosClass = qosClass;
     return (A) this;
   }
@@ -1404,12 +1373,6 @@ public class V1PodStatusFluentImpl<
     return this.reason != null;
   }
 
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A) withReason(new String(original));
-  }
-
   public java.time.OffsetDateTime getStartTime() {
     return this.startTime;
   }
@@ -1423,7 +1386,7 @@ public class V1PodStatusFluentImpl<
     return this.startTime != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PodStatusFluentImpl that = (V1PodStatusFluentImpl) o;
@@ -1471,15 +1434,72 @@ public class V1PodStatusFluentImpl<
         super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PodConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions + ",");
+    }
+    if (containerStatuses != null && !containerStatuses.isEmpty()) {
+      sb.append("containerStatuses:");
+      sb.append(containerStatuses + ",");
+    }
+    if (ephemeralContainerStatuses != null && !ephemeralContainerStatuses.isEmpty()) {
+      sb.append("ephemeralContainerStatuses:");
+      sb.append(ephemeralContainerStatuses + ",");
+    }
+    if (hostIP != null) {
+      sb.append("hostIP:");
+      sb.append(hostIP + ",");
+    }
+    if (initContainerStatuses != null && !initContainerStatuses.isEmpty()) {
+      sb.append("initContainerStatuses:");
+      sb.append(initContainerStatuses + ",");
+    }
+    if (message != null) {
+      sb.append("message:");
+      sb.append(message + ",");
+    }
+    if (nominatedNodeName != null) {
+      sb.append("nominatedNodeName:");
+      sb.append(nominatedNodeName + ",");
+    }
+    if (phase != null) {
+      sb.append("phase:");
+      sb.append(phase + ",");
+    }
+    if (podIP != null) {
+      sb.append("podIP:");
+      sb.append(podIP + ",");
+    }
+    if (podIPs != null && !podIPs.isEmpty()) {
+      sb.append("podIPs:");
+      sb.append(podIPs + ",");
+    }
+    if (qosClass != null) {
+      sb.append("qosClass:");
+      sb.append(qosClass + ",");
+    }
+    if (reason != null) {
+      sb.append("reason:");
+      sb.append(reason + ",");
+    }
+    if (startTime != null) {
+      sb.append("startTime:");
+      sb.append(startTime);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V1PodConditionFluentImpl<V1PodStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ConditionsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodCondition item) {
+          Nested<N> {
+    ConditionsNestedImpl(java.lang.Integer index, V1PodCondition item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1PodConditionBuilder(this, item);
+      this.builder = new V1PodConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
@@ -1499,15 +1519,13 @@ public class V1PodStatusFluentImpl<
     }
   }
 
-  public class ContainerStatusesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ContainerStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<N>>
+  class ContainerStatusesNestedImpl<N>
+      extends V1ContainerStatusFluentImpl<V1PodStatusFluent.ContainerStatusesNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    ContainerStatusesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+    ContainerStatusesNestedImpl(java.lang.Integer index, V1ContainerStatus item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(this, item);
+      this.builder = new V1ContainerStatusBuilder(this, item);
     }
 
     ContainerStatusesNestedImpl() {
@@ -1527,17 +1545,15 @@ public class V1PodStatusFluentImpl<
     }
   }
 
-  public class EphemeralContainerStatusesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ContainerStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<N>>
+  class EphemeralContainerStatusesNestedImpl<N>
+      extends V1ContainerStatusFluentImpl<V1PodStatusFluent.EphemeralContainerStatusesNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodStatusFluent
                   .EphemeralContainerStatusesNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    EphemeralContainerStatusesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+    EphemeralContainerStatusesNestedImpl(java.lang.Integer index, V1ContainerStatus item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(this, item);
+      this.builder = new V1ContainerStatusBuilder(this, item);
     }
 
     EphemeralContainerStatusesNestedImpl() {
@@ -1557,16 +1573,14 @@ public class V1PodStatusFluentImpl<
     }
   }
 
-  public class InitContainerStatusesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ContainerStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<N>>
+  class InitContainerStatusesNestedImpl<N>
+      extends V1ContainerStatusFluentImpl<V1PodStatusFluent.InitContainerStatusesNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    InitContainerStatusesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+    InitContainerStatusesNestedImpl(java.lang.Integer index, V1ContainerStatus item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(this, item);
+      this.builder = new V1ContainerStatusBuilder(this, item);
     }
 
     InitContainerStatusesNestedImpl() {
@@ -1586,14 +1600,12 @@ public class V1PodStatusFluentImpl<
     }
   }
 
-  public class PodIPsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PodIPFluentImpl<
-          io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<N>>
+  class PodIPsNestedImpl<N> extends V1PodIPFluentImpl<V1PodStatusFluent.PodIPsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     PodIPsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodIP item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1PodIPBuilder(this, item);
+      this.builder = new V1PodIPBuilder(this, item);
     }
 
     PodIPsNestedImpl() {

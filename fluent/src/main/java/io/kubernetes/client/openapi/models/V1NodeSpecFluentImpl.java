@@ -12,13 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.V1NodeSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NodeSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFluent<A>
+    implements V1NodeSpecFluent<A> {
   public V1NodeSpecFluentImpl() {}
 
   public V1NodeSpecFluentImpl(io.kubernetes.client.openapi.models.V1NodeSpec instance) {
@@ -37,20 +42,20 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     this.withUnschedulable(instance.getUnschedulable());
   }
 
-  private io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder configSource;
-  private java.lang.String externalID;
+  private V1NodeConfigSourceBuilder configSource;
+  private String externalID;
   private java.lang.String podCIDR;
-  private java.util.List<java.lang.String> podCIDRs;
+  private List<java.lang.String> podCIDRs;
   private java.lang.String providerID;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1TaintBuilder> taints;
-  private java.lang.Boolean unschedulable;
+  private ArrayList<V1TaintBuilder> taints;
+  private Boolean unschedulable;
 
   /**
    * This method has been deprecated, please use method buildConfigSource instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1NodeConfigSource getConfigSource() {
     return this.configSource != null ? this.configSource.build() : null;
   }
@@ -62,8 +67,7 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
   public A withConfigSource(io.kubernetes.client.openapi.models.V1NodeConfigSource configSource) {
     _visitables.get("configSource").remove(this.configSource);
     if (configSource != null) {
-      this.configSource =
-          new io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder(configSource);
+      this.configSource = new V1NodeConfigSourceBuilder(configSource);
       _visitables.get("configSource").add(this.configSource);
     }
     return (A) this;
@@ -73,15 +77,13 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return this.configSource != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<A>
-      withNewConfigSource() {
-    return new io.kubernetes.client.openapi.models.V1NodeSpecFluentImpl.ConfigSourceNestedImpl();
+  public V1NodeSpecFluent.ConfigSourceNested<A> withNewConfigSource() {
+    return new V1NodeSpecFluentImpl.ConfigSourceNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<A>
       withNewConfigSourceLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
-    return new io.kubernetes.client.openapi.models.V1NodeSpecFluentImpl.ConfigSourceNestedImpl(
-        item);
+    return new V1NodeSpecFluentImpl.ConfigSourceNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<A>
@@ -115,12 +117,6 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return this.externalID != null;
   }
 
-  /** Method is deprecated. use withExternalID instead. */
-  @java.lang.Deprecated
-  public A withNewExternalID(java.lang.String original) {
-    return (A) withExternalID(new String(original));
-  }
-
   public java.lang.String getPodCIDR() {
     return this.podCIDR;
   }
@@ -134,13 +130,7 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return this.podCIDR != null;
   }
 
-  /** Method is deprecated. use withPodCIDR instead. */
-  @java.lang.Deprecated
-  public A withNewPodCIDR(java.lang.String original) {
-    return (A) withPodCIDR(new String(original));
-  }
-
-  public A addToPodCIDRs(java.lang.Integer index, java.lang.String item) {
+  public A addToPodCIDRs(Integer index, java.lang.String item) {
     if (this.podCIDRs == null) {
       this.podCIDRs = new java.util.ArrayList<java.lang.String>();
     }
@@ -166,7 +156,7 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return (A) this;
   }
 
-  public A addAllToPodCIDRs(java.util.Collection<java.lang.String> items) {
+  public A addAllToPodCIDRs(Collection<java.lang.String> items) {
     if (this.podCIDRs == null) {
       this.podCIDRs = new java.util.ArrayList<java.lang.String>();
     }
@@ -210,8 +200,7 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return this.podCIDRs.get(podCIDRs.size() - 1);
   }
 
-  public java.lang.String getMatchingPodCIDR(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingPodCIDR(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : podCIDRs) {
       if (predicate.test(item)) {
         return item;
@@ -258,10 +247,6 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return podCIDRs != null && !podCIDRs.isEmpty();
   }
 
-  public A addNewPodCIDR(java.lang.String original) {
-    return (A) addToPodCIDRs(new String(original));
-  }
-
   public java.lang.String getProviderID() {
     return this.providerID;
   }
@@ -275,15 +260,9 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return this.providerID != null;
   }
 
-  /** Method is deprecated. use withProviderID instead. */
-  @java.lang.Deprecated
-  public A withNewProviderID(java.lang.String original) {
-    return (A) withProviderID(new String(original));
-  }
-
   public A addToTaints(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Taint item) {
     if (this.taints == null) {
-      this.taints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1TaintBuilder>();
+      this.taints = new java.util.ArrayList<V1TaintBuilder>();
     }
     io.kubernetes.client.openapi.models.V1TaintBuilder builder =
         new io.kubernetes.client.openapi.models.V1TaintBuilder(item);
@@ -454,8 +433,8 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return taints != null && !taints.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> addNewTaint() {
-    return new io.kubernetes.client.openapi.models.V1NodeSpecFluentImpl.TaintsNestedImpl();
+  public V1NodeSpecFluent.TaintsNested<A> addNewTaint() {
+    return new V1NodeSpecFluentImpl.TaintsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> addNewTaintLike(
@@ -514,7 +493,7 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     return this.unschedulable != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NodeSpecFluentImpl that = (V1NodeSpecFluentImpl) o;
@@ -545,13 +524,51 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
         super.hashCode());
   }
 
-  public class ConfigSourceNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NodeConfigSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (configSource != null) {
+      sb.append("configSource:");
+      sb.append(configSource + ",");
+    }
+    if (externalID != null) {
+      sb.append("externalID:");
+      sb.append(externalID + ",");
+    }
+    if (podCIDR != null) {
+      sb.append("podCIDR:");
+      sb.append(podCIDR + ",");
+    }
+    if (podCIDRs != null && !podCIDRs.isEmpty()) {
+      sb.append("podCIDRs:");
+      sb.append(podCIDRs + ",");
+    }
+    if (providerID != null) {
+      sb.append("providerID:");
+      sb.append(providerID + ",");
+    }
+    if (taints != null && !taints.isEmpty()) {
+      sb.append("taints:");
+      sb.append(taints + ",");
+    }
+    if (unschedulable != null) {
+      sb.append("unschedulable:");
+      sb.append(unschedulable);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withUnschedulable() {
+    return withUnschedulable(true);
+  }
+
+  class ConfigSourceNestedImpl<N>
+      extends V1NodeConfigSourceFluentImpl<V1NodeSpecFluent.ConfigSourceNested<N>>
       implements io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ConfigSourceNestedImpl(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder(this, item);
+      this.builder = new V1NodeConfigSourceBuilder(this, item);
     }
 
     ConfigSourceNestedImpl() {
@@ -569,14 +586,12 @@ public class V1NodeSpecFluentImpl<A extends io.kubernetes.client.openapi.models.
     }
   }
 
-  public class TaintsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TaintFluentImpl<
-          io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<N>>
+  class TaintsNestedImpl<N> extends V1TaintFluentImpl<V1NodeSpecFluent.TaintsNested<N>>
       implements io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     TaintsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Taint item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1TaintBuilder(this, item);
+      this.builder = new V1TaintBuilder(this, item);
     }
 
     TaintsNestedImpl() {

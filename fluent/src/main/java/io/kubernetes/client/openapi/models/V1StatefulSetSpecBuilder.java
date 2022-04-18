@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1StatefulSetSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1StatefulSetSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1StatefulSetSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1StatefulSetSpec,
-        io.kubernetes.client.openapi.models.V1StatefulSetSpecBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1StatefulSetSpecBuilder extends V1StatefulSetSpecFluentImpl<V1StatefulSetSpecBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1StatefulSetSpec, V1StatefulSetSpecBuilder> {
   public V1StatefulSetSpecBuilder() {
     this(false);
   }
 
-  public V1StatefulSetSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1StatefulSetSpecBuilder(Boolean validationEnabled) {
     this(new V1StatefulSetSpec(), validationEnabled);
   }
 
@@ -121,24 +120,5 @@ public class V1StatefulSetSpecBuilder
     buildable.setUpdateStrategy(fluent.getUpdateStrategy());
     buildable.setVolumeClaimTemplates(fluent.getVolumeClaimTemplates());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1StatefulSetSpecBuilder that = (V1StatefulSetSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

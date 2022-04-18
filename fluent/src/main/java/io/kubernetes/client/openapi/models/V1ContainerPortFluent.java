@@ -12,25 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1ContainerPortFluent<
-        A extends io.kubernetes.client.openapi.models.V1ContainerPortFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getContainerPort();
+public interface V1ContainerPortFluent<A extends V1ContainerPortFluent<A>> extends Fluent<A> {
+  public Integer getContainerPort();
 
   public A withContainerPort(java.lang.Integer containerPort);
 
-  public java.lang.Boolean hasContainerPort();
+  public Boolean hasContainerPort();
 
-  public java.lang.String getHostIP();
+  public String getHostIP();
 
   public A withHostIP(java.lang.String hostIP);
 
   public java.lang.Boolean hasHostIP();
-
-  /** Method is deprecated. use withHostIP instead. */
-  @java.lang.Deprecated
-  public A withNewHostIP(java.lang.String original);
 
   public java.lang.Integer getHostPort();
 
@@ -44,13 +40,9 @@ public interface V1ContainerPortFluent<
 
   public java.lang.Boolean hasName();
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
+  public java.lang.String getProtocol();
 
-  public io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum getProtocol();
-
-  public A withProtocol(io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum protocol);
+  public A withProtocol(java.lang.String protocol);
 
   public java.lang.Boolean hasProtocol();
 }

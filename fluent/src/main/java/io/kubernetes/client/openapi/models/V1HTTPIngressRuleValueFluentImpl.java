@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1HTTPIngressRuleValueFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1HTTPIngressRuleValueFluentImpl<A extends V1HTTPIngressRuleValueFluent<A>>
+    extends BaseFluent<A> implements V1HTTPIngressRuleValueFluent<A> {
   public V1HTTPIngressRuleValueFluentImpl() {}
 
   public V1HTTPIngressRuleValueFluentImpl(
@@ -27,13 +31,11 @@ public class V1HTTPIngressRuleValueFluentImpl<
     this.withPaths(instance.getPaths());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder> paths;
+  private ArrayList<V1HTTPIngressPathBuilder> paths;
 
-  public A addToPaths(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1HTTPIngressPath item) {
+  public A addToPaths(Integer index, io.kubernetes.client.openapi.models.V1HTTPIngressPath item) {
     if (this.paths == null) {
-      this.paths =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder>();
+      this.paths = new java.util.ArrayList<V1HTTPIngressPathBuilder>();
     }
     io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder builder =
         new io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder(item);
@@ -77,8 +79,7 @@ public class V1HTTPIngressRuleValueFluentImpl<
     return (A) this;
   }
 
-  public A addAllToPaths(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1HTTPIngressPath> items) {
+  public A addAllToPaths(Collection<io.kubernetes.client.openapi.models.V1HTTPIngressPath> items) {
     if (this.paths == null) {
       this.paths =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder>();
@@ -118,8 +119,7 @@ public class V1HTTPIngressRuleValueFluentImpl<
   }
 
   public A removeMatchingFromPaths(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder> predicate) {
     if (paths == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder> each =
         paths.iterator();
@@ -139,8 +139,8 @@ public class V1HTTPIngressRuleValueFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1HTTPIngressPath> getPaths() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1HTTPIngressPath> getPaths() {
     return paths != null ? build(paths) : null;
   }
 
@@ -171,7 +171,7 @@ public class V1HTTPIngressRuleValueFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingPath(
+  public Boolean hasMatchingPath(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder>
           predicate) {
     for (io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder item : paths) {
@@ -213,16 +213,13 @@ public class V1HTTPIngressRuleValueFluentImpl<
     return paths != null && !paths.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<A>
-      addNewPath() {
-    return new io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluentImpl
-        .PathsNestedImpl();
+  public V1HTTPIngressRuleValueFluent.PathsNested<A> addNewPath() {
+    return new V1HTTPIngressRuleValueFluentImpl.PathsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<A>
       addNewPathLike(io.kubernetes.client.openapi.models.V1HTTPIngressPath item) {
-    return new io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluentImpl.PathsNestedImpl(
-        -1, item);
+    return new V1HTTPIngressRuleValueFluentImpl.PathsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<A>
@@ -266,7 +263,7 @@ public class V1HTTPIngressRuleValueFluentImpl<
     return setNewPathLike(index, buildPath(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1HTTPIngressRuleValueFluentImpl that = (V1HTTPIngressRuleValueFluentImpl) o;
@@ -278,15 +275,25 @@ public class V1HTTPIngressRuleValueFluentImpl<
     return java.util.Objects.hash(paths, super.hashCode());
   }
 
-  public class PathsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1HTTPIngressPathFluentImpl<
-          io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (paths != null && !paths.isEmpty()) {
+      sb.append("paths:");
+      sb.append(paths);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class PathsNestedImpl<N>
+      extends V1HTTPIngressPathFluentImpl<V1HTTPIngressRuleValueFluent.PathsNested<N>>
       implements io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     PathsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1HTTPIngressPath item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder(this, item);
+      this.builder = new V1HTTPIngressPathBuilder(this, item);
     }
 
     PathsNestedImpl() {

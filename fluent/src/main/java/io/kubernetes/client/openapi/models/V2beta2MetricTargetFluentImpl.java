@@ -13,12 +13,12 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 
 /** Generated */
-public class V2beta2MetricTargetFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta2MetricTargetFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta2MetricTargetFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2beta2MetricTargetFluentImpl<A extends V2beta2MetricTargetFluent<A>>
+    extends BaseFluent<A> implements V2beta2MetricTargetFluent<A> {
   public V2beta2MetricTargetFluentImpl() {}
 
   public V2beta2MetricTargetFluentImpl(
@@ -32,9 +32,9 @@ public class V2beta2MetricTargetFluentImpl<
     this.withValue(instance.getValue());
   }
 
-  private java.lang.Integer averageUtilization;
-  private io.kubernetes.client.custom.Quantity averageValue;
-  private java.lang.String type;
+  private Integer averageUtilization;
+  private Quantity averageValue;
+  private String type;
   private io.kubernetes.client.custom.Quantity value;
 
   public java.lang.Integer getAverageUtilization() {
@@ -46,7 +46,7 @@ public class V2beta2MetricTargetFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAverageUtilization() {
+  public Boolean hasAverageUtilization() {
     return this.averageUtilization != null;
   }
 
@@ -80,12 +80,6 @@ public class V2beta2MetricTargetFluentImpl<
     return this.type != null;
   }
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original) {
-    return (A) withType(new String(original));
-  }
-
   public io.kubernetes.client.custom.Quantity getValue() {
     return this.value;
   }
@@ -103,7 +97,7 @@ public class V2beta2MetricTargetFluentImpl<
     return (A) withValue(new Quantity(value));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta2MetricTargetFluentImpl that = (V2beta2MetricTargetFluentImpl) o;
@@ -119,5 +113,28 @@ public class V2beta2MetricTargetFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(averageUtilization, averageValue, type, value, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (averageUtilization != null) {
+      sb.append("averageUtilization:");
+      sb.append(averageUtilization + ",");
+    }
+    if (averageValue != null) {
+      sb.append("averageValue:");
+      sb.append(averageValue + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type + ",");
+    }
+    if (value != null) {
+      sb.append("value:");
+      sb.append(value);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

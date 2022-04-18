@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1beta1PodSecurityPolicySpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1PodSecurityPolicySpecFluentImpl<A extends V1beta1PodSecurityPolicySpecFluent<A>>
+    extends BaseFluent<A> implements V1beta1PodSecurityPolicySpecFluent<A> {
   public V1beta1PodSecurityPolicySpecFluentImpl() {}
 
   public V1beta1PodSecurityPolicySpecFluentImpl(
@@ -73,35 +77,29 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     this.withVolumes(instance.getVolumes());
   }
 
-  private java.lang.Boolean allowPrivilegeEscalation;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverBuilder>
-      allowedCSIDrivers;
-  private java.util.List<java.lang.String> allowedCapabilities;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeBuilder>
-      allowedFlexVolumes;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1AllowedHostPathBuilder>
-      allowedHostPaths;
+  private Boolean allowPrivilegeEscalation;
+  private ArrayList<V1beta1AllowedCSIDriverBuilder> allowedCSIDrivers;
+  private List<String> allowedCapabilities;
+  private java.util.ArrayList<V1beta1AllowedFlexVolumeBuilder> allowedFlexVolumes;
+  private java.util.ArrayList<V1beta1AllowedHostPathBuilder> allowedHostPaths;
   private java.util.List<java.lang.String> allowedProcMountTypes;
   private java.util.List<java.lang.String> allowedUnsafeSysctls;
   private java.util.List<java.lang.String> defaultAddCapabilities;
   private java.lang.Boolean defaultAllowPrivilegeEscalation;
   private java.util.List<java.lang.String> forbiddenSysctls;
-  private io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptionsBuilder fsGroup;
+  private V1beta1FSGroupStrategyOptionsBuilder fsGroup;
   private java.lang.Boolean hostIPC;
   private java.lang.Boolean hostNetwork;
   private java.lang.Boolean hostPID;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta1HostPortRangeBuilder>
-      hostPorts;
+  private java.util.ArrayList<V1beta1HostPortRangeBuilder> hostPorts;
   private java.lang.Boolean privileged;
   private java.lang.Boolean readOnlyRootFilesystem;
   private java.util.List<java.lang.String> requiredDropCapabilities;
-  private io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsBuilder runAsGroup;
-  private io.kubernetes.client.openapi.models.V1beta1RunAsUserStrategyOptionsBuilder runAsUser;
-  private io.kubernetes.client.openapi.models.V1beta1RuntimeClassStrategyOptionsBuilder
-      runtimeClass;
-  private io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsBuilder seLinux;
-  private io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsBuilder
-      supplementalGroups;
+  private V1beta1RunAsGroupStrategyOptionsBuilder runAsGroup;
+  private V1beta1RunAsUserStrategyOptionsBuilder runAsUser;
+  private V1beta1RuntimeClassStrategyOptionsBuilder runtimeClass;
+  private V1beta1SELinuxStrategyOptionsBuilder seLinux;
+  private V1beta1SupplementalGroupsStrategyOptionsBuilder supplementalGroups;
   private java.util.List<java.lang.String> volumes;
 
   public java.lang.Boolean getAllowPrivilegeEscalation() {
@@ -117,8 +115,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return this.allowPrivilegeEscalation != null;
   }
 
-  public A addToAllowedCSIDrivers(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriver item) {
+  public A addToAllowedCSIDrivers(Integer index, V1beta1AllowedCSIDriver item) {
     if (this.allowedCSIDrivers == null) {
       this.allowedCSIDrivers =
           new java.util.ArrayList<
@@ -172,7 +169,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
   }
 
   public A addAllToAllowedCSIDrivers(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriver> items) {
+      Collection<io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriver> items) {
     if (this.allowedCSIDrivers == null) {
       this.allowedCSIDrivers =
           new java.util.ArrayList<
@@ -214,9 +211,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
   }
 
   public A removeMatchingFromAllowedCSIDrivers(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverBuilder> predicate) {
     if (allowedCSIDrivers == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverBuilder> each =
         allowedCSIDrivers.iterator();
@@ -236,7 +231,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriver>
       getAllowedCSIDrivers() {
     return allowedCSIDrivers != null ? build(allowedCSIDrivers) : null;
@@ -320,20 +315,15 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return allowedCSIDrivers != null && !allowedCSIDrivers.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
-              .AllowedCSIDriversNested<
-          A>
-      addNewAllowedCSIDriver() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .AllowedCSIDriversNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.AllowedCSIDriversNested<A> addNewAllowedCSIDriver() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.AllowedCSIDriversNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
               .AllowedCSIDriversNested<
           A>
       addNewAllowedCSIDriverLike(io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriver item) {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .AllowedCSIDriversNestedImpl(-1, item);
+    return new V1beta1PodSecurityPolicySpecFluentImpl.AllowedCSIDriversNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
@@ -511,16 +501,10 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return allowedCapabilities != null && !allowedCapabilities.isEmpty();
   }
 
-  public A addNewAllowedCapability(java.lang.String original) {
-    return (A) addToAllowedCapabilities(new String(original));
-  }
-
   public A addToAllowedFlexVolumes(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolume item) {
     if (this.allowedFlexVolumes == null) {
-      this.allowedFlexVolumes =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeBuilder>();
+      this.allowedFlexVolumes = new java.util.ArrayList<V1beta1AllowedFlexVolumeBuilder>();
     }
     io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeBuilder builder =
         new io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeBuilder(item);
@@ -720,12 +704,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return allowedFlexVolumes != null && !allowedFlexVolumes.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
-              .AllowedFlexVolumesNested<
-          A>
-      addNewAllowedFlexVolume() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .AllowedFlexVolumesNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.AllowedFlexVolumesNested<A> addNewAllowedFlexVolume() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.AllowedFlexVolumesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
@@ -797,9 +777,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
   public A addToAllowedHostPaths(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1AllowedHostPath item) {
     if (this.allowedHostPaths == null) {
-      this.allowedHostPaths =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta1AllowedHostPathBuilder>();
+      this.allowedHostPaths = new java.util.ArrayList<V1beta1AllowedHostPathBuilder>();
     }
     io.kubernetes.client.openapi.models.V1beta1AllowedHostPathBuilder builder =
         new io.kubernetes.client.openapi.models.V1beta1AllowedHostPathBuilder(item);
@@ -996,12 +974,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return allowedHostPaths != null && !allowedHostPaths.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
-              .AllowedHostPathsNested<
-          A>
-      addNewAllowedHostPath() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .AllowedHostPathsNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.AllowedHostPathsNested<A> addNewAllowedHostPath() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.AllowedHostPathsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
@@ -1187,10 +1161,6 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return allowedProcMountTypes != null && !allowedProcMountTypes.isEmpty();
   }
 
-  public A addNewAllowedProcMountType(java.lang.String original) {
-    return (A) addToAllowedProcMountTypes(new String(original));
-  }
-
   public A addToAllowedUnsafeSysctls(java.lang.Integer index, java.lang.String item) {
     if (this.allowedUnsafeSysctls == null) {
       this.allowedUnsafeSysctls = new java.util.ArrayList<java.lang.String>();
@@ -1309,10 +1279,6 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return allowedUnsafeSysctls != null && !allowedUnsafeSysctls.isEmpty();
   }
 
-  public A addNewAllowedUnsafeSysctl(java.lang.String original) {
-    return (A) addToAllowedUnsafeSysctls(new String(original));
-  }
-
   public A addToDefaultAddCapabilities(java.lang.Integer index, java.lang.String item) {
     if (this.defaultAddCapabilities == null) {
       this.defaultAddCapabilities = new java.util.ArrayList<java.lang.String>();
@@ -1429,10 +1395,6 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
 
   public java.lang.Boolean hasDefaultAddCapabilities() {
     return defaultAddCapabilities != null && !defaultAddCapabilities.isEmpty();
-  }
-
-  public A addNewDefaultAddCapability(java.lang.String original) {
-    return (A) addToDefaultAddCapabilities(new String(original));
   }
 
   public java.lang.Boolean getDefaultAllowPrivilegeEscalation() {
@@ -1566,10 +1528,6 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return forbiddenSysctls != null && !forbiddenSysctls.isEmpty();
   }
 
-  public A addNewForbiddenSysctl(java.lang.String original) {
-    return (A) addToForbiddenSysctls(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildFsGroup instead.
    *
@@ -1587,8 +1545,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
   public A withFsGroup(io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptions fsGroup) {
     _visitables.get("fsGroup").remove(this.fsGroup);
     if (fsGroup != null) {
-      this.fsGroup =
-          new io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptionsBuilder(fsGroup);
+      this.fsGroup = new V1beta1FSGroupStrategyOptionsBuilder(fsGroup);
       _visitables.get("fsGroup").add(this.fsGroup);
     }
     return (A) this;
@@ -1598,10 +1555,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return this.fsGroup != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.FsGroupNested<A>
-      withNewFsGroup() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .FsGroupNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.FsGroupNested<A> withNewFsGroup() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.FsGroupNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.FsGroupNested<A>
@@ -1671,9 +1626,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
   public A addToHostPorts(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1HostPortRange item) {
     if (this.hostPorts == null) {
-      this.hostPorts =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta1HostPortRangeBuilder>();
+      this.hostPorts = new java.util.ArrayList<V1beta1HostPortRangeBuilder>();
     }
     io.kubernetes.client.openapi.models.V1beta1HostPortRangeBuilder builder =
         new io.kubernetes.client.openapi.models.V1beta1HostPortRangeBuilder(item);
@@ -1860,10 +1813,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return hostPorts != null && !hostPorts.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.HostPortsNested<A>
-      addNewHostPort() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .HostPortsNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.HostPortsNested<A> addNewHostPort() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.HostPortsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.HostPortsNested<A>
@@ -2060,10 +2011,6 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return requiredDropCapabilities != null && !requiredDropCapabilities.isEmpty();
   }
 
-  public A addNewRequiredDropCapability(java.lang.String original) {
-    return (A) addToRequiredDropCapabilities(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildRunAsGroup instead.
    *
@@ -2082,9 +2029,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
       io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptions runAsGroup) {
     _visitables.get("runAsGroup").remove(this.runAsGroup);
     if (runAsGroup != null) {
-      this.runAsGroup =
-          new io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsBuilder(
-              runAsGroup);
+      this.runAsGroup = new V1beta1RunAsGroupStrategyOptionsBuilder(runAsGroup);
       _visitables.get("runAsGroup").add(this.runAsGroup);
     }
     return (A) this;
@@ -2094,10 +2039,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return this.runAsGroup != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RunAsGroupNested<A>
-      withNewRunAsGroup() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .RunAsGroupNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.RunAsGroupNested<A> withNewRunAsGroup() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.RunAsGroupNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RunAsGroupNested<A>
@@ -2133,7 +2076,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1RunAsUserStrategyOptions getRunAsUser() {
+  public V1beta1RunAsUserStrategyOptions getRunAsUser() {
     return this.runAsUser != null ? this.runAsUser.build() : null;
   }
 
@@ -2156,10 +2099,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return this.runAsUser != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RunAsUserNested<A>
-      withNewRunAsUser() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .RunAsUserNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.RunAsUserNested<A> withNewRunAsUser() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.RunAsUserNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RunAsUserNested<A>
@@ -2208,9 +2149,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
       io.kubernetes.client.openapi.models.V1beta1RuntimeClassStrategyOptions runtimeClass) {
     _visitables.get("runtimeClass").remove(this.runtimeClass);
     if (runtimeClass != null) {
-      this.runtimeClass =
-          new io.kubernetes.client.openapi.models.V1beta1RuntimeClassStrategyOptionsBuilder(
-              runtimeClass);
+      this.runtimeClass = new V1beta1RuntimeClassStrategyOptionsBuilder(runtimeClass);
       _visitables.get("runtimeClass").add(this.runtimeClass);
     }
     return (A) this;
@@ -2220,11 +2159,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return this.runtimeClass != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RuntimeClassNested<
-          A>
-      withNewRuntimeClass() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .RuntimeClassNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.RuntimeClassNested<A> withNewRuntimeClass() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.RuntimeClassNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RuntimeClassNested<
@@ -2264,7 +2200,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptions getSeLinux() {
+  public V1beta1SELinuxStrategyOptions getSeLinux() {
     return this.seLinux != null ? this.seLinux.build() : null;
   }
 
@@ -2286,10 +2222,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return this.seLinux != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.SeLinuxNested<A>
-      withNewSeLinux() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .SeLinuxNestedImpl();
+  public V1beta1PodSecurityPolicySpecFluent.SeLinuxNested<A> withNewSeLinux() {
+    return new V1beta1PodSecurityPolicySpecFluentImpl.SeLinuxNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.SeLinuxNested<A>
@@ -2323,8 +2257,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptions
-      getSupplementalGroups() {
+  public V1beta1SupplementalGroupsStrategyOptions getSupplementalGroups() {
     return this.supplementalGroups != null ? this.supplementalGroups.build() : null;
   }
 
@@ -2350,12 +2283,9 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return this.supplementalGroups != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
-              .SupplementalGroupsNested<
-          A>
+  public V1beta1PodSecurityPolicySpecFluent.SupplementalGroupsNested<A>
       withNewSupplementalGroups() {
-    return new io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluentImpl
-        .SupplementalGroupsNestedImpl();
+    return new V1beta1PodSecurityPolicySpecFluentImpl.SupplementalGroupsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
@@ -2513,11 +2443,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     return volumes != null && !volumes.isEmpty();
   }
 
-  public A addNewVolume(java.lang.String original) {
-    return (A) addToVolumes(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1PodSecurityPolicySpecFluentImpl that = (V1beta1PodSecurityPolicySpecFluentImpl) o;
@@ -2609,20 +2535,148 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
         super.hashCode());
   }
 
-  public class AllowedCSIDriversNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
-                  .AllowedCSIDriversNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (allowPrivilegeEscalation != null) {
+      sb.append("allowPrivilegeEscalation:");
+      sb.append(allowPrivilegeEscalation + ",");
+    }
+    if (allowedCSIDrivers != null && !allowedCSIDrivers.isEmpty()) {
+      sb.append("allowedCSIDrivers:");
+      sb.append(allowedCSIDrivers + ",");
+    }
+    if (allowedCapabilities != null && !allowedCapabilities.isEmpty()) {
+      sb.append("allowedCapabilities:");
+      sb.append(allowedCapabilities + ",");
+    }
+    if (allowedFlexVolumes != null && !allowedFlexVolumes.isEmpty()) {
+      sb.append("allowedFlexVolumes:");
+      sb.append(allowedFlexVolumes + ",");
+    }
+    if (allowedHostPaths != null && !allowedHostPaths.isEmpty()) {
+      sb.append("allowedHostPaths:");
+      sb.append(allowedHostPaths + ",");
+    }
+    if (allowedProcMountTypes != null && !allowedProcMountTypes.isEmpty()) {
+      sb.append("allowedProcMountTypes:");
+      sb.append(allowedProcMountTypes + ",");
+    }
+    if (allowedUnsafeSysctls != null && !allowedUnsafeSysctls.isEmpty()) {
+      sb.append("allowedUnsafeSysctls:");
+      sb.append(allowedUnsafeSysctls + ",");
+    }
+    if (defaultAddCapabilities != null && !defaultAddCapabilities.isEmpty()) {
+      sb.append("defaultAddCapabilities:");
+      sb.append(defaultAddCapabilities + ",");
+    }
+    if (defaultAllowPrivilegeEscalation != null) {
+      sb.append("defaultAllowPrivilegeEscalation:");
+      sb.append(defaultAllowPrivilegeEscalation + ",");
+    }
+    if (forbiddenSysctls != null && !forbiddenSysctls.isEmpty()) {
+      sb.append("forbiddenSysctls:");
+      sb.append(forbiddenSysctls + ",");
+    }
+    if (fsGroup != null) {
+      sb.append("fsGroup:");
+      sb.append(fsGroup + ",");
+    }
+    if (hostIPC != null) {
+      sb.append("hostIPC:");
+      sb.append(hostIPC + ",");
+    }
+    if (hostNetwork != null) {
+      sb.append("hostNetwork:");
+      sb.append(hostNetwork + ",");
+    }
+    if (hostPID != null) {
+      sb.append("hostPID:");
+      sb.append(hostPID + ",");
+    }
+    if (hostPorts != null && !hostPorts.isEmpty()) {
+      sb.append("hostPorts:");
+      sb.append(hostPorts + ",");
+    }
+    if (privileged != null) {
+      sb.append("privileged:");
+      sb.append(privileged + ",");
+    }
+    if (readOnlyRootFilesystem != null) {
+      sb.append("readOnlyRootFilesystem:");
+      sb.append(readOnlyRootFilesystem + ",");
+    }
+    if (requiredDropCapabilities != null && !requiredDropCapabilities.isEmpty()) {
+      sb.append("requiredDropCapabilities:");
+      sb.append(requiredDropCapabilities + ",");
+    }
+    if (runAsGroup != null) {
+      sb.append("runAsGroup:");
+      sb.append(runAsGroup + ",");
+    }
+    if (runAsUser != null) {
+      sb.append("runAsUser:");
+      sb.append(runAsUser + ",");
+    }
+    if (runtimeClass != null) {
+      sb.append("runtimeClass:");
+      sb.append(runtimeClass + ",");
+    }
+    if (seLinux != null) {
+      sb.append("seLinux:");
+      sb.append(seLinux + ",");
+    }
+    if (supplementalGroups != null) {
+      sb.append("supplementalGroups:");
+      sb.append(supplementalGroups + ",");
+    }
+    if (volumes != null && !volumes.isEmpty()) {
+      sb.append("volumes:");
+      sb.append(volumes);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withAllowPrivilegeEscalation() {
+    return withAllowPrivilegeEscalation(true);
+  }
+
+  public A withDefaultAllowPrivilegeEscalation() {
+    return withDefaultAllowPrivilegeEscalation(true);
+  }
+
+  public A withHostIPC() {
+    return withHostIPC(true);
+  }
+
+  public A withHostNetwork() {
+    return withHostNetwork(true);
+  }
+
+  public A withHostPID() {
+    return withHostPID(true);
+  }
+
+  public A withPrivileged() {
+    return withPrivileged(true);
+  }
+
+  public A withReadOnlyRootFilesystem() {
+    return withReadOnlyRootFilesystem(true);
+  }
+
+  class AllowedCSIDriversNestedImpl<N>
+      extends V1beta1AllowedCSIDriverFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.AllowedCSIDriversNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .AllowedCSIDriversNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     AllowedCSIDriversNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriver item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1AllowedCSIDriverBuilder(this, item);
+      this.builder = new V1beta1AllowedCSIDriverBuilder(this, item);
     }
 
     AllowedCSIDriversNestedImpl() {
@@ -2644,21 +2698,16 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class AllowedFlexVolumesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
-                  .AllowedFlexVolumesNested<
-              N>>
+  class AllowedFlexVolumesNestedImpl<N>
+      extends V1beta1AllowedFlexVolumeFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.AllowedFlexVolumesNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .AllowedFlexVolumesNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    AllowedFlexVolumesNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolume item) {
+    AllowedFlexVolumesNestedImpl(java.lang.Integer index, V1beta1AllowedFlexVolume item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeBuilder(this, item);
+      this.builder = new V1beta1AllowedFlexVolumeBuilder(this, item);
     }
 
     AllowedFlexVolumesNestedImpl() {
@@ -2680,20 +2729,16 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class AllowedHostPathsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1AllowedHostPathFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
-                  .AllowedHostPathsNested<
-              N>>
+  class AllowedHostPathsNestedImpl<N>
+      extends V1beta1AllowedHostPathFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.AllowedHostPathsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .AllowedHostPathsNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    AllowedHostPathsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1AllowedHostPath item) {
+    AllowedHostPathsNestedImpl(java.lang.Integer index, V1beta1AllowedHostPath item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1AllowedHostPathBuilder(this, item);
+      this.builder = new V1beta1AllowedHostPathBuilder(this, item);
     }
 
     AllowedHostPathsNestedImpl() {
@@ -2714,16 +2759,15 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class FsGroupNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.FsGroupNested<N>>
+  class FsGroupNestedImpl<N>
+      extends V1beta1FSGroupStrategyOptionsFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.FsGroupNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .FsGroupNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    FsGroupNestedImpl(io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptions item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1FSGroupStrategyOptionsBuilder(this, item);
+    FsGroupNestedImpl(V1beta1FSGroupStrategyOptions item) {
+      this.builder = new V1beta1FSGroupStrategyOptionsBuilder(this, item);
     }
 
     FsGroupNestedImpl() {
@@ -2742,9 +2786,8 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class HostPortsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1HostPortRangeFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.HostPortsNested<N>>
+  class HostPortsNestedImpl<N>
+      extends V1beta1HostPortRangeFluentImpl<V1beta1PodSecurityPolicySpecFluent.HostPortsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .HostPortsNested<
               N>,
@@ -2752,8 +2795,7 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     HostPortsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1HostPortRange item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1HostPortRangeBuilder(this, item);
+      this.builder = new V1beta1HostPortRangeBuilder(this, item);
     }
 
     HostPortsNestedImpl() {
@@ -2773,19 +2815,16 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class RunAsGroupNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RunAsGroupNested<
-              N>>
+  class RunAsGroupNestedImpl<N>
+      extends V1beta1RunAsGroupStrategyOptionsFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.RunAsGroupNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .RunAsGroupNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     RunAsGroupNestedImpl(
         io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptions item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1RunAsGroupStrategyOptionsBuilder(
-              this, item);
+      this.builder = new V1beta1RunAsGroupStrategyOptionsBuilder(this, item);
     }
 
     RunAsGroupNestedImpl() {
@@ -2804,17 +2843,15 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class RunAsUserNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1RunAsUserStrategyOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RunAsUserNested<N>>
+  class RunAsUserNestedImpl<N>
+      extends V1beta1RunAsUserStrategyOptionsFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.RunAsUserNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .RunAsUserNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     RunAsUserNestedImpl(io.kubernetes.client.openapi.models.V1beta1RunAsUserStrategyOptions item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1RunAsUserStrategyOptionsBuilder(
-              this, item);
+      this.builder = new V1beta1RunAsUserStrategyOptionsBuilder(this, item);
     }
 
     RunAsUserNestedImpl() {
@@ -2833,19 +2870,16 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class RuntimeClassNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1RuntimeClassStrategyOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.RuntimeClassNested<
-              N>>
+  class RuntimeClassNestedImpl<N>
+      extends V1beta1RuntimeClassStrategyOptionsFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.RuntimeClassNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .RuntimeClassNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     RuntimeClassNestedImpl(
         io.kubernetes.client.openapi.models.V1beta1RuntimeClassStrategyOptions item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1RuntimeClassStrategyOptionsBuilder(
-              this, item);
+      this.builder = new V1beta1RuntimeClassStrategyOptionsBuilder(this, item);
     }
 
     RuntimeClassNestedImpl() {
@@ -2864,16 +2898,15 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class SeLinuxNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent.SeLinuxNested<N>>
+  class SeLinuxNestedImpl<N>
+      extends V1beta1SELinuxStrategyOptionsFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.SeLinuxNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .SeLinuxNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SeLinuxNestedImpl(io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptions item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1SELinuxStrategyOptionsBuilder(this, item);
+    SeLinuxNestedImpl(V1beta1SELinuxStrategyOptions item) {
+      this.builder = new V1beta1SELinuxStrategyOptionsBuilder(this, item);
     }
 
     SeLinuxNestedImpl() {
@@ -2892,21 +2925,15 @@ public class V1beta1PodSecurityPolicySpecFluentImpl<
     }
   }
 
-  public class SupplementalGroupsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models
-              .V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
-                  .SupplementalGroupsNested<
-              N>>
+  class SupplementalGroupsNestedImpl<N>
+      extends V1beta1SupplementalGroupsStrategyOptionsFluentImpl<
+          V1beta1PodSecurityPolicySpecFluent.SupplementalGroupsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1PodSecurityPolicySpecFluent
                   .SupplementalGroupsNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SupplementalGroupsNestedImpl(
-        io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptions item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1SupplementalGroupsStrategyOptionsBuilder(
-              this, item);
+    SupplementalGroupsNestedImpl(V1beta1SupplementalGroupsStrategyOptions item) {
+      this.builder = new V1beta1SupplementalGroupsStrategyOptionsBuilder(this, item);
     }
 
     SupplementalGroupsNestedImpl() {

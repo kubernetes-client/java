@@ -68,7 +68,7 @@ public class CSRUtils {
         .getStatus()
         .addConditionsItem(
             new V1CertificateSigningRequestCondition()
-                .type(V1CertificateSigningRequestCondition.TypeEnum.APPROVED)
+                .type("Approved")
                 .status("True")
                 .reason("Kubernetes Java Client")
                 .lastTransitionTime(now)

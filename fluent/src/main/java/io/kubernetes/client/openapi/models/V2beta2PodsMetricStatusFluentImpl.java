@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V2beta2PodsMetricStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2beta2PodsMetricStatusFluentImpl<A extends V2beta2PodsMetricStatusFluent<A>>
+    extends BaseFluent<A> implements V2beta2PodsMetricStatusFluent<A> {
   public V2beta2PodsMetricStatusFluentImpl() {}
 
   public V2beta2PodsMetricStatusFluentImpl(
@@ -26,16 +28,16 @@ public class V2beta2PodsMetricStatusFluentImpl<
     this.withMetric(instance.getMetric());
   }
 
-  private io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder current;
-  private io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder metric;
+  private V2beta2MetricValueStatusBuilder current;
+  private V2beta2MetricIdentifierBuilder metric;
 
   /**
    * This method has been deprecated, please use method buildCurrent instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus getCurrent() {
+  @Deprecated
+  public V2beta2MetricValueStatus getCurrent() {
     return this.current != null ? this.current.build() : null;
   }
 
@@ -53,20 +55,17 @@ public class V2beta2PodsMetricStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasCurrent() {
+  public Boolean hasCurrent() {
     return this.current != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.CurrentNested<A>
-      withNewCurrent() {
-    return new io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluentImpl
-        .CurrentNestedImpl();
+  public V2beta2PodsMetricStatusFluent.CurrentNested<A> withNewCurrent() {
+    return new V2beta2PodsMetricStatusFluentImpl.CurrentNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.CurrentNested<A>
       withNewCurrentLike(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item) {
-    return new io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluentImpl
-        .CurrentNestedImpl(item);
+    return new V2beta2PodsMetricStatusFluentImpl.CurrentNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.CurrentNested<A>
@@ -93,7 +92,7 @@ public class V2beta2PodsMetricStatusFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier getMetric() {
+  public V2beta2MetricIdentifier getMetric() {
     return this.metric != null ? this.metric.build() : null;
   }
 
@@ -114,10 +113,8 @@ public class V2beta2PodsMetricStatusFluentImpl<
     return this.metric != null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.MetricNested<A>
-      withNewMetric() {
-    return new io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluentImpl
-        .MetricNestedImpl();
+  public V2beta2PodsMetricStatusFluent.MetricNested<A> withNewMetric() {
+    return new V2beta2PodsMetricStatusFluentImpl.MetricNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.MetricNested<A>
@@ -144,7 +141,7 @@ public class V2beta2PodsMetricStatusFluentImpl<
     return withNewMetricLike(getMetric() != null ? getMetric() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta2PodsMetricStatusFluentImpl that = (V2beta2PodsMetricStatusFluentImpl) o;
@@ -157,14 +154,27 @@ public class V2beta2PodsMetricStatusFluentImpl<
     return java.util.Objects.hash(current, metric, super.hashCode());
   }
 
-  public class CurrentNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2beta2MetricValueStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.CurrentNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (current != null) {
+      sb.append("current:");
+      sb.append(current + ",");
+    }
+    if (metric != null) {
+      sb.append("metric:");
+      sb.append(metric);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class CurrentNestedImpl<N>
+      extends V2beta2MetricValueStatusFluentImpl<V2beta2PodsMetricStatusFluent.CurrentNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.CurrentNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    CurrentNestedImpl(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder(this, item);
+          Nested<N> {
+    CurrentNestedImpl(V2beta2MetricValueStatus item) {
+      this.builder = new V2beta2MetricValueStatusBuilder(this, item);
     }
 
     CurrentNestedImpl() {
@@ -182,14 +192,12 @@ public class V2beta2PodsMetricStatusFluentImpl<
     }
   }
 
-  public class MetricNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2beta2MetricIdentifierFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.MetricNested<N>>
+  class MetricNestedImpl<N>
+      extends V2beta2MetricIdentifierFluentImpl<V2beta2PodsMetricStatusFluent.MetricNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta2PodsMetricStatusFluent.MetricNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     MetricNestedImpl(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder(this, item);
+      this.builder = new V2beta2MetricIdentifierBuilder(this, item);
     }
 
     MetricNestedImpl() {

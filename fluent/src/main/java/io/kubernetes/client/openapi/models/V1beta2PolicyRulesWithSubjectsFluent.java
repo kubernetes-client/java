@@ -12,13 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1beta2PolicyRulesWithSubjectsFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToNonResourceRules(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule item);
+        A extends V1beta2PolicyRulesWithSubjectsFluent<A>>
+    extends Fluent<A> {
+  public A addToNonResourceRules(Integer index, V1beta2NonResourcePolicyRule item);
 
   public A setToNonResourceRules(
       java.lang.Integer index,
@@ -28,7 +32,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
       io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule... items);
 
   public A addAllToNonResourceRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule> items);
+      Collection<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule> items);
 
   public A removeFromNonResourceRules(
       io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule... items);
@@ -37,17 +41,15 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule> items);
 
   public A removeMatchingFromNonResourceRules(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder>
-          predicate);
+      Predicate<V1beta2NonResourcePolicyRuleBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildNonResourceRules instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule>
       getNonResourceRules();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule>
@@ -68,7 +70,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
                   io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder>
               predicate);
 
-  public java.lang.Boolean hasMatchingNonResourceRule(
+  public Boolean hasMatchingNonResourceRule(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder>
           predicate);
@@ -82,10 +84,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
 
   public java.lang.Boolean hasNonResourceRules();
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-              .NonResourceRulesNested<
-          A>
-      addNewNonResourceRule();
+  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> addNewNonResourceRule();
 
   public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
               .NonResourceRulesNested<
@@ -123,8 +122,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
                   io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder>
               predicate);
 
-  public A addToResourceRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRule item);
+  public A addToResourceRules(java.lang.Integer index, V1beta2ResourcePolicyRule item);
 
   public A setToResourceRules(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRule item);
@@ -142,9 +140,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRule> items);
 
   public A removeMatchingFromResourceRules(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleBuilder>
-          predicate);
+      java.util.function.Predicate<V1beta2ResourcePolicyRuleBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildResourceRules instead.
@@ -183,10 +179,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
 
   public java.lang.Boolean hasResourceRules();
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-              .ResourceRulesNested<
-          A>
-      addNewResourceRule();
+  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> addNewResourceRule();
 
   public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
               .ResourceRulesNested<
@@ -223,8 +216,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
                   io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleBuilder>
               predicate);
 
-  public A addToSubjects(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta2Subject item);
+  public A addToSubjects(java.lang.Integer index, V1beta2Subject item);
 
   public A setToSubjects(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta2Subject item);
@@ -240,8 +232,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1beta2Subject> items);
 
   public A removeMatchingFromSubjects(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1beta2SubjectBuilder>
-          predicate);
+      java.util.function.Predicate<V1beta2SubjectBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildSubjects instead.
@@ -274,8 +265,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
 
   public java.lang.Boolean hasSubjects();
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A>
-      addNewSubject();
+  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> addNewSubject();
 
   public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A>
       addNewSubjectLike(io.kubernetes.client.openapi.models.V1beta2Subject item);
@@ -299,11 +289,9 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
               predicate);
 
   public interface NonResourceRulesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluent<
-              io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-                      .NonResourceRulesNested<
-                  N>> {
+      extends Nested<N>,
+          V1beta2NonResourcePolicyRuleFluent<
+              V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<N>> {
     public N and();
 
     public N endNonResourceRule();
@@ -311,10 +299,8 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
 
   public interface ResourceRulesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleFluent<
-              io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-                      .ResourceRulesNested<
-                  N>> {
+          V1beta2ResourcePolicyRuleFluent<
+              V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<N>> {
     public N and();
 
     public N endResourceRule();
@@ -322,10 +308,7 @@ public interface V1beta2PolicyRulesWithSubjectsFluent<
 
   public interface SubjectsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta2SubjectFluent<
-              io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsFluent
-                      .SubjectsNested<
-                  N>> {
+          V1beta2SubjectFluent<V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<N>> {
     public N and();
 
     public N endSubject();

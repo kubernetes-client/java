@@ -12,11 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class ApiextensionsV1WebhookClientConfigFluentImpl<
-        A extends io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<A> {
+        A extends ApiextensionsV1WebhookClientConfigFluent<A>>
+    extends BaseFluent<A> implements ApiextensionsV1WebhookClientConfigFluent<A> {
   public ApiextensionsV1WebhookClientConfigFluentImpl() {}
 
   public ApiextensionsV1WebhookClientConfigFluentImpl(
@@ -28,9 +34,9 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
     this.withUrl(instance.getUrl());
   }
 
-  private java.util.List<java.lang.Byte> caBundle;
-  private io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceBuilder service;
-  private java.lang.String url;
+  private List<Byte> caBundle;
+  private ApiextensionsV1ServiceReferenceBuilder service;
+  private String url;
 
   public A withCaBundle(byte... caBundle) {
     if (this.caBundle != null) {
@@ -58,9 +64,9 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
     return result;
   }
 
-  public A addToCaBundle(java.lang.Integer index, java.lang.Byte item) {
+  public A addToCaBundle(Integer index, java.lang.Byte item) {
     if (this.caBundle == null) {
-      this.caBundle = new java.util.ArrayList<java.lang.Byte>();
+      this.caBundle = new ArrayList<java.lang.Byte>();
     }
     this.caBundle.add(index, item);
     return (A) this;
@@ -84,7 +90,7 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
     return (A) this;
   }
 
-  public A addAllToCaBundle(java.util.Collection<java.lang.Byte> items) {
+  public A addAllToCaBundle(Collection<java.lang.Byte> items) {
     if (this.caBundle == null) {
       this.caBundle = new java.util.ArrayList<java.lang.Byte>();
     }
@@ -112,7 +118,7 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasCaBundle() {
+  public Boolean hasCaBundle() {
     return caBundle != null && !caBundle.isEmpty();
   }
 
@@ -121,7 +127,7 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference getService() {
     return this.service != null ? this.service.build() : null;
   }
@@ -134,8 +140,7 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
       io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference service) {
     _visitables.get("service").remove(this.service);
     if (service != null) {
-      this.service =
-          new io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceBuilder(service);
+      this.service = new ApiextensionsV1ServiceReferenceBuilder(service);
       _visitables.get("service").add(this.service);
     }
     return (A) this;
@@ -145,18 +150,14 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
     return this.service != null;
   }
 
-  public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent.ServiceNested<
-          A>
-      withNewService() {
-    return new io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluentImpl
-        .ServiceNestedImpl();
+  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> withNewService() {
+    return new ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent.ServiceNested<
           A>
       withNewServiceLike(io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference item) {
-    return new io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluentImpl
-        .ServiceNestedImpl(item);
+    return new ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent.ServiceNested<
@@ -195,13 +196,7 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
     return this.url != null;
   }
 
-  /** Method is deprecated. use withUrl instead. */
-  @java.lang.Deprecated
-  public A withNewUrl(java.lang.String original) {
-    return (A) withUrl(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ApiextensionsV1WebhookClientConfigFluentImpl that =
@@ -216,19 +211,34 @@ public class ApiextensionsV1WebhookClientConfigFluentImpl<
     return java.util.Objects.hash(caBundle, service, url, super.hashCode());
   }
 
-  public class ServiceNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent
-                  .ServiceNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (caBundle != null && !caBundle.isEmpty()) {
+      sb.append("caBundle:");
+      sb.append(caBundle + ",");
+    }
+    if (service != null) {
+      sb.append("service:");
+      sb.append(service + ",");
+    }
+    if (url != null) {
+      sb.append("url:");
+      sb.append(url);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ServiceNestedImpl<N>
+      extends ApiextensionsV1ServiceReferenceFluentImpl<
+          ApiextensionsV1WebhookClientConfigFluent.ServiceNested<N>>
       implements io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent
                   .ServiceNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ServiceNestedImpl(io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceBuilder(
-              this, item);
+      this.builder = new ApiextensionsV1ServiceReferenceBuilder(this, item);
     }
 
     ServiceNestedImpl() {

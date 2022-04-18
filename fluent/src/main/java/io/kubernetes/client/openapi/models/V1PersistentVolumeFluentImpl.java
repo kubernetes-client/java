@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1PersistentVolumeFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PersistentVolumeFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PersistentVolumeFluentImpl<A extends V1PersistentVolumeFluent<A>>
+    extends BaseFluent<A> implements V1PersistentVolumeFluent<A> {
   public V1PersistentVolumeFluentImpl() {}
 
   public V1PersistentVolumeFluentImpl(
@@ -32,11 +34,11 @@ public class V1PersistentVolumeFluentImpl<
     this.withStatus(instance.getStatus());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1PersistentVolumeSpecBuilder spec;
-  private io.kubernetes.client.openapi.models.V1PersistentVolumeStatusBuilder status;
+  private V1ObjectMetaBuilder metadata;
+  private V1PersistentVolumeSpecBuilder spec;
+  private V1PersistentVolumeStatusBuilder status;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -47,14 +49,8 @@ public class V1PersistentVolumeFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -70,18 +66,12 @@ public class V1PersistentVolumeFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -93,7 +83,7 @@ public class V1PersistentVolumeFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -103,16 +93,13 @@ public class V1PersistentVolumeFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeFluentImpl
-        .MetadataNestedImpl();
+  public V1PersistentVolumeFluent.MetadataNested<A> withNewMetadata() {
+    return new V1PersistentVolumeFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeFluentImpl.MetadataNestedImpl(
-        item);
+    return new V1PersistentVolumeFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.MetadataNested<A>
@@ -139,7 +126,7 @@ public class V1PersistentVolumeFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec getSpec() {
+  public V1PersistentVolumeSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
@@ -160,8 +147,8 @@ public class V1PersistentVolumeFluentImpl<
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.SpecNested<A> withNewSpec() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeFluentImpl.SpecNestedImpl();
+  public V1PersistentVolumeFluent.SpecNested<A> withNewSpec() {
+    return new V1PersistentVolumeFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.SpecNested<A> withNewSpecLike(
@@ -193,7 +180,7 @@ public class V1PersistentVolumeFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeStatus getStatus() {
+  public V1PersistentVolumeStatus getStatus() {
     return this.status != null ? this.status.build() : null;
   }
 
@@ -214,9 +201,8 @@ public class V1PersistentVolumeFluentImpl<
     return this.status != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.StatusNested<A>
-      withNewStatus() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeFluentImpl.StatusNestedImpl();
+  public V1PersistentVolumeFluent.StatusNested<A> withNewStatus() {
+    return new V1PersistentVolumeFluentImpl.StatusNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.StatusNested<A>
@@ -242,7 +228,7 @@ public class V1PersistentVolumeFluentImpl<
     return withNewStatusLike(getStatus() != null ? getStatus() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PersistentVolumeFluentImpl that = (V1PersistentVolumeFluentImpl) o;
@@ -259,13 +245,39 @@ public class V1PersistentVolumeFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, status, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1PersistentVolumeFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -283,14 +295,12 @@ public class V1PersistentVolumeFluentImpl<
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.SpecNested<N>>
+  class SpecNestedImpl<N>
+      extends V1PersistentVolumeSpecFluentImpl<V1PersistentVolumeFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.SpecNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     SpecNestedImpl(io.kubernetes.client.openapi.models.V1PersistentVolumeSpec item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecBuilder(this, item);
+      this.builder = new V1PersistentVolumeSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
@@ -308,14 +318,12 @@ public class V1PersistentVolumeFluentImpl<
     }
   }
 
-  public class StatusNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PersistentVolumeStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.StatusNested<N>>
+  class StatusNestedImpl<N>
+      extends V1PersistentVolumeStatusFluentImpl<V1PersistentVolumeFluent.StatusNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeFluent.StatusNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     StatusNestedImpl(io.kubernetes.client.openapi.models.V1PersistentVolumeStatus item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeStatusBuilder(this, item);
+      this.builder = new V1PersistentVolumeStatusBuilder(this, item);
     }
 
     StatusNestedImpl() {

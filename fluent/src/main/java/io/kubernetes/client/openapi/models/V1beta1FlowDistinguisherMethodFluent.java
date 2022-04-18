@@ -12,17 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
 public interface V1beta1FlowDistinguisherMethodFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getType();
+        A extends V1beta1FlowDistinguisherMethodFluent<A>>
+    extends Fluent<A> {
+  public String getType();
 
   public A withType(java.lang.String type);
 
-  public java.lang.Boolean hasType();
-
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
+  public Boolean hasType();
 }

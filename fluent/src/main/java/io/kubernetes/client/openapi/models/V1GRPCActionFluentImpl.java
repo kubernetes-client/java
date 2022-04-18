@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1GRPCActionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1GRPCActionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1GRPCActionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1GRPCActionFluentImpl<A extends V1GRPCActionFluent<A>> extends BaseFluent<A>
+    implements V1GRPCActionFluent<A> {
   public V1GRPCActionFluentImpl() {}
 
   public V1GRPCActionFluentImpl(io.kubernetes.client.openapi.models.V1GRPCAction instance) {
@@ -25,8 +26,8 @@ public class V1GRPCActionFluentImpl<
     this.withService(instance.getService());
   }
 
-  private java.lang.Integer port;
-  private java.lang.String service;
+  private Integer port;
+  private String service;
 
   public java.lang.Integer getPort() {
     return this.port;
@@ -37,7 +38,7 @@ public class V1GRPCActionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
@@ -54,13 +55,7 @@ public class V1GRPCActionFluentImpl<
     return this.service != null;
   }
 
-  /** Method is deprecated. use withService instead. */
-  @java.lang.Deprecated
-  public A withNewService(java.lang.String original) {
-    return (A) withService(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1GRPCActionFluentImpl that = (V1GRPCActionFluentImpl) o;
@@ -71,5 +66,20 @@ public class V1GRPCActionFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(port, service, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (port != null) {
+      sb.append("port:");
+      sb.append(port + ",");
+    }
+    if (service != null) {
+      sb.append("service:");
+      sb.append(service);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

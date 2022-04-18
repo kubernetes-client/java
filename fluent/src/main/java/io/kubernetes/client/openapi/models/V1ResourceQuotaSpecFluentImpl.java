@@ -12,11 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1ResourceQuotaSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ResourceQuotaSpecFluentImpl<A extends V1ResourceQuotaSpecFluent<A>>
+    extends BaseFluent<A> implements V1ResourceQuotaSpecFluent<A> {
   public V1ResourceQuotaSpecFluentImpl() {}
 
   public V1ResourceQuotaSpecFluentImpl(
@@ -28,13 +37,13 @@ public class V1ResourceQuotaSpecFluentImpl<
     this.withScopes(instance.getScopes());
   }
 
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> hard;
-  private io.kubernetes.client.openapi.models.V1ScopeSelectorBuilder scopeSelector;
-  private java.util.List<java.lang.String> scopes;
+  private Map<String, Quantity> hard;
+  private V1ScopeSelectorBuilder scopeSelector;
+  private List<java.lang.String> scopes;
 
   public A addToHard(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
     if (this.hard == null && key != null && value != null) {
-      this.hard = new java.util.LinkedHashMap();
+      this.hard = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.hard.put(key, value);
@@ -91,7 +100,7 @@ public class V1ResourceQuotaSpecFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasHard() {
+  public Boolean hasHard() {
     return this.hard != null;
   }
 
@@ -100,8 +109,8 @@ public class V1ResourceQuotaSpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ScopeSelector getScopeSelector() {
+  @Deprecated
+  public V1ScopeSelector getScopeSelector() {
     return this.scopeSelector != null ? this.scopeSelector.build() : null;
   }
 
@@ -123,16 +132,13 @@ public class V1ResourceQuotaSpecFluentImpl<
     return this.scopeSelector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<A>
-      withNewScopeSelector() {
-    return new io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluentImpl
-        .ScopeSelectorNestedImpl();
+  public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> withNewScopeSelector() {
+    return new V1ResourceQuotaSpecFluentImpl.ScopeSelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<A>
       withNewScopeSelectorLike(io.kubernetes.client.openapi.models.V1ScopeSelector item) {
-    return new io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluentImpl
-        .ScopeSelectorNestedImpl(item);
+    return new V1ResourceQuotaSpecFluentImpl.ScopeSelectorNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<A>
@@ -153,9 +159,9 @@ public class V1ResourceQuotaSpecFluentImpl<
     return withNewScopeSelectorLike(getScopeSelector() != null ? getScopeSelector() : item);
   }
 
-  public A addToScopes(java.lang.Integer index, java.lang.String item) {
+  public A addToScopes(Integer index, java.lang.String item) {
     if (this.scopes == null) {
-      this.scopes = new java.util.ArrayList<java.lang.String>();
+      this.scopes = new ArrayList<java.lang.String>();
     }
     this.scopes.add(index, item);
     return (A) this;
@@ -179,7 +185,7 @@ public class V1ResourceQuotaSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToScopes(java.util.Collection<java.lang.String> items) {
+  public A addAllToScopes(Collection<java.lang.String> items) {
     if (this.scopes == null) {
       this.scopes = new java.util.ArrayList<java.lang.String>();
     }
@@ -223,8 +229,7 @@ public class V1ResourceQuotaSpecFluentImpl<
     return this.scopes.get(scopes.size() - 1);
   }
 
-  public java.lang.String getMatchingScope(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingScope(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : scopes) {
       if (predicate.test(item)) {
         return item;
@@ -271,11 +276,7 @@ public class V1ResourceQuotaSpecFluentImpl<
     return scopes != null && !scopes.isEmpty();
   }
 
-  public A addNewScope(java.lang.String original) {
-    return (A) addToScopes(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ResourceQuotaSpecFluentImpl that = (V1ResourceQuotaSpecFluentImpl) o;
@@ -291,14 +292,32 @@ public class V1ResourceQuotaSpecFluentImpl<
     return java.util.Objects.hash(hard, scopeSelector, scopes, super.hashCode());
   }
 
-  public class ScopeSelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ScopeSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (hard != null && !hard.isEmpty()) {
+      sb.append("hard:");
+      sb.append(hard + ",");
+    }
+    if (scopeSelector != null) {
+      sb.append("scopeSelector:");
+      sb.append(scopeSelector + ",");
+    }
+    if (scopes != null && !scopes.isEmpty()) {
+      sb.append("scopes:");
+      sb.append(scopes);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ScopeSelectorNestedImpl<N>
+      extends V1ScopeSelectorFluentImpl<V1ResourceQuotaSpecFluent.ScopeSelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ScopeSelectorNestedImpl(io.kubernetes.client.openapi.models.V1ScopeSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ScopeSelectorBuilder(this, item);
+          Nested<N> {
+    ScopeSelectorNestedImpl(V1ScopeSelector item) {
+      this.builder = new V1ScopeSelectorBuilder(this, item);
     }
 
     ScopeSelectorNestedImpl() {

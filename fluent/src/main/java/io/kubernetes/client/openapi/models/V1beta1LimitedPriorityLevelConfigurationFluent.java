@@ -12,24 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
 public interface V1beta1LimitedPriorityLevelConfigurationFluent<
-        A extends
-            io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getAssuredConcurrencyShares();
+        A extends V1beta1LimitedPriorityLevelConfigurationFluent<A>>
+    extends Fluent<A> {
+  public Integer getAssuredConcurrencyShares();
 
   public A withAssuredConcurrencyShares(java.lang.Integer assuredConcurrencyShares);
 
-  public java.lang.Boolean hasAssuredConcurrencyShares();
+  public Boolean hasAssuredConcurrencyShares();
 
   /**
    * This method has been deprecated, please use method buildLimitResponse instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1LimitResponse getLimitResponse();
+  @Deprecated
+  public V1beta1LimitResponse getLimitResponse();
 
   public io.kubernetes.client.openapi.models.V1beta1LimitResponse buildLimitResponse();
 
@@ -38,9 +40,7 @@ public interface V1beta1LimitedPriorityLevelConfigurationFluent<
 
   public java.lang.Boolean hasLimitResponse();
 
-  public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent
-              .LimitResponseNested<
-          A>
+  public V1beta1LimitedPriorityLevelConfigurationFluent.LimitResponseNested<A>
       withNewLimitResponse();
 
   public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent
@@ -64,11 +64,9 @@ public interface V1beta1LimitedPriorityLevelConfigurationFluent<
       editOrNewLimitResponseLike(io.kubernetes.client.openapi.models.V1beta1LimitResponse item);
 
   public interface LimitResponseNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1LimitResponseFluent<
-              io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent
-                      .LimitResponseNested<
-                  N>> {
+      extends Nested<N>,
+          V1beta1LimitResponseFluent<
+              V1beta1LimitedPriorityLevelConfigurationFluent.LimitResponseNested<N>> {
     public N and();
 
     public N endLimitResponse();

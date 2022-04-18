@@ -12,17 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1NamespaceListFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1NamespaceListFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NamespaceListFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NamespaceListFluentImpl<A extends V1NamespaceListFluent<A>> extends BaseFluent<A>
+    implements V1NamespaceListFluent<A> {
   public V1NamespaceListFluentImpl() {}
 
-  public V1NamespaceListFluentImpl(io.kubernetes.client.openapi.models.V1NamespaceList instance) {
+  public V1NamespaceListFluentImpl(V1NamespaceList instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withItems(instance.getItems());
@@ -32,10 +36,10 @@ public class V1NamespaceListFluentImpl<
     this.withMetadata(instance.getMetadata());
   }
 
-  private java.lang.String apiVersion;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1NamespaceBuilder> items;
+  private String apiVersion;
+  private ArrayList<V1NamespaceBuilder> items;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ListMetaBuilder metadata;
+  private V1ListMetaBuilder metadata;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -46,18 +50,11 @@ public class V1NamespaceListFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
-  public A addToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Namespace item) {
+  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1Namespace item) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NamespaceBuilder>();
@@ -104,8 +101,7 @@ public class V1NamespaceListFluentImpl<
     return (A) this;
   }
 
-  public A addAllToItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Namespace> items) {
+  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1Namespace> items) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NamespaceBuilder>();
@@ -145,8 +141,7 @@ public class V1NamespaceListFluentImpl<
   }
 
   public A removeMatchingFromItems(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NamespaceBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1NamespaceBuilder> predicate) {
     if (items == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1NamespaceBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
@@ -165,8 +160,8 @@ public class V1NamespaceListFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Namespace> getItems() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1Namespace> getItems() {
     return items != null ? build(items) : null;
   }
 
@@ -239,14 +234,13 @@ public class V1NamespaceListFluentImpl<
     return items != null && !items.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1NamespaceListFluent.ItemsNested<A> addNewItem() {
-    return new io.kubernetes.client.openapi.models.V1NamespaceListFluentImpl.ItemsNestedImpl();
+  public V1NamespaceListFluent.ItemsNested<A> addNewItem() {
+    return new V1NamespaceListFluentImpl.ItemsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NamespaceListFluent.ItemsNested<A> addNewItemLike(
       io.kubernetes.client.openapi.models.V1Namespace item) {
-    return new io.kubernetes.client.openapi.models.V1NamespaceListFluentImpl.ItemsNestedImpl(
-        -1, item);
+    return new V1NamespaceListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1NamespaceListFluent.ItemsNested<A> setNewItemLike(
@@ -299,12 +293,6 @@ public class V1NamespaceListFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
@@ -322,7 +310,7 @@ public class V1NamespaceListFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(metadata);
+      this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -332,9 +320,8 @@ public class V1NamespaceListFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NamespaceListFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1NamespaceListFluentImpl.MetadataNestedImpl();
+  public V1NamespaceListFluent.MetadataNested<A> withNewMetadata() {
+    return new V1NamespaceListFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1NamespaceListFluent.MetadataNested<A>
@@ -361,7 +348,7 @@ public class V1NamespaceListFluentImpl<
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NamespaceListFluentImpl that = (V1NamespaceListFluentImpl) o;
@@ -377,14 +364,35 @@ public class V1NamespaceListFluentImpl<
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public class ItemsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1NamespaceFluentImpl<
-          io.kubernetes.client.openapi.models.V1NamespaceListFluent.ItemsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (items != null && !items.isEmpty()) {
+      sb.append("items:");
+      sb.append(items + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ItemsNestedImpl<N> extends V1NamespaceFluentImpl<V1NamespaceListFluent.ItemsNested<N>>
       implements io.kubernetes.client.openapi.models.V1NamespaceListFluent.ItemsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ItemsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Namespace item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1NamespaceBuilder(this, item);
+      this.builder = new V1NamespaceBuilder(this, item);
     }
 
     ItemsNestedImpl() {
@@ -404,13 +412,11 @@ public class V1NamespaceListFluentImpl<
     }
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ListMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1NamespaceListFluent.MetadataNested<N>>
+  class MetadataNestedImpl<N> extends V1ListMetaFluentImpl<V1NamespaceListFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1NamespaceListFluent.MetadataNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ListMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this, item);
+    MetadataNestedImpl(V1ListMeta item) {
+      this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {

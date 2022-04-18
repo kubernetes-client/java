@@ -12,28 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1DaemonSetUpdateStrategyFluent<
-        A extends io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1DaemonSetUpdateStrategyFluent<A extends V1DaemonSetUpdateStrategyFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildRollingUpdate instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet getRollingUpdate();
+  @Deprecated
+  public V1RollingUpdateDaemonSet getRollingUpdate();
 
   public io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet buildRollingUpdate();
 
   public A withRollingUpdate(
       io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet rollingUpdate);
 
-  public java.lang.Boolean hasRollingUpdate();
+  public Boolean hasRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A>
-      withNewRollingUpdate();
+  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> withNewRollingUpdate();
 
   public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A>
       withNewRollingUpdateLike(io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet item);
@@ -47,18 +48,15 @@ public interface V1DaemonSetUpdateStrategyFluent<
   public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A>
       editOrNewRollingUpdateLike(io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet item);
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy.TypeEnum getType();
+  public String getType();
 
-  public A withType(io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy.TypeEnum type);
+  public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
 
   public interface RollingUpdateNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<
-              io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent
-                      .RollingUpdateNested<
-                  N>> {
+      extends Nested<N>,
+          V1RollingUpdateDaemonSetFluent<V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<N>> {
     public N and();
 
     public N endRollingUpdate();

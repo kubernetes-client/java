@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1IngressClassParametersReferenceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceFluent<A> {
+        A extends V1IngressClassParametersReferenceFluent<A>>
+    extends BaseFluent<A> implements V1IngressClassParametersReferenceFluent<A> {
   public V1IngressClassParametersReferenceFluentImpl() {}
 
   public V1IngressClassParametersReferenceFluentImpl(
@@ -32,7 +34,7 @@ public class V1IngressClassParametersReferenceFluentImpl<
     this.withScope(instance.getScope());
   }
 
-  private java.lang.String apiGroup;
+  private String apiGroup;
   private java.lang.String kind;
   private java.lang.String name;
   private java.lang.String namespace;
@@ -47,14 +49,8 @@ public class V1IngressClassParametersReferenceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiGroup() {
+  public Boolean hasApiGroup() {
     return this.apiGroup != null;
-  }
-
-  /** Method is deprecated. use withApiGroup instead. */
-  @java.lang.Deprecated
-  public A withNewApiGroup(java.lang.String original) {
-    return (A) withApiGroup(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -70,12 +66,6 @@ public class V1IngressClassParametersReferenceFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -87,12 +77,6 @@ public class V1IngressClassParametersReferenceFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.String getNamespace() {
@@ -108,12 +92,6 @@ public class V1IngressClassParametersReferenceFluentImpl<
     return this.namespace != null;
   }
 
-  /** Method is deprecated. use withNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A) withNamespace(new String(original));
-  }
-
   public java.lang.String getScope() {
     return this.scope;
   }
@@ -127,13 +105,7 @@ public class V1IngressClassParametersReferenceFluentImpl<
     return this.scope != null;
   }
 
-  /** Method is deprecated. use withScope instead. */
-  @java.lang.Deprecated
-  public A withNewScope(java.lang.String original) {
-    return (A) withScope(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1IngressClassParametersReferenceFluentImpl that =
@@ -149,5 +121,32 @@ public class V1IngressClassParametersReferenceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(apiGroup, kind, name, namespace, scope, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiGroup != null) {
+      sb.append("apiGroup:");
+      sb.append(apiGroup + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespace != null) {
+      sb.append("namespace:");
+      sb.append(namespace + ",");
+    }
+    if (scope != null) {
+      sb.append("scope:");
+      sb.append(scope);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1ComponentStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ComponentStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ComponentStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ComponentStatusFluentImpl<A extends V1ComponentStatusFluent<A>> extends BaseFluent<A>
+    implements V1ComponentStatusFluent<A> {
   public V1ComponentStatusFluentImpl() {}
 
   public V1ComponentStatusFluentImpl(
@@ -33,11 +37,10 @@ public class V1ComponentStatusFluentImpl<
     this.withMetadata(instance.getMetadata());
   }
 
-  private java.lang.String apiVersion;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder>
-      conditions;
+  private String apiVersion;
+  private ArrayList<V1ComponentConditionBuilder> conditions;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
+  private V1ObjectMetaBuilder metadata;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -48,22 +51,14 @@ public class V1ComponentStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
   public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ComponentCondition item) {
+      Integer index, io.kubernetes.client.openapi.models.V1ComponentCondition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1ComponentConditionBuilder>();
+      this.conditions = new java.util.ArrayList<V1ComponentConditionBuilder>();
     }
     io.kubernetes.client.openapi.models.V1ComponentConditionBuilder builder =
         new io.kubernetes.client.openapi.models.V1ComponentConditionBuilder(item);
@@ -112,7 +107,7 @@ public class V1ComponentStatusFluentImpl<
   }
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ComponentCondition> items) {
+      Collection<io.kubernetes.client.openapi.models.V1ComponentCondition> items) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -153,8 +148,7 @@ public class V1ComponentStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder> each =
         conditions.iterator();
@@ -174,8 +168,8 @@ public class V1ComponentStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ComponentCondition> getConditions() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1ComponentCondition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
@@ -251,16 +245,13 @@ public class V1ComponentStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V1ComponentStatusFluentImpl
-        .ConditionsNestedImpl();
+  public V1ComponentStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V1ComponentStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1ComponentCondition item) {
-    return new io.kubernetes.client.openapi.models.V1ComponentStatusFluentImpl.ConditionsNestedImpl(
-        -1, item);
+    return new V1ComponentStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
@@ -320,12 +311,6 @@ public class V1ComponentStatusFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
@@ -343,7 +328,7 @@ public class V1ComponentStatusFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -353,9 +338,8 @@ public class V1ComponentStatusFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1ComponentStatusFluentImpl.MetadataNestedImpl();
+  public V1ComponentStatusFluent.MetadataNested<A> withNewMetadata() {
+    return new V1ComponentStatusFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.MetadataNested<A>
@@ -382,7 +366,7 @@ public class V1ComponentStatusFluentImpl<
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ComponentStatusFluentImpl that = (V1ComponentStatusFluentImpl) o;
@@ -399,16 +383,36 @@ public class V1ComponentStatusFluentImpl<
     return java.util.Objects.hash(apiVersion, conditions, kind, metadata, super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ComponentConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V1ComponentConditionFluentImpl<V1ComponentStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ConditionsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1ComponentCondition item) {
+          Nested<N> {
+    ConditionsNestedImpl(java.lang.Integer index, V1ComponentCondition item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ComponentConditionBuilder(this, item);
+      this.builder = new V1ComponentConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
@@ -428,13 +432,12 @@ public class V1ComponentStatusFluentImpl<
     }
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1ComponentStatusFluent.MetadataNested<N>>
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1ComponentStatusFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1ComponentStatusFluent.MetadataNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {

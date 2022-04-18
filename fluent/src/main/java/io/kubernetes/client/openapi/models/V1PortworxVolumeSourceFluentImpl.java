@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1PortworxVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PortworxVolumeSourceFluentImpl<A extends V1PortworxVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1PortworxVolumeSourceFluent<A> {
   public V1PortworxVolumeSourceFluentImpl() {}
 
   public V1PortworxVolumeSourceFluentImpl(
@@ -28,8 +29,8 @@ public class V1PortworxVolumeSourceFluentImpl<
     this.withVolumeID(instance.getVolumeID());
   }
 
-  private java.lang.String fsType;
-  private java.lang.Boolean readOnly;
+  private String fsType;
+  private Boolean readOnly;
   private java.lang.String volumeID;
 
   public java.lang.String getFsType() {
@@ -43,12 +44,6 @@ public class V1PortworxVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasFsType() {
     return this.fsType != null;
-  }
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
   }
 
   public java.lang.Boolean getReadOnly() {
@@ -77,13 +72,7 @@ public class V1PortworxVolumeSourceFluentImpl<
     return this.volumeID != null;
   }
 
-  /** Method is deprecated. use withVolumeID instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeID(java.lang.String original) {
-    return (A) withVolumeID(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PortworxVolumeSourceFluentImpl that = (V1PortworxVolumeSourceFluentImpl) o;
@@ -95,5 +84,28 @@ public class V1PortworxVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(fsType, readOnly, volumeID, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (volumeID != null) {
+      sb.append("volumeID:");
+      sb.append(volumeID);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

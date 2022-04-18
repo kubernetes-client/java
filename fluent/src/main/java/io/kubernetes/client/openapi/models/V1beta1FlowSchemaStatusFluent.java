@@ -12,12 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1beta1FlowSchemaStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1FlowSchemaStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition item);
+public interface V1beta1FlowSchemaStatusFluent<A extends V1beta1FlowSchemaStatusFluent<A>>
+    extends Fluent<A> {
+  public A addToConditions(Integer index, V1beta1FlowSchemaCondition item);
 
   public A setToConditions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition item);
@@ -25,7 +29,7 @@ public interface V1beta1FlowSchemaStatusFluent<
   public A addToConditions(io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition> items);
+      Collection<io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition> items);
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition... items);
@@ -33,19 +37,15 @@ public interface V1beta1FlowSchemaStatusFluent<
   public A removeAllFromConditions(
       java.util.Collection<io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition> items);
 
-  public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder>
-          predicate);
+  public A removeMatchingFromConditions(Predicate<V1beta1FlowSchemaConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition>
-      getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition>
       buildConditions();
@@ -62,7 +62,7 @@ public interface V1beta1FlowSchemaStatusFluent<
               io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
+  public Boolean hasMatchingCondition(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder>
           predicate);
@@ -75,8 +75,7 @@ public interface V1beta1FlowSchemaStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1beta1FlowSchemaStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1beta1FlowSchemaStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1beta1FlowSchemaStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition item);
@@ -102,10 +101,8 @@ public interface V1beta1FlowSchemaStatusFluent<
               predicate);
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionFluent<
-              io.kubernetes.client.openapi.models.V1beta1FlowSchemaStatusFluent.ConditionsNested<
-                  N>> {
+      extends Nested<N>,
+          V1beta1FlowSchemaConditionFluent<V1beta1FlowSchemaStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

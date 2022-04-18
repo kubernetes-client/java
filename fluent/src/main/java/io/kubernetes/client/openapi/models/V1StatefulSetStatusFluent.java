@@ -12,15 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1StatefulSetStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getAvailableReplicas();
+public interface V1StatefulSetStatusFluent<A extends V1StatefulSetStatusFluent<A>>
+    extends Fluent<A> {
+  public Integer getAvailableReplicas();
 
   public A withAvailableReplicas(java.lang.Integer availableReplicas);
 
-  public java.lang.Boolean hasAvailableReplicas();
+  public Boolean hasAvailableReplicas();
 
   public java.lang.Integer getCollisionCount();
 
@@ -28,8 +33,7 @@ public interface V1StatefulSetStatusFluent<
 
   public java.lang.Boolean hasCollisionCount();
 
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSetCondition item);
+  public A addToConditions(java.lang.Integer index, V1StatefulSetCondition item);
 
   public A setToConditions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSetCondition item);
@@ -37,7 +41,7 @@ public interface V1StatefulSetStatusFluent<
   public A addToConditions(io.kubernetes.client.openapi.models.V1StatefulSetCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1StatefulSetCondition> items);
+      Collection<io.kubernetes.client.openapi.models.V1StatefulSetCondition> items);
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1StatefulSetCondition... items);
@@ -45,18 +49,15 @@ public interface V1StatefulSetStatusFluent<
   public A removeAllFromConditions(
       java.util.Collection<io.kubernetes.client.openapi.models.V1StatefulSetCondition> items);
 
-  public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1StatefulSetConditionBuilder>
-          predicate);
+  public A removeMatchingFromConditions(Predicate<V1StatefulSetConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1StatefulSetCondition> getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1StatefulSetCondition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1StatefulSetCondition>
       buildConditions();
@@ -85,8 +86,7 @@ public interface V1StatefulSetStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1StatefulSetStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1StatefulSetCondition item);
@@ -116,17 +116,13 @@ public interface V1StatefulSetStatusFluent<
 
   public java.lang.Boolean hasCurrentReplicas();
 
-  public java.lang.String getCurrentRevision();
+  public String getCurrentRevision();
 
   public A withCurrentRevision(java.lang.String currentRevision);
 
   public java.lang.Boolean hasCurrentRevision();
 
-  /** Method is deprecated. use withCurrentRevision instead. */
-  @java.lang.Deprecated
-  public A withNewCurrentRevision(java.lang.String original);
-
-  public java.lang.Long getObservedGeneration();
+  public Long getObservedGeneration();
 
   public A withObservedGeneration(java.lang.Long observedGeneration);
 
@@ -150,10 +146,6 @@ public interface V1StatefulSetStatusFluent<
 
   public java.lang.Boolean hasUpdateRevision();
 
-  /** Method is deprecated. use withUpdateRevision instead. */
-  @java.lang.Deprecated
-  public A withNewUpdateRevision(java.lang.String original);
-
   public java.lang.Integer getUpdatedReplicas();
 
   public A withUpdatedReplicas(java.lang.Integer updatedReplicas);
@@ -161,9 +153,8 @@ public interface V1StatefulSetStatusFluent<
   public java.lang.Boolean hasUpdatedReplicas();
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1StatefulSetConditionFluent<
-              io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<N>> {
+      extends Nested<N>,
+          V1StatefulSetConditionFluent<V1StatefulSetStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

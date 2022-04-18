@@ -12,14 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1ServiceSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ServiceSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ServiceSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends BaseFluent<A>
+    implements V1ServiceSpecFluent<A> {
   public V1ServiceSpecFluentImpl() {}
 
   public V1ServiceSpecFluentImpl(io.kubernetes.client.openapi.models.V1ServiceSpec instance) {
@@ -62,26 +68,25 @@ public class V1ServiceSpecFluentImpl<
     this.withType(instance.getType());
   }
 
-  private java.lang.Boolean allocateLoadBalancerNodePorts;
-  private java.lang.String clusterIP;
-  private java.util.List<java.lang.String> clusterIPs;
+  private Boolean allocateLoadBalancerNodePorts;
+  private String clusterIP;
+  private List<java.lang.String> clusterIPs;
   private java.util.List<java.lang.String> externalIPs;
   private java.lang.String externalName;
-  private io.kubernetes.client.openapi.models.V1ServiceSpec.ExternalTrafficPolicyEnum
-      externalTrafficPolicy;
-  private java.lang.Integer healthCheckNodePort;
+  private java.lang.String externalTrafficPolicy;
+  private Integer healthCheckNodePort;
   private java.lang.String internalTrafficPolicy;
   private java.util.List<java.lang.String> ipFamilies;
   private java.lang.String ipFamilyPolicy;
   private java.lang.String loadBalancerClass;
   private java.lang.String loadBalancerIP;
   private java.util.List<java.lang.String> loadBalancerSourceRanges;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServicePortBuilder> ports;
+  private ArrayList<V1ServicePortBuilder> ports;
   private java.lang.Boolean publishNotReadyAddresses;
-  private java.util.Map<java.lang.String, java.lang.String> selector;
-  private io.kubernetes.client.openapi.models.V1ServiceSpec.SessionAffinityEnum sessionAffinity;
-  private io.kubernetes.client.openapi.models.V1SessionAffinityConfigBuilder sessionAffinityConfig;
-  private io.kubernetes.client.openapi.models.V1ServiceSpec.TypeEnum type;
+  private Map<java.lang.String, java.lang.String> selector;
+  private java.lang.String sessionAffinity;
+  private V1SessionAffinityConfigBuilder sessionAffinityConfig;
+  private java.lang.String type;
 
   public java.lang.Boolean getAllocateLoadBalancerNodePorts() {
     return this.allocateLoadBalancerNodePorts;
@@ -107,12 +112,6 @@ public class V1ServiceSpecFluentImpl<
 
   public java.lang.Boolean hasClusterIP() {
     return this.clusterIP != null;
-  }
-
-  /** Method is deprecated. use withClusterIP instead. */
-  @java.lang.Deprecated
-  public A withNewClusterIP(java.lang.String original) {
-    return (A) withClusterIP(new String(original));
   }
 
   public A addToClusterIPs(java.lang.Integer index, java.lang.String item) {
@@ -141,7 +140,7 @@ public class V1ServiceSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToClusterIPs(java.util.Collection<java.lang.String> items) {
+  public A addAllToClusterIPs(Collection<java.lang.String> items) {
     if (this.clusterIPs == null) {
       this.clusterIPs = new java.util.ArrayList<java.lang.String>();
     }
@@ -185,8 +184,7 @@ public class V1ServiceSpecFluentImpl<
     return this.clusterIPs.get(clusterIPs.size() - 1);
   }
 
-  public java.lang.String getMatchingClusterIP(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingClusterIP(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : clusterIPs) {
       if (predicate.test(item)) {
         return item;
@@ -231,10 +229,6 @@ public class V1ServiceSpecFluentImpl<
 
   public java.lang.Boolean hasClusterIPs() {
     return clusterIPs != null && !clusterIPs.isEmpty();
-  }
-
-  public A addNewClusterIP(java.lang.String original) {
-    return (A) addToClusterIPs(new String(original));
   }
 
   public A addToExternalIPs(java.lang.Integer index, java.lang.String item) {
@@ -355,10 +349,6 @@ public class V1ServiceSpecFluentImpl<
     return externalIPs != null && !externalIPs.isEmpty();
   }
 
-  public A addNewExternalIP(java.lang.String original) {
-    return (A) addToExternalIPs(new String(original));
-  }
-
   public java.lang.String getExternalName() {
     return this.externalName;
   }
@@ -372,20 +362,11 @@ public class V1ServiceSpecFluentImpl<
     return this.externalName != null;
   }
 
-  /** Method is deprecated. use withExternalName instead. */
-  @java.lang.Deprecated
-  public A withNewExternalName(java.lang.String original) {
-    return (A) withExternalName(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1ServiceSpec.ExternalTrafficPolicyEnum
-      getExternalTrafficPolicy() {
+  public java.lang.String getExternalTrafficPolicy() {
     return this.externalTrafficPolicy;
   }
 
-  public A withExternalTrafficPolicy(
-      io.kubernetes.client.openapi.models.V1ServiceSpec.ExternalTrafficPolicyEnum
-          externalTrafficPolicy) {
+  public A withExternalTrafficPolicy(java.lang.String externalTrafficPolicy) {
     this.externalTrafficPolicy = externalTrafficPolicy;
     return (A) this;
   }
@@ -418,12 +399,6 @@ public class V1ServiceSpecFluentImpl<
 
   public java.lang.Boolean hasInternalTrafficPolicy() {
     return this.internalTrafficPolicy != null;
-  }
-
-  /** Method is deprecated. use withInternalTrafficPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewInternalTrafficPolicy(java.lang.String original) {
-    return (A) withInternalTrafficPolicy(new String(original));
   }
 
   public A addToIpFamilies(java.lang.Integer index, java.lang.String item) {
@@ -544,10 +519,6 @@ public class V1ServiceSpecFluentImpl<
     return ipFamilies != null && !ipFamilies.isEmpty();
   }
 
-  public A addNewIpFamily(java.lang.String original) {
-    return (A) addToIpFamilies(new String(original));
-  }
-
   public java.lang.String getIpFamilyPolicy() {
     return this.ipFamilyPolicy;
   }
@@ -559,12 +530,6 @@ public class V1ServiceSpecFluentImpl<
 
   public java.lang.Boolean hasIpFamilyPolicy() {
     return this.ipFamilyPolicy != null;
-  }
-
-  /** Method is deprecated. use withIpFamilyPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewIpFamilyPolicy(java.lang.String original) {
-    return (A) withIpFamilyPolicy(new String(original));
   }
 
   public java.lang.String getLoadBalancerClass() {
@@ -580,12 +545,6 @@ public class V1ServiceSpecFluentImpl<
     return this.loadBalancerClass != null;
   }
 
-  /** Method is deprecated. use withLoadBalancerClass instead. */
-  @java.lang.Deprecated
-  public A withNewLoadBalancerClass(java.lang.String original) {
-    return (A) withLoadBalancerClass(new String(original));
-  }
-
   public java.lang.String getLoadBalancerIP() {
     return this.loadBalancerIP;
   }
@@ -597,12 +556,6 @@ public class V1ServiceSpecFluentImpl<
 
   public java.lang.Boolean hasLoadBalancerIP() {
     return this.loadBalancerIP != null;
-  }
-
-  /** Method is deprecated. use withLoadBalancerIP instead. */
-  @java.lang.Deprecated
-  public A withNewLoadBalancerIP(java.lang.String original) {
-    return (A) withLoadBalancerIP(new String(original));
   }
 
   public A addToLoadBalancerSourceRanges(java.lang.Integer index, java.lang.String item) {
@@ -723,15 +676,10 @@ public class V1ServiceSpecFluentImpl<
     return loadBalancerSourceRanges != null && !loadBalancerSourceRanges.isEmpty();
   }
 
-  public A addNewLoadBalancerSourceRange(java.lang.String original) {
-    return (A) addToLoadBalancerSourceRanges(new String(original));
-  }
-
   public A addToPorts(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1ServicePort item) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServicePortBuilder>();
+      this.ports = new java.util.ArrayList<V1ServicePortBuilder>();
     }
     io.kubernetes.client.openapi.models.V1ServicePortBuilder builder =
         new io.kubernetes.client.openapi.models.V1ServicePortBuilder(item);
@@ -837,7 +785,7 @@ public class V1ServiceSpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> getPorts() {
     return ports != null ? build(ports) : null;
   }
@@ -911,14 +859,13 @@ public class V1ServiceSpecFluentImpl<
     return ports != null && !ports.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> addNewPort() {
-    return new io.kubernetes.client.openapi.models.V1ServiceSpecFluentImpl.PortsNestedImpl();
+  public V1ServiceSpecFluent.PortsNested<A> addNewPort() {
+    return new V1ServiceSpecFluentImpl.PortsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> addNewPortLike(
       io.kubernetes.client.openapi.models.V1ServicePort item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceSpecFluentImpl.PortsNestedImpl(
-        -1, item);
+    return new V1ServiceSpecFluentImpl.PortsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> setNewPortLike(
@@ -973,7 +920,7 @@ public class V1ServiceSpecFluentImpl<
 
   public A addToSelector(java.lang.String key, java.lang.String value) {
     if (this.selector == null && key != null && value != null) {
-      this.selector = new java.util.LinkedHashMap();
+      this.selector = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.selector.put(key, value);
@@ -1032,13 +979,11 @@ public class V1ServiceSpecFluentImpl<
     return this.selector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpec.SessionAffinityEnum
-      getSessionAffinity() {
+  public java.lang.String getSessionAffinity() {
     return this.sessionAffinity;
   }
 
-  public A withSessionAffinity(
-      io.kubernetes.client.openapi.models.V1ServiceSpec.SessionAffinityEnum sessionAffinity) {
+  public A withSessionAffinity(java.lang.String sessionAffinity) {
     this.sessionAffinity = sessionAffinity;
     return (A) this;
   }
@@ -1065,9 +1010,7 @@ public class V1ServiceSpecFluentImpl<
       io.kubernetes.client.openapi.models.V1SessionAffinityConfig sessionAffinityConfig) {
     _visitables.get("sessionAffinityConfig").remove(this.sessionAffinityConfig);
     if (sessionAffinityConfig != null) {
-      this.sessionAffinityConfig =
-          new io.kubernetes.client.openapi.models.V1SessionAffinityConfigBuilder(
-              sessionAffinityConfig);
+      this.sessionAffinityConfig = new V1SessionAffinityConfigBuilder(sessionAffinityConfig);
       _visitables.get("sessionAffinityConfig").add(this.sessionAffinityConfig);
     }
     return (A) this;
@@ -1077,10 +1020,8 @@ public class V1ServiceSpecFluentImpl<
     return this.sessionAffinityConfig != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      withNewSessionAffinityConfig() {
-    return new io.kubernetes.client.openapi.models.V1ServiceSpecFluentImpl
-        .SessionAffinityConfigNestedImpl();
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> withNewSessionAffinityConfig() {
+    return new V1ServiceSpecFluentImpl.SessionAffinityConfigNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
@@ -1110,11 +1051,11 @@ public class V1ServiceSpecFluentImpl<
         getSessionAffinityConfig() != null ? getSessionAffinityConfig() : item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpec.TypeEnum getType() {
+  public java.lang.String getType() {
     return this.type;
   }
 
-  public A withType(io.kubernetes.client.openapi.models.V1ServiceSpec.TypeEnum type) {
+  public A withType(java.lang.String type) {
     this.type = type;
     return (A) this;
   }
@@ -1123,7 +1064,7 @@ public class V1ServiceSpecFluentImpl<
     return this.type != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ServiceSpecFluentImpl that = (V1ServiceSpecFluentImpl) o;
@@ -1200,15 +1141,103 @@ public class V1ServiceSpecFluentImpl<
         super.hashCode());
   }
 
-  public class PortsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ServicePortFluentImpl<
-          io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (allocateLoadBalancerNodePorts != null) {
+      sb.append("allocateLoadBalancerNodePorts:");
+      sb.append(allocateLoadBalancerNodePorts + ",");
+    }
+    if (clusterIP != null) {
+      sb.append("clusterIP:");
+      sb.append(clusterIP + ",");
+    }
+    if (clusterIPs != null && !clusterIPs.isEmpty()) {
+      sb.append("clusterIPs:");
+      sb.append(clusterIPs + ",");
+    }
+    if (externalIPs != null && !externalIPs.isEmpty()) {
+      sb.append("externalIPs:");
+      sb.append(externalIPs + ",");
+    }
+    if (externalName != null) {
+      sb.append("externalName:");
+      sb.append(externalName + ",");
+    }
+    if (externalTrafficPolicy != null) {
+      sb.append("externalTrafficPolicy:");
+      sb.append(externalTrafficPolicy + ",");
+    }
+    if (healthCheckNodePort != null) {
+      sb.append("healthCheckNodePort:");
+      sb.append(healthCheckNodePort + ",");
+    }
+    if (internalTrafficPolicy != null) {
+      sb.append("internalTrafficPolicy:");
+      sb.append(internalTrafficPolicy + ",");
+    }
+    if (ipFamilies != null && !ipFamilies.isEmpty()) {
+      sb.append("ipFamilies:");
+      sb.append(ipFamilies + ",");
+    }
+    if (ipFamilyPolicy != null) {
+      sb.append("ipFamilyPolicy:");
+      sb.append(ipFamilyPolicy + ",");
+    }
+    if (loadBalancerClass != null) {
+      sb.append("loadBalancerClass:");
+      sb.append(loadBalancerClass + ",");
+    }
+    if (loadBalancerIP != null) {
+      sb.append("loadBalancerIP:");
+      sb.append(loadBalancerIP + ",");
+    }
+    if (loadBalancerSourceRanges != null && !loadBalancerSourceRanges.isEmpty()) {
+      sb.append("loadBalancerSourceRanges:");
+      sb.append(loadBalancerSourceRanges + ",");
+    }
+    if (ports != null && !ports.isEmpty()) {
+      sb.append("ports:");
+      sb.append(ports + ",");
+    }
+    if (publishNotReadyAddresses != null) {
+      sb.append("publishNotReadyAddresses:");
+      sb.append(publishNotReadyAddresses + ",");
+    }
+    if (selector != null && !selector.isEmpty()) {
+      sb.append("selector:");
+      sb.append(selector + ",");
+    }
+    if (sessionAffinity != null) {
+      sb.append("sessionAffinity:");
+      sb.append(sessionAffinity + ",");
+    }
+    if (sessionAffinityConfig != null) {
+      sb.append("sessionAffinityConfig:");
+      sb.append(sessionAffinityConfig + ",");
+    }
+    if (type != null) {
+      sb.append("type:");
+      sb.append(type);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withAllocateLoadBalancerNodePorts() {
+    return withAllocateLoadBalancerNodePorts(true);
+  }
+
+  public A withPublishNotReadyAddresses() {
+    return withPublishNotReadyAddresses(true);
+  }
+
+  class PortsNestedImpl<N> extends V1ServicePortFluentImpl<V1ServiceSpecFluent.PortsNested<N>>
+      implements io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<N>, Nested<N> {
     PortsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1ServicePort item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ServicePortBuilder(this, item);
+      this.builder = new V1ServicePortBuilder(this, item);
     }
 
     PortsNestedImpl() {
@@ -1228,17 +1257,14 @@ public class V1ServiceSpecFluentImpl<
     }
   }
 
-  public class SessionAffinityConfigNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SessionAffinityConfigFluentImpl<
-          io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<N>>
+  class SessionAffinityConfigNestedImpl<N>
+      extends V1SessionAffinityConfigFluentImpl<V1ServiceSpecFluent.SessionAffinityConfigNested<N>>
       implements io.kubernetes.client.openapi.models.V1ServiceSpecFluent
                   .SessionAffinityConfigNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SessionAffinityConfigNestedImpl(
-        io.kubernetes.client.openapi.models.V1SessionAffinityConfig item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1SessionAffinityConfigBuilder(this, item);
+    SessionAffinityConfigNestedImpl(V1SessionAffinityConfig item) {
+      this.builder = new V1SessionAffinityConfigBuilder(this, item);
     }
 
     SessionAffinityConfigNestedImpl() {

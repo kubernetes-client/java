@@ -12,19 +12,25 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1CertificateSigningRequestSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getExpirationSeconds();
+        A extends V1CertificateSigningRequestSpecFluent<A>>
+    extends Fluent<A> {
+  public Integer getExpirationSeconds();
 
   public A withExpirationSeconds(java.lang.Integer expirationSeconds);
 
-  public java.lang.Boolean hasExpirationSeconds();
+  public Boolean hasExpirationSeconds();
 
-  public A addToExtra(java.lang.String key, java.util.List<java.lang.String> value);
+  public A addToExtra(String key, List<java.lang.String> value);
 
-  public A addToExtra(java.util.Map<java.lang.String, java.util.List<java.lang.String>> map);
+  public A addToExtra(Map<java.lang.String, java.util.List<java.lang.String>> map);
 
   public A removeFromExtra(java.lang.String key);
 
@@ -43,7 +49,7 @@ public interface V1CertificateSigningRequestSpecFluent<
 
   public A addToGroups(java.lang.String... items);
 
-  public A addAllToGroups(java.util.Collection<java.lang.String> items);
+  public A addAllToGroups(Collection<java.lang.String> items);
 
   public A removeFromGroups(java.lang.String... items);
 
@@ -57,8 +63,7 @@ public interface V1CertificateSigningRequestSpecFluent<
 
   public java.lang.String getLastGroup();
 
-  public java.lang.String getMatchingGroup(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingGroup(Predicate<java.lang.String> predicate);
 
   public java.lang.Boolean hasMatchingGroup(
       java.util.function.Predicate<java.lang.String> predicate);
@@ -69,13 +74,11 @@ public interface V1CertificateSigningRequestSpecFluent<
 
   public java.lang.Boolean hasGroups();
 
-  public A addNewGroup(java.lang.String original);
-
   public A withRequest(byte... request);
 
   public byte[] getRequest();
 
-  public A addToRequest(java.lang.Integer index, java.lang.Byte item);
+  public A addToRequest(java.lang.Integer index, Byte item);
 
   public A setToRequest(java.lang.Integer index, java.lang.Byte item);
 
@@ -95,19 +98,11 @@ public interface V1CertificateSigningRequestSpecFluent<
 
   public java.lang.Boolean hasSignerName();
 
-  /** Method is deprecated. use withSignerName instead. */
-  @java.lang.Deprecated
-  public A withNewSignerName(java.lang.String original);
-
   public java.lang.String getUid();
 
   public A withUid(java.lang.String uid);
 
   public java.lang.Boolean hasUid();
-
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original);
 
   public A addToUsages(java.lang.Integer index, java.lang.String item);
 
@@ -141,15 +136,9 @@ public interface V1CertificateSigningRequestSpecFluent<
 
   public java.lang.Boolean hasUsages();
 
-  public A addNewUsage(java.lang.String original);
-
   public java.lang.String getUsername();
 
   public A withUsername(java.lang.String username);
 
   public java.lang.Boolean hasUsername();
-
-  /** Method is deprecated. use withUsername instead. */
-  @java.lang.Deprecated
-  public A withNewUsername(java.lang.String original);
 }

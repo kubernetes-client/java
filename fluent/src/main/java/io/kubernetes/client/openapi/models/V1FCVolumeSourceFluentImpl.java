@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1FCVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1FCVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1FCVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1FCVolumeSourceFluentImpl<A extends V1FCVolumeSourceFluent<A>> extends BaseFluent<A>
+    implements V1FCVolumeSourceFluent<A> {
   public V1FCVolumeSourceFluentImpl() {}
 
   public V1FCVolumeSourceFluentImpl(io.kubernetes.client.openapi.models.V1FCVolumeSource instance) {
@@ -31,10 +36,10 @@ public class V1FCVolumeSourceFluentImpl<
     this.withWwids(instance.getWwids());
   }
 
-  private java.lang.String fsType;
-  private java.lang.Integer lun;
-  private java.lang.Boolean readOnly;
-  private java.util.List<java.lang.String> targetWWNs;
+  private String fsType;
+  private Integer lun;
+  private Boolean readOnly;
+  private List<java.lang.String> targetWWNs;
   private java.util.List<java.lang.String> wwids;
 
   public java.lang.String getFsType() {
@@ -48,12 +53,6 @@ public class V1FCVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasFsType() {
     return this.fsType != null;
-  }
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
   }
 
   public java.lang.Integer getLun() {
@@ -84,7 +83,7 @@ public class V1FCVolumeSourceFluentImpl<
 
   public A addToTargetWWNs(java.lang.Integer index, java.lang.String item) {
     if (this.targetWWNs == null) {
-      this.targetWWNs = new java.util.ArrayList<java.lang.String>();
+      this.targetWWNs = new ArrayList<java.lang.String>();
     }
     this.targetWWNs.add(index, item);
     return (A) this;
@@ -108,7 +107,7 @@ public class V1FCVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public A addAllToTargetWWNs(java.util.Collection<java.lang.String> items) {
+  public A addAllToTargetWWNs(Collection<java.lang.String> items) {
     if (this.targetWWNs == null) {
       this.targetWWNs = new java.util.ArrayList<java.lang.String>();
     }
@@ -152,8 +151,7 @@ public class V1FCVolumeSourceFluentImpl<
     return this.targetWWNs.get(targetWWNs.size() - 1);
   }
 
-  public java.lang.String getMatchingTargetWWN(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingTargetWWN(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : targetWWNs) {
       if (predicate.test(item)) {
         return item;
@@ -198,10 +196,6 @@ public class V1FCVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasTargetWWNs() {
     return targetWWNs != null && !targetWWNs.isEmpty();
-  }
-
-  public A addNewTargetWWN(java.lang.String original) {
-    return (A) addToTargetWWNs(new String(original));
   }
 
   public A addToWwids(java.lang.Integer index, java.lang.String item) {
@@ -322,11 +316,7 @@ public class V1FCVolumeSourceFluentImpl<
     return wwids != null && !wwids.isEmpty();
   }
 
-  public A addNewWwid(java.lang.String original) {
-    return (A) addToWwids(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1FCVolumeSourceFluentImpl that = (V1FCVolumeSourceFluentImpl) o;
@@ -341,5 +331,36 @@ public class V1FCVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(fsType, lun, readOnly, targetWWNs, wwids, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (lun != null) {
+      sb.append("lun:");
+      sb.append(lun + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (targetWWNs != null && !targetWWNs.isEmpty()) {
+      sb.append("targetWWNs:");
+      sb.append(targetWWNs + ",");
+    }
+    if (wwids != null && !wwids.isEmpty()) {
+      sb.append("wwids:");
+      sb.append(wwids);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

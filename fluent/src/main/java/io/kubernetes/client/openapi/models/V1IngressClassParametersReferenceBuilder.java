@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1IngressClassParametersReferenceBuilder
-    extends io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceFluentImpl<
-        io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1IngressClassParametersReference,
+    extends V1IngressClassParametersReferenceFluentImpl<V1IngressClassParametersReferenceBuilder>
+    implements VisitableBuilder<
+        V1IngressClassParametersReference,
         io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceBuilder> {
   public V1IngressClassParametersReferenceBuilder() {
     this(false);
   }
 
-  public V1IngressClassParametersReferenceBuilder(java.lang.Boolean validationEnabled) {
+  public V1IngressClassParametersReferenceBuilder(Boolean validationEnabled) {
     this(new V1IngressClassParametersReference(), validationEnabled);
   }
 
@@ -94,24 +95,5 @@ public class V1IngressClassParametersReferenceBuilder
     buildable.setNamespace(fluent.getNamespace());
     buildable.setScope(fluent.getScope());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1IngressClassParametersReferenceBuilder that = (V1IngressClassParametersReferenceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

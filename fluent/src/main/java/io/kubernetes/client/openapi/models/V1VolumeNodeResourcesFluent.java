@@ -12,13 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1VolumeNodeResourcesFluent<
-        A extends io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getCount();
+public interface V1VolumeNodeResourcesFluent<A extends V1VolumeNodeResourcesFluent<A>>
+    extends Fluent<A> {
+  public Integer getCount();
 
   public A withCount(java.lang.Integer count);
 
-  public java.lang.Boolean hasCount();
+  public Boolean hasCount();
 }

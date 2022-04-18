@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1beta1EndpointConditionsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1EndpointConditionsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1EndpointConditionsFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1EndpointConditionsFluentImpl<A extends V1beta1EndpointConditionsFluent<A>>
+    extends BaseFluent<A> implements V1beta1EndpointConditionsFluent<A> {
   public V1beta1EndpointConditionsFluentImpl() {}
 
   public V1beta1EndpointConditionsFluentImpl(
@@ -28,7 +29,7 @@ public class V1beta1EndpointConditionsFluentImpl<
     this.withTerminating(instance.getTerminating());
   }
 
-  private java.lang.Boolean ready;
+  private Boolean ready;
   private java.lang.Boolean serving;
   private java.lang.Boolean terminating;
 
@@ -71,7 +72,7 @@ public class V1beta1EndpointConditionsFluentImpl<
     return this.terminating != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1EndpointConditionsFluentImpl that = (V1beta1EndpointConditionsFluentImpl) o;
@@ -84,5 +85,36 @@ public class V1beta1EndpointConditionsFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(ready, serving, terminating, super.hashCode());
+  }
+
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (ready != null) {
+      sb.append("ready:");
+      sb.append(ready + ",");
+    }
+    if (serving != null) {
+      sb.append("serving:");
+      sb.append(serving + ",");
+    }
+    if (terminating != null) {
+      sb.append("terminating:");
+      sb.append(terminating);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReady() {
+    return withReady(true);
+  }
+
+  public A withServing() {
+    return withServing(true);
+  }
+
+  public A withTerminating() {
+    return withTerminating(true);
   }
 }

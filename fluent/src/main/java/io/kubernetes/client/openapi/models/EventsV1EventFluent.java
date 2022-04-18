@@ -12,19 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public interface EventsV1EventFluent<
-        A extends io.kubernetes.client.openapi.models.EventsV1EventFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getAction();
+public interface EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends Fluent<A> {
+  public String getAction();
 
   public A withAction(java.lang.String action);
 
-  public java.lang.Boolean hasAction();
-
-  /** Method is deprecated. use withAction instead. */
-  @java.lang.Deprecated
-  public A withNewAction(java.lang.String original);
+  public Boolean hasAction();
 
   public java.lang.String getApiVersion();
 
@@ -32,17 +30,13 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasApiVersion();
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
-
-  public java.lang.Integer getDeprecatedCount();
+  public Integer getDeprecatedCount();
 
   public A withDeprecatedCount(java.lang.Integer deprecatedCount);
 
   public java.lang.Boolean hasDeprecatedCount();
 
-  public java.time.OffsetDateTime getDeprecatedFirstTimestamp();
+  public OffsetDateTime getDeprecatedFirstTimestamp();
 
   public A withDeprecatedFirstTimestamp(java.time.OffsetDateTime deprecatedFirstTimestamp);
 
@@ -59,8 +53,8 @@ public interface EventsV1EventFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1EventSource getDeprecatedSource();
+  @Deprecated
+  public V1EventSource getDeprecatedSource();
 
   public io.kubernetes.client.openapi.models.V1EventSource buildDeprecatedSource();
 
@@ -68,8 +62,7 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasDeprecatedSource();
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.DeprecatedSourceNested<A>
-      withNewDeprecatedSource();
+  public EventsV1EventFluent.DeprecatedSourceNested<A> withNewDeprecatedSource();
 
   public io.kubernetes.client.openapi.models.EventsV1EventFluent.DeprecatedSourceNested<A>
       withNewDeprecatedSourceLike(io.kubernetes.client.openapi.models.V1EventSource item);
@@ -95,17 +88,13 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -113,8 +102,7 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.MetadataNested<A>
-      withNewMetadata();
+  public EventsV1EventFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.EventsV1EventFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -133,19 +121,11 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasNote();
 
-  /** Method is deprecated. use withNote instead. */
-  @java.lang.Deprecated
-  public A withNewNote(java.lang.String original);
-
   public java.lang.String getReason();
 
   public A withReason(java.lang.String reason);
 
   public java.lang.Boolean hasReason();
-
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original);
 
   /**
    * This method has been deprecated, please use method buildRegarding instead.
@@ -153,7 +133,7 @@ public interface EventsV1EventFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getRegarding();
+  public V1ObjectReference getRegarding();
 
   public io.kubernetes.client.openapi.models.V1ObjectReference buildRegarding();
 
@@ -161,8 +141,7 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasRegarding();
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RegardingNested<A>
-      withNewRegarding();
+  public EventsV1EventFluent.RegardingNested<A> withNewRegarding();
 
   public io.kubernetes.client.openapi.models.EventsV1EventFluent.RegardingNested<A>
       withNewRegardingLike(io.kubernetes.client.openapi.models.V1ObjectReference item);
@@ -189,7 +168,7 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasRelated();
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RelatedNested<A> withNewRelated();
+  public EventsV1EventFluent.RelatedNested<A> withNewRelated();
 
   public io.kubernetes.client.openapi.models.EventsV1EventFluent.RelatedNested<A>
       withNewRelatedLike(io.kubernetes.client.openapi.models.V1ObjectReference item);
@@ -208,19 +187,11 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasReportingController();
 
-  /** Method is deprecated. use withReportingController instead. */
-  @java.lang.Deprecated
-  public A withNewReportingController(java.lang.String original);
-
   public java.lang.String getReportingInstance();
 
   public A withReportingInstance(java.lang.String reportingInstance);
 
   public java.lang.Boolean hasReportingInstance();
-
-  /** Method is deprecated. use withReportingInstance instead. */
-  @java.lang.Deprecated
-  public A withNewReportingInstance(java.lang.String original);
 
   /**
    * This method has been deprecated, please use method buildSeries instead.
@@ -228,7 +199,7 @@ public interface EventsV1EventFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.EventsV1EventSeries getSeries();
+  public EventsV1EventSeries getSeries();
 
   public io.kubernetes.client.openapi.models.EventsV1EventSeries buildSeries();
 
@@ -236,7 +207,7 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasSeries();
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.SeriesNested<A> withNewSeries();
+  public EventsV1EventFluent.SeriesNested<A> withNewSeries();
 
   public io.kubernetes.client.openapi.models.EventsV1EventFluent.SeriesNested<A> withNewSeriesLike(
       io.kubernetes.client.openapi.models.EventsV1EventSeries item);
@@ -254,14 +225,8 @@ public interface EventsV1EventFluent<
 
   public java.lang.Boolean hasType();
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
-
   public interface DeprecatedSourceNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1EventSourceFluent<
-              io.kubernetes.client.openapi.models.EventsV1EventFluent.DeprecatedSourceNested<N>> {
+      extends Nested<N>, V1EventSourceFluent<EventsV1EventFluent.DeprecatedSourceNested<N>> {
     public N and();
 
     public N endDeprecatedSource();
@@ -269,8 +234,7 @@ public interface EventsV1EventFluent<
 
   public interface MetadataNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.EventsV1EventFluent.MetadataNested<N>> {
+          V1ObjectMetaFluent<EventsV1EventFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
@@ -278,8 +242,7 @@ public interface EventsV1EventFluent<
 
   public interface RegardingNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.EventsV1EventFluent.RegardingNested<N>> {
+          V1ObjectReferenceFluent<EventsV1EventFluent.RegardingNested<N>> {
     public N and();
 
     public N endRegarding();
@@ -287,8 +250,7 @@ public interface EventsV1EventFluent<
 
   public interface RelatedNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.EventsV1EventFluent.RelatedNested<N>> {
+          V1ObjectReferenceFluent<EventsV1EventFluent.RelatedNested<N>> {
     public N and();
 
     public N endRelated();
@@ -296,8 +258,7 @@ public interface EventsV1EventFluent<
 
   public interface SeriesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.EventsV1EventSeriesFluent<
-              io.kubernetes.client.openapi.models.EventsV1EventFluent.SeriesNested<N>> {
+          EventsV1EventSeriesFluent<EventsV1EventFluent.SeriesNested<N>> {
     public N and();
 
     public N endSeries();

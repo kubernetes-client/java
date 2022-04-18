@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V2beta2HPAScalingRulesFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V2beta2HPAScalingRulesFluentImpl<A extends V2beta2HPAScalingRulesFluent<A>>
+    extends BaseFluent<A> implements V2beta2HPAScalingRulesFluent<A> {
   public V2beta2HPAScalingRulesFluentImpl() {}
 
   public V2beta2HPAScalingRulesFluentImpl(
@@ -31,13 +35,11 @@ public class V2beta2HPAScalingRulesFluentImpl<
     this.withStabilizationWindowSeconds(instance.getStabilizationWindowSeconds());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyBuilder>
-      policies;
-  private java.lang.String selectPolicy;
-  private java.lang.Integer stabilizationWindowSeconds;
+  private ArrayList<V2beta2HPAScalingPolicyBuilder> policies;
+  private String selectPolicy;
+  private Integer stabilizationWindowSeconds;
 
-  public A addToPolicies(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy item) {
+  public A addToPolicies(java.lang.Integer index, V2beta2HPAScalingPolicy item) {
     if (this.policies == null) {
       this.policies =
           new java.util.ArrayList<
@@ -90,7 +92,7 @@ public class V2beta2HPAScalingRulesFluentImpl<
   }
 
   public A addAllToPolicies(
-      java.util.Collection<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy> items) {
+      Collection<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy> items) {
     if (this.policies == null) {
       this.policies =
           new java.util.ArrayList<
@@ -132,9 +134,7 @@ public class V2beta2HPAScalingRulesFluentImpl<
   }
 
   public A removeMatchingFromPolicies(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyBuilder> predicate) {
     if (policies == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyBuilder> each =
         policies.iterator();
@@ -154,8 +154,8 @@ public class V2beta2HPAScalingRulesFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy> getPolicies() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy> getPolicies() {
     return policies != null ? build(policies) : null;
   }
 
@@ -189,7 +189,7 @@ public class V2beta2HPAScalingRulesFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingPolicy(
+  public Boolean hasMatchingPolicy(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyBuilder>
           predicate) {
@@ -233,16 +233,13 @@ public class V2beta2HPAScalingRulesFluentImpl<
     return policies != null && !policies.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent.PoliciesNested<A>
-      addNewPolicy() {
-    return new io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluentImpl
-        .PoliciesNestedImpl();
+  public V2beta2HPAScalingRulesFluent.PoliciesNested<A> addNewPolicy() {
+    return new V2beta2HPAScalingRulesFluentImpl.PoliciesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent.PoliciesNested<A>
       addNewPolicyLike(io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy item) {
-    return new io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluentImpl
-        .PoliciesNestedImpl(-1, item);
+    return new V2beta2HPAScalingRulesFluentImpl.PoliciesNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent.PoliciesNested<A>
@@ -303,12 +300,6 @@ public class V2beta2HPAScalingRulesFluentImpl<
     return this.selectPolicy != null;
   }
 
-  /** Method is deprecated. use withSelectPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewSelectPolicy(java.lang.String original) {
-    return (A) withSelectPolicy(new String(original));
-  }
-
   public java.lang.Integer getStabilizationWindowSeconds() {
     return this.stabilizationWindowSeconds;
   }
@@ -322,7 +313,7 @@ public class V2beta2HPAScalingRulesFluentImpl<
     return this.stabilizationWindowSeconds != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2beta2HPAScalingRulesFluentImpl that = (V2beta2HPAScalingRulesFluentImpl) o;
@@ -340,16 +331,33 @@ public class V2beta2HPAScalingRulesFluentImpl<
         policies, selectPolicy, stabilizationWindowSeconds, super.hashCode());
   }
 
-  public class PoliciesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyFluentImpl<
-          io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent.PoliciesNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (policies != null && !policies.isEmpty()) {
+      sb.append("policies:");
+      sb.append(policies + ",");
+    }
+    if (selectPolicy != null) {
+      sb.append("selectPolicy:");
+      sb.append(selectPolicy + ",");
+    }
+    if (stabilizationWindowSeconds != null) {
+      sb.append("stabilizationWindowSeconds:");
+      sb.append(stabilizationWindowSeconds);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class PoliciesNestedImpl<N>
+      extends V2beta2HPAScalingPolicyFluentImpl<V2beta2HPAScalingRulesFluent.PoliciesNested<N>>
       implements io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent.PoliciesNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     PoliciesNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicy item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyBuilder(this, item);
+      this.builder = new V2beta2HPAScalingPolicyBuilder(this, item);
     }
 
     PoliciesNestedImpl() {

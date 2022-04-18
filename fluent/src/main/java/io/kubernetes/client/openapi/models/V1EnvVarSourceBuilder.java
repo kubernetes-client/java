@@ -12,21 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1EnvVarSourceBuilder
-    extends io.kubernetes.client.openapi.models.V1EnvVarSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V1EnvVarSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1EnvVarSourceBuilder extends V1EnvVarSourceFluentImpl<V1EnvVarSourceBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1EnvVarSource,
         io.kubernetes.client.openapi.models.V1EnvVarSourceBuilder> {
   public V1EnvVarSourceBuilder() {
     this(false);
   }
 
-  public V1EnvVarSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V1EnvVarSourceBuilder(Boolean validationEnabled) {
     this(new V1EnvVarSource(), validationEnabled);
   }
 
-  public V1EnvVarSourceBuilder(io.kubernetes.client.openapi.models.V1EnvVarSourceFluent<?> fluent) {
+  public V1EnvVarSourceBuilder(V1EnvVarSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -87,24 +87,5 @@ public class V1EnvVarSourceBuilder
     buildable.setResourceFieldRef(fluent.getResourceFieldRef());
     buildable.setSecretKeyRef(fluent.getSecretKeyRef());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1EnvVarSourceBuilder that = (V1EnvVarSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

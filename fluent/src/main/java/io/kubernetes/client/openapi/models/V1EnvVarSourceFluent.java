@@ -12,28 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1EnvVarSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1EnvVarSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildConfigMapKeyRef instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ConfigMapKeySelector getConfigMapKeyRef();
+  @Deprecated
+  public V1ConfigMapKeySelector getConfigMapKeyRef();
 
   public io.kubernetes.client.openapi.models.V1ConfigMapKeySelector buildConfigMapKeyRef();
 
   public A withConfigMapKeyRef(
       io.kubernetes.client.openapi.models.V1ConfigMapKeySelector configMapKeyRef);
 
-  public java.lang.Boolean hasConfigMapKeyRef();
+  public Boolean hasConfigMapKeyRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.ConfigMapKeyRefNested<A>
-      withNewConfigMapKeyRef();
+  public V1EnvVarSourceFluent.ConfigMapKeyRefNested<A> withNewConfigMapKeyRef();
 
   public io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.ConfigMapKeyRefNested<A>
       withNewConfigMapKeyRefLike(io.kubernetes.client.openapi.models.V1ConfigMapKeySelector item);
@@ -53,7 +53,7 @@ public interface V1EnvVarSourceFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectFieldSelector getFieldRef();
+  public V1ObjectFieldSelector getFieldRef();
 
   public io.kubernetes.client.openapi.models.V1ObjectFieldSelector buildFieldRef();
 
@@ -61,8 +61,7 @@ public interface V1EnvVarSourceFluent<
 
   public java.lang.Boolean hasFieldRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.FieldRefNested<A>
-      withNewFieldRef();
+  public V1EnvVarSourceFluent.FieldRefNested<A> withNewFieldRef();
 
   public io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.FieldRefNested<A>
       withNewFieldRefLike(io.kubernetes.client.openapi.models.V1ObjectFieldSelector item);
@@ -81,7 +80,7 @@ public interface V1EnvVarSourceFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ResourceFieldSelector getResourceFieldRef();
+  public V1ResourceFieldSelector getResourceFieldRef();
 
   public io.kubernetes.client.openapi.models.V1ResourceFieldSelector buildResourceFieldRef();
 
@@ -90,8 +89,7 @@ public interface V1EnvVarSourceFluent<
 
   public java.lang.Boolean hasResourceFieldRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.ResourceFieldRefNested<A>
-      withNewResourceFieldRef();
+  public V1EnvVarSourceFluent.ResourceFieldRefNested<A> withNewResourceFieldRef();
 
   public io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.ResourceFieldRefNested<A>
       withNewResourceFieldRefLike(io.kubernetes.client.openapi.models.V1ResourceFieldSelector item);
@@ -112,7 +110,7 @@ public interface V1EnvVarSourceFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SecretKeySelector getSecretKeyRef();
+  public V1SecretKeySelector getSecretKeyRef();
 
   public io.kubernetes.client.openapi.models.V1SecretKeySelector buildSecretKeyRef();
 
@@ -120,8 +118,7 @@ public interface V1EnvVarSourceFluent<
 
   public java.lang.Boolean hasSecretKeyRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.SecretKeyRefNested<A>
-      withNewSecretKeyRef();
+  public V1EnvVarSourceFluent.SecretKeyRefNested<A> withNewSecretKeyRef();
 
   public io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.SecretKeyRefNested<A>
       withNewSecretKeyRefLike(io.kubernetes.client.openapi.models.V1SecretKeySelector item);
@@ -136,9 +133,8 @@ public interface V1EnvVarSourceFluent<
       editOrNewSecretKeyRefLike(io.kubernetes.client.openapi.models.V1SecretKeySelector item);
 
   public interface ConfigMapKeyRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ConfigMapKeySelectorFluent<
-              io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.ConfigMapKeyRefNested<N>> {
+      extends Nested<N>,
+          V1ConfigMapKeySelectorFluent<V1EnvVarSourceFluent.ConfigMapKeyRefNested<N>> {
     public N and();
 
     public N endConfigMapKeyRef();
@@ -146,8 +142,7 @@ public interface V1EnvVarSourceFluent<
 
   public interface FieldRefNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<
-              io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.FieldRefNested<N>> {
+          V1ObjectFieldSelectorFluent<V1EnvVarSourceFluent.FieldRefNested<N>> {
     public N and();
 
     public N endFieldRef();
@@ -155,8 +150,7 @@ public interface V1EnvVarSourceFluent<
 
   public interface ResourceFieldRefNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ResourceFieldSelectorFluent<
-              io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.ResourceFieldRefNested<N>> {
+          V1ResourceFieldSelectorFluent<V1EnvVarSourceFluent.ResourceFieldRefNested<N>> {
     public N and();
 
     public N endResourceFieldRef();
@@ -164,8 +158,7 @@ public interface V1EnvVarSourceFluent<
 
   public interface SecretKeyRefNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1SecretKeySelectorFluent<
-              io.kubernetes.client.openapi.models.V1EnvVarSourceFluent.SecretKeyRefNested<N>> {
+          V1SecretKeySelectorFluent<V1EnvVarSourceFluent.SecretKeyRefNested<N>> {
     public N and();
 
     public N endSecretKeyRef();

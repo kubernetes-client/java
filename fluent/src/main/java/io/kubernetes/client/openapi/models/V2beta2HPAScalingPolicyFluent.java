@@ -12,25 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V2beta2HPAScalingPolicyFluent<
-        A extends io.kubernetes.client.openapi.models.V2beta2HPAScalingPolicyFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getPeriodSeconds();
+public interface V2beta2HPAScalingPolicyFluent<A extends V2beta2HPAScalingPolicyFluent<A>>
+    extends Fluent<A> {
+  public Integer getPeriodSeconds();
 
   public A withPeriodSeconds(java.lang.Integer periodSeconds);
 
-  public java.lang.Boolean hasPeriodSeconds();
+  public Boolean hasPeriodSeconds();
 
-  public java.lang.String getType();
+  public String getType();
 
   public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
-
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
 
   public java.lang.Integer getValue();
 

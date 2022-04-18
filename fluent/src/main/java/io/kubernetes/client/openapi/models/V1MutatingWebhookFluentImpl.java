@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1MutatingWebhookFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> extends BaseFluent<A>
+    implements V1MutatingWebhookFluent<A> {
   public V1MutatingWebhookFluentImpl() {}
 
   public V1MutatingWebhookFluentImpl(
@@ -47,19 +51,17 @@ public class V1MutatingWebhookFluentImpl<
     this.withTimeoutSeconds(instance.getTimeoutSeconds());
   }
 
-  private java.util.List<java.lang.String> admissionReviewVersions;
-  private io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigBuilder
-      clientConfig;
+  private List<String> admissionReviewVersions;
+  private AdmissionregistrationV1WebhookClientConfigBuilder clientConfig;
   private java.lang.String failurePolicy;
   private java.lang.String matchPolicy;
   private java.lang.String name;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder namespaceSelector;
-  private io.kubernetes.client.openapi.models.V1LabelSelectorBuilder objectSelector;
+  private V1LabelSelectorBuilder namespaceSelector;
+  private V1LabelSelectorBuilder objectSelector;
   private java.lang.String reinvocationPolicy;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>
-      rules;
+  private ArrayList<V1RuleWithOperationsBuilder> rules;
   private java.lang.String sideEffects;
-  private java.lang.Integer timeoutSeconds;
+  private Integer timeoutSeconds;
 
   public A addToAdmissionReviewVersions(java.lang.Integer index, java.lang.String item) {
     if (this.admissionReviewVersions == null) {
@@ -87,7 +89,7 @@ public class V1MutatingWebhookFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAdmissionReviewVersions(java.util.Collection<java.lang.String> items) {
+  public A addAllToAdmissionReviewVersions(Collection<java.lang.String> items) {
     if (this.admissionReviewVersions == null) {
       this.admissionReviewVersions = new java.util.ArrayList<java.lang.String>();
     }
@@ -131,8 +133,7 @@ public class V1MutatingWebhookFluentImpl<
     return this.admissionReviewVersions.get(admissionReviewVersions.size() - 1);
   }
 
-  public java.lang.String getMatchingAdmissionReviewVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingAdmissionReviewVersion(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : admissionReviewVersions) {
       if (predicate.test(item)) {
         return item;
@@ -141,7 +142,7 @@ public class V1MutatingWebhookFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAdmissionReviewVersion(
+  public Boolean hasMatchingAdmissionReviewVersion(
       java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : admissionReviewVersions) {
       if (predicate.test(item)) {
@@ -179,16 +180,12 @@ public class V1MutatingWebhookFluentImpl<
     return admissionReviewVersions != null && !admissionReviewVersions.isEmpty();
   }
 
-  public A addNewAdmissionReviewVersion(java.lang.String original) {
-    return (A) addToAdmissionReviewVersions(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildClientConfig instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig
       getClientConfig() {
     return this.clientConfig != null ? this.clientConfig.build() : null;
@@ -203,9 +200,7 @@ public class V1MutatingWebhookFluentImpl<
       io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig clientConfig) {
     _visitables.get("clientConfig").remove(this.clientConfig);
     if (clientConfig != null) {
-      this.clientConfig =
-          new io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigBuilder(
-              clientConfig);
+      this.clientConfig = new AdmissionregistrationV1WebhookClientConfigBuilder(clientConfig);
       _visitables.get("clientConfig").add(this.clientConfig);
     }
     return (A) this;
@@ -215,17 +210,14 @@ public class V1MutatingWebhookFluentImpl<
     return this.clientConfig != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<A>
-      withNewClientConfig() {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl
-        .ClientConfigNestedImpl();
+  public V1MutatingWebhookFluent.ClientConfigNested<A> withNewClientConfig() {
+    return new V1MutatingWebhookFluentImpl.ClientConfigNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<A>
       withNewClientConfigLike(
           io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig item) {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl
-        .ClientConfigNestedImpl(item);
+    return new V1MutatingWebhookFluentImpl.ClientConfigNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<A>
@@ -262,12 +254,6 @@ public class V1MutatingWebhookFluentImpl<
     return this.failurePolicy != null;
   }
 
-  /** Method is deprecated. use withFailurePolicy instead. */
-  @java.lang.Deprecated
-  public A withNewFailurePolicy(java.lang.String original) {
-    return (A) withFailurePolicy(new String(original));
-  }
-
   public java.lang.String getMatchPolicy() {
     return this.matchPolicy;
   }
@@ -281,12 +267,6 @@ public class V1MutatingWebhookFluentImpl<
     return this.matchPolicy != null;
   }
 
-  /** Method is deprecated. use withMatchPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewMatchPolicy(java.lang.String original) {
-    return (A) withMatchPolicy(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -298,12 +278,6 @@ public class V1MutatingWebhookFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   /**
@@ -335,10 +309,8 @@ public class V1MutatingWebhookFluentImpl<
     return this.namespaceSelector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.NamespaceSelectorNested<A>
-      withNewNamespaceSelector() {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl
-        .NamespaceSelectorNestedImpl();
+  public V1MutatingWebhookFluent.NamespaceSelectorNested<A> withNewNamespaceSelector() {
+    return new V1MutatingWebhookFluentImpl.NamespaceSelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.NamespaceSelectorNested<A>
@@ -394,10 +366,8 @@ public class V1MutatingWebhookFluentImpl<
     return this.objectSelector != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<A>
-      withNewObjectSelector() {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl
-        .ObjectSelectorNestedImpl();
+  public V1MutatingWebhookFluent.ObjectSelectorNested<A> withNewObjectSelector() {
+    return new V1MutatingWebhookFluentImpl.ObjectSelectorNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<A>
@@ -437,14 +407,7 @@ public class V1MutatingWebhookFluentImpl<
     return this.reinvocationPolicy != null;
   }
 
-  /** Method is deprecated. use withReinvocationPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewReinvocationPolicy(java.lang.String original) {
-    return (A) withReinvocationPolicy(new String(original));
-  }
-
-  public A addToRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1RuleWithOperations item) {
+  public A addToRules(java.lang.Integer index, V1RuleWithOperations item) {
     if (this.rules == null) {
       this.rules =
           new java.util.ArrayList<
@@ -633,8 +596,8 @@ public class V1MutatingWebhookFluentImpl<
     return rules != null && !rules.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A> addNewRule() {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl.RulesNestedImpl();
+  public V1MutatingWebhookFluent.RulesNested<A> addNewRule() {
+    return new V1MutatingWebhookFluentImpl.RulesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A> addNewRuleLike(
@@ -696,12 +659,6 @@ public class V1MutatingWebhookFluentImpl<
     return this.sideEffects != null;
   }
 
-  /** Method is deprecated. use withSideEffects instead. */
-  @java.lang.Deprecated
-  public A withNewSideEffects(java.lang.String original) {
-    return (A) withSideEffects(new String(original));
-  }
-
   public java.lang.Integer getTimeoutSeconds() {
     return this.timeoutSeconds;
   }
@@ -715,7 +672,7 @@ public class V1MutatingWebhookFluentImpl<
     return this.timeoutSeconds != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1MutatingWebhookFluentImpl that = (V1MutatingWebhookFluentImpl) o;
@@ -764,17 +721,65 @@ public class V1MutatingWebhookFluentImpl<
         super.hashCode());
   }
 
-  public class ClientConfigNestedImpl<N>
-      extends io.kubernetes.client.openapi.models
-              .AdmissionregistrationV1WebhookClientConfigFluentImpl<
-          io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (admissionReviewVersions != null && !admissionReviewVersions.isEmpty()) {
+      sb.append("admissionReviewVersions:");
+      sb.append(admissionReviewVersions + ",");
+    }
+    if (clientConfig != null) {
+      sb.append("clientConfig:");
+      sb.append(clientConfig + ",");
+    }
+    if (failurePolicy != null) {
+      sb.append("failurePolicy:");
+      sb.append(failurePolicy + ",");
+    }
+    if (matchPolicy != null) {
+      sb.append("matchPolicy:");
+      sb.append(matchPolicy + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespaceSelector != null) {
+      sb.append("namespaceSelector:");
+      sb.append(namespaceSelector + ",");
+    }
+    if (objectSelector != null) {
+      sb.append("objectSelector:");
+      sb.append(objectSelector + ",");
+    }
+    if (reinvocationPolicy != null) {
+      sb.append("reinvocationPolicy:");
+      sb.append(reinvocationPolicy + ",");
+    }
+    if (rules != null && !rules.isEmpty()) {
+      sb.append("rules:");
+      sb.append(rules + ",");
+    }
+    if (sideEffects != null) {
+      sb.append("sideEffects:");
+      sb.append(sideEffects + ",");
+    }
+    if (timeoutSeconds != null) {
+      sb.append("timeoutSeconds:");
+      sb.append(timeoutSeconds);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ClientConfigNestedImpl<N>
+      extends AdmissionregistrationV1WebhookClientConfigFluentImpl<
+          V1MutatingWebhookFluent.ClientConfigNested<N>>
       implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ClientConfigNestedImpl(
         io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigBuilder(
-              this, item);
+      this.builder = new AdmissionregistrationV1WebhookClientConfigBuilder(this, item);
     }
 
     ClientConfigNestedImpl() {
@@ -794,15 +799,14 @@ public class V1MutatingWebhookFluentImpl<
     }
   }
 
-  public class NamespaceSelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.NamespaceSelectorNested<N>>
+  class NamespaceSelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V1MutatingWebhookFluent.NamespaceSelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent
                   .NamespaceSelectorNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    NamespaceSelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+    NamespaceSelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     NamespaceSelectorNestedImpl() {
@@ -820,14 +824,13 @@ public class V1MutatingWebhookFluentImpl<
     }
   }
 
-  public class ObjectSelectorNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LabelSelectorFluentImpl<
-          io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<N>>
+  class ObjectSelectorNestedImpl<N>
+      extends V1LabelSelectorFluentImpl<V1MutatingWebhookFluent.ObjectSelectorNested<N>>
       implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    ObjectSelectorNestedImpl(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this, item);
+    ObjectSelectorNestedImpl(V1LabelSelector item) {
+      this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     ObjectSelectorNestedImpl() {
@@ -845,16 +848,14 @@ public class V1MutatingWebhookFluentImpl<
     }
   }
 
-  public class RulesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1RuleWithOperationsFluentImpl<
-          io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<N>>
+  class RulesNestedImpl<N>
+      extends V1RuleWithOperationsFluentImpl<V1MutatingWebhookFluent.RulesNested<N>>
       implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     RulesNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1RuleWithOperations item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder(this, item);
+      this.builder = new V1RuleWithOperationsBuilder(this, item);
     }
 
     RulesNestedImpl() {

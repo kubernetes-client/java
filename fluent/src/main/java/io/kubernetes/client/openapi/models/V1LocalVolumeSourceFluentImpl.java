@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1LocalVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1LocalVolumeSourceFluentImpl<A extends V1LocalVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1LocalVolumeSourceFluent<A> {
   public V1LocalVolumeSourceFluentImpl() {}
 
   public V1LocalVolumeSourceFluentImpl(
@@ -26,7 +27,7 @@ public class V1LocalVolumeSourceFluentImpl<
     this.withPath(instance.getPath());
   }
 
-  private java.lang.String fsType;
+  private String fsType;
   private java.lang.String path;
 
   public java.lang.String getFsType() {
@@ -38,14 +39,8 @@ public class V1LocalVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
-  }
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
   }
 
   public java.lang.String getPath() {
@@ -61,13 +56,7 @@ public class V1LocalVolumeSourceFluentImpl<
     return this.path != null;
   }
 
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A) withPath(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1LocalVolumeSourceFluentImpl that = (V1LocalVolumeSourceFluentImpl) o;
@@ -78,5 +67,20 @@ public class V1LocalVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(fsType, path, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (path != null) {
+      sb.append("path:");
+      sb.append(path);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

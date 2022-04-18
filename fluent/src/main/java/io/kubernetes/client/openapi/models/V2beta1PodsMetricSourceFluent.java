@@ -12,27 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V2beta1PodsMetricSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getMetricName();
+public interface V2beta1PodsMetricSourceFluent<A extends V2beta1PodsMetricSourceFluent<A>>
+    extends Fluent<A> {
+  public String getMetricName();
 
   public A withMetricName(java.lang.String metricName);
 
-  public java.lang.Boolean hasMetricName();
-
-  /** Method is deprecated. use withMetricName instead. */
-  @java.lang.Deprecated
-  public A withNewMetricName(java.lang.String original);
+  public Boolean hasMetricName();
 
   /**
    * This method has been deprecated, please use method buildSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector();
+  @Deprecated
+  public V1LabelSelector getSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector();
 
@@ -40,8 +39,7 @@ public interface V2beta1PodsMetricSourceFluent<
 
   public java.lang.Boolean hasSelector();
 
-  public io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<A>
-      withNewSelector();
+  public V2beta1PodsMetricSourceFluent.SelectorNested<A> withNewSelector();
 
   public io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -55,7 +53,7 @@ public interface V2beta1PodsMetricSourceFluent<
   public io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<A>
       editOrNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
 
-  public io.kubernetes.client.custom.Quantity getTargetAverageValue();
+  public Quantity getTargetAverageValue();
 
   public A withTargetAverageValue(io.kubernetes.client.custom.Quantity targetAverageValue);
 
@@ -64,9 +62,7 @@ public interface V2beta1PodsMetricSourceFluent<
   public A withNewTargetAverageValue(java.lang.String value);
 
   public interface SelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V2beta1PodsMetricSourceFluent.SelectorNested<N>> {
+      extends Nested<N>, V1LabelSelectorFluent<V2beta1PodsMetricSourceFluent.SelectorNested<N>> {
     public N and();
 
     public N endSelector();

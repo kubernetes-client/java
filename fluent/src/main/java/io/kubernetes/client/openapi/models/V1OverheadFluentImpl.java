@@ -12,21 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /** Generated */
-public class V1OverheadFluentImpl<A extends io.kubernetes.client.openapi.models.V1OverheadFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1OverheadFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1OverheadFluentImpl<A extends V1OverheadFluent<A>> extends BaseFluent<A>
+    implements V1OverheadFluent<A> {
   public V1OverheadFluentImpl() {}
 
   public V1OverheadFluentImpl(io.kubernetes.client.openapi.models.V1Overhead instance) {
     this.withPodFixed(instance.getPodFixed());
   }
 
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> podFixed;
+  private Map<String, Quantity> podFixed;
 
   public A addToPodFixed(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
     if (this.podFixed == null && key != null && value != null) {
-      this.podFixed = new java.util.LinkedHashMap();
+      this.podFixed = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.podFixed.put(key, value);
@@ -84,11 +89,11 @@ public class V1OverheadFluentImpl<A extends io.kubernetes.client.openapi.models.
     return (A) this;
   }
 
-  public java.lang.Boolean hasPodFixed() {
+  public Boolean hasPodFixed() {
     return this.podFixed != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1OverheadFluentImpl that = (V1OverheadFluentImpl) o;
@@ -98,5 +103,16 @@ public class V1OverheadFluentImpl<A extends io.kubernetes.client.openapi.models.
 
   public int hashCode() {
     return java.util.Objects.hash(podFixed, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (podFixed != null && !podFixed.isEmpty()) {
+      sb.append("podFixed:");
+      sb.append(podFixed);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

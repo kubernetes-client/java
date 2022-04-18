@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta1CronJobSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1CronJobSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1beta1CronJobSpecFluentImpl<V1beta1CronJobSpecBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1beta1CronJobSpec,
         io.kubernetes.client.openapi.models.V1beta1CronJobSpecBuilder> {
   public V1beta1CronJobSpecBuilder() {
     this(false);
   }
 
-  public V1beta1CronJobSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1CronJobSpecBuilder(Boolean validationEnabled) {
     this(new V1beta1CronJobSpec(), validationEnabled);
   }
 
-  public V1beta1CronJobSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent<?> fluent) {
+  public V1beta1CronJobSpecBuilder(V1beta1CronJobSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -104,24 +104,5 @@ public class V1beta1CronJobSpecBuilder
     buildable.setSuccessfulJobsHistoryLimit(fluent.getSuccessfulJobsHistoryLimit());
     buildable.setSuspend(fluent.getSuspend());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1CronJobSpecBuilder that = (V1beta1CronJobSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

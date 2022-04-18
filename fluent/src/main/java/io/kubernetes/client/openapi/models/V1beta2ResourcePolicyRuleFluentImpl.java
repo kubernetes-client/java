@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1beta2ResourcePolicyRuleFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRuleFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta2ResourcePolicyRuleFluentImpl<A extends V1beta2ResourcePolicyRuleFluent<A>>
+    extends BaseFluent<A> implements V1beta2ResourcePolicyRuleFluent<A> {
   public V1beta2ResourcePolicyRuleFluentImpl() {}
 
   public V1beta2ResourcePolicyRuleFluentImpl(
@@ -32,15 +37,15 @@ public class V1beta2ResourcePolicyRuleFluentImpl<
     this.withVerbs(instance.getVerbs());
   }
 
-  private java.util.List<java.lang.String> apiGroups;
-  private java.lang.Boolean clusterScope;
+  private List<String> apiGroups;
+  private Boolean clusterScope;
   private java.util.List<java.lang.String> namespaces;
   private java.util.List<java.lang.String> resources;
   private java.util.List<java.lang.String> verbs;
 
-  public A addToApiGroups(java.lang.Integer index, java.lang.String item) {
+  public A addToApiGroups(Integer index, java.lang.String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<java.lang.String>();
     }
     this.apiGroups.add(index, item);
     return (A) this;
@@ -64,7 +69,7 @@ public class V1beta2ResourcePolicyRuleFluentImpl<
     return (A) this;
   }
 
-  public A addAllToApiGroups(java.util.Collection<java.lang.String> items) {
+  public A addAllToApiGroups(Collection<java.lang.String> items) {
     if (this.apiGroups == null) {
       this.apiGroups = new java.util.ArrayList<java.lang.String>();
     }
@@ -108,8 +113,7 @@ public class V1beta2ResourcePolicyRuleFluentImpl<
     return this.apiGroups.get(apiGroups.size() - 1);
   }
 
-  public java.lang.String getMatchingApiGroup(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingApiGroup(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : apiGroups) {
       if (predicate.test(item)) {
         return item;
@@ -154,10 +158,6 @@ public class V1beta2ResourcePolicyRuleFluentImpl<
 
   public java.lang.Boolean hasApiGroups() {
     return apiGroups != null && !apiGroups.isEmpty();
-  }
-
-  public A addNewApiGroup(java.lang.String original) {
-    return (A) addToApiGroups(new String(original));
   }
 
   public java.lang.Boolean getClusterScope() {
@@ -291,10 +291,6 @@ public class V1beta2ResourcePolicyRuleFluentImpl<
     return namespaces != null && !namespaces.isEmpty();
   }
 
-  public A addNewNamespace(java.lang.String original) {
-    return (A) addToNamespaces(new String(original));
-  }
-
   public A addToResources(java.lang.Integer index, java.lang.String item) {
     if (this.resources == null) {
       this.resources = new java.util.ArrayList<java.lang.String>();
@@ -411,10 +407,6 @@ public class V1beta2ResourcePolicyRuleFluentImpl<
 
   public java.lang.Boolean hasResources() {
     return resources != null && !resources.isEmpty();
-  }
-
-  public A addNewResource(java.lang.String original) {
-    return (A) addToResources(new String(original));
   }
 
   public A addToVerbs(java.lang.Integer index, java.lang.String item) {
@@ -535,11 +527,7 @@ public class V1beta2ResourcePolicyRuleFluentImpl<
     return verbs != null && !verbs.isEmpty();
   }
 
-  public A addNewVerb(java.lang.String original) {
-    return (A) addToVerbs(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta2ResourcePolicyRuleFluentImpl that = (V1beta2ResourcePolicyRuleFluentImpl) o;
@@ -558,5 +546,36 @@ public class V1beta2ResourcePolicyRuleFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         apiGroups, clusterScope, namespaces, resources, verbs, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiGroups != null && !apiGroups.isEmpty()) {
+      sb.append("apiGroups:");
+      sb.append(apiGroups + ",");
+    }
+    if (clusterScope != null) {
+      sb.append("clusterScope:");
+      sb.append(clusterScope + ",");
+    }
+    if (namespaces != null && !namespaces.isEmpty()) {
+      sb.append("namespaces:");
+      sb.append(namespaces + ",");
+    }
+    if (resources != null && !resources.isEmpty()) {
+      sb.append("resources:");
+      sb.append(resources + ",");
+    }
+    if (verbs != null && !verbs.isEmpty()) {
+      sb.append("verbs:");
+      sb.append(verbs);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withClusterScope() {
+    return withClusterScope(true);
   }
 }

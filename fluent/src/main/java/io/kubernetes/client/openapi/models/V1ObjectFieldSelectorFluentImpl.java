@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ObjectFieldSelectorFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ObjectFieldSelectorFluentImpl<A extends V1ObjectFieldSelectorFluent<A>>
+    extends BaseFluent<A> implements V1ObjectFieldSelectorFluent<A> {
   public V1ObjectFieldSelectorFluentImpl() {}
 
   public V1ObjectFieldSelectorFluentImpl(
@@ -26,7 +27,7 @@ public class V1ObjectFieldSelectorFluentImpl<
     this.withFieldPath(instance.getFieldPath());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String fieldPath;
 
   public java.lang.String getApiVersion() {
@@ -38,14 +39,8 @@ public class V1ObjectFieldSelectorFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getFieldPath() {
@@ -61,13 +56,7 @@ public class V1ObjectFieldSelectorFluentImpl<
     return this.fieldPath != null;
   }
 
-  /** Method is deprecated. use withFieldPath instead. */
-  @java.lang.Deprecated
-  public A withNewFieldPath(java.lang.String original) {
-    return (A) withFieldPath(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ObjectFieldSelectorFluentImpl that = (V1ObjectFieldSelectorFluentImpl) o;
@@ -80,5 +69,20 @@ public class V1ObjectFieldSelectorFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(apiVersion, fieldPath, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (fieldPath != null) {
+      sb.append("fieldPath:");
+      sb.append(fieldPath);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

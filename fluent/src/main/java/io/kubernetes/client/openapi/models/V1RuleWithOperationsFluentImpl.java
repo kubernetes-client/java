@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1RuleWithOperationsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent<A>>
+    extends BaseFluent<A> implements V1RuleWithOperationsFluent<A> {
   public V1RuleWithOperationsFluentImpl() {}
 
   public V1RuleWithOperationsFluentImpl(
@@ -32,15 +37,15 @@ public class V1RuleWithOperationsFluentImpl<
     this.withScope(instance.getScope());
   }
 
-  private java.util.List<java.lang.String> apiGroups;
+  private List<String> apiGroups;
   private java.util.List<java.lang.String> apiVersions;
   private java.util.List<java.lang.String> operations;
   private java.util.List<java.lang.String> resources;
   private java.lang.String scope;
 
-  public A addToApiGroups(java.lang.Integer index, java.lang.String item) {
+  public A addToApiGroups(Integer index, java.lang.String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<java.lang.String>();
     }
     this.apiGroups.add(index, item);
     return (A) this;
@@ -64,7 +69,7 @@ public class V1RuleWithOperationsFluentImpl<
     return (A) this;
   }
 
-  public A addAllToApiGroups(java.util.Collection<java.lang.String> items) {
+  public A addAllToApiGroups(Collection<java.lang.String> items) {
     if (this.apiGroups == null) {
       this.apiGroups = new java.util.ArrayList<java.lang.String>();
     }
@@ -108,8 +113,7 @@ public class V1RuleWithOperationsFluentImpl<
     return this.apiGroups.get(apiGroups.size() - 1);
   }
 
-  public java.lang.String getMatchingApiGroup(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingApiGroup(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : apiGroups) {
       if (predicate.test(item)) {
         return item;
@@ -118,8 +122,7 @@ public class V1RuleWithOperationsFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingApiGroup(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingApiGroup(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : apiGroups) {
       if (predicate.test(item)) {
         return true;
@@ -154,10 +157,6 @@ public class V1RuleWithOperationsFluentImpl<
 
   public java.lang.Boolean hasApiGroups() {
     return apiGroups != null && !apiGroups.isEmpty();
-  }
-
-  public A addNewApiGroup(java.lang.String original) {
-    return (A) addToApiGroups(new String(original));
   }
 
   public A addToApiVersions(java.lang.Integer index, java.lang.String item) {
@@ -278,10 +277,6 @@ public class V1RuleWithOperationsFluentImpl<
     return apiVersions != null && !apiVersions.isEmpty();
   }
 
-  public A addNewApiVersion(java.lang.String original) {
-    return (A) addToApiVersions(new String(original));
-  }
-
   public A addToOperations(java.lang.Integer index, java.lang.String item) {
     if (this.operations == null) {
       this.operations = new java.util.ArrayList<java.lang.String>();
@@ -398,10 +393,6 @@ public class V1RuleWithOperationsFluentImpl<
 
   public java.lang.Boolean hasOperations() {
     return operations != null && !operations.isEmpty();
-  }
-
-  public A addNewOperation(java.lang.String original) {
-    return (A) addToOperations(new String(original));
   }
 
   public A addToResources(java.lang.Integer index, java.lang.String item) {
@@ -522,10 +513,6 @@ public class V1RuleWithOperationsFluentImpl<
     return resources != null && !resources.isEmpty();
   }
 
-  public A addNewResource(java.lang.String original) {
-    return (A) addToResources(new String(original));
-  }
-
   public java.lang.String getScope() {
     return this.scope;
   }
@@ -539,13 +526,7 @@ public class V1RuleWithOperationsFluentImpl<
     return this.scope != null;
   }
 
-  /** Method is deprecated. use withScope instead. */
-  @java.lang.Deprecated
-  public A withNewScope(java.lang.String original) {
-    return (A) withScope(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1RuleWithOperationsFluentImpl that = (V1RuleWithOperationsFluentImpl) o;
@@ -564,5 +545,32 @@ public class V1RuleWithOperationsFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         apiGroups, apiVersions, operations, resources, scope, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiGroups != null && !apiGroups.isEmpty()) {
+      sb.append("apiGroups:");
+      sb.append(apiGroups + ",");
+    }
+    if (apiVersions != null && !apiVersions.isEmpty()) {
+      sb.append("apiVersions:");
+      sb.append(apiVersions + ",");
+    }
+    if (operations != null && !operations.isEmpty()) {
+      sb.append("operations:");
+      sb.append(operations + ",");
+    }
+    if (resources != null && !resources.isEmpty()) {
+      sb.append("resources:");
+      sb.append(resources + ",");
+    }
+    if (scope != null) {
+      sb.append("scope:");
+      sb.append(scope);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

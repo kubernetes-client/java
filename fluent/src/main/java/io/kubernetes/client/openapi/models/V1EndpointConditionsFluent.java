@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1EndpointConditionsFluent<
-        A extends io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Boolean getReady();
+public interface V1EndpointConditionsFluent<A extends V1EndpointConditionsFluent<A>>
+    extends Fluent<A> {
+  public Boolean getReady();
 
   public A withReady(java.lang.Boolean ready);
 
@@ -33,4 +34,10 @@ public interface V1EndpointConditionsFluent<
   public A withTerminating(java.lang.Boolean terminating);
 
   public java.lang.Boolean hasTerminating();
+
+  public A withReady();
+
+  public A withServing();
+
+  public A withTerminating();
 }

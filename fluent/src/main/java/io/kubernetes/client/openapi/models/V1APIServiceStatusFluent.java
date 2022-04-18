@@ -12,12 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1APIServiceStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1APIServiceStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1APIServiceCondition item);
+public interface V1APIServiceStatusFluent<A extends V1APIServiceStatusFluent<A>> extends Fluent<A> {
+  public A addToConditions(Integer index, V1APIServiceCondition item);
 
   public A setToConditions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1APIServiceCondition item);
@@ -25,24 +28,22 @@ public interface V1APIServiceStatusFluent<
   public A addToConditions(io.kubernetes.client.openapi.models.V1APIServiceCondition... items);
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1APIServiceCondition> items);
+      Collection<io.kubernetes.client.openapi.models.V1APIServiceCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1APIServiceCondition... items);
 
   public A removeAllFromConditions(
       java.util.Collection<io.kubernetes.client.openapi.models.V1APIServiceCondition> items);
 
-  public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder>
-          predicate);
+  public A removeMatchingFromConditions(Predicate<V1APIServiceConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1APIServiceCondition> getConditions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1APIServiceCondition> getConditions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1APIServiceCondition>
       buildConditions();
@@ -58,7 +59,7 @@ public interface V1APIServiceStatusFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
+  public Boolean hasMatchingCondition(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder>
           predicate);
 
@@ -69,8 +70,7 @@ public interface V1APIServiceStatusFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1APIServiceStatusFluent.ConditionsNested<A>
-      addNewCondition();
+  public V1APIServiceStatusFluent.ConditionsNested<A> addNewCondition();
 
   public io.kubernetes.client.openapi.models.V1APIServiceStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1APIServiceCondition item);
@@ -95,9 +95,7 @@ public interface V1APIServiceStatusFluent<
               predicate);
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1APIServiceConditionFluent<
-              io.kubernetes.client.openapi.models.V1APIServiceStatusFluent.ConditionsNested<N>> {
+      extends Nested<N>, V1APIServiceConditionFluent<V1APIServiceStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();

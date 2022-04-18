@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1CinderVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1CinderVolumeSourceFluentImpl<A extends V1CinderVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1CinderVolumeSourceFluent<A> {
   public V1CinderVolumeSourceFluentImpl() {}
 
   public V1CinderVolumeSourceFluentImpl(
@@ -30,9 +32,9 @@ public class V1CinderVolumeSourceFluentImpl<
     this.withVolumeID(instance.getVolumeID());
   }
 
-  private java.lang.String fsType;
-  private java.lang.Boolean readOnly;
-  private io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder secretRef;
+  private String fsType;
+  private Boolean readOnly;
+  private V1LocalObjectReferenceBuilder secretRef;
   private java.lang.String volumeID;
 
   public java.lang.String getFsType() {
@@ -46,12 +48,6 @@ public class V1CinderVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasFsType() {
     return this.fsType != null;
-  }
-
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
   }
 
   public java.lang.Boolean getReadOnly() {
@@ -72,8 +68,8 @@ public class V1CinderVolumeSourceFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef() {
+  @Deprecated
+  public V1LocalObjectReference getSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
@@ -95,16 +91,13 @@ public class V1CinderVolumeSourceFluentImpl<
     return this.secretRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRef() {
-    return new io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluentImpl
-        .SecretRefNestedImpl();
+  public V1CinderVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+    return new V1CinderVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
       withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluentImpl
-        .SecretRefNestedImpl(item);
+    return new V1CinderVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
@@ -138,13 +131,7 @@ public class V1CinderVolumeSourceFluentImpl<
     return this.volumeID != null;
   }
 
-  /** Method is deprecated. use withVolumeID instead. */
-  @java.lang.Deprecated
-  public A withNewVolumeID(java.lang.String original) {
-    return (A) withVolumeID(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CinderVolumeSourceFluentImpl that = (V1CinderVolumeSourceFluentImpl) o;
@@ -160,14 +147,39 @@ public class V1CinderVolumeSourceFluentImpl<
     return java.util.Objects.hash(fsType, readOnly, secretRef, volumeID, super.hashCode());
   }
 
-  public class SecretRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (secretRef != null) {
+      sb.append("secretRef:");
+      sb.append(secretRef + ",");
+    }
+    if (volumeID != null) {
+      sb.append("volumeID:");
+      sb.append(volumeID);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
+  }
+
+  class SecretRefNestedImpl<N>
+      extends V1LocalObjectReferenceFluentImpl<V1CinderVolumeSourceFluent.SecretRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SecretRefNestedImpl(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(this, item);
+          Nested<N> {
+    SecretRefNestedImpl(V1LocalObjectReference item) {
+      this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {

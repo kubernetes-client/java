@@ -12,21 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1alpha1CSIStorageCapacityFluent<
-        A extends io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface V1alpha1CSIStorageCapacityFluent<A extends V1alpha1CSIStorageCapacityFluent<A>>
+    extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
+  public Boolean hasApiVersion();
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
-
-  public io.kubernetes.client.custom.Quantity getCapacity();
+  public Quantity getCapacity();
 
   public A withCapacity(io.kubernetes.client.custom.Quantity capacity);
 
@@ -39,10 +38,6 @@ public interface V1alpha1CSIStorageCapacityFluent<
   public A withKind(java.lang.String kind);
 
   public java.lang.Boolean hasKind();
-
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
 
   public io.kubernetes.client.custom.Quantity getMaximumVolumeSize();
 
@@ -57,8 +52,8 @@ public interface V1alpha1CSIStorageCapacityFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  @Deprecated
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
@@ -66,8 +61,7 @@ public interface V1alpha1CSIStorageCapacityFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.MetadataNested<A>
-      withNewMetadata();
+  public V1alpha1CSIStorageCapacityFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -87,7 +81,7 @@ public interface V1alpha1CSIStorageCapacityFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getNodeTopology();
+  public V1LabelSelector getNodeTopology();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildNodeTopology();
 
@@ -95,8 +89,7 @@ public interface V1alpha1CSIStorageCapacityFluent<
 
   public java.lang.Boolean hasNodeTopology();
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<A>
-      withNewNodeTopology();
+  public V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<A> withNewNodeTopology();
 
   public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<A>
       withNewNodeTopologyLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -116,15 +109,8 @@ public interface V1alpha1CSIStorageCapacityFluent<
 
   public java.lang.Boolean hasStorageClassName();
 
-  /** Method is deprecated. use withStorageClassName instead. */
-  @java.lang.Deprecated
-  public A withNewStorageClassName(java.lang.String original);
-
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.MetadataNested<
-                  N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1alpha1CSIStorageCapacityFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
@@ -132,10 +118,7 @@ public interface V1alpha1CSIStorageCapacityFluent<
 
   public interface NodeTopologyNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent
-                      .NodeTopologyNested<
-                  N>> {
+          V1LabelSelectorFluent<V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<N>> {
     public N and();
 
     public N endNodeTopology();

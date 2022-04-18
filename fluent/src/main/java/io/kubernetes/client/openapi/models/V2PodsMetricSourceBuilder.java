@@ -12,22 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V2PodsMetricSourceBuilder
-    extends io.kubernetes.client.openapi.models.V2PodsMetricSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V2PodsMetricSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2PodsMetricSource,
-        io.kubernetes.client.openapi.models.V2PodsMetricSourceBuilder> {
+    extends V2PodsMetricSourceFluentImpl<V2PodsMetricSourceBuilder>
+    implements VisitableBuilder<
+        V2PodsMetricSource, io.kubernetes.client.openapi.models.V2PodsMetricSourceBuilder> {
   public V2PodsMetricSourceBuilder() {
     this(false);
   }
 
-  public V2PodsMetricSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V2PodsMetricSourceBuilder(Boolean validationEnabled) {
     this(new V2PodsMetricSource(), validationEnabled);
   }
 
-  public V2PodsMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2PodsMetricSourceFluent<?> fluent) {
+  public V2PodsMetricSourceBuilder(V2PodsMetricSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -79,24 +78,5 @@ public class V2PodsMetricSourceBuilder
     buildable.setMetric(fluent.getMetric());
     buildable.setTarget(fluent.getTarget());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V2PodsMetricSourceBuilder that = (V2PodsMetricSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

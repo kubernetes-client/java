@@ -22,8 +22,6 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodBuilder;
 import io.kubernetes.client.openapi.models.V1Service;
 import io.kubernetes.client.openapi.models.V1ServiceBuilder;
-import io.kubernetes.client.openapi.models.V1ServicePort;
-import io.kubernetes.client.openapi.models.V1ServiceSpec;
 import io.kubernetes.client.util.Config;
 import io.kubernetes.client.util.Yaml;
 import java.io.File;
@@ -63,10 +61,10 @@ public class YamlExample {
             .withName("aservice")
             .endMetadata()
             .withNewSpec()
-            .withSessionAffinity(V1ServiceSpec.SessionAffinityEnum.CLIENTIP)
-            .withType(V1ServiceSpec.TypeEnum.NODEPORT)
+            .withSessionAffinity("ClientIP")
+            .withType("NodePort")
             .addNewPort()
-            .withProtocol(V1ServicePort.ProtocolEnum.TCP)
+            .withProtocol("TCP")
             .withName("client")
             .withPort(8008)
             .withNodePort(8080)

@@ -12,14 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1CertificateSigningRequestStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent<A> {
+        A extends V1CertificateSigningRequestStatusFluent<A>>
+    extends BaseFluent<A> implements V1CertificateSigningRequestStatusFluent<A> {
   public V1CertificateSigningRequestStatusFluentImpl() {}
 
   public V1CertificateSigningRequestStatusFluentImpl(
@@ -29,10 +34,8 @@ public class V1CertificateSigningRequestStatusFluentImpl<
     this.withConditions(instance.getConditions());
   }
 
-  private java.util.List<java.lang.Byte> certificate;
-  private java.util.ArrayList<
-          io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder>
-      conditions;
+  private List<Byte> certificate;
+  private ArrayList<V1CertificateSigningRequestConditionBuilder> conditions;
 
   public A withCertificate(byte... certificate) {
     if (this.certificate != null) {
@@ -60,7 +63,7 @@ public class V1CertificateSigningRequestStatusFluentImpl<
     return result;
   }
 
-  public A addToCertificate(java.lang.Integer index, java.lang.Byte item) {
+  public A addToCertificate(Integer index, java.lang.Byte item) {
     if (this.certificate == null) {
       this.certificate = new java.util.ArrayList<java.lang.Byte>();
     }
@@ -86,7 +89,7 @@ public class V1CertificateSigningRequestStatusFluentImpl<
     return (A) this;
   }
 
-  public A addAllToCertificate(java.util.Collection<java.lang.Byte> items) {
+  public A addAllToCertificate(Collection<java.lang.Byte> items) {
     if (this.certificate == null) {
       this.certificate = new java.util.ArrayList<java.lang.Byte>();
     }
@@ -114,13 +117,11 @@ public class V1CertificateSigningRequestStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasCertificate() {
+  public Boolean hasCertificate() {
     return certificate != null && !certificate.isEmpty();
   }
 
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition item) {
+  public A addToConditions(java.lang.Integer index, V1CertificateSigningRequestCondition item) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -219,8 +220,7 @@ public class V1CertificateSigningRequestStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder>
+      Predicate<io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder>
           predicate) {
     if (conditions == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder>
@@ -242,7 +242,7 @@ public class V1CertificateSigningRequestStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition>
       getConditions() {
     return conditions != null ? build(conditions) : null;
@@ -331,12 +331,8 @@ public class V1CertificateSigningRequestStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
-              .ConditionsNested<
-          A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluentImpl
-        .ConditionsNestedImpl();
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V1CertificateSigningRequestStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
@@ -344,8 +340,7 @@ public class V1CertificateSigningRequestStatusFluentImpl<
           A>
       addNewConditionLike(
           io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition item) {
-    return new io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluentImpl
-        .ConditionsNestedImpl(-1, item);
+    return new V1CertificateSigningRequestStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
@@ -403,7 +398,7 @@ public class V1CertificateSigningRequestStatusFluentImpl<
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CertificateSigningRequestStatusFluentImpl that =
@@ -419,22 +414,33 @@ public class V1CertificateSigningRequestStatusFluentImpl<
     return java.util.Objects.hash(certificate, conditions, super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
-                  .ConditionsNested<
-              N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (certificate != null && !certificate.isEmpty()) {
+      sb.append("certificate:");
+      sb.append(certificate + ",");
+    }
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V1CertificateSigningRequestConditionFluentImpl<
+          V1CertificateSigningRequestStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
                   .ConditionsNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ConditionsNestedImpl(
         java.lang.Integer index,
         io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder(
-              this, item);
+      this.builder = new V1CertificateSigningRequestConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {

@@ -12,12 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
-    extends io.kubernetes.client.openapi.models
-            .V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
-        io.kubernetes.client.openapi.models
-            .V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
+        V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy,
         io.kubernetes.client.openapi.models
             .V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder> {
@@ -25,14 +25,12 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
     this(false);
   }
 
-  public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
-      java.lang.Boolean validationEnabled) {
+  public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(Boolean validationEnabled) {
     this(new V1StatefulSetPersistentVolumeClaimRetentionPolicy(), validationEnabled);
   }
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?>
-          fluent) {
+      V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -94,25 +92,5 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
     buildable.setWhenDeleted(fluent.getWhenDeleted());
     buildable.setWhenScaled(fluent.getWhenScaled());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder that =
-        (V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

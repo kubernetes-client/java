@@ -12,27 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1CSINodeSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CSINodeSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CSINodeSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1CSINodeSpecFluentImpl<A extends V1CSINodeSpecFluent<A>> extends BaseFluent<A>
+    implements V1CSINodeSpecFluent<A> {
   public V1CSINodeSpecFluentImpl() {}
 
   public V1CSINodeSpecFluentImpl(io.kubernetes.client.openapi.models.V1CSINodeSpec instance) {
     this.withDrivers(instance.getDrivers());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder> drivers;
+  private ArrayList<V1CSINodeDriverBuilder> drivers;
 
-  public A addToDrivers(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1CSINodeDriver item) {
+  public A addToDrivers(Integer index, io.kubernetes.client.openapi.models.V1CSINodeDriver item) {
     if (this.drivers == null) {
-      this.drivers =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder>();
+      this.drivers = new java.util.ArrayList<V1CSINodeDriverBuilder>();
     }
     io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder builder =
         new io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder(item);
@@ -76,8 +78,7 @@ public class V1CSINodeSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToDrivers(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CSINodeDriver> items) {
+  public A addAllToDrivers(Collection<io.kubernetes.client.openapi.models.V1CSINodeDriver> items) {
     if (this.drivers == null) {
       this.drivers =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder>();
@@ -117,8 +118,7 @@ public class V1CSINodeSpecFluentImpl<
   }
 
   public A removeMatchingFromDrivers(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder> predicate) {
     if (drivers == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder> each =
         drivers.iterator();
@@ -138,8 +138,8 @@ public class V1CSINodeSpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1CSINodeDriver> getDrivers() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1CSINodeDriver> getDrivers() {
     return drivers != null ? build(drivers) : null;
   }
 
@@ -170,7 +170,7 @@ public class V1CSINodeSpecFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingDriver(
+  public Boolean hasMatchingDriver(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder>
           predicate) {
     for (io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder item : drivers) {
@@ -213,14 +213,13 @@ public class V1CSINodeSpecFluentImpl<
     return drivers != null && !drivers.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeSpecFluent.DriversNested<A> addNewDriver() {
-    return new io.kubernetes.client.openapi.models.V1CSINodeSpecFluentImpl.DriversNestedImpl();
+  public V1CSINodeSpecFluent.DriversNested<A> addNewDriver() {
+    return new V1CSINodeSpecFluentImpl.DriversNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CSINodeSpecFluent.DriversNested<A> addNewDriverLike(
       io.kubernetes.client.openapi.models.V1CSINodeDriver item) {
-    return new io.kubernetes.client.openapi.models.V1CSINodeSpecFluentImpl.DriversNestedImpl(
-        -1, item);
+    return new V1CSINodeSpecFluentImpl.DriversNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1CSINodeSpecFluent.DriversNested<A> setNewDriverLike(
@@ -264,7 +263,7 @@ public class V1CSINodeSpecFluentImpl<
     return setNewDriverLike(index, buildDriver(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CSINodeSpecFluentImpl that = (V1CSINodeSpecFluentImpl) o;
@@ -276,15 +275,23 @@ public class V1CSINodeSpecFluentImpl<
     return java.util.Objects.hash(drivers, super.hashCode());
   }
 
-  public class DriversNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CSINodeDriverFluentImpl<
-          io.kubernetes.client.openapi.models.V1CSINodeSpecFluent.DriversNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (drivers != null && !drivers.isEmpty()) {
+      sb.append("drivers:");
+      sb.append(drivers);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class DriversNestedImpl<N> extends V1CSINodeDriverFluentImpl<V1CSINodeSpecFluent.DriversNested<N>>
       implements io.kubernetes.client.openapi.models.V1CSINodeSpecFluent.DriversNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    DriversNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1CSINodeDriver item) {
+          Nested<N> {
+    DriversNestedImpl(java.lang.Integer index, V1CSINodeDriver item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1CSINodeDriverBuilder(this, item);
+      this.builder = new V1CSINodeDriverBuilder(this, item);
     }
 
     DriversNestedImpl() {

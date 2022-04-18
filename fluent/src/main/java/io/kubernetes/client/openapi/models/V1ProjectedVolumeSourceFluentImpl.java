@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1ProjectedVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ProjectedVolumeSourceFluentImpl<A extends V1ProjectedVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1ProjectedVolumeSourceFluent<A> {
   public V1ProjectedVolumeSourceFluentImpl() {}
 
   public V1ProjectedVolumeSourceFluentImpl(
@@ -29,9 +33,8 @@ public class V1ProjectedVolumeSourceFluentImpl<
     this.withSources(instance.getSources());
   }
 
-  private java.lang.Integer defaultMode;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder>
-      sources;
+  private Integer defaultMode;
+  private ArrayList<V1VolumeProjectionBuilder> sources;
 
   public java.lang.Integer getDefaultMode() {
     return this.defaultMode;
@@ -42,12 +45,11 @@ public class V1ProjectedVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasDefaultMode() {
+  public Boolean hasDefaultMode() {
     return this.defaultMode != null;
   }
 
-  public A addToSources(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeProjection item) {
+  public A addToSources(java.lang.Integer index, V1VolumeProjection item) {
     if (this.sources == null) {
       this.sources =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder>();
@@ -95,7 +97,7 @@ public class V1ProjectedVolumeSourceFluentImpl<
   }
 
   public A addAllToSources(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1VolumeProjection> items) {
+      Collection<io.kubernetes.client.openapi.models.V1VolumeProjection> items) {
     if (this.sources == null) {
       this.sources =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder>();
@@ -135,8 +137,7 @@ public class V1ProjectedVolumeSourceFluentImpl<
   }
 
   public A removeMatchingFromSources(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder> predicate) {
     if (sources == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder> each =
         sources.iterator();
@@ -156,8 +157,8 @@ public class V1ProjectedVolumeSourceFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1VolumeProjection> getSources() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1VolumeProjection> getSources() {
     return sources != null ? build(sources) : null;
   }
 
@@ -232,16 +233,13 @@ public class V1ProjectedVolumeSourceFluentImpl<
     return sources != null && !sources.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
-      addNewSource() {
-    return new io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluentImpl
-        .SourcesNestedImpl();
+  public V1ProjectedVolumeSourceFluent.SourcesNested<A> addNewSource() {
+    return new V1ProjectedVolumeSourceFluentImpl.SourcesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
       addNewSourceLike(io.kubernetes.client.openapi.models.V1VolumeProjection item) {
-    return new io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluentImpl
-        .SourcesNestedImpl(-1, item);
+    return new V1ProjectedVolumeSourceFluentImpl.SourcesNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
@@ -288,7 +286,7 @@ public class V1ProjectedVolumeSourceFluentImpl<
     return setNewSourceLike(index, buildSource(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ProjectedVolumeSourceFluentImpl that = (V1ProjectedVolumeSourceFluentImpl) o;
@@ -302,15 +300,28 @@ public class V1ProjectedVolumeSourceFluentImpl<
     return java.util.Objects.hash(defaultMode, sources, super.hashCode());
   }
 
-  public class SourcesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1VolumeProjectionFluentImpl<
-          io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (defaultMode != null) {
+      sb.append("defaultMode:");
+      sb.append(defaultMode + ",");
+    }
+    if (sources != null && !sources.isEmpty()) {
+      sb.append("sources:");
+      sb.append(sources);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class SourcesNestedImpl<N>
+      extends V1VolumeProjectionFluentImpl<V1ProjectedVolumeSourceFluent.SourcesNested<N>>
       implements io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SourcesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeProjection item) {
+          Nested<N> {
+    SourcesNestedImpl(java.lang.Integer index, V1VolumeProjection item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder(this, item);
+      this.builder = new V1VolumeProjectionBuilder(this, item);
     }
 
     SourcesNestedImpl() {

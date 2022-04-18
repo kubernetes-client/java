@@ -12,27 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
 public interface V1PersistentVolumeClaimTemplateFluent<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+        A extends V1PersistentVolumeClaimTemplateFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata();
+  @Deprecated
+  public V1ObjectMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
 
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluent.MetadataNested<A>
-      withNewMetadata();
+  public V1PersistentVolumeClaimTemplateFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
@@ -52,7 +54,7 @@ public interface V1PersistentVolumeClaimTemplateFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpec getSpec();
+  public V1PersistentVolumeClaimSpec getSpec();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpec buildSpec();
 
@@ -60,8 +62,7 @@ public interface V1PersistentVolumeClaimTemplateFluent<
 
   public java.lang.Boolean hasSpec();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluent.SpecNested<A>
-      withNewSpec();
+  public V1PersistentVolumeClaimTemplateFluent.SpecNested<A> withNewSpec();
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluent.SpecNested<A>
       withNewSpecLike(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpec item);
@@ -76,11 +77,8 @@ public interface V1PersistentVolumeClaimTemplateFluent<
       editOrNewSpecLike(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpec item);
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectMetaFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluent
-                      .MetadataNested<
-                  N>> {
+      extends Nested<N>,
+          V1ObjectMetaFluent<V1PersistentVolumeClaimTemplateFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
@@ -88,9 +86,7 @@ public interface V1PersistentVolumeClaimTemplateFluent<
 
   public interface SpecNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplateFluent.SpecNested<
-                  N>> {
+          V1PersistentVolumeClaimSpecFluent<V1PersistentVolumeClaimTemplateFluent.SpecNested<N>> {
     public N and();
 
     public N endSpec();

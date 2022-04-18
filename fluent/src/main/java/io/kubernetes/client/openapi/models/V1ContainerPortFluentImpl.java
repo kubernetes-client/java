@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ContainerPortFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ContainerPortFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ContainerPortFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ContainerPortFluentImpl<A extends V1ContainerPortFluent<A>> extends BaseFluent<A>
+    implements V1ContainerPortFluent<A> {
   public V1ContainerPortFluentImpl() {}
 
   public V1ContainerPortFluentImpl(io.kubernetes.client.openapi.models.V1ContainerPort instance) {
@@ -31,11 +32,11 @@ public class V1ContainerPortFluentImpl<
     this.withProtocol(instance.getProtocol());
   }
 
-  private java.lang.Integer containerPort;
-  private java.lang.String hostIP;
+  private Integer containerPort;
+  private String hostIP;
   private java.lang.Integer hostPort;
   private java.lang.String name;
-  private io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum protocol;
+  private java.lang.String protocol;
 
   public java.lang.Integer getContainerPort() {
     return this.containerPort;
@@ -46,7 +47,7 @@ public class V1ContainerPortFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasContainerPort() {
+  public Boolean hasContainerPort() {
     return this.containerPort != null;
   }
 
@@ -61,12 +62,6 @@ public class V1ContainerPortFluentImpl<
 
   public java.lang.Boolean hasHostIP() {
     return this.hostIP != null;
-  }
-
-  /** Method is deprecated. use withHostIP instead. */
-  @java.lang.Deprecated
-  public A withNewHostIP(java.lang.String original) {
-    return (A) withHostIP(new String(original));
   }
 
   public java.lang.Integer getHostPort() {
@@ -95,17 +90,11 @@ public class V1ContainerPortFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum getProtocol() {
+  public java.lang.String getProtocol() {
     return this.protocol;
   }
 
-  public A withProtocol(io.kubernetes.client.openapi.models.V1ContainerPort.ProtocolEnum protocol) {
+  public A withProtocol(java.lang.String protocol) {
     this.protocol = protocol;
     return (A) this;
   }
@@ -114,7 +103,7 @@ public class V1ContainerPortFluentImpl<
     return this.protocol != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ContainerPortFluentImpl that = (V1ContainerPortFluentImpl) o;
@@ -131,5 +120,32 @@ public class V1ContainerPortFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         containerPort, hostIP, hostPort, name, protocol, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (containerPort != null) {
+      sb.append("containerPort:");
+      sb.append(containerPort + ",");
+    }
+    if (hostIP != null) {
+      sb.append("hostIP:");
+      sb.append(hostIP + ",");
+    }
+    if (hostPort != null) {
+      sb.append("hostPort:");
+      sb.append(hostPort + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (protocol != null) {
+      sb.append("protocol:");
+      sb.append(protocol);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }
