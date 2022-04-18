@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1beta1AllowedHostPathFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1AllowedHostPathFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1AllowedHostPathFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1AllowedHostPathFluentImpl<A extends V1beta1AllowedHostPathFluent<A>>
+    extends BaseFluent<A> implements V1beta1AllowedHostPathFluent<A> {
   public V1beta1AllowedHostPathFluentImpl() {}
 
   public V1beta1AllowedHostPathFluentImpl(
@@ -26,8 +27,8 @@ public class V1beta1AllowedHostPathFluentImpl<
     this.withReadOnly(instance.getReadOnly());
   }
 
-  private java.lang.String pathPrefix;
-  private java.lang.Boolean readOnly;
+  private String pathPrefix;
+  private Boolean readOnly;
 
   public java.lang.String getPathPrefix() {
     return this.pathPrefix;
@@ -40,12 +41,6 @@ public class V1beta1AllowedHostPathFluentImpl<
 
   public java.lang.Boolean hasPathPrefix() {
     return this.pathPrefix != null;
-  }
-
-  /** Method is deprecated. use withPathPrefix instead. */
-  @java.lang.Deprecated
-  public A withNewPathPrefix(java.lang.String original) {
-    return (A) withPathPrefix(new String(original));
   }
 
   public java.lang.Boolean getReadOnly() {
@@ -61,7 +56,7 @@ public class V1beta1AllowedHostPathFluentImpl<
     return this.readOnly != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1AllowedHostPathFluentImpl that = (V1beta1AllowedHostPathFluentImpl) o;
@@ -73,5 +68,24 @@ public class V1beta1AllowedHostPathFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(pathPrefix, readOnly, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (pathPrefix != null) {
+      sb.append("pathPrefix:");
+      sb.append(pathPrefix + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

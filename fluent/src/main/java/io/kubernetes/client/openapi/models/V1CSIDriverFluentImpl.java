@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1CSIDriverFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CSIDriverFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CSIDriverFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1CSIDriverFluentImpl<A extends V1CSIDriverFluent<A>> extends BaseFluent<A>
+    implements V1CSIDriverFluent<A> {
   public V1CSIDriverFluentImpl() {}
 
   public V1CSIDriverFluentImpl(io.kubernetes.client.openapi.models.V1CSIDriver instance) {
@@ -29,10 +31,10 @@ public class V1CSIDriverFluentImpl<
     this.withSpec(instance.getSpec());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1CSIDriverSpecBuilder spec;
+  private V1ObjectMetaBuilder metadata;
+  private V1CSIDriverSpecBuilder spec;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -43,14 +45,8 @@ public class V1CSIDriverFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -66,18 +62,12 @@ public class V1CSIDriverFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -89,7 +79,7 @@ public class V1CSIDriverFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -99,13 +89,13 @@ public class V1CSIDriverFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<A> withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1CSIDriverFluentImpl.MetadataNestedImpl();
+  public V1CSIDriverFluent.MetadataNested<A> withNewMetadata() {
+    return new V1CSIDriverFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1CSIDriverFluentImpl.MetadataNestedImpl(item);
+    return new V1CSIDriverFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<A> editMetadata() {
@@ -142,7 +132,7 @@ public class V1CSIDriverFluentImpl<
   public A withSpec(io.kubernetes.client.openapi.models.V1CSIDriverSpec spec) {
     _visitables.get("spec").remove(this.spec);
     if (spec != null) {
-      this.spec = new io.kubernetes.client.openapi.models.V1CSIDriverSpecBuilder(spec);
+      this.spec = new V1CSIDriverSpecBuilder(spec);
       _visitables.get("spec").add(this.spec);
     }
     return (A) this;
@@ -152,8 +142,8 @@ public class V1CSIDriverFluentImpl<
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.SpecNested<A> withNewSpec() {
-    return new io.kubernetes.client.openapi.models.V1CSIDriverFluentImpl.SpecNestedImpl();
+  public V1CSIDriverFluent.SpecNested<A> withNewSpec() {
+    return new V1CSIDriverFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CSIDriverFluent.SpecNested<A> withNewSpecLike(
@@ -177,7 +167,7 @@ public class V1CSIDriverFluentImpl<
     return withNewSpecLike(getSpec() != null ? getSpec() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CSIDriverFluentImpl that = (V1CSIDriverFluentImpl) o;
@@ -193,13 +183,34 @@ public class V1CSIDriverFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1CSIDriverFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -217,13 +228,11 @@ public class V1CSIDriverFluentImpl<
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CSIDriverSpecFluentImpl<
-          io.kubernetes.client.openapi.models.V1CSIDriverFluent.SpecNested<N>>
+  class SpecNestedImpl<N> extends V1CSIDriverSpecFluentImpl<V1CSIDriverFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.V1CSIDriverFluent.SpecNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     SpecNestedImpl(io.kubernetes.client.openapi.models.V1CSIDriverSpec item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1CSIDriverSpecBuilder(this, item);
+      this.builder = new V1CSIDriverSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {

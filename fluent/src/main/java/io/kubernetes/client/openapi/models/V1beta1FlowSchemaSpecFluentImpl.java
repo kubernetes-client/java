@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1beta1FlowSchemaSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta1FlowSchemaSpecFluentImpl<A extends V1beta1FlowSchemaSpecFluent<A>>
+    extends BaseFluent<A> implements V1beta1FlowSchemaSpecFluent<A> {
   public V1beta1FlowSchemaSpecFluentImpl() {}
 
   public V1beta1FlowSchemaSpecFluentImpl(
@@ -33,23 +37,18 @@ public class V1beta1FlowSchemaSpecFluentImpl<
     this.withRules(instance.getRules());
   }
 
-  private io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodBuilder
-      distinguisherMethod;
-  private java.lang.Integer matchingPrecedence;
-  private io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReferenceBuilder
-      priorityLevelConfiguration;
-  private java.util.ArrayList<
-          io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder>
-      rules;
+  private V1beta1FlowDistinguisherMethodBuilder distinguisherMethod;
+  private Integer matchingPrecedence;
+  private V1beta1PriorityLevelConfigurationReferenceBuilder priorityLevelConfiguration;
+  private ArrayList<V1beta1PolicyRulesWithSubjectsBuilder> rules;
 
   /**
    * This method has been deprecated, please use method buildDistinguisherMethod instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod
-      getDistinguisherMethod() {
+  @Deprecated
+  public V1beta1FlowDistinguisherMethod getDistinguisherMethod() {
     return this.distinguisherMethod != null ? this.distinguisherMethod.build() : null;
   }
 
@@ -70,23 +69,19 @@ public class V1beta1FlowSchemaSpecFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasDistinguisherMethod() {
+  public Boolean hasDistinguisherMethod() {
     return this.distinguisherMethod != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent.DistinguisherMethodNested<
-          A>
-      withNewDistinguisherMethod() {
-    return new io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluentImpl
-        .DistinguisherMethodNestedImpl();
+  public V1beta1FlowSchemaSpecFluent.DistinguisherMethodNested<A> withNewDistinguisherMethod() {
+    return new V1beta1FlowSchemaSpecFluentImpl.DistinguisherMethodNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent.DistinguisherMethodNested<
           A>
       withNewDistinguisherMethodLike(
           io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod item) {
-    return new io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluentImpl
-        .DistinguisherMethodNestedImpl(item);
+    return new V1beta1FlowSchemaSpecFluentImpl.DistinguisherMethodNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent.DistinguisherMethodNested<
@@ -132,8 +127,7 @@ public class V1beta1FlowSchemaSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference
-      getPriorityLevelConfiguration() {
+  public V1beta1PriorityLevelConfigurationReference getPriorityLevelConfiguration() {
     return this.priorityLevelConfiguration != null ? this.priorityLevelConfiguration.build() : null;
   }
 
@@ -159,12 +153,9 @@ public class V1beta1FlowSchemaSpecFluentImpl<
     return this.priorityLevelConfiguration != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent
-              .PriorityLevelConfigurationNested<
-          A>
+  public V1beta1FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A>
       withNewPriorityLevelConfiguration() {
-    return new io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluentImpl
-        .PriorityLevelConfigurationNestedImpl();
+    return new V1beta1FlowSchemaSpecFluentImpl.PriorityLevelConfigurationNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent
@@ -208,9 +199,7 @@ public class V1beta1FlowSchemaSpecFluentImpl<
       java.lang.Integer index,
       io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects item) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder>();
+      this.rules = new java.util.ArrayList<V1beta1PolicyRulesWithSubjectsBuilder>();
     }
     io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder builder =
         new io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder(item);
@@ -258,8 +247,7 @@ public class V1beta1FlowSchemaSpecFluentImpl<
   }
 
   public A addAllToRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects>
-          items) {
+      Collection<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects> items) {
     if (this.rules == null) {
       this.rules =
           new java.util.ArrayList<
@@ -302,8 +290,7 @@ public class V1beta1FlowSchemaSpecFluentImpl<
   }
 
   public A removeMatchingFromRules(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder>
+      Predicate<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder>
           predicate) {
     if (rules == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder> each =
@@ -326,8 +313,7 @@ public class V1beta1FlowSchemaSpecFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects>
-      getRules() {
+  public List<io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects> getRules() {
     return rules != null ? build(rules) : null;
   }
 
@@ -405,10 +391,8 @@ public class V1beta1FlowSchemaSpecFluentImpl<
     return rules != null && !rules.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent.RulesNested<A>
-      addNewRule() {
-    return new io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluentImpl
-        .RulesNestedImpl();
+  public V1beta1FlowSchemaSpecFluent.RulesNested<A> addNewRule() {
+    return new V1beta1FlowSchemaSpecFluentImpl.RulesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent.RulesNested<A>
@@ -460,7 +444,7 @@ public class V1beta1FlowSchemaSpecFluentImpl<
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1FlowSchemaSpecFluentImpl that = (V1beta1FlowSchemaSpecFluentImpl) o;
@@ -486,18 +470,39 @@ public class V1beta1FlowSchemaSpecFluentImpl<
         super.hashCode());
   }
 
-  public class DistinguisherMethodNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent.DistinguisherMethodNested<
-              N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (distinguisherMethod != null) {
+      sb.append("distinguisherMethod:");
+      sb.append(distinguisherMethod + ",");
+    }
+    if (matchingPrecedence != null) {
+      sb.append("matchingPrecedence:");
+      sb.append(matchingPrecedence + ",");
+    }
+    if (priorityLevelConfiguration != null) {
+      sb.append("priorityLevelConfiguration:");
+      sb.append(priorityLevelConfiguration + ",");
+    }
+    if (rules != null && !rules.isEmpty()) {
+      sb.append("rules:");
+      sb.append(rules);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class DistinguisherMethodNestedImpl<N>
+      extends V1beta1FlowDistinguisherMethodFluentImpl<
+          V1beta1FlowSchemaSpecFluent.DistinguisherMethodNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent
                   .DistinguisherMethodNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     DistinguisherMethodNestedImpl(
         io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodBuilder(this, item);
+      this.builder = new V1beta1FlowDistinguisherMethodBuilder(this, item);
     }
 
     DistinguisherMethodNestedImpl() {
@@ -516,21 +521,15 @@ public class V1beta1FlowSchemaSpecFluentImpl<
     }
   }
 
-  public class PriorityLevelConfigurationNestedImpl<N>
-      extends io.kubernetes.client.openapi.models
-              .V1beta1PriorityLevelConfigurationReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent
-                  .PriorityLevelConfigurationNested<
-              N>>
+  class PriorityLevelConfigurationNestedImpl<N>
+      extends V1beta1PriorityLevelConfigurationReferenceFluentImpl<
+          V1beta1FlowSchemaSpecFluent.PriorityLevelConfigurationNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent
                   .PriorityLevelConfigurationNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    PriorityLevelConfigurationNestedImpl(
-        io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReferenceBuilder(
-              this, item);
+    PriorityLevelConfigurationNestedImpl(V1beta1PriorityLevelConfigurationReference item) {
+      this.builder = new V1beta1PriorityLevelConfigurationReferenceBuilder(this, item);
     }
 
     PriorityLevelConfigurationNestedImpl() {
@@ -551,17 +550,15 @@ public class V1beta1FlowSchemaSpecFluentImpl<
     }
   }
 
-  public class RulesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent.RulesNested<N>>
+  class RulesNestedImpl<N>
+      extends V1beta1PolicyRulesWithSubjectsFluentImpl<V1beta1FlowSchemaSpecFluent.RulesNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent.RulesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     RulesNestedImpl(
         java.lang.Integer index,
         io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjects item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1PolicyRulesWithSubjectsBuilder(this, item);
+      this.builder = new V1beta1PolicyRulesWithSubjectsBuilder(this, item);
     }
 
     RulesNestedImpl() {

@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1APIServiceStatusBuilder
-    extends io.kubernetes.client.openapi.models.V1APIServiceStatusFluentImpl<
-        io.kubernetes.client.openapi.models.V1APIServiceStatusBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1APIServiceStatusFluentImpl<V1APIServiceStatusBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1APIServiceStatus,
         io.kubernetes.client.openapi.models.V1APIServiceStatusBuilder> {
   public V1APIServiceStatusBuilder() {
     this(false);
   }
 
-  public V1APIServiceStatusBuilder(java.lang.Boolean validationEnabled) {
+  public V1APIServiceStatusBuilder(Boolean validationEnabled) {
     this(new V1APIServiceStatus(), validationEnabled);
   }
 
-  public V1APIServiceStatusBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceStatusFluent<?> fluent) {
+  public V1APIServiceStatusBuilder(V1APIServiceStatusFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -74,24 +74,5 @@ public class V1APIServiceStatusBuilder
     V1APIServiceStatus buildable = new V1APIServiceStatus();
     buildable.setConditions(fluent.getConditions());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1APIServiceStatusBuilder that = (V1APIServiceStatusBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,23 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1beta1EndpointFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1EndpointFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToAddresses(java.lang.Integer index, java.lang.String item);
+public interface V1beta1EndpointFluent<A extends V1beta1EndpointFluent<A>> extends Fluent<A> {
+  public A addToAddresses(Integer index, String item);
 
   public A setToAddresses(java.lang.Integer index, java.lang.String item);
 
   public A addToAddresses(java.lang.String... items);
 
-  public A addAllToAddresses(java.util.Collection<java.lang.String> items);
+  public A addAllToAddresses(Collection<java.lang.String> items);
 
   public A removeFromAddresses(java.lang.String... items);
 
   public A removeAllFromAddresses(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getAddresses();
+  public List<java.lang.String> getAddresses();
 
   public java.lang.String getAddress(java.lang.Integer index);
 
@@ -36,11 +41,9 @@ public interface V1beta1EndpointFluent<
 
   public java.lang.String getLastAddress();
 
-  public java.lang.String getMatchingAddress(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingAddress(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingAddress(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingAddress(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withAddresses(java.util.List<java.lang.String> addresses);
 
@@ -48,15 +51,13 @@ public interface V1beta1EndpointFluent<
 
   public java.lang.Boolean hasAddresses();
 
-  public A addNewAddress(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1EndpointConditions getConditions();
+  @Deprecated
+  public V1beta1EndpointConditions getConditions();
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointConditions buildConditions();
 
@@ -64,8 +65,7 @@ public interface V1beta1EndpointFluent<
 
   public java.lang.Boolean hasConditions();
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.ConditionsNested<A>
-      withNewConditions();
+  public V1beta1EndpointFluent.ConditionsNested<A> withNewConditions();
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.ConditionsNested<A>
       withNewConditionsLike(io.kubernetes.client.openapi.models.V1beta1EndpointConditions item);
@@ -85,7 +85,7 @@ public interface V1beta1EndpointFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1EndpointHints getHints();
+  public V1beta1EndpointHints getHints();
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointHints buildHints();
 
@@ -93,7 +93,7 @@ public interface V1beta1EndpointFluent<
 
   public java.lang.Boolean hasHints();
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.HintsNested<A> withNewHints();
+  public V1beta1EndpointFluent.HintsNested<A> withNewHints();
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.HintsNested<A> withNewHintsLike(
       io.kubernetes.client.openapi.models.V1beta1EndpointHints item);
@@ -111,19 +111,11 @@ public interface V1beta1EndpointFluent<
 
   public java.lang.Boolean hasHostname();
 
-  /** Method is deprecated. use withHostname instead. */
-  @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original);
-
   public java.lang.String getNodeName();
 
   public A withNodeName(java.lang.String nodeName);
 
   public java.lang.Boolean hasNodeName();
-
-  /** Method is deprecated. use withNodeName instead. */
-  @java.lang.Deprecated
-  public A withNewNodeName(java.lang.String original);
 
   /**
    * This method has been deprecated, please use method buildTargetRef instead.
@@ -131,7 +123,7 @@ public interface V1beta1EndpointFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getTargetRef();
+  public V1ObjectReference getTargetRef();
 
   public io.kubernetes.client.openapi.models.V1ObjectReference buildTargetRef();
 
@@ -139,8 +131,7 @@ public interface V1beta1EndpointFluent<
 
   public java.lang.Boolean hasTargetRef();
 
-  public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.TargetRefNested<A>
-      withNewTargetRef();
+  public V1beta1EndpointFluent.TargetRefNested<A> withNewTargetRef();
 
   public io.kubernetes.client.openapi.models.V1beta1EndpointFluent.TargetRefNested<A>
       withNewTargetRefLike(io.kubernetes.client.openapi.models.V1ObjectReference item);
@@ -156,7 +147,7 @@ public interface V1beta1EndpointFluent<
 
   public A addToTopology(java.lang.String key, java.lang.String value);
 
-  public A addToTopology(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToTopology(Map<java.lang.String, java.lang.String> map);
 
   public A removeFromTopology(java.lang.String key);
 
@@ -169,9 +160,8 @@ public interface V1beta1EndpointFluent<
   public java.lang.Boolean hasTopology();
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1EndpointConditionsFluent<
-              io.kubernetes.client.openapi.models.V1beta1EndpointFluent.ConditionsNested<N>> {
+      extends Nested<N>,
+          V1beta1EndpointConditionsFluent<V1beta1EndpointFluent.ConditionsNested<N>> {
     public N and();
 
     public N endConditions();
@@ -179,8 +169,7 @@ public interface V1beta1EndpointFluent<
 
   public interface HintsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1EndpointHintsFluent<
-              io.kubernetes.client.openapi.models.V1beta1EndpointFluent.HintsNested<N>> {
+          V1beta1EndpointHintsFluent<V1beta1EndpointFluent.HintsNested<N>> {
     public N and();
 
     public N endHints();
@@ -188,8 +177,7 @@ public interface V1beta1EndpointFluent<
 
   public interface TargetRefNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1beta1EndpointFluent.TargetRefNested<N>> {
+          V1ObjectReferenceFluent<V1beta1EndpointFluent.TargetRefNested<N>> {
     public N and();
 
     public N endTargetRef();

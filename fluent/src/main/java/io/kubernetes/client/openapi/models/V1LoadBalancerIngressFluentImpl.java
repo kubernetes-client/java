@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1LoadBalancerIngressFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFluent<A>>
+    extends BaseFluent<A> implements V1LoadBalancerIngressFluent<A> {
   public V1LoadBalancerIngressFluentImpl() {}
 
   public V1LoadBalancerIngressFluentImpl(
@@ -31,9 +35,9 @@ public class V1LoadBalancerIngressFluentImpl<
     this.withPorts(instance.getPorts());
   }
 
-  private java.lang.String hostname;
+  private String hostname;
   private java.lang.String ip;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder> ports;
+  private ArrayList<V1PortStatusBuilder> ports;
 
   public java.lang.String getHostname() {
     return this.hostname;
@@ -44,14 +48,8 @@ public class V1LoadBalancerIngressFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasHostname() {
+  public Boolean hasHostname() {
     return this.hostname != null;
-  }
-
-  /** Method is deprecated. use withHostname instead. */
-  @java.lang.Deprecated
-  public A withNewHostname(java.lang.String original) {
-    return (A) withHostname(new String(original));
   }
 
   public java.lang.String getIp() {
@@ -67,14 +65,7 @@ public class V1LoadBalancerIngressFluentImpl<
     return this.ip != null;
   }
 
-  /** Method is deprecated. use withIp instead. */
-  @java.lang.Deprecated
-  public A withNewIp(java.lang.String original) {
-    return (A) withIp(new String(original));
-  }
-
-  public A addToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PortStatus item) {
+  public A addToPorts(Integer index, V1PortStatus item) {
     if (this.ports == null) {
       this.ports =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder>();
@@ -121,8 +112,7 @@ public class V1LoadBalancerIngressFluentImpl<
     return (A) this;
   }
 
-  public A addAllToPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PortStatus> items) {
+  public A addAllToPorts(Collection<io.kubernetes.client.openapi.models.V1PortStatus> items) {
     if (this.ports == null) {
       this.ports =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder>();
@@ -162,8 +152,7 @@ public class V1LoadBalancerIngressFluentImpl<
   }
 
   public A removeMatchingFromPorts(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PortStatusBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1PortStatusBuilder> predicate) {
     if (ports == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1PortStatusBuilder> each = ports.iterator();
     final List visitables = _visitables.get("ports");
@@ -182,8 +171,8 @@ public class V1LoadBalancerIngressFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1PortStatus> getPorts() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1PortStatus> getPorts() {
     return ports != null ? build(ports) : null;
   }
 
@@ -256,16 +245,13 @@ public class V1LoadBalancerIngressFluentImpl<
     return ports != null && !ports.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A>
-      addNewPort() {
-    return new io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluentImpl
-        .PortsNestedImpl();
+  public V1LoadBalancerIngressFluent.PortsNested<A> addNewPort() {
+    return new V1LoadBalancerIngressFluentImpl.PortsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A>
       addNewPortLike(io.kubernetes.client.openapi.models.V1PortStatus item) {
-    return new io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluentImpl.PortsNestedImpl(
-        -1, item);
+    return new V1LoadBalancerIngressFluentImpl.PortsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A>
@@ -309,7 +295,7 @@ public class V1LoadBalancerIngressFluentImpl<
     return setNewPortLike(index, buildPort(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1LoadBalancerIngressFluentImpl that = (V1LoadBalancerIngressFluentImpl) o;
@@ -323,15 +309,33 @@ public class V1LoadBalancerIngressFluentImpl<
     return java.util.Objects.hash(hostname, ip, ports, super.hashCode());
   }
 
-  public class PortsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PortStatusFluentImpl<
-          io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (hostname != null) {
+      sb.append("hostname:");
+      sb.append(hostname + ",");
+    }
+    if (ip != null) {
+      sb.append("ip:");
+      sb.append(ip + ",");
+    }
+    if (ports != null && !ports.isEmpty()) {
+      sb.append("ports:");
+      sb.append(ports);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class PortsNestedImpl<N>
+      extends V1PortStatusFluentImpl<V1LoadBalancerIngressFluent.PortsNested<N>>
       implements io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     PortsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1PortStatus item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1PortStatusBuilder(this, item);
+      this.builder = new V1PortStatusBuilder(this, item);
     }
 
     PortsNestedImpl() {

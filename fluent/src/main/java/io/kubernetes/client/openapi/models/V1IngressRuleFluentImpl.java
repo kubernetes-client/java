@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class V1IngressRuleFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1IngressRuleFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1IngressRuleFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1IngressRuleFluentImpl<A extends V1IngressRuleFluent<A>> extends BaseFluent<A>
+    implements V1IngressRuleFluent<A> {
   public V1IngressRuleFluentImpl() {}
 
   public V1IngressRuleFluentImpl(io.kubernetes.client.openapi.models.V1IngressRule instance) {
@@ -25,8 +27,8 @@ public class V1IngressRuleFluentImpl<
     this.withHttp(instance.getHttp());
   }
 
-  private java.lang.String host;
-  private io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueBuilder http;
+  private String host;
+  private V1HTTPIngressRuleValueBuilder http;
 
   public java.lang.String getHost() {
     return this.host;
@@ -37,14 +39,8 @@ public class V1IngressRuleFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasHost() {
+  public Boolean hasHost() {
     return this.host != null;
-  }
-
-  /** Method is deprecated. use withHost instead. */
-  @java.lang.Deprecated
-  public A withNewHost(java.lang.String original) {
-    return (A) withHost(new String(original));
   }
 
   /**
@@ -52,7 +48,7 @@ public class V1IngressRuleFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValue getHttp() {
     return this.http != null ? this.http.build() : null;
   }
@@ -64,7 +60,7 @@ public class V1IngressRuleFluentImpl<
   public A withHttp(io.kubernetes.client.openapi.models.V1HTTPIngressRuleValue http) {
     _visitables.get("http").remove(this.http);
     if (http != null) {
-      this.http = new io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueBuilder(http);
+      this.http = new V1HTTPIngressRuleValueBuilder(http);
       _visitables.get("http").add(this.http);
     }
     return (A) this;
@@ -74,13 +70,13 @@ public class V1IngressRuleFluentImpl<
     return this.http != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressRuleFluent.HttpNested<A> withNewHttp() {
-    return new io.kubernetes.client.openapi.models.V1IngressRuleFluentImpl.HttpNestedImpl();
+  public V1IngressRuleFluent.HttpNested<A> withNewHttp() {
+    return new V1IngressRuleFluentImpl.HttpNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1IngressRuleFluent.HttpNested<A> withNewHttpLike(
       io.kubernetes.client.openapi.models.V1HTTPIngressRuleValue item) {
-    return new io.kubernetes.client.openapi.models.V1IngressRuleFluentImpl.HttpNestedImpl(item);
+    return new V1IngressRuleFluentImpl.HttpNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1IngressRuleFluent.HttpNested<A> editHttp() {
@@ -99,7 +95,7 @@ public class V1IngressRuleFluentImpl<
     return withNewHttpLike(getHttp() != null ? getHttp() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1IngressRuleFluentImpl that = (V1IngressRuleFluentImpl) o;
@@ -112,14 +108,26 @@ public class V1IngressRuleFluentImpl<
     return java.util.Objects.hash(host, http, super.hashCode());
   }
 
-  public class HttpNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluentImpl<
-          io.kubernetes.client.openapi.models.V1IngressRuleFluent.HttpNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressRuleFluent.HttpNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (host != null) {
+      sb.append("host:");
+      sb.append(host + ",");
+    }
+    if (http != null) {
+      sb.append("http:");
+      sb.append(http);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class HttpNestedImpl<N>
+      extends V1HTTPIngressRuleValueFluentImpl<V1IngressRuleFluent.HttpNested<N>>
+      implements io.kubernetes.client.openapi.models.V1IngressRuleFluent.HttpNested<N>, Nested<N> {
     HttpNestedImpl(io.kubernetes.client.openapi.models.V1HTTPIngressRuleValue item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueBuilder(this, item);
+      this.builder = new V1HTTPIngressRuleValueBuilder(this, item);
     }
 
     HttpNestedImpl() {

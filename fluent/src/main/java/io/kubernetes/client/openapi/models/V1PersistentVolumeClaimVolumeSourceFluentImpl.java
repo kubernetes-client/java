@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1PersistentVolumeClaimVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimVolumeSourceFluent<A> {
+        A extends V1PersistentVolumeClaimVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1PersistentVolumeClaimVolumeSourceFluent<A> {
   public V1PersistentVolumeClaimVolumeSourceFluentImpl() {}
 
   public V1PersistentVolumeClaimVolumeSourceFluentImpl(
@@ -26,8 +28,8 @@ public class V1PersistentVolumeClaimVolumeSourceFluentImpl<
     this.withReadOnly(instance.getReadOnly());
   }
 
-  private java.lang.String claimName;
-  private java.lang.Boolean readOnly;
+  private String claimName;
+  private Boolean readOnly;
 
   public java.lang.String getClaimName() {
     return this.claimName;
@@ -40,12 +42,6 @@ public class V1PersistentVolumeClaimVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasClaimName() {
     return this.claimName != null;
-  }
-
-  /** Method is deprecated. use withClaimName instead. */
-  @java.lang.Deprecated
-  public A withNewClaimName(java.lang.String original) {
-    return (A) withClaimName(new String(original));
   }
 
   public java.lang.Boolean getReadOnly() {
@@ -61,7 +57,7 @@ public class V1PersistentVolumeClaimVolumeSourceFluentImpl<
     return this.readOnly != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PersistentVolumeClaimVolumeSourceFluentImpl that =
@@ -74,5 +70,24 @@ public class V1PersistentVolumeClaimVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(claimName, readOnly, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (claimName != null) {
+      sb.append("claimName:");
+      sb.append(claimName + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

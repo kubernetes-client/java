@@ -12,15 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1DeploymentSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1DeploymentSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getMinReadySeconds();
+public interface V1DeploymentSpecFluent<A extends V1DeploymentSpecFluent<A>> extends Fluent<A> {
+  public Integer getMinReadySeconds();
 
   public A withMinReadySeconds(java.lang.Integer minReadySeconds);
 
-  public java.lang.Boolean hasMinReadySeconds();
+  public Boolean hasMinReadySeconds();
 
   public java.lang.Boolean getPaused();
 
@@ -51,8 +52,8 @@ public interface V1DeploymentSpecFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector();
+  @Deprecated
+  public V1LabelSelector getSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector();
 
@@ -60,8 +61,7 @@ public interface V1DeploymentSpecFluent<
 
   public java.lang.Boolean hasSelector();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.SelectorNested<A>
-      withNewSelector();
+  public V1DeploymentSpecFluent.SelectorNested<A> withNewSelector();
 
   public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.SelectorNested<A>
       withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -81,7 +81,7 @@ public interface V1DeploymentSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1DeploymentStrategy getStrategy();
+  public V1DeploymentStrategy getStrategy();
 
   public io.kubernetes.client.openapi.models.V1DeploymentStrategy buildStrategy();
 
@@ -89,8 +89,7 @@ public interface V1DeploymentSpecFluent<
 
   public java.lang.Boolean hasStrategy();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.StrategyNested<A>
-      withNewStrategy();
+  public V1DeploymentSpecFluent.StrategyNested<A> withNewStrategy();
 
   public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.StrategyNested<A>
       withNewStrategyLike(io.kubernetes.client.openapi.models.V1DeploymentStrategy item);
@@ -110,7 +109,7 @@ public interface V1DeploymentSpecFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate();
+  public V1PodTemplateSpec getTemplate();
 
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate();
 
@@ -118,8 +117,7 @@ public interface V1DeploymentSpecFluent<
 
   public java.lang.Boolean hasTemplate();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.TemplateNested<A>
-      withNewTemplate();
+  public V1DeploymentSpecFluent.TemplateNested<A> withNewTemplate();
 
   public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.TemplateNested<A>
       withNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
@@ -133,10 +131,10 @@ public interface V1DeploymentSpecFluent<
   public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.TemplateNested<A>
       editOrNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
 
+  public A withPaused();
+
   public interface SelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.SelectorNested<N>> {
+      extends Nested<N>, V1LabelSelectorFluent<V1DeploymentSpecFluent.SelectorNested<N>> {
     public N and();
 
     public N endSelector();
@@ -144,8 +142,7 @@ public interface V1DeploymentSpecFluent<
 
   public interface StrategyNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent<
-              io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.StrategyNested<N>> {
+          V1DeploymentStrategyFluent<V1DeploymentSpecFluent.StrategyNested<N>> {
     public N and();
 
     public N endStrategy();
@@ -153,8 +150,7 @@ public interface V1DeploymentSpecFluent<
 
   public interface TemplateNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent<
-              io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.TemplateNested<N>> {
+          V1PodTemplateSpecFluent<V1DeploymentSpecFluent.TemplateNested<N>> {
     public N and();
 
     public N endTemplate();

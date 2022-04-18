@@ -12,14 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1CustomResourceDefinitionStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent<A> {
+        A extends V1CustomResourceDefinitionStatusFluent<A>>
+    extends BaseFluent<A> implements V1CustomResourceDefinitionStatusFluent<A> {
   public V1CustomResourceDefinitionStatusFluentImpl() {}
 
   public V1CustomResourceDefinitionStatusFluentImpl(
@@ -31,18 +36,16 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     this.withStoredVersions(instance.getStoredVersions());
   }
 
-  private io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder acceptedNames;
-  private java.util.ArrayList<
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
-      conditions;
-  private java.util.List<java.lang.String> storedVersions;
+  private V1CustomResourceDefinitionNamesBuilder acceptedNames;
+  private ArrayList<V1CustomResourceDefinitionConditionBuilder> conditions;
+  private List<String> storedVersions;
 
   /**
    * This method has been deprecated, please use method buildAcceptedNames instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames getAcceptedNames() {
     return this.acceptedNames != null ? this.acceptedNames.build() : null;
   }
@@ -55,24 +58,18 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
       io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames acceptedNames) {
     _visitables.get("acceptedNames").remove(this.acceptedNames);
     if (acceptedNames != null) {
-      this.acceptedNames =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder(
-              acceptedNames);
+      this.acceptedNames = new V1CustomResourceDefinitionNamesBuilder(acceptedNames);
       _visitables.get("acceptedNames").add(this.acceptedNames);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAcceptedNames() {
+  public Boolean hasAcceptedNames() {
     return this.acceptedNames != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .AcceptedNamesNested<
-          A>
-      withNewAcceptedNames() {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluentImpl
-        .AcceptedNamesNestedImpl();
+  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> withNewAcceptedNames() {
+    return new V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
@@ -80,8 +77,7 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
           A>
       withNewAcceptedNamesLike(
           io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames item) {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluentImpl
-        .AcceptedNamesNestedImpl(item);
+    return new V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
@@ -111,12 +107,9 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
   }
 
   public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item) {
+      Integer index, io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>();
+      this.conditions = new java.util.ArrayList<V1CustomResourceDefinitionConditionBuilder>();
     }
     io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder =
         new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(item);
@@ -167,8 +160,7 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
   }
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
-          items) {
+      Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition> items) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -211,8 +203,7 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
+      Predicate<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
           predicate) {
     if (conditions == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
@@ -323,12 +314,8 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .ConditionsNested<
-          A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluentImpl
-        .ConditionsNestedImpl();
+  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V1CustomResourceDefinitionStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
@@ -513,11 +500,7 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return storedVersions != null && !storedVersions.isEmpty();
   }
 
-  public A addNewStoredVersion(java.lang.String original) {
-    return (A) addToStoredVersions(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CustomResourceDefinitionStatusFluentImpl that =
@@ -537,20 +520,35 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return java.util.Objects.hash(acceptedNames, conditions, storedVersions, super.hashCode());
   }
 
-  public class AcceptedNamesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluentImpl<
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-                  .AcceptedNamesNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (acceptedNames != null) {
+      sb.append("acceptedNames:");
+      sb.append(acceptedNames + ",");
+    }
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions + ",");
+    }
+    if (storedVersions != null && !storedVersions.isEmpty()) {
+      sb.append("storedVersions:");
+      sb.append(storedVersions);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class AcceptedNamesNestedImpl<N>
+      extends V1CustomResourceDefinitionNamesFluentImpl<
+          V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<N>>
       implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
                   .AcceptedNamesNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     AcceptedNamesNestedImpl(
         io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder(
-              this, item);
+      this.builder = new V1CustomResourceDefinitionNamesBuilder(this, item);
     }
 
     AcceptedNamesNestedImpl() {
@@ -569,22 +567,16 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     }
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-                  .ConditionsNested<
-              N>>
+  class ConditionsNestedImpl<N>
+      extends V1CustomResourceDefinitionConditionFluentImpl<
+          V1CustomResourceDefinitionStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
                   .ConditionsNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    ConditionsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item) {
+    ConditionsNestedImpl(java.lang.Integer index, V1CustomResourceDefinitionCondition item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(
-              this, item);
+      this.builder = new V1CustomResourceDefinitionConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {

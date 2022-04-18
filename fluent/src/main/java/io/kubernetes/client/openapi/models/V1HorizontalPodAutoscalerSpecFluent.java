@@ -12,15 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
 public interface V1HorizontalPodAutoscalerSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getMaxReplicas();
+        A extends V1HorizontalPodAutoscalerSpecFluent<A>>
+    extends Fluent<A> {
+  public Integer getMaxReplicas();
 
   public A withMaxReplicas(java.lang.Integer maxReplicas);
 
-  public java.lang.Boolean hasMaxReplicas();
+  public Boolean hasMaxReplicas();
 
   public java.lang.Integer getMinReplicas();
 
@@ -33,8 +36,8 @@ public interface V1HorizontalPodAutoscalerSpecFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CrossVersionObjectReference getScaleTargetRef();
+  @Deprecated
+  public V1CrossVersionObjectReference getScaleTargetRef();
 
   public io.kubernetes.client.openapi.models.V1CrossVersionObjectReference buildScaleTargetRef();
 
@@ -43,10 +46,7 @@ public interface V1HorizontalPodAutoscalerSpecFluent<
 
   public java.lang.Boolean hasScaleTargetRef();
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent
-              .ScaleTargetRefNested<
-          A>
-      withNewScaleTargetRef();
+  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> withNewScaleTargetRef();
 
   public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent
               .ScaleTargetRefNested<
@@ -77,11 +77,9 @@ public interface V1HorizontalPodAutoscalerSpecFluent<
   public java.lang.Boolean hasTargetCPUUtilizationPercentage();
 
   public interface ScaleTargetRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CrossVersionObjectReferenceFluent<
-              io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent
-                      .ScaleTargetRefNested<
-                  N>> {
+      extends Nested<N>,
+          V1CrossVersionObjectReferenceFluent<
+              V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<N>> {
     public N and();
 
     public N endScaleTargetRef();

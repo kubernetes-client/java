@@ -12,23 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1WatchEventFluent<
-        A extends io.kubernetes.client.openapi.models.V1WatchEventFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Object getObject();
+public interface V1WatchEventFluent<A extends V1WatchEventFluent<A>> extends Fluent<A> {
+  public Object getObject();
 
   public A withObject(java.lang.Object _object);
 
-  public java.lang.Boolean hasObject();
+  public Boolean hasObject();
 
-  public java.lang.String getType();
+  public String getType();
 
   public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
-
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
 }

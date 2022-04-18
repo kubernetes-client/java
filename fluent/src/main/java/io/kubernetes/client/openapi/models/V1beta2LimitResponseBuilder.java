@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta2LimitResponseBuilder
-    extends io.kubernetes.client.openapi.models.V1beta2LimitResponseFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta2LimitResponseBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta2LimitResponse,
-        io.kubernetes.client.openapi.models.V1beta2LimitResponseBuilder> {
+    extends V1beta2LimitResponseFluentImpl<V1beta2LimitResponseBuilder>
+    implements VisitableBuilder<
+        V1beta2LimitResponse, io.kubernetes.client.openapi.models.V1beta2LimitResponseBuilder> {
   public V1beta2LimitResponseBuilder() {
     this(false);
   }
 
-  public V1beta2LimitResponseBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta2LimitResponseBuilder(Boolean validationEnabled) {
     this(new V1beta2LimitResponse(), validationEnabled);
   }
 
@@ -79,24 +79,5 @@ public class V1beta2LimitResponseBuilder
     buildable.setQueuing(fluent.getQueuing());
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta2LimitResponseBuilder that = (V1beta2LimitResponseBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

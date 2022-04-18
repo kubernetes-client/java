@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1IngressClassSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1IngressClassSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1IngressClassSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1IngressClassSpecFluentImpl<V1IngressClassSpecBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1IngressClassSpec,
         io.kubernetes.client.openapi.models.V1IngressClassSpecBuilder> {
   public V1IngressClassSpecBuilder() {
     this(false);
   }
 
-  public V1IngressClassSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1IngressClassSpecBuilder(Boolean validationEnabled) {
     this(new V1IngressClassSpec(), validationEnabled);
   }
 
-  public V1IngressClassSpecBuilder(
-      io.kubernetes.client.openapi.models.V1IngressClassSpecFluent<?> fluent) {
+  public V1IngressClassSpecBuilder(V1IngressClassSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -79,24 +79,5 @@ public class V1IngressClassSpecBuilder
     buildable.setController(fluent.getController());
     buildable.setParameters(fluent.getParameters());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1IngressClassSpecBuilder that = (V1IngressClassSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

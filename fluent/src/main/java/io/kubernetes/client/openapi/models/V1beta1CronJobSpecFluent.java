@@ -12,21 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1beta1CronJobSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getConcurrencyPolicy();
+public interface V1beta1CronJobSpecFluent<A extends V1beta1CronJobSpecFluent<A>> extends Fluent<A> {
+  public String getConcurrencyPolicy();
 
   public A withConcurrencyPolicy(java.lang.String concurrencyPolicy);
 
-  public java.lang.Boolean hasConcurrencyPolicy();
+  public Boolean hasConcurrencyPolicy();
 
-  /** Method is deprecated. use withConcurrencyPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewConcurrencyPolicy(java.lang.String original);
-
-  public java.lang.Integer getFailedJobsHistoryLimit();
+  public Integer getFailedJobsHistoryLimit();
 
   public A withFailedJobsHistoryLimit(java.lang.Integer failedJobsHistoryLimit);
 
@@ -37,8 +34,8 @@ public interface V1beta1CronJobSpecFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec getJobTemplate();
+  @Deprecated
+  public V1beta1JobTemplateSpec getJobTemplate();
 
   public io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec buildJobTemplate();
 
@@ -46,8 +43,7 @@ public interface V1beta1CronJobSpecFluent<
 
   public java.lang.Boolean hasJobTemplate();
 
-  public io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent.JobTemplateNested<A>
-      withNewJobTemplate();
+  public V1beta1CronJobSpecFluent.JobTemplateNested<A> withNewJobTemplate();
 
   public io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent.JobTemplateNested<A>
       withNewJobTemplateLike(io.kubernetes.client.openapi.models.V1beta1JobTemplateSpec item);
@@ -67,11 +63,7 @@ public interface V1beta1CronJobSpecFluent<
 
   public java.lang.Boolean hasSchedule();
 
-  /** Method is deprecated. use withSchedule instead. */
-  @java.lang.Deprecated
-  public A withNewSchedule(java.lang.String original);
-
-  public java.lang.Long getStartingDeadlineSeconds();
+  public Long getStartingDeadlineSeconds();
 
   public A withStartingDeadlineSeconds(java.lang.Long startingDeadlineSeconds);
 
@@ -89,10 +81,11 @@ public interface V1beta1CronJobSpecFluent<
 
   public java.lang.Boolean hasSuspend();
 
+  public A withSuspend();
+
   public interface JobTemplateNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1JobTemplateSpecFluent<
-              io.kubernetes.client.openapi.models.V1beta1CronJobSpecFluent.JobTemplateNested<N>> {
+      extends Nested<N>,
+          V1beta1JobTemplateSpecFluent<V1beta1CronJobSpecFluent.JobTemplateNested<N>> {
     public N and();
 
     public N endJobTemplate();

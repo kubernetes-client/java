@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1SecurityContextFluent<
-        A extends io.kubernetes.client.openapi.models.V1SecurityContextFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Boolean getAllowPrivilegeEscalation();
+public interface V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> extends Fluent<A> {
+  public Boolean getAllowPrivilegeEscalation();
 
   public A withAllowPrivilegeEscalation(java.lang.Boolean allowPrivilegeEscalation);
 
@@ -27,8 +28,8 @@ public interface V1SecurityContextFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1Capabilities getCapabilities();
+  @Deprecated
+  public V1Capabilities getCapabilities();
 
   public io.kubernetes.client.openapi.models.V1Capabilities buildCapabilities();
 
@@ -36,8 +37,7 @@ public interface V1SecurityContextFluent<
 
   public java.lang.Boolean hasCapabilities();
 
-  public io.kubernetes.client.openapi.models.V1SecurityContextFluent.CapabilitiesNested<A>
-      withNewCapabilities();
+  public V1SecurityContextFluent.CapabilitiesNested<A> withNewCapabilities();
 
   public io.kubernetes.client.openapi.models.V1SecurityContextFluent.CapabilitiesNested<A>
       withNewCapabilitiesLike(io.kubernetes.client.openapi.models.V1Capabilities item);
@@ -57,15 +57,11 @@ public interface V1SecurityContextFluent<
 
   public java.lang.Boolean hasPrivileged();
 
-  public java.lang.String getProcMount();
+  public String getProcMount();
 
   public A withProcMount(java.lang.String procMount);
 
   public java.lang.Boolean hasProcMount();
-
-  /** Method is deprecated. use withProcMount instead. */
-  @java.lang.Deprecated
-  public A withNewProcMount(java.lang.String original);
 
   public java.lang.Boolean getReadOnlyRootFilesystem();
 
@@ -73,7 +69,7 @@ public interface V1SecurityContextFluent<
 
   public java.lang.Boolean hasReadOnlyRootFilesystem();
 
-  public java.lang.Long getRunAsGroup();
+  public Long getRunAsGroup();
 
   public A withRunAsGroup(java.lang.Long runAsGroup);
 
@@ -97,7 +93,7 @@ public interface V1SecurityContextFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SELinuxOptions getSeLinuxOptions();
+  public V1SELinuxOptions getSeLinuxOptions();
 
   public io.kubernetes.client.openapi.models.V1SELinuxOptions buildSeLinuxOptions();
 
@@ -105,8 +101,7 @@ public interface V1SecurityContextFluent<
 
   public java.lang.Boolean hasSeLinuxOptions();
 
-  public io.kubernetes.client.openapi.models.V1SecurityContextFluent.SeLinuxOptionsNested<A>
-      withNewSeLinuxOptions();
+  public V1SecurityContextFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptions();
 
   public io.kubernetes.client.openapi.models.V1SecurityContextFluent.SeLinuxOptionsNested<A>
       withNewSeLinuxOptionsLike(io.kubernetes.client.openapi.models.V1SELinuxOptions item);
@@ -126,7 +121,7 @@ public interface V1SecurityContextFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SeccompProfile getSeccompProfile();
+  public V1SeccompProfile getSeccompProfile();
 
   public io.kubernetes.client.openapi.models.V1SeccompProfile buildSeccompProfile();
 
@@ -134,8 +129,7 @@ public interface V1SecurityContextFluent<
 
   public java.lang.Boolean hasSeccompProfile();
 
-  public io.kubernetes.client.openapi.models.V1SecurityContextFluent.SeccompProfileNested<A>
-      withNewSeccompProfile();
+  public V1SecurityContextFluent.SeccompProfileNested<A> withNewSeccompProfile();
 
   public io.kubernetes.client.openapi.models.V1SecurityContextFluent.SeccompProfileNested<A>
       withNewSeccompProfileLike(io.kubernetes.client.openapi.models.V1SeccompProfile item);
@@ -155,7 +149,7 @@ public interface V1SecurityContextFluent<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions getWindowsOptions();
+  public V1WindowsSecurityContextOptions getWindowsOptions();
 
   public io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions buildWindowsOptions();
 
@@ -164,8 +158,7 @@ public interface V1SecurityContextFluent<
 
   public java.lang.Boolean hasWindowsOptions();
 
-  public io.kubernetes.client.openapi.models.V1SecurityContextFluent.WindowsOptionsNested<A>
-      withNewWindowsOptions();
+  public V1SecurityContextFluent.WindowsOptionsNested<A> withNewWindowsOptions();
 
   public io.kubernetes.client.openapi.models.V1SecurityContextFluent.WindowsOptionsNested<A>
       withNewWindowsOptionsLike(
@@ -181,10 +174,16 @@ public interface V1SecurityContextFluent<
       editOrNewWindowsOptionsLike(
           io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions item);
 
+  public A withAllowPrivilegeEscalation();
+
+  public A withPrivileged();
+
+  public A withReadOnlyRootFilesystem();
+
+  public A withRunAsNonRoot();
+
   public interface CapabilitiesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1CapabilitiesFluent<
-              io.kubernetes.client.openapi.models.V1SecurityContextFluent.CapabilitiesNested<N>> {
+      extends Nested<N>, V1CapabilitiesFluent<V1SecurityContextFluent.CapabilitiesNested<N>> {
     public N and();
 
     public N endCapabilities();
@@ -192,8 +191,7 @@ public interface V1SecurityContextFluent<
 
   public interface SeLinuxOptionsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<
-              io.kubernetes.client.openapi.models.V1SecurityContextFluent.SeLinuxOptionsNested<N>> {
+          V1SELinuxOptionsFluent<V1SecurityContextFluent.SeLinuxOptionsNested<N>> {
     public N and();
 
     public N endSeLinuxOptions();
@@ -201,8 +199,7 @@ public interface V1SecurityContextFluent<
 
   public interface SeccompProfileNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1SeccompProfileFluent<
-              io.kubernetes.client.openapi.models.V1SecurityContextFluent.SeccompProfileNested<N>> {
+          V1SeccompProfileFluent<V1SecurityContextFluent.SeccompProfileNested<N>> {
     public N and();
 
     public N endSeccompProfile();
@@ -210,8 +207,7 @@ public interface V1SecurityContextFluent<
 
   public interface WindowsOptionsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsFluent<
-              io.kubernetes.client.openapi.models.V1SecurityContextFluent.WindowsOptionsNested<N>> {
+          V1WindowsSecurityContextOptionsFluent<V1SecurityContextFluent.WindowsOptionsNested<N>> {
     public N and();
 
     public N endWindowsOptions();

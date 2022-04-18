@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1CephFSVolumeSourceBuilder
-    extends io.kubernetes.client.openapi.models.V1CephFSVolumeSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V1CephFSVolumeSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1CephFSVolumeSourceFluentImpl<V1CephFSVolumeSourceBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1CephFSVolumeSource,
         io.kubernetes.client.openapi.models.V1CephFSVolumeSourceBuilder> {
   public V1CephFSVolumeSourceBuilder() {
     this(false);
   }
 
-  public V1CephFSVolumeSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V1CephFSVolumeSourceBuilder(Boolean validationEnabled) {
     this(new V1CephFSVolumeSource(), validationEnabled);
   }
 
-  public V1CephFSVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CephFSVolumeSourceFluent<?> fluent) {
+  public V1CephFSVolumeSourceBuilder(V1CephFSVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -99,24 +99,5 @@ public class V1CephFSVolumeSourceBuilder
     buildable.setSecretRef(fluent.getSecretRef());
     buildable.setUser(fluent.getUser());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1CephFSVolumeSourceBuilder that = (V1CephFSVolumeSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

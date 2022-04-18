@@ -12,19 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
 public interface V1beta1PriorityLevelConfigurationSpecFluent<
-        A extends
-            io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+        A extends V1beta1PriorityLevelConfigurationSpecFluent<A>>
+    extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildLimited instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration getLimited();
+  @Deprecated
+  public V1beta1LimitedPriorityLevelConfiguration getLimited();
 
   public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration
       buildLimited();
@@ -32,12 +34,9 @@ public interface V1beta1PriorityLevelConfigurationSpecFluent<
   public A withLimited(
       io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration limited);
 
-  public java.lang.Boolean hasLimited();
+  public Boolean hasLimited();
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      withNewLimited();
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> withNewLimited();
 
   public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
               .LimitedNested<
@@ -61,22 +60,16 @@ public interface V1beta1PriorityLevelConfigurationSpecFluent<
       editOrNewLimitedLike(
           io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration item);
 
-  public java.lang.String getType();
+  public String getType();
 
   public A withType(java.lang.String type);
 
   public java.lang.Boolean hasType();
 
-  /** Method is deprecated. use withType instead. */
-  @java.lang.Deprecated
-  public A withNewType(java.lang.String original);
-
   public interface LimitedNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-                      .LimitedNested<
-                  N>> {
+      extends Nested<N>,
+          V1beta1LimitedPriorityLevelConfigurationFluent<
+              V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<N>> {
     public N and();
 
     public N endLimited();

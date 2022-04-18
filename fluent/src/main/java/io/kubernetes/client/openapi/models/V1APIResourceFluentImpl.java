@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1APIResourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1APIResourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1APIResourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1APIResourceFluentImpl<A extends V1APIResourceFluent<A>> extends BaseFluent<A>
+    implements V1APIResourceFluent<A> {
   public V1APIResourceFluentImpl() {}
 
   public V1APIResourceFluentImpl(io.kubernetes.client.openapi.models.V1APIResource instance) {
@@ -41,20 +46,20 @@ public class V1APIResourceFluentImpl<
     this.withVersion(instance.getVersion());
   }
 
-  private java.util.List<java.lang.String> categories;
+  private List<String> categories;
   private java.lang.String group;
   private java.lang.String kind;
   private java.lang.String name;
-  private java.lang.Boolean namespaced;
+  private Boolean namespaced;
   private java.util.List<java.lang.String> shortNames;
   private java.lang.String singularName;
   private java.lang.String storageVersionHash;
   private java.util.List<java.lang.String> verbs;
   private java.lang.String version;
 
-  public A addToCategories(java.lang.Integer index, java.lang.String item) {
+  public A addToCategories(Integer index, java.lang.String item) {
     if (this.categories == null) {
-      this.categories = new java.util.ArrayList<java.lang.String>();
+      this.categories = new ArrayList<java.lang.String>();
     }
     this.categories.add(index, item);
     return (A) this;
@@ -78,7 +83,7 @@ public class V1APIResourceFluentImpl<
     return (A) this;
   }
 
-  public A addAllToCategories(java.util.Collection<java.lang.String> items) {
+  public A addAllToCategories(Collection<java.lang.String> items) {
     if (this.categories == null) {
       this.categories = new java.util.ArrayList<java.lang.String>();
     }
@@ -122,8 +127,7 @@ public class V1APIResourceFluentImpl<
     return this.categories.get(categories.size() - 1);
   }
 
-  public java.lang.String getMatchingCategory(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingCategory(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : categories) {
       if (predicate.test(item)) {
         return item;
@@ -170,10 +174,6 @@ public class V1APIResourceFluentImpl<
     return categories != null && !categories.isEmpty();
   }
 
-  public A addNewCategory(java.lang.String original) {
-    return (A) addToCategories(new String(original));
-  }
-
   public java.lang.String getGroup() {
     return this.group;
   }
@@ -185,12 +185,6 @@ public class V1APIResourceFluentImpl<
 
   public java.lang.Boolean hasGroup() {
     return this.group != null;
-  }
-
-  /** Method is deprecated. use withGroup instead. */
-  @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original) {
-    return (A) withGroup(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -206,12 +200,6 @@ public class V1APIResourceFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -223,12 +211,6 @@ public class V1APIResourceFluentImpl<
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.Boolean getNamespaced() {
@@ -362,10 +344,6 @@ public class V1APIResourceFluentImpl<
     return shortNames != null && !shortNames.isEmpty();
   }
 
-  public A addNewShortName(java.lang.String original) {
-    return (A) addToShortNames(new String(original));
-  }
-
   public java.lang.String getSingularName() {
     return this.singularName;
   }
@@ -379,12 +357,6 @@ public class V1APIResourceFluentImpl<
     return this.singularName != null;
   }
 
-  /** Method is deprecated. use withSingularName instead. */
-  @java.lang.Deprecated
-  public A withNewSingularName(java.lang.String original) {
-    return (A) withSingularName(new String(original));
-  }
-
   public java.lang.String getStorageVersionHash() {
     return this.storageVersionHash;
   }
@@ -396,12 +368,6 @@ public class V1APIResourceFluentImpl<
 
   public java.lang.Boolean hasStorageVersionHash() {
     return this.storageVersionHash != null;
-  }
-
-  /** Method is deprecated. use withStorageVersionHash instead. */
-  @java.lang.Deprecated
-  public A withNewStorageVersionHash(java.lang.String original) {
-    return (A) withStorageVersionHash(new String(original));
   }
 
   public A addToVerbs(java.lang.Integer index, java.lang.String item) {
@@ -522,10 +488,6 @@ public class V1APIResourceFluentImpl<
     return verbs != null && !verbs.isEmpty();
   }
 
-  public A addNewVerb(java.lang.String original) {
-    return (A) addToVerbs(new String(original));
-  }
-
   public java.lang.String getVersion() {
     return this.version;
   }
@@ -539,13 +501,7 @@ public class V1APIResourceFluentImpl<
     return this.version != null;
   }
 
-  /** Method is deprecated. use withVersion instead. */
-  @java.lang.Deprecated
-  public A withNewVersion(java.lang.String original) {
-    return (A) withVersion(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1APIResourceFluentImpl that = (V1APIResourceFluentImpl) o;
@@ -581,5 +537,56 @@ public class V1APIResourceFluentImpl<
         verbs,
         version,
         super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (categories != null && !categories.isEmpty()) {
+      sb.append("categories:");
+      sb.append(categories + ",");
+    }
+    if (group != null) {
+      sb.append("group:");
+      sb.append(group + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespaced != null) {
+      sb.append("namespaced:");
+      sb.append(namespaced + ",");
+    }
+    if (shortNames != null && !shortNames.isEmpty()) {
+      sb.append("shortNames:");
+      sb.append(shortNames + ",");
+    }
+    if (singularName != null) {
+      sb.append("singularName:");
+      sb.append(singularName + ",");
+    }
+    if (storageVersionHash != null) {
+      sb.append("storageVersionHash:");
+      sb.append(storageVersionHash + ",");
+    }
+    if (verbs != null && !verbs.isEmpty()) {
+      sb.append("verbs:");
+      sb.append(verbs + ",");
+    }
+    if (version != null) {
+      sb.append("version:");
+      sb.append(version);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withNamespaced() {
+    return withNamespaced(true);
   }
 }

@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ServerAddressByClientCIDRFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ServerAddressByClientCIDRFluentImpl<A extends V1ServerAddressByClientCIDRFluent<A>>
+    extends BaseFluent<A> implements V1ServerAddressByClientCIDRFluent<A> {
   public V1ServerAddressByClientCIDRFluentImpl() {}
 
   public V1ServerAddressByClientCIDRFluentImpl(
@@ -26,7 +27,7 @@ public class V1ServerAddressByClientCIDRFluentImpl<
     this.withServerAddress(instance.getServerAddress());
   }
 
-  private java.lang.String clientCIDR;
+  private String clientCIDR;
   private java.lang.String serverAddress;
 
   public java.lang.String getClientCIDR() {
@@ -38,14 +39,8 @@ public class V1ServerAddressByClientCIDRFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasClientCIDR() {
+  public Boolean hasClientCIDR() {
     return this.clientCIDR != null;
-  }
-
-  /** Method is deprecated. use withClientCIDR instead. */
-  @java.lang.Deprecated
-  public A withNewClientCIDR(java.lang.String original) {
-    return (A) withClientCIDR(new String(original));
   }
 
   public java.lang.String getServerAddress() {
@@ -61,13 +56,7 @@ public class V1ServerAddressByClientCIDRFluentImpl<
     return this.serverAddress != null;
   }
 
-  /** Method is deprecated. use withServerAddress instead. */
-  @java.lang.Deprecated
-  public A withNewServerAddress(java.lang.String original) {
-    return (A) withServerAddress(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ServerAddressByClientCIDRFluentImpl that = (V1ServerAddressByClientCIDRFluentImpl) o;
@@ -81,5 +70,20 @@ public class V1ServerAddressByClientCIDRFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(clientCIDR, serverAddress, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (clientCIDR != null) {
+      sb.append("clientCIDR:");
+      sb.append(clientCIDR + ",");
+    }
+    if (serverAddress != null) {
+      sb.append("serverAddress:");
+      sb.append(serverAddress);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

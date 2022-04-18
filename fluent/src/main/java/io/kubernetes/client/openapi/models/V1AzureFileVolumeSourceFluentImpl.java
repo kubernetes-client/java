@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1AzureFileVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1AzureFileVolumeSourceFluentImpl<A extends V1AzureFileVolumeSourceFluent<A>>
+    extends BaseFluent<A> implements V1AzureFileVolumeSourceFluent<A> {
   public V1AzureFileVolumeSourceFluentImpl() {}
 
   public V1AzureFileVolumeSourceFluentImpl(
@@ -28,8 +29,8 @@ public class V1AzureFileVolumeSourceFluentImpl<
     this.withShareName(instance.getShareName());
   }
 
-  private java.lang.Boolean readOnly;
-  private java.lang.String secretName;
+  private Boolean readOnly;
+  private String secretName;
   private java.lang.String shareName;
 
   public java.lang.Boolean getReadOnly() {
@@ -58,12 +59,6 @@ public class V1AzureFileVolumeSourceFluentImpl<
     return this.secretName != null;
   }
 
-  /** Method is deprecated. use withSecretName instead. */
-  @java.lang.Deprecated
-  public A withNewSecretName(java.lang.String original) {
-    return (A) withSecretName(new String(original));
-  }
-
   public java.lang.String getShareName() {
     return this.shareName;
   }
@@ -77,13 +72,7 @@ public class V1AzureFileVolumeSourceFluentImpl<
     return this.shareName != null;
   }
 
-  /** Method is deprecated. use withShareName instead. */
-  @java.lang.Deprecated
-  public A withNewShareName(java.lang.String original) {
-    return (A) withShareName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1AzureFileVolumeSourceFluentImpl that = (V1AzureFileVolumeSourceFluentImpl) o;
@@ -97,5 +86,28 @@ public class V1AzureFileVolumeSourceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(readOnly, secretName, shareName, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (secretName != null) {
+      sb.append("secretName:");
+      sb.append(secretName + ",");
+    }
+    if (shareName != null) {
+      sb.append("shareName:");
+      sb.append(shareName);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
   }
 }

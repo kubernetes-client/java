@@ -12,11 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1beta1RuntimeClassStrategyOptionsFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta1RuntimeClassStrategyOptionsFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta1RuntimeClassStrategyOptionsFluent<A> {
+        A extends V1beta1RuntimeClassStrategyOptionsFluent<A>>
+    extends BaseFluent<A> implements V1beta1RuntimeClassStrategyOptionsFluent<A> {
   public V1beta1RuntimeClassStrategyOptionsFluentImpl() {}
 
   public V1beta1RuntimeClassStrategyOptionsFluentImpl(
@@ -26,12 +32,12 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<
     this.withDefaultRuntimeClassName(instance.getDefaultRuntimeClassName());
   }
 
-  private java.util.List<java.lang.String> allowedRuntimeClassNames;
+  private List<String> allowedRuntimeClassNames;
   private java.lang.String defaultRuntimeClassName;
 
-  public A addToAllowedRuntimeClassNames(java.lang.Integer index, java.lang.String item) {
+  public A addToAllowedRuntimeClassNames(Integer index, java.lang.String item) {
     if (this.allowedRuntimeClassNames == null) {
-      this.allowedRuntimeClassNames = new java.util.ArrayList<java.lang.String>();
+      this.allowedRuntimeClassNames = new ArrayList<java.lang.String>();
     }
     this.allowedRuntimeClassNames.add(index, item);
     return (A) this;
@@ -55,7 +61,7 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAllowedRuntimeClassNames(java.util.Collection<java.lang.String> items) {
+  public A addAllToAllowedRuntimeClassNames(Collection<java.lang.String> items) {
     if (this.allowedRuntimeClassNames == null) {
       this.allowedRuntimeClassNames = new java.util.ArrayList<java.lang.String>();
     }
@@ -100,7 +106,7 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<
   }
 
   public java.lang.String getMatchingAllowedRuntimeClassName(
-      java.util.function.Predicate<java.lang.String> predicate) {
+      Predicate<java.lang.String> predicate) {
     for (java.lang.String item : allowedRuntimeClassNames) {
       if (predicate.test(item)) {
         return item;
@@ -109,7 +115,7 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAllowedRuntimeClassName(
+  public Boolean hasMatchingAllowedRuntimeClassName(
       java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : allowedRuntimeClassNames) {
       if (predicate.test(item)) {
@@ -147,10 +153,6 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<
     return allowedRuntimeClassNames != null && !allowedRuntimeClassNames.isEmpty();
   }
 
-  public A addNewAllowedRuntimeClassName(java.lang.String original) {
-    return (A) addToAllowedRuntimeClassNames(new String(original));
-  }
-
   public java.lang.String getDefaultRuntimeClassName() {
     return this.defaultRuntimeClassName;
   }
@@ -164,13 +166,7 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<
     return this.defaultRuntimeClassName != null;
   }
 
-  /** Method is deprecated. use withDefaultRuntimeClassName instead. */
-  @java.lang.Deprecated
-  public A withNewDefaultRuntimeClassName(java.lang.String original) {
-    return (A) withDefaultRuntimeClassName(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta1RuntimeClassStrategyOptionsFluentImpl that =
@@ -187,5 +183,20 @@ public class V1beta1RuntimeClassStrategyOptionsFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         allowedRuntimeClassNames, defaultRuntimeClassName, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (allowedRuntimeClassNames != null && !allowedRuntimeClassNames.isEmpty()) {
+      sb.append("allowedRuntimeClassNames:");
+      sb.append(allowedRuntimeClassNames + ",");
+    }
+    if (defaultRuntimeClassName != null) {
+      sb.append("defaultRuntimeClassName:");
+      sb.append(defaultRuntimeClassName);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

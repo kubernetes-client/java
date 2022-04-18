@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public class V1ContainerStateTerminatedFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ContainerStateTerminatedFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ContainerStateTerminatedFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ContainerStateTerminatedFluentImpl<A extends V1ContainerStateTerminatedFluent<A>>
+    extends BaseFluent<A> implements V1ContainerStateTerminatedFluent<A> {
   public V1ContainerStateTerminatedFluentImpl() {}
 
   public V1ContainerStateTerminatedFluentImpl(
@@ -36,9 +38,9 @@ public class V1ContainerStateTerminatedFluentImpl<
     this.withStartedAt(instance.getStartedAt());
   }
 
-  private java.lang.String containerID;
-  private java.lang.Integer exitCode;
-  private java.time.OffsetDateTime finishedAt;
+  private String containerID;
+  private Integer exitCode;
+  private OffsetDateTime finishedAt;
   private java.lang.String message;
   private java.lang.String reason;
   private java.lang.Integer signal;
@@ -53,14 +55,8 @@ public class V1ContainerStateTerminatedFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasContainerID() {
+  public Boolean hasContainerID() {
     return this.containerID != null;
-  }
-
-  /** Method is deprecated. use withContainerID instead. */
-  @java.lang.Deprecated
-  public A withNewContainerID(java.lang.String original) {
-    return (A) withContainerID(new String(original));
   }
 
   public java.lang.Integer getExitCode() {
@@ -102,12 +98,6 @@ public class V1ContainerStateTerminatedFluentImpl<
     return this.message != null;
   }
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A) withMessage(new String(original));
-  }
-
   public java.lang.String getReason() {
     return this.reason;
   }
@@ -119,12 +109,6 @@ public class V1ContainerStateTerminatedFluentImpl<
 
   public java.lang.Boolean hasReason() {
     return this.reason != null;
-  }
-
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A) withReason(new String(original));
   }
 
   public java.lang.Integer getSignal() {
@@ -153,7 +137,7 @@ public class V1ContainerStateTerminatedFluentImpl<
     return this.startedAt != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ContainerStateTerminatedFluentImpl that = (V1ContainerStateTerminatedFluentImpl) o;
@@ -173,5 +157,40 @@ public class V1ContainerStateTerminatedFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         containerID, exitCode, finishedAt, message, reason, signal, startedAt, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (containerID != null) {
+      sb.append("containerID:");
+      sb.append(containerID + ",");
+    }
+    if (exitCode != null) {
+      sb.append("exitCode:");
+      sb.append(exitCode + ",");
+    }
+    if (finishedAt != null) {
+      sb.append("finishedAt:");
+      sb.append(finishedAt + ",");
+    }
+    if (message != null) {
+      sb.append("message:");
+      sb.append(message + ",");
+    }
+    if (reason != null) {
+      sb.append("reason:");
+      sb.append(reason + ",");
+    }
+    if (signal != null) {
+      sb.append("signal:");
+      sb.append(signal + ",");
+    }
+    if (startedAt != null) {
+      sb.append("startedAt:");
+      sb.append(startedAt);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

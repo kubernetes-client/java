@@ -12,22 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class ApiextensionsV1ServiceReferenceBuilder
-    extends io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluentImpl<
-        io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends ApiextensionsV1ServiceReferenceFluentImpl<ApiextensionsV1ServiceReferenceBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference,
         io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceBuilder> {
   public ApiextensionsV1ServiceReferenceBuilder() {
     this(false);
   }
 
-  public ApiextensionsV1ServiceReferenceBuilder(java.lang.Boolean validationEnabled) {
+  public ApiextensionsV1ServiceReferenceBuilder(Boolean validationEnabled) {
     this(new ApiextensionsV1ServiceReference(), validationEnabled);
   }
 
-  public ApiextensionsV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<?> fluent) {
+  public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReferenceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -89,24 +89,5 @@ public class ApiextensionsV1ServiceReferenceBuilder
     buildable.setPath(fluent.getPath());
     buildable.setPort(fluent.getPort());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    ApiextensionsV1ServiceReferenceBuilder that = (ApiextensionsV1ServiceReferenceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

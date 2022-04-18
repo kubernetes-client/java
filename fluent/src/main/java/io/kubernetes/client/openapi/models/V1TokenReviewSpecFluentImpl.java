@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1TokenReviewSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1TokenReviewSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1TokenReviewSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1TokenReviewSpecFluentImpl<A extends V1TokenReviewSpecFluent<A>> extends BaseFluent<A>
+    implements V1TokenReviewSpecFluent<A> {
   public V1TokenReviewSpecFluentImpl() {}
 
   public V1TokenReviewSpecFluentImpl(
@@ -26,12 +31,12 @@ public class V1TokenReviewSpecFluentImpl<
     this.withToken(instance.getToken());
   }
 
-  private java.util.List<java.lang.String> audiences;
+  private List<String> audiences;
   private java.lang.String token;
 
-  public A addToAudiences(java.lang.Integer index, java.lang.String item) {
+  public A addToAudiences(Integer index, java.lang.String item) {
     if (this.audiences == null) {
-      this.audiences = new java.util.ArrayList<java.lang.String>();
+      this.audiences = new ArrayList<java.lang.String>();
     }
     this.audiences.add(index, item);
     return (A) this;
@@ -55,7 +60,7 @@ public class V1TokenReviewSpecFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAudiences(java.util.Collection<java.lang.String> items) {
+  public A addAllToAudiences(Collection<java.lang.String> items) {
     if (this.audiences == null) {
       this.audiences = new java.util.ArrayList<java.lang.String>();
     }
@@ -99,8 +104,7 @@ public class V1TokenReviewSpecFluentImpl<
     return this.audiences.get(audiences.size() - 1);
   }
 
-  public java.lang.String getMatchingAudience(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingAudience(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : audiences) {
       if (predicate.test(item)) {
         return item;
@@ -109,8 +113,7 @@ public class V1TokenReviewSpecFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAudience(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingAudience(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : audiences) {
       if (predicate.test(item)) {
         return true;
@@ -147,10 +150,6 @@ public class V1TokenReviewSpecFluentImpl<
     return audiences != null && !audiences.isEmpty();
   }
 
-  public A addNewAudience(java.lang.String original) {
-    return (A) addToAudiences(new String(original));
-  }
-
   public java.lang.String getToken() {
     return this.token;
   }
@@ -164,13 +163,7 @@ public class V1TokenReviewSpecFluentImpl<
     return this.token != null;
   }
 
-  /** Method is deprecated. use withToken instead. */
-  @java.lang.Deprecated
-  public A withNewToken(java.lang.String original) {
-    return (A) withToken(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1TokenReviewSpecFluentImpl that = (V1TokenReviewSpecFluentImpl) o;
@@ -182,5 +175,20 @@ public class V1TokenReviewSpecFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(audiences, token, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (audiences != null && !audiences.isEmpty()) {
+      sb.append("audiences:");
+      sb.append(audiences + ",");
+    }
+    if (token != null) {
+      sb.append("token:");
+      sb.append(token);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

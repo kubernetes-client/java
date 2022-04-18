@@ -12,25 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1ProbeFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
+public interface V1ProbeFluent<A extends V1ProbeFluent<A>> extends Fluent<A> {
 
   /**
    * This method has been deprecated, please use method buildExec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ExecAction getExec();
+  @Deprecated
+  public V1ExecAction getExec();
 
   public io.kubernetes.client.openapi.models.V1ExecAction buildExec();
 
   public A withExec(io.kubernetes.client.openapi.models.V1ExecAction exec);
 
-  public java.lang.Boolean hasExec();
+  public Boolean hasExec();
 
-  public io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<A> withNewExec();
+  public V1ProbeFluent.ExecNested<A> withNewExec();
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<A> withNewExecLike(
       io.kubernetes.client.openapi.models.V1ExecAction item);
@@ -42,7 +44,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
   public io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<A> editOrNewExecLike(
       io.kubernetes.client.openapi.models.V1ExecAction item);
 
-  public java.lang.Integer getFailureThreshold();
+  public Integer getFailureThreshold();
 
   public A withFailureThreshold(java.lang.Integer failureThreshold);
 
@@ -54,7 +56,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1GRPCAction getGrpc();
+  public V1GRPCAction getGrpc();
 
   public io.kubernetes.client.openapi.models.V1GRPCAction buildGrpc();
 
@@ -62,7 +64,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
 
   public java.lang.Boolean hasGrpc();
 
-  public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> withNewGrpc();
+  public V1ProbeFluent.GrpcNested<A> withNewGrpc();
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<A> withNewGrpcLike(
       io.kubernetes.client.openapi.models.V1GRPCAction item);
@@ -80,7 +82,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1HTTPGetAction getHttpGet();
+  public V1HTTPGetAction getHttpGet();
 
   public io.kubernetes.client.openapi.models.V1HTTPGetAction buildHttpGet();
 
@@ -88,7 +90,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
 
   public java.lang.Boolean hasHttpGet();
 
-  public io.kubernetes.client.openapi.models.V1ProbeFluent.HttpGetNested<A> withNewHttpGet();
+  public V1ProbeFluent.HttpGetNested<A> withNewHttpGet();
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.HttpGetNested<A> withNewHttpGetLike(
       io.kubernetes.client.openapi.models.V1HTTPGetAction item);
@@ -124,7 +126,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1TCPSocketAction getTcpSocket();
+  public V1TCPSocketAction getTcpSocket();
 
   public io.kubernetes.client.openapi.models.V1TCPSocketAction buildTcpSocket();
 
@@ -132,7 +134,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
 
   public java.lang.Boolean hasTcpSocket();
 
-  public io.kubernetes.client.openapi.models.V1ProbeFluent.TcpSocketNested<A> withNewTcpSocket();
+  public V1ProbeFluent.TcpSocketNested<A> withNewTcpSocket();
 
   public io.kubernetes.client.openapi.models.V1ProbeFluent.TcpSocketNested<A> withNewTcpSocketLike(
       io.kubernetes.client.openapi.models.V1TCPSocketAction item);
@@ -144,7 +146,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
   public io.kubernetes.client.openapi.models.V1ProbeFluent.TcpSocketNested<A>
       editOrNewTcpSocketLike(io.kubernetes.client.openapi.models.V1TCPSocketAction item);
 
-  public java.lang.Long getTerminationGracePeriodSeconds();
+  public Long getTerminationGracePeriodSeconds();
 
   public A withTerminationGracePeriodSeconds(java.lang.Long terminationGracePeriodSeconds);
 
@@ -157,9 +159,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
   public java.lang.Boolean hasTimeoutSeconds();
 
   public interface ExecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ExecActionFluent<
-              io.kubernetes.client.openapi.models.V1ProbeFluent.ExecNested<N>> {
+      extends Nested<N>, V1ExecActionFluent<V1ProbeFluent.ExecNested<N>> {
     public N and();
 
     public N endExec();
@@ -167,8 +167,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
 
   public interface GrpcNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1GRPCActionFluent<
-              io.kubernetes.client.openapi.models.V1ProbeFluent.GrpcNested<N>> {
+          V1GRPCActionFluent<V1ProbeFluent.GrpcNested<N>> {
     public N and();
 
     public N endGrpc();
@@ -176,8 +175,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
 
   public interface HttpGetNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<
-              io.kubernetes.client.openapi.models.V1ProbeFluent.HttpGetNested<N>> {
+          V1HTTPGetActionFluent<V1ProbeFluent.HttpGetNested<N>> {
     public N and();
 
     public N endHttpGet();
@@ -185,8 +183,7 @@ public interface V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1P
 
   public interface TcpSocketNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<
-              io.kubernetes.client.openapi.models.V1ProbeFluent.TcpSocketNested<N>> {
+          V1TCPSocketActionFluent<V1ProbeFluent.TcpSocketNested<N>> {
     public N and();
 
     public N endTcpSocket();

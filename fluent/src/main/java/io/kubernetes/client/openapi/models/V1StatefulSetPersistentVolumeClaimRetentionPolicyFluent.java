@@ -12,30 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
 public interface V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<
-        A extends
-            io.kubernetes.client.openapi.models
-                        .V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<
-                    A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getWhenDeleted();
+        A extends V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A>>
+    extends Fluent<A> {
+  public String getWhenDeleted();
 
   public A withWhenDeleted(java.lang.String whenDeleted);
 
-  public java.lang.Boolean hasWhenDeleted();
-
-  /** Method is deprecated. use withWhenDeleted instead. */
-  @java.lang.Deprecated
-  public A withNewWhenDeleted(java.lang.String original);
+  public Boolean hasWhenDeleted();
 
   public java.lang.String getWhenScaled();
 
   public A withWhenScaled(java.lang.String whenScaled);
 
   public java.lang.Boolean hasWhenScaled();
-
-  /** Method is deprecated. use withWhenScaled instead. */
-  @java.lang.Deprecated
-  public A withNewWhenScaled(java.lang.String original);
 }

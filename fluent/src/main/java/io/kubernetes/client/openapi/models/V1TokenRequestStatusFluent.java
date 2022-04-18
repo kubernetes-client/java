@@ -12,23 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.time.OffsetDateTime;
+
 /** Generated */
-public interface V1TokenRequestStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V1TokenRequestStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.time.OffsetDateTime getExpirationTimestamp();
+public interface V1TokenRequestStatusFluent<A extends V1TokenRequestStatusFluent<A>>
+    extends Fluent<A> {
+  public OffsetDateTime getExpirationTimestamp();
 
   public A withExpirationTimestamp(java.time.OffsetDateTime expirationTimestamp);
 
-  public java.lang.Boolean hasExpirationTimestamp();
+  public Boolean hasExpirationTimestamp();
 
-  public java.lang.String getToken();
+  public String getToken();
 
   public A withToken(java.lang.String token);
 
   public java.lang.Boolean hasToken();
-
-  /** Method is deprecated. use withToken instead. */
-  @java.lang.Deprecated
-  public A withNewToken(java.lang.String original);
 }

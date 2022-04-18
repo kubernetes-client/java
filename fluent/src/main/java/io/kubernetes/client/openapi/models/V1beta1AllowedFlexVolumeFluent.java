@@ -12,17 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1beta1AllowedFlexVolumeFluent<
-        A extends io.kubernetes.client.openapi.models.V1beta1AllowedFlexVolumeFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getDriver();
+public interface V1beta1AllowedFlexVolumeFluent<A extends V1beta1AllowedFlexVolumeFluent<A>>
+    extends Fluent<A> {
+  public String getDriver();
 
   public A withDriver(java.lang.String driver);
 
-  public java.lang.Boolean hasDriver();
-
-  /** Method is deprecated. use withDriver instead. */
-  @java.lang.Deprecated
-  public A withNewDriver(java.lang.String original);
+  public Boolean hasDriver();
 }

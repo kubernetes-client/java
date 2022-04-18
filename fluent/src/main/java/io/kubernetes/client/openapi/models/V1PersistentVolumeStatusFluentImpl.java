@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1PersistentVolumeStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PersistentVolumeStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1PersistentVolumeStatusFluentImpl<A extends V1PersistentVolumeStatusFluent<A>>
+    extends BaseFluent<A> implements V1PersistentVolumeStatusFluent<A> {
   public V1PersistentVolumeStatusFluentImpl() {}
 
   public V1PersistentVolumeStatusFluentImpl(
@@ -28,8 +29,8 @@ public class V1PersistentVolumeStatusFluentImpl<
     this.withReason(instance.getReason());
   }
 
-  private java.lang.String message;
-  private io.kubernetes.client.openapi.models.V1PersistentVolumeStatus.PhaseEnum phase;
+  private String message;
+  private java.lang.String phase;
   private java.lang.String reason;
 
   public java.lang.String getMessage() {
@@ -41,21 +42,15 @@ public class V1PersistentVolumeStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasMessage() {
+  public Boolean hasMessage() {
     return this.message != null;
   }
 
-  /** Method is deprecated. use withMessage instead. */
-  @java.lang.Deprecated
-  public A withNewMessage(java.lang.String original) {
-    return (A) withMessage(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeStatus.PhaseEnum getPhase() {
+  public java.lang.String getPhase() {
     return this.phase;
   }
 
-  public A withPhase(io.kubernetes.client.openapi.models.V1PersistentVolumeStatus.PhaseEnum phase) {
+  public A withPhase(java.lang.String phase) {
     this.phase = phase;
     return (A) this;
   }
@@ -77,13 +72,7 @@ public class V1PersistentVolumeStatusFluentImpl<
     return this.reason != null;
   }
 
-  /** Method is deprecated. use withReason instead. */
-  @java.lang.Deprecated
-  public A withNewReason(java.lang.String original) {
-    return (A) withReason(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PersistentVolumeStatusFluentImpl that = (V1PersistentVolumeStatusFluentImpl) o;
@@ -95,5 +84,24 @@ public class V1PersistentVolumeStatusFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(message, phase, reason, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (message != null) {
+      sb.append("message:");
+      sb.append(message + ",");
+    }
+    if (phase != null) {
+      sb.append("phase:");
+      sb.append(phase + ",");
+    }
+    if (reason != null) {
+      sb.append("reason:");
+      sb.append(reason);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

@@ -12,13 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1ClientIPConfigFluent<
-        A extends io.kubernetes.client.openapi.models.V1ClientIPConfigFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getTimeoutSeconds();
+public interface V1ClientIPConfigFluent<A extends V1ClientIPConfigFluent<A>> extends Fluent<A> {
+  public Integer getTimeoutSeconds();
 
   public A withTimeoutSeconds(java.lang.Integer timeoutSeconds);
 
-  public java.lang.Boolean hasTimeoutSeconds();
+  public Boolean hasTimeoutSeconds();
 }

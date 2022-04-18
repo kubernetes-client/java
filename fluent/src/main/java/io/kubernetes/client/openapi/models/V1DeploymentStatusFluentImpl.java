@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1DeploymentStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1DeploymentStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1DeploymentStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1DeploymentStatusFluentImpl<A extends V1DeploymentStatusFluent<A>>
+    extends BaseFluent<A> implements V1DeploymentStatusFluent<A> {
   public V1DeploymentStatusFluentImpl() {}
 
   public V1DeploymentStatusFluentImpl(
@@ -41,11 +45,10 @@ public class V1DeploymentStatusFluentImpl<
     this.withUpdatedReplicas(instance.getUpdatedReplicas());
   }
 
-  private java.lang.Integer availableReplicas;
+  private Integer availableReplicas;
   private java.lang.Integer collisionCount;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder>
-      conditions;
-  private java.lang.Long observedGeneration;
+  private ArrayList<V1DeploymentConditionBuilder> conditions;
+  private Long observedGeneration;
   private java.lang.Integer readyReplicas;
   private java.lang.Integer replicas;
   private java.lang.Integer unavailableReplicas;
@@ -60,7 +63,7 @@ public class V1DeploymentStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasAvailableReplicas() {
+  public Boolean hasAvailableReplicas() {
     return this.availableReplicas != null;
   }
 
@@ -77,8 +80,7 @@ public class V1DeploymentStatusFluentImpl<
     return this.collisionCount != null;
   }
 
-  public A addToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1DeploymentCondition item) {
+  public A addToConditions(java.lang.Integer index, V1DeploymentCondition item) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -131,7 +133,7 @@ public class V1DeploymentStatusFluentImpl<
   }
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1DeploymentCondition> items) {
+      Collection<io.kubernetes.client.openapi.models.V1DeploymentCondition> items) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -173,8 +175,7 @@ public class V1DeploymentStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder> each =
         conditions.iterator();
@@ -194,8 +195,8 @@ public class V1DeploymentStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1DeploymentCondition> getConditions() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1DeploymentCondition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
@@ -271,16 +272,13 @@ public class V1DeploymentStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V1DeploymentStatusFluentImpl
-        .ConditionsNestedImpl();
+  public V1DeploymentStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V1DeploymentStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1DeploymentCondition item) {
-    return new io.kubernetes.client.openapi.models.V1DeploymentStatusFluentImpl
-        .ConditionsNestedImpl(-1, item);
+    return new V1DeploymentStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<A>
@@ -392,7 +390,7 @@ public class V1DeploymentStatusFluentImpl<
     return this.updatedReplicas != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1DeploymentStatusFluentImpl that = (V1DeploymentStatusFluentImpl) o;
@@ -433,16 +431,53 @@ public class V1DeploymentStatusFluentImpl<
         super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1DeploymentConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (availableReplicas != null) {
+      sb.append("availableReplicas:");
+      sb.append(availableReplicas + ",");
+    }
+    if (collisionCount != null) {
+      sb.append("collisionCount:");
+      sb.append(collisionCount + ",");
+    }
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions + ",");
+    }
+    if (observedGeneration != null) {
+      sb.append("observedGeneration:");
+      sb.append(observedGeneration + ",");
+    }
+    if (readyReplicas != null) {
+      sb.append("readyReplicas:");
+      sb.append(readyReplicas + ",");
+    }
+    if (replicas != null) {
+      sb.append("replicas:");
+      sb.append(replicas + ",");
+    }
+    if (unavailableReplicas != null) {
+      sb.append("unavailableReplicas:");
+      sb.append(unavailableReplicas + ",");
+    }
+    if (updatedReplicas != null) {
+      sb.append("updatedReplicas:");
+      sb.append(updatedReplicas);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V1DeploymentConditionFluentImpl<V1DeploymentStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1DeploymentStatusFluent.ConditionsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ConditionsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1DeploymentCondition item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder(this, item);
+      this.builder = new V1DeploymentConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {

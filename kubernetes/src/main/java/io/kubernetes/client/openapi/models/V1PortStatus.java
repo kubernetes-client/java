@@ -1,5 +1,5 @@
 /*
-Copyright 2021 The Kubernetes Authors.
+Copyright 2022 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,19 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.Objects;
 
 /** V1PortStatus */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2021-12-10T19:11:23.904Z[Etc/UTC]")
+    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
 public class V1PortStatus {
   public static final String SERIALIZED_NAME_ERROR = "error";
 
@@ -36,63 +31,10 @@ public class V1PortStatus {
   @SerializedName(SERIALIZED_NAME_PORT)
   private Integer port;
 
-  /**
-   * Protocol is the protocol of the service port of which status is recorded here The supported
-   * values are: \&quot;TCP\&quot;, \&quot;UDP\&quot;, \&quot;SCTP\&quot; Possible enum values: -
-   * &#x60;\&quot;SCTP\&quot;&#x60; is the SCTP protocol. - &#x60;\&quot;TCP\&quot;&#x60; is the TCP
-   * protocol. - &#x60;\&quot;UDP\&quot;&#x60; is the UDP protocol.
-   */
-  @JsonAdapter(ProtocolEnum.Adapter.class)
-  public enum ProtocolEnum {
-    SCTP("SCTP"),
-
-    TCP("TCP"),
-
-    UDP("UDP");
-
-    private String value;
-
-    ProtocolEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ProtocolEnum fromValue(String value) {
-      for (ProtocolEnum b : ProtocolEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<ProtocolEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ProtocolEnum enumeration)
-          throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public ProtocolEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ProtocolEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
 
   @SerializedName(SERIALIZED_NAME_PROTOCOL)
-  private ProtocolEnum protocol;
+  private String protocol;
 
   public V1PortStatus error(String error) {
 
@@ -142,7 +84,7 @@ public class V1PortStatus {
     this.port = port;
   }
 
-  public V1PortStatus protocol(ProtocolEnum protocol) {
+  public V1PortStatus protocol(String protocol) {
 
     this.protocol = protocol;
     return this;
@@ -150,21 +92,19 @@ public class V1PortStatus {
 
   /**
    * Protocol is the protocol of the service port of which status is recorded here The supported
-   * values are: \&quot;TCP\&quot;, \&quot;UDP\&quot;, \&quot;SCTP\&quot; Possible enum values: -
-   * &#x60;\&quot;SCTP\&quot;&#x60; is the SCTP protocol. - &#x60;\&quot;TCP\&quot;&#x60; is the TCP
-   * protocol. - &#x60;\&quot;UDP\&quot;&#x60; is the UDP protocol.
+   * values are: \&quot;TCP\&quot;, \&quot;UDP\&quot;, \&quot;SCTP\&quot;
    *
    * @return protocol
    */
   @ApiModelProperty(
       required = true,
       value =
-          "Protocol is the protocol of the service port of which status is recorded here The supported values are: \"TCP\", \"UDP\", \"SCTP\"  Possible enum values:  - `\"SCTP\"` is the SCTP protocol.  - `\"TCP\"` is the TCP protocol.  - `\"UDP\"` is the UDP protocol.")
-  public ProtocolEnum getProtocol() {
+          "Protocol is the protocol of the service port of which status is recorded here The supported values are: \"TCP\", \"UDP\", \"SCTP\"  ")
+  public String getProtocol() {
     return protocol;
   }
 
-  public void setProtocol(ProtocolEnum protocol) {
+  public void setProtocol(String protocol) {
     this.protocol = protocol;
   }
 

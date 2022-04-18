@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1alpha1ServerStorageVersionFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStorageVersionFluent<A>>
+    extends BaseFluent<A> implements V1alpha1ServerStorageVersionFluent<A> {
   public V1alpha1ServerStorageVersionFluentImpl() {}
 
   public V1alpha1ServerStorageVersionFluentImpl(
@@ -28,8 +33,8 @@ public class V1alpha1ServerStorageVersionFluentImpl<
     this.withEncodingVersion(instance.getEncodingVersion());
   }
 
-  private java.lang.String apiServerID;
-  private java.util.List<java.lang.String> decodableVersions;
+  private String apiServerID;
+  private List<java.lang.String> decodableVersions;
   private java.lang.String encodingVersion;
 
   public java.lang.String getApiServerID() {
@@ -41,19 +46,13 @@ public class V1alpha1ServerStorageVersionFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiServerID() {
+  public Boolean hasApiServerID() {
     return this.apiServerID != null;
   }
 
-  /** Method is deprecated. use withApiServerID instead. */
-  @java.lang.Deprecated
-  public A withNewApiServerID(java.lang.String original) {
-    return (A) withApiServerID(new String(original));
-  }
-
-  public A addToDecodableVersions(java.lang.Integer index, java.lang.String item) {
+  public A addToDecodableVersions(Integer index, java.lang.String item) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new java.util.ArrayList<java.lang.String>();
+      this.decodableVersions = new ArrayList<java.lang.String>();
     }
     this.decodableVersions.add(index, item);
     return (A) this;
@@ -77,7 +76,7 @@ public class V1alpha1ServerStorageVersionFluentImpl<
     return (A) this;
   }
 
-  public A addAllToDecodableVersions(java.util.Collection<java.lang.String> items) {
+  public A addAllToDecodableVersions(Collection<java.lang.String> items) {
     if (this.decodableVersions == null) {
       this.decodableVersions = new java.util.ArrayList<java.lang.String>();
     }
@@ -121,8 +120,7 @@ public class V1alpha1ServerStorageVersionFluentImpl<
     return this.decodableVersions.get(decodableVersions.size() - 1);
   }
 
-  public java.lang.String getMatchingDecodableVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingDecodableVersion(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : decodableVersions) {
       if (predicate.test(item)) {
         return item;
@@ -169,10 +167,6 @@ public class V1alpha1ServerStorageVersionFluentImpl<
     return decodableVersions != null && !decodableVersions.isEmpty();
   }
 
-  public A addNewDecodableVersion(java.lang.String original) {
-    return (A) addToDecodableVersions(new String(original));
-  }
-
   public java.lang.String getEncodingVersion() {
     return this.encodingVersion;
   }
@@ -186,13 +180,7 @@ public class V1alpha1ServerStorageVersionFluentImpl<
     return this.encodingVersion != null;
   }
 
-  /** Method is deprecated. use withEncodingVersion instead. */
-  @java.lang.Deprecated
-  public A withNewEncodingVersion(java.lang.String original) {
-    return (A) withEncodingVersion(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1alpha1ServerStorageVersionFluentImpl that = (V1alpha1ServerStorageVersionFluentImpl) o;
@@ -210,5 +198,24 @@ public class V1alpha1ServerStorageVersionFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         apiServerID, decodableVersions, encodingVersion, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiServerID != null) {
+      sb.append("apiServerID:");
+      sb.append(apiServerID + ",");
+    }
+    if (decodableVersions != null && !decodableVersions.isEmpty()) {
+      sb.append("decodableVersions:");
+      sb.append(decodableVersions + ",");
+    }
+    if (encodingVersion != null) {
+      sb.append("encodingVersion:");
+      sb.append(encodingVersion);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

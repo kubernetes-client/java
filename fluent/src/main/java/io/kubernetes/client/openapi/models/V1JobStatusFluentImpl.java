@@ -12,14 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1JobStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1JobStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1JobStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1JobStatusFluentImpl<A extends V1JobStatusFluent<A>> extends BaseFluent<A>
+    implements V1JobStatusFluent<A> {
   public V1JobStatusFluentImpl() {}
 
   public V1JobStatusFluentImpl(io.kubernetes.client.openapi.models.V1JobStatus instance) {
@@ -42,16 +47,15 @@ public class V1JobStatusFluentImpl<
     this.withUncountedTerminatedPods(instance.getUncountedTerminatedPods());
   }
 
-  private java.lang.Integer active;
-  private java.lang.String completedIndexes;
-  private java.time.OffsetDateTime completionTime;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JobConditionBuilder> conditions;
+  private Integer active;
+  private String completedIndexes;
+  private OffsetDateTime completionTime;
+  private ArrayList<V1JobConditionBuilder> conditions;
   private java.lang.Integer failed;
   private java.lang.Integer ready;
   private java.time.OffsetDateTime startTime;
   private java.lang.Integer succeeded;
-  private io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsBuilder
-      uncountedTerminatedPods;
+  private V1UncountedTerminatedPodsBuilder uncountedTerminatedPods;
 
   public java.lang.Integer getActive() {
     return this.active;
@@ -62,7 +66,7 @@ public class V1JobStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasActive() {
+  public Boolean hasActive() {
     return this.active != null;
   }
 
@@ -77,12 +81,6 @@ public class V1JobStatusFluentImpl<
 
   public java.lang.Boolean hasCompletedIndexes() {
     return this.completedIndexes != null;
-  }
-
-  /** Method is deprecated. use withCompletedIndexes instead. */
-  @java.lang.Deprecated
-  public A withNewCompletedIndexes(java.lang.String original) {
-    return (A) withCompletedIndexes(new String(original));
   }
 
   public java.time.OffsetDateTime getCompletionTime() {
@@ -101,8 +99,7 @@ public class V1JobStatusFluentImpl<
   public A addToConditions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1JobCondition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JobConditionBuilder>();
+      this.conditions = new java.util.ArrayList<V1JobConditionBuilder>();
     }
     io.kubernetes.client.openapi.models.V1JobConditionBuilder builder =
         new io.kubernetes.client.openapi.models.V1JobConditionBuilder(item);
@@ -149,7 +146,7 @@ public class V1JobStatusFluentImpl<
   }
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JobCondition> items) {
+      Collection<io.kubernetes.client.openapi.models.V1JobCondition> items) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JobConditionBuilder>();
@@ -189,8 +186,7 @@ public class V1JobStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JobConditionBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1JobConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1JobConditionBuilder> each =
         conditions.iterator();
@@ -210,8 +206,8 @@ public class V1JobStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1JobCondition> getConditions() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1JobCondition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
@@ -286,15 +282,13 @@ public class V1JobStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V1JobStatusFluentImpl.ConditionsNestedImpl();
+  public V1JobStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V1JobStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1JobCondition item) {
-    return new io.kubernetes.client.openapi.models.V1JobStatusFluentImpl.ConditionsNestedImpl(
-        -1, item);
+    return new V1JobStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
@@ -398,8 +392,7 @@ public class V1JobStatusFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1UncountedTerminatedPods
-      getUncountedTerminatedPods() {
+  public V1UncountedTerminatedPods getUncountedTerminatedPods() {
     return this.uncountedTerminatedPods != null ? this.uncountedTerminatedPods.build() : null;
   }
 
@@ -424,10 +417,8 @@ public class V1JobStatusFluentImpl<
     return this.uncountedTerminatedPods != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.UncountedTerminatedPodsNested<A>
-      withNewUncountedTerminatedPods() {
-    return new io.kubernetes.client.openapi.models.V1JobStatusFluentImpl
-        .UncountedTerminatedPodsNestedImpl();
+  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> withNewUncountedTerminatedPods() {
+    return new V1JobStatusFluentImpl.UncountedTerminatedPodsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1JobStatusFluent.UncountedTerminatedPodsNested<A>
@@ -457,7 +448,7 @@ public class V1JobStatusFluentImpl<
         getUncountedTerminatedPods() != null ? getUncountedTerminatedPods() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1JobStatusFluentImpl that = (V1JobStatusFluentImpl) o;
@@ -496,15 +487,56 @@ public class V1JobStatusFluentImpl<
         super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1JobConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (active != null) {
+      sb.append("active:");
+      sb.append(active + ",");
+    }
+    if (completedIndexes != null) {
+      sb.append("completedIndexes:");
+      sb.append(completedIndexes + ",");
+    }
+    if (completionTime != null) {
+      sb.append("completionTime:");
+      sb.append(completionTime + ",");
+    }
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions + ",");
+    }
+    if (failed != null) {
+      sb.append("failed:");
+      sb.append(failed + ",");
+    }
+    if (ready != null) {
+      sb.append("ready:");
+      sb.append(ready + ",");
+    }
+    if (startTime != null) {
+      sb.append("startTime:");
+      sb.append(startTime + ",");
+    }
+    if (succeeded != null) {
+      sb.append("succeeded:");
+      sb.append(succeeded + ",");
+    }
+    if (uncountedTerminatedPods != null) {
+      sb.append("uncountedTerminatedPods:");
+      sb.append(uncountedTerminatedPods);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V1JobConditionFluentImpl<V1JobStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ConditionsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1JobCondition item) {
+          Nested<N> {
+    ConditionsNestedImpl(java.lang.Integer index, V1JobCondition item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1JobConditionBuilder(this, item);
+      this.builder = new V1JobConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
@@ -524,17 +556,16 @@ public class V1JobStatusFluentImpl<
     }
   }
 
-  public class UncountedTerminatedPodsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsFluentImpl<
-          io.kubernetes.client.openapi.models.V1JobStatusFluent.UncountedTerminatedPodsNested<N>>
+  class UncountedTerminatedPodsNestedImpl<N>
+      extends V1UncountedTerminatedPodsFluentImpl<
+          V1JobStatusFluent.UncountedTerminatedPodsNested<N>>
       implements io.kubernetes.client.openapi.models.V1JobStatusFluent
                   .UncountedTerminatedPodsNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     UncountedTerminatedPodsNestedImpl(
         io.kubernetes.client.openapi.models.V1UncountedTerminatedPods item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsBuilder(this, item);
+      this.builder = new V1UncountedTerminatedPodsBuilder(this, item);
     }
 
     UncountedTerminatedPodsNestedImpl() {

@@ -12,10 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1SubjectFluentImpl<A extends io.kubernetes.client.openapi.models.V1SubjectFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1SubjectFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1SubjectFluentImpl<A extends V1SubjectFluent<A>> extends BaseFluent<A>
+    implements V1SubjectFluent<A> {
   public V1SubjectFluentImpl() {}
 
   public V1SubjectFluentImpl(io.kubernetes.client.openapi.models.V1Subject instance) {
@@ -28,7 +30,7 @@ public class V1SubjectFluentImpl<A extends io.kubernetes.client.openapi.models.V
     this.withNamespace(instance.getNamespace());
   }
 
-  private java.lang.String apiGroup;
+  private String apiGroup;
   private java.lang.String kind;
   private java.lang.String name;
   private java.lang.String namespace;
@@ -42,14 +44,8 @@ public class V1SubjectFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiGroup() {
+  public Boolean hasApiGroup() {
     return this.apiGroup != null;
-  }
-
-  /** Method is deprecated. use withApiGroup instead. */
-  @java.lang.Deprecated
-  public A withNewApiGroup(java.lang.String original) {
-    return (A) withApiGroup(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -65,12 +61,6 @@ public class V1SubjectFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   public java.lang.String getName() {
     return this.name;
   }
@@ -82,12 +72,6 @@ public class V1SubjectFluentImpl<A extends io.kubernetes.client.openapi.models.V
 
   public java.lang.Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.String getNamespace() {
@@ -103,13 +87,7 @@ public class V1SubjectFluentImpl<A extends io.kubernetes.client.openapi.models.V
     return this.namespace != null;
   }
 
-  /** Method is deprecated. use withNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A) withNamespace(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1SubjectFluentImpl that = (V1SubjectFluentImpl) o;
@@ -123,5 +101,28 @@ public class V1SubjectFluentImpl<A extends io.kubernetes.client.openapi.models.V
 
   public int hashCode() {
     return java.util.Objects.hash(apiGroup, kind, name, namespace, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiGroup != null) {
+      sb.append("apiGroup:");
+      sb.append(apiGroup + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespace != null) {
+      sb.append("namespace:");
+      sb.append(namespace);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

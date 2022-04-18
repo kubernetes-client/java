@@ -12,37 +12,37 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1StatusDetailsFluent<
-        A extends io.kubernetes.client.openapi.models.V1StatusDetailsFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToCauses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatusCause item);
+public interface V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends Fluent<A> {
+  public A addToCauses(Integer index, V1StatusCause item);
 
   public A setToCauses(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatusCause item);
 
   public A addToCauses(io.kubernetes.client.openapi.models.V1StatusCause... items);
 
-  public A addAllToCauses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1StatusCause> items);
+  public A addAllToCauses(Collection<io.kubernetes.client.openapi.models.V1StatusCause> items);
 
   public A removeFromCauses(io.kubernetes.client.openapi.models.V1StatusCause... items);
 
   public A removeAllFromCauses(
       java.util.Collection<io.kubernetes.client.openapi.models.V1StatusCause> items);
 
-  public A removeMatchingFromCauses(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatusCauseBuilder>
-          predicate);
+  public A removeMatchingFromCauses(Predicate<V1StatusCauseBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildCauses instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1StatusCause> getCauses();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1StatusCause> getCauses();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1StatusCause> buildCauses();
 
@@ -56,7 +56,7 @@ public interface V1StatusDetailsFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatusCauseBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingCause(
+  public Boolean hasMatchingCause(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatusCauseBuilder>
           predicate);
 
@@ -66,7 +66,7 @@ public interface V1StatusDetailsFluent<
 
   public java.lang.Boolean hasCauses();
 
-  public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A> addNewCause();
+  public V1StatusDetailsFluent.CausesNested<A> addNewCause();
 
   public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A> addNewCauseLike(
       io.kubernetes.client.openapi.models.V1StatusCause item);
@@ -86,15 +86,11 @@ public interface V1StatusDetailsFluent<
           java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatusCauseBuilder>
               predicate);
 
-  public java.lang.String getGroup();
+  public String getGroup();
 
   public A withGroup(java.lang.String group);
 
   public java.lang.Boolean hasGroup();
-
-  /** Method is deprecated. use withGroup instead. */
-  @java.lang.Deprecated
-  public A withNewGroup(java.lang.String original);
 
   public java.lang.String getKind();
 
@@ -102,19 +98,11 @@ public interface V1StatusDetailsFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   public java.lang.String getName();
 
   public A withName(java.lang.String name);
 
   public java.lang.Boolean hasName();
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
 
   public java.lang.Integer getRetryAfterSeconds();
 
@@ -128,14 +116,8 @@ public interface V1StatusDetailsFluent<
 
   public java.lang.Boolean hasUid();
 
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original);
-
   public interface CausesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1StatusCauseFluent<
-              io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<N>> {
+      extends Nested<N>, V1StatusCauseFluent<V1StatusDetailsFluent.CausesNested<N>> {
     public N and();
 
     public N endCause();

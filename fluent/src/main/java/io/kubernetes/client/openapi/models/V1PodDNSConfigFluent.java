@@ -12,23 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1PodDNSConfigFluent<
-        A extends io.kubernetes.client.openapi.models.V1PodDNSConfigFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToNameservers(java.lang.Integer index, java.lang.String item);
+public interface V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Fluent<A> {
+  public A addToNameservers(Integer index, String item);
 
   public A setToNameservers(java.lang.Integer index, java.lang.String item);
 
   public A addToNameservers(java.lang.String... items);
 
-  public A addAllToNameservers(java.util.Collection<java.lang.String> items);
+  public A addAllToNameservers(Collection<java.lang.String> items);
 
   public A removeFromNameservers(java.lang.String... items);
 
   public A removeAllFromNameservers(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getNameservers();
+  public List<java.lang.String> getNameservers();
 
   public java.lang.String getNameserver(java.lang.Integer index);
 
@@ -36,11 +40,9 @@ public interface V1PodDNSConfigFluent<
 
   public java.lang.String getLastNameserver();
 
-  public java.lang.String getMatchingNameserver(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingNameserver(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingNameserver(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingNameserver(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withNameservers(java.util.List<java.lang.String> nameservers);
 
@@ -48,10 +50,7 @@ public interface V1PodDNSConfigFluent<
 
   public java.lang.Boolean hasNameservers();
 
-  public A addNewNameserver(java.lang.String original);
-
-  public A addToOptions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodDNSConfigOption item);
+  public A addToOptions(java.lang.Integer index, V1PodDNSConfigOption item);
 
   public A setToOptions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodDNSConfigOption item);
@@ -67,15 +66,14 @@ public interface V1PodDNSConfigFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> items);
 
   public A removeMatchingFromOptions(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder>
-          predicate);
+      java.util.function.Predicate<V1PodDNSConfigOptionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildOptions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> getOptions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> buildOptions();
@@ -102,7 +100,7 @@ public interface V1PodDNSConfigFluent<
 
   public java.lang.Boolean hasOptions();
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A> addNewOption();
+  public V1PodDNSConfigFluent.OptionsNested<A> addNewOption();
 
   public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A> addNewOptionLike(
       io.kubernetes.client.openapi.models.V1PodDNSConfigOption item);
@@ -156,12 +154,8 @@ public interface V1PodDNSConfigFluent<
 
   public java.lang.Boolean hasSearches();
 
-  public A addNewSearch(java.lang.String original);
-
   public interface OptionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<
-              io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<N>> {
+      extends Nested<N>, V1PodDNSConfigOptionFluent<V1PodDNSConfigFluent.OptionsNested<N>> {
     public N and();
 
     public N endOption();

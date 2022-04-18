@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ObjectReferenceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ObjectReferenceFluentImpl<A extends V1ObjectReferenceFluent<A>> extends BaseFluent<A>
+    implements V1ObjectReferenceFluent<A> {
   public V1ObjectReferenceFluentImpl() {}
 
   public V1ObjectReferenceFluentImpl(
@@ -36,7 +37,7 @@ public class V1ObjectReferenceFluentImpl<
     this.withUid(instance.getUid());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String fieldPath;
   private java.lang.String kind;
   private java.lang.String name;
@@ -53,14 +54,8 @@ public class V1ObjectReferenceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getFieldPath() {
@@ -76,12 +71,6 @@ public class V1ObjectReferenceFluentImpl<
     return this.fieldPath != null;
   }
 
-  /** Method is deprecated. use withFieldPath instead. */
-  @java.lang.Deprecated
-  public A withNewFieldPath(java.lang.String original) {
-    return (A) withFieldPath(new String(original));
-  }
-
   public java.lang.String getKind() {
     return this.kind;
   }
@@ -93,12 +82,6 @@ public class V1ObjectReferenceFluentImpl<
 
   public java.lang.Boolean hasKind() {
     return this.kind != null;
-  }
-
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
   }
 
   public java.lang.String getName() {
@@ -114,12 +97,6 @@ public class V1ObjectReferenceFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
   public java.lang.String getNamespace() {
     return this.namespace;
   }
@@ -131,12 +108,6 @@ public class V1ObjectReferenceFluentImpl<
 
   public java.lang.Boolean hasNamespace() {
     return this.namespace != null;
-  }
-
-  /** Method is deprecated. use withNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A) withNamespace(new String(original));
   }
 
   public java.lang.String getResourceVersion() {
@@ -152,12 +123,6 @@ public class V1ObjectReferenceFluentImpl<
     return this.resourceVersion != null;
   }
 
-  /** Method is deprecated. use withResourceVersion instead. */
-  @java.lang.Deprecated
-  public A withNewResourceVersion(java.lang.String original) {
-    return (A) withResourceVersion(new String(original));
-  }
-
   public java.lang.String getUid() {
     return this.uid;
   }
@@ -171,13 +136,7 @@ public class V1ObjectReferenceFluentImpl<
     return this.uid != null;
   }
 
-  /** Method is deprecated. use withUid instead. */
-  @java.lang.Deprecated
-  public A withNewUid(java.lang.String original) {
-    return (A) withUid(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ObjectReferenceFluentImpl that = (V1ObjectReferenceFluentImpl) o;
@@ -199,5 +158,40 @@ public class V1ObjectReferenceFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         apiVersion, fieldPath, kind, name, namespace, resourceVersion, uid, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (fieldPath != null) {
+      sb.append("fieldPath:");
+      sb.append(fieldPath + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespace != null) {
+      sb.append("namespace:");
+      sb.append(namespace + ",");
+    }
+    if (resourceVersion != null) {
+      sb.append("resourceVersion:");
+      sb.append(resourceVersion + ",");
+    }
+    if (uid != null) {
+      sb.append("uid:");
+      sb.append(uid);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

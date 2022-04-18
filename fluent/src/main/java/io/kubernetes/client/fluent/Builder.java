@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.fluent;
 
-@java.lang.FunctionalInterface
+@FunctionalInterface
 public interface Builder<T> {
   T build();
 }

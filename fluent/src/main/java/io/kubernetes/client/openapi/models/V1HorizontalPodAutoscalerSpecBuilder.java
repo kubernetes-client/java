@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1HorizontalPodAutoscalerSpecBuilder
-    extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluentImpl<
-        io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends V1HorizontalPodAutoscalerSpecFluentImpl<V1HorizontalPodAutoscalerSpecBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpec,
-        io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecBuilder> {
+        V1HorizontalPodAutoscalerSpecBuilder> {
   public V1HorizontalPodAutoscalerSpecBuilder() {
     this(false);
   }
 
-  public V1HorizontalPodAutoscalerSpecBuilder(java.lang.Boolean validationEnabled) {
+  public V1HorizontalPodAutoscalerSpecBuilder(Boolean validationEnabled) {
     this(new V1HorizontalPodAutoscalerSpec(), validationEnabled);
   }
 
@@ -89,24 +90,5 @@ public class V1HorizontalPodAutoscalerSpecBuilder
     buildable.setScaleTargetRef(fluent.getScaleTargetRef());
     buildable.setTargetCPUUtilizationPercentage(fluent.getTargetCPUUtilizationPercentage());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1HorizontalPodAutoscalerSpecBuilder that = (V1HorizontalPodAutoscalerSpecBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

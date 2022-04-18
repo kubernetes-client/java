@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1CapabilitiesFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CapabilitiesFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CapabilitiesFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends BaseFluent<A>
+    implements V1CapabilitiesFluent<A> {
   public V1CapabilitiesFluentImpl() {}
 
   public V1CapabilitiesFluentImpl(io.kubernetes.client.openapi.models.V1Capabilities instance) {
@@ -25,12 +30,12 @@ public class V1CapabilitiesFluentImpl<
     this.withDrop(instance.getDrop());
   }
 
-  private java.util.List<java.lang.String> add;
+  private List<String> add;
   private java.util.List<java.lang.String> drop;
 
-  public A addToAdd(java.lang.Integer index, java.lang.String item) {
+  public A addToAdd(Integer index, java.lang.String item) {
     if (this.add == null) {
-      this.add = new java.util.ArrayList<java.lang.String>();
+      this.add = new ArrayList<java.lang.String>();
     }
     this.add.add(index, item);
     return (A) this;
@@ -54,7 +59,7 @@ public class V1CapabilitiesFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAdd(java.util.Collection<java.lang.String> items) {
+  public A addAllToAdd(Collection<java.lang.String> items) {
     if (this.add == null) {
       this.add = new java.util.ArrayList<java.lang.String>();
     }
@@ -98,7 +103,7 @@ public class V1CapabilitiesFluentImpl<
     return this.add.get(add.size() - 1);
   }
 
-  public java.lang.String getMatchingAdd(java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingAdd(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : add) {
       if (predicate.test(item)) {
         return item;
@@ -107,8 +112,7 @@ public class V1CapabilitiesFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAdd(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingAdd(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : add) {
       if (predicate.test(item)) {
         return true;
@@ -143,10 +147,6 @@ public class V1CapabilitiesFluentImpl<
 
   public java.lang.Boolean hasAdd() {
     return add != null && !add.isEmpty();
-  }
-
-  public A addNewAdd(java.lang.String original) {
-    return (A) addToAdd(new String(original));
   }
 
   public A addToDrop(java.lang.Integer index, java.lang.String item) {
@@ -267,11 +267,7 @@ public class V1CapabilitiesFluentImpl<
     return drop != null && !drop.isEmpty();
   }
 
-  public A addNewDrop(java.lang.String original) {
-    return (A) addToDrop(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CapabilitiesFluentImpl that = (V1CapabilitiesFluentImpl) o;
@@ -282,5 +278,20 @@ public class V1CapabilitiesFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(add, drop, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (add != null && !add.isEmpty()) {
+      sb.append("add:");
+      sb.append(add + ",");
+    }
+    if (drop != null && !drop.isEmpty()) {
+      sb.append("drop:");
+      sb.append(drop);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

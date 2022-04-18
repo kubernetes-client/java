@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1ServiceAccountFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ServiceAccountFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ServiceAccountFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> extends BaseFluent<A>
+    implements V1ServiceAccountFluent<A> {
   public V1ServiceAccountFluentImpl() {}
 
   public V1ServiceAccountFluentImpl(io.kubernetes.client.openapi.models.V1ServiceAccount instance) {
@@ -36,13 +40,12 @@ public class V1ServiceAccountFluentImpl<
     this.withSecrets(instance.getSecrets());
   }
 
-  private java.lang.String apiVersion;
-  private java.lang.Boolean automountServiceAccountToken;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-      imagePullSecrets;
+  private String apiVersion;
+  private Boolean automountServiceAccountToken;
+  private ArrayList<V1LocalObjectReferenceBuilder> imagePullSecrets;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> secrets;
+  private V1ObjectMetaBuilder metadata;
+  private java.util.ArrayList<V1ObjectReferenceBuilder> secrets;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -55,12 +58,6 @@ public class V1ServiceAccountFluentImpl<
 
   public java.lang.Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.Boolean getAutomountServiceAccountToken() {
@@ -76,8 +73,7 @@ public class V1ServiceAccountFluentImpl<
     return this.automountServiceAccountToken != null;
   }
 
-  public A addToImagePullSecrets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public A addToImagePullSecrets(Integer index, V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {
       this.imagePullSecrets =
           new java.util.ArrayList<
@@ -131,7 +127,7 @@ public class V1ServiceAccountFluentImpl<
   }
 
   public A addAllToImagePullSecrets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1LocalObjectReference> items) {
+      Collection<io.kubernetes.client.openapi.models.V1LocalObjectReference> items) {
     if (this.imagePullSecrets == null) {
       this.imagePullSecrets =
           new java.util.ArrayList<
@@ -173,9 +169,7 @@ public class V1ServiceAccountFluentImpl<
   }
 
   public A removeMatchingFromImagePullSecrets(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder> predicate) {
     if (imagePullSecrets == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder> each =
         imagePullSecrets.iterator();
@@ -195,9 +189,8 @@ public class V1ServiceAccountFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1LocalObjectReference>
-      getImagePullSecrets() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1LocalObjectReference> getImagePullSecrets() {
     return imagePullSecrets != null ? build(imagePullSecrets) : null;
   }
 
@@ -278,16 +271,13 @@ public class V1ServiceAccountFluentImpl<
     return imagePullSecrets != null && !imagePullSecrets.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      addNewImagePullSecret() {
-    return new io.kubernetes.client.openapi.models.V1ServiceAccountFluentImpl
-        .ImagePullSecretsNestedImpl();
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> addNewImagePullSecret() {
+    return new V1ServiceAccountFluentImpl.ImagePullSecretsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
       addNewImagePullSecretLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceAccountFluentImpl
-        .ImagePullSecretsNestedImpl(-1, item);
+    return new V1ServiceAccountFluentImpl.ImagePullSecretsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
@@ -350,12 +340,6 @@ public class V1ServiceAccountFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
@@ -373,7 +357,7 @@ public class V1ServiceAccountFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -383,9 +367,8 @@ public class V1ServiceAccountFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1ServiceAccountFluentImpl.MetadataNestedImpl();
+  public V1ServiceAccountFluent.MetadataNested<A> withNewMetadata() {
+    return new V1ServiceAccountFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
@@ -415,8 +398,7 @@ public class V1ServiceAccountFluentImpl<
   public A addToSecrets(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
     if (this.secrets == null) {
-      this.secrets =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>();
+      this.secrets = new java.util.ArrayList<V1ObjectReferenceBuilder>();
     }
     io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder =
         new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(item);
@@ -598,9 +580,8 @@ public class V1ServiceAccountFluentImpl<
     return secrets != null && !secrets.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      addNewSecret() {
-    return new io.kubernetes.client.openapi.models.V1ServiceAccountFluentImpl.SecretsNestedImpl();
+  public V1ServiceAccountFluent.SecretsNested<A> addNewSecret() {
+    return new V1ServiceAccountFluentImpl.SecretsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
@@ -652,7 +633,7 @@ public class V1ServiceAccountFluentImpl<
     return setNewSecretLike(index, buildSecret(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ServiceAccountFluentImpl that = (V1ServiceAccountFluentImpl) o;
@@ -681,17 +662,49 @@ public class V1ServiceAccountFluentImpl<
         super.hashCode());
   }
 
-  public class ImagePullSecretsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (automountServiceAccountToken != null) {
+      sb.append("automountServiceAccountToken:");
+      sb.append(automountServiceAccountToken + ",");
+    }
+    if (imagePullSecrets != null && !imagePullSecrets.isEmpty()) {
+      sb.append("imagePullSecrets:");
+      sb.append(imagePullSecrets + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (secrets != null && !secrets.isEmpty()) {
+      sb.append("secrets:");
+      sb.append(secrets);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withAutomountServiceAccountToken() {
+    return withAutomountServiceAccountToken(true);
+  }
+
+  class ImagePullSecretsNestedImpl<N>
+      extends V1LocalObjectReferenceFluentImpl<V1ServiceAccountFluent.ImagePullSecretsNested<N>>
       implements io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ImagePullSecretsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+          Nested<N> {
+    ImagePullSecretsNestedImpl(java.lang.Integer index, V1LocalObjectReference item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(this, item);
+      this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
 
     ImagePullSecretsNestedImpl() {
@@ -711,13 +724,12 @@ public class V1ServiceAccountFluentImpl<
     }
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<N>>
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<V1ServiceAccountFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -735,15 +747,14 @@ public class V1ServiceAccountFluentImpl<
     }
   }
 
-  public class SecretsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<N>>
+  class SecretsNestedImpl<N>
+      extends V1ObjectReferenceFluentImpl<V1ServiceAccountFluent.SecretsNested<N>>
       implements io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     SecretsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this, item);
+      this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     SecretsNestedImpl() {

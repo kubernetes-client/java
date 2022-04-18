@@ -12,17 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1beta1CronJobListBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1CronJobListFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1CronJobListBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1CronJobList,
-        io.kubernetes.client.openapi.models.V1beta1CronJobListBuilder> {
+    extends V1beta1CronJobListFluentImpl<V1beta1CronJobListBuilder>
+    implements VisitableBuilder<
+        V1beta1CronJobList, io.kubernetes.client.openapi.models.V1beta1CronJobListBuilder> {
   public V1beta1CronJobListBuilder() {
     this(false);
   }
 
-  public V1beta1CronJobListBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1CronJobListBuilder(Boolean validationEnabled) {
     this(new V1beta1CronJobList(), validationEnabled);
   }
 
@@ -89,24 +89,5 @@ public class V1beta1CronJobListBuilder
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.getMetadata());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1CronJobListBuilder that = (V1beta1CronJobListBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,21 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1APIResourceBuilder
-    extends io.kubernetes.client.openapi.models.V1APIResourceFluentImpl<
-        io.kubernetes.client.openapi.models.V1APIResourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1APIResource,
-        io.kubernetes.client.openapi.models.V1APIResourceBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1APIResourceBuilder extends V1APIResourceFluentImpl<V1APIResourceBuilder>
+    implements VisitableBuilder<
+        V1APIResource, io.kubernetes.client.openapi.models.V1APIResourceBuilder> {
   public V1APIResourceBuilder() {
     this(false);
   }
 
-  public V1APIResourceBuilder(java.lang.Boolean validationEnabled) {
+  public V1APIResourceBuilder(Boolean validationEnabled) {
     this(new V1APIResource(), validationEnabled);
   }
 
-  public V1APIResourceBuilder(io.kubernetes.client.openapi.models.V1APIResourceFluent<?> fluent) {
+  public V1APIResourceBuilder(V1APIResourceFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -117,24 +116,5 @@ public class V1APIResourceBuilder
     buildable.setVerbs(fluent.getVerbs());
     buildable.setVersion(fluent.getVersion());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1APIResourceBuilder that = (V1APIResourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

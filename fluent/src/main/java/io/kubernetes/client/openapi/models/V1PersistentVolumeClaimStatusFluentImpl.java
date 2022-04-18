@@ -12,14 +12,22 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1PersistentVolumeClaimStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent<A> {
+        A extends V1PersistentVolumeClaimStatusFluent<A>>
+    extends BaseFluent<A> implements V1PersistentVolumeClaimStatusFluent<A> {
   public V1PersistentVolumeClaimStatusFluentImpl() {}
 
   public V1PersistentVolumeClaimStatusFluentImpl(
@@ -37,16 +45,14 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     this.withResizeStatus(instance.getResizeStatus());
   }
 
-  private java.util.List<java.lang.String> accessModes;
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> allocatedResources;
+  private List<String> accessModes;
+  private Map<java.lang.String, Quantity> allocatedResources;
   private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> capacity;
-  private java.util.ArrayList<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionBuilder>
-      conditions;
-  private io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus.PhaseEnum phase;
+  private ArrayList<V1PersistentVolumeClaimConditionBuilder> conditions;
+  private java.lang.String phase;
   private java.lang.String resizeStatus;
 
-  public A addToAccessModes(java.lang.Integer index, java.lang.String item) {
+  public A addToAccessModes(Integer index, java.lang.String item) {
     if (this.accessModes == null) {
       this.accessModes = new java.util.ArrayList<java.lang.String>();
     }
@@ -72,7 +78,7 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     return (A) this;
   }
 
-  public A addAllToAccessModes(java.util.Collection<java.lang.String> items) {
+  public A addAllToAccessModes(Collection<java.lang.String> items) {
     if (this.accessModes == null) {
       this.accessModes = new java.util.ArrayList<java.lang.String>();
     }
@@ -116,8 +122,7 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     return this.accessModes.get(accessModes.size() - 1);
   }
 
-  public java.lang.String getMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingAccessMode(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : accessModes) {
       if (predicate.test(item)) {
         return item;
@@ -126,8 +131,7 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAccessMode(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingAccessMode(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : accessModes) {
       if (predicate.test(item)) {
         return true;
@@ -164,14 +168,10 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     return accessModes != null && !accessModes.isEmpty();
   }
 
-  public A addNewAccessMode(java.lang.String original) {
-    return (A) addToAccessModes(new String(original));
-  }
-
   public A addToAllocatedResources(
       java.lang.String key, io.kubernetes.client.custom.Quantity value) {
     if (this.allocatedResources == null && key != null && value != null) {
-      this.allocatedResources = new java.util.LinkedHashMap();
+      this.allocatedResources = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.allocatedResources.put(key, value);
@@ -298,9 +298,7 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     return this.capacity != null;
   }
 
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition item) {
+  public A addToConditions(java.lang.Integer index, V1PersistentVolumeClaimCondition item) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -422,7 +420,7 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition>
       getConditions() {
     return conditions != null ? build(conditions) : null;
@@ -508,17 +506,14 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluentImpl
-        .ConditionsNestedImpl();
+  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V1PersistentVolumeClaimStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<A>
       addNewConditionLike(
           io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition item) {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluentImpl
-        .ConditionsNestedImpl(-1, item);
+    return new V1PersistentVolumeClaimStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<A>
@@ -566,12 +561,11 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus.PhaseEnum getPhase() {
+  public java.lang.String getPhase() {
     return this.phase;
   }
 
-  public A withPhase(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus.PhaseEnum phase) {
+  public A withPhase(java.lang.String phase) {
     this.phase = phase;
     return (A) this;
   }
@@ -593,13 +587,7 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
     return this.resizeStatus != null;
   }
 
-  /** Method is deprecated. use withResizeStatus instead. */
-  @java.lang.Deprecated
-  public A withNewResizeStatus(java.lang.String original) {
-    return (A) withResizeStatus(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1PersistentVolumeClaimStatusFluentImpl that = (V1PersistentVolumeClaimStatusFluentImpl) o;
@@ -628,21 +616,49 @@ public class V1PersistentVolumeClaimStatusFluentImpl<
         super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent.ConditionsNested<
-              N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (accessModes != null && !accessModes.isEmpty()) {
+      sb.append("accessModes:");
+      sb.append(accessModes + ",");
+    }
+    if (allocatedResources != null && !allocatedResources.isEmpty()) {
+      sb.append("allocatedResources:");
+      sb.append(allocatedResources + ",");
+    }
+    if (capacity != null && !capacity.isEmpty()) {
+      sb.append("capacity:");
+      sb.append(capacity + ",");
+    }
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions + ",");
+    }
+    if (phase != null) {
+      sb.append("phase:");
+      sb.append(phase + ",");
+    }
+    if (resizeStatus != null) {
+      sb.append("resizeStatus:");
+      sb.append(resizeStatus);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V1PersistentVolumeClaimConditionFluentImpl<
+          V1PersistentVolumeClaimStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent
                   .ConditionsNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     ConditionsNestedImpl(
         java.lang.Integer index,
         io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionBuilder(
-              this, item);
+      this.builder = new V1PersistentVolumeClaimConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {

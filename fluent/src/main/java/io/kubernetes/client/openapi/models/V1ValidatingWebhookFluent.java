@@ -12,23 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1ValidatingWebhookFluent<
-        A extends io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToAdmissionReviewVersions(java.lang.Integer index, java.lang.String item);
+public interface V1ValidatingWebhookFluent<A extends V1ValidatingWebhookFluent<A>>
+    extends Fluent<A> {
+  public A addToAdmissionReviewVersions(Integer index, String item);
 
   public A setToAdmissionReviewVersions(java.lang.Integer index, java.lang.String item);
 
   public A addToAdmissionReviewVersions(java.lang.String... items);
 
-  public A addAllToAdmissionReviewVersions(java.util.Collection<java.lang.String> items);
+  public A addAllToAdmissionReviewVersions(Collection<java.lang.String> items);
 
   public A removeFromAdmissionReviewVersions(java.lang.String... items);
 
   public A removeAllFromAdmissionReviewVersions(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getAdmissionReviewVersions();
+  public List<java.lang.String> getAdmissionReviewVersions();
 
   public java.lang.String getAdmissionReviewVersion(java.lang.Integer index);
 
@@ -36,10 +41,9 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.String getLastAdmissionReviewVersion();
 
-  public java.lang.String getMatchingAdmissionReviewVersion(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingAdmissionReviewVersion(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingAdmissionReviewVersion(
+  public Boolean hasMatchingAdmissionReviewVersion(
       java.util.function.Predicate<java.lang.String> predicate);
 
   public A withAdmissionReviewVersions(java.util.List<java.lang.String> admissionReviewVersions);
@@ -48,16 +52,13 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.Boolean hasAdmissionReviewVersions();
 
-  public A addNewAdmissionReviewVersion(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildClientConfig instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig
-      getClientConfig();
+  @Deprecated
+  public AdmissionregistrationV1WebhookClientConfig getClientConfig();
 
   public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig
       buildClientConfig();
@@ -67,8 +68,7 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.Boolean hasClientConfig();
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.ClientConfigNested<A>
-      withNewClientConfig();
+  public V1ValidatingWebhookFluent.ClientConfigNested<A> withNewClientConfig();
 
   public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.ClientConfigNested<A>
       withNewClientConfigLike(
@@ -90,19 +90,11 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.Boolean hasFailurePolicy();
 
-  /** Method is deprecated. use withFailurePolicy instead. */
-  @java.lang.Deprecated
-  public A withNewFailurePolicy(java.lang.String original);
-
   public java.lang.String getMatchPolicy();
 
   public A withMatchPolicy(java.lang.String matchPolicy);
 
   public java.lang.Boolean hasMatchPolicy();
-
-  /** Method is deprecated. use withMatchPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewMatchPolicy(java.lang.String original);
 
   public java.lang.String getName();
 
@@ -110,17 +102,13 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.Boolean hasName();
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildNamespaceSelector instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getNamespaceSelector();
+  public V1LabelSelector getNamespaceSelector();
 
   public io.kubernetes.client.openapi.models.V1LabelSelector buildNamespaceSelector();
 
@@ -129,8 +117,7 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.Boolean hasNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.NamespaceSelectorNested<A>
-      withNewNamespaceSelector();
+  public V1ValidatingWebhookFluent.NamespaceSelectorNested<A> withNewNamespaceSelector();
 
   public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.NamespaceSelectorNested<A>
       withNewNamespaceSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -158,8 +145,7 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.Boolean hasObjectSelector();
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.ObjectSelectorNested<A>
-      withNewObjectSelector();
+  public V1ValidatingWebhookFluent.ObjectSelectorNested<A> withNewObjectSelector();
 
   public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.ObjectSelectorNested<A>
       withNewObjectSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
@@ -173,8 +159,7 @@ public interface V1ValidatingWebhookFluent<
   public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.ObjectSelectorNested<A>
       editOrNewObjectSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
 
-  public A addToRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1RuleWithOperations item);
+  public A addToRules(java.lang.Integer index, V1RuleWithOperations item);
 
   public A setToRules(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1RuleWithOperations item);
@@ -190,8 +175,7 @@ public interface V1ValidatingWebhookFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1RuleWithOperations> items);
 
   public A removeMatchingFromRules(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>
-          predicate);
+      java.util.function.Predicate<V1RuleWithOperationsBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildRules instead.
@@ -225,7 +209,7 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.Boolean hasRules();
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.RulesNested<A> addNewRule();
+  public V1ValidatingWebhookFluent.RulesNested<A> addNewRule();
 
   public io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.RulesNested<A>
       addNewRuleLike(io.kubernetes.client.openapi.models.V1RuleWithOperations item);
@@ -255,10 +239,6 @@ public interface V1ValidatingWebhookFluent<
 
   public java.lang.Boolean hasSideEffects();
 
-  /** Method is deprecated. use withSideEffects instead. */
-  @java.lang.Deprecated
-  public A withNewSideEffects(java.lang.String original);
-
   public java.lang.Integer getTimeoutSeconds();
 
   public A withTimeoutSeconds(java.lang.Integer timeoutSeconds);
@@ -266,9 +246,9 @@ public interface V1ValidatingWebhookFluent<
   public java.lang.Boolean hasTimeoutSeconds();
 
   public interface ClientConfigNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent<
-              io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.ClientConfigNested<N>> {
+      extends Nested<N>,
+          AdmissionregistrationV1WebhookClientConfigFluent<
+              V1ValidatingWebhookFluent.ClientConfigNested<N>> {
     public N and();
 
     public N endClientConfig();
@@ -276,9 +256,7 @@ public interface V1ValidatingWebhookFluent<
 
   public interface NamespaceSelectorNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.NamespaceSelectorNested<
-                  N>> {
+          V1LabelSelectorFluent<V1ValidatingWebhookFluent.NamespaceSelectorNested<N>> {
     public N and();
 
     public N endNamespaceSelector();
@@ -286,9 +264,7 @@ public interface V1ValidatingWebhookFluent<
 
   public interface ObjectSelectorNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorFluent<
-              io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.ObjectSelectorNested<
-                  N>> {
+          V1LabelSelectorFluent<V1ValidatingWebhookFluent.ObjectSelectorNested<N>> {
     public N and();
 
     public N endObjectSelector();
@@ -296,8 +272,7 @@ public interface V1ValidatingWebhookFluent<
 
   public interface RulesNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<
-              io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent.RulesNested<N>> {
+          V1RuleWithOperationsFluent<V1ValidatingWebhookFluent.RulesNested<N>> {
     public N and();
 
     public N endRule();

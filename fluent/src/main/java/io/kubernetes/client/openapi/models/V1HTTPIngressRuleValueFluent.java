@@ -12,37 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1HTTPIngressRuleValueFluent<
-        A extends io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToPaths(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1HTTPIngressPath item);
+public interface V1HTTPIngressRuleValueFluent<A extends V1HTTPIngressRuleValueFluent<A>>
+    extends Fluent<A> {
+  public A addToPaths(Integer index, V1HTTPIngressPath item);
 
   public A setToPaths(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1HTTPIngressPath item);
 
   public A addToPaths(io.kubernetes.client.openapi.models.V1HTTPIngressPath... items);
 
-  public A addAllToPaths(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1HTTPIngressPath> items);
+  public A addAllToPaths(Collection<io.kubernetes.client.openapi.models.V1HTTPIngressPath> items);
 
   public A removeFromPaths(io.kubernetes.client.openapi.models.V1HTTPIngressPath... items);
 
   public A removeAllFromPaths(
       java.util.Collection<io.kubernetes.client.openapi.models.V1HTTPIngressPath> items);
 
-  public A removeMatchingFromPaths(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder>
-          predicate);
+  public A removeMatchingFromPaths(Predicate<V1HTTPIngressPathBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildPaths instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1HTTPIngressPath> getPaths();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1HTTPIngressPath> getPaths();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1HTTPIngressPath> buildPaths();
 
@@ -56,7 +57,7 @@ public interface V1HTTPIngressRuleValueFluent<
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingPath(
+  public Boolean hasMatchingPath(
       java.util.function.Predicate<io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder>
           predicate);
 
@@ -66,8 +67,7 @@ public interface V1HTTPIngressRuleValueFluent<
 
   public java.lang.Boolean hasPaths();
 
-  public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<A>
-      addNewPath();
+  public V1HTTPIngressRuleValueFluent.PathsNested<A> addNewPath();
 
   public io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<A>
       addNewPathLike(io.kubernetes.client.openapi.models.V1HTTPIngressPath item);
@@ -91,9 +91,7 @@ public interface V1HTTPIngressRuleValueFluent<
               predicate);
 
   public interface PathsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<
-              io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent.PathsNested<N>> {
+      extends Nested<N>, V1HTTPIngressPathFluent<V1HTTPIngressRuleValueFluent.PathsNested<N>> {
     public N and();
 
     public N endPath();

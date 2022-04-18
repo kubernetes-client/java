@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1NodeSystemInfoFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1NodeSystemInfoFluentImpl<A extends V1NodeSystemInfoFluent<A>> extends BaseFluent<A>
+    implements V1NodeSystemInfoFluent<A> {
   public V1NodeSystemInfoFluentImpl() {}
 
   public V1NodeSystemInfoFluentImpl(io.kubernetes.client.openapi.models.V1NodeSystemInfo instance) {
@@ -41,7 +42,7 @@ public class V1NodeSystemInfoFluentImpl<
     this.withSystemUUID(instance.getSystemUUID());
   }
 
-  private java.lang.String architecture;
+  private String architecture;
   private java.lang.String bootID;
   private java.lang.String containerRuntimeVersion;
   private java.lang.String kernelVersion;
@@ -61,14 +62,8 @@ public class V1NodeSystemInfoFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasArchitecture() {
+  public Boolean hasArchitecture() {
     return this.architecture != null;
-  }
-
-  /** Method is deprecated. use withArchitecture instead. */
-  @java.lang.Deprecated
-  public A withNewArchitecture(java.lang.String original) {
-    return (A) withArchitecture(new String(original));
   }
 
   public java.lang.String getBootID() {
@@ -84,12 +79,6 @@ public class V1NodeSystemInfoFluentImpl<
     return this.bootID != null;
   }
 
-  /** Method is deprecated. use withBootID instead. */
-  @java.lang.Deprecated
-  public A withNewBootID(java.lang.String original) {
-    return (A) withBootID(new String(original));
-  }
-
   public java.lang.String getContainerRuntimeVersion() {
     return this.containerRuntimeVersion;
   }
@@ -101,12 +90,6 @@ public class V1NodeSystemInfoFluentImpl<
 
   public java.lang.Boolean hasContainerRuntimeVersion() {
     return this.containerRuntimeVersion != null;
-  }
-
-  /** Method is deprecated. use withContainerRuntimeVersion instead. */
-  @java.lang.Deprecated
-  public A withNewContainerRuntimeVersion(java.lang.String original) {
-    return (A) withContainerRuntimeVersion(new String(original));
   }
 
   public java.lang.String getKernelVersion() {
@@ -122,12 +105,6 @@ public class V1NodeSystemInfoFluentImpl<
     return this.kernelVersion != null;
   }
 
-  /** Method is deprecated. use withKernelVersion instead. */
-  @java.lang.Deprecated
-  public A withNewKernelVersion(java.lang.String original) {
-    return (A) withKernelVersion(new String(original));
-  }
-
   public java.lang.String getKubeProxyVersion() {
     return this.kubeProxyVersion;
   }
@@ -139,12 +116,6 @@ public class V1NodeSystemInfoFluentImpl<
 
   public java.lang.Boolean hasKubeProxyVersion() {
     return this.kubeProxyVersion != null;
-  }
-
-  /** Method is deprecated. use withKubeProxyVersion instead. */
-  @java.lang.Deprecated
-  public A withNewKubeProxyVersion(java.lang.String original) {
-    return (A) withKubeProxyVersion(new String(original));
   }
 
   public java.lang.String getKubeletVersion() {
@@ -160,12 +131,6 @@ public class V1NodeSystemInfoFluentImpl<
     return this.kubeletVersion != null;
   }
 
-  /** Method is deprecated. use withKubeletVersion instead. */
-  @java.lang.Deprecated
-  public A withNewKubeletVersion(java.lang.String original) {
-    return (A) withKubeletVersion(new String(original));
-  }
-
   public java.lang.String getMachineID() {
     return this.machineID;
   }
@@ -177,12 +142,6 @@ public class V1NodeSystemInfoFluentImpl<
 
   public java.lang.Boolean hasMachineID() {
     return this.machineID != null;
-  }
-
-  /** Method is deprecated. use withMachineID instead. */
-  @java.lang.Deprecated
-  public A withNewMachineID(java.lang.String original) {
-    return (A) withMachineID(new String(original));
   }
 
   public java.lang.String getOperatingSystem() {
@@ -198,12 +157,6 @@ public class V1NodeSystemInfoFluentImpl<
     return this.operatingSystem != null;
   }
 
-  /** Method is deprecated. use withOperatingSystem instead. */
-  @java.lang.Deprecated
-  public A withNewOperatingSystem(java.lang.String original) {
-    return (A) withOperatingSystem(new String(original));
-  }
-
   public java.lang.String getOsImage() {
     return this.osImage;
   }
@@ -215,12 +168,6 @@ public class V1NodeSystemInfoFluentImpl<
 
   public java.lang.Boolean hasOsImage() {
     return this.osImage != null;
-  }
-
-  /** Method is deprecated. use withOsImage instead. */
-  @java.lang.Deprecated
-  public A withNewOsImage(java.lang.String original) {
-    return (A) withOsImage(new String(original));
   }
 
   public java.lang.String getSystemUUID() {
@@ -236,13 +183,7 @@ public class V1NodeSystemInfoFluentImpl<
     return this.systemUUID != null;
   }
 
-  /** Method is deprecated. use withSystemUUID instead. */
-  @java.lang.Deprecated
-  public A withNewSystemUUID(java.lang.String original) {
-    return (A) withSystemUUID(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1NodeSystemInfoFluentImpl that = (V1NodeSystemInfoFluentImpl) o;
@@ -285,5 +226,52 @@ public class V1NodeSystemInfoFluentImpl<
         osImage,
         systemUUID,
         super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (architecture != null) {
+      sb.append("architecture:");
+      sb.append(architecture + ",");
+    }
+    if (bootID != null) {
+      sb.append("bootID:");
+      sb.append(bootID + ",");
+    }
+    if (containerRuntimeVersion != null) {
+      sb.append("containerRuntimeVersion:");
+      sb.append(containerRuntimeVersion + ",");
+    }
+    if (kernelVersion != null) {
+      sb.append("kernelVersion:");
+      sb.append(kernelVersion + ",");
+    }
+    if (kubeProxyVersion != null) {
+      sb.append("kubeProxyVersion:");
+      sb.append(kubeProxyVersion + ",");
+    }
+    if (kubeletVersion != null) {
+      sb.append("kubeletVersion:");
+      sb.append(kubeletVersion + ",");
+    }
+    if (machineID != null) {
+      sb.append("machineID:");
+      sb.append(machineID + ",");
+    }
+    if (operatingSystem != null) {
+      sb.append("operatingSystem:");
+      sb.append(operatingSystem + ",");
+    }
+    if (osImage != null) {
+      sb.append("osImage:");
+      sb.append(osImage + ",");
+    }
+    if (systemUUID != null) {
+      sb.append("systemUUID:");
+      sb.append(systemUUID);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

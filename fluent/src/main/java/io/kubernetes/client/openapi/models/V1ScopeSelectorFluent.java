@@ -12,13 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1ScopeSelectorFluent<
-        A extends io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToMatchExpressions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement item);
+public interface V1ScopeSelectorFluent<A extends V1ScopeSelectorFluent<A>> extends Fluent<A> {
+  public A addToMatchExpressions(Integer index, V1ScopedResourceSelectorRequirement item);
 
   public A setToMatchExpressions(
       java.lang.Integer index,
@@ -28,8 +30,7 @@ public interface V1ScopeSelectorFluent<
       io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement... items);
 
   public A addAllToMatchExpressions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement>
-          items);
+      Collection<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement> items);
 
   public A removeFromMatchExpressions(
       io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement... items);
@@ -39,17 +40,15 @@ public interface V1ScopeSelectorFluent<
           items);
 
   public A removeMatchingFromMatchExpressions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>
-          predicate);
+      Predicate<V1ScopedResourceSelectorRequirementBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildMatchExpressions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement>
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement>
       getMatchExpressions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement>
@@ -70,7 +69,7 @@ public interface V1ScopeSelectorFluent<
                   io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>
               predicate);
 
-  public java.lang.Boolean hasMatchingMatchExpression(
+  public Boolean hasMatchingMatchExpression(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder>
           predicate);
@@ -84,8 +83,7 @@ public interface V1ScopeSelectorFluent<
 
   public java.lang.Boolean hasMatchExpressions();
 
-  public io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<A>
-      addNewMatchExpression();
+  public V1ScopeSelectorFluent.MatchExpressionsNested<A> addNewMatchExpression();
 
   public io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<A>
       addNewMatchExpressionLike(
@@ -112,9 +110,9 @@ public interface V1ScopeSelectorFluent<
               predicate);
 
   public interface MatchExpressionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<
-              io.kubernetes.client.openapi.models.V1ScopeSelectorFluent.MatchExpressionsNested<N>> {
+      extends Nested<N>,
+          V1ScopedResourceSelectorRequirementFluent<
+              V1ScopeSelectorFluent.MatchExpressionsNested<N>> {
     public N and();
 
     public N endMatchExpression();

@@ -12,13 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-/** Generated */
-public interface V1ResourceQuotaSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToHard(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
 
-  public A addToHard(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+/** Generated */
+public interface V1ResourceQuotaSpecFluent<A extends V1ResourceQuotaSpecFluent<A>>
+    extends Fluent<A> {
+  public A addToHard(String key, Quantity value);
+
+  public A addToHard(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
 
   public A removeFromHard(java.lang.String key);
 
@@ -30,15 +37,15 @@ public interface V1ResourceQuotaSpecFluent<
   public <K, V> A withHard(
       java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> hard);
 
-  public java.lang.Boolean hasHard();
+  public Boolean hasHard();
 
   /**
    * This method has been deprecated, please use method buildScopeSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ScopeSelector getScopeSelector();
+  @Deprecated
+  public V1ScopeSelector getScopeSelector();
 
   public io.kubernetes.client.openapi.models.V1ScopeSelector buildScopeSelector();
 
@@ -46,8 +53,7 @@ public interface V1ResourceQuotaSpecFluent<
 
   public java.lang.Boolean hasScopeSelector();
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<A>
-      withNewScopeSelector();
+  public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> withNewScopeSelector();
 
   public io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<A>
       withNewScopeSelectorLike(io.kubernetes.client.openapi.models.V1ScopeSelector item);
@@ -61,19 +67,19 @@ public interface V1ResourceQuotaSpecFluent<
   public io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<A>
       editOrNewScopeSelectorLike(io.kubernetes.client.openapi.models.V1ScopeSelector item);
 
-  public A addToScopes(java.lang.Integer index, java.lang.String item);
+  public A addToScopes(Integer index, java.lang.String item);
 
   public A setToScopes(java.lang.Integer index, java.lang.String item);
 
   public A addToScopes(java.lang.String... items);
 
-  public A addAllToScopes(java.util.Collection<java.lang.String> items);
+  public A addAllToScopes(Collection<java.lang.String> items);
 
   public A removeFromScopes(java.lang.String... items);
 
   public A removeAllFromScopes(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getScopes();
+  public List<java.lang.String> getScopes();
 
   public java.lang.String getScope(java.lang.Integer index);
 
@@ -81,8 +87,7 @@ public interface V1ResourceQuotaSpecFluent<
 
   public java.lang.String getLastScope();
 
-  public java.lang.String getMatchingScope(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingScope(Predicate<java.lang.String> predicate);
 
   public java.lang.Boolean hasMatchingScope(
       java.util.function.Predicate<java.lang.String> predicate);
@@ -93,13 +98,8 @@ public interface V1ResourceQuotaSpecFluent<
 
   public java.lang.Boolean hasScopes();
 
-  public A addNewScope(java.lang.String original);
-
   public interface ScopeSelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<
-              io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent.ScopeSelectorNested<
-                  N>> {
+      extends Nested<N>, V1ScopeSelectorFluent<V1ResourceQuotaSpecFluent.ScopeSelectorNested<N>> {
     public N and();
 
     public N endScopeSelector();

@@ -12,27 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1EventSourceFluent<
-        A extends io.kubernetes.client.openapi.models.V1EventSourceFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getComponent();
+public interface V1EventSourceFluent<A extends V1EventSourceFluent<A>> extends Fluent<A> {
+  public String getComponent();
 
   public A withComponent(java.lang.String component);
 
-  public java.lang.Boolean hasComponent();
-
-  /** Method is deprecated. use withComponent instead. */
-  @java.lang.Deprecated
-  public A withNewComponent(java.lang.String original);
+  public Boolean hasComponent();
 
   public java.lang.String getHost();
 
   public A withHost(java.lang.String host);
 
   public java.lang.Boolean hasHost();
-
-  /** Method is deprecated. use withHost instead. */
-  @java.lang.Deprecated
-  public A withNewHost(java.lang.String original);
 }

@@ -12,11 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /** Generated */
-public class V1ConfigMapFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ConfigMapFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ConfigMapFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ConfigMapFluentImpl<A extends V1ConfigMapFluent<A>> extends BaseFluent<A>
+    implements V1ConfigMapFluent<A> {
   public V1ConfigMapFluentImpl() {}
 
   public V1ConfigMapFluentImpl(io.kubernetes.client.openapi.models.V1ConfigMap instance) {
@@ -33,12 +37,12 @@ public class V1ConfigMapFluentImpl<
     this.withMetadata(instance.getMetadata());
   }
 
-  private java.lang.String apiVersion;
-  private java.util.Map<java.lang.String, byte[]> binaryData;
+  private String apiVersion;
+  private Map<java.lang.String, byte[]> binaryData;
   private java.util.Map<java.lang.String, java.lang.String> data;
-  private java.lang.Boolean immutable;
+  private Boolean immutable;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
+  private V1ObjectMetaBuilder metadata;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -53,15 +57,9 @@ public class V1ConfigMapFluentImpl<
     return this.apiVersion != null;
   }
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
-  }
-
   public A addToBinaryData(java.lang.String key, byte[] value) {
     if (this.binaryData == null && key != null && value != null) {
-      this.binaryData = new java.util.LinkedHashMap();
+      this.binaryData = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.binaryData.put(key, value);
@@ -207,18 +205,12 @@ public class V1ConfigMapFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -230,7 +222,7 @@ public class V1ConfigMapFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -240,13 +232,13 @@ public class V1ConfigMapFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapFluent.MetadataNested<A> withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.V1ConfigMapFluentImpl.MetadataNestedImpl();
+  public V1ConfigMapFluent.MetadataNested<A> withNewMetadata() {
+    return new V1ConfigMapFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1ConfigMapFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1ConfigMapFluentImpl.MetadataNestedImpl(item);
+    return new V1ConfigMapFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1ConfigMapFluent.MetadataNested<A> editMetadata() {
@@ -266,7 +258,7 @@ public class V1ConfigMapFluentImpl<
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ConfigMapFluentImpl that = (V1ConfigMapFluentImpl) o;
@@ -287,13 +279,46 @@ public class V1ConfigMapFluentImpl<
         apiVersion, binaryData, data, immutable, kind, metadata, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.V1ConfigMapFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (binaryData != null && !binaryData.isEmpty()) {
+      sb.append("binaryData:");
+      sb.append(binaryData + ",");
+    }
+    if (data != null && !data.isEmpty()) {
+      sb.append("data:");
+      sb.append(data + ",");
+    }
+    if (immutable != null) {
+      sb.append("immutable:");
+      sb.append(immutable + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withImmutable() {
+    return withImmutable(true);
+  }
+
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ConfigMapFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.V1ConfigMapFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {

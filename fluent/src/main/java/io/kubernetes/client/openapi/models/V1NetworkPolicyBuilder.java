@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1NetworkPolicyBuilder
-    extends io.kubernetes.client.openapi.models.V1NetworkPolicyFluentImpl<
-        io.kubernetes.client.openapi.models.V1NetworkPolicyBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1NetworkPolicy,
-        io.kubernetes.client.openapi.models.V1NetworkPolicyBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1NetworkPolicyBuilder extends V1NetworkPolicyFluentImpl<V1NetworkPolicyBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1NetworkPolicy, V1NetworkPolicyBuilder> {
   public V1NetworkPolicyBuilder() {
     this(false);
   }
 
-  public V1NetworkPolicyBuilder(java.lang.Boolean validationEnabled) {
+  public V1NetworkPolicyBuilder(Boolean validationEnabled) {
     this(new V1NetworkPolicy(), validationEnabled);
   }
 
@@ -88,24 +87,5 @@ public class V1NetworkPolicyBuilder
     buildable.setMetadata(fluent.getMetadata());
     buildable.setSpec(fluent.getSpec());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1NetworkPolicyBuilder that = (V1NetworkPolicyBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

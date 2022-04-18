@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+
 /** Generated */
-public class AuthenticationV1TokenRequestFluentImpl<
-        A extends io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class AuthenticationV1TokenRequestFluentImpl<A extends AuthenticationV1TokenRequestFluent<A>>
+    extends BaseFluent<A> implements AuthenticationV1TokenRequestFluent<A> {
   public AuthenticationV1TokenRequestFluentImpl() {}
 
   public AuthenticationV1TokenRequestFluentImpl(
@@ -32,11 +34,11 @@ public class AuthenticationV1TokenRequestFluentImpl<
     this.withStatus(instance.getStatus());
   }
 
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private java.lang.String kind;
-  private io.kubernetes.client.openapi.models.V1ObjectMetaBuilder metadata;
-  private io.kubernetes.client.openapi.models.V1TokenRequestSpecBuilder spec;
-  private io.kubernetes.client.openapi.models.V1TokenRequestStatusBuilder status;
+  private V1ObjectMetaBuilder metadata;
+  private V1TokenRequestSpecBuilder spec;
+  private V1TokenRequestStatusBuilder status;
 
   public java.lang.String getApiVersion() {
     return this.apiVersion;
@@ -47,14 +49,8 @@ public class AuthenticationV1TokenRequestFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
-  }
-
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original) {
-    return (A) withApiVersion(new String(original));
   }
 
   public java.lang.String getKind() {
@@ -70,18 +66,12 @@ public class AuthenticationV1TokenRequestFluentImpl<
     return this.kind != null;
   }
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original) {
-    return (A) withKind(new String(original));
-  }
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
@@ -93,7 +83,7 @@ public class AuthenticationV1TokenRequestFluentImpl<
   public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
-      this.metadata = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(metadata);
+      this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
     }
     return (A) this;
@@ -103,16 +93,13 @@ public class AuthenticationV1TokenRequestFluentImpl<
     return this.metadata != null;
   }
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.MetadataNested<A>
-      withNewMetadata() {
-    return new io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluentImpl
-        .MetadataNestedImpl();
+  public AuthenticationV1TokenRequestFluent.MetadataNested<A> withNewMetadata() {
+    return new AuthenticationV1TokenRequestFluentImpl.MetadataNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluentImpl
-        .MetadataNestedImpl(item);
+    return new AuthenticationV1TokenRequestFluentImpl.MetadataNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.MetadataNested<A>
@@ -150,7 +137,7 @@ public class AuthenticationV1TokenRequestFluentImpl<
   public A withSpec(io.kubernetes.client.openapi.models.V1TokenRequestSpec spec) {
     _visitables.get("spec").remove(this.spec);
     if (spec != null) {
-      this.spec = new io.kubernetes.client.openapi.models.V1TokenRequestSpecBuilder(spec);
+      this.spec = new V1TokenRequestSpecBuilder(spec);
       _visitables.get("spec").add(this.spec);
     }
     return (A) this;
@@ -160,10 +147,8 @@ public class AuthenticationV1TokenRequestFluentImpl<
     return this.spec != null;
   }
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.SpecNested<A>
-      withNewSpec() {
-    return new io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluentImpl
-        .SpecNestedImpl();
+  public AuthenticationV1TokenRequestFluent.SpecNested<A> withNewSpec() {
+    return new AuthenticationV1TokenRequestFluentImpl.SpecNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.SpecNested<A>
@@ -196,7 +181,7 @@ public class AuthenticationV1TokenRequestFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1TokenRequestStatus getStatus() {
+  public V1TokenRequestStatus getStatus() {
     return this.status != null ? this.status.build() : null;
   }
 
@@ -217,10 +202,8 @@ public class AuthenticationV1TokenRequestFluentImpl<
     return this.status != null;
   }
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.StatusNested<A>
-      withNewStatus() {
-    return new io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluentImpl
-        .StatusNestedImpl();
+  public AuthenticationV1TokenRequestFluent.StatusNested<A> withNewStatus() {
+    return new AuthenticationV1TokenRequestFluentImpl.StatusNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.StatusNested<A>
@@ -247,7 +230,7 @@ public class AuthenticationV1TokenRequestFluentImpl<
     return withNewStatusLike(getStatus() != null ? getStatus() : item);
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     AuthenticationV1TokenRequestFluentImpl that = (AuthenticationV1TokenRequestFluentImpl) o;
@@ -264,15 +247,41 @@ public class AuthenticationV1TokenRequestFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, status, super.hashCode());
   }
 
-  public class MetadataNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ObjectMetaFluentImpl<
-          io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.MetadataNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiVersion != null) {
+      sb.append("apiVersion:");
+      sb.append(apiVersion + ",");
+    }
+    if (kind != null) {
+      sb.append("kind:");
+      sb.append(kind + ",");
+    }
+    if (metadata != null) {
+      sb.append("metadata:");
+      sb.append(metadata + ",");
+    }
+    if (spec != null) {
+      sb.append("spec:");
+      sb.append(spec + ",");
+    }
+    if (status != null) {
+      sb.append("status:");
+      sb.append(status);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class MetadataNestedImpl<N>
+      extends V1ObjectMetaFluentImpl<AuthenticationV1TokenRequestFluent.MetadataNested<N>>
       implements io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent
                   .MetadataNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    MetadataNestedImpl(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this, item);
+          Nested<N> {
+    MetadataNestedImpl(V1ObjectMeta item) {
+      this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
@@ -290,14 +299,13 @@ public class AuthenticationV1TokenRequestFluentImpl<
     }
   }
 
-  public class SpecNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TokenRequestSpecFluentImpl<
-          io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.SpecNested<N>>
+  class SpecNestedImpl<N>
+      extends V1TokenRequestSpecFluentImpl<AuthenticationV1TokenRequestFluent.SpecNested<N>>
       implements io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.SpecNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    SpecNestedImpl(io.kubernetes.client.openapi.models.V1TokenRequestSpec item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1TokenRequestSpecBuilder(this, item);
+    SpecNestedImpl(V1TokenRequestSpec item) {
+      this.builder = new V1TokenRequestSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
@@ -315,16 +323,14 @@ public class AuthenticationV1TokenRequestFluentImpl<
     }
   }
 
-  public class StatusNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1TokenRequestStatusFluentImpl<
-          io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.StatusNested<N>>
+  class StatusNestedImpl<N>
+      extends V1TokenRequestStatusFluentImpl<AuthenticationV1TokenRequestFluent.StatusNested<N>>
       implements io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent
                   .StatusNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     StatusNestedImpl(io.kubernetes.client.openapi.models.V1TokenRequestStatus item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1TokenRequestStatusBuilder(this, item);
+      this.builder = new V1TokenRequestStatusBuilder(this, item);
     }
 
     StatusNestedImpl() {

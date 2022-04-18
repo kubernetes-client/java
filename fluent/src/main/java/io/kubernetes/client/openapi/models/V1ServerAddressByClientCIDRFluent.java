@@ -12,27 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V1ServerAddressByClientCIDRFluent<
-        A extends io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getClientCIDR();
+public interface V1ServerAddressByClientCIDRFluent<A extends V1ServerAddressByClientCIDRFluent<A>>
+    extends Fluent<A> {
+  public String getClientCIDR();
 
   public A withClientCIDR(java.lang.String clientCIDR);
 
-  public java.lang.Boolean hasClientCIDR();
-
-  /** Method is deprecated. use withClientCIDR instead. */
-  @java.lang.Deprecated
-  public A withNewClientCIDR(java.lang.String original);
+  public Boolean hasClientCIDR();
 
   public java.lang.String getServerAddress();
 
   public A withServerAddress(java.lang.String serverAddress);
 
   public java.lang.Boolean hasServerAddress();
-
-  /** Method is deprecated. use withServerAddress instead. */
-  @java.lang.Deprecated
-  public A withNewServerAddress(java.lang.String original);
 }

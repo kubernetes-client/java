@@ -12,15 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Map;
+
 /** Generated */
-public interface V1ReplicationControllerSpecFluent<
-        A extends io.kubernetes.client.openapi.models.V1ReplicationControllerSpecFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getMinReadySeconds();
+public interface V1ReplicationControllerSpecFluent<A extends V1ReplicationControllerSpecFluent<A>>
+    extends Fluent<A> {
+  public Integer getMinReadySeconds();
 
   public A withMinReadySeconds(java.lang.Integer minReadySeconds);
 
-  public java.lang.Boolean hasMinReadySeconds();
+  public Boolean hasMinReadySeconds();
 
   public java.lang.Integer getReplicas();
 
@@ -28,9 +31,9 @@ public interface V1ReplicationControllerSpecFluent<
 
   public java.lang.Boolean hasReplicas();
 
-  public A addToSelector(java.lang.String key, java.lang.String value);
+  public A addToSelector(String key, java.lang.String value);
 
-  public A addToSelector(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToSelector(Map<java.lang.String, java.lang.String> map);
 
   public A removeFromSelector(java.lang.String key);
 
@@ -47,8 +50,8 @@ public interface V1ReplicationControllerSpecFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate();
+  @Deprecated
+  public V1PodTemplateSpec getTemplate();
 
   public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate();
 
@@ -56,8 +59,7 @@ public interface V1ReplicationControllerSpecFluent<
 
   public java.lang.Boolean hasTemplate();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerSpecFluent.TemplateNested<A>
-      withNewTemplate();
+  public V1ReplicationControllerSpecFluent.TemplateNested<A> withNewTemplate();
 
   public io.kubernetes.client.openapi.models.V1ReplicationControllerSpecFluent.TemplateNested<A>
       withNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
@@ -72,10 +74,8 @@ public interface V1ReplicationControllerSpecFluent<
       editOrNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
 
   public interface TemplateNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent<
-              io.kubernetes.client.openapi.models.V1ReplicationControllerSpecFluent.TemplateNested<
-                  N>> {
+      extends Nested<N>,
+          V1PodTemplateSpecFluent<V1ReplicationControllerSpecFluent.TemplateNested<N>> {
     public N and();
 
     public N endTemplate();

@@ -12,21 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1IngressRuleBuilder
-    extends io.kubernetes.client.openapi.models.V1IngressRuleFluentImpl<
-        io.kubernetes.client.openapi.models.V1IngressRuleBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1IngressRuleBuilder extends V1IngressRuleFluentImpl<V1IngressRuleBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1IngressRule,
         io.kubernetes.client.openapi.models.V1IngressRuleBuilder> {
   public V1IngressRuleBuilder() {
     this(false);
   }
 
-  public V1IngressRuleBuilder(java.lang.Boolean validationEnabled) {
+  public V1IngressRuleBuilder(Boolean validationEnabled) {
     this(new V1IngressRule(), validationEnabled);
   }
 
-  public V1IngressRuleBuilder(io.kubernetes.client.openapi.models.V1IngressRuleFluent<?> fluent) {
+  public V1IngressRuleBuilder(V1IngressRuleFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -77,24 +77,5 @@ public class V1IngressRuleBuilder
     buildable.setHost(fluent.getHost());
     buildable.setHttp(fluent.getHttp());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1IngressRuleBuilder that = (V1IngressRuleBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

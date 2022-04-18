@@ -12,22 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1PodSecurityContextBuilder
-    extends io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl<
-        io.kubernetes.client.openapi.models.V1PodSecurityContextBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PodSecurityContext,
-        io.kubernetes.client.openapi.models.V1PodSecurityContextBuilder> {
+    extends V1PodSecurityContextFluentImpl<V1PodSecurityContextBuilder>
+    implements VisitableBuilder<
+        V1PodSecurityContext, io.kubernetes.client.openapi.models.V1PodSecurityContextBuilder> {
   public V1PodSecurityContextBuilder() {
     this(false);
   }
 
-  public V1PodSecurityContextBuilder(java.lang.Boolean validationEnabled) {
+  public V1PodSecurityContextBuilder(Boolean validationEnabled) {
     this(new V1PodSecurityContext(), validationEnabled);
   }
 
-  public V1PodSecurityContextBuilder(
-      io.kubernetes.client.openapi.models.V1PodSecurityContextFluent<?> fluent) {
+  public V1PodSecurityContextBuilder(V1PodSecurityContextFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -119,24 +118,5 @@ public class V1PodSecurityContextBuilder
     buildable.setSysctls(fluent.getSysctls());
     buildable.setWindowsOptions(fluent.getWindowsOptions());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1PodSecurityContextBuilder that = (V1PodSecurityContextBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

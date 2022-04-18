@@ -12,11 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /** Generated */
-public class V1ResourceQuotaStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ResourceQuotaStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ResourceQuotaStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFluent<A>>
+    extends BaseFluent<A> implements V1ResourceQuotaStatusFluent<A> {
   public V1ResourceQuotaStatusFluentImpl() {}
 
   public V1ResourceQuotaStatusFluentImpl(
@@ -26,12 +30,12 @@ public class V1ResourceQuotaStatusFluentImpl<
     this.withUsed(instance.getUsed());
   }
 
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> hard;
+  private Map<String, Quantity> hard;
   private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> used;
 
   public A addToHard(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
     if (this.hard == null && key != null && value != null) {
-      this.hard = new java.util.LinkedHashMap();
+      this.hard = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.hard.put(key, value);
@@ -88,7 +92,7 @@ public class V1ResourceQuotaStatusFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasHard() {
+  public Boolean hasHard() {
     return this.hard != null;
   }
 
@@ -155,7 +159,7 @@ public class V1ResourceQuotaStatusFluentImpl<
     return this.used != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ResourceQuotaStatusFluentImpl that = (V1ResourceQuotaStatusFluentImpl) o;
@@ -166,5 +170,20 @@ public class V1ResourceQuotaStatusFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(hard, used, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (hard != null && !hard.isEmpty()) {
+      sb.append("hard:");
+      sb.append(hard + ",");
+    }
+    if (used != null && !used.isEmpty()) {
+      sb.append("used:");
+      sb.append(used);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

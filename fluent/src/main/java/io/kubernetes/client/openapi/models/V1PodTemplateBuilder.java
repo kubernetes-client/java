@@ -12,21 +12,21 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1PodTemplateBuilder
-    extends io.kubernetes.client.openapi.models.V1PodTemplateFluentImpl<
-        io.kubernetes.client.openapi.models.V1PodTemplateBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1PodTemplateBuilder extends V1PodTemplateFluentImpl<V1PodTemplateBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.V1PodTemplate,
         io.kubernetes.client.openapi.models.V1PodTemplateBuilder> {
   public V1PodTemplateBuilder() {
     this(false);
   }
 
-  public V1PodTemplateBuilder(java.lang.Boolean validationEnabled) {
+  public V1PodTemplateBuilder(Boolean validationEnabled) {
     this(new V1PodTemplate(), validationEnabled);
   }
 
-  public V1PodTemplateBuilder(io.kubernetes.client.openapi.models.V1PodTemplateFluent<?> fluent) {
+  public V1PodTemplateBuilder(V1PodTemplateFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -87,24 +87,5 @@ public class V1PodTemplateBuilder
     buildable.setMetadata(fluent.getMetadata());
     buildable.setTemplate(fluent.getTemplate());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1PodTemplateBuilder that = (V1PodTemplateBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,12 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1NodeSelectorTermFluent<
-        A extends io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToMatchExpressions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
+public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> extends Fluent<A> {
+  public A addToMatchExpressions(Integer index, V1NodeSelectorRequirement item);
 
   public A setToMatchExpressions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
@@ -26,7 +29,7 @@ public interface V1NodeSelectorTermFluent<
       io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
 
   public A addAllToMatchExpressions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> items);
+      Collection<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> items);
 
   public A removeFromMatchExpressions(
       io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
@@ -35,18 +38,15 @@ public interface V1NodeSelectorTermFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> items);
 
   public A removeMatchingFromMatchExpressions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
-          predicate);
+      Predicate<V1NodeSelectorRequirementBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildMatchExpressions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement>
-      getMatchExpressions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> getMatchExpressions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement>
       buildMatchExpressions();
@@ -63,7 +63,7 @@ public interface V1NodeSelectorTermFluent<
               io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
           predicate);
 
-  public java.lang.Boolean hasMatchingMatchExpression(
+  public Boolean hasMatchingMatchExpression(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
           predicate);
@@ -77,8 +77,7 @@ public interface V1NodeSelectorTermFluent<
 
   public java.lang.Boolean hasMatchExpressions();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<A>
-      addNewMatchExpression();
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> addNewMatchExpression();
 
   public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<A>
       addNewMatchExpressionLike(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
@@ -162,8 +161,7 @@ public interface V1NodeSelectorTermFluent<
 
   public java.lang.Boolean hasMatchFields();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<A>
-      addNewMatchField();
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> addNewMatchField();
 
   public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<A>
       addNewMatchFieldLike(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
@@ -189,10 +187,8 @@ public interface V1NodeSelectorTermFluent<
               predicate);
 
   public interface MatchExpressionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<
-              io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<
-                  N>> {
+      extends Nested<N>,
+          V1NodeSelectorRequirementFluent<V1NodeSelectorTermFluent.MatchExpressionsNested<N>> {
     public N and();
 
     public N endMatchExpression();
@@ -200,8 +196,7 @@ public interface V1NodeSelectorTermFluent<
 
   public interface MatchFieldsNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<
-              io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<N>> {
+          V1NodeSelectorRequirementFluent<V1NodeSelectorTermFluent.MatchFieldsNested<N>> {
     public N and();
 
     public N endMatchField();

@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V2ContainerResourceMetricSourceBuilder
-    extends io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceFluentImpl<
-        io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2ContainerResourceMetricSource,
+    extends V2ContainerResourceMetricSourceFluentImpl<V2ContainerResourceMetricSourceBuilder>
+    implements VisitableBuilder<
+        V2ContainerResourceMetricSource,
         io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceBuilder> {
   public V2ContainerResourceMetricSourceBuilder() {
     this(false);
   }
 
-  public V2ContainerResourceMetricSourceBuilder(java.lang.Boolean validationEnabled) {
+  public V2ContainerResourceMetricSourceBuilder(Boolean validationEnabled) {
     this(new V2ContainerResourceMetricSource(), validationEnabled);
   }
 
@@ -84,24 +85,5 @@ public class V2ContainerResourceMetricSourceBuilder
     buildable.setName(fluent.getName());
     buildable.setTarget(fluent.getTarget());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V2ContainerResourceMetricSourceBuilder that = (V2ContainerResourceMetricSourceBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

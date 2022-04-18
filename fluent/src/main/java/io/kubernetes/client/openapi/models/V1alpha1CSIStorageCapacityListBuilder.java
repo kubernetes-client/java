@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class V1alpha1CSIStorageCapacityListBuilder
-    extends io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluentImpl<
-        io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityList,
+    extends V1alpha1CSIStorageCapacityListFluentImpl<V1alpha1CSIStorageCapacityListBuilder>
+    implements VisitableBuilder<
+        V1alpha1CSIStorageCapacityList,
         io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListBuilder> {
   public V1alpha1CSIStorageCapacityListBuilder() {
     this(false);
   }
 
-  public V1alpha1CSIStorageCapacityListBuilder(java.lang.Boolean validationEnabled) {
+  public V1alpha1CSIStorageCapacityListBuilder(Boolean validationEnabled) {
     this(new V1alpha1CSIStorageCapacityList(), validationEnabled);
   }
 
@@ -89,24 +90,5 @@ public class V1alpha1CSIStorageCapacityListBuilder
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.getMetadata());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1alpha1CSIStorageCapacityListBuilder that = (V1alpha1CSIStorageCapacityListBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
+
 public class ApiextensionsV1WebhookClientConfigBuilder
-    extends io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluentImpl<
-        io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
+    extends ApiextensionsV1WebhookClientConfigFluentImpl<ApiextensionsV1WebhookClientConfigBuilder>
+    implements VisitableBuilder<
         io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig,
-        io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigBuilder> {
+        ApiextensionsV1WebhookClientConfigBuilder> {
   public ApiextensionsV1WebhookClientConfigBuilder() {
     this(false);
   }
 
-  public ApiextensionsV1WebhookClientConfigBuilder(java.lang.Boolean validationEnabled) {
+  public ApiextensionsV1WebhookClientConfigBuilder(Boolean validationEnabled) {
     this(new ApiextensionsV1WebhookClientConfig(), validationEnabled);
   }
 
@@ -84,24 +85,5 @@ public class ApiextensionsV1WebhookClientConfigBuilder
     buildable.setService(fluent.getService());
     buildable.setUrl(fluent.getUrl());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    ApiextensionsV1WebhookClientConfigBuilder that = (ApiextensionsV1WebhookClientConfigBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

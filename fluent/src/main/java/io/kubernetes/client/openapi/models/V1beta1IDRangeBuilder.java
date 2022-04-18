@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1beta1IDRangeBuilder
-    extends io.kubernetes.client.openapi.models.V1beta1IDRangeFluentImpl<
-        io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1IDRange,
-        io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1beta1IDRangeBuilder extends V1beta1IDRangeFluentImpl<V1beta1IDRangeBuilder>
+    implements VisitableBuilder<
+        V1beta1IDRange, io.kubernetes.client.openapi.models.V1beta1IDRangeBuilder> {
   public V1beta1IDRangeBuilder() {
     this(false);
   }
 
-  public V1beta1IDRangeBuilder(java.lang.Boolean validationEnabled) {
+  public V1beta1IDRangeBuilder(Boolean validationEnabled) {
     this(new V1beta1IDRange(), validationEnabled);
   }
 
@@ -77,24 +76,5 @@ public class V1beta1IDRangeBuilder
     buildable.setMax(fluent.getMax());
     buildable.setMin(fluent.getMin());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1beta1IDRangeBuilder that = (V1beta1IDRangeBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

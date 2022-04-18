@@ -12,11 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
-public class V1ServiceBackendPortFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ServiceBackendPortFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ServiceBackendPortFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ServiceBackendPortFluentImpl<A extends V1ServiceBackendPortFluent<A>>
+    extends BaseFluent<A> implements V1ServiceBackendPortFluent<A> {
   public V1ServiceBackendPortFluentImpl() {}
 
   public V1ServiceBackendPortFluentImpl(
@@ -26,8 +27,8 @@ public class V1ServiceBackendPortFluentImpl<
     this.withNumber(instance.getNumber());
   }
 
-  private java.lang.String name;
-  private java.lang.Integer number;
+  private String name;
+  private Integer number;
 
   public java.lang.String getName() {
     return this.name;
@@ -38,14 +39,8 @@ public class V1ServiceBackendPortFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.Integer getNumber() {
@@ -61,7 +56,7 @@ public class V1ServiceBackendPortFluentImpl<
     return this.number != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ServiceBackendPortFluentImpl that = (V1ServiceBackendPortFluentImpl) o;
@@ -72,5 +67,20 @@ public class V1ServiceBackendPortFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(name, number, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (number != null) {
+      sb.append("number:");
+      sb.append(number);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

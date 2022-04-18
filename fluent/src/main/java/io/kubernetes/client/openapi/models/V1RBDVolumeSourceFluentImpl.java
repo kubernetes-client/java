@@ -12,11 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1RBDVolumeSourceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1RBDVolumeSourceFluentImpl<A extends V1RBDVolumeSourceFluent<A>> extends BaseFluent<A>
+    implements V1RBDVolumeSourceFluent<A> {
   public V1RBDVolumeSourceFluentImpl() {}
 
   public V1RBDVolumeSourceFluentImpl(
@@ -38,13 +44,13 @@ public class V1RBDVolumeSourceFluentImpl<
     this.withUser(instance.getUser());
   }
 
-  private java.lang.String fsType;
+  private String fsType;
   private java.lang.String image;
   private java.lang.String keyring;
-  private java.util.List<java.lang.String> monitors;
+  private List<java.lang.String> monitors;
   private java.lang.String pool;
-  private java.lang.Boolean readOnly;
-  private io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder secretRef;
+  private Boolean readOnly;
+  private V1LocalObjectReferenceBuilder secretRef;
   private java.lang.String user;
 
   public java.lang.String getFsType() {
@@ -60,12 +66,6 @@ public class V1RBDVolumeSourceFluentImpl<
     return this.fsType != null;
   }
 
-  /** Method is deprecated. use withFsType instead. */
-  @java.lang.Deprecated
-  public A withNewFsType(java.lang.String original) {
-    return (A) withFsType(new String(original));
-  }
-
   public java.lang.String getImage() {
     return this.image;
   }
@@ -77,12 +77,6 @@ public class V1RBDVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasImage() {
     return this.image != null;
-  }
-
-  /** Method is deprecated. use withImage instead. */
-  @java.lang.Deprecated
-  public A withNewImage(java.lang.String original) {
-    return (A) withImage(new String(original));
   }
 
   public java.lang.String getKeyring() {
@@ -98,15 +92,9 @@ public class V1RBDVolumeSourceFluentImpl<
     return this.keyring != null;
   }
 
-  /** Method is deprecated. use withKeyring instead. */
-  @java.lang.Deprecated
-  public A withNewKeyring(java.lang.String original) {
-    return (A) withKeyring(new String(original));
-  }
-
-  public A addToMonitors(java.lang.Integer index, java.lang.String item) {
+  public A addToMonitors(Integer index, java.lang.String item) {
     if (this.monitors == null) {
-      this.monitors = new java.util.ArrayList<java.lang.String>();
+      this.monitors = new ArrayList<java.lang.String>();
     }
     this.monitors.add(index, item);
     return (A) this;
@@ -130,7 +118,7 @@ public class V1RBDVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public A addAllToMonitors(java.util.Collection<java.lang.String> items) {
+  public A addAllToMonitors(Collection<java.lang.String> items) {
     if (this.monitors == null) {
       this.monitors = new java.util.ArrayList<java.lang.String>();
     }
@@ -174,8 +162,7 @@ public class V1RBDVolumeSourceFluentImpl<
     return this.monitors.get(monitors.size() - 1);
   }
 
-  public java.lang.String getMatchingMonitor(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingMonitor(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : monitors) {
       if (predicate.test(item)) {
         return item;
@@ -222,10 +209,6 @@ public class V1RBDVolumeSourceFluentImpl<
     return monitors != null && !monitors.isEmpty();
   }
 
-  public A addNewMonitor(java.lang.String original) {
-    return (A) addToMonitors(new String(original));
-  }
-
   public java.lang.String getPool() {
     return this.pool;
   }
@@ -237,12 +220,6 @@ public class V1RBDVolumeSourceFluentImpl<
 
   public java.lang.Boolean hasPool() {
     return this.pool != null;
-  }
-
-  /** Method is deprecated. use withPool instead. */
-  @java.lang.Deprecated
-  public A withNewPool(java.lang.String original) {
-    return (A) withPool(new String(original));
   }
 
   public java.lang.Boolean getReadOnly() {
@@ -263,8 +240,8 @@ public class V1RBDVolumeSourceFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference getSecretRef() {
+  @Deprecated
+  public V1LocalObjectReference getSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
@@ -286,16 +263,13 @@ public class V1RBDVolumeSourceFluentImpl<
     return this.secretRef != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRef() {
-    return new io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluentImpl
-        .SecretRefNestedImpl();
+  public V1RBDVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+    return new V1RBDVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<A>
       withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluentImpl.SecretRefNestedImpl(
-        item);
+    return new V1RBDVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
 
   public io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<A>
@@ -329,13 +303,7 @@ public class V1RBDVolumeSourceFluentImpl<
     return this.user != null;
   }
 
-  /** Method is deprecated. use withUser instead. */
-  @java.lang.Deprecated
-  public A withNewUser(java.lang.String original) {
-    return (A) withUser(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1RBDVolumeSourceFluentImpl that = (V1RBDVolumeSourceFluentImpl) o;
@@ -356,14 +324,55 @@ public class V1RBDVolumeSourceFluentImpl<
         fsType, image, keyring, monitors, pool, readOnly, secretRef, user, super.hashCode());
   }
 
-  public class SecretRefNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluentImpl<
-          io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (fsType != null) {
+      sb.append("fsType:");
+      sb.append(fsType + ",");
+    }
+    if (image != null) {
+      sb.append("image:");
+      sb.append(image + ",");
+    }
+    if (keyring != null) {
+      sb.append("keyring:");
+      sb.append(keyring + ",");
+    }
+    if (monitors != null && !monitors.isEmpty()) {
+      sb.append("monitors:");
+      sb.append(monitors + ",");
+    }
+    if (pool != null) {
+      sb.append("pool:");
+      sb.append(pool + ",");
+    }
+    if (readOnly != null) {
+      sb.append("readOnly:");
+      sb.append(readOnly + ",");
+    }
+    if (secretRef != null) {
+      sb.append("secretRef:");
+      sb.append(secretRef + ",");
+    }
+    if (user != null) {
+      sb.append("user:");
+      sb.append(user);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withReadOnly() {
+    return withReadOnly(true);
+  }
+
+  class SecretRefNestedImpl<N>
+      extends V1LocalObjectReferenceFluentImpl<V1RBDVolumeSourceFluent.SecretRefNested<N>>
       implements io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SecretRefNestedImpl(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(this, item);
+          Nested<N> {
+    SecretRefNestedImpl(V1LocalObjectReference item) {
+      this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {

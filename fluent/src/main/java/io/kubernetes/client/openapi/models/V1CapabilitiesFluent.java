@@ -12,23 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1CapabilitiesFluent<
-        A extends io.kubernetes.client.openapi.models.V1CapabilitiesFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToAdd(java.lang.Integer index, java.lang.String item);
+public interface V1CapabilitiesFluent<A extends V1CapabilitiesFluent<A>> extends Fluent<A> {
+  public A addToAdd(Integer index, String item);
 
   public A setToAdd(java.lang.Integer index, java.lang.String item);
 
   public A addToAdd(java.lang.String... items);
 
-  public A addAllToAdd(java.util.Collection<java.lang.String> items);
+  public A addAllToAdd(Collection<java.lang.String> items);
 
   public A removeFromAdd(java.lang.String... items);
 
   public A removeAllFromAdd(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getAdd();
+  public List<java.lang.String> getAdd();
 
   public java.lang.String getAdd(java.lang.Integer index);
 
@@ -36,17 +39,15 @@ public interface V1CapabilitiesFluent<
 
   public java.lang.String getLastAdd();
 
-  public java.lang.String getMatchingAdd(java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingAdd(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingAdd(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingAdd(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withAdd(java.util.List<java.lang.String> add);
 
   public A withAdd(java.lang.String... add);
 
   public java.lang.Boolean hasAdd();
-
-  public A addNewAdd(java.lang.String original);
 
   public A addToDrop(java.lang.Integer index, java.lang.String item);
 
@@ -78,6 +79,4 @@ public interface V1CapabilitiesFluent<
   public A withDrop(java.lang.String... drop);
 
   public java.lang.Boolean hasDrop();
-
-  public A addNewDrop(java.lang.String original);
 }

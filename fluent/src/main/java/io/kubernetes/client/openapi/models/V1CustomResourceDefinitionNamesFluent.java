@@ -12,23 +12,28 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
 public interface V1CustomResourceDefinitionNamesFluent<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToCategories(java.lang.Integer index, java.lang.String item);
+        A extends V1CustomResourceDefinitionNamesFluent<A>>
+    extends Fluent<A> {
+  public A addToCategories(Integer index, String item);
 
   public A setToCategories(java.lang.Integer index, java.lang.String item);
 
   public A addToCategories(java.lang.String... items);
 
-  public A addAllToCategories(java.util.Collection<java.lang.String> items);
+  public A addAllToCategories(Collection<java.lang.String> items);
 
   public A removeFromCategories(java.lang.String... items);
 
   public A removeAllFromCategories(java.util.Collection<java.lang.String> items);
 
-  public java.util.List<java.lang.String> getCategories();
+  public List<java.lang.String> getCategories();
 
   public java.lang.String getCategory(java.lang.Integer index);
 
@@ -36,11 +41,9 @@ public interface V1CustomResourceDefinitionNamesFluent<
 
   public java.lang.String getLastCategory();
 
-  public java.lang.String getMatchingCategory(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public java.lang.String getMatchingCategory(Predicate<java.lang.String> predicate);
 
-  public java.lang.Boolean hasMatchingCategory(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingCategory(java.util.function.Predicate<java.lang.String> predicate);
 
   public A withCategories(java.util.List<java.lang.String> categories);
 
@@ -48,17 +51,11 @@ public interface V1CustomResourceDefinitionNamesFluent<
 
   public java.lang.Boolean hasCategories();
 
-  public A addNewCategory(java.lang.String original);
-
   public java.lang.String getKind();
 
   public A withKind(java.lang.String kind);
 
   public java.lang.Boolean hasKind();
-
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
 
   public java.lang.String getListKind();
 
@@ -66,19 +63,11 @@ public interface V1CustomResourceDefinitionNamesFluent<
 
   public java.lang.Boolean hasListKind();
 
-  /** Method is deprecated. use withListKind instead. */
-  @java.lang.Deprecated
-  public A withNewListKind(java.lang.String original);
-
   public java.lang.String getPlural();
 
   public A withPlural(java.lang.String plural);
 
   public java.lang.Boolean hasPlural();
-
-  /** Method is deprecated. use withPlural instead. */
-  @java.lang.Deprecated
-  public A withNewPlural(java.lang.String original);
 
   public A addToShortNames(java.lang.Integer index, java.lang.String item);
 
@@ -112,15 +101,9 @@ public interface V1CustomResourceDefinitionNamesFluent<
 
   public java.lang.Boolean hasShortNames();
 
-  public A addNewShortName(java.lang.String original);
-
   public java.lang.String getSingular();
 
   public A withSingular(java.lang.String singular);
 
   public java.lang.Boolean hasSingular();
-
-  /** Method is deprecated. use withSingular instead. */
-  @java.lang.Deprecated
-  public A withNewSingular(java.lang.String original);
 }

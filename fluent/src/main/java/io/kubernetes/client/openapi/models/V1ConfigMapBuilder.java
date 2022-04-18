@@ -12,21 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1ConfigMapBuilder
-    extends io.kubernetes.client.openapi.models.V1ConfigMapFluentImpl<
-        io.kubernetes.client.openapi.models.V1ConfigMapBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ConfigMap,
-        io.kubernetes.client.openapi.models.V1ConfigMapBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1ConfigMapBuilder extends V1ConfigMapFluentImpl<V1ConfigMapBuilder>
+    implements VisitableBuilder<
+        V1ConfigMap, io.kubernetes.client.openapi.models.V1ConfigMapBuilder> {
   public V1ConfigMapBuilder() {
     this(false);
   }
 
-  public V1ConfigMapBuilder(java.lang.Boolean validationEnabled) {
+  public V1ConfigMapBuilder(Boolean validationEnabled) {
     this(new V1ConfigMap(), validationEnabled);
   }
 
-  public V1ConfigMapBuilder(io.kubernetes.client.openapi.models.V1ConfigMapFluent<?> fluent) {
+  public V1ConfigMapBuilder(V1ConfigMapFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -97,24 +96,5 @@ public class V1ConfigMapBuilder
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.getMetadata());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1ConfigMapBuilder that = (V1ConfigMapBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

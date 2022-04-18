@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1EphemeralContainerFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1EphemeralContainerFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1EphemeralContainerFluentImpl<A extends V1EphemeralContainerFluent<A>>
+    extends BaseFluent<A> implements V1EphemeralContainerFluent<A> {
   public V1EphemeralContainerFluentImpl() {}
 
   public V1EphemeralContainerFluentImpl(
@@ -71,35 +75,31 @@ public class V1EphemeralContainerFluentImpl<
     this.withWorkingDir(instance.getWorkingDir());
   }
 
-  private java.util.List<java.lang.String> args;
+  private List<String> args;
   private java.util.List<java.lang.String> command;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvVarBuilder> env;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder> envFrom;
+  private ArrayList<V1EnvVarBuilder> env;
+  private java.util.ArrayList<V1EnvFromSourceBuilder> envFrom;
   private java.lang.String image;
-  private io.kubernetes.client.openapi.models.V1EphemeralContainer.ImagePullPolicyEnum
-      imagePullPolicy;
-  private io.kubernetes.client.openapi.models.V1LifecycleBuilder lifecycle;
-  private io.kubernetes.client.openapi.models.V1ProbeBuilder livenessProbe;
+  private java.lang.String imagePullPolicy;
+  private V1LifecycleBuilder lifecycle;
+  private V1ProbeBuilder livenessProbe;
   private java.lang.String name;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerPortBuilder> ports;
-  private io.kubernetes.client.openapi.models.V1ProbeBuilder readinessProbe;
-  private io.kubernetes.client.openapi.models.V1ResourceRequirementsBuilder resources;
-  private io.kubernetes.client.openapi.models.V1SecurityContextBuilder securityContext;
+  private java.util.ArrayList<V1ContainerPortBuilder> ports;
+  private V1ProbeBuilder readinessProbe;
+  private V1ResourceRequirementsBuilder resources;
+  private V1SecurityContextBuilder securityContext;
   private io.kubernetes.client.openapi.models.V1ProbeBuilder startupProbe;
-  private java.lang.Boolean stdin;
+  private Boolean stdin;
   private java.lang.Boolean stdinOnce;
   private java.lang.String targetContainerName;
   private java.lang.String terminationMessagePath;
-  private io.kubernetes.client.openapi.models.V1EphemeralContainer.TerminationMessagePolicyEnum
-      terminationMessagePolicy;
+  private java.lang.String terminationMessagePolicy;
   private java.lang.Boolean tty;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder>
-      volumeDevices;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeMountBuilder>
-      volumeMounts;
+  private java.util.ArrayList<V1VolumeDeviceBuilder> volumeDevices;
+  private java.util.ArrayList<V1VolumeMountBuilder> volumeMounts;
   private java.lang.String workingDir;
 
-  public A addToArgs(java.lang.Integer index, java.lang.String item) {
+  public A addToArgs(Integer index, java.lang.String item) {
     if (this.args == null) {
       this.args = new java.util.ArrayList<java.lang.String>();
     }
@@ -125,7 +125,7 @@ public class V1EphemeralContainerFluentImpl<
     return (A) this;
   }
 
-  public A addAllToArgs(java.util.Collection<java.lang.String> items) {
+  public A addAllToArgs(Collection<java.lang.String> items) {
     if (this.args == null) {
       this.args = new java.util.ArrayList<java.lang.String>();
     }
@@ -169,7 +169,7 @@ public class V1EphemeralContainerFluentImpl<
     return this.args.get(args.size() - 1);
   }
 
-  public java.lang.String getMatchingArg(java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingArg(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : args) {
       if (predicate.test(item)) {
         return item;
@@ -214,10 +214,6 @@ public class V1EphemeralContainerFluentImpl<
 
   public java.lang.Boolean hasArgs() {
     return args != null && !args.isEmpty();
-  }
-
-  public A addNewArg(java.lang.String original) {
-    return (A) addToArgs(new String(original));
   }
 
   public A addToCommand(java.lang.Integer index, java.lang.String item) {
@@ -338,13 +334,9 @@ public class V1EphemeralContainerFluentImpl<
     return command != null && !command.isEmpty();
   }
 
-  public A addNewCommand(java.lang.String original) {
-    return (A) addToCommand(new String(original));
-  }
-
   public A addToEnv(java.lang.Integer index, io.kubernetes.client.openapi.models.V1EnvVar item) {
     if (this.env == null) {
-      this.env = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvVarBuilder>();
+      this.env = new java.util.ArrayList<V1EnvVarBuilder>();
     }
     io.kubernetes.client.openapi.models.V1EnvVarBuilder builder =
         new io.kubernetes.client.openapi.models.V1EnvVarBuilder(item);
@@ -443,7 +435,7 @@ public class V1EphemeralContainerFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.V1EnvVar> getEnv() {
     return env != null ? build(env) : null;
   }
@@ -515,14 +507,13 @@ public class V1EphemeralContainerFluentImpl<
     return env != null && !env.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A> addNewEnv() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl.EnvNestedImpl();
+  public V1EphemeralContainerFluent.EnvNested<A> addNewEnv() {
+    return new V1EphemeralContainerFluentImpl.EnvNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A> addNewEnvLike(
       io.kubernetes.client.openapi.models.V1EnvVar item) {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl.EnvNestedImpl(
-        -1, item);
+    return new V1EphemeralContainerFluentImpl.EnvNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A> setNewEnvLike(
@@ -564,8 +555,7 @@ public class V1EphemeralContainerFluentImpl<
     return setNewEnvLike(index, buildEnv(index));
   }
 
-  public A addToEnvFrom(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EnvFromSource item) {
+  public A addToEnvFrom(java.lang.Integer index, V1EnvFromSource item) {
     if (this.envFrom == null) {
       this.envFrom =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder>();
@@ -749,10 +739,8 @@ public class V1EphemeralContainerFluentImpl<
     return envFrom != null && !envFrom.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<A>
-      addNewEnvFrom() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .EnvFromNestedImpl();
+  public V1EphemeralContainerFluent.EnvFromNested<A> addNewEnvFrom() {
+    return new V1EphemeralContainerFluentImpl.EnvFromNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<A>
@@ -817,20 +805,11 @@ public class V1EphemeralContainerFluentImpl<
     return this.image != null;
   }
 
-  /** Method is deprecated. use withImage instead. */
-  @java.lang.Deprecated
-  public A withNewImage(java.lang.String original) {
-    return (A) withImage(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1EphemeralContainer.ImagePullPolicyEnum
-      getImagePullPolicy() {
+  public java.lang.String getImagePullPolicy() {
     return this.imagePullPolicy;
   }
 
-  public A withImagePullPolicy(
-      io.kubernetes.client.openapi.models.V1EphemeralContainer.ImagePullPolicyEnum
-          imagePullPolicy) {
+  public A withImagePullPolicy(java.lang.String imagePullPolicy) {
     this.imagePullPolicy = imagePullPolicy;
     return (A) this;
   }
@@ -856,7 +835,7 @@ public class V1EphemeralContainerFluentImpl<
   public A withLifecycle(io.kubernetes.client.openapi.models.V1Lifecycle lifecycle) {
     _visitables.get("lifecycle").remove(this.lifecycle);
     if (lifecycle != null) {
-      this.lifecycle = new io.kubernetes.client.openapi.models.V1LifecycleBuilder(lifecycle);
+      this.lifecycle = new V1LifecycleBuilder(lifecycle);
       _visitables.get("lifecycle").add(this.lifecycle);
     }
     return (A) this;
@@ -866,10 +845,8 @@ public class V1EphemeralContainerFluentImpl<
     return this.lifecycle != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LifecycleNested<A>
-      withNewLifecycle() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .LifecycleNestedImpl();
+  public V1EphemeralContainerFluent.LifecycleNested<A> withNewLifecycle() {
+    return new V1EphemeralContainerFluentImpl.LifecycleNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LifecycleNested<A>
@@ -923,10 +900,8 @@ public class V1EphemeralContainerFluentImpl<
     return this.livenessProbe != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LivenessProbeNested<A>
-      withNewLivenessProbe() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .LivenessProbeNestedImpl();
+  public V1EphemeralContainerFluent.LivenessProbeNested<A> withNewLivenessProbe() {
+    return new V1EphemeralContainerFluentImpl.LivenessProbeNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LivenessProbeNested<A>
@@ -966,14 +941,7 @@ public class V1EphemeralContainerFluentImpl<
     return this.name != null;
   }
 
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
-  }
-
-  public A addToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerPort item) {
+  public A addToPorts(java.lang.Integer index, V1ContainerPort item) {
     if (this.ports == null) {
       this.ports =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerPortBuilder>();
@@ -1156,9 +1124,8 @@ public class V1EphemeralContainerFluentImpl<
     return ports != null && !ports.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<A>
-      addNewPort() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl.PortsNestedImpl();
+  public V1EphemeralContainerFluent.PortsNested<A> addNewPort() {
+    return new V1EphemeralContainerFluentImpl.PortsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<A>
@@ -1235,10 +1202,8 @@ public class V1EphemeralContainerFluentImpl<
     return this.readinessProbe != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ReadinessProbeNested<A>
-      withNewReadinessProbe() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .ReadinessProbeNestedImpl();
+  public V1EphemeralContainerFluent.ReadinessProbeNested<A> withNewReadinessProbe() {
+    return new V1EphemeralContainerFluentImpl.ReadinessProbeNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ReadinessProbeNested<A>
@@ -1271,7 +1236,7 @@ public class V1EphemeralContainerFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ResourceRequirements getResources() {
+  public V1ResourceRequirements getResources() {
     return this.resources != null ? this.resources.build() : null;
   }
 
@@ -1293,10 +1258,8 @@ public class V1EphemeralContainerFluentImpl<
     return this.resources != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ResourcesNested<A>
-      withNewResources() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .ResourcesNestedImpl();
+  public V1EphemeralContainerFluent.ResourcesNested<A> withNewResources() {
+    return new V1EphemeralContainerFluentImpl.ResourcesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ResourcesNested<A>
@@ -1329,7 +1292,7 @@ public class V1EphemeralContainerFluentImpl<
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SecurityContext getSecurityContext() {
+  public V1SecurityContext getSecurityContext() {
     return this.securityContext != null ? this.securityContext.build() : null;
   }
 
@@ -1352,10 +1315,8 @@ public class V1EphemeralContainerFluentImpl<
     return this.securityContext != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.SecurityContextNested<A>
-      withNewSecurityContext() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .SecurityContextNestedImpl();
+  public V1EphemeralContainerFluent.SecurityContextNested<A> withNewSecurityContext() {
+    return new V1EphemeralContainerFluentImpl.SecurityContextNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.SecurityContextNested<A>
@@ -1409,10 +1370,8 @@ public class V1EphemeralContainerFluentImpl<
     return this.startupProbe != null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.StartupProbeNested<A>
-      withNewStartupProbe() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .StartupProbeNestedImpl();
+  public V1EphemeralContainerFluent.StartupProbeNested<A> withNewStartupProbe() {
+    return new V1EphemeralContainerFluentImpl.StartupProbeNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.StartupProbeNested<A>
@@ -1478,12 +1437,6 @@ public class V1EphemeralContainerFluentImpl<
     return this.targetContainerName != null;
   }
 
-  /** Method is deprecated. use withTargetContainerName instead. */
-  @java.lang.Deprecated
-  public A withNewTargetContainerName(java.lang.String original) {
-    return (A) withTargetContainerName(new String(original));
-  }
-
   public java.lang.String getTerminationMessagePath() {
     return this.terminationMessagePath;
   }
@@ -1497,20 +1450,11 @@ public class V1EphemeralContainerFluentImpl<
     return this.terminationMessagePath != null;
   }
 
-  /** Method is deprecated. use withTerminationMessagePath instead. */
-  @java.lang.Deprecated
-  public A withNewTerminationMessagePath(java.lang.String original) {
-    return (A) withTerminationMessagePath(new String(original));
-  }
-
-  public io.kubernetes.client.openapi.models.V1EphemeralContainer.TerminationMessagePolicyEnum
-      getTerminationMessagePolicy() {
+  public java.lang.String getTerminationMessagePolicy() {
     return this.terminationMessagePolicy;
   }
 
-  public A withTerminationMessagePolicy(
-      io.kubernetes.client.openapi.models.V1EphemeralContainer.TerminationMessagePolicyEnum
-          terminationMessagePolicy) {
+  public A withTerminationMessagePolicy(java.lang.String terminationMessagePolicy) {
     this.terminationMessagePolicy = terminationMessagePolicy;
     return (A) this;
   }
@@ -1532,8 +1476,7 @@ public class V1EphemeralContainerFluentImpl<
     return this.tty != null;
   }
 
-  public A addToVolumeDevices(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeDevice item) {
+  public A addToVolumeDevices(java.lang.Integer index, V1VolumeDevice item) {
     if (this.volumeDevices == null) {
       this.volumeDevices =
           new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder>();
@@ -1720,10 +1663,8 @@ public class V1EphemeralContainerFluentImpl<
     return volumeDevices != null && !volumeDevices.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<A>
-      addNewVolumeDevice() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .VolumeDevicesNestedImpl();
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> addNewVolumeDevice() {
+    return new V1EphemeralContainerFluentImpl.VolumeDevicesNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<A>
@@ -1778,8 +1719,7 @@ public class V1EphemeralContainerFluentImpl<
   public A addToVolumeMounts(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeMount item) {
     if (this.volumeMounts == null) {
-      this.volumeMounts =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeMountBuilder>();
+      this.volumeMounts = new java.util.ArrayList<V1VolumeMountBuilder>();
     }
     io.kubernetes.client.openapi.models.V1VolumeMountBuilder builder =
         new io.kubernetes.client.openapi.models.V1VolumeMountBuilder(item);
@@ -1963,10 +1903,8 @@ public class V1EphemeralContainerFluentImpl<
     return volumeMounts != null && !volumeMounts.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<A>
-      addNewVolumeMount() {
-    return new io.kubernetes.client.openapi.models.V1EphemeralContainerFluentImpl
-        .VolumeMountsNestedImpl();
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> addNewVolumeMount() {
+    return new V1EphemeralContainerFluentImpl.VolumeMountsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<A>
@@ -2031,13 +1969,7 @@ public class V1EphemeralContainerFluentImpl<
     return this.workingDir != null;
   }
 
-  /** Method is deprecated. use withWorkingDir instead. */
-  @java.lang.Deprecated
-  public A withNewWorkingDir(java.lang.String original) {
-    return (A) withWorkingDir(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1EphemeralContainerFluentImpl that = (V1EphemeralContainerFluentImpl) o;
@@ -2117,14 +2049,123 @@ public class V1EphemeralContainerFluentImpl<
         super.hashCode());
   }
 
-  public class EnvNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1EnvVarFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (args != null && !args.isEmpty()) {
+      sb.append("args:");
+      sb.append(args + ",");
+    }
+    if (command != null && !command.isEmpty()) {
+      sb.append("command:");
+      sb.append(command + ",");
+    }
+    if (env != null && !env.isEmpty()) {
+      sb.append("env:");
+      sb.append(env + ",");
+    }
+    if (envFrom != null && !envFrom.isEmpty()) {
+      sb.append("envFrom:");
+      sb.append(envFrom + ",");
+    }
+    if (image != null) {
+      sb.append("image:");
+      sb.append(image + ",");
+    }
+    if (imagePullPolicy != null) {
+      sb.append("imagePullPolicy:");
+      sb.append(imagePullPolicy + ",");
+    }
+    if (lifecycle != null) {
+      sb.append("lifecycle:");
+      sb.append(lifecycle + ",");
+    }
+    if (livenessProbe != null) {
+      sb.append("livenessProbe:");
+      sb.append(livenessProbe + ",");
+    }
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (ports != null && !ports.isEmpty()) {
+      sb.append("ports:");
+      sb.append(ports + ",");
+    }
+    if (readinessProbe != null) {
+      sb.append("readinessProbe:");
+      sb.append(readinessProbe + ",");
+    }
+    if (resources != null) {
+      sb.append("resources:");
+      sb.append(resources + ",");
+    }
+    if (securityContext != null) {
+      sb.append("securityContext:");
+      sb.append(securityContext + ",");
+    }
+    if (startupProbe != null) {
+      sb.append("startupProbe:");
+      sb.append(startupProbe + ",");
+    }
+    if (stdin != null) {
+      sb.append("stdin:");
+      sb.append(stdin + ",");
+    }
+    if (stdinOnce != null) {
+      sb.append("stdinOnce:");
+      sb.append(stdinOnce + ",");
+    }
+    if (targetContainerName != null) {
+      sb.append("targetContainerName:");
+      sb.append(targetContainerName + ",");
+    }
+    if (terminationMessagePath != null) {
+      sb.append("terminationMessagePath:");
+      sb.append(terminationMessagePath + ",");
+    }
+    if (terminationMessagePolicy != null) {
+      sb.append("terminationMessagePolicy:");
+      sb.append(terminationMessagePolicy + ",");
+    }
+    if (tty != null) {
+      sb.append("tty:");
+      sb.append(tty + ",");
+    }
+    if (volumeDevices != null && !volumeDevices.isEmpty()) {
+      sb.append("volumeDevices:");
+      sb.append(volumeDevices + ",");
+    }
+    if (volumeMounts != null && !volumeMounts.isEmpty()) {
+      sb.append("volumeMounts:");
+      sb.append(volumeMounts + ",");
+    }
+    if (workingDir != null) {
+      sb.append("workingDir:");
+      sb.append(workingDir);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withStdin() {
+    return withStdin(true);
+  }
+
+  public A withStdinOnce() {
+    return withStdinOnce(true);
+  }
+
+  public A withTty() {
+    return withTty(true);
+  }
+
+  class EnvNestedImpl<N> extends V1EnvVarFluentImpl<V1EphemeralContainerFluent.EnvNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    EnvNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1EnvVar item) {
+          Nested<N> {
+    EnvNestedImpl(java.lang.Integer index, V1EnvVar item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1EnvVarBuilder(this, item);
+      this.builder = new V1EnvVarBuilder(this, item);
     }
 
     EnvNestedImpl() {
@@ -2144,15 +2185,14 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class EnvFromNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1EnvFromSourceFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<N>>
+  class EnvFromNestedImpl<N>
+      extends V1EnvFromSourceFluentImpl<V1EphemeralContainerFluent.EnvFromNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     EnvFromNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1EnvFromSource item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder(this, item);
+      this.builder = new V1EnvFromSourceBuilder(this, item);
     }
 
     EnvFromNestedImpl() {
@@ -2172,13 +2212,12 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class LifecycleNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1LifecycleFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LifecycleNested<N>>
+  class LifecycleNestedImpl<N>
+      extends V1LifecycleFluentImpl<V1EphemeralContainerFluent.LifecycleNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LifecycleNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     LifecycleNestedImpl(io.kubernetes.client.openapi.models.V1Lifecycle item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1LifecycleBuilder(this, item);
+      this.builder = new V1LifecycleBuilder(this, item);
     }
 
     LifecycleNestedImpl() {
@@ -2196,14 +2235,13 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class LivenessProbeNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ProbeFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LivenessProbeNested<N>>
+  class LivenessProbeNestedImpl<N>
+      extends V1ProbeFluentImpl<V1EphemeralContainerFluent.LivenessProbeNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LivenessProbeNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     LivenessProbeNestedImpl(io.kubernetes.client.openapi.models.V1Probe item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ProbeBuilder(this, item);
+      this.builder = new V1ProbeBuilder(this, item);
     }
 
     LivenessProbeNestedImpl() {
@@ -2221,15 +2259,14 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class PortsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ContainerPortFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<N>>
+  class PortsNestedImpl<N>
+      extends V1ContainerPortFluentImpl<V1EphemeralContainerFluent.PortsNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     PortsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerPort item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerPortBuilder(this, item);
+      this.builder = new V1ContainerPortBuilder(this, item);
     }
 
     PortsNestedImpl() {
@@ -2249,15 +2286,14 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class ReadinessProbeNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ProbeFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ReadinessProbeNested<N>>
+  class ReadinessProbeNestedImpl<N>
+      extends V1ProbeFluentImpl<V1EphemeralContainerFluent.ReadinessProbeNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent
                   .ReadinessProbeNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     ReadinessProbeNestedImpl(io.kubernetes.client.openapi.models.V1Probe item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ProbeBuilder(this, item);
+      this.builder = new V1ProbeBuilder(this, item);
     }
 
     ReadinessProbeNestedImpl() {
@@ -2275,14 +2311,12 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class ResourcesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ResourceRequirementsFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ResourcesNested<N>>
+  class ResourcesNestedImpl<N>
+      extends V1ResourceRequirementsFluentImpl<V1EphemeralContainerFluent.ResourcesNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ResourcesNested<N>,
           io.kubernetes.client.fluent.Nested<N> {
     ResourcesNestedImpl(io.kubernetes.client.openapi.models.V1ResourceRequirements item) {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ResourceRequirementsBuilder(this, item);
+      this.builder = new V1ResourceRequirementsBuilder(this, item);
     }
 
     ResourcesNestedImpl() {
@@ -2300,15 +2334,14 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class SecurityContextNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1SecurityContextFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.SecurityContextNested<N>>
+  class SecurityContextNestedImpl<N>
+      extends V1SecurityContextFluentImpl<V1EphemeralContainerFluent.SecurityContextNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent
                   .SecurityContextNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     SecurityContextNestedImpl(io.kubernetes.client.openapi.models.V1SecurityContext item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecurityContextBuilder(this, item);
+      this.builder = new V1SecurityContextBuilder(this, item);
     }
 
     SecurityContextNestedImpl() {
@@ -2326,14 +2359,13 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class StartupProbeNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1ProbeFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.StartupProbeNested<N>>
+  class StartupProbeNestedImpl<N>
+      extends V1ProbeFluentImpl<V1EphemeralContainerFluent.StartupProbeNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.StartupProbeNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     StartupProbeNestedImpl(io.kubernetes.client.openapi.models.V1Probe item) {
-      this.builder = new io.kubernetes.client.openapi.models.V1ProbeBuilder(this, item);
+      this.builder = new V1ProbeBuilder(this, item);
     }
 
     StartupProbeNestedImpl() {
@@ -2351,16 +2383,14 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class VolumeDevicesNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1VolumeDeviceFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<N>>
+  class VolumeDevicesNestedImpl<N>
+      extends V1VolumeDeviceFluentImpl<V1EphemeralContainerFluent.VolumeDevicesNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    VolumeDevicesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeDevice item) {
+    VolumeDevicesNestedImpl(java.lang.Integer index, V1VolumeDevice item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder(this, item);
+      this.builder = new V1VolumeDeviceBuilder(this, item);
     }
 
     VolumeDevicesNestedImpl() {
@@ -2380,16 +2410,14 @@ public class V1EphemeralContainerFluentImpl<
     }
   }
 
-  public class VolumeMountsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1VolumeMountFluentImpl<
-          io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<N>>
+  class VolumeMountsNestedImpl<N>
+      extends V1VolumeMountFluentImpl<V1EphemeralContainerFluent.VolumeMountsNested<N>>
       implements io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
-    VolumeMountsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeMount item) {
+    VolumeMountsNestedImpl(java.lang.Integer index, V1VolumeMount item) {
       this.index = index;
-      this.builder = new io.kubernetes.client.openapi.models.V1VolumeMountBuilder(this, item);
+      this.builder = new V1VolumeMountBuilder(this, item);
     }
 
     VolumeMountsNestedImpl() {

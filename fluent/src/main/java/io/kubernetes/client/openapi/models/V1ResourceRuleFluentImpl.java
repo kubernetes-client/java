@@ -12,11 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public class V1ResourceRuleFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1ResourceRuleFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1ResourceRuleFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1ResourceRuleFluentImpl<A extends V1ResourceRuleFluent<A>> extends BaseFluent<A>
+    implements V1ResourceRuleFluent<A> {
   public V1ResourceRuleFluentImpl() {}
 
   public V1ResourceRuleFluentImpl(io.kubernetes.client.openapi.models.V1ResourceRule instance) {
@@ -29,14 +34,14 @@ public class V1ResourceRuleFluentImpl<
     this.withVerbs(instance.getVerbs());
   }
 
-  private java.util.List<java.lang.String> apiGroups;
+  private List<String> apiGroups;
   private java.util.List<java.lang.String> resourceNames;
   private java.util.List<java.lang.String> resources;
   private java.util.List<java.lang.String> verbs;
 
-  public A addToApiGroups(java.lang.Integer index, java.lang.String item) {
+  public A addToApiGroups(Integer index, java.lang.String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<java.lang.String>();
     }
     this.apiGroups.add(index, item);
     return (A) this;
@@ -60,7 +65,7 @@ public class V1ResourceRuleFluentImpl<
     return (A) this;
   }
 
-  public A addAllToApiGroups(java.util.Collection<java.lang.String> items) {
+  public A addAllToApiGroups(Collection<java.lang.String> items) {
     if (this.apiGroups == null) {
       this.apiGroups = new java.util.ArrayList<java.lang.String>();
     }
@@ -104,8 +109,7 @@ public class V1ResourceRuleFluentImpl<
     return this.apiGroups.get(apiGroups.size() - 1);
   }
 
-  public java.lang.String getMatchingApiGroup(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public java.lang.String getMatchingApiGroup(Predicate<java.lang.String> predicate) {
     for (java.lang.String item : apiGroups) {
       if (predicate.test(item)) {
         return item;
@@ -114,8 +118,7 @@ public class V1ResourceRuleFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingApiGroup(
-      java.util.function.Predicate<java.lang.String> predicate) {
+  public Boolean hasMatchingApiGroup(java.util.function.Predicate<java.lang.String> predicate) {
     for (java.lang.String item : apiGroups) {
       if (predicate.test(item)) {
         return true;
@@ -150,10 +153,6 @@ public class V1ResourceRuleFluentImpl<
 
   public java.lang.Boolean hasApiGroups() {
     return apiGroups != null && !apiGroups.isEmpty();
-  }
-
-  public A addNewApiGroup(java.lang.String original) {
-    return (A) addToApiGroups(new String(original));
   }
 
   public A addToResourceNames(java.lang.Integer index, java.lang.String item) {
@@ -274,10 +273,6 @@ public class V1ResourceRuleFluentImpl<
     return resourceNames != null && !resourceNames.isEmpty();
   }
 
-  public A addNewResourceName(java.lang.String original) {
-    return (A) addToResourceNames(new String(original));
-  }
-
   public A addToResources(java.lang.Integer index, java.lang.String item) {
     if (this.resources == null) {
       this.resources = new java.util.ArrayList<java.lang.String>();
@@ -394,10 +389,6 @@ public class V1ResourceRuleFluentImpl<
 
   public java.lang.Boolean hasResources() {
     return resources != null && !resources.isEmpty();
-  }
-
-  public A addNewResource(java.lang.String original) {
-    return (A) addToResources(new String(original));
   }
 
   public A addToVerbs(java.lang.Integer index, java.lang.String item) {
@@ -518,11 +509,7 @@ public class V1ResourceRuleFluentImpl<
     return verbs != null && !verbs.isEmpty();
   }
 
-  public A addNewVerb(java.lang.String original) {
-    return (A) addToVerbs(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ResourceRuleFluentImpl that = (V1ResourceRuleFluentImpl) o;
@@ -539,5 +526,28 @@ public class V1ResourceRuleFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(apiGroups, resourceNames, resources, verbs, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (apiGroups != null && !apiGroups.isEmpty()) {
+      sb.append("apiGroups:");
+      sb.append(apiGroups + ",");
+    }
+    if (resourceNames != null && !resourceNames.isEmpty()) {
+      sb.append("resourceNames:");
+      sb.append(resourceNames + ",");
+    }
+    if (resources != null && !resources.isEmpty()) {
+      sb.append("resources:");
+      sb.append(resources + ",");
+    }
+    if (verbs != null && !verbs.isEmpty()) {
+      sb.append("verbs:");
+      sb.append(verbs);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

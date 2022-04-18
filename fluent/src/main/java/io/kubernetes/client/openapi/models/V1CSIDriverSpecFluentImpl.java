@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1CSIDriverSpecFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1CSIDriverSpecFluentImpl<A extends V1CSIDriverSpecFluent<A>> extends BaseFluent<A>
+    implements V1CSIDriverSpecFluent<A> {
   public V1CSIDriverSpecFluentImpl() {}
 
   public V1CSIDriverSpecFluentImpl(io.kubernetes.client.openapi.models.V1CSIDriverSpec instance) {
@@ -38,14 +42,13 @@ public class V1CSIDriverSpecFluentImpl<
     this.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
   }
 
-  private java.lang.Boolean attachRequired;
-  private java.lang.String fsGroupPolicy;
+  private Boolean attachRequired;
+  private String fsGroupPolicy;
   private java.lang.Boolean podInfoOnMount;
   private java.lang.Boolean requiresRepublish;
   private java.lang.Boolean storageCapacity;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder>
-      tokenRequests;
-  private java.util.List<java.lang.String> volumeLifecycleModes;
+  private ArrayList<StorageV1TokenRequestBuilder> tokenRequests;
+  private List<java.lang.String> volumeLifecycleModes;
 
   public java.lang.Boolean getAttachRequired() {
     return this.attachRequired;
@@ -71,12 +74,6 @@ public class V1CSIDriverSpecFluentImpl<
 
   public java.lang.Boolean hasFsGroupPolicy() {
     return this.fsGroupPolicy != null;
-  }
-
-  /** Method is deprecated. use withFsGroupPolicy instead. */
-  @java.lang.Deprecated
-  public A withNewFsGroupPolicy(java.lang.String original) {
-    return (A) withFsGroupPolicy(new String(original));
   }
 
   public java.lang.Boolean getPodInfoOnMount() {
@@ -118,8 +115,7 @@ public class V1CSIDriverSpecFluentImpl<
     return this.storageCapacity != null;
   }
 
-  public A addToTokenRequests(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.StorageV1TokenRequest item) {
+  public A addToTokenRequests(Integer index, StorageV1TokenRequest item) {
     if (this.tokenRequests == null) {
       this.tokenRequests =
           new java.util.ArrayList<
@@ -172,7 +168,7 @@ public class V1CSIDriverSpecFluentImpl<
   }
 
   public A addAllToTokenRequests(
-      java.util.Collection<io.kubernetes.client.openapi.models.StorageV1TokenRequest> items) {
+      Collection<io.kubernetes.client.openapi.models.StorageV1TokenRequest> items) {
     if (this.tokenRequests == null) {
       this.tokenRequests =
           new java.util.ArrayList<
@@ -214,8 +210,7 @@ public class V1CSIDriverSpecFluentImpl<
   }
 
   public A removeMatchingFromTokenRequests(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder> predicate) {
     if (tokenRequests == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder> each =
         tokenRequests.iterator();
@@ -235,7 +230,7 @@ public class V1CSIDriverSpecFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public java.util.List<io.kubernetes.client.openapi.models.StorageV1TokenRequest>
       getTokenRequests() {
     return tokenRequests != null ? build(tokenRequests) : null;
@@ -314,16 +309,13 @@ public class V1CSIDriverSpecFluentImpl<
     return tokenRequests != null && !tokenRequests.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent.TokenRequestsNested<A>
-      addNewTokenRequest() {
-    return new io.kubernetes.client.openapi.models.V1CSIDriverSpecFluentImpl
-        .TokenRequestsNestedImpl();
+  public V1CSIDriverSpecFluent.TokenRequestsNested<A> addNewTokenRequest() {
+    return new V1CSIDriverSpecFluentImpl.TokenRequestsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent.TokenRequestsNested<A>
       addNewTokenRequestLike(io.kubernetes.client.openapi.models.StorageV1TokenRequest item) {
-    return new io.kubernetes.client.openapi.models.V1CSIDriverSpecFluentImpl
-        .TokenRequestsNestedImpl(-1, item);
+    return new V1CSIDriverSpecFluentImpl.TokenRequestsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent.TokenRequestsNested<A>
@@ -488,11 +480,7 @@ public class V1CSIDriverSpecFluentImpl<
     return volumeLifecycleModes != null && !volumeLifecycleModes.isEmpty();
   }
 
-  public A addNewVolumeLifecycleMode(java.lang.String original) {
-    return (A) addToVolumeLifecycleModes(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CSIDriverSpecFluentImpl that = (V1CSIDriverSpecFluentImpl) o;
@@ -532,16 +520,65 @@ public class V1CSIDriverSpecFluentImpl<
         super.hashCode());
   }
 
-  public class TokenRequestsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.StorageV1TokenRequestFluentImpl<
-          io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent.TokenRequestsNested<N>>
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (attachRequired != null) {
+      sb.append("attachRequired:");
+      sb.append(attachRequired + ",");
+    }
+    if (fsGroupPolicy != null) {
+      sb.append("fsGroupPolicy:");
+      sb.append(fsGroupPolicy + ",");
+    }
+    if (podInfoOnMount != null) {
+      sb.append("podInfoOnMount:");
+      sb.append(podInfoOnMount + ",");
+    }
+    if (requiresRepublish != null) {
+      sb.append("requiresRepublish:");
+      sb.append(requiresRepublish + ",");
+    }
+    if (storageCapacity != null) {
+      sb.append("storageCapacity:");
+      sb.append(storageCapacity + ",");
+    }
+    if (tokenRequests != null && !tokenRequests.isEmpty()) {
+      sb.append("tokenRequests:");
+      sb.append(tokenRequests + ",");
+    }
+    if (volumeLifecycleModes != null && !volumeLifecycleModes.isEmpty()) {
+      sb.append("volumeLifecycleModes:");
+      sb.append(volumeLifecycleModes);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  public A withAttachRequired() {
+    return withAttachRequired(true);
+  }
+
+  public A withPodInfoOnMount() {
+    return withPodInfoOnMount(true);
+  }
+
+  public A withRequiresRepublish() {
+    return withRequiresRepublish(true);
+  }
+
+  public A withStorageCapacity() {
+    return withStorageCapacity(true);
+  }
+
+  class TokenRequestsNestedImpl<N>
+      extends StorageV1TokenRequestFluentImpl<V1CSIDriverSpecFluent.TokenRequestsNested<N>>
       implements io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent.TokenRequestsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+          Nested<N> {
     TokenRequestsNestedImpl(
         java.lang.Integer index, io.kubernetes.client.openapi.models.StorageV1TokenRequest item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder(this, item);
+      this.builder = new StorageV1TokenRequestBuilder(this, item);
     }
 
     TokenRequestsNestedImpl() {

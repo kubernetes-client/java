@@ -12,14 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
-public class V1beta2FlowSchemaStatusFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluent<A> {
+@SuppressWarnings(value = "unchecked")
+public class V1beta2FlowSchemaStatusFluentImpl<A extends V1beta2FlowSchemaStatusFluent<A>>
+    extends BaseFluent<A> implements V1beta2FlowSchemaStatusFluent<A> {
   public V1beta2FlowSchemaStatusFluentImpl() {}
 
   public V1beta2FlowSchemaStatusFluentImpl(
@@ -27,12 +31,9 @@ public class V1beta2FlowSchemaStatusFluentImpl<
     this.withConditions(instance.getConditions());
   }
 
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1beta2FlowSchemaConditionBuilder>
-      conditions;
+  private ArrayList<V1beta2FlowSchemaConditionBuilder> conditions;
 
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition item) {
+  public A addToConditions(Integer index, V1beta2FlowSchemaCondition item) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -87,7 +88,7 @@ public class V1beta2FlowSchemaStatusFluentImpl<
   }
 
   public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition> items) {
+      Collection<io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition> items) {
     if (this.conditions == null) {
       this.conditions =
           new java.util.ArrayList<
@@ -129,9 +130,7 @@ public class V1beta2FlowSchemaStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta2FlowSchemaConditionBuilder>
-          predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1beta2FlowSchemaConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
     final Iterator<io.kubernetes.client.openapi.models.V1beta2FlowSchemaConditionBuilder> each =
         conditions.iterator();
@@ -151,9 +150,8 @@ public class V1beta2FlowSchemaStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition>
-      getConditions() {
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
@@ -187,7 +185,7 @@ public class V1beta2FlowSchemaStatusFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingCondition(
+  public Boolean hasMatchingCondition(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1beta2FlowSchemaConditionBuilder>
           predicate) {
@@ -232,16 +230,13 @@ public class V1beta2FlowSchemaStatusFluentImpl<
     return conditions != null && !conditions.isEmpty();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluent.ConditionsNested<A>
-      addNewCondition() {
-    return new io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluentImpl
-        .ConditionsNestedImpl();
+  public V1beta2FlowSchemaStatusFluent.ConditionsNested<A> addNewCondition() {
+    return new V1beta2FlowSchemaStatusFluentImpl.ConditionsNestedImpl();
   }
 
   public io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluent.ConditionsNested<A>
       addNewConditionLike(io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition item) {
-    return new io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluentImpl
-        .ConditionsNestedImpl(-1, item);
+    return new V1beta2FlowSchemaStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
   public io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluent.ConditionsNested<A>
@@ -289,7 +284,7 @@ public class V1beta2FlowSchemaStatusFluentImpl<
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1beta2FlowSchemaStatusFluentImpl that = (V1beta2FlowSchemaStatusFluentImpl) o;
@@ -302,18 +297,26 @@ public class V1beta2FlowSchemaStatusFluentImpl<
     return java.util.Objects.hash(conditions, super.hashCode());
   }
 
-  public class ConditionsNestedImpl<N>
-      extends io.kubernetes.client.openapi.models.V1beta2FlowSchemaConditionFluentImpl<
-          io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluent.ConditionsNested<N>>
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (conditions != null && !conditions.isEmpty()) {
+      sb.append("conditions:");
+      sb.append(conditions);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+
+  class ConditionsNestedImpl<N>
+      extends V1beta2FlowSchemaConditionFluentImpl<
+          V1beta2FlowSchemaStatusFluent.ConditionsNested<N>>
       implements io.kubernetes.client.openapi.models.V1beta2FlowSchemaStatusFluent.ConditionsNested<
               N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ConditionsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition item) {
+          Nested<N> {
+    ConditionsNestedImpl(java.lang.Integer index, V1beta2FlowSchemaCondition item) {
       this.index = index;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta2FlowSchemaConditionBuilder(this, item);
+      this.builder = new V1beta2FlowSchemaConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {

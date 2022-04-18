@@ -12,17 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1HTTPHeaderBuilder
-    extends io.kubernetes.client.openapi.models.V1HTTPHeaderFluentImpl<
-        io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1HTTPHeader,
-        io.kubernetes.client.openapi.models.V1HTTPHeaderBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1HTTPHeaderBuilder extends V1HTTPHeaderFluentImpl<V1HTTPHeaderBuilder>
+    implements VisitableBuilder<
+        io.kubernetes.client.openapi.models.V1HTTPHeader, V1HTTPHeaderBuilder> {
   public V1HTTPHeaderBuilder() {
     this(false);
   }
 
-  public V1HTTPHeaderBuilder(java.lang.Boolean validationEnabled) {
+  public V1HTTPHeaderBuilder(Boolean validationEnabled) {
     this(new V1HTTPHeader(), validationEnabled);
   }
 
@@ -77,24 +76,5 @@ public class V1HTTPHeaderBuilder
     buildable.setName(fluent.getName());
     buildable.setValue(fluent.getValue());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1HTTPHeaderBuilder that = (V1HTTPHeaderBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

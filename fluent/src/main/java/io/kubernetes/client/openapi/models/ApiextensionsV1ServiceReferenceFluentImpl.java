@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class ApiextensionsV1ServiceReferenceFluentImpl<
-        A extends io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<A> {
+        A extends ApiextensionsV1ServiceReferenceFluent<A>>
+    extends BaseFluent<A> implements ApiextensionsV1ServiceReferenceFluent<A> {
   public ApiextensionsV1ServiceReferenceFluentImpl() {}
 
   public ApiextensionsV1ServiceReferenceFluentImpl(
@@ -30,10 +32,10 @@ public class ApiextensionsV1ServiceReferenceFluentImpl<
     this.withPort(instance.getPort());
   }
 
-  private java.lang.String name;
+  private String name;
   private java.lang.String namespace;
   private java.lang.String path;
-  private java.lang.Integer port;
+  private Integer port;
 
   public java.lang.String getName() {
     return this.name;
@@ -44,14 +46,8 @@ public class ApiextensionsV1ServiceReferenceFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
-  }
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original) {
-    return (A) withName(new String(original));
   }
 
   public java.lang.String getNamespace() {
@@ -67,12 +63,6 @@ public class ApiextensionsV1ServiceReferenceFluentImpl<
     return this.namespace != null;
   }
 
-  /** Method is deprecated. use withNamespace instead. */
-  @java.lang.Deprecated
-  public A withNewNamespace(java.lang.String original) {
-    return (A) withNamespace(new String(original));
-  }
-
   public java.lang.String getPath() {
     return this.path;
   }
@@ -84,12 +74,6 @@ public class ApiextensionsV1ServiceReferenceFluentImpl<
 
   public java.lang.Boolean hasPath() {
     return this.path != null;
-  }
-
-  /** Method is deprecated. use withPath instead. */
-  @java.lang.Deprecated
-  public A withNewPath(java.lang.String original) {
-    return (A) withPath(new String(original));
   }
 
   public java.lang.Integer getPort() {
@@ -105,7 +89,7 @@ public class ApiextensionsV1ServiceReferenceFluentImpl<
     return this.port != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ApiextensionsV1ServiceReferenceFluentImpl that = (ApiextensionsV1ServiceReferenceFluentImpl) o;
@@ -119,5 +103,28 @@ public class ApiextensionsV1ServiceReferenceFluentImpl<
 
   public int hashCode() {
     return java.util.Objects.hash(name, namespace, path, port, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (name != null) {
+      sb.append("name:");
+      sb.append(name + ",");
+    }
+    if (namespace != null) {
+      sb.append("namespace:");
+      sb.append(namespace + ",");
+    }
+    if (path != null) {
+      sb.append("path:");
+      sb.append(path + ",");
+    }
+    if (port != null) {
+      sb.append("port:");
+      sb.append(port);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

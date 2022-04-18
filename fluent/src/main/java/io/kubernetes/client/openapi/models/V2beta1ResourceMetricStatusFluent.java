@@ -12,31 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.Fluent;
+
 /** Generated */
-public interface V2beta1ResourceMetricStatusFluent<
-        A extends io.kubernetes.client.openapi.models.V2beta1ResourceMetricStatusFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.Integer getCurrentAverageUtilization();
+public interface V2beta1ResourceMetricStatusFluent<A extends V2beta1ResourceMetricStatusFluent<A>>
+    extends Fluent<A> {
+  public Integer getCurrentAverageUtilization();
 
   public A withCurrentAverageUtilization(java.lang.Integer currentAverageUtilization);
 
-  public java.lang.Boolean hasCurrentAverageUtilization();
+  public Boolean hasCurrentAverageUtilization();
 
-  public io.kubernetes.client.custom.Quantity getCurrentAverageValue();
+  public Quantity getCurrentAverageValue();
 
   public A withCurrentAverageValue(io.kubernetes.client.custom.Quantity currentAverageValue);
 
   public java.lang.Boolean hasCurrentAverageValue();
 
-  public A withNewCurrentAverageValue(java.lang.String value);
+  public A withNewCurrentAverageValue(String value);
 
   public java.lang.String getName();
 
   public A withName(java.lang.String name);
 
   public java.lang.Boolean hasName();
-
-  /** Method is deprecated. use withName instead. */
-  @java.lang.Deprecated
-  public A withNewName(java.lang.String original);
 }

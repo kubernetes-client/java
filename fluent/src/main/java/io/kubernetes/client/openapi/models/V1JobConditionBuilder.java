@@ -12,21 +12,20 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1JobConditionBuilder
-    extends io.kubernetes.client.openapi.models.V1JobConditionFluentImpl<
-        io.kubernetes.client.openapi.models.V1JobConditionBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1JobCondition,
-        io.kubernetes.client.openapi.models.V1JobConditionBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1JobConditionBuilder extends V1JobConditionFluentImpl<V1JobConditionBuilder>
+    implements VisitableBuilder<
+        V1JobCondition, io.kubernetes.client.openapi.models.V1JobConditionBuilder> {
   public V1JobConditionBuilder() {
     this(false);
   }
 
-  public V1JobConditionBuilder(java.lang.Boolean validationEnabled) {
+  public V1JobConditionBuilder(Boolean validationEnabled) {
     this(new V1JobCondition(), validationEnabled);
   }
 
-  public V1JobConditionBuilder(io.kubernetes.client.openapi.models.V1JobConditionFluent<?> fluent) {
+  public V1JobConditionBuilder(V1JobConditionFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -97,24 +96,5 @@ public class V1JobConditionBuilder
     buildable.setStatus(fluent.getStatus());
     buildable.setType(fluent.getType());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1JobConditionBuilder that = (V1JobConditionBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }

@@ -12,12 +12,16 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface V1LabelSelectorFluent<
-        A extends io.kubernetes.client.openapi.models.V1LabelSelectorFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public A addToMatchExpressions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LabelSelectorRequirement item);
+public interface V1LabelSelectorFluent<A extends V1LabelSelectorFluent<A>> extends Fluent<A> {
+  public A addToMatchExpressions(Integer index, V1LabelSelectorRequirement item);
 
   public A setToMatchExpressions(
       java.lang.Integer index, io.kubernetes.client.openapi.models.V1LabelSelectorRequirement item);
@@ -26,7 +30,7 @@ public interface V1LabelSelectorFluent<
       io.kubernetes.client.openapi.models.V1LabelSelectorRequirement... items);
 
   public A addAllToMatchExpressions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> items);
+      Collection<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> items);
 
   public A removeFromMatchExpressions(
       io.kubernetes.client.openapi.models.V1LabelSelectorRequirement... items);
@@ -35,18 +39,15 @@ public interface V1LabelSelectorFluent<
       java.util.Collection<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> items);
 
   public A removeMatchingFromMatchExpressions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder>
-          predicate);
+      Predicate<V1LabelSelectorRequirementBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildMatchExpressions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement>
-      getMatchExpressions();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> getMatchExpressions();
 
   public java.util.List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement>
       buildMatchExpressions();
@@ -64,7 +65,7 @@ public interface V1LabelSelectorFluent<
                   io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder>
               predicate);
 
-  public java.lang.Boolean hasMatchingMatchExpression(
+  public Boolean hasMatchingMatchExpression(
       java.util.function.Predicate<
               io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder>
           predicate);
@@ -78,8 +79,7 @@ public interface V1LabelSelectorFluent<
 
   public java.lang.Boolean hasMatchExpressions();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<A>
-      addNewMatchExpression();
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> addNewMatchExpression();
 
   public io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<A>
       addNewMatchExpressionLike(
@@ -105,9 +105,9 @@ public interface V1LabelSelectorFluent<
                   io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder>
               predicate);
 
-  public A addToMatchLabels(java.lang.String key, java.lang.String value);
+  public A addToMatchLabels(String key, java.lang.String value);
 
-  public A addToMatchLabels(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToMatchLabels(Map<java.lang.String, java.lang.String> map);
 
   public A removeFromMatchLabels(java.lang.String key);
 
@@ -120,9 +120,8 @@ public interface V1LabelSelectorFluent<
   public java.lang.Boolean hasMatchLabels();
 
   public interface MatchExpressionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1LabelSelectorRequirementFluent<
-              io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<N>> {
+      extends Nested<N>,
+          V1LabelSelectorRequirementFluent<V1LabelSelectorFluent.MatchExpressionsNested<N>> {
     public N and();
 
     public N endMatchExpression();

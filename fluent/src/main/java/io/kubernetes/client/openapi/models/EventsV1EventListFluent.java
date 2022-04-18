@@ -12,47 +12,43 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.Fluent;
+import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
+
 /** Generated */
-public interface EventsV1EventListFluent<
-        A extends io.kubernetes.client.openapi.models.EventsV1EventListFluent<A>>
-    extends io.kubernetes.client.fluent.Fluent<A> {
-  public java.lang.String getApiVersion();
+public interface EventsV1EventListFluent<A extends EventsV1EventListFluent<A>> extends Fluent<A> {
+  public String getApiVersion();
 
   public A withApiVersion(java.lang.String apiVersion);
 
-  public java.lang.Boolean hasApiVersion();
+  public Boolean hasApiVersion();
 
-  /** Method is deprecated. use withApiVersion instead. */
-  @java.lang.Deprecated
-  public A withNewApiVersion(java.lang.String original);
-
-  public A addToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.EventsV1Event item);
+  public A addToItems(Integer index, io.kubernetes.client.openapi.models.EventsV1Event item);
 
   public A setToItems(
       java.lang.Integer index, io.kubernetes.client.openapi.models.EventsV1Event item);
 
   public A addToItems(io.kubernetes.client.openapi.models.EventsV1Event... items);
 
-  public A addAllToItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.EventsV1Event> items);
+  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.EventsV1Event> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.EventsV1Event... items);
 
   public A removeAllFromItems(
       java.util.Collection<io.kubernetes.client.openapi.models.EventsV1Event> items);
 
-  public A removeMatchingFromItems(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.EventsV1EventBuilder>
-          predicate);
+  public A removeMatchingFromItems(Predicate<EventsV1EventBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildItems instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.EventsV1Event> getItems();
+  @Deprecated
+  public List<io.kubernetes.client.openapi.models.EventsV1Event> getItems();
 
   public java.util.List<io.kubernetes.client.openapi.models.EventsV1Event> buildItems();
 
@@ -76,9 +72,9 @@ public interface EventsV1EventListFluent<
 
   public java.lang.Boolean hasItems();
 
-  public io.kubernetes.client.openapi.models.EventsV1EventListFluent.ItemsNested<A> addNewItem();
+  public EventsV1EventListFluent.ItemsNested<A> addNewItem();
 
-  public io.kubernetes.client.openapi.models.EventsV1EventListFluent.ItemsNested<A> addNewItemLike(
+  public EventsV1EventListFluent.ItemsNested<A> addNewItemLike(
       io.kubernetes.client.openapi.models.EventsV1Event item);
 
   public io.kubernetes.client.openapi.models.EventsV1EventListFluent.ItemsNested<A> setNewItemLike(
@@ -102,17 +98,13 @@ public interface EventsV1EventListFluent<
 
   public java.lang.Boolean hasKind();
 
-  /** Method is deprecated. use withKind instead. */
-  @java.lang.Deprecated
-  public A withNewKind(java.lang.String original);
-
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
   @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata();
+  public V1ListMeta getMetadata();
 
   public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
 
@@ -120,8 +112,7 @@ public interface EventsV1EventListFluent<
 
   public java.lang.Boolean hasMetadata();
 
-  public io.kubernetes.client.openapi.models.EventsV1EventListFluent.MetadataNested<A>
-      withNewMetadata();
+  public EventsV1EventListFluent.MetadataNested<A> withNewMetadata();
 
   public io.kubernetes.client.openapi.models.EventsV1EventListFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
@@ -136,9 +127,7 @@ public interface EventsV1EventListFluent<
       editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
 
   public interface ItemsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.EventsV1EventFluent<
-              io.kubernetes.client.openapi.models.EventsV1EventListFluent.ItemsNested<N>> {
+      extends Nested<N>, EventsV1EventFluent<EventsV1EventListFluent.ItemsNested<N>> {
     public N and();
 
     public N endItem();
@@ -146,8 +135,7 @@ public interface EventsV1EventListFluent<
 
   public interface MetadataNested<N>
       extends io.kubernetes.client.fluent.Nested<N>,
-          io.kubernetes.client.openapi.models.V1ListMetaFluent<
-              io.kubernetes.client.openapi.models.EventsV1EventListFluent.MetadataNested<N>> {
+          V1ListMetaFluent<EventsV1EventListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

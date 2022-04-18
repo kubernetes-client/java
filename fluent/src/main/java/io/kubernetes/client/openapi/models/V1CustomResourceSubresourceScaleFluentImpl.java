@@ -12,11 +12,13 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+
 /** Generated */
+@SuppressWarnings(value = "unchecked")
 public class V1CustomResourceSubresourceScaleFluentImpl<
-        A extends io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<A>>
-    extends io.kubernetes.client.fluent.BaseFluent<A>
-    implements io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<A> {
+        A extends V1CustomResourceSubresourceScaleFluent<A>>
+    extends BaseFluent<A> implements V1CustomResourceSubresourceScaleFluent<A> {
   public V1CustomResourceSubresourceScaleFluentImpl() {}
 
   public V1CustomResourceSubresourceScaleFluentImpl(
@@ -28,7 +30,7 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
     this.withStatusReplicasPath(instance.getStatusReplicasPath());
   }
 
-  private java.lang.String labelSelectorPath;
+  private String labelSelectorPath;
   private java.lang.String specReplicasPath;
   private java.lang.String statusReplicasPath;
 
@@ -41,14 +43,8 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
     return (A) this;
   }
 
-  public java.lang.Boolean hasLabelSelectorPath() {
+  public Boolean hasLabelSelectorPath() {
     return this.labelSelectorPath != null;
-  }
-
-  /** Method is deprecated. use withLabelSelectorPath instead. */
-  @java.lang.Deprecated
-  public A withNewLabelSelectorPath(java.lang.String original) {
-    return (A) withLabelSelectorPath(new String(original));
   }
 
   public java.lang.String getSpecReplicasPath() {
@@ -64,12 +60,6 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
     return this.specReplicasPath != null;
   }
 
-  /** Method is deprecated. use withSpecReplicasPath instead. */
-  @java.lang.Deprecated
-  public A withNewSpecReplicasPath(java.lang.String original) {
-    return (A) withSpecReplicasPath(new String(original));
-  }
-
   public java.lang.String getStatusReplicasPath() {
     return this.statusReplicasPath;
   }
@@ -83,13 +73,7 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
     return this.statusReplicasPath != null;
   }
 
-  /** Method is deprecated. use withStatusReplicasPath instead. */
-  @java.lang.Deprecated
-  public A withNewStatusReplicasPath(java.lang.String original) {
-    return (A) withStatusReplicasPath(new String(original));
-  }
-
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CustomResourceSubresourceScaleFluentImpl that =
@@ -109,5 +93,24 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
   public int hashCode() {
     return java.util.Objects.hash(
         labelSelectorPath, specReplicasPath, statusReplicasPath, super.hashCode());
+  }
+
+  public java.lang.String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (labelSelectorPath != null) {
+      sb.append("labelSelectorPath:");
+      sb.append(labelSelectorPath + ",");
+    }
+    if (specReplicasPath != null) {
+      sb.append("specReplicasPath:");
+      sb.append(specReplicasPath + ",");
+    }
+    if (statusReplicasPath != null) {
+      sb.append("statusReplicasPath:");
+      sb.append(statusReplicasPath);
+    }
+    sb.append("}");
+    return sb.toString();
   }
 }

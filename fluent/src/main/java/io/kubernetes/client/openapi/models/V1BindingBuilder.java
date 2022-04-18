@@ -12,21 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-public class V1BindingBuilder
-    extends io.kubernetes.client.openapi.models.V1BindingFluentImpl<
-        io.kubernetes.client.openapi.models.V1BindingBuilder>
-    implements io.kubernetes.client.fluent.VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1Binding,
-        io.kubernetes.client.openapi.models.V1BindingBuilder> {
+import io.kubernetes.client.fluent.VisitableBuilder;
+
+public class V1BindingBuilder extends V1BindingFluentImpl<V1BindingBuilder>
+    implements VisitableBuilder<V1Binding, io.kubernetes.client.openapi.models.V1BindingBuilder> {
   public V1BindingBuilder() {
     this(false);
   }
 
-  public V1BindingBuilder(java.lang.Boolean validationEnabled) {
+  public V1BindingBuilder(Boolean validationEnabled) {
     this(new V1Binding(), validationEnabled);
   }
 
-  public V1BindingBuilder(io.kubernetes.client.openapi.models.V1BindingFluent<?> fluent) {
+  public V1BindingBuilder(V1BindingFluent<?> fluent) {
     this(fluent, false);
   }
 
@@ -86,24 +84,5 @@ public class V1BindingBuilder
     buildable.setMetadata(fluent.getMetadata());
     buildable.setTarget(fluent.getTarget());
     return buildable;
-  }
-
-  public boolean equals(java.lang.Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
-    V1BindingBuilder that = (V1BindingBuilder) o;
-    if (fluent != null && fluent != this
-        ? !fluent.equals(that.fluent)
-        : that.fluent != null && fluent != this) return false;
-
-    if (validationEnabled != null
-        ? !validationEnabled.equals(that.validationEnabled)
-        : that.validationEnabled != null) return false;
-    return true;
-  }
-
-  public int hashCode() {
-    return java.util.Objects.hash(fluent, validationEnabled, super.hashCode());
   }
 }
