@@ -51,7 +51,7 @@ public class JSON {
           .optionalStart()
           .appendFraction(ChronoField.NANO_OF_SECOND, 6, 6, true)
           .optionalEnd()
-          .appendLiteral("Z")
+          .appendOffsetId()
           .toFormatter();
 
   private DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
