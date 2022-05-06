@@ -27,7 +27,7 @@ import java.util.Objects;
         "ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ManagedFieldsEntry {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -215,15 +215,17 @@ public class V1ManagedFieldsEntry {
   }
 
   /**
-   * Time is timestamp of when these fields were set. It should always be empty if Operation is
-   * &#39;Apply&#39;
+   * Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be
+   * updated if a field is added, the manager changes any of the owned fields value or removes a
+   * field. The timestamp does not update when a field is removed from the entry because another
+   * manager took it over.
    *
    * @return time
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'")
+          "Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over.")
   public OffsetDateTime getTime() {
     return time;
   }

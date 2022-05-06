@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import com.google.gson.annotations.SerializedName;
+import io.kubernetes.client.custom.IntOrString;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
@@ -26,12 +27,42 @@ import java.util.Objects;
         "RollingUpdateStatefulSetStrategy is used to communicate parameter for RollingUpdateStatefulSetStrategyType.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1RollingUpdateStatefulSetStrategy {
+  public static final String SERIALIZED_NAME_MAX_UNAVAILABLE = "maxUnavailable";
+
+  @SerializedName(SERIALIZED_NAME_MAX_UNAVAILABLE)
+  private IntOrString maxUnavailable;
+
   public static final String SERIALIZED_NAME_PARTITION = "partition";
 
   @SerializedName(SERIALIZED_NAME_PARTITION)
   private Integer partition;
+
+  public V1RollingUpdateStatefulSetStrategy maxUnavailable(IntOrString maxUnavailable) {
+
+    this.maxUnavailable = maxUnavailable;
+    return this;
+  }
+
+  /**
+   * IntOrString is a type that can hold an int32 or a string. When used in JSON or YAML marshalling
+   * and unmarshalling, it produces or consumes the inner type. This allows you to have, for
+   * example, a JSON field that can accept a name or number.
+   *
+   * @return maxUnavailable
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
+  public IntOrString getMaxUnavailable() {
+    return maxUnavailable;
+  }
+
+  public void setMaxUnavailable(IntOrString maxUnavailable) {
+    this.maxUnavailable = maxUnavailable;
+  }
 
   public V1RollingUpdateStatefulSetStrategy partition(Integer partition) {
 
@@ -40,15 +71,17 @@ public class V1RollingUpdateStatefulSetStrategy {
   }
 
   /**
-   * Partition indicates the ordinal at which the StatefulSet should be partitioned. Default value
-   * is 0.
+   * Partition indicates the ordinal at which the StatefulSet should be partitioned for updates.
+   * During a rolling update, all pods from ordinal Replicas-1 to Partition are updated. All pods
+   * from ordinal Partition-1 to 0 remain untouched. This is helpful in being able to do a canary
+   * based deployment. The default value is 0.
    *
    * @return partition
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Partition indicates the ordinal at which the StatefulSet should be partitioned. Default value is 0.")
+          "Partition indicates the ordinal at which the StatefulSet should be partitioned for updates. During a rolling update, all pods from ordinal Replicas-1 to Partition are updated. All pods from ordinal Partition-1 to 0 remain untouched. This is helpful in being able to do a canary based deployment. The default value is 0.")
   public Integer getPartition() {
     return partition;
   }
@@ -67,18 +100,20 @@ public class V1RollingUpdateStatefulSetStrategy {
     }
     V1RollingUpdateStatefulSetStrategy v1RollingUpdateStatefulSetStrategy =
         (V1RollingUpdateStatefulSetStrategy) o;
-    return Objects.equals(this.partition, v1RollingUpdateStatefulSetStrategy.partition);
+    return Objects.equals(this.maxUnavailable, v1RollingUpdateStatefulSetStrategy.maxUnavailable)
+        && Objects.equals(this.partition, v1RollingUpdateStatefulSetStrategy.partition);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(partition);
+    return Objects.hash(maxUnavailable, partition);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1RollingUpdateStatefulSetStrategy {\n");
+    sb.append("    maxUnavailable: ").append(toIndentedString(maxUnavailable)).append("\n");
     sb.append("    partition: ").append(toIndentedString(partition)).append("\n");
     sb.append("}");
     return sb.toString();

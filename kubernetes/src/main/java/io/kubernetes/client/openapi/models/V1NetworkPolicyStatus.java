@@ -13,54 +13,53 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import com.google.gson.annotations.SerializedName;
-import io.kubernetes.client.custom.Quantity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-/** Overhead structure represents the resource overhead associated with running a pod. */
-@ApiModel(
-    description =
-        "Overhead structure represents the resource overhead associated with running a pod.")
+/** NetworkPolicyStatus describe the current state of the NetworkPolicy. */
+@ApiModel(description = "NetworkPolicyStatus describe the current state of the NetworkPolicy.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
-public class V1alpha1Overhead {
-  public static final String SERIALIZED_NAME_POD_FIXED = "podFixed";
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+public class V1NetworkPolicyStatus {
+  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
-  @SerializedName(SERIALIZED_NAME_POD_FIXED)
-  private Map<String, Quantity> podFixed = null;
+  @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  private List<V1Condition> conditions = null;
 
-  public V1alpha1Overhead podFixed(Map<String, Quantity> podFixed) {
+  public V1NetworkPolicyStatus conditions(List<V1Condition> conditions) {
 
-    this.podFixed = podFixed;
+    this.conditions = conditions;
     return this;
   }
 
-  public V1alpha1Overhead putPodFixedItem(String key, Quantity podFixedItem) {
-    if (this.podFixed == null) {
-      this.podFixed = new HashMap<>();
+  public V1NetworkPolicyStatus addConditionsItem(V1Condition conditionsItem) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList<>();
     }
-    this.podFixed.put(key, podFixedItem);
+    this.conditions.add(conditionsItem);
     return this;
   }
 
   /**
-   * PodFixed represents the fixed resource overhead associated with running a pod.
+   * Conditions holds an array of metav1.Condition that describe the state of the NetworkPolicy.
+   * Current service state
    *
-   * @return podFixed
+   * @return conditions
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "PodFixed represents the fixed resource overhead associated with running a pod.")
-  public Map<String, Quantity> getPodFixed() {
-    return podFixed;
+      value =
+          "Conditions holds an array of metav1.Condition that describe the state of the NetworkPolicy. Current service state")
+  public List<V1Condition> getConditions() {
+    return conditions;
   }
 
-  public void setPodFixed(Map<String, Quantity> podFixed) {
-    this.podFixed = podFixed;
+  public void setConditions(List<V1Condition> conditions) {
+    this.conditions = conditions;
   }
 
   @Override
@@ -71,20 +70,20 @@ public class V1alpha1Overhead {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1alpha1Overhead v1alpha1Overhead = (V1alpha1Overhead) o;
-    return Objects.equals(this.podFixed, v1alpha1Overhead.podFixed);
+    V1NetworkPolicyStatus v1NetworkPolicyStatus = (V1NetworkPolicyStatus) o;
+    return Objects.equals(this.conditions, v1NetworkPolicyStatus.conditions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(podFixed);
+    return Objects.hash(conditions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class V1alpha1Overhead {\n");
-    sb.append("    podFixed: ").append(toIndentedString(podFixed)).append("\n");
+    sb.append("class V1NetworkPolicyStatus {\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "PersistentVolumeStatus is the current status of a persistent volume.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
 
@@ -45,13 +45,14 @@ public class V1PersistentVolumeStatus {
   }
 
   /**
-   * A human-readable message indicating details about why the volume is in this state.
+   * message is a human-readable message indicating details about why the volume is in this state.
    *
    * @return message
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "A human-readable message indicating details about why the volume is in this state.")
+      value =
+          "message is a human-readable message indicating details about why the volume is in this state.")
   public String getMessage() {
     return message;
   }
@@ -67,7 +68,7 @@ public class V1PersistentVolumeStatus {
   }
 
   /**
-   * Phase indicates if a volume is available, bound to a claim, or released by a claim. More info:
+   * phase indicates if a volume is available, bound to a claim, or released by a claim. More info:
    * https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase
    *
    * @return phase
@@ -75,7 +76,7 @@ public class V1PersistentVolumeStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase  ")
+          "phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase  ")
   public String getPhase() {
     return phase;
   }
@@ -91,7 +92,7 @@ public class V1PersistentVolumeStatus {
   }
 
   /**
-   * Reason is a brief CamelCase string that describes any failure and is meant for machine parsing
+   * reason is a brief CamelCase string that describes any failure and is meant for machine parsing
    * and tidy display in the CLI.
    *
    * @return reason
@@ -99,7 +100,7 @@ public class V1PersistentVolumeStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.")
+          "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.")
   public String getReason() {
     return reason;
   }

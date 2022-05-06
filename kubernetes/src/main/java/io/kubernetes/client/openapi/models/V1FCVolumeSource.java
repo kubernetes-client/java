@@ -28,7 +28,7 @@ import java.util.Objects;
         "Represents a Fibre Channel volume. Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1FCVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -62,16 +62,16 @@ public class V1FCVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex.
-   * \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be
-   * \&quot;ext4\&quot; if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host
+   * operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly
+   * inferred to be \&quot;ext4\&quot; if unspecified.
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
+          "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
@@ -87,12 +87,12 @@ public class V1FCVolumeSource {
   }
 
   /**
-   * Optional: FC target lun number
+   * lun is Optional: FC target lun number
    *
    * @return lun
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional: FC target lun number")
+  @ApiModelProperty(value = "lun is Optional: FC target lun number")
   public Integer getLun() {
     return lun;
   }
@@ -108,15 +108,15 @@ public class V1FCVolumeSource {
   }
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
-   * VolumeMounts.
+   * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly
+   * setting in VolumeMounts.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
+          "readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -140,12 +140,12 @@ public class V1FCVolumeSource {
   }
 
   /**
-   * Optional: FC target worldwide names (WWNs)
+   * targetWWNs is Optional: FC target worldwide names (WWNs)
    *
    * @return targetWWNs
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional: FC target worldwide names (WWNs)")
+  @ApiModelProperty(value = "targetWWNs is Optional: FC target worldwide names (WWNs)")
   public List<String> getTargetWWNs() {
     return targetWWNs;
   }
@@ -169,15 +169,15 @@ public class V1FCVolumeSource {
   }
 
   /**
-   * Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs
-   * and lun must be set, but not both simultaneously.
+   * wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of
+   * targetWWNs and lun must be set, but not both simultaneously.
    *
    * @return wwids
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.")
+          "wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.")
   public List<String> getWwids() {
     return wwids;
   }

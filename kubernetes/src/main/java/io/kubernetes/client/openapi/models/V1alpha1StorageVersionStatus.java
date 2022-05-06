@@ -28,7 +28,7 @@ import java.util.Objects;
         "API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1alpha1StorageVersionStatus {
   public static final String SERIALIZED_NAME_COMMON_ENCODING_VERSION = "commonEncodingVersion";
 

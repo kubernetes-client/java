@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "Represents a projected volume source")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ProjectedVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
 
@@ -42,18 +42,18 @@ public class V1ProjectedVolumeSource {
   }
 
   /**
-   * Mode bits used to set permissions on created files by default. Must be an octal value between
-   * 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values,
-   * JSON requires decimal values for mode bits. Directories within the path are not affected by
-   * this setting. This might be in conflict with other options that affect the file mode, like
-   * fsGroup, and the result can be other mode bits set.
+   * defaultMode are the mode bits used to set permissions on created files by default. Must be an
+   * octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal
+   * and decimal values, JSON requires decimal values for mode bits. Directories within the path are
+   * not affected by this setting. This might be in conflict with other options that affect the file
+   * mode, like fsGroup, and the result can be other mode bits set.
    *
    * @return defaultMode
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
+          "defaultMode are the mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
   public Integer getDefaultMode() {
     return defaultMode;
   }
@@ -77,12 +77,12 @@ public class V1ProjectedVolumeSource {
   }
 
   /**
-   * list of volume projections
+   * sources is the list of volume projections
    *
    * @return sources
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "list of volume projections")
+  @ApiModelProperty(value = "sources is the list of volume projections")
   public List<V1VolumeProjection> getSources() {
     return sources;
   }

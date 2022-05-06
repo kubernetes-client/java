@@ -28,7 +28,7 @@ import java.util.Objects;
         "Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1CephFSPersistentVolumeSource {
   public static final String SERIALIZED_NAME_MONITORS = "monitors";
 
@@ -72,7 +72,7 @@ public class V1CephFSPersistentVolumeSource {
   }
 
   /**
-   * Required: Monitors is a collection of Ceph monitors More info:
+   * monitors is Required: Monitors is a collection of Ceph monitors More info:
    * https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @return monitors
@@ -80,7 +80,7 @@ public class V1CephFSPersistentVolumeSource {
   @ApiModelProperty(
       required = true,
       value =
-          "Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
+          "monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
   public List<String> getMonitors() {
     return monitors;
   }
@@ -96,13 +96,14 @@ public class V1CephFSPersistentVolumeSource {
   }
 
   /**
-   * Optional: Used as the mounted root, rather than the full Ceph tree, default is /
+   * path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /
    *
    * @return path
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "Optional: Used as the mounted root, rather than the full Ceph tree, default is /")
+      value =
+          "path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /")
   public String getPath() {
     return path;
   }
@@ -118,15 +119,16 @@ public class V1CephFSPersistentVolumeSource {
   }
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
-   * VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly
+   * setting in VolumeMounts. More info:
+   * https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
+          "readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -142,15 +144,15 @@ public class V1CephFSPersistentVolumeSource {
   }
 
   /**
-   * Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More
-   * info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
+   * secretFile is Optional: SecretFile is the path to key ring for User, default is
+   * /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @return secretFile
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
+          "secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
   public String getSecretFile() {
     return secretFile;
   }
@@ -187,7 +189,7 @@ public class V1CephFSPersistentVolumeSource {
   }
 
   /**
-   * Optional: User is the rados user name, default is admin More info:
+   * user is Optional: User is the rados user name, default is admin More info:
    * https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    *
    * @return user
@@ -195,7 +197,7 @@ public class V1CephFSPersistentVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
+          "user is Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
   public String getUser() {
     return user;
   }

@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** RuntimeClassList is a list of RuntimeClass objects. */
-@ApiModel(description = "RuntimeClassList is a list of RuntimeClass objects.")
+/** CSIStorageCapacityList is a collection of CSIStorageCapacity objects. */
+@ApiModel(description = "CSIStorageCapacityList is a collection of CSIStorageCapacity objects.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
-public class V1alpha1RuntimeClassList implements io.kubernetes.client.common.KubernetesListObject {
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+public class V1CSIStorageCapacityList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -33,7 +33,7 @@ public class V1alpha1RuntimeClassList implements io.kubernetes.client.common.Kub
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
   @SerializedName(SERIALIZED_NAME_ITEMS)
-  private List<V1alpha1RuntimeClass> items = new ArrayList<>();
+  private List<V1CSIStorageCapacity> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
 
@@ -45,7 +45,7 @@ public class V1alpha1RuntimeClassList implements io.kubernetes.client.common.Kub
   @SerializedName(SERIALIZED_NAME_METADATA)
   private V1ListMeta metadata;
 
-  public V1alpha1RuntimeClassList apiVersion(String apiVersion) {
+  public V1CSIStorageCapacityList apiVersion(String apiVersion) {
 
     this.apiVersion = apiVersion;
     return this;
@@ -71,32 +71,32 @@ public class V1alpha1RuntimeClassList implements io.kubernetes.client.common.Kub
     this.apiVersion = apiVersion;
   }
 
-  public V1alpha1RuntimeClassList items(List<V1alpha1RuntimeClass> items) {
+  public V1CSIStorageCapacityList items(List<V1CSIStorageCapacity> items) {
 
     this.items = items;
     return this;
   }
 
-  public V1alpha1RuntimeClassList addItemsItem(V1alpha1RuntimeClass itemsItem) {
+  public V1CSIStorageCapacityList addItemsItem(V1CSIStorageCapacity itemsItem) {
     this.items.add(itemsItem);
     return this;
   }
 
   /**
-   * Items is a list of schema objects.
+   * Items is the list of CSIStorageCapacity objects.
    *
    * @return items
    */
-  @ApiModelProperty(required = true, value = "Items is a list of schema objects.")
-  public List<V1alpha1RuntimeClass> getItems() {
+  @ApiModelProperty(required = true, value = "Items is the list of CSIStorageCapacity objects.")
+  public List<V1CSIStorageCapacity> getItems() {
     return items;
   }
 
-  public void setItems(List<V1alpha1RuntimeClass> items) {
+  public void setItems(List<V1CSIStorageCapacity> items) {
     this.items = items;
   }
 
-  public V1alpha1RuntimeClassList kind(String kind) {
+  public V1CSIStorageCapacityList kind(String kind) {
 
     this.kind = kind;
     return this;
@@ -122,7 +122,7 @@ public class V1alpha1RuntimeClassList implements io.kubernetes.client.common.Kub
     this.kind = kind;
   }
 
-  public V1alpha1RuntimeClassList metadata(V1ListMeta metadata) {
+  public V1CSIStorageCapacityList metadata(V1ListMeta metadata) {
 
     this.metadata = metadata;
     return this;
@@ -151,11 +151,11 @@ public class V1alpha1RuntimeClassList implements io.kubernetes.client.common.Kub
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1alpha1RuntimeClassList v1alpha1RuntimeClassList = (V1alpha1RuntimeClassList) o;
-    return Objects.equals(this.apiVersion, v1alpha1RuntimeClassList.apiVersion)
-        && Objects.equals(this.items, v1alpha1RuntimeClassList.items)
-        && Objects.equals(this.kind, v1alpha1RuntimeClassList.kind)
-        && Objects.equals(this.metadata, v1alpha1RuntimeClassList.metadata);
+    V1CSIStorageCapacityList v1CSIStorageCapacityList = (V1CSIStorageCapacityList) o;
+    return Objects.equals(this.apiVersion, v1CSIStorageCapacityList.apiVersion)
+        && Objects.equals(this.items, v1CSIStorageCapacityList.items)
+        && Objects.equals(this.kind, v1CSIStorageCapacityList.kind)
+        && Objects.equals(this.metadata, v1CSIStorageCapacityList.metadata);
   }
 
   @Override
@@ -166,7 +166,7 @@ public class V1alpha1RuntimeClassList implements io.kubernetes.client.common.Kub
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class V1alpha1RuntimeClassList {\n");
+    sb.append("class V1CSIStorageCapacityList {\n");
     sb.append("    apiVersion: ").append(toIndentedString(apiVersion)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");

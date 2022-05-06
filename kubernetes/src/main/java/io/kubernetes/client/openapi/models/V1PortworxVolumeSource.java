@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "PortworxVolumeSource represents a Portworx volume resource.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PortworxVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -45,7 +45,7 @@ public class V1PortworxVolumeSource {
   }
 
   /**
-   * FSType represents the filesystem type to mount Must be a filesystem type supported by the host
+   * fSType represents the filesystem type to mount Must be a filesystem type supported by the host
    * operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;. Implicitly inferred to be
    * \&quot;ext4\&quot; if unspecified.
    *
@@ -54,7 +54,7 @@ public class V1PortworxVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "FSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\". Implicitly inferred to be \"ext4\" if unspecified.")
+          "fSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
@@ -70,14 +70,15 @@ public class V1PortworxVolumeSource {
   }
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
+   * VolumeMounts.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
+          "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -93,11 +94,11 @@ public class V1PortworxVolumeSource {
   }
 
   /**
-   * VolumeID uniquely identifies a Portworx volume
+   * volumeID uniquely identifies a Portworx volume
    *
    * @return volumeID
    */
-  @ApiModelProperty(required = true, value = "VolumeID uniquely identifies a Portworx volume")
+  @ApiModelProperty(required = true, value = "volumeID uniquely identifies a Portworx volume")
   public String getVolumeID() {
     return volumeID;
   }

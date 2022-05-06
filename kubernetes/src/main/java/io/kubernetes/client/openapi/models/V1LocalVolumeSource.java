@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "Local represents directly-attached storage with node affinity (Beta feature)")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1LocalVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -41,16 +41,17 @@ public class V1LocalVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem
-   * type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;,
-   * \&quot;ntfs\&quot;. The default value is to auto-select a filesystem if unspecified.
+   * fsType is the filesystem type to mount. It applies only when the Path is a block device. Must
+   * be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;,
+   * \&quot;xfs\&quot;, \&quot;ntfs\&quot;. The default value is to auto-select a filesystem if
+   * unspecified.
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default value is to auto-select a filesystem if unspecified.")
+          "fsType is the filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default value is to auto-select a filesystem if unspecified.")
   public String getFsType() {
     return fsType;
   }
@@ -66,15 +67,15 @@ public class V1LocalVolumeSource {
   }
 
   /**
-   * The full path to the volume on the node. It can be either a directory or block device (disk,
-   * partition, ...).
+   * path of the full path to the volume on the node. It can be either a directory or block device
+   * (disk, partition, ...).
    *
    * @return path
    */
   @ApiModelProperty(
       required = true,
       value =
-          "The full path to the volume on the node. It can be either a directory or block device (disk, partition, ...).")
+          "path of the full path to the volume on the node. It can be either a directory or block device (disk, partition, ...).")
   public String getPath() {
     return path;
   }

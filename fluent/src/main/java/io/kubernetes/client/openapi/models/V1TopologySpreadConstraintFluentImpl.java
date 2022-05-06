@@ -27,6 +27,8 @@ public class V1TopologySpreadConstraintFluentImpl<A extends V1TopologySpreadCons
 
     this.withMaxSkew(instance.getMaxSkew());
 
+    this.withMinDomains(instance.getMinDomains());
+
     this.withTopologyKey(instance.getTopologyKey());
 
     this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
@@ -34,6 +36,7 @@ public class V1TopologySpreadConstraintFluentImpl<A extends V1TopologySpreadCons
 
   private V1LabelSelectorBuilder labelSelector;
   private Integer maxSkew;
+  private java.lang.Integer minDomains;
   private String topologyKey;
   private java.lang.String whenUnsatisfiable;
 
@@ -104,6 +107,19 @@ public class V1TopologySpreadConstraintFluentImpl<A extends V1TopologySpreadCons
     return this.maxSkew != null;
   }
 
+  public java.lang.Integer getMinDomains() {
+    return this.minDomains;
+  }
+
+  public A withMinDomains(java.lang.Integer minDomains) {
+    this.minDomains = minDomains;
+    return (A) this;
+  }
+
+  public java.lang.Boolean hasMinDomains() {
+    return this.minDomains != null;
+  }
+
   public java.lang.String getTopologyKey() {
     return this.topologyKey;
   }
@@ -138,6 +154,8 @@ public class V1TopologySpreadConstraintFluentImpl<A extends V1TopologySpreadCons
         ? !labelSelector.equals(that.labelSelector)
         : that.labelSelector != null) return false;
     if (maxSkew != null ? !maxSkew.equals(that.maxSkew) : that.maxSkew != null) return false;
+    if (minDomains != null ? !minDomains.equals(that.minDomains) : that.minDomains != null)
+      return false;
     if (topologyKey != null ? !topologyKey.equals(that.topologyKey) : that.topologyKey != null)
       return false;
     if (whenUnsatisfiable != null
@@ -148,7 +166,7 @@ public class V1TopologySpreadConstraintFluentImpl<A extends V1TopologySpreadCons
 
   public int hashCode() {
     return java.util.Objects.hash(
-        labelSelector, maxSkew, topologyKey, whenUnsatisfiable, super.hashCode());
+        labelSelector, maxSkew, minDomains, topologyKey, whenUnsatisfiable, super.hashCode());
   }
 
   public java.lang.String toString() {
@@ -161,6 +179,10 @@ public class V1TopologySpreadConstraintFluentImpl<A extends V1TopologySpreadCons
     if (maxSkew != null) {
       sb.append("maxSkew:");
       sb.append(maxSkew + ",");
+    }
+    if (minDomains != null) {
+      sb.append("minDomains:");
+      sb.append(minDomains + ",");
     }
     if (topologyKey != null) {
       sb.append("topologyKey:");

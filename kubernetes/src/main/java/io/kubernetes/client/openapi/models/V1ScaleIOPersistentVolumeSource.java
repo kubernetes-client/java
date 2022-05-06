@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "ScaleIOPersistentVolumeSource represents a persistent ScaleIO volume")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ScaleIOPersistentVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -80,15 +80,16 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex.
-   * \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Default is \&quot;xfs\&quot;
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host
+   * operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Default is
+   * \&quot;xfs\&quot;
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Default is \"xfs\"")
+          "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Default is \"xfs\"")
   public String getFsType() {
     return fsType;
   }
@@ -104,11 +105,13 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * The host address of the ScaleIO API Gateway.
+   * gateway is the host address of the ScaleIO API Gateway.
    *
    * @return gateway
    */
-  @ApiModelProperty(required = true, value = "The host address of the ScaleIO API Gateway.")
+  @ApiModelProperty(
+      required = true,
+      value = "gateway is the host address of the ScaleIO API Gateway.")
   public String getGateway() {
     return gateway;
   }
@@ -124,12 +127,14 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * The name of the ScaleIO Protection Domain for the configured storage.
+   * protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.
    *
    * @return protectionDomain
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the ScaleIO Protection Domain for the configured storage.")
+  @ApiModelProperty(
+      value =
+          "protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.")
   public String getProtectionDomain() {
     return protectionDomain;
   }
@@ -145,14 +150,15 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
+   * VolumeMounts.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
+          "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -188,12 +194,14 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * Flag to enable/disable SSL communication with Gateway, default false
+   * sslEnabled is the flag to enable/disable SSL communication with Gateway, default false
    *
    * @return sslEnabled
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Flag to enable/disable SSL communication with Gateway, default false")
+  @ApiModelProperty(
+      value =
+          "sslEnabled is the flag to enable/disable SSL communication with Gateway, default false")
   public Boolean getSslEnabled() {
     return sslEnabled;
   }
@@ -209,15 +217,15 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned.
-   * Default is ThinProvisioned.
+   * storageMode indicates whether the storage for a volume should be ThickProvisioned or
+   * ThinProvisioned. Default is ThinProvisioned.
    *
    * @return storageMode
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.")
+          "storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.")
   public String getStorageMode() {
     return storageMode;
   }
@@ -233,12 +241,13 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * The ScaleIO Storage Pool associated with the protection domain.
+   * storagePool is the ScaleIO Storage Pool associated with the protection domain.
    *
    * @return storagePool
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ScaleIO Storage Pool associated with the protection domain.")
+  @ApiModelProperty(
+      value = "storagePool is the ScaleIO Storage Pool associated with the protection domain.")
   public String getStoragePool() {
     return storagePool;
   }
@@ -254,13 +263,13 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * The name of the storage system as configured in ScaleIO.
+   * system is the name of the storage system as configured in ScaleIO.
    *
    * @return system
    */
   @ApiModelProperty(
       required = true,
-      value = "The name of the storage system as configured in ScaleIO.")
+      value = "system is the name of the storage system as configured in ScaleIO.")
   public String getSystem() {
     return system;
   }
@@ -276,15 +285,15 @@ public class V1ScaleIOPersistentVolumeSource {
   }
 
   /**
-   * The name of a volume already created in the ScaleIO system that is associated with this volume
-   * source.
+   * volumeName is the name of a volume already created in the ScaleIO system that is associated
+   * with this volume source.
    *
    * @return volumeName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The name of a volume already created in the ScaleIO system that is associated with this volume source.")
+          "volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.")
   public String getVolumeName() {
     return volumeName;
   }

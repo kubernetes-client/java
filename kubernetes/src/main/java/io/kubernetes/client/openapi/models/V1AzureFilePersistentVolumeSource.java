@@ -23,7 +23,7 @@ import java.util.Objects;
         "AzureFile represents an Azure File Service mount on the host and bind mount to the pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1AzureFilePersistentVolumeSource {
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
 
@@ -52,14 +52,15 @@ public class V1AzureFilePersistentVolumeSource {
   }
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
+   * VolumeMounts.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
+          "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -75,13 +76,13 @@ public class V1AzureFilePersistentVolumeSource {
   }
 
   /**
-   * the name of secret that contains Azure Storage Account Name and Key
+   * secretName is the name of secret that contains Azure Storage Account Name and Key
    *
    * @return secretName
    */
   @ApiModelProperty(
       required = true,
-      value = "the name of secret that contains Azure Storage Account Name and Key")
+      value = "secretName is the name of secret that contains Azure Storage Account Name and Key")
   public String getSecretName() {
     return secretName;
   }
@@ -97,15 +98,15 @@ public class V1AzureFilePersistentVolumeSource {
   }
 
   /**
-   * the namespace of the secret that contains Azure Storage Account Name and Key default is the
-   * same as the Pod
+   * secretNamespace is the namespace of the secret that contains Azure Storage Account Name and Key
+   * default is the same as the Pod
    *
    * @return secretNamespace
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod")
+          "secretNamespace is the namespace of the secret that contains Azure Storage Account Name and Key default is the same as the Pod")
   public String getSecretNamespace() {
     return secretNamespace;
   }
@@ -121,11 +122,11 @@ public class V1AzureFilePersistentVolumeSource {
   }
 
   /**
-   * Share Name
+   * shareName is the azure Share Name
    *
    * @return shareName
    */
-  @ApiModelProperty(required = true, value = "Share Name")
+  @ApiModelProperty(required = true, value = "shareName is the azure Share Name")
   public String getShareName() {
     return shareName;
   }

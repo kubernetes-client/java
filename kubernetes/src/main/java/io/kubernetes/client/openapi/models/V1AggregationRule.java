@@ -25,7 +25,7 @@ import java.util.Objects;
         "AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1AggregationRule {
   public static final String SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS = "clusterRoleSelectors";
 

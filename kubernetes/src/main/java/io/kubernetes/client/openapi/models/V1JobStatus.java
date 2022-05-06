@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "JobStatus represents the current state of a Job.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
 
@@ -209,15 +209,15 @@ public class V1JobStatus {
   }
 
   /**
-   * The number of pods which have a Ready condition. This field is alpha-level. The job controller
-   * populates the field when the feature gate JobReadyPods is enabled (disabled by default).
+   * The number of pods which have a Ready condition. This field is beta-level. The job controller
+   * populates the field when the feature gate JobReadyPods is enabled (enabled by default).
    *
    * @return ready
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The number of pods which have a Ready condition.  This field is alpha-level. The job controller populates the field when the feature gate JobReadyPods is enabled (disabled by default).")
+          "The number of pods which have a Ready condition.  This field is beta-level. The job controller populates the field when the feature gate JobReadyPods is enabled (enabled by default).")
   public Integer getReady() {
     return ready;
   }

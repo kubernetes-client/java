@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "PersistentVolumeList is a list of PersistentVolume items.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PersistentVolumeList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -83,7 +83,7 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
   }
 
   /**
-   * List of persistent volumes. More info:
+   * items is a list of persistent volumes. More info:
    * https://kubernetes.io/docs/concepts/storage/persistent-volumes
    *
    * @return items
@@ -91,7 +91,7 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
   @ApiModelProperty(
       required = true,
       value =
-          "List of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes")
+          "items is a list of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes")
   public List<V1PersistentVolume> getItems() {
     return items;
   }

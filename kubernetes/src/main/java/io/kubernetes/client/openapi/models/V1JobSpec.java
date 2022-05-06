@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "JobSpec describes how the job execution will look like.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -137,16 +137,16 @@ public class V1JobSpec {
    * successfully completed Pod for each index. When value is &#x60;Indexed&#x60;, .spec.completions
    * must be specified and &#x60;.spec.parallelism&#x60; must be less than or equal to 10^5. In
    * addition, The Pod name takes the form &#x60;$(job-name)-$(index)-$(random-string)&#x60;, the
-   * Pod hostname takes the form &#x60;$(job-name)-$(index)&#x60;. This field is beta-level. More
-   * completion modes can be added in the future. If the Job controller observes a mode that it
-   * doesn&#39;t recognize, the controller skips updates for the Job.
+   * Pod hostname takes the form &#x60;$(job-name)-$(index)&#x60;. More completion modes can be
+   * added in the future. If the Job controller observes a mode that it doesn&#39;t recognize, which
+   * is possible during upgrades due to version skew, the controller skips updates for the Job.
    *
    * @return completionMode
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "CompletionMode specifies how Pod completions are tracked. It can be `NonIndexed` (default) or `Indexed`.  `NonIndexed` means that the Job is considered complete when there have been .spec.completions successfully completed Pods. Each Pod completion is homologous to each other.  `Indexed` means that the Pods of a Job get an associated completion index from 0 to (.spec.completions - 1), available in the annotation batch.kubernetes.io/job-completion-index. The Job is considered complete when there is one successfully completed Pod for each index. When value is `Indexed`, .spec.completions must be specified and `.spec.parallelism` must be less than or equal to 10^5. In addition, The Pod name takes the form `$(job-name)-$(index)-$(random-string)`, the Pod hostname takes the form `$(job-name)-$(index)`.  This field is beta-level. More completion modes can be added in the future. If the Job controller observes a mode that it doesn't recognize, the controller skips updates for the Job.")
+          "CompletionMode specifies how Pod completions are tracked. It can be `NonIndexed` (default) or `Indexed`.  `NonIndexed` means that the Job is considered complete when there have been .spec.completions successfully completed Pods. Each Pod completion is homologous to each other.  `Indexed` means that the Pods of a Job get an associated completion index from 0 to (.spec.completions - 1), available in the annotation batch.kubernetes.io/job-completion-index. The Job is considered complete when there is one successfully completed Pod for each index. When value is `Indexed`, .spec.completions must be specified and `.spec.parallelism` must be less than or equal to 10^5. In addition, The Pod name takes the form `$(job-name)-$(index)-$(random-string)`, the Pod hostname takes the form `$(job-name)-$(index)`.  More completion modes can be added in the future. If the Job controller observes a mode that it doesn't recognize, which is possible during upgrades due to version skew, the controller skips updates for the Job.")
   public String getCompletionMode() {
     return completionMode;
   }
@@ -272,15 +272,14 @@ public class V1JobSpec {
    * after creation (i.e. the flag goes from false to true), the Job controller will delete all
    * active Pods associated with this Job. Users must design their workload to gracefully handle
    * this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the
-   * ActiveDeadlineSeconds timer too. Defaults to false. This field is beta-level, gated by
-   * SuspendJob feature flag (enabled by default).
+   * ActiveDeadlineSeconds timer too. Defaults to false.
    *
    * @return suspend
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Suspend specifies whether the Job controller should create Pods or not. If a Job is created with suspend set to true, no Pods are created by the Job controller. If a Job is suspended after creation (i.e. the flag goes from false to true), the Job controller will delete all active Pods associated with this Job. Users must design their workload to gracefully handle this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the ActiveDeadlineSeconds timer too. Defaults to false.  This field is beta-level, gated by SuspendJob feature flag (enabled by default).")
+          "Suspend specifies whether the Job controller should create Pods or not. If a Job is created with suspend set to true, no Pods are created by the Job controller. If a Job is suspended after creation (i.e. the flag goes from false to true), the Job controller will delete all active Pods associated with this Job. Users must design their workload to gracefully handle this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the ActiveDeadlineSeconds timer too. Defaults to false.")
   public Boolean getSuspend() {
     return suspend;
   }

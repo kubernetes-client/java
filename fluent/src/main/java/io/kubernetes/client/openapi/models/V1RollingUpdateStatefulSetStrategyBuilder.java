@@ -49,6 +49,8 @@ public class V1RollingUpdateStatefulSetStrategyBuilder
       io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy instance,
       java.lang.Boolean validationEnabled) {
     this.fluent = fluent;
+    fluent.withMaxUnavailable(instance.getMaxUnavailable());
+
     fluent.withPartition(instance.getPartition());
 
     this.validationEnabled = validationEnabled;
@@ -63,6 +65,8 @@ public class V1RollingUpdateStatefulSetStrategyBuilder
       io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy instance,
       java.lang.Boolean validationEnabled) {
     this.fluent = this;
+    this.withMaxUnavailable(instance.getMaxUnavailable());
+
     this.withPartition(instance.getPartition());
 
     this.validationEnabled = validationEnabled;
@@ -73,6 +77,7 @@ public class V1RollingUpdateStatefulSetStrategyBuilder
 
   public io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy build() {
     V1RollingUpdateStatefulSetStrategy buildable = new V1RollingUpdateStatefulSetStrategy();
+    buildable.setMaxUnavailable(fluent.getMaxUnavailable());
     buildable.setPartition(fluent.getPartition());
     return buildable;
   }

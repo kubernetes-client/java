@@ -22,12 +22,11 @@ import java.util.function.Predicate;
 
 /** Generated */
 @SuppressWarnings(value = "unchecked")
-public class V1alpha1CSIStorageCapacityListFluentImpl<
-        A extends V1alpha1CSIStorageCapacityListFluent<A>>
-    extends BaseFluent<A> implements V1alpha1CSIStorageCapacityListFluent<A> {
-  public V1alpha1CSIStorageCapacityListFluentImpl() {}
+public class V1CSIStorageCapacityListFluentImpl<A extends V1CSIStorageCapacityListFluent<A>>
+    extends BaseFluent<A> implements V1CSIStorageCapacityListFluent<A> {
+  public V1CSIStorageCapacityListFluentImpl() {}
 
-  public V1alpha1CSIStorageCapacityListFluentImpl(V1alpha1CSIStorageCapacityList instance) {
+  public V1CSIStorageCapacityListFluentImpl(V1CSIStorageCapacityList instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withItems(instance.getItems());
@@ -38,7 +37,7 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   private String apiVersion;
-  private ArrayList<V1alpha1CSIStorageCapacityBuilder> items;
+  private ArrayList<V1CSIStorageCapacityBuilder> items;
   private java.lang.String kind;
   private V1ListMetaBuilder metadata;
 
@@ -56,29 +55,28 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   public A addToItems(
-      Integer index, io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item) {
+      Integer index, io.kubernetes.client.openapi.models.V1CSIStorageCapacity item) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder>();
+              io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder builder =
-        new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder(item);
+    io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder builder =
+        new io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
   public A setToItems(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item) {
+      java.lang.Integer index, io.kubernetes.client.openapi.models.V1CSIStorageCapacity item) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder>();
+              io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder builder =
-        new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder(item);
+    io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder builder =
+        new io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -92,15 +90,15 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
     return (A) this;
   }
 
-  public A addToItems(io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity... items) {
+  public A addToItems(io.kubernetes.client.openapi.models.V1CSIStorageCapacity... items) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder>();
+              io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item : items) {
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder builder =
-          new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder(item);
+    for (io.kubernetes.client.openapi.models.V1CSIStorageCapacity item : items) {
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder builder =
+          new io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -108,26 +106,25 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity> items) {
+      Collection<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> items) {
     if (this.items == null) {
       this.items =
           new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder>();
+              io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item : items) {
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder builder =
-          new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder(item);
+    for (io.kubernetes.client.openapi.models.V1CSIStorageCapacity item : items) {
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder builder =
+          new io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A removeFromItems(
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity... items) {
-    for (io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item : items) {
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder builder =
-          new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder(item);
+  public A removeFromItems(io.kubernetes.client.openapi.models.V1CSIStorageCapacity... items) {
+    for (io.kubernetes.client.openapi.models.V1CSIStorageCapacity item : items) {
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder builder =
+          new io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -137,10 +134,10 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity> items) {
-    for (io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item : items) {
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder builder =
-          new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder(item);
+      java.util.Collection<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> items) {
+    for (io.kubernetes.client.openapi.models.V1CSIStorageCapacity item : items) {
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder builder =
+          new io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -150,13 +147,13 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder> predicate) {
+      Predicate<io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder> each =
+    final Iterator<io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder> each =
         items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder builder = each.next();
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -171,33 +168,31 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity> getItems() {
+  public List<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity>
-      buildItems() {
+  public java.util.List<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity buildItem(
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity buildItem(
       java.lang.Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity buildFirstItem() {
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity buildLastItem() {
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity buildMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity buildMatchingItem(
+      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>
           predicate) {
-    for (io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder item : items) {
+    for (io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -206,10 +201,9 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder>
+      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>
           predicate) {
-    for (io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder item : items) {
+    for (io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -218,13 +212,13 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity> items) {
+      java.util.List<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
       this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item : items) {
+      for (io.kubernetes.client.openapi.models.V1CSIStorageCapacity item : items) {
         this.addToItems(item);
       }
     } else {
@@ -233,12 +227,12 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
     return (A) this;
   }
 
-  public A withItems(io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity... items) {
+  public A withItems(io.kubernetes.client.openapi.models.V1CSIStorageCapacity... items) {
     if (this.items != null) {
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item : items) {
+      for (io.kubernetes.client.openapi.models.V1CSIStorageCapacity item : items) {
         this.addToItems(item);
       }
     }
@@ -249,46 +243,45 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
     return items != null && !items.isEmpty();
   }
 
-  public V1alpha1CSIStorageCapacityListFluent.ItemsNested<A> addNewItem() {
-    return new V1alpha1CSIStorageCapacityListFluentImpl.ItemsNestedImpl();
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> addNewItem() {
+    return new V1CSIStorageCapacityListFluentImpl.ItemsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item) {
-    return new V1alpha1CSIStorageCapacityListFluentImpl.ItemsNestedImpl(-1, item);
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
+      addNewItemLike(io.kubernetes.client.openapi.models.V1CSIStorageCapacity item) {
+    return new V1CSIStorageCapacityListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.ItemsNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
       setNewItemLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item) {
-    return new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluentImpl
+          java.lang.Integer index, io.kubernetes.client.openapi.models.V1CSIStorageCapacity item) {
+    return new io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluentImpl
         .ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.ItemsNested<A>
-      editItem(java.lang.Integer index) {
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A> editItem(
+      java.lang.Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.ItemsNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
       editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.ItemsNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
       editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.ItemsNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
       editMatchingItem(
           java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder>
+                  io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>
               predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
@@ -341,22 +334,22 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
     return this.metadata != null;
   }
 
-  public V1alpha1CSIStorageCapacityListFluent.MetadataNested<A> withNewMetadata() {
-    return new V1alpha1CSIStorageCapacityListFluentImpl.MetadataNestedImpl();
+  public V1CSIStorageCapacityListFluent.MetadataNested<A> withNewMetadata() {
+    return new V1CSIStorageCapacityListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.MetadataNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluentImpl
+    return new io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluentImpl
         .MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.MetadataNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<A>
       editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.MetadataNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<A>
       editOrNewMetadata() {
     return withNewMetadataLike(
         getMetadata() != null
@@ -364,7 +357,7 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
             : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent.MetadataNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<A>
       editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
@@ -372,7 +365,7 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    V1alpha1CSIStorageCapacityListFluentImpl that = (V1alpha1CSIStorageCapacityListFluentImpl) o;
+    V1CSIStorageCapacityListFluentImpl that = (V1CSIStorageCapacityListFluentImpl) o;
     if (apiVersion != null ? !apiVersion.equals(that.apiVersion) : that.apiVersion != null)
       return false;
     if (items != null ? !items.equals(that.items) : that.items != null) return false;
@@ -409,30 +402,25 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   class ItemsNestedImpl<N>
-      extends V1alpha1CSIStorageCapacityFluentImpl<
-          V1alpha1CSIStorageCapacityListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent
-                  .ItemsNested<
-              N>,
+      extends V1CSIStorageCapacityFluentImpl<V1CSIStorageCapacityListFluent.ItemsNested<N>>
+      implements io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<N>,
           Nested<N> {
     ItemsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity item) {
+        java.lang.Integer index, io.kubernetes.client.openapi.models.V1CSIStorageCapacity item) {
       this.index = index;
-      this.builder = new V1alpha1CSIStorageCapacityBuilder(this, item);
+      this.builder = new V1CSIStorageCapacityBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder(this);
+      this.builder = new io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder builder;
+    io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder builder;
     java.lang.Integer index;
 
     public N and() {
-      return (N) V1alpha1CSIStorageCapacityListFluentImpl.this.setToItems(index, builder.build());
+      return (N) V1CSIStorageCapacityListFluentImpl.this.setToItems(index, builder.build());
     }
 
     public N endItem() {
@@ -441,9 +429,8 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
   }
 
   class MetadataNestedImpl<N>
-      extends V1ListMetaFluentImpl<V1alpha1CSIStorageCapacityListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityListFluent
-                  .MetadataNested<
+      extends V1ListMetaFluentImpl<V1CSIStorageCapacityListFluent.MetadataNested<N>>
+      implements io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
@@ -457,7 +444,7 @@ public class V1alpha1CSIStorageCapacityListFluentImpl<
     io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
 
     public N and() {
-      return (N) V1alpha1CSIStorageCapacityListFluentImpl.this.withMetadata(builder.build());
+      return (N) V1CSIStorageCapacityListFluentImpl.this.withMetadata(builder.build());
     }
 
     public N endMetadata() {

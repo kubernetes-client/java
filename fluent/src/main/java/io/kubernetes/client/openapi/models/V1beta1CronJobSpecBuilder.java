@@ -62,6 +62,8 @@ public class V1beta1CronJobSpecBuilder
 
     fluent.withSuspend(instance.getSuspend());
 
+    fluent.withTimeZone(instance.getTimeZone());
+
     this.validationEnabled = validationEnabled;
   }
 
@@ -88,6 +90,8 @@ public class V1beta1CronJobSpecBuilder
 
     this.withSuspend(instance.getSuspend());
 
+    this.withTimeZone(instance.getTimeZone());
+
     this.validationEnabled = validationEnabled;
   }
 
@@ -103,6 +107,7 @@ public class V1beta1CronJobSpecBuilder
     buildable.setStartingDeadlineSeconds(fluent.getStartingDeadlineSeconds());
     buildable.setSuccessfulJobsHistoryLimit(fluent.getSuccessfulJobsHistoryLimit());
     buildable.setSuspend(fluent.getSuspend());
+    buildable.setTimeZone(fluent.getTimeZone());
     return buildable;
   }
 }

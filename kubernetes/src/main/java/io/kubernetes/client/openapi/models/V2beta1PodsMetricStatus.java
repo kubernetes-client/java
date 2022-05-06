@@ -27,7 +27,7 @@ import java.util.Objects;
         "PodsMetricStatus indicates the current value of a metric describing each pod in the current scale target (for example, transactions-processed-per-second).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V2beta1PodsMetricStatus {
   public static final String SERIALIZED_NAME_CURRENT_AVERAGE_VALUE = "currentAverageValue";
 

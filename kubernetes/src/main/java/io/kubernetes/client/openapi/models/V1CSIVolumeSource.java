@@ -25,7 +25,7 @@ import java.util.Objects;
         "Represents a source location of a volume to mount, managed by an external CSI driver")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1CSIVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
 
@@ -59,7 +59,7 @@ public class V1CSIVolumeSource {
   }
 
   /**
-   * Driver is the name of the CSI driver that handles this volume. Consult with your admin for the
+   * driver is the name of the CSI driver that handles this volume. Consult with your admin for the
    * correct name as registered in the cluster.
    *
    * @return driver
@@ -67,7 +67,7 @@ public class V1CSIVolumeSource {
   @ApiModelProperty(
       required = true,
       value =
-          "Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.")
+          "driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster.")
   public String getDriver() {
     return driver;
   }
@@ -83,7 +83,7 @@ public class V1CSIVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. If not
+   * fsType to mount. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. If not
    * provided, the empty value is passed to the associated CSI driver which will determine the
    * default filesystem to apply.
    *
@@ -92,7 +92,7 @@ public class V1CSIVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. Ex. \"ext4\", \"xfs\", \"ntfs\". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.")
+          "fsType to mount. Ex. \"ext4\", \"xfs\", \"ntfs\". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.")
   public String getFsType() {
     return fsType;
   }
@@ -129,13 +129,14 @@ public class V1CSIVolumeSource {
   }
 
   /**
-   * Specifies a read-only configuration for the volume. Defaults to false (read/write).
+   * readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "Specifies a read-only configuration for the volume. Defaults to false (read/write).")
+      value =
+          "readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -159,7 +160,7 @@ public class V1CSIVolumeSource {
   }
 
   /**
-   * VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult
+   * volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult
    * your driver&#39;s documentation for supported values.
    *
    * @return volumeAttributes
@@ -167,7 +168,7 @@ public class V1CSIVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.")
+          "volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.")
   public Map<String, String> getVolumeAttributes() {
     return volumeAttributes;
   }

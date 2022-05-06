@@ -35,6 +35,8 @@ public class V1CronJobSpecFluentImpl<A extends V1CronJobSpecFluent<A>> extends B
     this.withSuccessfulJobsHistoryLimit(instance.getSuccessfulJobsHistoryLimit());
 
     this.withSuspend(instance.getSuspend());
+
+    this.withTimeZone(instance.getTimeZone());
   }
 
   private String concurrencyPolicy;
@@ -44,6 +46,7 @@ public class V1CronJobSpecFluentImpl<A extends V1CronJobSpecFluent<A>> extends B
   private Long startingDeadlineSeconds;
   private java.lang.Integer successfulJobsHistoryLimit;
   private Boolean suspend;
+  private java.lang.String timeZone;
 
   public java.lang.String getConcurrencyPolicy() {
     return this.concurrencyPolicy;
@@ -177,6 +180,19 @@ public class V1CronJobSpecFluentImpl<A extends V1CronJobSpecFluent<A>> extends B
     return this.suspend != null;
   }
 
+  public java.lang.String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public A withTimeZone(java.lang.String timeZone) {
+    this.timeZone = timeZone;
+    return (A) this;
+  }
+
+  public java.lang.Boolean hasTimeZone() {
+    return this.timeZone != null;
+  }
+
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -197,6 +213,7 @@ public class V1CronJobSpecFluentImpl<A extends V1CronJobSpecFluent<A>> extends B
         ? !successfulJobsHistoryLimit.equals(that.successfulJobsHistoryLimit)
         : that.successfulJobsHistoryLimit != null) return false;
     if (suspend != null ? !suspend.equals(that.suspend) : that.suspend != null) return false;
+    if (timeZone != null ? !timeZone.equals(that.timeZone) : that.timeZone != null) return false;
     return true;
   }
 
@@ -209,6 +226,7 @@ public class V1CronJobSpecFluentImpl<A extends V1CronJobSpecFluent<A>> extends B
         startingDeadlineSeconds,
         successfulJobsHistoryLimit,
         suspend,
+        timeZone,
         super.hashCode());
   }
 
@@ -241,7 +259,11 @@ public class V1CronJobSpecFluentImpl<A extends V1CronJobSpecFluent<A>> extends B
     }
     if (suspend != null) {
       sb.append("suspend:");
-      sb.append(suspend);
+      sb.append(suspend + ",");
+    }
+    if (timeZone != null) {
+      sb.append("timeZone:");
+      sb.append(timeZone);
     }
     sb.append("}");
     return sb.toString();

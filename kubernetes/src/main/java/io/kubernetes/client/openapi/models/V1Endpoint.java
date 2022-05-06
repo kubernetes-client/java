@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(description = "Endpoint represents a single logical \"backend\" implementing a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1Endpoint {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
 
@@ -82,14 +82,15 @@ public class V1Endpoint {
    * addresses of this endpoint. The contents of this field are interpreted according to the
    * corresponding EndpointSlice addressType field. Consumers must handle different types of
    * addresses in the context of their own capabilities. This must contain at least one address but
-   * no more than 100.
+   * no more than 100. These are all assumed to be fungible and clients may choose to only use the
+   * first element. Refer to: https://issue.k8s.io/106267
    *
    * @return addresses
    */
   @ApiModelProperty(
       required = true,
       value =
-          "addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100.")
+          "addresses of this endpoint. The contents of this field are interpreted according to the corresponding EndpointSlice addressType field. Consumers must handle different types of addresses in the context of their own capabilities. This must contain at least one address but no more than 100. These are all assumed to be fungible and clients may choose to only use the first element. Refer to: https://issue.k8s.io/106267")
   public List<String> getAddresses() {
     return addresses;
   }

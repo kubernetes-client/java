@@ -26,7 +26,7 @@ import java.util.Objects;
         "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ListMeta {
   public static final String SERIALIZED_NAME_CONTINUE = "continue";
 
@@ -140,16 +140,14 @@ public class V1ListMeta {
   }
 
   /**
-   * selfLink is a URL representing this object. Populated by the system. Read-only. DEPRECATED
-   * Kubernetes will stop propagating this field in 1.20 release and the field is planned to be
-   * removed in 1.21 release.
+   * Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.
    *
    * @return selfLink
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "selfLink is a URL representing this object. Populated by the system. Read-only.  DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.")
+          "Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.")
   public String getSelfLink() {
     return selfLink;
   }

@@ -23,7 +23,7 @@ import java.util.Objects;
         "AzureFile represents an Azure File Service mount on the host and bind mount to the pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1AzureFileVolumeSource {
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
 
@@ -47,14 +47,15 @@ public class V1AzureFileVolumeSource {
   }
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
+   * VolumeMounts.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
+          "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -70,13 +71,13 @@ public class V1AzureFileVolumeSource {
   }
 
   /**
-   * the name of secret that contains Azure Storage Account Name and Key
+   * secretName is the name of secret that contains Azure Storage Account Name and Key
    *
    * @return secretName
    */
   @ApiModelProperty(
       required = true,
-      value = "the name of secret that contains Azure Storage Account Name and Key")
+      value = "secretName is the  name of secret that contains Azure Storage Account Name and Key")
   public String getSecretName() {
     return secretName;
   }
@@ -92,11 +93,11 @@ public class V1AzureFileVolumeSource {
   }
 
   /**
-   * Share Name
+   * shareName is the azure share Name
    *
    * @return shareName
    */
-  @ApiModelProperty(required = true, value = "Share Name")
+  @ApiModelProperty(required = true, value = "shareName is the azure share Name")
   public String getShareName() {
     return shareName;
   }

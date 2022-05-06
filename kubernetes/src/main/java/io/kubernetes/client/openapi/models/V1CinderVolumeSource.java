@@ -27,7 +27,7 @@ import java.util.Objects;
         "Represents a cinder volume resource in Openstack. A Cinder volume must exist before mounting to a container. The volume must also be in the same region as the kubelet. Cinder volumes support ownership management and SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1CinderVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -56,16 +56,17 @@ public class V1CinderVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system.
-   * Examples: \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be
-   * \&quot;ext4\&quot; if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host
+   * operating system. Examples: \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;.
+   * Implicitly inferred to be \&quot;ext4\&quot; if unspecified. More info:
+   * https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md")
+          "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://examples.k8s.io/mysql-cinder-pd/README.md")
   public String getFsType() {
     return fsType;
   }
@@ -81,7 +82,7 @@ public class V1CinderVolumeSource {
   }
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
    * VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @return readOnly
@@ -89,7 +90,7 @@ public class V1CinderVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md")
+          "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/mysql-cinder-pd/README.md")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -126,7 +127,7 @@ public class V1CinderVolumeSource {
   }
 
   /**
-   * volume id used to identify the volume in cinder. More info:
+   * volumeID used to identify the volume in cinder. More info:
    * https://examples.k8s.io/mysql-cinder-pd/README.md
    *
    * @return volumeID
@@ -134,7 +135,7 @@ public class V1CinderVolumeSource {
   @ApiModelProperty(
       required = true,
       value =
-          "volume id used to identify the volume in cinder. More info: https://examples.k8s.io/mysql-cinder-pd/README.md")
+          "volumeID used to identify the volume in cinder. More info: https://examples.k8s.io/mysql-cinder-pd/README.md")
   public String getVolumeID() {
     return volumeID;
   }

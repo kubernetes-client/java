@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **glusterfs** | [**V1GlusterfsVolumeSource**](V1GlusterfsVolumeSource.md) |  |  [optional]
 **hostPath** | [**V1HostPathVolumeSource**](V1HostPathVolumeSource.md) |  |  [optional]
 **iscsi** | [**V1ISCSIVolumeSource**](V1ISCSIVolumeSource.md) |  |  [optional]
-**name** | **String** | Volume&#39;s name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names | 
+**name** | **String** | name of the volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names | 
 **nfs** | [**V1NFSVolumeSource**](V1NFSVolumeSource.md) |  |  [optional]
 **persistentVolumeClaim** | [**V1PersistentVolumeClaimVolumeSource**](V1PersistentVolumeClaimVolumeSource.md) |  |  [optional]
 **photonPersistentDisk** | [**V1PhotonPersistentDiskVolumeSource**](V1PhotonPersistentDiskVolumeSource.md) |  |  [optional]

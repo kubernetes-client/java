@@ -23,7 +23,7 @@ import java.util.Objects;
         "HPAScalingPolicy is a single policy which must hold true for a specified past interval.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V2beta2HPAScalingPolicy {
   public static final String SERIALIZED_NAME_PERIOD_SECONDS = "periodSeconds";
 

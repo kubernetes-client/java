@@ -82,6 +82,33 @@ public interface V1NetworkPolicyFluent<A extends V1NetworkPolicyFluent<A>> exten
   public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.SpecNested<A> editOrNewSpecLike(
       io.kubernetes.client.openapi.models.V1NetworkPolicySpec item);
 
+  /**
+   * This method has been deprecated, please use method buildStatus instead.
+   *
+   * @return The buildable object.
+   */
+  @java.lang.Deprecated
+  public V1NetworkPolicyStatus getStatus();
+
+  public io.kubernetes.client.openapi.models.V1NetworkPolicyStatus buildStatus();
+
+  public A withStatus(io.kubernetes.client.openapi.models.V1NetworkPolicyStatus status);
+
+  public java.lang.Boolean hasStatus();
+
+  public V1NetworkPolicyFluent.StatusNested<A> withNewStatus();
+
+  public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.StatusNested<A>
+      withNewStatusLike(io.kubernetes.client.openapi.models.V1NetworkPolicyStatus item);
+
+  public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.StatusNested<A> editStatus();
+
+  public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.StatusNested<A>
+      editOrNewStatus();
+
+  public io.kubernetes.client.openapi.models.V1NetworkPolicyFluent.StatusNested<A>
+      editOrNewStatusLike(io.kubernetes.client.openapi.models.V1NetworkPolicyStatus item);
+
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1NetworkPolicyFluent.MetadataNested<N>> {
     public N and();
@@ -95,5 +122,13 @@ public interface V1NetworkPolicyFluent<A extends V1NetworkPolicyFluent<A>> exten
     public N and();
 
     public N endSpec();
+  }
+
+  public interface StatusNested<N>
+      extends io.kubernetes.client.fluent.Nested<N>,
+          V1NetworkPolicyStatusFluent<V1NetworkPolicyFluent.StatusNested<N>> {
+    public N and();
+
+    public N endStatus();
   }
 }

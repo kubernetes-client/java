@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "NetworkPolicy describes what network traffic is allowed for a set of Pods")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1NetworkPolicy implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -42,6 +42,11 @@ public class V1NetworkPolicy implements io.kubernetes.client.common.KubernetesOb
 
   @SerializedName(SERIALIZED_NAME_SPEC)
   private V1NetworkPolicySpec spec;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private V1NetworkPolicyStatus status;
 
   public V1NetworkPolicy apiVersion(String apiVersion) {
 
@@ -137,6 +142,27 @@ public class V1NetworkPolicy implements io.kubernetes.client.common.KubernetesOb
     this.spec = spec;
   }
 
+  public V1NetworkPolicy status(V1NetworkPolicyStatus status) {
+
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   *
+   * @return status
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1NetworkPolicyStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(V1NetworkPolicyStatus status) {
+    this.status = status;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -149,12 +175,13 @@ public class V1NetworkPolicy implements io.kubernetes.client.common.KubernetesOb
     return Objects.equals(this.apiVersion, v1NetworkPolicy.apiVersion)
         && Objects.equals(this.kind, v1NetworkPolicy.kind)
         && Objects.equals(this.metadata, v1NetworkPolicy.metadata)
-        && Objects.equals(this.spec, v1NetworkPolicy.spec);
+        && Objects.equals(this.spec, v1NetworkPolicy.spec)
+        && Objects.equals(this.status, v1NetworkPolicy.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, kind, metadata, spec);
+    return Objects.hash(apiVersion, kind, metadata, spec, status);
   }
 
   @Override
@@ -165,6 +192,7 @@ public class V1NetworkPolicy implements io.kubernetes.client.common.KubernetesOb
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

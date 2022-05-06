@@ -18,12 +18,12 @@ import io.kubernetes.client.fluent.Nested;
 
 /** Generated */
 @SuppressWarnings(value = "unchecked")
-public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCapacityFluent<A>>
-    extends BaseFluent<A> implements V1alpha1CSIStorageCapacityFluent<A> {
-  public V1alpha1CSIStorageCapacityFluentImpl() {}
+public class V1CSIStorageCapacityFluentImpl<A extends V1CSIStorageCapacityFluent<A>>
+    extends BaseFluent<A> implements V1CSIStorageCapacityFluent<A> {
+  public V1CSIStorageCapacityFluentImpl() {}
 
-  public V1alpha1CSIStorageCapacityFluentImpl(
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity instance) {
+  public V1CSIStorageCapacityFluentImpl(
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacity instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withCapacity(instance.getCapacity());
@@ -134,21 +134,21 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
     return this.metadata != null;
   }
 
-  public V1alpha1CSIStorageCapacityFluent.MetadataNested<A> withNewMetadata() {
-    return new V1alpha1CSIStorageCapacityFluentImpl.MetadataNestedImpl();
+  public V1CSIStorageCapacityFluent.MetadataNested<A> withNewMetadata() {
+    return new V1CSIStorageCapacityFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.MetadataNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.MetadataNested<A>
       withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new V1alpha1CSIStorageCapacityFluentImpl.MetadataNestedImpl(item);
+    return new V1CSIStorageCapacityFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.MetadataNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.MetadataNested<A>
       editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.MetadataNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.MetadataNested<A>
       editOrNewMetadata() {
     return withNewMetadataLike(
         getMetadata() != null
@@ -156,7 +156,7 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
             : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.MetadataNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.MetadataNested<A>
       editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
@@ -188,22 +188,22 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
     return this.nodeTopology != null;
   }
 
-  public V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<A> withNewNodeTopology() {
-    return new V1alpha1CSIStorageCapacityFluentImpl.NodeTopologyNestedImpl();
+  public V1CSIStorageCapacityFluent.NodeTopologyNested<A> withNewNodeTopology() {
+    return new V1CSIStorageCapacityFluentImpl.NodeTopologyNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.NodeTopologyNested<A>
       withNewNodeTopologyLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluentImpl
+    return new io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluentImpl
         .NodeTopologyNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.NodeTopologyNested<A>
       editNodeTopology() {
     return withNewNodeTopologyLike(getNodeTopology());
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.NodeTopologyNested<A>
       editOrNewNodeTopology() {
     return withNewNodeTopologyLike(
         getNodeTopology() != null
@@ -211,7 +211,7 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
             : new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<A>
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.NodeTopologyNested<A>
       editOrNewNodeTopologyLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
     return withNewNodeTopologyLike(getNodeTopology() != null ? getNodeTopology() : item);
   }
@@ -232,7 +232,7 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    V1alpha1CSIStorageCapacityFluentImpl that = (V1alpha1CSIStorageCapacityFluentImpl) o;
+    V1CSIStorageCapacityFluentImpl that = (V1CSIStorageCapacityFluentImpl) o;
     if (apiVersion != null ? !apiVersion.equals(that.apiVersion) : that.apiVersion != null)
       return false;
     if (capacity != null ? !capacity.equals(that.capacity) : that.capacity != null) return false;
@@ -297,10 +297,8 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
   }
 
   class MetadataNestedImpl<N>
-      extends V1ObjectMetaFluentImpl<V1alpha1CSIStorageCapacityFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent
-                  .MetadataNested<
-              N>,
+      extends V1ObjectMetaFluentImpl<V1CSIStorageCapacityFluent.MetadataNested<N>>
+      implements io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.MetadataNested<N>,
           Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
@@ -313,7 +311,7 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
     io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
 
     public N and() {
-      return (N) V1alpha1CSIStorageCapacityFluentImpl.this.withMetadata(builder.build());
+      return (N) V1CSIStorageCapacityFluentImpl.this.withMetadata(builder.build());
     }
 
     public N endMetadata() {
@@ -322,9 +320,8 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
   }
 
   class NodeTopologyNestedImpl<N>
-      extends V1LabelSelectorFluentImpl<V1alpha1CSIStorageCapacityFluent.NodeTopologyNested<N>>
-      implements io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent
-                  .NodeTopologyNested<
+      extends V1LabelSelectorFluentImpl<V1CSIStorageCapacityFluent.NodeTopologyNested<N>>
+      implements io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent.NodeTopologyNested<
               N>,
           io.kubernetes.client.fluent.Nested<N> {
     NodeTopologyNestedImpl(V1LabelSelector item) {
@@ -338,7 +335,7 @@ public class V1alpha1CSIStorageCapacityFluentImpl<A extends V1alpha1CSIStorageCa
     io.kubernetes.client.openapi.models.V1LabelSelectorBuilder builder;
 
     public N and() {
-      return (N) V1alpha1CSIStorageCapacityFluentImpl.this.withNodeTopology(builder.build());
+      return (N) V1CSIStorageCapacityFluentImpl.this.withNodeTopology(builder.build());
     }
 
     public N endNodeTopology() {

@@ -53,6 +53,12 @@ public interface V1TopologySpreadConstraintFluent<A extends V1TopologySpreadCons
 
   public java.lang.Boolean hasMaxSkew();
 
+  public java.lang.Integer getMinDomains();
+
+  public A withMinDomains(java.lang.Integer minDomains);
+
+  public java.lang.Boolean hasMinDomains();
+
   public String getTopologyKey();
 
   public A withTopologyKey(java.lang.String topologyKey);

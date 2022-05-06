@@ -14,38 +14,38 @@ package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
 
-public class V1alpha1CSIStorageCapacityBuilder
-    extends V1alpha1CSIStorageCapacityFluentImpl<V1alpha1CSIStorageCapacityBuilder>
+public class V1CSIStorageCapacityBuilder
+    extends V1CSIStorageCapacityFluentImpl<V1CSIStorageCapacityBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity,
-        io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityBuilder> {
-  public V1alpha1CSIStorageCapacityBuilder() {
+        io.kubernetes.client.openapi.models.V1CSIStorageCapacity,
+        io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder> {
+  public V1CSIStorageCapacityBuilder() {
     this(false);
   }
 
-  public V1alpha1CSIStorageCapacityBuilder(Boolean validationEnabled) {
-    this(new V1alpha1CSIStorageCapacity(), validationEnabled);
+  public V1CSIStorageCapacityBuilder(Boolean validationEnabled) {
+    this(new V1CSIStorageCapacity(), validationEnabled);
   }
 
-  public V1alpha1CSIStorageCapacityBuilder(V1alpha1CSIStorageCapacityFluent<?> fluent) {
+  public V1CSIStorageCapacityBuilder(V1CSIStorageCapacityFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1alpha1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent<?> fluent,
+  public V1CSIStorageCapacityBuilder(
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent<?> fluent,
       java.lang.Boolean validationEnabled) {
-    this(fluent, new V1alpha1CSIStorageCapacity(), validationEnabled);
+    this(fluent, new V1CSIStorageCapacity(), validationEnabled);
   }
 
-  public V1alpha1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity instance) {
+  public V1CSIStorageCapacityBuilder(
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent<?> fluent,
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacity instance) {
     this(fluent, instance, false);
   }
 
-  public V1alpha1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity instance,
+  public V1CSIStorageCapacityBuilder(
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent<?> fluent,
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacity instance,
       java.lang.Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
@@ -65,13 +65,13 @@ public class V1alpha1CSIStorageCapacityBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1alpha1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity instance) {
+  public V1CSIStorageCapacityBuilder(
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacity instance) {
     this(instance, false);
   }
 
-  public V1alpha1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity instance,
+  public V1CSIStorageCapacityBuilder(
+      io.kubernetes.client.openapi.models.V1CSIStorageCapacity instance,
       java.lang.Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
@@ -91,11 +91,11 @@ public class V1alpha1CSIStorageCapacityBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacityFluent<?> fluent;
+  io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent<?> fluent;
   java.lang.Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1alpha1CSIStorageCapacity build() {
-    V1alpha1CSIStorageCapacity buildable = new V1alpha1CSIStorageCapacity();
+  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity build() {
+    V1CSIStorageCapacity buildable = new V1CSIStorageCapacity();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setCapacity(fluent.getCapacity());
     buildable.setKind(fluent.getKind());

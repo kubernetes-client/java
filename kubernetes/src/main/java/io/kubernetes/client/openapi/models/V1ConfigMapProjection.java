@@ -30,7 +30,7 @@ import java.util.Objects;
         "Adapts a ConfigMap into a projected volume.  The contents of the target ConfigMap's Data field will be presented in a projected volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. Note that this is identical to a configmap volume source without the default mode.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ConfigMapProjection {
   public static final String SERIALIZED_NAME_ITEMS = "items";
 
@@ -62,7 +62,7 @@ public class V1ConfigMapProjection {
   }
 
   /**
-   * If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be
+   * items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be
    * projected into the volume as a file whose name is the key and content is the value. If
    * specified, the listed keys will be projected into the specified paths, and unlisted keys will
    * not be present. If a key is specified which is not present in the ConfigMap, the volume setup
@@ -74,7 +74,7 @@ public class V1ConfigMapProjection {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "If unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.")
+          "items if unspecified, each key-value pair in the Data field of the referenced ConfigMap will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the ConfigMap, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.")
   public List<V1KeyToPath> getItems() {
     return items;
   }
@@ -114,12 +114,12 @@ public class V1ConfigMapProjection {
   }
 
   /**
-   * Specify whether the ConfigMap or its keys must be defined
+   * optional specify whether the ConfigMap or its keys must be defined
    *
    * @return optional
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specify whether the ConfigMap or its keys must be defined")
+  @ApiModelProperty(value = "optional specify whether the ConfigMap or its keys must be defined")
   public Boolean getOptional() {
     return optional;
   }

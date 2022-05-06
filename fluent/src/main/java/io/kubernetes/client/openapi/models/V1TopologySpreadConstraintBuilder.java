@@ -52,6 +52,8 @@ public class V1TopologySpreadConstraintBuilder
 
     fluent.withMaxSkew(instance.getMaxSkew());
 
+    fluent.withMinDomains(instance.getMinDomains());
+
     fluent.withTopologyKey(instance.getTopologyKey());
 
     fluent.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
@@ -72,6 +74,8 @@ public class V1TopologySpreadConstraintBuilder
 
     this.withMaxSkew(instance.getMaxSkew());
 
+    this.withMinDomains(instance.getMinDomains());
+
     this.withTopologyKey(instance.getTopologyKey());
 
     this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
@@ -86,6 +90,7 @@ public class V1TopologySpreadConstraintBuilder
     V1TopologySpreadConstraint buildable = new V1TopologySpreadConstraint();
     buildable.setLabelSelector(fluent.getLabelSelector());
     buildable.setMaxSkew(fluent.getMaxSkew());
+    buildable.setMinDomains(fluent.getMinDomains());
     buildable.setTopologyKey(fluent.getTopologyKey());
     buildable.setWhenUnsatisfiable(fluent.getWhenUnsatisfiable());
     return buildable;
