@@ -23,7 +23,7 @@ import java.util.Objects;
         "SELinuxStrategyOptions defines the strategy type and any options used to create the strategy.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1beta1SELinuxStrategyOptions {
   public static final String SERIALIZED_NAME_RULE = "rule";
 

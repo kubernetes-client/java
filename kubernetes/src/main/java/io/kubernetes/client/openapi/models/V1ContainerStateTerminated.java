@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "ContainerStateTerminated is a terminated state of a container.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ContainerStateTerminated {
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
 
@@ -66,12 +66,12 @@ public class V1ContainerStateTerminated {
   }
 
   /**
-   * Container&#39;s ID in the format &#39;docker://&lt;container_id&gt;&#39;
+   * Container&#39;s ID in the format &#39;&lt;type&gt;://&lt;container_id&gt;&#39;
    *
    * @return containerID
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Container's ID in the format 'docker://<container_id>'")
+  @ApiModelProperty(value = "Container's ID in the format '<type>://<container_id>'")
   public String getContainerID() {
     return containerID;
   }

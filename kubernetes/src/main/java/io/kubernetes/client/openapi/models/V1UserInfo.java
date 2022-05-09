@@ -27,7 +27,7 @@ import java.util.Objects;
         "UserInfo holds the information about the user needed to implement the user.Info interface.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1UserInfo {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
 

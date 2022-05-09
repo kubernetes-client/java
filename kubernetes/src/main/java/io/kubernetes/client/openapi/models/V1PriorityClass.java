@@ -26,7 +26,7 @@ import java.util.Objects;
         "PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PriorityClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 
@@ -195,15 +195,14 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
 
   /**
    * PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never,
-   * PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level,
-   * gated by the NonPreemptingPriority feature-gate.
+   * PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
    *
    * @return preemptionPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is beta-level, gated by the NonPreemptingPriority feature-gate.")
+          "PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.")
   public String getPreemptionPolicy() {
     return preemptionPolicy;
   }

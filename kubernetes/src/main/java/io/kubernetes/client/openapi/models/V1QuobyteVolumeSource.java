@@ -26,7 +26,7 @@ import java.util.Objects;
         "Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1QuobyteVolumeSource {
   public static final String SERIALIZED_NAME_GROUP = "group";
 
@@ -65,12 +65,12 @@ public class V1QuobyteVolumeSource {
   }
 
   /**
-   * Group to map volume access to Default is no group
+   * group to map volume access to Default is no group
    *
    * @return group
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group to map volume access to Default is no group")
+  @ApiModelProperty(value = "group to map volume access to Default is no group")
   public String getGroup() {
     return group;
   }
@@ -86,7 +86,7 @@ public class V1QuobyteVolumeSource {
   }
 
   /**
-   * ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults
+   * readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults
    * to false.
    *
    * @return readOnly
@@ -94,7 +94,7 @@ public class V1QuobyteVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.")
+          "readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -110,7 +110,7 @@ public class V1QuobyteVolumeSource {
   }
 
   /**
-   * Registry represents a single or multiple Quobyte Registry services specified as a string as
+   * registry represents a single or multiple Quobyte Registry services specified as a string as
    * host:port pair (multiple entries are separated with commas) which acts as the central registry
    * for volumes
    *
@@ -119,7 +119,7 @@ public class V1QuobyteVolumeSource {
   @ApiModelProperty(
       required = true,
       value =
-          "Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes")
+          "registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes")
   public String getRegistry() {
     return registry;
   }
@@ -135,7 +135,7 @@ public class V1QuobyteVolumeSource {
   }
 
   /**
-   * Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte
+   * tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte
    * volumes, value is set by the plugin
    *
    * @return tenant
@@ -143,7 +143,7 @@ public class V1QuobyteVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin")
+          "tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin")
   public String getTenant() {
     return tenant;
   }
@@ -159,12 +159,12 @@ public class V1QuobyteVolumeSource {
   }
 
   /**
-   * User to map volume access to Defaults to serivceaccount user
+   * user to map volume access to Defaults to serivceaccount user
    *
    * @return user
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "User to map volume access to Defaults to serivceaccount user")
+  @ApiModelProperty(value = "user to map volume access to Defaults to serivceaccount user")
   public String getUser() {
     return user;
   }
@@ -180,13 +180,13 @@ public class V1QuobyteVolumeSource {
   }
 
   /**
-   * Volume is a string that references an already created Quobyte volume by name.
+   * volume is a string that references an already created Quobyte volume by name.
    *
    * @return volume
    */
   @ApiModelProperty(
       required = true,
-      value = "Volume is a string that references an already created Quobyte volume by name.")
+      value = "volume is a string that references an already created Quobyte volume by name.")
   public String getVolume() {
     return volume;
   }

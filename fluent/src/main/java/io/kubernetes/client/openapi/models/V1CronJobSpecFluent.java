@@ -81,6 +81,12 @@ public interface V1CronJobSpecFluent<A extends V1CronJobSpecFluent<A>> extends F
 
   public java.lang.Boolean hasSuspend();
 
+  public java.lang.String getTimeZone();
+
+  public A withTimeZone(java.lang.String timeZone);
+
+  public java.lang.Boolean hasTimeZone();
+
   public A withSuspend();
 
   public interface JobTemplateNested<N>

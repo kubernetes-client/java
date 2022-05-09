@@ -67,13 +67,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -181,13 +189,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return V1ClusterRole
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -219,13 +235,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return ApiResponse&lt;V1ClusterRole&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -259,13 +283,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -305,13 +337,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -420,13 +460,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return V1ClusterRoleBinding
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -462,13 +510,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return ApiResponse&lt;V1ClusterRoleBinding&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -506,13 +562,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -553,13 +617,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -680,13 +752,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return V1Role
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -725,13 +805,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return ApiResponse&lt;V1Role&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -771,13 +859,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -819,13 +915,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -946,13 +1050,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return V1RoleBinding
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -991,13 +1103,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return ApiResponse&lt;V1RoleBinding&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -1037,13 +1157,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7749,13 +7877,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -7889,13 +8025,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -7939,13 +8083,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -7990,13 +8142,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8043,13 +8203,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8183,13 +8351,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8233,13 +8409,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8284,13 +8468,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8338,13 +8530,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8489,13 +8689,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8541,13 +8749,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8594,13 +8810,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8649,13 +8873,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8800,13 +9032,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8852,13 +9092,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -8905,13 +9153,21 @@ public class RbacAuthorizationV1Api {
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is
    *     required for apply requests (application/apply-patch) but optional for non-apply patch
    *     types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will
    *     re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply
    *     patch requests. (optional)
@@ -9556,13 +9812,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -9681,13 +9945,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return V1ClusterRole
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -9724,13 +9996,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return ApiResponse&lt;V1ClusterRole&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -9769,13 +10049,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9816,13 +10104,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -9941,13 +10237,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return V1ClusterRoleBinding
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -9985,13 +10289,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return ApiResponse&lt;V1ClusterRoleBinding&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -10030,13 +10342,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10078,13 +10398,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -10214,13 +10542,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return V1Role
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -10260,13 +10596,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return ApiResponse&lt;V1Role&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -10307,13 +10651,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10356,13 +10708,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback Callback for upload/download progress
    * @return Call to execute
    * @throws ApiException If fail to serialize the request body object
@@ -10492,13 +10852,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return V1RoleBinding
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -10538,13 +10906,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @return ApiResponse&lt;V1RoleBinding&gt;
    * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
    *     response body
@@ -10585,13 +10961,21 @@ public class RbacAuthorizationV1Api {
    * @param fieldManager fieldManager is a name associated with the actor or entity that is making
    *     these changes. The value must be less than or 128 characters long, and only contain
    *     printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
-   * @param fieldValidation fieldValidation determines how the server should respond to
-   *     unknown/duplicate fields in the object in the request. Introduced as alpha in 1.23, older
-   *     servers or servers with the &#x60;ServerSideFieldValidation&#x60; feature disabled will
-   *     discard valid values specified in this param and not perform any server side field
-   *     validation. Valid values are: - Ignore: ignores unknown/duplicate fields. - Warn: responds
-   *     with a warning for each unknown/duplicate field, but successfully serves the request. -
-   *     Strict: fails the request on unknown/duplicate fields. (optional)
+   * @param fieldValidation fieldValidation instructs the server on how to handle objects in the
+   *     request (POST/PUT/PATCH) containing unknown or duplicate fields, provided that the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is also enabled. Valid values are: -
+   *     Ignore: This will ignore any unknown fields that are silently dropped from the object, and
+   *     will ignore all but the last duplicate field that the decoder encounters. This is the
+   *     default behavior prior to v1.23 and is the default behavior when the
+   *     &#x60;ServerSideFieldValidation&#x60; feature gate is disabled. - Warn: This will send a
+   *     warning via the standard warning response header for each unknown field that is dropped
+   *     from the object, and for each duplicate field that is encountered. The request will still
+   *     succeed if there are no other errors, and will only persist the last of any duplicate
+   *     fields. This is the default when the &#x60;ServerSideFieldValidation&#x60; feature gate is
+   *     enabled. - Strict: This will fail the request with a BadRequest error if any unknown fields
+   *     would be dropped from the object, or if any duplicate fields are present. The error
+   *     returned from the server will contain all unknown and duplicate fields encountered.
+   *     (optional)
    * @param _callback The callback to be executed when the API call finishes
    * @return The request call
    * @throws ApiException If fail to process the API call, e.g. serializing the request body object

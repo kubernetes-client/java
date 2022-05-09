@@ -28,7 +28,7 @@ import java.util.Objects;
         "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1FlexVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
 
@@ -62,13 +62,13 @@ public class V1FlexVolumeSource {
   }
 
   /**
-   * Driver is the name of the driver to use for this volume.
+   * driver is the name of the driver to use for this volume.
    *
    * @return driver
    */
   @ApiModelProperty(
       required = true,
-      value = "Driver is the name of the driver to use for this volume.")
+      value = "driver is the name of the driver to use for this volume.")
   public String getDriver() {
     return driver;
   }
@@ -84,16 +84,16 @@ public class V1FlexVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex.
-   * \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. The default filesystem depends on
-   * FlexVolume script.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host
+   * operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. The default
+   * filesystem depends on FlexVolume script.
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.")
+          "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.")
   public String getFsType() {
     return fsType;
   }
@@ -117,12 +117,12 @@ public class V1FlexVolumeSource {
   }
 
   /**
-   * Optional: Extra command options if any.
+   * options is Optional: this field holds extra command options if any.
    *
    * @return options
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Optional: Extra command options if any.")
+  @ApiModelProperty(value = "options is Optional: this field holds extra command options if any.")
   public Map<String, String> getOptions() {
     return options;
   }
@@ -138,15 +138,15 @@ public class V1FlexVolumeSource {
   }
 
   /**
-   * Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
-   * VolumeMounts.
+   * readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly
+   * setting in VolumeMounts.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
+          "readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }

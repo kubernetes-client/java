@@ -33,7 +33,7 @@ import java.util.Objects;
         "An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.  To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.  This is a beta feature available on clusters that haven't disabled the EphemeralContainers feature gate.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1EphemeralContainer {
   public static final String SERIALIZED_NAME_ARGS = "args";
 
@@ -166,13 +166,12 @@ public class V1EphemeralContainer {
   }
 
   /**
-   * Arguments to the entrypoint. The docker image&#39;s CMD is used if this is not provided.
-   * Variable references $(VAR_NAME) are expanded using the container&#39;s environment. If a
-   * variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are
-   * reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e.
-   * \&quot;$$(VAR_NAME)\&quot; will produce the string literal \&quot;$(VAR_NAME)\&quot;. Escaped
-   * references will never be expanded, regardless of whether the variable exists or not. Cannot be
-   * updated. More info:
+   * Arguments to the entrypoint. The image&#39;s CMD is used if this is not provided. Variable
+   * references $(VAR_NAME) are expanded using the container&#39;s environment. If a variable cannot
+   * be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a
+   * single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \&quot;$$(VAR_NAME)\&quot;
+   * will produce the string literal \&quot;$(VAR_NAME)\&quot;. Escaped references will never be
+   * expanded, regardless of whether the variable exists or not. Cannot be updated. More info:
    * https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
    *
    * @return args
@@ -180,7 +179,7 @@ public class V1EphemeralContainer {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
+          "Arguments to the entrypoint. The image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
   public List<String> getArgs() {
     return args;
   }
@@ -204,8 +203,8 @@ public class V1EphemeralContainer {
   }
 
   /**
-   * Entrypoint array. Not executed within a shell. The docker image&#39;s ENTRYPOINT is used if
-   * this is not provided. Variable references $(VAR_NAME) are expanded using the container&#39;s
+   * Entrypoint array. Not executed within a shell. The image&#39;s ENTRYPOINT is used if this is
+   * not provided. Variable references $(VAR_NAME) are expanded using the container&#39;s
    * environment. If a variable cannot be resolved, the reference in the input string will be
    * unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME)
    * syntax: i.e. \&quot;$$(VAR_NAME)\&quot; will produce the string literal
@@ -218,7 +217,7 @@ public class V1EphemeralContainer {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
+          "Entrypoint array. Not executed within a shell. The image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
   public List<String> getCommand() {
     return command;
   }
@@ -299,13 +298,14 @@ public class V1EphemeralContainer {
   }
 
   /**
-   * Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images
+   * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images
    *
    * @return image
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images")
+      value =
+          "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images")
   public String getImage() {
     return image;
   }

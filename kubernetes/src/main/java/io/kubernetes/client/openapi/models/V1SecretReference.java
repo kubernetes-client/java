@@ -26,7 +26,7 @@ import java.util.Objects;
         "SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1SecretReference {
   public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -45,12 +45,12 @@ public class V1SecretReference {
   }
 
   /**
-   * Name is unique within a namespace to reference a secret resource.
+   * name is unique within a namespace to reference a secret resource.
    *
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name is unique within a namespace to reference a secret resource.")
+  @ApiModelProperty(value = "name is unique within a namespace to reference a secret resource.")
   public String getName() {
     return name;
   }
@@ -66,13 +66,13 @@ public class V1SecretReference {
   }
 
   /**
-   * Namespace defines the space within which the secret name must be unique.
+   * namespace defines the space within which the secret name must be unique.
    *
    * @return namespace
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "Namespace defines the space within which the secret name must be unique.")
+      value = "namespace defines the space within which the secret name must be unique.")
   public String getNamespace() {
     return namespace;
   }

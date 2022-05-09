@@ -26,7 +26,7 @@ import java.util.Objects;
         "Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1GlusterfsVolumeSource {
   public static final String SERIALIZED_NAME_ENDPOINTS = "endpoints";
 
@@ -50,7 +50,7 @@ public class V1GlusterfsVolumeSource {
   }
 
   /**
-   * EndpointsName is the endpoint name that details Glusterfs topology. More info:
+   * endpoints is the endpoint name that details Glusterfs topology. More info:
    * https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @return endpoints
@@ -58,7 +58,7 @@ public class V1GlusterfsVolumeSource {
   @ApiModelProperty(
       required = true,
       value =
-          "EndpointsName is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+          "endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
   public String getEndpoints() {
     return endpoints;
   }
@@ -74,7 +74,7 @@ public class V1GlusterfsVolumeSource {
   }
 
   /**
-   * Path is the Glusterfs volume path. More info:
+   * path is the Glusterfs volume path. More info:
    * https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @return path
@@ -82,7 +82,7 @@ public class V1GlusterfsVolumeSource {
   @ApiModelProperty(
       required = true,
       value =
-          "Path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+          "path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
   public String getPath() {
     return path;
   }
@@ -98,7 +98,7 @@ public class V1GlusterfsVolumeSource {
   }
 
   /**
-   * ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions.
+   * readOnly here will force the Glusterfs volume to be mounted with read-only permissions.
    * Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    *
    * @return readOnly
@@ -106,7 +106,7 @@ public class V1GlusterfsVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+          "readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
   public Boolean getReadOnly() {
     return readOnly;
   }

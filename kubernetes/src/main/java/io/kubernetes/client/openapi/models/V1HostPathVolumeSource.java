@@ -26,7 +26,7 @@ import java.util.Objects;
         "Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1HostPathVolumeSource {
   public static final String SERIALIZED_NAME_PATH = "path";
 
@@ -45,7 +45,7 @@ public class V1HostPathVolumeSource {
   }
 
   /**
-   * Path of the directory on the host. If the path is a symlink, it will follow the link to the
+   * path of the directory on the host. If the path is a symlink, it will follow the link to the
    * real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    *
    * @return path
@@ -53,7 +53,7 @@ public class V1HostPathVolumeSource {
   @ApiModelProperty(
       required = true,
       value =
-          "Path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
+          "path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
   public String getPath() {
     return path;
   }
@@ -69,7 +69,7 @@ public class V1HostPathVolumeSource {
   }
 
   /**
-   * Type for HostPath Volume Defaults to \&quot;\&quot; More info:
+   * type for HostPath Volume Defaults to \&quot;\&quot; More info:
    * https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    *
    * @return type
@@ -77,7 +77,7 @@ public class V1HostPathVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Type for HostPath Volume Defaults to \"\" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
+          "type for HostPath Volume Defaults to \"\" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
   public String getType() {
     return type;
   }

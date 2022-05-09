@@ -55,6 +55,8 @@ public class V1NetworkPolicyBuilder extends V1NetworkPolicyFluentImpl<V1NetworkP
 
     fluent.withSpec(instance.getSpec());
 
+    fluent.withStatus(instance.getStatus());
+
     this.validationEnabled = validationEnabled;
   }
 
@@ -74,6 +76,8 @@ public class V1NetworkPolicyBuilder extends V1NetworkPolicyFluentImpl<V1NetworkP
 
     this.withSpec(instance.getSpec());
 
+    this.withStatus(instance.getStatus());
+
     this.validationEnabled = validationEnabled;
   }
 
@@ -86,6 +90,7 @@ public class V1NetworkPolicyBuilder extends V1NetworkPolicyFluentImpl<V1NetworkP
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.getMetadata());
     buildable.setSpec(fluent.getSpec());
+    buildable.setStatus(fluent.getStatus());
     return buildable;
   }
 }

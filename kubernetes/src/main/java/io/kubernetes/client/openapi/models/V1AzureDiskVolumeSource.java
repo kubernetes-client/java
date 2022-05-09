@@ -23,7 +23,7 @@ import java.util.Objects;
         "AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1AzureDiskVolumeSource {
   public static final String SERIALIZED_NAME_CACHING_MODE = "cachingMode";
 
@@ -62,12 +62,12 @@ public class V1AzureDiskVolumeSource {
   }
 
   /**
-   * Host Caching mode: None, Read Only, Read Write.
+   * cachingMode is the Host Caching mode: None, Read Only, Read Write.
    *
    * @return cachingMode
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host Caching mode: None, Read Only, Read Write.")
+  @ApiModelProperty(value = "cachingMode is the Host Caching mode: None, Read Only, Read Write.")
   public String getCachingMode() {
     return cachingMode;
   }
@@ -83,11 +83,13 @@ public class V1AzureDiskVolumeSource {
   }
 
   /**
-   * The Name of the data disk in the blob storage
+   * diskName is the Name of the data disk in the blob storage
    *
    * @return diskName
    */
-  @ApiModelProperty(required = true, value = "The Name of the data disk in the blob storage")
+  @ApiModelProperty(
+      required = true,
+      value = "diskName is the Name of the data disk in the blob storage")
   public String getDiskName() {
     return diskName;
   }
@@ -103,11 +105,11 @@ public class V1AzureDiskVolumeSource {
   }
 
   /**
-   * The URI the data disk in the blob storage
+   * diskURI is the URI of data disk in the blob storage
    *
    * @return diskURI
    */
-  @ApiModelProperty(required = true, value = "The URI the data disk in the blob storage")
+  @ApiModelProperty(required = true, value = "diskURI is the URI of data disk in the blob storage")
   public String getDiskURI() {
     return diskURI;
   }
@@ -123,16 +125,16 @@ public class V1AzureDiskVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex.
-   * \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be
-   * \&quot;ext4\&quot; if unspecified.
+   * fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating
+   * system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to
+   * be \&quot;ext4\&quot; if unspecified.
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
+          "fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
@@ -148,16 +150,16 @@ public class V1AzureDiskVolumeSource {
   }
 
   /**
-   * Expected values Shared: multiple blob disks per storage account Dedicated: single blob disk per
-   * storage account Managed: azure managed data disk (only in managed availability set). defaults
-   * to shared
+   * kind expected values are Shared: multiple blob disks per storage account Dedicated: single blob
+   * disk per storage account Managed: azure managed data disk (only in managed availability set).
+   * defaults to shared
    *
    * @return kind
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared")
+          "kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared")
   public String getKind() {
     return kind;
   }
@@ -173,14 +175,15 @@ public class V1AzureDiskVolumeSource {
   }
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
+   * VolumeMounts.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
+          "readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }

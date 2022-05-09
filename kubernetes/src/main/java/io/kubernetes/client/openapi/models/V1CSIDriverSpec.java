@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "CSIDriverSpec is the specification of a CSIDriver.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1CSIDriverSpec {
   public static final String SERIALIZED_NAME_ATTACH_REQUIRED = "attachRequired";
 
@@ -199,15 +199,14 @@ public class V1CSIDriverSpec {
    * the driver deployment has published some suitable CSIStorageCapacity object. Alternatively, the
    * driver can be deployed with the field unset or false and it can be flipped later when storage
    * capacity information has been published. This field was immutable in Kubernetes &lt;&#x3D; 1.22
-   * and now is mutable. This is a beta field and only available when the CSIStorageCapacity feature
-   * is enabled. The default is false.
+   * and now is mutable.
    *
    * @return storageCapacity
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "If set to true, storageCapacity indicates that the CSI volume driver wants pod scheduling to consider the storage capacity that the driver deployment will report by creating CSIStorageCapacity objects with capacity information.  The check can be enabled immediately when deploying a driver. In that case, provisioning new volumes with late binding will pause until the driver deployment has published some suitable CSIStorageCapacity object.  Alternatively, the driver can be deployed with the field unset or false and it can be flipped later when storage capacity information has been published.  This field was immutable in Kubernetes <= 1.22 and now is mutable.  This is a beta field and only available when the CSIStorageCapacity feature is enabled. The default is false.")
+          "If set to true, storageCapacity indicates that the CSI volume driver wants pod scheduling to consider the storage capacity that the driver deployment will report by creating CSIStorageCapacity objects with capacity information.  The check can be enabled immediately when deploying a driver. In that case, provisioning new volumes with late binding will pause until the driver deployment has published some suitable CSIStorageCapacity object.  Alternatively, the driver can be deployed with the field unset or false and it can be flipped later when storage capacity information has been published.  This field was immutable in Kubernetes <= 1.22 and now is mutable.")
   public Boolean getStorageCapacity() {
     return storageCapacity;
   }

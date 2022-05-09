@@ -60,6 +60,8 @@ public class V1CronJobSpecBuilder extends V1CronJobSpecFluentImpl<V1CronJobSpecB
 
     fluent.withSuspend(instance.getSuspend());
 
+    fluent.withTimeZone(instance.getTimeZone());
+
     this.validationEnabled = validationEnabled;
   }
 
@@ -85,6 +87,8 @@ public class V1CronJobSpecBuilder extends V1CronJobSpecFluentImpl<V1CronJobSpecB
 
     this.withSuspend(instance.getSuspend());
 
+    this.withTimeZone(instance.getTimeZone());
+
     this.validationEnabled = validationEnabled;
   }
 
@@ -100,6 +104,7 @@ public class V1CronJobSpecBuilder extends V1CronJobSpecFluentImpl<V1CronJobSpecB
     buildable.setStartingDeadlineSeconds(fluent.getStartingDeadlineSeconds());
     buildable.setSuccessfulJobsHistoryLimit(fluent.getSuccessfulJobsHistoryLimit());
     buildable.setSuspend(fluent.getSuspend());
+    buildable.setTimeZone(fluent.getTimeZone());
     return buildable;
   }
 }

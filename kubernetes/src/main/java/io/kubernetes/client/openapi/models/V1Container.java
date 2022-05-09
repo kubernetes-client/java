@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "A single application container that you want to run within a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1Container {
   public static final String SERIALIZED_NAME_ARGS = "args";
 
@@ -151,7 +151,7 @@ public class V1Container {
   }
 
   /**
-   * Arguments to the entrypoint. The docker image&#39;s CMD is used if this is not provided.
+   * Arguments to the entrypoint. The container image&#39;s CMD is used if this is not provided.
    * Variable references $(VAR_NAME) are expanded using the container&#39;s environment. If a
    * variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are
    * reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e.
@@ -165,7 +165,7 @@ public class V1Container {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
+          "Arguments to the entrypoint. The container image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
   public List<String> getArgs() {
     return args;
   }
@@ -189,7 +189,7 @@ public class V1Container {
   }
 
   /**
-   * Entrypoint array. Not executed within a shell. The docker image&#39;s ENTRYPOINT is used if
+   * Entrypoint array. Not executed within a shell. The container image&#39;s ENTRYPOINT is used if
    * this is not provided. Variable references $(VAR_NAME) are expanded using the container&#39;s
    * environment. If a variable cannot be resolved, the reference in the input string will be
    * unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME)
@@ -203,7 +203,7 @@ public class V1Container {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
+          "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell")
   public List<String> getCommand() {
     return command;
   }
@@ -284,16 +284,16 @@ public class V1Container {
   }
 
   /**
-   * Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field
-   * is optional to allow higher level config management to default or override container images in
-   * workload controllers like Deployments and StatefulSets.
+   * Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This
+   * field is optional to allow higher level config management to default or override container
+   * images in workload controllers like Deployments and StatefulSets.
    *
    * @return image
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Docker image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.")
+          "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.")
   public String getImage() {
     return image;
   }

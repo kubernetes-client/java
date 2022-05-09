@@ -23,7 +23,7 @@ import java.util.Objects;
         "CronJobSpec describes how the job execution will look like and when it will actually run.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1CronJobSpec {
   public static final String SERIALIZED_NAME_CONCURRENCY_POLICY = "concurrencyPolicy";
 
@@ -60,6 +60,11 @@ public class V1CronJobSpec {
 
   @SerializedName(SERIALIZED_NAME_SUSPEND)
   private Boolean suspend;
+
+  public static final String SERIALIZED_NAME_TIME_ZONE = "timeZone";
+
+  @SerializedName(SERIALIZED_NAME_TIME_ZONE)
+  private String timeZone;
 
   public V1CronJobSpec concurrencyPolicy(String concurrencyPolicy) {
 
@@ -225,6 +230,32 @@ public class V1CronJobSpec {
     this.suspend = suspend;
   }
 
+  public V1CronJobSpec timeZone(String timeZone) {
+
+    this.timeZone = timeZone;
+    return this;
+  }
+
+  /**
+   * The time zone for the given schedule, see
+   * https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will rely
+   * on the time zone of the kube-controller-manager process. ALPHA: This field is in alpha and must
+   * be enabled via the &#x60;CronJobTimeZone&#x60; feature gate.
+   *
+   * @return timeZone
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The time zone for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will rely on the time zone of the kube-controller-manager process. ALPHA: This field is in alpha and must be enabled via the `CronJobTimeZone` feature gate.")
+  public String getTimeZone() {
+    return timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -240,7 +271,8 @@ public class V1CronJobSpec {
         && Objects.equals(this.schedule, v1CronJobSpec.schedule)
         && Objects.equals(this.startingDeadlineSeconds, v1CronJobSpec.startingDeadlineSeconds)
         && Objects.equals(this.successfulJobsHistoryLimit, v1CronJobSpec.successfulJobsHistoryLimit)
-        && Objects.equals(this.suspend, v1CronJobSpec.suspend);
+        && Objects.equals(this.suspend, v1CronJobSpec.suspend)
+        && Objects.equals(this.timeZone, v1CronJobSpec.timeZone);
   }
 
   @Override
@@ -252,7 +284,8 @@ public class V1CronJobSpec {
         schedule,
         startingDeadlineSeconds,
         successfulJobsHistoryLimit,
-        suspend);
+        suspend,
+        timeZone);
   }
 
   @Override
@@ -272,6 +305,7 @@ public class V1CronJobSpec {
         .append(toIndentedString(successfulJobsHistoryLimit))
         .append("\n");
     sb.append("    suspend: ").append(toIndentedString(suspend)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("}");
     return sb.toString();
   }

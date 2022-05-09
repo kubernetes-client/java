@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "TokenReviewStatus is the result of the token authentication request.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1TokenReviewStatus {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
 

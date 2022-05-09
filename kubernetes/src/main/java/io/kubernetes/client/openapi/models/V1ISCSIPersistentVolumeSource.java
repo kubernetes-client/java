@@ -28,7 +28,7 @@ import java.util.Objects;
         "ISCSIPersistentVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ISCSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CHAP_AUTH_DISCOVERY = "chapAuthDiscovery";
 
@@ -92,12 +92,13 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * whether support iSCSI Discovery CHAP authentication
+   * chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication
    *
    * @return chapAuthDiscovery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "whether support iSCSI Discovery CHAP authentication")
+  @ApiModelProperty(
+      value = "chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication")
   public Boolean getChapAuthDiscovery() {
     return chapAuthDiscovery;
   }
@@ -113,12 +114,13 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * whether support iSCSI Session CHAP authentication
+   * chapAuthSession defines whether support iSCSI Session CHAP authentication
    *
    * @return chapAuthSession
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "whether support iSCSI Session CHAP authentication")
+  @ApiModelProperty(
+      value = "chapAuthSession defines whether support iSCSI Session CHAP authentication")
   public Boolean getChapAuthSession() {
     return chapAuthSession;
   }
@@ -134,17 +136,17 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is
-   * supported by the host operating system. Examples: \&quot;ext4\&quot;, \&quot;xfs\&quot;,
-   * \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified. More info:
-   * https://kubernetes.io/docs/concepts/storage/volumes#iscsi
+   * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the
+   * filesystem type is supported by the host operating system. Examples: \&quot;ext4\&quot;,
+   * \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if
+   * unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi")
+          "fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi")
   public String getFsType() {
     return fsType;
   }
@@ -160,16 +162,16 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * Custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously,
-   * new iSCSI interface &lt;target portal&gt;:&lt;volume name&gt; will be created for the
-   * connection.
+   * initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with
+   * iscsiInterface simultaneously, new iSCSI interface &lt;target portal&gt;:&lt;volume name&gt;
+   * will be created for the connection.
    *
    * @return initiatorName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.")
+          "initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.")
   public String getInitiatorName() {
     return initiatorName;
   }
@@ -185,11 +187,11 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * Target iSCSI Qualified Name.
+   * iqn is Target iSCSI Qualified Name.
    *
    * @return iqn
    */
-  @ApiModelProperty(required = true, value = "Target iSCSI Qualified Name.")
+  @ApiModelProperty(required = true, value = "iqn is Target iSCSI Qualified Name.")
   public String getIqn() {
     return iqn;
   }
@@ -205,13 +207,15 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * iSCSI Interface Name that uses an iSCSI transport. Defaults to &#39;default&#39; (tcp).
+   * iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to
+   * &#39;default&#39; (tcp).
    *
    * @return iscsiInterface
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "iSCSI Interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).")
+      value =
+          "iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).")
   public String getIscsiInterface() {
     return iscsiInterface;
   }
@@ -227,11 +231,11 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * iSCSI Target Lun number.
+   * lun is iSCSI Target Lun number.
    *
    * @return lun
    */
-  @ApiModelProperty(required = true, value = "iSCSI Target Lun number.")
+  @ApiModelProperty(required = true, value = "lun is iSCSI Target Lun number.")
   public Integer getLun() {
     return lun;
   }
@@ -255,15 +259,15 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than
-   * default (typically TCP ports 860 and 3260).
+   * portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port
+   * is other than default (typically TCP ports 860 and 3260).
    *
    * @return portals
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
+          "portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
   public List<String> getPortals() {
     return portals;
   }
@@ -279,13 +283,13 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
+   * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.")
+      value = "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -322,15 +326,15 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
   /**
-   * iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than
-   * default (typically TCP ports 860 and 3260).
+   * targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is
+   * other than default (typically TCP ports 860 and 3260).
    *
    * @return targetPortal
    */
   @ApiModelProperty(
       required = true,
       value =
-          "iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
+          "targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
   public String getTargetPortal() {
     return targetPortal;
   }

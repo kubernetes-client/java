@@ -27,7 +27,7 @@ import java.util.Objects;
         "Represents an empty directory for a pod. Empty directory volumes support ownership management and SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1EmptyDirVolumeSource {
   public static final String SERIALIZED_NAME_MEDIUM = "medium";
 
@@ -46,16 +46,16 @@ public class V1EmptyDirVolumeSource {
   }
 
   /**
-   * What type of storage medium should back this directory. The default is \&quot;\&quot; which
-   * means to use the node&#39;s default medium. Must be an empty string (default) or Memory. More
-   * info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
+   * medium represents what type of storage medium should back this directory. The default is
+   * \&quot;\&quot; which means to use the node&#39;s default medium. Must be an empty string
+   * (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir
    *
    * @return medium
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "What type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir")
+          "medium represents what type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: https://kubernetes.io/docs/concepts/storage/volumes#emptydir")
   public String getMedium() {
     return medium;
   }

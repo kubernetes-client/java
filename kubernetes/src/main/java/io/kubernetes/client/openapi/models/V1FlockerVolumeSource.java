@@ -27,7 +27,7 @@ import java.util.Objects;
         "Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1FlockerVolumeSource {
   public static final String SERIALIZED_NAME_DATASET_NAME = "datasetName";
 
@@ -46,15 +46,15 @@ public class V1FlockerVolumeSource {
   }
 
   /**
-   * Name of the dataset stored as metadata -&gt; name on the dataset for Flocker should be
-   * considered as deprecated
+   * datasetName is Name of the dataset stored as metadata -&gt; name on the dataset for Flocker
+   * should be considered as deprecated
    *
    * @return datasetName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated")
+          "datasetName is Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated")
   public String getDatasetName() {
     return datasetName;
   }
@@ -70,12 +70,14 @@ public class V1FlockerVolumeSource {
   }
 
   /**
-   * UUID of the dataset. This is unique identifier of a Flocker dataset
+   * datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset
    *
    * @return datasetUUID
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "UUID of the dataset. This is unique identifier of a Flocker dataset")
+  @ApiModelProperty(
+      value =
+          "datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset")
   public String getDatasetUUID() {
     return datasetUUID;
   }

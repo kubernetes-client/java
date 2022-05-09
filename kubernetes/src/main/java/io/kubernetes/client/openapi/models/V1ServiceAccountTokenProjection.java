@@ -27,7 +27,7 @@ import java.util.Objects;
         "ServiceAccountTokenProjection represents a projected service account token volume. This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ServiceAccountTokenProjection {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
@@ -51,7 +51,7 @@ public class V1ServiceAccountTokenProjection {
   }
 
   /**
-   * Audience is the intended audience of the token. A recipient of a token must identify itself
+   * audience is the intended audience of the token. A recipient of a token must identify itself
    * with an identifier specified in the audience of the token, and otherwise should reject the
    * token. The audience defaults to the identifier of the apiserver.
    *
@@ -60,7 +60,7 @@ public class V1ServiceAccountTokenProjection {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.")
+          "audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.")
   public String getAudience() {
     return audience;
   }
@@ -76,7 +76,7 @@ public class V1ServiceAccountTokenProjection {
   }
 
   /**
-   * ExpirationSeconds is the requested duration of validity of the service account token. As the
+   * expirationSeconds is the requested duration of validity of the service account token. As the
    * token approaches expiration, the kubelet volume plugin will proactively rotate the service
    * account token. The kubelet will start trying to rotate the token if the token is older than 80
    * percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must
@@ -87,7 +87,7 @@ public class V1ServiceAccountTokenProjection {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "ExpirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.")
+          "expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.")
   public Long getExpirationSeconds() {
     return expirationSeconds;
   }
@@ -103,13 +103,13 @@ public class V1ServiceAccountTokenProjection {
   }
 
   /**
-   * Path is the path relative to the mount point of the file to project the token into.
+   * path is the path relative to the mount point of the file to project the token into.
    *
    * @return path
    */
   @ApiModelProperty(
       required = true,
-      value = "Path is the path relative to the mount point of the file to project the token into.")
+      value = "path is the path relative to the mount point of the file to project the token into.")
   public String getPath() {
     return path;
   }

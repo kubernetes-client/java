@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "PersistentVolumeClaimCondition contails details about state of pvc")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PersistentVolumeClaimCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
 
@@ -61,12 +61,12 @@ public class V1PersistentVolumeClaimCondition {
   }
 
   /**
-   * Last time we probed the condition.
+   * lastProbeTime is the time we probed the condition.
    *
    * @return lastProbeTime
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last time we probed the condition.")
+  @ApiModelProperty(value = "lastProbeTime is the time we probed the condition.")
   public OffsetDateTime getLastProbeTime() {
     return lastProbeTime;
   }
@@ -82,12 +82,14 @@ public class V1PersistentVolumeClaimCondition {
   }
 
   /**
-   * Last time the condition transitioned from one status to another.
+   * lastTransitionTime is the time the condition transitioned from one status to another.
    *
    * @return lastTransitionTime
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
+  @ApiModelProperty(
+      value =
+          "lastTransitionTime is the time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
@@ -103,12 +105,13 @@ public class V1PersistentVolumeClaimCondition {
   }
 
   /**
-   * Human-readable message indicating details about last transition.
+   * message is the human-readable message indicating details about last transition.
    *
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Human-readable message indicating details about last transition.")
+  @ApiModelProperty(
+      value = "message is the human-readable message indicating details about last transition.")
   public String getMessage() {
     return message;
   }
@@ -124,8 +127,8 @@ public class V1PersistentVolumeClaimCondition {
   }
 
   /**
-   * Unique, this should be a short, machine understandable string that gives the reason for
-   * condition&#39;s last transition. If it reports \&quot;ResizeStarted\&quot; that means the
+   * reason is a unique, this should be a short, machine understandable string that gives the reason
+   * for condition&#39;s last transition. If it reports \&quot;ResizeStarted\&quot; that means the
    * underlying persistent volume is being resized.
    *
    * @return reason
@@ -133,7 +136,7 @@ public class V1PersistentVolumeClaimCondition {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.")
+          "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.")
   public String getReason() {
     return reason;
   }

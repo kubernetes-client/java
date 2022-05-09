@@ -29,7 +29,7 @@ import java.util.Objects;
         "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
@@ -144,8 +144,7 @@ public class V1PodStatus {
   }
 
   /**
-   * The list has one entry per container in the manifest. Each entry is currently the output of
-   * &#x60;docker inspect&#x60;. More info:
+   * The list has one entry per container in the manifest. More info:
    * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status
    *
    * @return containerStatuses
@@ -153,7 +152,7 @@ public class V1PodStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status")
+          "The list has one entry per container in the manifest. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status")
   public List<V1ContainerStatus> getContainerStatuses() {
     return containerStatuses;
   }

@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "Represents a StorageOS persistent volume resource.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1StorageOSPersistentVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -55,16 +55,16 @@ public class V1StorageOSPersistentVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex.
-   * \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be
-   * \&quot;ext4\&quot; if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host
+   * operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly
+   * inferred to be \&quot;ext4\&quot; if unspecified.
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
+          "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
@@ -80,14 +80,15 @@ public class V1StorageOSPersistentVolumeSource {
   }
 
   /**
-   * Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.
+   * readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in
+   * VolumeMounts.
    *
    * @return readOnly
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
+          "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -124,7 +125,7 @@ public class V1StorageOSPersistentVolumeSource {
   }
 
   /**
-   * VolumeName is the human-readable name of the StorageOS volume. Volume names are only unique
+   * volumeName is the human-readable name of the StorageOS volume. Volume names are only unique
    * within a namespace.
    *
    * @return volumeName
@@ -132,7 +133,7 @@ public class V1StorageOSPersistentVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "VolumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.")
+          "volumeName is the human-readable name of the StorageOS volume.  Volume names are only unique within a namespace.")
   public String getVolumeName() {
     return volumeName;
   }
@@ -148,7 +149,7 @@ public class V1StorageOSPersistentVolumeSource {
   }
 
   /**
-   * VolumeNamespace specifies the scope of the volume within StorageOS. If no namespace is
+   * volumeNamespace specifies the scope of the volume within StorageOS. If no namespace is
    * specified then the Pod&#39;s namespace will be used. This allows the Kubernetes name scoping to
    * be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override
    * the default behaviour. Set to \&quot;default\&quot; if you are not using namespaces within
@@ -159,7 +160,7 @@ public class V1StorageOSPersistentVolumeSource {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "VolumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to \"default\" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.")
+          "volumeNamespace specifies the scope of the volume within StorageOS.  If no namespace is specified then the Pod's namespace will be used.  This allows the Kubernetes name scoping to be mirrored within StorageOS for tighter integration. Set VolumeName to any name to override the default behaviour. Set to \"default\" if you are not using namespaces within StorageOS. Namespaces that do not pre-exist within StorageOS will be created.")
   public String getVolumeNamespace() {
     return volumeNamespace;
   }

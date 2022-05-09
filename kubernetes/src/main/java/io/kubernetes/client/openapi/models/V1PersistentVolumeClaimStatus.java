@@ -27,7 +27,7 @@ import java.util.Objects;
     description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
 
@@ -74,7 +74,7 @@ public class V1PersistentVolumeClaimStatus {
   }
 
   /**
-   * AccessModes contains the actual access modes the volume backing the PVC has. More info:
+   * accessModes contains the actual access modes the volume backing the PVC has. More info:
    * https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
    *
    * @return accessModes
@@ -82,7 +82,7 @@ public class V1PersistentVolumeClaimStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "AccessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
+          "accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
   public List<String> getAccessModes() {
     return accessModes;
   }
@@ -108,13 +108,13 @@ public class V1PersistentVolumeClaimStatus {
   }
 
   /**
-   * The storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may
-   * be larger than the actual capacity when a volume expansion operation is requested. For storage
-   * quota, the larger value from allocatedResources and PVC.spec.resources is used. If
-   * allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a
-   * volume expansion capacity request is lowered, allocatedResources is only lowered if there are
-   * no expansion operations in progress and if the actual volume capacity is equal or lower than
-   * the requested capacity. This is an alpha field and requires enabling
+   * allocatedResources is the storage resource within AllocatedResources tracks the capacity
+   * allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation
+   * is requested. For storage quota, the larger value from allocatedResources and
+   * PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used
+   * for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is
+   * only lowered if there are no expansion operations in progress and if the actual volume capacity
+   * is equal or lower than the requested capacity. This is an alpha field and requires enabling
    * RecoverVolumeExpansionFailure feature.
    *
    * @return allocatedResources
@@ -122,7 +122,7 @@ public class V1PersistentVolumeClaimStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
+          "allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
   public Map<String, Quantity> getAllocatedResources() {
     return allocatedResources;
   }
@@ -146,12 +146,12 @@ public class V1PersistentVolumeClaimStatus {
   }
 
   /**
-   * Represents the actual resources of the underlying volume.
+   * capacity represents the actual resources of the underlying volume.
    *
    * @return capacity
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Represents the actual resources of the underlying volume.")
+  @ApiModelProperty(value = "capacity represents the actual resources of the underlying volume.")
   public Map<String, Quantity> getCapacity() {
     return capacity;
   }
@@ -177,15 +177,15 @@ public class V1PersistentVolumeClaimStatus {
   }
 
   /**
-   * Current Condition of persistent volume claim. If underlying persistent volume is being resized
-   * then the Condition will be set to &#39;ResizeStarted&#39;.
+   * conditions is the current Condition of persistent volume claim. If underlying persistent volume
+   * is being resized then the Condition will be set to &#39;ResizeStarted&#39;.
    *
    * @return conditions
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.")
+          "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.")
   public List<V1PersistentVolumeClaimCondition> getConditions() {
     return conditions;
   }
@@ -201,12 +201,12 @@ public class V1PersistentVolumeClaimStatus {
   }
 
   /**
-   * Phase represents the current phase of PersistentVolumeClaim.
+   * phase represents the current phase of PersistentVolumeClaim.
    *
    * @return phase
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Phase represents the current phase of PersistentVolumeClaim.  ")
+  @ApiModelProperty(value = "phase represents the current phase of PersistentVolumeClaim.  ")
   public String getPhase() {
     return phase;
   }
@@ -222,7 +222,7 @@ public class V1PersistentVolumeClaimStatus {
   }
 
   /**
-   * ResizeStatus stores status of resize operation. ResizeStatus is not set by default but when
+   * resizeStatus stores status of resize operation. ResizeStatus is not set by default but when
    * expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This
    * is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
    *
@@ -231,7 +231,7 @@ public class V1PersistentVolumeClaimStatus {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "ResizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
+          "resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
   public String getResizeStatus() {
     return resizeStatus;
   }

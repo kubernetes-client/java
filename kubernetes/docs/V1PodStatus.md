@@ -8,7 +8,7 @@ PodStatus represents information about the status of a pod. Status may trail the
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conditions** | [**List&lt;V1PodCondition&gt;**](V1PodCondition.md) | Current service state of pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions |  [optional]
-**containerStatuses** | [**List&lt;V1ContainerStatus&gt;**](V1ContainerStatus.md) | The list has one entry per container in the manifest. Each entry is currently the output of &#x60;docker inspect&#x60;. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status |  [optional]
+**containerStatuses** | [**List&lt;V1ContainerStatus&gt;**](V1ContainerStatus.md) | The list has one entry per container in the manifest. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status |  [optional]
 **ephemeralContainerStatuses** | [**List&lt;V1ContainerStatus&gt;**](V1ContainerStatus.md) | Status for any ephemeral containers that have run in this pod. This field is beta-level and available on clusters that haven&#39;t disabled the EphemeralContainers feature gate. |  [optional]
 **hostIP** | **String** | IP address of the host to which the pod is assigned. Empty if not yet scheduled. |  [optional]
 **initContainerStatuses** | [**List&lt;V1ContainerStatus&gt;**](V1ContainerStatus.md) | The list has one entry per init container in the manifest. The most recent successful init container will have ready &#x3D; true, the most recently started container will have startTime set. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-and-container-status |  [optional]

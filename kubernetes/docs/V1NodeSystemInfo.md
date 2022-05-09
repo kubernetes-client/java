@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **architecture** | **String** | The Architecture reported by the node | 
 **bootID** | **String** | Boot ID reported by the node. | 
-**containerRuntimeVersion** | **String** | ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0). | 
+**containerRuntimeVersion** | **String** | ContainerRuntime Version reported by the node through runtime remote API (e.g. containerd://1.4.2). | 
 **kernelVersion** | **String** | Kernel Version reported by the node from &#39;uname -r&#39; (e.g. 3.16.0-0.bpo.4-amd64). | 
 **kubeProxyVersion** | **String** | KubeProxy Version reported by the node. | 
 **kubeletVersion** | **String** | Kubelet Version reported by the node. | 

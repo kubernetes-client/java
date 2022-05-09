@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "PodOS defines the OS parameters of a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PodOS {
   public static final String SERIALIZED_NAME_NAME = "name";
 

@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "PersistentVolumeSpec is the specification of a persistent volume.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
 
@@ -194,7 +194,7 @@ public class V1PersistentVolumeSpec {
   }
 
   /**
-   * AccessModes contains all ways the volume can be mounted. More info:
+   * accessModes contains all ways the volume can be mounted. More info:
    * https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes
    *
    * @return accessModes
@@ -202,7 +202,7 @@ public class V1PersistentVolumeSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "AccessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes")
+          "accessModes contains all ways the volume can be mounted. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes")
   public List<String> getAccessModes() {
     return accessModes;
   }
@@ -290,7 +290,7 @@ public class V1PersistentVolumeSpec {
   }
 
   /**
-   * A description of the persistent volume&#39;s resources and capacity. More info:
+   * capacity is the description of the persistent volume&#39;s resources and capacity. More info:
    * https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity
    *
    * @return capacity
@@ -298,7 +298,7 @@ public class V1PersistentVolumeSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "A description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity")
+          "capacity is the description of the persistent volume's resources and capacity. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity")
   public Map<String, Quantity> getCapacity() {
     return capacity;
   }
@@ -575,8 +575,8 @@ public class V1PersistentVolumeSpec {
   }
 
   /**
-   * A list of mount options, e.g. [\&quot;ro\&quot;, \&quot;soft\&quot;]. Not validated - mount
-   * will simply fail if one is invalid. More info:
+   * mountOptions is the list of mount options, e.g. [\&quot;ro\&quot;, \&quot;soft\&quot;]. Not
+   * validated - mount will simply fail if one is invalid. More info:
    * https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options
    *
    * @return mountOptions
@@ -584,7 +584,7 @@ public class V1PersistentVolumeSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "A list of mount options, e.g. [\"ro\", \"soft\"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options")
+          "mountOptions is the list of mount options, e.g. [\"ro\", \"soft\"]. Not validated - mount will simply fail if one is invalid. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#mount-options")
   public List<String> getMountOptions() {
     return mountOptions;
   }
@@ -643,10 +643,10 @@ public class V1PersistentVolumeSpec {
   }
 
   /**
-   * What happens to a persistent volume when released from its claim. Valid options are Retain
-   * (default for manually created PersistentVolumes), Delete (default for dynamically provisioned
-   * PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin
-   * underlying this PersistentVolume. More info:
+   * persistentVolumeReclaimPolicy defines what happens to a persistent volume when released from
+   * its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete
+   * (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must
+   * be supported by the volume plugin underlying this PersistentVolume. More info:
    * https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming
    *
    * @return persistentVolumeReclaimPolicy
@@ -654,7 +654,7 @@ public class V1PersistentVolumeSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "What happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming  ")
+          "persistentVolumeReclaimPolicy defines what happens to a persistent volume when released from its claim. Valid options are Retain (default for manually created PersistentVolumes), Delete (default for dynamically provisioned PersistentVolumes), and Recycle (deprecated). Recycle must be supported by the volume plugin underlying this PersistentVolume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#reclaiming  ")
   public String getPersistentVolumeReclaimPolicy() {
     return persistentVolumeReclaimPolicy;
   }
@@ -776,15 +776,15 @@ public class V1PersistentVolumeSpec {
   }
 
   /**
-   * Name of StorageClass to which this persistent volume belongs. Empty value means that this
-   * volume does not belong to any StorageClass.
+   * storageClassName is the name of StorageClass to which this persistent volume belongs. Empty
+   * value means that this volume does not belong to any StorageClass.
    *
    * @return storageClassName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.")
+          "storageClassName is the name of StorageClass to which this persistent volume belongs. Empty value means that this volume does not belong to any StorageClass.")
   public String getStorageClassName() {
     return storageClassName;
   }

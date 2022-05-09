@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
 
@@ -120,14 +120,15 @@ public class V1NodeSystemInfo {
   }
 
   /**
-   * ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).
+   * ContainerRuntime Version reported by the node through runtime remote API (e.g.
+   * containerd://1.4.2).
    *
    * @return containerRuntimeVersion
    */
   @ApiModelProperty(
       required = true,
       value =
-          "ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).")
+          "ContainerRuntime Version reported by the node through runtime remote API (e.g. containerd://1.4.2).")
   public String getContainerRuntimeVersion() {
     return containerRuntimeVersion;
   }

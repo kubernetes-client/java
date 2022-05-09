@@ -28,7 +28,7 @@ import java.util.Objects;
         "A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1ScopedResourceSelectorRequirement {
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
 

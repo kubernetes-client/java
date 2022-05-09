@@ -27,7 +27,7 @@ import java.util.Objects;
         "LimitedPriorityLevelConfiguration specifies how to handle requests that are subject to limits. It addresses two issues:  * How are requests for this priority level limited?  * What should be done with requests that exceed the limit?")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1beta2LimitedPriorityLevelConfiguration {
   public static final String SERIALIZED_NAME_ASSURED_CONCURRENCY_SHARES =
       "assuredConcurrencyShares";

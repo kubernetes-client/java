@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "Represents a Photon Controller persistent disk resource.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-04-08T04:59:41.589Z[Etc/UTC]")
+    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
 public class V1PhotonPersistentDiskVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
 
@@ -40,16 +40,16 @@ public class V1PhotonPersistentDiskVolumeSource {
   }
 
   /**
-   * Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex.
-   * \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be
-   * \&quot;ext4\&quot; if unspecified.
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host
+   * operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly
+   * inferred to be \&quot;ext4\&quot; if unspecified.
    *
    * @return fsType
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
+          "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
   public String getFsType() {
     return fsType;
   }
@@ -65,11 +65,13 @@ public class V1PhotonPersistentDiskVolumeSource {
   }
 
   /**
-   * ID that identifies Photon Controller persistent disk
+   * pdID is the ID that identifies Photon Controller persistent disk
    *
    * @return pdID
    */
-  @ApiModelProperty(required = true, value = "ID that identifies Photon Controller persistent disk")
+  @ApiModelProperty(
+      required = true,
+      value = "pdID is the ID that identifies Photon Controller persistent disk")
   public String getPdID() {
     return pdID;
   }
