@@ -137,10 +137,11 @@ public class LeaderElector implements AutoCloseable {
       // Hook on start leading
       hookWorkers.submit(startLeadingHook);
       renewLoop();
-      log.info("Failed to renew lease, lose leadership");
-      // Hook on stop leading
-      stopLeadingHook.run();
     } catch (Throwable t) {
+      log.error("Leader elector stopped due to an exception", t);
+    } finally {
+      // Hook on stop leading
+      log.info("Failed to renew lease, lose leadership");
       stopLeadingHook.run();
     }
   }
