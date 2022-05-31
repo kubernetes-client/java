@@ -1,0 +1,55 @@
+name: CRD Java Model Generate
+on:
+  workflow_dispatch:
+    inputs:
+      crds:
+        type: string
+        required: true
+        description: 'Comma-separated paths to CRD yaml sources, can be either HTTP url or local file path.'
+      generatingJavaPackage:
+        type: string
+        required: true
+        description: 'The package name of the generated java project.'
+      crdApiGroupPrefix:
+        type: string
+        required: false
+        description: 'The prefix of the target CRDs api group to generate. (Optional)'
+
+env:
+  IMAGE_NAME: ghcr.io/kubernetes-client/java/crd-model-gen
+  IMAGE_TAG: v1.0.6
+  GEN_DIR: crd-gen
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run CRD Model Generation
+        run: |
+          read CRD_SRC_ARGS < <(echo '${{ github.event.inputs.crds }}' | perl -ne 'print join " ", map {"-u $_"} split /,/')
+          test -z ${{ github.event.inputs.crdApiGroupPrefix }} || export CRD_API_GROUP_ARGS="-n ${{ github.event.inputs.crdApiGroupPrefix }}"
+          echo "CRD Src Args: ${CRD_SRC_ARGS}"
+          echo "CRD Api Group Prefix Args: ${CRD_API_GROUP_ARGS}"
+          mkdir -p ${GEN_DIR}
+          docker run \
+            --rm \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v "$(pwd)":"$(pwd)" \
+            --network host \
+            ${IMAGE_NAME}:${IMAGE_TAG} \
+            /generate.sh \
+            ${CRD_SRC_ARGS} \
+            ${CRD_API_GROUP_ARGS} \
+            -p ${{ github.event.inputs.generatingJavaPackage }} \
+            -o "$(pwd)/${GEN_DIR}"
+          ls -lh ${GEN_DIR}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: generated-java-crd-model
+          path: |
+            ${{ env.GEN_DIR }}

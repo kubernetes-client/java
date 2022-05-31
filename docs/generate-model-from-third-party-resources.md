@@ -5,26 +5,36 @@ Alternatively, without this automatic code-generation process, you can always ma
 models for CRDs by implementing [KubernetesObject](https://github.com/kubernetes-client/java/blob/master/kubernetes/src/main/java/io/kubernetes/client/common/KubernetesObject.java) 
 and [KubernetesListObject](https://github.com/kubernetes-client/java/blob/master/kubernetes/src/main/java/io/kubernetes/client/common/KubernetesListObject.java) interfaces.
 
-### Setup Environment
+## Remote Generate via Github Action
 
-__Note__: You can skip this section by replacing image prefix `docker.pkg.github.com/kubernetes-client/java/..`
-to `ghcr.io/yue9944882/..` which is a mirror repository allows anonymous access. `docker.pkg.github.com/kubernetes-client/java/..`
-will require docker-login due to `kubernetes-client` permission limit.
+### 1. Fork Upstream Repo
 
-1. Make there's an active docker daemon service working on your host, run `docker ps` to check it if
-it's correctly setup.
+Fork the repository [kubernetes-client/java](https://github.com/kubernetes-client/java)
+so that you can run the github action ["CRD Java Model Generate"](./.github/workflows/generate-crd.yml)
+in your forked repo. (Running github action job manually requires "collaborator" access to the repo).
 
-2. Generating your access token in [https://github.com/settings/tokens](https://github.com/settings/tokens) 
-and grants it package-read privilege. And save your token into a local file `~/TOKEN.txt`.
+Alternatively, you can also copy-paste the above github action definition to your repo to run it.
 
-3. Login to github docker registry by running:
+### 2. Execute Github Action
+
+Go to the repo home page, then click __"Actions"__. Find the job "CRD Java Model Generate"
+under __"Workflows"__ and then run it. The workflow will help convert your CRD yaml manifests to
+zip-archived java sources which is downloadable after it finishes.
+
+### 3. Download the Generated Sources
+
+Go to the __"Summary"__ page of the workflow execution, you can find the archived java sources at
+the bottom of the page. Just click it to download.
+
+## Generate in Local Environment
+
+### 1. Pull Image
 
 ```bash
-# TODO: replace USERNAME w/ your github alias
-cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u USERNAME --password-stdin 
+docker pull ghcr.io/kubernetes-client/java/crd-model-gen:v1.0.6
 ```
 
-### Code-generator Image
+### 2. Run Code-generator Image
 
 ##### Usage
 
@@ -57,7 +67,7 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.6 \
+  ghcr.io/kubernetes-client/java/crd-model-gen:v1.0.6 \
   /generate.sh \
   -u https://gist.githubusercontent.com/yue9944882/266fee8e95c2f15a93778263633e72ed/raw/be12c13379eeed13d2532cb65da61fffb19ee3e7/crontab-crd.yaml \
   -n com.example.stable \
@@ -88,7 +98,7 @@ docker run \
   -v "$(pwd)":"$(pwd)" \
   -ti \
   --network host \
-  docker.pkg.github.com/kubernetes-client/java/crd-model-gen:v1.0.6 \
+  ghcr.io/kubernetes-client/java/crd-model-gen:v1.0.6 \
   /generate.sh \
   -u $LOCAL_MANIFEST_FILE \
   -n com.example.stable \
@@ -97,7 +107,7 @@ docker run \
 ```
 
 
-### Manipulate the generated models
+## Manipulate the generated models
 
 After generation you will see bunch of generated model sources under the `/tmp/java`: 
 
