@@ -47,7 +47,8 @@ public class LeaderElectingControllerTest {
     record.set(new LeaderElectionRecord());
 
     Semaphore apiClientSem = new Semaphore(0);
-    Semaphore controllerSem = new Semaphore(0);
+    Semaphore controllerStartSem = new Semaphore(0);
+    Semaphore controllerStopSem = new Semaphore(0);
 
     when(mockLock.identity()).thenReturn("foo");
     when(mockLock.get())
@@ -74,7 +75,7 @@ public class LeaderElectingControllerTest {
 
     doAnswer(
             invocationOnMock -> {
-              controllerSem.release();
+              controllerStartSem.release();
               return null;
             })
         .when(mockController)
@@ -82,7 +83,7 @@ public class LeaderElectingControllerTest {
 
     doAnswer(
             invocationOnMock -> {
-              controllerSem.release();
+              controllerStopSem.release();
               return null;
             })
         .when(mockController)
@@ -101,12 +102,13 @@ public class LeaderElectingControllerTest {
     Thread controllerThread = new Thread(leaderElectingController::run);
     controllerThread.start();
     apiClientSem.acquire(2);
+    controllerStartSem.acquire(1);
     controllerThread.interrupt();
 
     verify(mockLock, times(1)).create(any());
     verify(mockLock, atLeastOnce()).update(any());
 
-    controllerSem.acquire(2);
+    controllerStopSem.acquire(1);
     verify(mockController, times(1)).run();
     verify(mockController, times(1)).shutdown();
   }
