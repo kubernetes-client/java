@@ -67,8 +67,9 @@ public class LeaderElectingControllerTest {
 
     doAnswer(
             invocationOnMock -> {
+              record.set(invocationOnMock.getArgument(0));
               apiClientSem.release();
-              return false;
+              return true;
             })
         .when(mockLock)
         .update(any());
