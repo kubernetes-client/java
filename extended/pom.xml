@@ -76,6 +76,13 @@
             <artifactId>commons-collections4</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- Use SimpleLogger as the slf4j implementation in test -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

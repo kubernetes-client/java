@@ -32,9 +32,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LeaderElectingControllerTest {
+
+  private static final Logger log = LoggerFactory.getLogger(LeaderElectingControllerTest.class);
 
   @Mock private Controller mockController;
 
@@ -96,7 +100,10 @@ public class LeaderElectingControllerTest {
                     mockLock,
                     Duration.ofMillis(300),
                     Duration.ofMillis(200),
-                    Duration.ofMillis(100))),
+                    Duration.ofMillis(100)),
+                ex -> {
+                  log.error("", ex);
+                }),
             mockController);
 
     Thread controllerThread = new Thread(leaderElectingController::run);

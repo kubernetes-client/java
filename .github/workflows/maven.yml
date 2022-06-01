@@ -44,7 +44,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
       - name: Build with Maven
         run: |
-          mvn clean test -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+          mvn clean test -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Dtest=LeaderElectingControllerTest -DfailIfNoTests=false "-Dorg.slf4j.simpleLogger.defaultLogLevel=DEBUG"
   build-graalvm:
     runs-on: ubuntu-latest
     name: GraalVM Maven Test
