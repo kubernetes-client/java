@@ -99,6 +99,7 @@ public class GCPAuthenticator implements Authenticator {
     String[] scopes = parseScopes(config);
     try {
       if (this.gc == null) this.gc = GoogleCredentials.getApplicationDefault().createScoped(scopes);
+      gc.refreshIfExpired();
       AccessToken accessToken = gc.getAccessToken();
       config.put(ACCESS_TOKEN, accessToken.getTokenValue());
       config.put(EXPIRY, accessToken.getExpirationTime());
