@@ -272,7 +272,15 @@ public class KubeConfig {
     Map<String, String> credentials = new HashMap<>();
 
     String apiVersion = (String) execMap.get("apiVersion");
-    if (!"client.authentication.k8s.io/v1beta1".equals(apiVersion)
+    /**
+     * Some history here: v1 was added in kubernetes 1.21
+     * (https://github.com/kubernetes/kubernetes/pull/102890) v1alpha1 was removed in Kubernetes
+     * 1.24 (https://github.com/kubernetes/kubernetes/pull/108616) We need to leave v1alpha1 for now
+     * to support backwards compatability, but we will likely want to remove it eventually after
+     * Kubernetes 1.23 is no longer supported }
+     */
+    if (!"client.authentication.k8s.io/v1".equals(apiVersion)
+        && !"client.authentication.k8s.io/v1beta1".equals(apiVersion)
         && !"client.authentication.k8s.io/v1alpha1".equals(apiVersion)) {
       log.error("Unrecognized user.exec.apiVersion: {}", apiVersion);
       return null;
