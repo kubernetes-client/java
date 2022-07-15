@@ -19,6 +19,11 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
@@ -33,6 +38,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import okhttp3.Call;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -126,5 +134,39 @@ public class PodLogsTest {
     ByteArrayOutputStream bos = new ByteArrayOutputStream();
     Streams.copy(is, bos);
     assertEquals(content, bos.toString());
+  }
+
+  @Test
+  public void testResponseClosedOnError() throws ApiException, IOException {
+    V1Pod pod =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().name(podName).namespace(namespace))
+            .spec(
+                new V1PodSpec()
+                    .containers(Arrays.asList(new V1Container().name(container).image("nginx"))));
+
+    ApiClient mockClient = mock(ApiClient.class);
+    Call mockCall = mock(Call.class);
+    Response mockResponse = mock(Response.class);
+
+    when(mockClient.escapeString(any())).thenReturn("foo");
+    when(mockClient.buildCall(any(), any(), any(), any(), any(), any(), any(), any(), any(), any()))
+        .thenReturn(mockCall);
+    when(mockCall.execute()).thenReturn(mockResponse);
+    when(mockResponse.isSuccessful()).thenReturn(false);
+    when(mockResponse.code()).thenReturn(404);
+    when(mockResponse.body()).thenReturn(mock(ResponseBody.class));
+
+    PodLogs logs = new PodLogs(mockClient);
+    boolean thrown;
+    try (InputStream ignored = logs.streamNamespacedPodLog(pod)) {
+      thrown = false;
+    } catch (ApiException ex) {
+      assertEquals(404, ex.getCode());
+      thrown = true;
+    }
+
+    assertTrue(thrown);
+    verify(mockResponse).close();
   }
 }
