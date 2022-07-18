@@ -95,6 +95,9 @@ public class PodLogs {
             null);
     Response response = call.execute();
     if (!response.isSuccessful()) {
+      if (response.body() != null) {
+        response.close();
+      }
       throw new ApiException(response.code(), "Logs request failed: " + response.code());
     }
     return response.body().byteStream();
