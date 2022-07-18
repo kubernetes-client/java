@@ -107,7 +107,22 @@ public class LeaderElector implements AutoCloseable {
   }
 
   /**
-   * Runs the leader election in foreground.
+   * Runs the leader election in foreground. The process will enter an
+   * acquisition loop trying to get a lease of the lock object set in
+   * configuration. The acquisition loop stops in either of these 
+   * scenarios:
+   *
+   * 1) An error occurs that prevents us from aquiring a lease.
+   *
+   * 2) The LeaderElector successfully acquires leadership. At this
+   *    point, we will enter a renewal loop where we will continuously
+   *    renew the lease following the provided configuration.
+   *
+   * Note that in both cases the LeaderElector will NOT return to the
+   * acquisition loop. This is most relevant when a leader instance
+   * loses leadership as the LeaderElector will not try to re-acquire 
+   * leadership. To do this, the caller is responsible for explicitly
+   * invoking the "run" method again.
    *
    * @param startLeadingHook called when a LeaderElector client starts leading
    * @param stopLeadingHook called when a LeaderElector client stops leading
@@ -117,7 +132,22 @@ public class LeaderElector implements AutoCloseable {
   }
 
   /**
-   * Runs the leader election in foreground.
+   * Runs the leader election in foreground. The process will enter an
+   * acquisition loop trying to get a lease of the lock object set in
+   * configuration. The acquisition loop stops in either of these 
+   * scenarios:
+   *
+   * 1) An error occurs that prevents us from aquiring a lease.
+   *
+   * 2) The LeaderElector successfully acquires leadership. At this
+   *    point, we will enter a renewal loop where we will continuously
+   *    renew the lease following the provided configuration.
+   *
+   * Note that in both cases the LeaderElector will NOT return to the
+   * acquisition loop. This is most relevant when a leader instance
+   * loses leadership as the LeaderElector will not try to re-acquire 
+   * leadership. To do this, the caller is responsible for explicitly
+   * invoking the "run" method again.
    *
    * @param startLeadingHook called when a LeaderElector client starts leading
    * @param stopLeadingHook called when a LeaderElector client stops leading
