@@ -70,7 +70,10 @@ public class KubectlApply<ApiType extends KubernetesObject>
   private ApiType executeServerSideApply() throws KubectlException {
     refreshDiscovery();
 
-    GenericKubernetesApi<ApiType, KubernetesListObject> api = getGenericApi();
+    GenericKubernetesApi<? extends KubernetesObject, ? extends KubernetesListObject> api = getGenericApi(this.targetObj);
+    if (api == null) {
+      api = getGenericApi();
+    }
 
     PatchOptions patchOptions = new PatchOptions();
     patchOptions.setForce(this.forceConflict);
@@ -86,7 +89,7 @@ public class KubectlApply<ApiType extends KubernetesObject>
 
       KubernetesApiResponse<KubernetesObject> response = null;
       try {
-        return api.patch(
+        return (ApiType) api.patch(
                 targetNamespace,
                 targetObj.getMetadata().getName(),
                 V1Patch.PATCH_FORMAT_APPLY_YAML,
@@ -99,7 +102,7 @@ public class KubectlApply<ApiType extends KubernetesObject>
       }
     } else {
       try {
-        return api.patch(
+        return (ApiType) api.patch(
                 targetObj.getMetadata().getName(),
                 V1Patch.PATCH_FORMAT_APPLY_YAML,
                 new V1Patch(apiClient.getJSON().serialize(targetObj)),

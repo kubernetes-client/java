@@ -22,6 +22,9 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
+import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesListObject;
+
 
 /**
  * Kubectl provides a set of helper functions that has the same functionalities as corresponding
@@ -307,6 +310,26 @@ public class Kubectl {
     protected GenericKubernetesApi<ApiType, KubernetesListObject> getGenericApi()
         throws KubectlException {
       return getGenericApi(apiTypeClass, KubernetesListObject.class);
+    }
+
+    protected GenericKubernetesApi<? extends KubernetesObject, ? extends KubernetesListObject> getGenericApi(KubernetesObject targetObj)
+        throws KubectlException {
+      if (targetObj instanceof DynamicKubernetesObject) {
+        DynamicKubernetesObject obj = (DynamicKubernetesObject)targetObj;
+        String gv = obj.getApiVersion();
+        int ix = gv.indexOf("/");
+        String group = ix == -1 ? "" : gv.substring(0, ix);
+        String version = gv.substring(ix + 1);
+    
+        return new GenericKubernetesApi<DynamicKubernetesObject, DynamicKubernetesListObject>(
+          DynamicKubernetesObject.class,
+          DynamicKubernetesListObject.class,
+          group,
+          version,
+          obj.getKind() + "s" // TODO: Extend the model mapper to be able to look up plurals
+        );
+      }
+      return getGenericApi();
     }
   }
 
