@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl;
 
 import io.kubernetes.client.Discovery;
+import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.apimachinery.GroupVersionResource;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
@@ -316,17 +317,15 @@ public class Kubectl {
         throws KubectlException {
       if (targetObj instanceof DynamicKubernetesObject) {
         DynamicKubernetesObject obj = (DynamicKubernetesObject)targetObj;
-        String gv = obj.getApiVersion();
-        int ix = gv.indexOf("/");
-        String group = ix == -1 ? "" : gv.substring(0, ix);
-        String version = gv.substring(ix + 1);
-    
+        GroupVersionKind gvk = ModelMapper.groupVersionKindFromApiVersionAndKind(obj.getApiVersion(), obj.getKind());
+        Discovery.APIResource rsrc = ModelMapper.findApiResourceByGroupVersionKind(gvk);
+        String plural = rsrc == null ? obj.getKind() + "s" /* hack! */ : rsrc.getResourcePlural();
         return new GenericKubernetesApi<DynamicKubernetesObject, DynamicKubernetesListObject>(
           DynamicKubernetesObject.class,
           DynamicKubernetesListObject.class,
-          group,
-          version,
-          obj.getKind() + "s" // TODO: Extend the model mapper to be able to look up plurals
+          gvk.getGroup(),
+          gvk.getVersion(),
+          plural
         );
       }
       return getGenericApi();
