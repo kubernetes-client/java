@@ -226,7 +226,7 @@
       <dependency>
         <groupId>com.google.auth</groupId>
         <artifactId>google-auth-library-oauth2-http</artifactId>
-        <version>1.8.1</version>
+        <version>1.9.0</version>
         <optional>true</optional>
       </dependency>
 
