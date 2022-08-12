@@ -21,12 +21,14 @@ import static org.junit.Assert.assertNotNull;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
+import com.google.gson.JsonObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -109,5 +111,49 @@ public class KubectlApplyTest {
     wireMockRule.verify(
         1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo/configmaps/bar")));
     assertNotNull(configMap);
+  }
+
+  @Test
+  public void testApplyDynamic() throws KubectlException, IOException {
+    JsonObject json = new JsonObject();
+    json.addProperty("kind", "bar");
+    json.addProperty("apiVersion", "example.com/v1");
+    JsonObject meta = new JsonObject();
+    meta.addProperty("name", "something");
+    meta.addProperty("namespace", "foo");
+    json.add("metadata", meta);
+
+    DynamicKubernetesObject obj = new DynamicKubernetesObject(json);
+    wireMockRule.stubFor(
+        patch(urlPathEqualTo("/apis/example.com/v1/namespaces/foo/bars/something"))
+            .withHeader("Content-Type", new EqualToPattern(V1Patch.PATCH_FORMAT_APPLY_YAML))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody("{\"metadata\":{\"name\":\"something\",\"namespace\":\"bar\"}}")));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_API))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/apis"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS))))));
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api/v1"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1))))));
+
+    DynamicKubernetesObject out =
+        Kubectl.apply(DynamicKubernetesObject.class).apiClient(apiClient).resource(obj).execute();
+    wireMockRule.verify(
+        1, patchRequestedFor(urlPathEqualTo("/apis/example.com/v1/namespaces/foo/bars/something")));
+    assertNotNull(out);
   }
 }

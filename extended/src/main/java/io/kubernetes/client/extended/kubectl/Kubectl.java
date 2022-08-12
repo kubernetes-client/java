@@ -23,9 +23,8 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
 import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesListObject;
-
+import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
 
 /**
  * Kubectl provides a set of helper functions that has the same functionalities as corresponding
@@ -313,20 +312,30 @@ public class Kubectl {
       return getGenericApi(apiTypeClass, KubernetesListObject.class);
     }
 
-    protected GenericKubernetesApi<? extends KubernetesObject, ? extends KubernetesListObject> getGenericApi(KubernetesObject targetObj)
-        throws KubectlException {
+    protected boolean isNamespaced(KubernetesObject obj) {
+      if (obj instanceof DynamicKubernetesObject) {
+        // This is slightly hacky, but for now CRD objects are all namespaced.
+        return true;
+      } else {
+        return ModelMapper.isNamespaced(obj.getClass());
+      }
+    }
+
+    protected GenericKubernetesApi<? extends KubernetesObject, ? extends KubernetesListObject>
+        getGenericApi(KubernetesObject targetObj) throws KubectlException {
       if (targetObj instanceof DynamicKubernetesObject) {
-        DynamicKubernetesObject obj = (DynamicKubernetesObject)targetObj;
-        GroupVersionKind gvk = ModelMapper.groupVersionKindFromApiVersionAndKind(obj.getApiVersion(), obj.getKind());
+        DynamicKubernetesObject obj = (DynamicKubernetesObject) targetObj;
+        GroupVersionKind gvk =
+            ModelMapper.groupVersionKindFromApiVersionAndKind(obj.getApiVersion(), obj.getKind());
         Discovery.APIResource rsrc = ModelMapper.findApiResourceByGroupVersionKind(gvk);
         String plural = rsrc == null ? obj.getKind() + "s" /* hack! */ : rsrc.getResourcePlural();
         return new GenericKubernetesApi<DynamicKubernetesObject, DynamicKubernetesListObject>(
-          DynamicKubernetesObject.class,
-          DynamicKubernetesListObject.class,
-          gvk.getGroup(),
-          gvk.getVersion(),
-          plural
-        );
+            DynamicKubernetesObject.class,
+            DynamicKubernetesListObject.class,
+            gvk.getGroup(),
+            gvk.getVersion(),
+            plural,
+            apiClient);
       }
       return getGenericApi();
     }
