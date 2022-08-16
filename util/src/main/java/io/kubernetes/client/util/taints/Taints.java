@@ -32,7 +32,7 @@ public class Taints {
     },
     NO_EXECUTE {
       public String toString() {
-        return "NoExcute";
+        return "NoExecute";
       }
     }
   }
