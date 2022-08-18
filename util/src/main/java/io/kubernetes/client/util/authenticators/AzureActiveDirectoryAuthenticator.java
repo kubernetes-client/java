@@ -50,6 +50,9 @@ public class AzureActiveDirectoryAuthenticator implements Authenticator {
   @Override
   public boolean isExpired(Map<String, Object> config) {
     String expiresOn = (String) config.get(EXPIRES_ON);
+    if (expiresOn == null || expiresOn.length() == 0) {
+      return true;
+    }
     Date expiry = new Date(Long.parseLong(expiresOn) * 1000);
     return expiry.compareTo(new Date()) <= 0;
   }
