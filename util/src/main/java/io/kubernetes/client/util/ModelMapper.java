@@ -322,6 +322,38 @@ public class ModelMapper {
     return isNamespacedByClasses.get(clazz);
   }
 
+  /**
+   * Find GroupVersionKind from fields in a Kubernetes Resource
+   *
+   * @param apiVersion The apiVersion field from the object
+   * @param kind The kind for the object
+   * @return the GroupVersionKind
+   */
+  public static GroupVersionKind groupVersionKindFromApiVersionAndKind(
+      String apiVersion, String kind) {
+    int ix = apiVersion.indexOf("/");
+    String group = ix == -1 ? "" : apiVersion.substring(0, ix);
+    String version = apiVersion.substring(ix + 1);
+    return new GroupVersionKind(group, version, kind);
+  }
+
+  public static Discovery.APIResource findApiResourceByGroupVersionKind(GroupVersionKind gvk) {
+    // TODO: Create another hash map to make this lookup fast? For now I don't think it matters, but
+    // it's definitely slow.
+    for (Discovery.APIResource apiResource : lastAPIDiscovery) {
+      if (!apiResource.getGroup().equals(gvk.getGroup())
+          || !apiResource.getKind().equals(gvk.getKind())) {
+        continue;
+      }
+      for (String version : apiResource.getVersions()) {
+        if (version.equals(gvk.getVersion())) {
+          return apiResource;
+        }
+      }
+    }
+    return null;
+  }
+
   private static void initApiGroupMap() {
     preBuiltApiGroups.put("Admissionregistration", "admissionregistration.k8s.io");
     preBuiltApiGroups.put("Apiextensions", "apiextensions.k8s.io");

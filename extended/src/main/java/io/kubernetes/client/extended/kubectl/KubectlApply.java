@@ -17,7 +17,6 @@ import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.Namespaces;
 import io.kubernetes.client.util.Strings;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
@@ -70,13 +69,17 @@ public class KubectlApply<ApiType extends KubernetesObject>
   private ApiType executeServerSideApply() throws KubectlException {
     refreshDiscovery();
 
-    GenericKubernetesApi<ApiType, KubernetesListObject> api = getGenericApi();
+    GenericKubernetesApi<? extends KubernetesObject, ? extends KubernetesListObject> api =
+        getGenericApi(this.targetObj);
+    if (api == null) {
+      api = getGenericApi();
+    }
 
     PatchOptions patchOptions = new PatchOptions();
     patchOptions.setForce(this.forceConflict);
     patchOptions.setFieldManager(this.fieldManager);
 
-    if (ModelMapper.isNamespaced(this.targetObj.getClass())) {
+    if (isNamespaced(this.targetObj)) {
       String targetNamespace =
           namespace != null
               ? namespace
@@ -86,26 +89,28 @@ public class KubectlApply<ApiType extends KubernetesObject>
 
       KubernetesApiResponse<KubernetesObject> response = null;
       try {
-        return api.patch(
-                targetNamespace,
-                targetObj.getMetadata().getName(),
-                V1Patch.PATCH_FORMAT_APPLY_YAML,
-                new V1Patch(apiClient.getJSON().serialize(targetObj)),
-                patchOptions)
-            .throwsApiException()
-            .getObject();
+        return (ApiType)
+            api.patch(
+                    targetNamespace,
+                    targetObj.getMetadata().getName(),
+                    V1Patch.PATCH_FORMAT_APPLY_YAML,
+                    new V1Patch(apiClient.getJSON().serialize(targetObj)),
+                    patchOptions)
+                .throwsApiException()
+                .getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }
     } else {
       try {
-        return api.patch(
-                targetObj.getMetadata().getName(),
-                V1Patch.PATCH_FORMAT_APPLY_YAML,
-                new V1Patch(apiClient.getJSON().serialize(targetObj)),
-                patchOptions)
-            .throwsApiException()
-            .getObject();
+        return (ApiType)
+            api.patch(
+                    targetObj.getMetadata().getName(),
+                    V1Patch.PATCH_FORMAT_APPLY_YAML,
+                    new V1Patch(apiClient.getJSON().serialize(targetObj)),
+                    patchOptions)
+                .throwsApiException()
+                .getObject();
       } catch (ApiException e) {
         throw new KubectlException(e);
       }
