@@ -81,20 +81,36 @@ public class KubeConfig {
     registerAuthenticator(new OpenIDConnectAuthenticator());
   }
 
-  /** Load a Kubernetes config from a Reader */
   public static KubeConfig loadKubeConfig(Reader input) {
+    return loadKubeConfig(input, null);
+  }
+
+  /**
+   * Load a Kubernetes config from a Reader.
+   *
+   * @param input
+   * @param context if null will use current-context
+   * @return KubeConfig object
+   */
+  public static KubeConfig loadKubeConfig(Reader input, String context) {
     Yaml yaml = new Yaml(new SafeConstructor());
     Object config = yaml.load(input);
     Map<String, Object> configMap = (Map<String, Object>) config;
 
-    String currentContext = (String) configMap.get("current-context");
     ArrayList<Object> contexts = (ArrayList<Object>) configMap.get("contexts");
     ArrayList<Object> clusters = (ArrayList<Object>) configMap.get("clusters");
     ArrayList<Object> users = (ArrayList<Object>) configMap.get("users");
     Object preferences = configMap.get("preferences");
 
     KubeConfig kubeConfig = new KubeConfig(contexts, clusters, users);
-    kubeConfig.setContext(currentContext);
+
+    if (context != null) {
+      kubeConfig.setContext(context);
+    } else {
+      String currentContext = (String) configMap.get("current-context");
+      kubeConfig.setContext(currentContext);
+    }
+
     kubeConfig.setPreferences(preferences);
 
     return kubeConfig;

@@ -97,15 +97,19 @@ public class ClientBuilder {
    *     cannot be read.
    */
   public static ClientBuilder standard() throws IOException {
-    return standard(true);
+    return standard(true, null);
   }
 
-  public static ClientBuilder standard(boolean persistConfig) throws IOException {
+  public static ClientBuilder standard(String context) throws IOException {
+    return standard(true, context);
+  }
+
+  public static ClientBuilder standard(boolean persistConfig, String context) throws IOException {
     final File kubeConfig = findConfigFromEnv();
-    ClientBuilder clientBuilderEnv = getClientBuilder(persistConfig, kubeConfig);
+    ClientBuilder clientBuilderEnv = getClientBuilder(persistConfig, kubeConfig, context);
     if (clientBuilderEnv != null) return clientBuilderEnv;
     final File config = findConfigInHomeDir();
-    ClientBuilder clientBuilderHomeDir = getClientBuilder(persistConfig, config);
+    ClientBuilder clientBuilderHomeDir = getClientBuilder(persistConfig, config, context);
     if (clientBuilderHomeDir != null) return clientBuilderHomeDir;
     final File clusterCa = new File(SERVICEACCOUNT_CA_PATH);
     if (clusterCa.exists()) {
@@ -114,14 +118,14 @@ public class ClientBuilder {
     return new ClientBuilder();
   }
 
-  private static ClientBuilder getClientBuilder(boolean persistConfig, File kubeConfig)
+  private static ClientBuilder getClientBuilder(boolean persistConfig, File kubeConfig, String context)
       throws IOException {
     if (kubeConfig != null) {
       try (BufferedReader kubeConfigReader =
           new BufferedReader(
               new InputStreamReader(
                   new FileInputStream(kubeConfig), StandardCharsets.UTF_8.name()))) {
-        KubeConfig kc = KubeConfig.loadKubeConfig(kubeConfigReader);
+        KubeConfig kc = KubeConfig.loadKubeConfig(kubeConfigReader, context);
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(kubeConfig));
         }

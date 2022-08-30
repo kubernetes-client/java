@@ -317,4 +317,18 @@ public class ClientBuilderTest {
           ClientBuilder.kubeconfig(kubeConfigWithoutServer);
         });
   }
+
+  @Test
+  public void testKubeConfigWithContext() throws Exception {
+      String path =
+              withEnvironmentVariable("HOME", HOME_PATH)
+                      .and("KUBECONFIG", KUBECONFIG_FILE_PATH)
+                      .execute(
+                              () -> {
+                                  final ApiClient client = ClientBuilder.standard("foo-second-context").build();
+                                  return client.getBasePath();
+                              });
+      assertEquals("http://kubeconfig.second.dir.com", path);
+  }
+
 }
