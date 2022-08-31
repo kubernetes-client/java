@@ -325,7 +325,7 @@ public class ClientBuilderTest {
                       .and("KUBECONFIG", KUBECONFIG_FILE_PATH)
                       .execute(
                               () -> {
-                                  final ApiClient client = ClientBuilder.standard("foo-second-context").build();
+                                  final ApiClient client = ClientBuilder.context("foo-second-context").build();
                                   return client.getBasePath();
                               });
       assertEquals("http://kubeconfig.second.dir.com", path);
