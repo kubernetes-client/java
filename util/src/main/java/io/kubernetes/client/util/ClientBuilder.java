@@ -125,7 +125,10 @@ public class ClientBuilder {
           new BufferedReader(
               new InputStreamReader(
                   new FileInputStream(kubeConfig), StandardCharsets.UTF_8.name()))) {
-        KubeConfig kc = KubeConfig.loadKubeConfig(kubeConfigReader, context);
+        KubeConfig kc = KubeConfig.loadKubeConfig(kubeConfigReader);
+        if (context != null) {
+          kc.setContext(context);
+        }
         if (persistConfig) {
           kc.setPersistConfig(new FilePersister(kubeConfig));
         }

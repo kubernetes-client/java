@@ -51,6 +51,7 @@ public class KubeConfig {
   public static final String CRED_TOKEN_KEY = "token";
   public static final String CRED_CLIENT_CERTIFICATE_DATA_KEY = "clientCertificateData";
   public static final String CRED_CLIENT_KEY_DATA_KEY = "clientKeyData";
+  public static final String CURRENT_CONTEXT = "current-context";
   private static Map<String, Authenticator> authenticators = new HashMap<>();
 
   // Note to the reader: I considered creating a Config object
@@ -81,36 +82,20 @@ public class KubeConfig {
     registerAuthenticator(new OpenIDConnectAuthenticator());
   }
 
+  /** Load a Kubernetes config from a Reader */
   public static KubeConfig loadKubeConfig(Reader input) {
-    return loadKubeConfig(input, null);
-  }
-
-  /**
-   * Load a Kubernetes config from a Reader.
-   *
-   * @param input
-   * @param context if null will use current-context
-   * @return KubeConfig object
-   */
-  public static KubeConfig loadKubeConfig(Reader input, String context) {
     Yaml yaml = new Yaml(new SafeConstructor());
     Object config = yaml.load(input);
     Map<String, Object> configMap = (Map<String, Object>) config;
 
+    String currentContext = (String) configMap.get(CURRENT_CONTEXT);
     ArrayList<Object> contexts = (ArrayList<Object>) configMap.get("contexts");
     ArrayList<Object> clusters = (ArrayList<Object>) configMap.get("clusters");
     ArrayList<Object> users = (ArrayList<Object>) configMap.get("users");
     Object preferences = configMap.get("preferences");
 
     KubeConfig kubeConfig = new KubeConfig(contexts, clusters, users);
-
-    if (context != null) {
-      kubeConfig.setContext(context);
-    } else {
-      String currentContext = (String) configMap.get("current-context");
-      kubeConfig.setContext(currentContext);
-    }
-
+    kubeConfig.setContext(currentContext);
     kubeConfig.setPreferences(preferences);
 
     return kubeConfig;

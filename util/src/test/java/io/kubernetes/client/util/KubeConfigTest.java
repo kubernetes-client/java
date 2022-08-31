@@ -491,30 +491,4 @@ public class KubeConfigTest {
     assertEquals("key", kc.getCredentials().get(KubeConfig.CRED_CLIENT_KEY_DATA_KEY));
     assertNull(kc.getCredentials().get(KubeConfig.CRED_TOKEN_KEY));
   }
-
-  private static final String KUBECONFIG_WITH_MULTIPLE_CONTEXTS =
-          "apiVersion: v1\n" +
-                  "clusters:\n" +
-                  "  - cluster:\n" +
-                  "      server: http://kubeconfig.dir.com\n" +
-                  "    name: foo\n" +
-                  "  - cluster:\n" +
-                  "      server: http://kubeconfig.second.dir.com\n" +
-                  "    name: foo-second-cluster\n" +
-                  "contexts:\n" +
-                  "  - context:\n" +
-                  "      cluster: foo\n" +
-                  "    name: foo-context\n" +
-                  "    name: foo-context  \n" +
-                  "   - context:\n" +
-                  "      cluster: foo-second-cluster\n" +
-                  "    name: foo-second-context\n" +
-                  "current-context: foo-context\n";
-
-  @Test
-  public void testConfigWithContext() throws Exception {
-    String expectedContext = "foo-second-context";
-    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KUBECONFIG_WITH_MULTIPLE_CONTEXTS), expectedContext);
-    assertEquals(expectedContext, kc.getCurrentContext());
-  }
 }
