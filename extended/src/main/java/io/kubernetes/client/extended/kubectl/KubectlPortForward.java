@@ -25,6 +25,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class KubectlPortForward
@@ -111,7 +112,7 @@ public class KubectlPortForward
                     t1.join();
                     t2.join();
                   } catch (InterruptedException | IOException ex) {
-                    onUnhandledError.accept(ex);
+                    Optional.ofNullable(onUnhandledError).orElse(Throwable::printStackTrace).accept(ex);
                   }
                 }
               }

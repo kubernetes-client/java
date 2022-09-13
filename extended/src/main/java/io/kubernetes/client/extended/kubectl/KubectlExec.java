@@ -21,6 +21,7 @@ import io.kubernetes.client.util.Streams;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, KubectlExec>
@@ -82,7 +83,7 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
                 try {
                   Streams.copy(in, out);
                 } catch (IOException ex) {
-                  onUnhandledError.accept(ex);
+                  Optional.ofNullable(onUnhandledError).orElse(Throwable::printStackTrace).accept(ex);
                 }
               }
             });
