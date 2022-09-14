@@ -75,7 +75,8 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
     }
   }
 
-  protected static Thread copyAsync(InputStream in, OutputStream out, Consumer<Throwable> onUnhandledError) {
+  protected static Thread copyAsync(
+      InputStream in, OutputStream out, Consumer<Throwable> onUnhandledError) {
     Thread t =
         new Thread(
             new Runnable() {
@@ -83,7 +84,9 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
                 try {
                   Streams.copy(in, out);
                 } catch (IOException ex) {
-                  Optional.ofNullable(onUnhandledError).orElse(Throwable::printStackTrace).accept(ex);
+                  Optional.ofNullable(onUnhandledError)
+                      .orElse(Throwable::printStackTrace)
+                      .accept(ex);
                 }
               }
             });

@@ -112,7 +112,9 @@ public class KubectlPortForward
                     t1.join();
                     t2.join();
                   } catch (InterruptedException | IOException ex) {
-                    Optional.ofNullable(onUnhandledError).orElse(Throwable::printStackTrace).accept(ex);
+                    Optional.ofNullable(onUnhandledError)
+                        .orElse(Throwable::printStackTrace)
+                        .accept(ex);
                   }
                 }
               }
