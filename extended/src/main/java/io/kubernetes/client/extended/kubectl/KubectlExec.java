@@ -21,12 +21,15 @@ import io.kubernetes.client.util.Streams;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Optional;
+import java.util.function.Consumer;
 
 public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, KubectlExec>
     implements Kubectl.Executable<Integer> {
   private String[] command;
   private boolean stdin;
   private boolean tty;
+  private Consumer<Throwable> onUnhandledError = Throwable::printStackTrace;
 
   KubectlExec() {
     super(V1Pod.class);
@@ -47,17 +50,24 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
     return this;
   }
 
+  public KubectlExec onUnhandledError(Consumer<Throwable> onUnhandledError) {
+    this.onUnhandledError = onUnhandledError;
+    return this;
+  }
+
   @Override
   public Integer execute() throws KubectlException {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(name).namespace(namespace));
 
     Exec exec = new Exec(apiClient);
+    exec.setOnUnhandledError(onUnhandledError);
+
     try {
       Process proc = exec.exec(pod, command, container, stdin, tty);
-      copyAsync(proc.getInputStream(), System.out);
-      copyAsync(proc.getErrorStream(), System.err);
+      copyAsync(proc.getInputStream(), System.out, onUnhandledError);
+      copyAsync(proc.getErrorStream(), System.err, onUnhandledError);
       if (stdin) {
-        copyAsync(System.in, proc.getOutputStream());
+        copyAsync(System.in, proc.getOutputStream(), onUnhandledError);
       }
       return proc.waitFor();
     } catch (InterruptedException | ApiException | IOException ex) {
@@ -65,7 +75,8 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
     }
   }
 
-  protected static Thread copyAsync(InputStream in, OutputStream out) {
+  protected static Thread copyAsync(
+      InputStream in, OutputStream out, Consumer<Throwable> onUnhandledError) {
     Thread t =
         new Thread(
             new Runnable() {
@@ -73,7 +84,9 @@ public class KubectlExec extends Kubectl.ResourceAndContainerBuilder<V1Pod, Kube
                 try {
                   Streams.copy(in, out);
                 } catch (IOException ex) {
-                  ex.printStackTrace();
+                  Optional.ofNullable(onUnhandledError)
+                      .orElse(Throwable::printStackTrace)
+                      .accept(ex);
                 }
               }
             });

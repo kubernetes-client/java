@@ -25,6 +25,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Consumer;
 
 public class KubectlPortForward
     extends Kubectl.ResourceAndContainerBuilder<V1Pod, KubectlPortForward>
@@ -32,6 +34,7 @@ public class KubectlPortForward
   List<Integer> localPorts;
   List<Integer> targetPorts;
   boolean running;
+  Consumer<Throwable> onUnhandledError = Throwable::printStackTrace;
 
   KubectlPortForward() {
     super(V1Pod.class);
@@ -49,6 +52,11 @@ public class KubectlPortForward
   public KubectlPortForward ports(int localPort, int targetPort) {
     localPorts.add(localPort);
     targetPorts.add(targetPort);
+    return this;
+  }
+
+  public KubectlPortForward onUnhandledError(Consumer<Throwable> onUnhandledError) {
+    this.onUnhandledError = onUnhandledError;
     return this;
   }
 
@@ -98,13 +106,15 @@ public class KubectlPortForward
                 while (running) {
                   try {
                     Socket sock = server.accept();
-                    Thread t1 = copyAsync(sock.getInputStream(), out);
-                    Thread t2 = copyAsync(in, sock.getOutputStream());
+                    Thread t1 = copyAsync(sock.getInputStream(), out, onUnhandledError);
+                    Thread t2 = copyAsync(in, sock.getOutputStream(), onUnhandledError);
 
                     t1.join();
                     t2.join();
                   } catch (InterruptedException | IOException ex) {
-                    ex.printStackTrace();
+                    Optional.ofNullable(onUnhandledError)
+                        .orElse(Throwable::printStackTrace)
+                        .accept(ex);
                   }
                 }
               }
